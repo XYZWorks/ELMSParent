@@ -1,0 +1,3 @@
+rent 10000
+freight 200
+salary diver 3000
