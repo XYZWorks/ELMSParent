@@ -8,25 +8,43 @@ public enum AccountType {
 	/**
 	 * 总经理
 	 */
-	manager,
+	manager("manager"),
 	/**
 	 * 财务人员
 	 */
-	financeman,
+	financeman("financeman"),
 	/**
 	 * 营业厅业务员
 	 */
-	saleman,
+	saleman("saleman"),
 	/**
 	 * 快递员
 	 */
-	courier,
+	courier("courier"),
 	/**
 	 * 中转中心业务人员
 	 */
-	storeman,
+	storeman("storeman"),
 	/**
 	 * 中转中心管理员
 	 */
-	storemanager
+	storemanager("storemanager");
+	
+	private String name;
+	
+	private AccountType(String name) {
+		this.name = name;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	
+	public static AccountType getType(String str){
+		
+		return Enum.valueOf(AccountType.class, str);
+		
+		
+	}
 }
