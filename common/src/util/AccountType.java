@@ -45,6 +45,5 @@ public enum AccountType {
 		
 		return Enum.valueOf(AccountType.class, str);
 		
-		
 	}
 }
