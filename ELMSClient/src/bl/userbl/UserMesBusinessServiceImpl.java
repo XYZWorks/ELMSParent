@@ -3,7 +3,6 @@ package bl.userbl;
 import java.rmi.RemoteException;
 
 import ds.accountdataservice.AccountDataService;
-import ds.accountdataservice.TempAccountDSImpl;
 import util.ResultMessage;
 import vo.AccountVO;
 import blservice.usermesblservice.UserMesblservice;
@@ -13,7 +12,7 @@ import blservice.usermesblservice.UserMesblservice;
  *
  */
 public class UserMesBusinessServiceImpl implements UserMesblservice {
-	AccountDataService accountds = new acc();
+	AccountDataService accountds ;
 	
 	
 	

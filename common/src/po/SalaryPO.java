@@ -16,11 +16,20 @@ public class SalaryPO extends CostPO implements Serializable{
 	/**
 	 * 员工类型(driver,courier,workman)
 	 */
-	String worker;
+	private String worker;
+
+	public void setWorker(String worker) {
+		this.worker = worker;
+	}
 
 	public SalaryPO(int money, String type, String worker) {
 		super(money, type);
 		this.worker = worker;
+	}
+
+	public String getWorker() {
+		// TODO Auto-generated method stub
+		return worker;
 	}
 	
 
