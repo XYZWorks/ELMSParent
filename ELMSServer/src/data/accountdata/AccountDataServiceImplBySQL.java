@@ -137,15 +137,15 @@ public class AccountDataServiceImplBySQL extends DataSuperClass implements Accou
 	public static void main(String[] args) {
 		AccountDataService test = new AccountDataServiceImplBySQL();
 		try {
-			 test.add(new AccountPO("124414", "c阿斯顿", AccountType.financeman,
-			 "111111"));
-			 test.add(new AccountPO("124414", "c阿斯顿", AccountType.financeman,
-					 "111111"));
+//			 test.add(new AccountPO("124414", "c阿斯顿", AccountType.financeman,
+//			 "111111"));
+//			 test.add(new AccountPO("124415", "斯顿", AccountType.financeman,
+//					 "111111"));
 //			 test.modify(new AccountPO("124414", "陈自强你哈", AccountType.manager,
 //			 "111111"));
-//			 AccountPO po = test.find("124414");
-//			 System.out.println(po.getID());
-//			 System.out.println(po.getName());
+			 AccountPO po = test.find("124415");
+			 System.out.println(po.getID());
+			 System.out.println(po.getName());
 //			test.delete("124413");
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block

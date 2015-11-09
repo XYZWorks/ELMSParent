@@ -1,6 +1,5 @@
 package po;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 import util.Date;
@@ -10,12 +9,9 @@ import util.Date;
  * @author czq
  * @date 2015-10-23
  */
-public class StateFormPO implements Serializable{
+public class StateFormPO {
 	
-	/**
-	 * 序列化UID
-	 */
-	private static final long serialVersionUID = 1L;
+
 	/**
 	 * 开始日期
 	 */

@@ -1,18 +1,14 @@
 package po;
 
-import java.io.Serializable;
 
 /** 
 * @author ymc 
 * @version 创建时间：2015年10月26日 下午7:09:23 
 * 薪水信息
 */
-public class SalaryPO extends CostPO implements Serializable{
+public class SalaryPO extends CostPO {
 	
-	/**
-	 * 序列化UID
-	 */
-	private static final long serialVersionUID = 1L;
+	
 	/**
 	 * 员工类型(driver,courier,workman)
 	 */

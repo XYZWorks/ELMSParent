@@ -1,20 +1,26 @@
 package po;
 
-import java.io.Serializable;
 import java.util.ArrayList;
+
+import util.Date;
 
 /**
  * 期初建账数据PO类
  * @author czq
  *
  */
-public class BillPO implements Serializable{
-	/**
-	 * 序列化UID
-	 */
-	private static final long serialVersionUID = 1L;
+public class BillPO {
 	
-	//TODO
+	
+	/**
+	 * 
+	 */
+	private String finaceman;
+	
+	/**
+	 * 
+	 */
+	private Date date;
 	
 	
 	/**
@@ -30,5 +36,5 @@ public class BillPO implements Serializable{
 	 /**
 	  * 车辆信息列表
 	  */
-	 
+	 private ArrayList<CarPO> cars;
 }

@@ -7,12 +7,8 @@ import java.io.Serializable;
  * @author czq
  * @date 2015-10-22
  */
-public class ConstPO implements Serializable{
+public class ConstPO {
 	
-	/**
-	 * 序列化UID
-	 */
-	private static final long serialVersionUID = 1L;
 	
 	/**
 	 * 北京、南京距离
