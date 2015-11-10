@@ -26,6 +26,7 @@ public class DataBaseInit {
 		return conn;
 	}
 	
+	
 	/**
 	 * 每次程序第一次运行时获取连接
 	 * 配置多的发疯，注意编码，太坑了！！！！

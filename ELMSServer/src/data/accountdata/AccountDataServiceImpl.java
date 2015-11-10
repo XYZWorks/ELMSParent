@@ -25,6 +25,7 @@ public class AccountDataServiceImpl extends UnicastRemoteObject implements Accou
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 
 	public ResultMessage initial() throws RemoteException {
 		// TODO Auto-generated method stub

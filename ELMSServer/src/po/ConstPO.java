@@ -54,6 +54,7 @@ public class ConstPO {
 	 */
 	private int plasticBag;
 	
+	
 	/**
 	 * 经济快递、标准快递、次晨特快价格比
 	 */
@@ -97,6 +98,7 @@ public class ConstPO {
 	public void setMileInBG(int mileInBG) {
 		this.mileInBG = mileInBG;
 	}
+	
 	public int getMileInNS() {
 		return mileInNS;
 	}

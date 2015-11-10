@@ -23,6 +23,7 @@ public class PersonnelblImpl implements Personnelblservice {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 
 	public ArrayList<PersonVO> getPeopleByName(String name) {
 		// TODO Auto-generated method stub
