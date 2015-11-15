@@ -16,8 +16,10 @@ public class UserMesblservice_Stub implements UserMesblservice {
 		return ResultMessage.SUCCESS;
 	}
 
-	public AccountVO getMes() {
+
+	public AccountVO getMes(String ID) {
 		return new AccountVO("123456", "czq", AccountType.financeman, "123456", "13183822344", "1300236145@qq.com");
+
 	}
 
 }

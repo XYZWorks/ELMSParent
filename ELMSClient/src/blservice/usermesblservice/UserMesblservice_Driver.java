@@ -17,7 +17,7 @@ public class UserMesblservice_Driver {
 		
 		
 		System.out.println("获得用户信息");
-		AccountVO temp = bl.getMes();
+		AccountVO temp = bl.getMes("123456");
 		System.out.println("获得成功，信息为:");
 		System.out.println(temp.ID + temp.mail + temp.name + "......");
 		

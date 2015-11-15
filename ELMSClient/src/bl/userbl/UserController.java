@@ -20,7 +20,9 @@ public class UserController implements UserMesblservice{
 		return null;
 	}
 
-	public AccountVO getMes() {
+
+
+	public AccountVO getMes(String ID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
