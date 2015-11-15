@@ -4,15 +4,26 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
- /** 
+ 
+
+
+import util.ResultMessage;
+import bl.storebl.StoreController;
+import blservice.storeblservice.StoreblService;
+/** 
  * 
  * @author czq 
  * @version 2015年11月15日 下午2:39:34 
  */
 public class StoreControllerTest {
-
+	
+	StoreblService bl ;
+	ResultMessage result;
+	
+	
 	@Before
 	public void setUp() throws Exception {
+		bl = new StoreController();
 	}
 
 	@Test

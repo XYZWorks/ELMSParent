@@ -1,18 +1,27 @@
 package test.order;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
- /** 
+
+import util.ResultMessage;
+import bl.orderbl.OrderController;
+import blservice.orderblservice.Orderblservice;
+/** 
  * 
  * @author czq 
  * @version 2015年11月15日 下午2:39:01 
  */
 public class OrderControllerTest {
-
+	
+	Orderblservice bl ;
+	ResultMessage result;
+	
 	@Before
 	public void setUp() throws Exception {
+		bl  = new OrderController();
+		
 	}
 
 	@Test

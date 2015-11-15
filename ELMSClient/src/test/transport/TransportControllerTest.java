@@ -1,18 +1,27 @@
 package test.transport;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
- /** 
+
+import util.ResultMessage;
+import bl.transportbl.TransportController;
+import blservice.transportblservice.Transportblservice;
+/** 
  * 
  * @author czq 
  * @version 2015年11月15日 下午2:39:58 
  */
 public class TransportControllerTest {
-
+	
+	Transportblservice bl;
+	ResultMessage result;
+	
+	
 	@Before
 	public void setUp() throws Exception {
+		bl = new TransportController();
 	}
 
 	@Test

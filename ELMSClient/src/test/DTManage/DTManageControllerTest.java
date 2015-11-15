@@ -4,15 +4,23 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import bl.DTManagebl.DTManageController;
+import blservice.DTManageblservice.DTManageblservice;
+import util.ResultMessage;
  /** 
  * 
  * @author czq 
  * @version 2015年11月15日 下午2:38:30 
  */
 public class DTManageControllerTest {
-
+	
+	DTManageblservice bl; 
+	ResultMessage result;
+	
 	@Before
 	public void setUp() throws Exception {
+		bl = new DTManageController();
 	}
 
 	@Test

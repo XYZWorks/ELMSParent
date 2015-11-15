@@ -4,15 +4,26 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
- /** 
+ 
+
+
+import util.ResultMessage;
+import bl.personnelbl.PersonnelController;
+import blservice.personnelblservice.Personnelblservice;
+/** 
  * 
  * @author czq 
  * @version 2015年11月15日 下午2:39:11 
  */
 public class PersonnelControllerTest {
-
+	
+	Personnelblservice bl;
+	ResultMessage result;
+	
+	
 	@Before
 	public void setUp() throws Exception {
+		bl = new PersonnelController();
 	}
 
 	@Test
