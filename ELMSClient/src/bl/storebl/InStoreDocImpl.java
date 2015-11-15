@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import blservice.orderblservice.Orderblservice;
 import blservice.storeblservice.InStoreDocService;
 import ds.storedataservice.StoreDataService;
+import util.DocType;
 import util.ResultMessage;
+import vo.DocVO;
 import vo.InStoreDocVO;
 
 /** 
@@ -22,6 +24,26 @@ public class InStoreDocImpl implements InStoreDocService {
 	}
 
 	public ResultMessage generate(InStoreDocVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ArrayList<DocVO> getDocLists(DocType type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeDocsState(ArrayList<String> docsID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeOneDocState(String docID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ArrayList<InStoreDocVO> showInstoreDocs() {
 		// TODO Auto-generated method stub
 		return null;
 	}

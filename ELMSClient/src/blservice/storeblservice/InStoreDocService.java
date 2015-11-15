@@ -2,6 +2,7 @@ package blservice.storeblservice;
 
 import java.util.ArrayList;
 
+import blservice.DocApprovalService;
 import vo.InStoreDocVO;
 import util.ResultMessage;
 
@@ -10,12 +11,12 @@ import util.ResultMessage;
  * @author ymc
  *
  */
-public interface InStoreDocService {
+public interface InStoreDocService extends DocApprovalService{
 	/**
 	 * 显示生成的入库单
 	 * @return ArrayList<InStoreDocVO>
 	 */
-	public ArrayList<InStoreDocVO> show();
+	public ArrayList<InStoreDocVO> showInstoreDocs();
 	/**
 	 * 生成新单据  
 	 * @param vo

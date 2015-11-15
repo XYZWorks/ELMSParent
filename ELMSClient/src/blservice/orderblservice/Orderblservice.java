@@ -1,20 +1,19 @@
 package blservice.orderblservice;
 
 import java.util.ArrayList;
-import java.util.Date;
 
-import po.DocPO;
 import util.ResultMessage;
 import vo.DocVO;
 import vo.OrderVO;
 import vo.ReceiveVO;
+import blservice.DocApprovalService;
 
 /**
  * 订单增、删、查，收件信息录入
  * 
  * @author xingcheng
  */
-public interface Orderblservice {
+public interface Orderblservice extends DocApprovalService{
 
 	/**
 	 * 增加订单
@@ -30,14 +29,6 @@ public interface Orderblservice {
 	 */
 	public ResultMessage checkBarCode(String orderBarCode);
 	
-	/**
-	 * 得到某日新增的所有订单
-	 * @param date
-	 * @return ArrayList<orderVO> 
-	 */
-	public  ArrayList< OrderVO > getOrderVO(Date date);
-
-
 	/**
 	 * 删除订单
 	 * @param orderBarCode
@@ -72,5 +63,8 @@ public interface Orderblservice {
 	 * @return
 	 */
 	public ResultMessage addDocToList (DocVO vo);
+	
+	
+	
 	
 }

@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import blservice.orderblservice.Orderblservice;
 import blservice.storeblservice.OutStoreDocService;
 import ds.storedataservice.StoreDataService;
+import util.DocType;
 import util.ResultMessage;
+import vo.DocVO;
 import vo.OutStoreDocVO;
 
 /** 
@@ -22,6 +24,26 @@ public class OutStoreDocImpl implements OutStoreDocService {
 	}
 
 	public ResultMessage generate(OutStoreDocVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ArrayList<DocVO> getDocLists(DocType type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeDocsState(ArrayList<String> docsID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeOneDocState(String docID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ArrayList<OutStoreDocVO> showOutStoreDocs() {
 		// TODO Auto-generated method stub
 		return null;
 	}

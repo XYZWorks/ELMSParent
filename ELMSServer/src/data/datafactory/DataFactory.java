@@ -19,30 +19,30 @@ import ds.statisticdataservice.StatisticDataService;
 import ds.storedataservice.StoreDataService;
 import ds.strategydataservice.StrategyDataService;
 import ds.transportdataservice.Transportdataservice;
- /** 
- *  数据工厂类
- * @author czq 
- * @version 2015年11月5日 下午8:43:10 
+
+/**
+ * 数据工厂类
+ * 
+ * @author czq
+ * @version 2015年11月5日 下午8:43:10
  */
-public class DataFactory implements DataFactoryService{
-	
+public class DataFactory implements DataFactoryService {
+
 	private static DataFactory dataFactory;
-	
+
 	private DataFactory() {
-		
+
 	}
-	
-	public static DataFactory getDataFactory(){
-		if(dataFactory == null){
-			dataFactory =  new DataFactory();
+
+	public static DataFactory getDataFactory() {
+		if (dataFactory == null) {
+			dataFactory = new DataFactory();
 		}
-		
+
 		return dataFactory;
-		
+
 	}
-	
-	
-	
+
 	public AccountDataService getAccountDataImpl() {
 		return new AccountDataServiceImplBySQL();
 	}

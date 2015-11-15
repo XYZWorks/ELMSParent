@@ -88,4 +88,24 @@ public class transportblservice_Stub implements Transportblservice{
 		return null;
 	}
 
+	public ArrayList<DocVO> getDocLists() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeDocsState(ArrayList<String> docsID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeOneDocState(String docID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ArrayList<DocVO> getDocLists(DocType type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

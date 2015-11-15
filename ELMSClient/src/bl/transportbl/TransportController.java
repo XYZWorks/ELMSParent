@@ -79,4 +79,19 @@ public class TransportController implements Transportblservice{
 		return 0;
 	}
 
+	public ArrayList<DocVO> getDocLists(DocType type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeDocsState(ArrayList<String> docsID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeOneDocState(String docID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

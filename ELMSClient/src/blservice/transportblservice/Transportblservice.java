@@ -3,6 +3,7 @@ package blservice.transportblservice;
 import java.util.ArrayList;
 import java.util.Date;
 
+import blservice.DocApprovalService;
 import util.DocType;
 import util.ResultMessage;
 import vo.ArriveYYDocVO;
@@ -17,7 +18,7 @@ import vo.TransferDocVO;
  * @author JerryZhang
  *
  */
-public interface Transportblservice {
+public interface Transportblservice extends DocApprovalService{
 	/**
 	 * 增加装车单
 	 * @param vo

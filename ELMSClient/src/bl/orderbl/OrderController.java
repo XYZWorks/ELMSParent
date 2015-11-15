@@ -3,6 +3,7 @@ package bl.orderbl;
 import java.util.ArrayList;
 import java.util.Date;
 
+import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
 import vo.OrderVO;
@@ -51,6 +52,21 @@ public class OrderController implements Orderblservice{
 	}
 
 	public ResultMessage addDocToList(DocVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ArrayList<DocVO> getDocLists(DocType type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeDocsState(ArrayList<String> docsID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeOneDocState(String docID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
