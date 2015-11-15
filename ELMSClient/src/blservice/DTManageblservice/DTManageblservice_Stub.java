@@ -21,11 +21,7 @@ public class DTManageblservice_Stub implements DTManageblservice{
 	public ArrayList<DriverVO> CheckByName(String name) {
 		;
 		ArrayList<DriverVO> temp = new ArrayList<DriverVO>();
-<<<<<<< HEAD
-=======
-//		temp.add(new DriverVO("11111111","张三",new Date(2013, 11, 12),"11111111","12345678901",true, 1));
-//		temp.add(new DriverVO("11111111","张三",new Date(2013, 11, 12),"11111111","12345678901",true , 0));
->>>>>>> origin/master
+
 		return temp;
 	}
 
