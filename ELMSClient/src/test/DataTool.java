@@ -44,8 +44,8 @@ public class DataTool {
 				"sh", "仙林大道73号", 8, "food", 5, 20, 20, 20, "wood box", "economic model", 1, 30, test));
 		locs.add("汽运区8排5架6位");
 		
-		drivers.add(new DriverVO("000001", "章撒", new Date(1992, 4, 12) , "445202199204121134", "18324522334", true, 5));
-		drivers.add(new DriverVO("000002", "张田田", new Date(1990, 4, 11) , "445202199004111134", "18324522333", false, 6));
+		drivers.add(new DriverVO("000001", "章撒","123456", new Date(1992, 4, 12) , "445202199204121134", "18324522334", true, 5));
+		drivers.add(new DriverVO("000002", "张田田","123456", new Date(1990, 4, 11) , "445202199004111134", "18324522333", false, 6));
 		
 		
 		cars.add(new CarVO("025000001", "粤VDC798" , 1));

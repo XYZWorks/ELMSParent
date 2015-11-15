@@ -7,7 +7,9 @@ import org.junit.Test;
 
 import bl.DTManagebl.DTManageController;
 import blservice.DTManageblservice.DTManageblservice;
+import test.DataTool;
 import util.ResultMessage;
+import vo.DriverVO;
  /** 
  * 
  * @author czq 
@@ -21,46 +23,101 @@ public class DTManageControllerTest {
 	@Before
 	public void setUp() throws Exception {
 		bl = new DTManageController();
+		
+		bl.add(DataTool.getcarlist().get(0));
 	}
 
 	@Test
 	public void testAddDriverVO() {
-		fail("Not yet implemented");
+		result = bl.add(DataTool.getDriverList().get(0));
+		if(result == ResultMessage.SUCCESS){
+			
+		}else{
+			fail("can not add a driver");
+		}
+		
+		
+		
 	}
 
 	@Test
 	public void testCheckByName() {
-		fail("Not yet implemented");
+		String name = DataTool.getDriverList().get(0).name;
+		DriverVO vo = bl.CheckByName(name).get(0);
+		if(vo.name.equalsIgnoreCase(name)){
+			
+		}else{
+			fail("check by name fail");
+		}
+		
 	}
 
 	@Test
 	public void testCheckDriverByID() {
-		fail("Not yet implemented");
+		String ID = DataTool.getDriverList().get(0).ID;
+		DriverVO vo = bl.CheckByName(ID).get(0);
+		if(vo.ID.equalsIgnoreCase(ID)){
+			
+		}else{
+			fail("check by ID fail");
+		}
 	}
 
 	@Test
 	public void testCheckByInst() {
-		fail("Not yet implemented");
+		String instid = DataTool.getDriverList().get(0).InstID;
+		DriverVO vo = bl.CheckByName(instid).get(0);
+		if(vo.ID.equalsIgnoreCase(instid)){
+			
+		}else{
+			fail("check by instID fail");
+		}
 	}
 
 	@Test
 	public void testModifyDriverVO() {
-		fail("Not yet implemented");
+		DriverVO vo = DataTool.getDriverList().get(0);
+		vo.InstID = "123456";
+		result = bl.modify(vo);
+		if(result == ResultMessage.SUCCESS && vo.InstID.equalsIgnoreCase("123456")){
+			
+		}else{
+			fail("fail to modify");
+		}
+		
+		
+		
 	}
 
 	@Test
 	public void testDelDriverVO() {
-		fail("Not yet implemented");
+		DriverVO vo = DataTool.getDriverList().get(1);
+		result = bl.Del(vo);
+		if(result == ResultMessage.SUCCESS){
+			fail("允许删除空数据");
+		}
+		bl.add(vo);
+		result = bl.Del(vo);
+		if(result == ResultMessage.FAIL){
+			fail("删除失败");
+		}
+		
+		
 	}
 
 	@Test
 	public void testGetDriverName() {
-		fail("Not yet implemented");
+		//在其他方法测试
 	}
 
 	@Test
 	public void testAddCarVO() {
-		fail("Not yet implemented");
+		result = bl.add(DataTool.getcarlist().get(0));
+		if(result == ResultMessage.SUCCESS){
+			
+		}else{
+			fail("can not add a car");
+		}
 	}
 
 	@Test
