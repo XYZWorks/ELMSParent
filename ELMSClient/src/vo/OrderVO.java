@@ -106,12 +106,16 @@ public class OrderVO extends DocVO{
 	 * 订单费用总计
 	 */
 	public int orderCost;
-
+	
+	//2015.11.1 新增
+	/**
+	 * 经手的快递员
+	 */
+     
 	/**
 	 * 按照时间顺序存储整个订单流转的各种单据
 	 */
 	public ArrayList<DocVO> docList;
-
 
 
 	public OrderVO(String iD, util.Date date,
