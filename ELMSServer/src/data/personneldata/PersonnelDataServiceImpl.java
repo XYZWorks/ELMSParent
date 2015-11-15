@@ -16,6 +16,7 @@ import ds.personneldataservice.PersonnelDataService;
  * @author czq
  * @version 2015年10月31日 上午8:59:35
  */
+@SuppressWarnings("serial")
 public class PersonnelDataServiceImpl extends DataSuperClass implements
 		PersonnelDataService {
 

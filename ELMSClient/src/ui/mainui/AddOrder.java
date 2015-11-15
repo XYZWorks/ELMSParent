@@ -18,6 +18,7 @@ import javax.swing.JButton;
 
 import util.ResultMessage;
 import vo.AccountVO;
+import bl.userbl.UserController;
 import bl.userbl.UserMes;
 import blservice.accountblservice.AccountblService_Stub;
 import blservice.accountblservice.Accountblservice;
@@ -90,7 +91,7 @@ public class AddOrder extends JFrame {
 				String account = textField.getText();
 				String key = new String(passwordField_1.getPassword());
 				
-				UserMesblservice bl = new UserMes();
+				UserMesblservice bl = new UserController();
 				change(bl.login(new AccountVO(account,key))) ;
 				
 				

@@ -11,15 +11,9 @@ import blservice.usermesblservice.UserMesblservice;
  * @author czq
  *
  */
-<<<<<<< HEAD:ELMSClient/src/bl/userbl/UserMes.java
 public class UserMes {
 	AccountDataService accountds ;
-=======
-public class UserMesBusinessServiceImpl implements UserMesblservice {
-	
-	AccountDataService accountds;
->>>>>>> origin/master:ELMSClient/src/bl/userbl/UserMesBusinessServiceImpl.java
-	
+
 	
 	
 	public ResultMessage login(AccountVO vo)  {
