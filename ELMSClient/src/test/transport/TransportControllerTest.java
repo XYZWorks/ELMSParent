@@ -118,17 +118,30 @@ public class TransportControllerTest {
 
 	@Test
 	public void testGetDoc() {
-		//在别的类中测试
-	}
+		ArrayList<DocVO> vos= bl.getDoc( DocType.arriveYYDoc);
+		if(vos==null)
+			fail("fail to get loadDoc");	}
 
 	@Test
 	public void testGetExpense() {
-		//在别的类中测试
+		
+		ArrayList<DocVO> l1 = DataTool.getDocList(DocType.arriveZZDoc);
+		ArriveZZDocVO vo1=(ArriveZZDocVO)l1.get(0);
+		
+		ArrayList<DocVO> l2 = DataTool.getDocList(DocType.transferDoc);
+		TransferDocVO vo2=(TransferDocVO)l2.get(0);
+
+ 		double money = bl.getExpense(vo1, vo2);
+ 		
+		if(money==0)
+			fail("money is 0");	
 	}
 
 	@Test
 	public void testGetDocLists() {
-		//在别的类中测试
+		ArrayList<DocVO> vos= bl.getDocLists(DocType.arriveZZDoc);
+		if(vos==null)
+			fail("fail to get loadDoc");	
 	}
 
 	@Test
