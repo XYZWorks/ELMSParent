@@ -13,7 +13,7 @@ import vo.DriverVO;
  * @version 创建时间：2015年10月27日 下午7:45:48 
  *
  */
-public class DTManageblImpl implements DTManageblservice {
+public class DTManage{
 	DTManagedateservice manageData;
 	public ResultMessage add(DriverVO vo) {
 		// TODO Auto-generated method stub

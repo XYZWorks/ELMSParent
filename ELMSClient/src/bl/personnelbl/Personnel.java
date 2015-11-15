@@ -12,7 +12,7 @@ import vo.PersonVO;
  * @version 创建时间：2015年10月27日 下午7:48:36 
  *
  */
-public class PersonnelblImpl implements Personnelblservice {
+public class Personnel {
 	Personnelblservice personnelbl;
 	public ArrayList<PersonVO> getPeopleByInst(String ID) {
 		// TODO Auto-generated method stub

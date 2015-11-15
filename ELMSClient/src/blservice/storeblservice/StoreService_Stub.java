@@ -10,7 +10,7 @@ import vo.StoreMessageVO;
  * @author ymc
  *
  */
-public class StoreService_Stub implements StoreService {
+public class StoreService_Stub implements StoreblService {
 
 	public ArrayList<StoreMessageVO> show() {
 		StoreMessageVO vo1=new StoreMessageVO("上海", 1000, null, null);

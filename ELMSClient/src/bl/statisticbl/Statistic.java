@@ -15,7 +15,7 @@ import vo.StateFormVO;
  * @version 创建时间：2015年10月27日 下午7:49:05 
  *
  */
-public class StatisticblImpl implements Statisticblservice {
+public class Statistic {
 	StatisticDataService statisticData;
 	FinanceDataService financeData;
 	public ResultMessage bulidStateForm(StateFormVO vo) {

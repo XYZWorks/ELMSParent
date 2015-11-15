@@ -19,7 +19,7 @@ import vo.SalaryVO;
  * @version 创建时间：2015年10月27日 下午7:46:21 
  *
  */
-public class CostImpl implements CostService {
+public class Cost {
 	FinanceDataService financeData;
 	StrategyblService strategybl;
 	Transportblservice transportbl;

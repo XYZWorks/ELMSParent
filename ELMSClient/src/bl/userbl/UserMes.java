@@ -11,7 +11,7 @@ import blservice.usermesblservice.UserMesblservice;
  * @author czq
  *
  */
-public class UserMesBusinessServiceImpl implements UserMesblservice {
+public class UserMes {
 	AccountDataService accountds ;
 	
 	
