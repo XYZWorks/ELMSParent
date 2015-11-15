@@ -1,4 +1,5 @@
 package vo;
+
 /**
  * 订单VO类
  * 

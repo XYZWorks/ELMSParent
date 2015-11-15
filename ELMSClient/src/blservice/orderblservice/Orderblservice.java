@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import util.ResultMessage;
 import vo.DocVO;
+import vo.OrderSimpleInfoVO;
 import vo.OrderVO;
 import vo.ReceiveVO;
 import blservice.DocApprovalService;
@@ -41,14 +42,14 @@ public interface Orderblservice extends DocApprovalService{
 	 * @param orderBarCode
 	 * @return
 	 */
-	public ResultMessage getSimpleInfo(String orderBarCode);
+	public ArrayList<OrderSimpleInfoVO> getSimpleInfo(String orderBarCode);
 	
 	/**
 	 * 让快递员查询订单的详细信息 显示订单的所有信息
 	 * @param orderBarCode
 	 * @return
 	 */
-	public ResultMessage getFullInfo(String	orderBarCode);
+	public OrderVO getFullInfo(String	orderBarCode);
 
 	/**
 	 * 收件信息录入 

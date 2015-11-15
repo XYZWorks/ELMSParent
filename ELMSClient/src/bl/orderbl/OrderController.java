@@ -6,6 +6,7 @@ import java.util.Date;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
+import vo.OrderSimpleInfoVO;
 import vo.OrderVO;
 import vo.ReceiveVO;
 import blservice.orderblservice.Orderblservice;
@@ -36,12 +37,12 @@ public class OrderController implements Orderblservice{
 		return null;
 	}
 
-	public ResultMessage getSimpleInfo(String orderBarCode) {
+	public ArrayList<OrderSimpleInfoVO> getSimpleInfo(String orderBarCode) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ResultMessage getFullInfo(String orderBarCode) {
+	public OrderVO getFullInfo(String orderBarCode) {
 		// TODO Auto-generated method stub
 		return null;
 	}
