@@ -12,7 +12,7 @@ import blservice.usermesblservice.UserMesblservice;
  *
  */
 public class UserMesBusinessServiceImpl implements UserMesblservice {
-	AccountDataService accountds ;
+	AccountDataService accountds;
 	
 	
 	
