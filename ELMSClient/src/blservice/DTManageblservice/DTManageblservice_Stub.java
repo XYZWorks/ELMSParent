@@ -1,7 +1,7 @@
 package blservice.DTManageblservice;
 
 import java.util.ArrayList;
-import java.util.Date;
+import util.Date;
 
 import util.CarList;
 import util.DriverList;
@@ -19,8 +19,13 @@ public class DTManageblservice_Stub implements DTManageblservice{
 	}
 
 	public ArrayList<DriverVO> CheckByName(String name) {
-		Date date=new Date();
+		;
 		ArrayList<DriverVO> temp = new ArrayList<DriverVO>();
+<<<<<<< HEAD
+=======
+//		temp.add(new DriverVO("11111111","张三",new Date(2013, 11, 12),"11111111","12345678901",true, 1));
+//		temp.add(new DriverVO("11111111","张三",new Date(2013, 11, 12),"11111111","12345678901",true , 0));
+>>>>>>> origin/master
 		return temp;
 	}
 
