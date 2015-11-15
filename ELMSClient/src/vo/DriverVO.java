@@ -1,6 +1,6 @@
 package vo;
 
-import java.util.Date;
+import util.Date;
 
 /**
  * DriverVO类
@@ -9,13 +9,17 @@ import java.util.Date;
  */
 public class DriverVO {
 	/**
-	 * 司机编号
+	 * 司机编号   6位
 	 */
 	public String ID;
 	/**
 	 * 司机姓名
 	 */
 	public String name;
+	/**
+	 * 机构ID
+	 */
+	public String InstID;
 	/**
 	 * 出生日期
 	 */
@@ -31,34 +35,25 @@ public class DriverVO {
 	/**
 	 * 性别
 	 */
-	public int isman;
+	public boolean isman;
 	/**
 	 * 驾驶证期限
 	 */
 	public int licenseYear;
-	
-	/**
-	 * 
-	 * @param ID
-	 * @param name
-	 * @param birthDay
-	 * @param IDcard
-	 * @param phoneNum
-	 * @param isman
-	 * @param licenseYear
-	 */
-	public DriverVO(String ID,String name,Date birthDay,String IDcard,
-			String phoneNum,int isman,int licenseYear){
+	public DriverVO(String iD, String name, String instID, Date birthDay,
+			String iDcard, String phoneNum, boolean isman, int licenseYear) {
 		super();
-		this.birthDay=birthDay;
-		this.ID=ID;
-		this.IDcard=IDcard;
-		this.isman=isman;
-		this.licenseYear=licenseYear;
-		this.name=name;
-		this.phoneNum=phoneNum;
-		
+		ID = iD;
+		this.name = name;
+		InstID = instID;
+		this.birthDay = birthDay;
+		IDcard = iDcard;
+		this.phoneNum = phoneNum;
+		this.isman = isman;
+		this.licenseYear = licenseYear;
 	}
+	
+	
 	
 	
 }

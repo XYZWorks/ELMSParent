@@ -2,23 +2,35 @@ package test.transport;
 
 import static org.junit.Assert.fail;
 
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import util.ResultMessage;
 import bl.transportbl.TransportController;
 import blservice.transportblservice.Transportblservice;
-/** 
+import test.DataTool;
+import util.Date;
+import util.DocState;
+import util.DocType;
+import util.ResultMessage;
+import vo.ArriveYYDocVO;
+import vo.ArriveZZDocVO;
+import vo.DocVO;
+import vo.LoadDocVO;
+import vo.SendGoodDocVO;
+import vo.TransferDocVO;
+
+/**
  * 
- * @author czq 
- * @version 2015年11月15日 下午2:39:58 
+ * @author czq
+ * @version 2015年11月15日 下午2:39:58
  */
 public class TransportControllerTest {
-	
+
 	Transportblservice bl;
 	ResultMessage result;
-	
-	
+
 	@Before
 	public void setUp() throws Exception {
 		bl = new TransportController();
@@ -26,77 +38,133 @@ public class TransportControllerTest {
 
 	@Test
 	public void testAddLoadDocVO() {
-		fail("Not yet implemented");
+		ArrayList<DocVO> ldList = DataTool.getDocList(DocType.loadDoc);
+		LoadDocVO vo = (LoadDocVO)ldList.get(0);
+		result = bl.add(vo);
+		if(!(result==ResultMessage.SUCCESS))
+			fail("Not yet implemented");
 	}
 
 	@Test
 	public void testGetDayLoadDocs() {
-		fail("Not yet implemented");
+	
+		ArrayList<LoadDocVO> vos= bl.getDayLoadDocs( new Date(2015, 11, 11));
+		if(vos==null)
+			fail("fail to get loadDoc");
+
 	}
 
 	@Test
 	public void testAddSendGoodDocVO() {
-		fail("Not yet implemented");
+		ArrayList<DocVO> list = DataTool.getDocList(DocType.sendGoodDoc);
+		SendGoodDocVO vo = (SendGoodDocVO)list.get(0);
+		result = bl.add(vo);
+		if(!(result==ResultMessage.SUCCESS))
+			fail("Not yet implemented");
 	}
 
 	@Test
 	public void testGetDaySendDocs() {
-		fail("Not yet implemented");
+		ArrayList<SendGoodDocVO> vos= bl.getDaySendDocs( new Date(2015, 11, 11));
+		if(vos==null)
+			fail("fail to get loadDoc");
 	}
 
 	@Test
 	public void testAddArriveYYDocVO() {
-		fail("Not yet implemented");
+		ArrayList<DocVO> list = DataTool.getDocList(DocType.arriveYYDoc);
+		ArriveYYDocVO vo = (ArriveYYDocVO)list.get(0);
+		result = bl.add(vo);
+		if(!(result==ResultMessage.SUCCESS))
+			fail("Not yet implemented");
 	}
 
 	@Test
 	public void testGetDayArriveYYDocs() {
-		fail("Not yet implemented");
+		ArrayList<ArriveYYDocVO> vos= bl.getDayArriveYYDocs( new Date(2015, 11, 11));
+		if(vos==null)
+			fail("fail to get loadDoc");
 	}
 
 	@Test
 	public void testAddArriveZZDocVO() {
-		fail("Not yet implemented");
+		ArrayList<DocVO> list = DataTool.getDocList(DocType.arriveZZDoc);
+		ArriveZZDocVO vo = (ArriveZZDocVO)list.get(0);
+		result = bl.add(vo);
+		if(!(result==ResultMessage.SUCCESS))
+			fail("Not yet implemented");
 	}
 
 	@Test
 	public void testGetDayArriveZZDocs() {
-		fail("Not yet implemented");
-	}
+		ArrayList<ArriveZZDocVO> vos= bl.getDayArriveZZDocs( new Date(2015, 11, 11));
+		if(vos==null)
+			fail("fail to get loadDoc");	}
 
 	@Test
 	public void testAddTransferDocVO() {
-		fail("Not yet implemented");
-	}
+		ArrayList<DocVO> list = DataTool.getDocList(DocType.transferDoc);
+		TransferDocVO vo = (TransferDocVO)list.get(0);
+		result = bl.add(vo);
+		if(!(result==ResultMessage.SUCCESS))
+			fail("Not yet implemented");	}
 
 	@Test
 	public void testGetDayTransferDocs() {
-		fail("Not yet implemented");
+		ArrayList<TransferDocVO> vos= bl.getDayTransferDocs( new Date(2015, 11, 11));
+		if(vos==null)
+			fail("fail to get loadDoc");
 	}
 
 	@Test
 	public void testGetDoc() {
-		fail("Not yet implemented");
+		//在别的类中测试
 	}
 
 	@Test
 	public void testGetExpense() {
-		fail("Not yet implemented");
+		//在别的类中测试
 	}
 
 	@Test
 	public void testGetDocLists() {
-		fail("Not yet implemented");
+		//在别的类中测试
 	}
 
 	@Test
 	public void testChangeDocsState() {
-		fail("Not yet implemented");
+		
+		
+		ArrayList<DocVO> list= DataTool.getDocList(DocType.transferDoc);
+
+		for(DocVO vo:list){
+			vo.state=DocState.pass;
+		}
+		for(DocVO vo:list){
+			if(vo.state!=DocState.pass){
+				result=ResultMessage.FAIL;
+				break;
+			}
+				
+		}
+		
+		if(!(result==ResultMessage.SUCCESS))
+			fail("fail changeDocsState");	
 	}
 
 	@Test
 	public void testChangeOneDocState() {
-		fail("Not yet implemented");
+		
+		ArrayList<DocVO> list= DataTool.getDocList(DocType.transferDoc);
+		
+		TransferDocVO vo = (TransferDocVO)list.get(0);
+
+		if(vo.state!=DocState.pass)
+			vo.state=DocState.pass;
+		if(list.get(0).state!=DocState.pass)
+			fail("fail");
+			
+			
 	}
 
 }

@@ -1,4 +1,4 @@
-package AXIS.ELMSParent;
+package po;
 
 public class GoodTransferInfoP0 {
 

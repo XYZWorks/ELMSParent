@@ -27,5 +27,5 @@ public interface UserMesblservice {
 	 * 获得个人账户信息
 	 * @return 
 	 */
-	public AccountVO getMes();
+	public AccountVO getMes(String ID);
 }

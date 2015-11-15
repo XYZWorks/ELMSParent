@@ -1,7 +1,7 @@
 package blservice.transportblservice;
 
 import java.util.ArrayList;
-import java.util.Date;
+import util.Date;
 
 import util.DocType;
 import util.ResultMessage;
@@ -19,27 +19,20 @@ public class transportblservice_Stub implements Transportblservice{
 		return ResultMessage.SUCCESS;
 	}
 
-	public ArrayList<LoadDocVO> getDayLoadDocs(util.Date date) {
-		ArrayList<LoadDocVO> temp=new ArrayList<LoadDocVO>();
-		return temp;
-	}
+	
 
 	public ResultMessage add(SendGoodDocVO vo) {
 		return ResultMessage.SUCCESS;
 	}
 
-	public ArrayList<SendGoodDocVO> getDaySendDocs(util.Date date) {
-		ArrayList<SendGoodDocVO> temp=new ArrayList<SendGoodDocVO>();
-		util.Date arriveDate = null;
-		return temp;
-	}
+	
 
 	public ResultMessage add(ArriveYYDocVO vo) {
 		// TODO 自动生成的方法存根
 		return ResultMessage.SUCCESS;
 	}
 
-	public ArrayList<ArriveZZDocVO> getDayArriveYYDocs(Date date) {
+	public ArrayList<ArriveYYDocVO> getDayArriveYYDocs(Date date) {
 		// TODO 自动生成的方法存根
 		return null;
 	}
@@ -102,6 +95,13 @@ public class transportblservice_Stub implements Transportblservice{
 	public ArrayList<DocVO> getDocLists(DocType type) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+	public double getExpense(ArriveZZDocVO arriveVO, TransferDocVO transferVO) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

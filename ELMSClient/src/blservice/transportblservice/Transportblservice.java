@@ -1,7 +1,7 @@
 package blservice.transportblservice;
 
 import java.util.ArrayList;
-import java.util.Date;
+import util.Date;
 
 import blservice.DocApprovalService;
 import util.DocType;
@@ -54,7 +54,7 @@ public interface Transportblservice extends DocApprovalService{
 	 * @param date
 	 * @return
 	 */
-	public ArrayList<ArriveZZDocVO> getDayArriveYYDocs(Date date);
+	public ArrayList<ArriveYYDocVO> getDayArriveYYDocs(Date date);
 	/**
 	 * 增加到达单
 	 * @param vo
@@ -87,8 +87,8 @@ public interface Transportblservice extends DocApprovalService{
 	public ArrayList<DocVO> getDoc(DocType type);
 	/**
 	 * 得到该单据的运费成本信息
-	 * @param type
+	 * @param arriveVO,transferVO
 	 * @return
 	 */
-	public double getExpense(DocType type);
+	public double getExpense(ArriveZZDocVO arriveVO, TransferDocVO transferVO);
 }

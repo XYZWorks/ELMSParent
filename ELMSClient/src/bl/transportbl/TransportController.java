@@ -1,7 +1,7 @@
 package bl.transportbl;
 
 import java.util.ArrayList;
-import java.util.Date;
+import util.Date;
 
 import util.DocType;
 import util.ResultMessage;
@@ -44,7 +44,7 @@ public class TransportController implements Transportblservice{
 		return null;
 	}
 
-	public ArrayList<ArriveZZDocVO> getDayArriveYYDocs(Date date) {
+	public ArrayList<ArriveYYDocVO> getDayArriveYYDocs(Date date) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -74,10 +74,7 @@ public class TransportController implements Transportblservice{
 		return null;
 	}
 
-	public double getExpense(DocType type) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+
 
 	public ArrayList<DocVO> getDocLists(DocType type) {
 		// TODO Auto-generated method stub
@@ -93,5 +90,11 @@ public class TransportController implements Transportblservice{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public double getExpense(ArriveZZDocVO arriveVO, TransferDocVO transferVO) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 }
