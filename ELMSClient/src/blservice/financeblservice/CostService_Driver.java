@@ -13,7 +13,7 @@ public class CostService_Driver {
 
 		ArrayList<CostVO> vos;
 		System.out.println("显示信息");
-		vos=cost.show();
+		vos=cost.showCosts();
 		if(vos!=null){
 			for(CostVO vo:vos){
 				System.out.println(vo.money+" "+vo.type);

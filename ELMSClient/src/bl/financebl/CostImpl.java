@@ -24,7 +24,7 @@ public class CostImpl implements CostService {
 	StrategyblService strategybl;
 	Transportblservice transportbl;
 	Personnelblservice personnelbl;
-	public ArrayList<CostVO> show() {
+	public ArrayList<CostVO> showCosts() {
 		
 		ArrayList<CostVO> vos = null;
 		try {

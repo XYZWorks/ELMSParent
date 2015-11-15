@@ -15,7 +15,7 @@ public interface CostService {
 	 * 查看cost信息
 	 * @return
 	 */
-	public ArrayList<CostVO> show();
+	public ArrayList<CostVO> showCosts();
 	/**
 	 * 增加cost信息
 	 * @param vo

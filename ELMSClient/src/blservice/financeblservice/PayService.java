@@ -22,5 +22,5 @@ public interface PayService {
 	 * 查看付款信息
 	 * @return 查看的pay的ArrayList
 	 */
-	public ArrayList< PayVO > show(); 
+	public ArrayList< PayVO > showPays(); 
 }

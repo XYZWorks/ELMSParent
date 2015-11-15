@@ -16,7 +16,7 @@ import vo.CostVO;
 public class CostService_Stub implements CostService {
 	FinanceDataService financeDS;
 	
-	public ArrayList<CostVO> show() {
+	public ArrayList<CostVO> showCosts() {
 		financeDS=new TempFinanceDataImpl();
 		ArrayList<CostVO> vos = null;
 		try {
