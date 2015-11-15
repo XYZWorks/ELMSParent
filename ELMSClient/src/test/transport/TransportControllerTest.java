@@ -48,7 +48,10 @@ public class TransportControllerTest {
 	@Test
 	public void testGetDayLoadDocs() {
 	
-		bl.getDayLoadDocs( new Date(2015, 11, 11));
+		ArrayList<LoadDocVO> vos= bl.getDayLoadDocs( new Date(2015, 11, 11));
+		if(vos==null)
+			fail("fail to get loadDoc");
+
 	}
 
 	@Test
@@ -62,8 +65,9 @@ public class TransportControllerTest {
 
 	@Test
 	public void testGetDaySendDocs() {
-		//在别的类中测试
-
+		ArrayList<SendGoodDocVO> vos= bl.getDaySendDocs( new Date(2015, 11, 11));
+		if(vos==null)
+			fail("fail to get loadDoc");
 	}
 
 	@Test
@@ -77,7 +81,9 @@ public class TransportControllerTest {
 
 	@Test
 	public void testGetDayArriveYYDocs() {
-		//在别的类中测试
+		ArrayList<ArriveYYDocVO> vos= bl.getDayArriveYYDocs( new Date(2015, 11, 11));
+		if(vos==null)
+			fail("fail to get loadDoc");
 	}
 
 	@Test
@@ -91,8 +97,9 @@ public class TransportControllerTest {
 
 	@Test
 	public void testGetDayArriveZZDocs() {
-		//在别的类中测试
-	}
+		ArrayList<ArriveZZDocVO> vos= bl.getDayArriveZZDocs( new Date(2015, 11, 11));
+		if(vos==null)
+			fail("fail to get loadDoc");	}
 
 	@Test
 	public void testAddTransferDocVO() {
@@ -104,7 +111,9 @@ public class TransportControllerTest {
 
 	@Test
 	public void testGetDayTransferDocs() {
-		//在别的类中测试
+		ArrayList<TransferDocVO> vos= bl.getDayTransferDocs( new Date(2015, 11, 11));
+		if(vos==null)
+			fail("fail to get loadDoc");
 	}
 
 	@Test

@@ -32,7 +32,7 @@ public class transportblservice_Stub implements Transportblservice{
 		return ResultMessage.SUCCESS;
 	}
 
-	public ArrayList<ArriveZZDocVO> getDayArriveYYDocs(Date date) {
+	public ArrayList<ArriveYYDocVO> getDayArriveYYDocs(Date date) {
 		// TODO 自动生成的方法存根
 		return null;
 	}
@@ -95,6 +95,13 @@ public class transportblservice_Stub implements Transportblservice{
 	public ArrayList<DocVO> getDocLists(DocType type) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+	public double getExpense(ArriveZZDocVO arriveVO, TransferDocVO transferVO) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
