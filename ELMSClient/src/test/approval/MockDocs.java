@@ -2,6 +2,7 @@ package test.approval;
 
 import java.util.ArrayList;
 
+import test.DataTool;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
@@ -17,29 +18,28 @@ public class MockDocs implements DocApprovalService {
 	public ArrayList<DocVO> getDocLists(DocType type) {
 		switch (type) {
 		case arriveYYDoc:
-
-			break;
+			return DataTool.getDocList(DocType.arriveYYDoc);
 		case arriveZZDoc:
 
-			break;
+			return DataTool.getDocList(DocType.arriveYYDoc);
 		case inStoreDoc:
 
-			break;
+			return DataTool.getDocList(DocType.arriveYYDoc);
 		case loadDoc:
 
-			break;
+			return DataTool.getDocList(DocType.arriveYYDoc);
 		case order:
 
-			break;
+			return DataTool.getDocList(DocType.order);
 		case outStoreDoc:
 
-			break;
+			return DataTool.getDocList(DocType.outStoreDoc);
 		case sendGoodDoc:
 
-			break;
+			return DataTool.getDocList(DocType.sendGoodDoc);
 		case transferDoc:
 
-			break;
+			return DataTool.getDocList(DocType.transferDoc);
 
 		default:
 			break;

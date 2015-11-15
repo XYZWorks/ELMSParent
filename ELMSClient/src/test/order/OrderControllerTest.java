@@ -5,7 +5,10 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
+import test.DataTool;
+import util.DocType;
 import util.ResultMessage;
+import vo.OrderVO;
 import bl.orderbl.OrderController;
 import blservice.orderblservice.Orderblservice;
 /** 
@@ -26,7 +29,11 @@ public class OrderControllerTest {
 
 	@Test
 	public void testAdd() {
-		fail("Not yet implemented");
+		result = bl.add((OrderVO)DataTool.getDocList(DocType.order).get(0));
+		if(result == ResultMessage.FAIL)
+		{
+			fail("can not add a order");
+		}
 	}
 
 	@Test

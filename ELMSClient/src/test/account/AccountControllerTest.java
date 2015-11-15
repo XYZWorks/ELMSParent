@@ -10,6 +10,7 @@ import vo.AccountVO;
 import bl.accountbl.AccountController;
 import blservice.accountblservice.Accountblservice;
 
+
 /**
  * 
  * @author czq
@@ -34,7 +35,11 @@ public class AccountControllerTest {
 		} else {
 			fail("fail to add account");
 		}
-
+		
+		if(bl.add(new AccountVO("112233", "zxcvbn")) == ResultMessage.SUCCESS){
+			fail("");
+		}
+		
 	}
 
 	@Test

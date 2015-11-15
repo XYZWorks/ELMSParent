@@ -7,7 +7,9 @@ import util.DocType;
 import util.GoodsState;
 import vo.ArriveYYDocVO;
 import vo.ArriveZZDocVO;
+import vo.CarVO;
 import vo.DocVO;
+import vo.DriverVO;
 import vo.InStoreDocVO;
 import vo.LoadDocVO;
 import vo.OrderVO;
@@ -27,9 +29,12 @@ public class DataTool {
 	static Date d4 = new Date(2015, 11, 14);
 	static Date d5 = new Date(2015, 11, 15);
 
+	
 	static ArrayList<DocVO> test = null;
 	static ArrayList<OrderVO> orders = new ArrayList<OrderVO>();
 	static ArrayList<String> locs = new ArrayList<String>();
+	static ArrayList<DriverVO> drivers = new ArrayList<DriverVO>();
+	static ArrayList<CarVO>  cars = new ArrayList<CarVO>();
 	
 	static{
 		orders.add(new OrderVO("2311278906", d1, "02500", "czq", "13188907872", "nju", "常府街44号", "ymc", "13497269020",
@@ -38,6 +43,14 @@ public class DataTool {
 		orders.add(new OrderVO("2311222479", d2, "02500", "zr", "13137947872", "nju", "常府街21号", "xc", "13132097020",
 				"sh", "仙林大道73号", 8, "food", 5, 20, 20, 20, "wood box", "economic model", 1, 30, test));
 		locs.add("汽运区8排5架6位");
+		
+		drivers.add(new DriverVO("000001", "章撒", new Date(1992, 4, 12) , "445202199204121134", "18324522334", true, 5));
+		drivers.add(new DriverVO("000002", "张田田", new Date(1990, 4, 11) , "445202199004111134", "18324522333", false, 6));
+		
+		
+		cars.add(new CarVO("025000001", "粤VDC798" , 1));
+		cars.add(new CarVO("025000002", "粤Vxx877", 2));
+		
 	}
 	
 	public static ArrayList<DocVO> getDocList(DocType tpye) {
@@ -90,5 +103,16 @@ public class DataTool {
 		}
 		return al;
 	}
-
+	
+	
+	public static ArrayList<DriverVO> getDriverList(){
+		
+		return drivers;
+		
+	}
+	
+	public static ArrayList<CarVO> cars(){
+		return cars;
+	}
+	
 }
