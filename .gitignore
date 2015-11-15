@@ -1,17 +1,24 @@
-*.class
- 
-# Package Files #
+.*.swp
+.DS_Store
+*target*
 *.jar
 *.war
 *.ear
- 
-# ignore Maven generated target folders
-target
-ELMSClient\target
-ELMServer\target
- 
-# ignore eclipse files
+*.class
+classes/
+.svn
+.classes
 .project
 .classpath
-.settings
+.settings/
 .metadata
+bin
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+.classpath
+.settings/**
+tartget/**
