@@ -5,7 +5,6 @@ import java.rmi.RemoteException;
 import ds.accountdataservice.AccountDataService;
 import util.ResultMessage;
 import vo.AccountVO;
-import blservice.usermesblservice.UserMesblservice;
 
 /**
  * 
@@ -13,11 +12,11 @@ import blservice.usermesblservice.UserMesblservice;
  *
  */
 
-public class UserMes {
-	AccountDataService accountds;
 
-	public class UserMesBusinessServiceImpl implements UserMesblservice {
+
+public class UserMes {
 		AccountDataService accountds;
+
 
 		public ResultMessage login(AccountVO vo) {
 			try {
@@ -27,6 +26,7 @@ public class UserMes {
 				e.printStackTrace();
 				return ResultMessage.FAIL;
 			}
+
 		}
 
 		public ResultMessage modify(AccountVO vo) {
@@ -39,5 +39,5 @@ public class UserMes {
 			return null;
 		}
 
-	}
+	
 }

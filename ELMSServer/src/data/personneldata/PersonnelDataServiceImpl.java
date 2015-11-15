@@ -16,8 +16,14 @@ import ds.personneldataservice.PersonnelDataService;
  * @author czq
  * @version 2015年10月31日 上午8:59:35
  */
+@SuppressWarnings("serial")
 public class PersonnelDataServiceImpl extends DataSuperClass implements
 		PersonnelDataService {
+
+	public PersonnelDataServiceImpl() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public ArrayList<PersonPO> getPeoByInst(String ID) throws RemoteException {
 		ArrayList<PersonPO> personPOs = new ArrayList<PersonPO>();

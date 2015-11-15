@@ -1,5 +1,7 @@
 package data.datafactory;
 
+import java.rmi.RemoteException;
+
 import data.DTManagedata.DTManageDataImpl;
 import data.accountdata.AccountDataServiceImplBySQL;
 import data.financedata.FinanceDataImpl;
@@ -44,7 +46,18 @@ public class DataFactory implements DataFactoryService {
 	}
 
 	public AccountDataService getAccountDataImpl() {
-		return new AccountDataServiceImplBySQL();
+		
+		AccountDataServiceImplBySQL adservice = null;
+		
+		try {
+			 adservice= new AccountDataServiceImplBySQL();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		return adservice;
+		
 	}
 
 	public DTManagedateservice getDTMangeDataImpl() {
@@ -72,7 +85,14 @@ public class DataFactory implements DataFactoryService {
 	}
 
 	public PersonnelDataService getPersonnelDataImpl() {
-		return new PersonnelDataServiceImpl();
+		PersonnelDataService pdservice=null;
+		try {
+			pdservice=new PersonnelDataServiceImpl();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return pdservice;
 	}
 
 	public StoreDataService getStoreDataImpl() {
