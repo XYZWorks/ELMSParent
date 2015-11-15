@@ -13,7 +13,7 @@ import vo.SendGoodDocVO;
 import vo.TransferDocVO;
 import blservice.transportblservice.Transportblservice;
  /** 
- * 
+ * 货物流转controller类
  * @author czq 
  * @version 2015年11月15日 上午9:27:08 
  */

@@ -16,8 +16,10 @@ import vo.OutStoreDocVO;
  *
  */
 public class OutStoreDocImpl implements OutStoreDocService {
+	
 	StoreDataService storeData;
 	Orderblservice orderbl;
+	
 	public ArrayList<OutStoreDocVO> show() {
 		// TODO Auto-generated method stub
 		return null;

@@ -14,7 +14,11 @@ import vo.DriverVO;
  *
  */
 public class DTManage{
+	
+	
 	DTManagedateservice manageData;
+	
+	
 	public ResultMessage add(DriverVO vo) {
 		// TODO Auto-generated method stub
 		return null;

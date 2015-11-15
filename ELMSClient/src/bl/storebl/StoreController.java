@@ -13,7 +13,7 @@ import blservice.storeblservice.InStoreDocService;
 import blservice.storeblservice.OutStoreDocService;
 import blservice.storeblservice.StoreblService;
  /** 
- * 
+ * 库存管理、出库入库单Controller类
  * @author czq 
  * @version 2015年11月15日 上午9:25:23 
  */

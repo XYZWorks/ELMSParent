@@ -13,7 +13,11 @@ import vo.PersonVO;
  *
  */
 public class Personnel {
+	
+	
 	Personnelblservice personnelbl;
+	
+	
 	public ArrayList<PersonVO> getPeopleByInst(String ID) {
 		// TODO Auto-generated method stub
 		return null;

@@ -16,8 +16,11 @@ import vo.InStoreDocVO;
  *
  */
 public class InStoreDocImpl implements InStoreDocService {
+	
 	StoreDataService storeData;
+	
 	Orderblservice orderbl;
+	
 	public ArrayList<InStoreDocVO> show() {
 		// TODO Auto-generated method stub
 		return null;

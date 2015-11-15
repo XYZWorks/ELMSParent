@@ -10,7 +10,7 @@ import vo.OrderVO;
 import vo.ReceiveVO;
 import blservice.orderblservice.Orderblservice;
  /** 
- * 
+ * 订单controller类
  * @author czq 
  * @version 2015年11月15日 上午9:22:18 
  */

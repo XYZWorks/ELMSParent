@@ -21,9 +21,14 @@ import ds.transportdataservice.Transportdataservice;
  *
  */
 public class Transport {
+	
 	Transportdataservice tansportData;
+	
 	Orderblservice orderbl;
+	
 	StrategyblService strategybl;
+	
+	
 	public ResultMessage add(LoadDocVO vo) {
 		// TODO Auto-generated method stub
 		return null;

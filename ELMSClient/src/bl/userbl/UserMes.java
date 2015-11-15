@@ -12,32 +12,28 @@ import vo.AccountVO;
  *
  */
 
-
-
 public class UserMes {
-		AccountDataService accountds;
+	AccountDataService accountds;
 
+	public ResultMessage login(AccountVO vo) {
+		try {
+			return accountds.check(vo.ID, vo.password);
 
-		public ResultMessage login(AccountVO vo) {
-			try {
-				return accountds.check(vo.ID, vo.password);
-
-			} catch (RemoteException e) {
-				e.printStackTrace();
-				return ResultMessage.FAIL;
-			}
-
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return ResultMessage.FAIL;
 		}
 
-		public ResultMessage modify(AccountVO vo) {
-			// TODO Auto-generated method stub
-			return null;
-		}
+	}
 
-		public AccountVO getMes() {
-			// TODO Auto-generated method stub
-			return null;
-		}
+	public ResultMessage modify(AccountVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-	
+	public AccountVO getMes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
