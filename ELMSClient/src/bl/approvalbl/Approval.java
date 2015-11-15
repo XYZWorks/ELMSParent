@@ -2,23 +2,22 @@ package bl.approvalbl;
 
 import java.util.ArrayList;
 
-import blservice.approvalblservice.Approvalblservice;
-import blservice.orderblservice.Orderblservice;
-import blservice.storeblservice.StoreService;
-import blservice.transportblservice.Transportblservice;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
+import blservice.orderblservice.Orderblservice;
+import blservice.storeblservice.StoreblService;
+import blservice.transportblservice.Transportblservice;
 
 /** 
  * @author ymc 
  * @version 创建时间：2015年10月27日 下午7:45:13 
  *
  */
-public class ApprovalblImpl implements Approvalblservice {
+public class Approval {
 	Transportblservice transportbl;
 	Orderblservice orderbl;
-	StoreService storebl;
+	StoreblService storebl;
 	public ArrayList<DocVO> getBills(DocType type) {
 		// TODO Auto-generated method stub
 		return null;

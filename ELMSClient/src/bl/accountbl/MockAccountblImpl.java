@@ -4,6 +4,6 @@ package bl.accountbl;
  * @version 创建时间：2015年11月10日 上午9:27:40 
  *
  */
-public class MockAccountblImpl extends AccountblImpl {
+public class MockAccountblImpl extends Account {
 	
 }

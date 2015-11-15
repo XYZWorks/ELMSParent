@@ -14,7 +14,7 @@ import vo.StoreMessageVO;
  *
  *
  */
-public interface StoreService {
+public interface StoreblService {
 	/**
 	 * 显示库存信息
 	 * @return

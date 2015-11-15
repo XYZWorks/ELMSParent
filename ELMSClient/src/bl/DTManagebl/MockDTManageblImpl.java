@@ -4,6 +4,6 @@ package bl.DTManagebl;
  * @version 创建时间：2015年11月10日 上午9:38:13 
  *
  */
-public class MockDTManageblImpl extends DTManageblImpl {
+public class MockDTManageblImpl extends DTManage {
 
 }

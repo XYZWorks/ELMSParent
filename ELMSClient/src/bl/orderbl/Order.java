@@ -16,7 +16,7 @@ import vo.ReceiveVO;
  * @version 创建时间：2015年10月27日 下午7:48:05 
  *
  */
-public class OrderblImpl implements Orderblservice {
+public class Order {
 	OrderDataService orderData;
 	StrategyblService strategybl;
 	public ResultMessage add(OrderVO vo) {

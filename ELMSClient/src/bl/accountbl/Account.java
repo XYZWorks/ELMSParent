@@ -2,32 +2,36 @@ package bl.accountbl;
 
 import java.rmi.RemoteException;
 
-import blservice.accountblservice.Accountblservice;
-import ds.accountdataservice.AccountDataService;
 import po.AccountPO;
 import util.ResultMessage;
 import vo.AccountVO;
+import ds.accountdataservice.AccountDataService;
 
-/** 
- * @author ymc 
- * @version 创建时间：2015年10月27日 下午7:44:11 
+/**
+ * @author ymc
+ * @version 创建时间：2015年10月27日 下午7:44:11
  *
  */
-public class AccountblImpl implements Accountblservice {
+public class Account {
+	
 	AccountDataService accountData;
+	
 	public ResultMessage add(AccountVO vo) {
 		AccountPO po;
 		ResultMessage result = null;
-		if(vo.phoneNum==null||vo.mail==null){
-			po=new AccountPO(vo.ID, vo.name, vo.type, vo.password);
+		
+		if (vo.phoneNum == null || vo.mail == null) {
+			po = new AccountPO(vo.ID, vo.name, vo.type, vo.password);
+		} else {
+			po = new AccountPO(vo.ID, vo.name, vo.type, vo.password,
+					vo.phoneNum, vo.mail);
 		}
-		else{
-			po=new AccountPO(vo.ID, vo.name, vo.type, vo.password, vo.phoneNum, vo.mail);
-		}
+		
+		
 		try {
-			result=accountData.add(po);
+			result = accountData.add(po);
 		} catch (RemoteException e) {
-			
+
 			e.printStackTrace();
 		}
 		return result;

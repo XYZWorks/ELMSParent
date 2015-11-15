@@ -4,6 +4,6 @@ package bl.storebl;
  * @version 创建时间：2015年11月10日 上午9:42:59 
  *
  */
-public class MockStoreImpl extends StoreImpl {
+public class MockStoreImpl extends Store {
 
 }

@@ -2,7 +2,7 @@ package bl.storebl;
 
 import java.util.ArrayList;
 
-import blservice.storeblservice.StoreService;
+import blservice.storeblservice.StoreblService;
 import ds.storedataservice.StoreDataService;
 import util.ResultMessage;
 import vo.StoreCheckVO;
@@ -13,7 +13,7 @@ import vo.StoreMessageVO;
  * @version 创建时间：2015年10月27日 下午7:50:20 
  *
  */
-public class StoreImpl implements StoreService {
+public class Store {
 	StoreDataService storeData;
 	public ArrayList<StoreMessageVO> show() {
 		// TODO Auto-generated method stub

@@ -12,7 +12,7 @@ import vo.PayVO;
  * @version 创建时间：2015年10月27日 下午7:47:03 
  *
  */
-public class PayImpl implements PayService {
+public class Pay {
 	FinanceDataService financebl;
 	public ResultMessage create(PayVO vo) {
 		// TODO Auto-generated method stub

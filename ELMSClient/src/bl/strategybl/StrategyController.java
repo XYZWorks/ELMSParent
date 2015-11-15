@@ -2,20 +2,18 @@ package bl.strategybl;
 
 import java.util.ArrayList;
 
-import blservice.strategyblservice.StrategyblService;
-import ds.strategydataservice.StrategyDataService;
 import util.ResultMessage;
 import util.StaffType;
 import vo.ConstVO;
 import vo.SalaryWayVO;
-
-/** 
- * @author ymc 
- * @version 创建时间：2015年10月27日 下午7:50:58 
- *
+import blservice.strategyblservice.StrategyblService;
+ /** 
+ * 
+ * @author czq 
+ * @version 2015年11月15日 上午9:26:46 
  */
-public class StrategyblImpl implements StrategyblService {
-	StrategyDataService strategyData;
+public class StrategyController implements StrategyblService{
+
 	public ConstVO getConst() {
 		// TODO Auto-generated method stub
 		return null;

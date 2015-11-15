@@ -13,7 +13,7 @@ import vo.DepositVO;
  * @version 创建时间：2015年10月27日 下午7:46:46 
  *
  */
-public class DepositImpl implements DepositService {
+public class Deposit {
 	FinanceDataService financeData;
 	Orderblservice orderbl;
 	public ResultMessage create(DepositVO vo) {
