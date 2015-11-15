@@ -1,14 +1,15 @@
-/target/
-
-.idea/
-*.iml
 *.class
-target/
-.settings/
-.metadata/
-*.classpath
-*.project
-bc.zip
-log.txt
-*.ipr
-*.iws
+ 
+# Package Files #
+*.jar
+*.war
+*.ear
+ 
+# ignore Maven generated target folders
+target
+ 
+# ignore eclipse files
+.project
+.classpath
+.settings
+.metadata

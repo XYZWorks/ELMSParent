@@ -53,7 +53,7 @@ public class ApprovalControllerTest {
 
 	@Test
 	public void testApproveMany() {
-		docsVO = DataTool.getDocList(DocType.arriveYYDoc);
+		docsVO = docs.getDocLists(DocType.arriveZZDoc);
 		if(bl.approveMany(docsVO) == ResultMessage.SUCCESS){
 			
 		}else{

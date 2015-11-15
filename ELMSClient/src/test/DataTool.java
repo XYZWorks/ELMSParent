@@ -111,7 +111,7 @@ public class DataTool {
 		
 	}
 	
-	public static ArrayList<CarVO> cars(){
+	public static ArrayList<CarVO> getcarlist(){
 		return cars;
 	}
 	
