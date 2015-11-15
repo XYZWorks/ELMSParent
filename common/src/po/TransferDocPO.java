@@ -17,10 +17,7 @@ public class TransferDocPO extends DocPO implements Serializable{
 	 * 序列化UID
 	 */
 	private static final long serialVersionUID = 1L;
-	/**
-	 * 装车日期
-	 */
-	private  Date LoadDate;
+	
 //	/**
 //	 * 中转单ID
 //	 */
@@ -49,11 +46,10 @@ public class TransferDocPO extends DocPO implements Serializable{
 
 
 	public TransferDocPO(String iD, util.Date date,
-			 Date loadDate, String transferWayID,
+			 String transferWayID,
 			String sendCity, int containerNum, String loadManName,
 			String[] orderBarCode) {
 		super(iD,DocType.transferDoc, date, DocState.wait);
-		LoadDate = loadDate;
 		TransferWayID = transferWayID;
 		SendCity = sendCity;
 		this.containerNum = containerNum;
@@ -61,13 +57,7 @@ public class TransferDocPO extends DocPO implements Serializable{
 		this.orderBarCode = orderBarCode;
 	}
 
-	public Date getLoadDate() {
-		return LoadDate;
-	}
-
-	public void setLoadDate(Date loadDate) {
-		LoadDate = loadDate;
-	}
+	
 
 //	public int getTransferDocID() {
 //		return TransferDocID;

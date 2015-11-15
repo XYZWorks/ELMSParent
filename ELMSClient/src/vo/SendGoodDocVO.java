@@ -11,10 +11,7 @@ import util.DocType;
  *
  */
 public class SendGoodDocVO extends DocVO{
-	/**
-	 * 到达日期
-	 */
-	public Date arriveDate;
+
 	/**
 	 * 快递员
 	 */
@@ -25,9 +22,9 @@ public class SendGoodDocVO extends DocVO{
 	public String orderBarCode;
 	
 	public SendGoodDocVO(String iD, Date date,
-			Date arriveDate, String sendMan, String orderBarCode) {
+			 String sendMan, String orderBarCode) {
 		super(iD, DocType.sendGoodDoc, date, DocState.wait);
-		this.arriveDate = arriveDate;
+		
 		SendMan = sendMan;
 		this.orderBarCode = orderBarCode;
 	}

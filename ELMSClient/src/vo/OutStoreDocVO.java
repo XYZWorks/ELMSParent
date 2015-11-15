@@ -42,7 +42,7 @@ public class OutStoreDocVO extends DocVO{
 	 * @param transferDoc
 	 * @param shipWay
 	 */
-	public OutStoreDocVO(String ID,ArrayList<OrderVO> orderVOs, String loc, Date time, String transferDoc, String shipWay) {
+	public OutStoreDocVO(String ID,Date time, ArrayList<OrderVO> orderVOs, String loc, String transferDoc, String shipWay) {
 		//
 		super(ID, DocType.outStoreDoc, time, DocState.wait);
 		

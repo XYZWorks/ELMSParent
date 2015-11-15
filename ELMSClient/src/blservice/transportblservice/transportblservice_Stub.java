@@ -21,8 +21,6 @@ public class transportblservice_Stub implements Transportblservice{
 
 	public ArrayList<LoadDocVO> getDayLoadDocs(util.Date date) {
 		ArrayList<LoadDocVO> temp=new ArrayList<LoadDocVO>();
-		temp.add(new LoadDocVO("ZCD000011510260000001", date, 12345678, 12345678, "上海", 12345678,"王五", "赵六"));
-		temp.add(new LoadDocVO("ZCD000011510260000002", date, 12345678, 12345678, "上海", 12345678,"王五", "赵六"));
 		return temp;
 	}
 
@@ -33,8 +31,6 @@ public class transportblservice_Stub implements Transportblservice{
 	public ArrayList<SendGoodDocVO> getDaySendDocs(util.Date date) {
 		ArrayList<SendGoodDocVO> temp=new ArrayList<SendGoodDocVO>();
 		util.Date arriveDate = null;
-		temp.add(new SendGoodDocVO("123456", date, arriveDate, "快递员阿三", "1234567890"));
-		temp.add(new SendGoodDocVO("123789", date, arriveDate, "快递员阿三", "1234567123"));
 		return temp;
 	}
 

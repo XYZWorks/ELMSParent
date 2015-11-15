@@ -11,8 +11,6 @@ import vo.OrderVO;
 public class Approvalblservice_Stub implements Approvalblservice {
 	public ArrayList<DocVO> getBills(DocType type) {
 		ArrayList<DocVO> result = new ArrayList<DocVO>();
-		result.add(new OrderVO(null, null, null, null, null, null, null, null, null, null, null, null, 0, null, 0, 0, 0, 0, null, null, 0, 0, null));
-		result.add(new LoadDocVO(null, null, 0, 0, null, 0, null, null));
 		return result;
 		
 	}

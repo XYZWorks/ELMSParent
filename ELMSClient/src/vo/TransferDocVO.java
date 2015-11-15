@@ -11,10 +11,7 @@ import util.DocType;
  *
  */
 public class TransferDocVO extends DocVO{
-	/**
-	 * 装车日期
-	 */
-	public Date LoadDate;
+	
 //	/**
 //	 * 中转单ID
 //	 */
@@ -43,11 +40,11 @@ public class TransferDocVO extends DocVO{
 	
 	
 	public TransferDocVO(String iD, util.Date date,
-			 Date loadDate, String transferWayID,
+			String transferWayID,
 			String sendCity, int containerNum, String loadManName,
 			String[] orderBarCode) {
 		super(iD, DocType.transferDoc, date, DocState.wait);
-		LoadDate = loadDate;
+		
 		TransferWayID = transferWayID;
 		SendCity = sendCity;
 		this.containerNum = containerNum;

@@ -22,11 +22,11 @@ public class LoadDocPO extends DocPO implements Serializable{
 	/**
 	 * 本营业厅编号
 	 */
-	private int YYID;
+	private String YYID;
 	/**
 	 * 汽运编号
 	 */
-	private int LoadDocID;
+	private String LoadDocID;
 	/**
 	 * 到达地
 	 */
@@ -34,7 +34,7 @@ public class LoadDocPO extends DocPO implements Serializable{
 	/**
 	 * 车辆代号
 	 */
-	private int CarID;
+	private String CarID;
 	/**
 	 * 监运员姓名
 	 */
@@ -44,8 +44,8 @@ public class LoadDocPO extends DocPO implements Serializable{
 	 */
 	private String Escort;
 
-	public LoadDocPO(String iD, Date date, int yYID, int loadDocID,
-			String arriveCity, int carID, String supervisor, String escort) {
+	public LoadDocPO(String iD, Date date, String yYID, String loadDocID,
+			String arriveCity, String carID, String supervisor, String escort) {
 		super(iD, DocType.loadDoc, date, DocState.wait);
 		YYID = yYID;
 		LoadDocID = loadDocID;
@@ -55,19 +55,19 @@ public class LoadDocPO extends DocPO implements Serializable{
 		Escort = escort;
 	}
 
-	public int getYYID() {
+	public String getYYID() {
 		return YYID;
 	}
 
-	public void setYYID(int yYID) {
+	public void setYYID(String yYID) {
 		YYID = yYID;
 	}
 
-	public int getLoadDocID() {
+	public String getLoadDocID() {
 		return LoadDocID;
 	}
 
-	public void setLoadDocID(int loadDocID) {
+	public void setLoadDocID(String loadDocID) {
 		LoadDocID = loadDocID;
 	}
 
@@ -79,11 +79,11 @@ public class LoadDocPO extends DocPO implements Serializable{
 		this.arriveCity = arriveCity;
 	}
 
-	public int getCarID() {
+	public String getCarID() {
 		return CarID;
 	}
 
-	public void setCarID(int carID) {
+	public void setCarID(String carID) {
 		CarID = carID;
 	}
 

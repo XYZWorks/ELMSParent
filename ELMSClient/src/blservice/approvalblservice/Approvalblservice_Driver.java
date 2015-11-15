@@ -18,15 +18,10 @@ public class Approvalblservice_Driver {
 		System.out.println("获得" + DocType.getName(DocType.order) + "所有单据");
 		
 		System.out.println("审批单个单据");
-		resultMes = bl.approveOne(new LoadDocVO(null, null, 0, 0, null, 0, null, null));
-		if(resultMes == ResultMessage.SUCCESS){
-			System.out.println("成功审批单据");
-		}
+		
 		
 		System.out.println("审批多个单据");
 		result = new ArrayList<DocVO>();
-		result.add(new LoadDocVO(null, null, 0, 0, null, 0, null, null));
-		result.add(new LoadDocVO(null, null, 0, 0, null, 0, null, null));
 		resultMes = bl.approveMany(result);
 		if(resultMes == ResultMessage.SUCCESS){
 			System.out.println("成功审批多个单据");

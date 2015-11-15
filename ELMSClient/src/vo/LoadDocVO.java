@@ -15,11 +15,11 @@ public class LoadDocVO extends DocVO{
 	/**
 	 * 本营业厅编号
 	 */
-	public int YYID;
+	public String YYID;
 	/**
 	 * 汽运编号
 	 */
-	public int LoadDocID;
+	public String LoadDocID;
 	/**
 	 * 到达地
 	 */
@@ -27,7 +27,7 @@ public class LoadDocVO extends DocVO{
 	/**
 	 * 车辆代号
 	 */
-	public int CarID;
+	public String CarID;
 	/**
 	 * 监运员姓名
 	 */
@@ -40,7 +40,7 @@ public class LoadDocVO extends DocVO{
 
 
 	public LoadDocVO(String iD, Date date,
-			int yYID, int loadDocID, String arriveCity, int carID,
+			String yYID, String loadDocID, String arriveCity, String carID,
 			String supervisor, String escort) {
 		super(iD, DocType.loadDoc, date, DocState.wait);
 		YYID = yYID;

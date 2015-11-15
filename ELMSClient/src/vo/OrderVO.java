@@ -18,10 +18,6 @@ public class OrderVO extends DocVO{
 	 */
 	public String orderYYT;
 
-	/**
-	 * 订单条形码
-	 */
-	public String orderBarCode;
 //
 //	/**
 //	 * 订单日期
@@ -119,7 +115,7 @@ public class OrderVO extends DocVO{
 
 
 	public OrderVO(String iD, util.Date date,
-			String orderYYT, String orderBarCode, String senderName,
+			String orderYYT,  String senderName,
 			String senderPhone, String senderCompany, String senderAddress,
 			String receiverName, String receiverPhone, String receiverCompany,
 			String receiverAddress, int goodNum, String goodName,
@@ -128,7 +124,6 @@ public class OrderVO extends DocVO{
 			int orderCost, ArrayList<DocVO> docList) {
 		super(iD, DocType.order, date, DocState.wait);
 		this.orderYYT = orderYYT;
-		this.orderBarCode = orderBarCode;
 		this.senderName = senderName;
 		this.senderPhone = senderPhone;
 		this.senderCompany = senderCompany;
@@ -158,14 +153,7 @@ public class OrderVO extends DocVO{
 		this.orderYYT = orderYYT;
 	}
 
-	public String getOrderBarCode() {
-		return orderBarCode;
-	}
-
-	public void setOrderBarCode(String orderBarCode) {
-		this.orderBarCode = orderBarCode;
-	}
-
+	
 //	public Date getOrderDate() {
 //		return orderDate;
 //	}
