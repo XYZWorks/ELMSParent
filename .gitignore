@@ -13,3 +13,5 @@ log.txt
 *.ipr
 *.iws
 kerby-serve
+*.class
+*.class
