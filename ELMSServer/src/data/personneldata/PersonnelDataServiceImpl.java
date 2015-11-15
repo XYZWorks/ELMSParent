@@ -19,6 +19,11 @@ import ds.personneldataservice.PersonnelDataService;
 public class PersonnelDataServiceImpl extends DataSuperClass implements
 		PersonnelDataService {
 
+	public PersonnelDataServiceImpl() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public ArrayList<PersonPO> getPeoByInst(String ID) throws RemoteException {
 		ArrayList<PersonPO> personPOs = new ArrayList<PersonPO>();
 		try {
