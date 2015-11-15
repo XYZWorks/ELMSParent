@@ -1,5 +1,7 @@
 package dataSuper;
 
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +14,12 @@ import config.DataBaseInit;
  * @author czq 
  * @version 2015年10月31日 上午9:18:30 
  */
-public class DataSuperClass {
+public class DataSuperClass extends UnicastRemoteObject{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	protected Connection conn;
 	
 	protected PreparedStatement preState;
@@ -21,7 +28,7 @@ public class DataSuperClass {
 	
 	protected ResultSet result;
 	
-	public DataSuperClass() {
+	public DataSuperClass() throws RemoteException{
 		this.conn = DataBaseInit.getConnection();
 	}
 	/**

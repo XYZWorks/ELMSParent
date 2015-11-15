@@ -19,7 +19,7 @@ public class PayImpl implements PayService {
 		return null;
 	}
 
-	public ArrayList<PayVO> show() {
+	public ArrayList<PayVO> showPays() {
 		// TODO Auto-generated method stub
 		return null;
 	}

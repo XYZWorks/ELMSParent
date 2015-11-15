@@ -17,6 +17,18 @@ import ds.accountdataservice.AccountDataService;
  */
 public class AccountDataServiceImplBySQL extends DataSuperClass implements AccountDataService {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
+
+	public AccountDataServiceImplBySQL() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public ResultMessage add(AccountPO po) throws RemoteException {
 
 			
@@ -133,8 +145,9 @@ public class AccountDataServiceImplBySQL extends DataSuperClass implements Accou
 	/**
 	 * 仅供测试
 	 * @param args
+	 * @throws RemoteException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws RemoteException {
 		AccountDataService test = new AccountDataServiceImplBySQL();
 		try {
 //			 test.add(new AccountPO("124414", "c阿斯顿", AccountType.financeman,
