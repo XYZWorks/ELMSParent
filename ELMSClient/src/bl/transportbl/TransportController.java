@@ -1,7 +1,7 @@
 package bl.transportbl;
 
 import java.util.ArrayList;
-import java.util.Date;
+import util.Date;
 
 import util.DocType;
 import util.ResultMessage;
@@ -93,5 +93,6 @@ public class TransportController implements Transportblservice{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }

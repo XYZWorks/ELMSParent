@@ -10,6 +10,7 @@ import org.junit.Test;
 import bl.transportbl.TransportController;
 import blservice.transportblservice.Transportblservice;
 import test.DataTool;
+import util.Date;
 import util.DocState;
 import util.DocType;
 import util.ResultMessage;
@@ -47,7 +48,7 @@ public class TransportControllerTest {
 	@Test
 	public void testGetDayLoadDocs() {
 	
-		//在别的类中测试
+		bl.getDayLoadDocs( new Date(2015, 11, 11));
 	}
 
 	@Test
@@ -137,6 +138,7 @@ public class TransportControllerTest {
 			}
 				
 		}
+		
 		if(!(result==ResultMessage.SUCCESS))
 			fail("fail changeDocsState");	
 	}

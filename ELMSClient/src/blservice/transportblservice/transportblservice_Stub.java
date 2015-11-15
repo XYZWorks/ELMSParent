@@ -1,7 +1,7 @@
 package blservice.transportblservice;
 
 import java.util.ArrayList;
-import java.util.Date;
+import util.Date;
 
 import util.DocType;
 import util.ResultMessage;
@@ -19,20 +19,13 @@ public class transportblservice_Stub implements Transportblservice{
 		return ResultMessage.SUCCESS;
 	}
 
-	public ArrayList<LoadDocVO> getDayLoadDocs(util.Date date) {
-		ArrayList<LoadDocVO> temp=new ArrayList<LoadDocVO>();
-		return temp;
-	}
+	
 
 	public ResultMessage add(SendGoodDocVO vo) {
 		return ResultMessage.SUCCESS;
 	}
 
-	public ArrayList<SendGoodDocVO> getDaySendDocs(util.Date date) {
-		ArrayList<SendGoodDocVO> temp=new ArrayList<SendGoodDocVO>();
-		util.Date arriveDate = null;
-		return temp;
-	}
+	
 
 	public ResultMessage add(ArriveYYDocVO vo) {
 		// TODO 自动生成的方法存根
