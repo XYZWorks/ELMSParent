@@ -139,7 +139,9 @@ public class TransportControllerTest {
 
 	@Test
 	public void testGetDocLists() {
+		
 		ArrayList<DocVO> vos= bl.getDocLists(DocType.arriveZZDoc);
+		
 		if(vos==null)
 			fail("fail to get loadDoc");	
 	}
