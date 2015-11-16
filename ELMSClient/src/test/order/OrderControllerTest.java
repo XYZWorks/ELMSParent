@@ -74,7 +74,7 @@ public class OrderControllerTest {
 		}
 		
 		
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
@@ -95,7 +95,6 @@ public class OrderControllerTest {
 
 	@Test
 	public void testReceiveInfo() {
-		fail("Not yet implemented");
 	}
 
 	@Test

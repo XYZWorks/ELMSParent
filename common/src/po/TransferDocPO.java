@@ -1,8 +1,5 @@
 package po;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import util.DocState;
 import util.DocType;
 
@@ -12,11 +9,8 @@ import util.DocType;
  * @author JerryZhang
  *
  */
-public class TransferDocPO extends DocPO implements Serializable{
-	/**
-	 * 序列化UID
-	 */
-	private static final long serialVersionUID = 1L;
+public class TransferDocPO extends DocPO {
+
 	
 //	/**
 //	 * 中转单ID

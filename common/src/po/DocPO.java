@@ -2,8 +2,6 @@ package po;
 
 
 
-import java.io.Serializable;
-
 import util.Date;
 import util.DocState;
 import util.DocType;
@@ -13,12 +11,9 @@ import util.DocType;
  * @author czq
  *
  */
-public abstract class DocPO implements Serializable{
+public abstract class DocPO {
 	
-	/**
-	 * 序列化UID
-	 */
-	private static final long serialVersionUID = 1L;
+
 	
 	/**
 	 * 单据ID

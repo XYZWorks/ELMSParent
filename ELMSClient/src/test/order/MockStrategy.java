@@ -1,5 +1,6 @@
 package test.order;
 
+import test.DataTool;
 import vo.ConstVO;
  /** 
  * 
@@ -9,8 +10,7 @@ import vo.ConstVO;
 public class MockStrategy {
 
 	public ConstVO getConst() {
-		// TODO Auto-generated method stub
-		return null;
+		return DataTool.getConst();
 	}
 
 

@@ -1,6 +1,5 @@
 package po;
 
-import java.io.Serializable;
 
 /**
  * 系统常量PO类
