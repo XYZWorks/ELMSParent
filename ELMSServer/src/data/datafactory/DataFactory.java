@@ -45,38 +45,49 @@ public class DataFactory implements DataFactoryService {
 
 	}
 
-	public AccountDataService getAccountDataImpl() throws RemoteException {
-		return new AccountDataServiceImplBySQL();
+	public AccountDataService getAccountDataImpl() {
+		
+		AccountDataServiceImplBySQL adservice = null;
+		
+		try {
+			 adservice= new AccountDataServiceImplBySQL();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		return adservice;
+		
 	}
 
-	public DTManagedateservice getDTMangeDataImpl() throws RemoteException {
+	public DTManagedateservice getDTMangeDataImpl() {
 		return new DTManageDataImpl();
 	}
 
-	public FinanceDataService getFinanceDataImpl() throws RemoteException {
+	public FinanceDataService getFinanceDataImpl() {
 		return new FinanceDataImpl();
 	}
 
-	public OrderDataService getOrderDataImpl() throws RemoteException {
+	public OrderDataService getOrderDataImpl() {
 		return new OrderDataImpl();
 	}
 
-	public StatisticDataService getStatisticDataImpl() throws RemoteException {
+	public StatisticDataService getStatisticDataImpl() {
 		return new StatisticDataImpl();
 	}
 
-	public Transportdataservice getTransportDataImpl() throws RemoteException {
+	public Transportdataservice getTransportDataImpl() {
 		return new TransportDataImpl();
 	}
 
-	public StrategyDataService getStrategyDataImpl() throws RemoteException {
+	public StrategyDataService getStrategyDataImpl() {
 		return new StrategyDataImpl();
 	}
 
-	public PersonnelDataService getPersonnelDataImpl() throws RemoteException {
-		PersonnelDataService pdservice = null;
+	public PersonnelDataService getPersonnelDataImpl() {
+		PersonnelDataService pdservice=null;
 		try {
-			pdservice = new PersonnelDataServiceImpl();
+			pdservice=new PersonnelDataServiceImpl();
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -84,7 +95,7 @@ public class DataFactory implements DataFactoryService {
 		return pdservice;
 	}
 
-	public StoreDataService getStoreDataImpl() throws RemoteException {
+	public StoreDataService getStoreDataImpl() {
 		return new StoreDataImpl();
 	}
 

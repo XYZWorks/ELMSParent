@@ -8,24 +8,14 @@ import po.OutStoreDocPO;
 import po.StoreCheckPO;
 import po.StoreMessagePO;
 import util.ResultMessage;
-import dataSuper.DataSuperClass;
+import ds.statisticdataservice.StatisticDataService;
 import ds.storedataservice.StoreDataService;
  /** 
  * 
  * @author czq 
  * @version 2015年11月5日 下午10:00:00 
  */
-public class StoreDataImpl extends DataSuperClass implements StoreDataService{
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	public StoreDataImpl() throws RemoteException {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+public class StoreDataImpl implements StoreDataService{
 
 	public StoreMessagePO getStoreMessage() throws RemoteException {
 		// TODO Auto-generated method stub

@@ -8,24 +8,13 @@ import po.DocPO;
 import po.OrderPO;
 import po.ReceivePO;
 import util.ResultMessage;
-import dataSuper.DataSuperClass;
 import ds.orderdataservice.OrderDataService;
  /** 
  * 
  * @author czq 
  * @version 2015年11月5日 下午8:46:19 
  */
-public class OrderDataImpl extends DataSuperClass implements OrderDataService {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	public OrderDataImpl() throws RemoteException {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+public class OrderDataImpl implements OrderDataService {
 
 	public ArrayList<OrderPO> getDayOrderPO(Date date) throws RemoteException {
 		// TODO Auto-generated method stub
