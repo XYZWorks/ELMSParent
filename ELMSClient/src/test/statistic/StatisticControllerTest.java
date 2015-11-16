@@ -2,14 +2,20 @@ package test.statistic;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
  
 
 
 import util.ResultMessage;
+import vo.BillVO;
+import vo.CostIncomeVO;
+import vo.StateFormVO;
 import bl.statisticbl.StatisticController;
 import blservice.statisticblservice.Statisticblservice;
+import test.DataTool;
 /** 
  * 
  * @author czq 
@@ -28,32 +34,57 @@ public class StatisticControllerTest {
 
 	@Test
 	public void testBulidStateForm() {
-		fail("Not yet implemented");
+		StateFormVO vo = DataTool.getStateForm();
+		result = bl.bulidStateForm(vo);
+		if(result!=ResultMessage.SUCCESS)
+			fail("fail to build state form");
+			
 	}
 
 	@Test
 	public void testBulidCostIncomeForm() {
-		fail("Not yet implemented");
+		CostIncomeVO vo = DataTool.getCostIncomeForm();
+		result = bl.bulidCostIncomeForm(vo);
+		if(result!=ResultMessage.SUCCESS)
+			fail("fail to build income form");
 	}
 
 	@Test
 	public void testGetStateForm() {
-		fail("Not yet implemented");
+		
+		ArrayList<StateFormVO> list = bl.getStateForm();
+				
+			if(list.isEmpty())
+				fail("Not get form");
 	}
 
 	@Test
 	public void testGetIncomeForm() {
-		fail("Not yet implemented");
+		
+		ArrayList<CostIncomeVO> list = bl.getIncomeForm();
+		
+		if(list.isEmpty())
+			fail("Not get form");
 	}
 
 	@Test
 	public void testBulidBill() {
-		fail("Not yet implemented");
+		
+		BillVO vo = DataTool.getBill();
+		
+		result = bl.bulidBill(vo);
+		
+		if(result!=ResultMessage.SUCCESS)
+			fail("fail to build bill");
 	}
 
 	@Test
 	public void testGetBills() {
-		fail("Not yet implemented");
+		
+		ArrayList<BillVO> vos= bl.getBills();
+		
+		if(vos==null)
+			fail("fail to get bill");
 	}
 
 }

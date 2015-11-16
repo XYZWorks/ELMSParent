@@ -10,8 +10,10 @@ import util.StaffType;
 import util.WageStrategy;
 import vo.ArriveYYDocVO;
 import vo.ArriveZZDocVO;
+import vo.BillVO;
 import vo.CarVO;
 import vo.ConstVO;
+import vo.CostIncomeVO;
 import vo.CostVO;
 import vo.DepositVO;
 import vo.DocVO;
@@ -25,6 +27,7 @@ import vo.PayVO;
 import vo.PersonVO;
 import vo.SalaryWayVO;
 import vo.SendGoodDocVO;
+import vo.StateFormVO;
 import vo.TransferDocVO;
 
 /**
@@ -53,6 +56,9 @@ public class DataTool {
 	static ArrayList<DriverVO> drivers = new ArrayList<DriverVO>();
 	static ArrayList<CarVO>  cars = new ArrayList<CarVO>();
 	
+	static ArrayList<PayVO> pays = new ArrayList<PayVO>();
+	static ArrayList<DepositVO> deposits = new ArrayList<DepositVO>();
+	
 	static{
 		orders.add(new OrderVO("2311278906", d1, "02500", "czq", "13188907872", "nju", "常府街44号", "ymc", "13497269020",
 				"hs", "仙林大道163号", 1, "book", 2, 30, 20, 10, "wood box", "fast model", 2, 20, test));
@@ -67,6 +73,13 @@ public class DataTool {
 		
 		cars.add(new CarVO("025000001", "粤VDC798" , 1));
 		cars.add(new CarVO("025000002", "粤Vxx877", 2));
+		
+		pays.add(new PayVO(d1, 2000, "transport"));
+		pays.add(new PayVO(d1, 4000, "salary"));
+		
+		deposits.add(new DepositVO(d1, 7000));
+		deposits.add(new DepositVO(d2, 6000));
+
 		
 	}
 	
@@ -119,6 +132,7 @@ public class DataTool {
 			break;
 		}
 		return al;
+		
 	}
 	
 	
@@ -183,5 +197,26 @@ public class DataTool {
 		insts.add(new InstVO(instid3, "广州", InstType.headOffice));
 		return insts;
 		
+	}
+
+
+	public static StateFormVO getStateForm() {
+	
+		StateFormVO vo = new StateFormVO(d2, d4, pays, deposits);
+		return vo;
+	}
+
+
+	public static CostIncomeVO getCostIncomeForm() {
+
+		CostIncomeVO vo = new CostIncomeVO(7000, 6000, d1, d2);
+		return vo;
+	}
+
+
+	public static BillVO getBill() {
+
+		BillVO vo = new BillVO();
+		return vo;
 	}
 }
