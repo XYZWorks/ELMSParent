@@ -17,7 +17,7 @@ public interface DocApprovalService {
 	 * 获得单据列表
 	 * @return
 	 */
-	public ArrayList<DocVO> getDocLists(DocType type);
+	public ArrayList<? extends DocVO> getDocLists(DocType type);
 	/**
 	 * 批量修改单据状态
 	 * @param docsID

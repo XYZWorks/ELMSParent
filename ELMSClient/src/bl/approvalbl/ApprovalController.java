@@ -23,7 +23,9 @@ public class ApprovalController implements Approvalblservice{
 		return null;
 	}
 
-	public ResultMessage approveMany(ArrayList<DocVO> vos) {
+	
+
+	public ResultMessage approveMany(ArrayList<? extends DocVO> docsVO) {
 		// TODO Auto-generated method stub
 		return null;
 	}

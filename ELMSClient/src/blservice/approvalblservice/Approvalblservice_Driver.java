@@ -14,7 +14,6 @@ public class Approvalblservice_Driver {
 		
 		
 		System.out.println("获得单据");
-		result = bl.getBills(DocType.order);
 		System.out.println("获得" + DocType.getName(DocType.order) + "所有单据");
 		
 		System.out.println("审批单个单据");

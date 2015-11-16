@@ -53,7 +53,7 @@ public class DataTool {
 		
 	}
 	
-	public static ArrayList<DocVO> getDocList(DocType tpye) {
+	public static ArrayList<? extends DocVO> getDocList(DocType tpye) {
 
 		ArrayList<DocVO> al = null;
 		

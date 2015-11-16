@@ -38,8 +38,8 @@ public class TransportControllerTest {
 
 	@Test
 	public void testAddLoadDocVO() {
-		ArrayList<DocVO> ldList = DataTool.getDocList(DocType.loadDoc);
-		LoadDocVO vo = (LoadDocVO)ldList.get(0);
+		ArrayList<LoadDocVO> ldList = (ArrayList<LoadDocVO>) DataTool.getDocList(DocType.loadDoc);
+		LoadDocVO vo = ldList.get(0);
 		result = bl.add(vo);
 		if(!(result==ResultMessage.SUCCESS))
 			fail("Not yet implemented");
@@ -56,8 +56,8 @@ public class TransportControllerTest {
 
 	@Test
 	public void testAddSendGoodDocVO() {
-		ArrayList<DocVO> list = DataTool.getDocList(DocType.sendGoodDoc);
-		SendGoodDocVO vo = (SendGoodDocVO)list.get(0);
+		ArrayList<SendGoodDocVO> list = (ArrayList<SendGoodDocVO>) DataTool.getDocList(DocType.sendGoodDoc);
+		SendGoodDocVO vo = list.get(0);
 		result = bl.add(vo);
 		if(!(result==ResultMessage.SUCCESS))
 			fail("Not yet implemented");
@@ -72,8 +72,8 @@ public class TransportControllerTest {
 
 	@Test
 	public void testAddArriveYYDocVO() {
-		ArrayList<DocVO> list = DataTool.getDocList(DocType.arriveYYDoc);
-		ArriveYYDocVO vo = (ArriveYYDocVO)list.get(0);
+		ArrayList<ArriveYYDocVO> list = (ArrayList<ArriveYYDocVO>) DataTool.getDocList(DocType.arriveYYDoc);
+		ArriveYYDocVO vo = list.get(0);
 		result = bl.add(vo);
 		if(!(result==ResultMessage.SUCCESS))
 			fail("Not yet implemented");
@@ -88,8 +88,8 @@ public class TransportControllerTest {
 
 	@Test
 	public void testAddArriveZZDocVO() {
-		ArrayList<DocVO> list = DataTool.getDocList(DocType.arriveZZDoc);
-		ArriveZZDocVO vo = (ArriveZZDocVO)list.get(0);
+		ArrayList<ArriveZZDocVO> list = (ArrayList<ArriveZZDocVO>) DataTool.getDocList(DocType.arriveZZDoc);
+		ArriveZZDocVO vo = list.get(0);
 		result = bl.add(vo);
 		if(!(result==ResultMessage.SUCCESS))
 			fail("Not yet implemented");
@@ -103,7 +103,7 @@ public class TransportControllerTest {
 
 	@Test
 	public void testAddTransferDocVO() {
-		ArrayList<DocVO> list = DataTool.getDocList(DocType.transferDoc);
+		ArrayList<TransferDocVO> list = (ArrayList<TransferDocVO>) DataTool.getDocList(DocType.transferDoc);
 		TransferDocVO vo = (TransferDocVO)list.get(0);
 		result = bl.add(vo);
 		if(!(result==ResultMessage.SUCCESS))
@@ -125,11 +125,11 @@ public class TransportControllerTest {
 	@Test
 	public void testGetExpense() {
 		
-		ArrayList<DocVO> l1 = DataTool.getDocList(DocType.arriveZZDoc);
-		ArriveZZDocVO vo1=(ArriveZZDocVO)l1.get(0);
+		ArrayList<ArriveZZDocVO> l1 = (ArrayList<ArriveZZDocVO>) DataTool.getDocList(DocType.arriveZZDoc);
+		ArriveZZDocVO vo1=l1.get(0);
 		
-		ArrayList<DocVO> l2 = DataTool.getDocList(DocType.transferDoc);
-		TransferDocVO vo2=(TransferDocVO)l2.get(0);
+		ArrayList<TransferDocVO> l2 = (ArrayList<TransferDocVO>) DataTool.getDocList(DocType.transferDoc);
+		TransferDocVO vo2=l2.get(0);
 
  		double money = bl.getExpense(vo1, vo2);
  		
@@ -140,7 +140,7 @@ public class TransportControllerTest {
 	@Test
 	public void testGetDocLists() {
 		
-		ArrayList<DocVO> vos= bl.getDocLists(DocType.arriveZZDoc);
+		ArrayList<ArriveZZDocVO> vos= (ArrayList<ArriveZZDocVO>) bl.getDocLists(DocType.arriveZZDoc);
 		
 		if(vos==null)
 			fail("fail to get loadDoc");	
@@ -150,7 +150,7 @@ public class TransportControllerTest {
 	public void testChangeDocsState() {
 		
 		
-		ArrayList<DocVO> list= DataTool.getDocList(DocType.transferDoc);
+		ArrayList<TransferDocVO> list= (ArrayList<TransferDocVO>) DataTool.getDocList(DocType.transferDoc);
 
 		for(DocVO vo:list){
 			vo.state=DocState.pass;
@@ -170,9 +170,9 @@ public class TransportControllerTest {
 	@Test
 	public void testChangeOneDocState() {
 		
-		ArrayList<DocVO> list= DataTool.getDocList(DocType.transferDoc);
+		ArrayList<TransferDocVO> list= (ArrayList<TransferDocVO>) DataTool.getDocList(DocType.transferDoc);
 		
-		TransferDocVO vo = (TransferDocVO)list.get(0);
+		TransferDocVO vo = list.get(0);
 
 		if(vo.state!=DocState.pass)
 			vo.state=DocState.pass;

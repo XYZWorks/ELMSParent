@@ -15,7 +15,7 @@ import blservice.DocApprovalService;
  */
 public class MockDocs implements DocApprovalService {
 
-	public ArrayList<DocVO> getDocLists(DocType type) {
+	public ArrayList<? extends DocVO> getDocLists(DocType type) {
 		switch (type) {
 		case arriveYYDoc:
 			return DataTool.getDocList(DocType.arriveYYDoc);

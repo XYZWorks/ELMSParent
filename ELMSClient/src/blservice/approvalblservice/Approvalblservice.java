@@ -16,7 +16,7 @@ public interface Approvalblservice {
 	 * @param type
 	 * @return
 	 */
-	public ArrayList<DocVO> getBills(DocType type);
+	public ArrayList<? extends DocVO> getBills(DocType type);
 	/**
 	 * 审批通过单个单据
 	 * @param vo
@@ -25,10 +25,10 @@ public interface Approvalblservice {
 	public ResultMessage approveOne(DocVO vo);
 	/**
 	 * 审批通过多个单据
-	 * @param vos
+	 * @param docsVO
 	 * @return
 	 */
-	public ResultMessage approveMany(ArrayList<DocVO> vos);
+	public ResultMessage approveMany(ArrayList<? extends DocVO> docsVO);
 	//TODO 有提供给总经理修改的接口吗！！！（暂时选择性忽略此功能）
 //	public ResultMessage modify();
 }

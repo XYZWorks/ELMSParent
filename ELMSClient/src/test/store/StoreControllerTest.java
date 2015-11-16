@@ -78,14 +78,15 @@ public class StoreControllerTest {
 
 	@Test
 	public void testGetDocLists() {
-		ArrayList<DocVO> vos = in.getDocLists(DocType.inStoreDoc);
+		ArrayList<InStoreDocVO> vos = (ArrayList<InStoreDocVO>) in.getDocLists(DocType.inStoreDoc);
 		if(vos==null)
 			fail("Not yet implemented");
 	}
 
+
 	@Test
 	public void testChangeDocsState() {
-		ArrayList<DocVO> vos = in.getDocLists(DocType.inStoreDoc);
+		ArrayList<InStoreDocVO> vos = (ArrayList<InStoreDocVO>) in.getDocLists(DocType.inStoreDoc);
 		ArrayList<String> ids=null;
 		for(DocVO vo:vos)
 			ids.add(vo.ID);
@@ -97,7 +98,7 @@ public class StoreControllerTest {
 	@Test
 	public void testChangeOneDocState() {
 		
-		ArrayList<DocVO> vos = in.getDocLists(DocType.inStoreDoc);
+		ArrayList<InStoreDocVO> vos = (ArrayList<InStoreDocVO>) in.getDocLists(DocType.inStoreDoc);
 		
 		String id=vos.get(0).ID;
 		
@@ -109,9 +110,9 @@ public class StoreControllerTest {
 	@Test
 	public void testGenerateOutStoreDocVO() {
 		
-		ArrayList<DocVO> vos = DataTool.getDocList(DocType.outStoreDoc);
+		ArrayList<OutStoreDocVO> vos = (ArrayList<OutStoreDocVO>) DataTool.getDocList(DocType.outStoreDoc);
 		
-		result=out.generate((OutStoreDocVO)vos.get(0));
+		result=out.generate(vos.get(0));
 		
 		if(result!=ResultMessage.SUCCESS)
 			fail("Not generate");		
@@ -121,9 +122,9 @@ public class StoreControllerTest {
 
 	@Test
 	public void testGenerateInStoreDocVO() {
-		ArrayList<DocVO> vos = DataTool.getDocList(DocType.inStoreDoc);
+		ArrayList<InStoreDocVO> vos = (ArrayList<InStoreDocVO>) DataTool.getDocList(DocType.inStoreDoc);
 		
-		result=in.generate((InStoreDocVO)vos.get(0));
+		result=in.generate(vos.get(0));
 		
 		if(result!=ResultMessage.SUCCESS)
 			fail("Not generate");		

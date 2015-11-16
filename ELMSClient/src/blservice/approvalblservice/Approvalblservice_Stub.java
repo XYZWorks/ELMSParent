@@ -20,8 +20,11 @@ public class Approvalblservice_Stub implements Approvalblservice {
 		
 	}
 
-	public ResultMessage approveMany(ArrayList<DocVO> vos) {
-		return ResultMessage.SUCCESS;
+	
+
+	public ResultMessage approveMany(ArrayList<? extends DocVO> docsVO) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

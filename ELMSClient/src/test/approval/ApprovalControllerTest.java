@@ -10,6 +10,7 @@ import org.junit.Test;
 import test.DataTool;
 import util.DocType;
 import util.ResultMessage;
+import vo.ArriveYYDocVO;
 import vo.DocVO;
 import bl.approvalbl.ApprovalController;
 import blservice.approvalblservice.Approvalblservice;
@@ -24,7 +25,7 @@ public class ApprovalControllerTest {
 	Approvalblservice bl;
 	ResultMessage result;
 	MockDocs docs;
-	ArrayList<DocVO> docsVO;
+	ArrayList<ArriveYYDocVO> docsVO;
 
 	@Before
 	public void setUp() throws Exception {
@@ -33,7 +34,7 @@ public class ApprovalControllerTest {
 
 	@Test
 	public void testGetBills() {
-		docsVO = bl.getBills(DocType.arriveYYDoc);
+		docsVO = (ArrayList<ArriveYYDocVO>) bl.getBills(DocType.arriveYYDoc);
 		if (docsVO == null) {
 			fail("can not get the bills");
 		}
@@ -41,7 +42,7 @@ public class ApprovalControllerTest {
 
 	@Test
 	public void testApproveOne() {
-		docsVO = docs.getDocLists(DocType.arriveYYDoc);
+		docsVO = (ArrayList<ArriveYYDocVO>) docs.getDocLists(DocType.arriveYYDoc);
 		result = bl.approveOne(docsVO.get(0));
 		if (result == ResultMessage.SUCCESS) {
 			
@@ -53,7 +54,7 @@ public class ApprovalControllerTest {
 
 	@Test
 	public void testApproveMany() {
-		docsVO = docs.getDocLists(DocType.arriveZZDoc);
+		docsVO = (ArrayList<ArriveYYDocVO>) docs.getDocLists(DocType.arriveZZDoc);
 		if(bl.approveMany(docsVO) == ResultMessage.SUCCESS){
 			
 		}else{
