@@ -99,7 +99,7 @@ public class OrderControllerTest {
 
 	@Test
 	public void testAddDocToList() {
-		if(bl.addDocToList(DataTool.getDocList(DocType.arriveYYDoc).get(0)) == ResultMessage.SUCCESS){
+		if(bl.addDocToList((DocVO) DataTool.getDocList(DocType.arriveYYDoc).get(0)) == ResultMessage.SUCCESS){
 			
 		}else{
 			fail(" fail  to AddDocToList");
@@ -110,7 +110,7 @@ public class OrderControllerTest {
 
 	@Test
 	public void testGetDocLists() {
-		ArrayList<DocVO> vos = bl.getDocLists(DocType.order);
+		ArrayList<DocVO> vos = (ArrayList<DocVO>) bl.getDocLists(DocType.order);
 		if(vos == null){
 			fail("fail to get doc lists");
 		}
@@ -118,7 +118,7 @@ public class OrderControllerTest {
 
 	@Test
 	public void testChangeDocsState() {
-		ArrayList<DocVO> vos = bl.getDocLists(DocType.order);
+		ArrayList<DocVO> vos = (ArrayList<DocVO>) bl.getDocLists(DocType.order);
 		vos.get(0).state = DocState.pass;
 		vos.get(1).state = DocState.pass;
 		
@@ -137,7 +137,7 @@ public class OrderControllerTest {
 
 	@Test
 	public void testChangeOneDocState() {
-		ArrayList<DocVO> vos = bl.getDocLists(DocType.order);
+		ArrayList<DocVO> vos = (ArrayList<DocVO>) bl.getDocLists(DocType.order);
 		vos.get(0).state = DocState.pass;
 		result = bl.changeOneDocState(vos.get(0).ID);
 		if(result == ResultMessage.SUCCESS){
