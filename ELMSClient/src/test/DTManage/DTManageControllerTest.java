@@ -1,15 +1,16 @@
 package test.DTManage;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import bl.DTManagebl.DTManageController;
-import blservice.DTManageblservice.DTManageblservice;
 import test.DataTool;
 import util.ResultMessage;
+import vo.CarVO;
 import vo.DriverVO;
+import bl.DTManagebl.DTManageController;
+import blservice.DTManageblservice.DTManageblservice;
  /** 
  * 
  * @author czq 
@@ -24,14 +25,13 @@ public class DTManageControllerTest {
 	public void setUp() throws Exception {
 		bl = new DTManageController();
 		
-		bl.add(DataTool.getcarlist().get(0));
+	
 	}
 
 	@Test
 	public void testAddDriverVO() {
 		result = bl.add(DataTool.getDriverList().get(0));
 		if(result == ResultMessage.SUCCESS){
-			
 		}else{
 			fail("can not add a driver");
 		}
@@ -122,27 +122,61 @@ public class DTManageControllerTest {
 
 	@Test
 	public void testCheckCarByID() {
-		fail("Not yet implemented");
+		String id = DataTool.getcarlist().get(0).ID;
+		CarVO vo = bl.CheckCarByID(id);
+		
+		if(vo.plateNum.equalsIgnoreCase(DataTool.getcarlist().get(0).plateNum))
+			return ;
+		
+		
+		fail("fail to check car by id");
 	}
 
 	@Test
 	public void testCheckByPlateNum() {
-		fail("Not yet implemented");
+		String plateNum = DataTool.getcarlist().get(0).plateNum;
+		CarVO vo = bl.CheckByPlateNum(plateNum);
+		
+		if(vo.ID.equalsIgnoreCase(DataTool.getcarlist().get(0).ID))
+			return ;
+		
+		
+		fail("fail to check car by plate num");
 	}
 
 	@Test
 	public void testModifyCarVO() {
-		fail("Not yet implemented");
+		CarVO vo =DataTool.getcarlist().get(0);
+		vo.useYear = 8;
+		result = bl.modify(vo);
+		
+		if(result == ResultMessage.SUCCESS && bl.CheckCarByID(vo.ID).useYear == 8){
+			
+			
+		}else{
+			fail("can not modify carVO");
+		}
+		
+		
 	}
 
 	@Test
 	public void testDelCarVO() {
-		fail("Not yet implemented");
+		CarVO vo = DataTool.getcarlist().get(1);
+		result = bl.Del(vo);
+		if(result == ResultMessage.SUCCESS){
+			fail("允许删除空数据");
+		}
+		bl.add(vo);
+		result = bl.Del(vo);
+		if(result == ResultMessage.FAIL){
+			fail("删除失败");
+		}
 	}
 
 	@Test
 	public void testGetPlateNumber() {
-		fail("Not yet implemented");
+		//在其他方法测试
 	}
 
 }

@@ -37,4 +37,38 @@ public class BillPO {
 	  * 车辆信息列表
 	  */
 	 private ArrayList<CarPO> cars;
+
+	public BillPO(String finaceman, Date date, ArrayList<InstPO> instituations,
+			ArrayList<PersonPO> persons, ArrayList<CarPO> cars) {
+		super();
+		this.finaceman = finaceman;
+		this.date = date;
+		this.instituations = instituations;
+		this.persons = persons;
+		this.cars = cars;
+	}
+
+	public String getFinaceman() {
+		return finaceman;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public ArrayList<InstPO> getInstituations() {
+		return instituations;
+	}
+
+	public ArrayList<PersonPO> getPersons() {
+		return persons;
+	}
+
+	public ArrayList<CarPO> getCars() {
+		return cars;
+	}
+	 
+	 
+	 
+	 
 }

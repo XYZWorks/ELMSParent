@@ -5,19 +5,30 @@ import java.util.ArrayList;
 import util.Date;
 import util.DocType;
 import util.GoodsState;
+import util.InstType;
+import util.StaffType;
+import util.WageStrategy;
 import vo.ArriveYYDocVO;
 import vo.ArriveZZDocVO;
 import vo.CarVO;
+import vo.ConstVO;
+import vo.CostVO;
+import vo.DepositVO;
 import vo.DocVO;
 import vo.DriverVO;
 import vo.InStoreDocVO;
+import vo.InstVO;
 import vo.LoadDocVO;
 import vo.OrderVO;
 import vo.OutStoreDocVO;
+import vo.PayVO;
+import vo.PersonVO;
+import vo.SalaryWayVO;
 import vo.SendGoodDocVO;
 import vo.TransferDocVO;
 
 /**
+ * 用于产生测试用数据
  * @author ymc
  * @version 创建时间：2015年11月15日 上午10:37:13
  *
@@ -28,7 +39,13 @@ public class DataTool {
 	static Date d3 = new Date(2015, 11, 13);
 	static Date d4 = new Date(2015, 11, 14);
 	static Date d5 = new Date(2015, 11, 15);
-
+	
+	static String instid1 = "000000";
+	static String instid2 = "000001";
+	static String instid3 = "000002";
+	
+	static String phone1 = "13142321234";
+	static String phone2 = "13923689344";
 	
 	static ArrayList<DocVO> test = null;
 	static ArrayList<OrderVO> orders = new ArrayList<OrderVO>();
@@ -44,8 +61,8 @@ public class DataTool {
 				"sh", "仙林大道73号", 8, "food", 5, 20, 20, 20, "wood box", "economic model", 1, 30, test));
 		locs.add("汽运区8排5架6位");
 		
-		drivers.add(new DriverVO("000001", "章撒","123456", new Date(1992, 4, 12) , "445202199204121134", "18324522334", true, 5));
-		drivers.add(new DriverVO("000002", "张田田","123456", new Date(1990, 4, 11) , "445202199004111134", "18324522333", false, 6));
+		drivers.add(new DriverVO("000001", "章撒",instid1, new Date(1992, 4, 12) , "445202199204121134", "18324522334", true, 5));
+		drivers.add(new DriverVO("000002", "张田田",instid2, new Date(1990, 4, 11) , "445202199004111134", "18324522333", false, 6));
 		
 		
 		cars.add(new CarVO("025000001", "粤VDC798" , 1));
@@ -106,13 +123,65 @@ public class DataTool {
 	
 	
 	public static ArrayList<DriverVO> getDriverList(){
-		
-		return drivers;
-		
-	}
+		return drivers;}
 	
 	public static ArrayList<CarVO> getcarlist(){
 		return cars;
 	}
 	
+	public static ArrayList<PayVO> getpays(){
+		ArrayList<PayVO> pays = new ArrayList<PayVO>();
+		pays.add(new PayVO(d1, 1500,""));
+		pays.add(new PayVO(d2, 3000, ""));
+		return pays;
+	}
+	
+	public static ArrayList<CostVO> getcosts(){
+		ArrayList<CostVO> costs = new ArrayList<CostVO>();
+		costs.add(new CostVO(3000, ""));
+		costs.add(new CostVO(5000, ""));
+		
+		return costs;
+		
+	}
+	
+	
+	public static ArrayList<DepositVO> getDeposits(){
+		ArrayList<DepositVO> temp = new  ArrayList<DepositVO>();
+		temp.add(new DepositVO(d1, 5000));
+		temp.add(new DepositVO(d3, 2000));
+		
+		return temp;
+	}
+	
+	public static ConstVO getConst(){
+		return new ConstVO(2000, 1000, 2000, 233, 231, 13, 1234, 200, 200, 1, 5, 10, new int[]{4 , 5 , 7});
+	}
+	
+	public static ArrayList<SalaryWayVO> getSalarys(){
+		ArrayList<SalaryWayVO> temp = new ArrayList<SalaryWayVO>();
+		temp.add(new SalaryWayVO(StaffType.courier, 2000, 0, WageStrategy.byMonth));
+		temp.add(new SalaryWayVO(StaffType.driver, 3000, 1000, WageStrategy.baseAndMore));
+		temp.add(new SalaryWayVO(StaffType.financeman, 3000, 1000, WageStrategy.baseAndMore));
+		temp.add(new SalaryWayVO(StaffType.saleman, 3000, 1000, WageStrategy.baseAndMore));
+		temp.add(new SalaryWayVO(StaffType.storeman, 3000, 1000, WageStrategy.baseAndMore));
+		temp.add(new SalaryWayVO(StaffType.storemanager, 3000, 1000, WageStrategy.baseAndMore));
+		return temp;
+		
+	}
+	
+	public static ArrayList<PersonVO> getpersons(){
+		ArrayList<PersonVO> persons = new ArrayList<PersonVO>();
+		persons.add(new PersonVO(instid1, "000001", "陈展鹏", StaffType.courier, phone1));
+		persons.add(new PersonVO(instid2, "123456", "程青松", StaffType.financeman, phone2));
+		return persons;
+		}
+
+	public static ArrayList<InstVO> getInsts(){
+		ArrayList<InstVO> insts = new ArrayList<InstVO>();
+		insts.add(new InstVO(instid1, "南京", InstType.businessHall));
+		insts.add(new InstVO(instid3, "广州", InstType.headOffice));
+		return insts;
+		
+	}
 }

@@ -1,17 +1,17 @@
 package test.finace;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
+
+import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
- 
 
-
-
-
-
-
+import test.DataTool;
 import util.ResultMessage;
+import vo.CostVO;
+import vo.DepositVO;
+import vo.ProfitVO;
 import bl.financebl.FinanceController;
 import blservice.financeblservice.BankAccountService;
 import blservice.financeblservice.CostService;
@@ -46,37 +46,85 @@ public class FinanceControllerTest {
 
 	@Test
 	public void testGetMessage() {
-		fail("Not yet implemented");
+		ProfitVO vo = profitbl.getMessage();
+		if(vo != null ){
+			return;
+		}
+		
+		fail("can not get profit mes");
 	}
 
 	@Test
 	public void testCreate() {
-		fail("Not yet implemented");
+		result = paybl.create(DataTool.getpays().get(0));
+		if(result == ResultMessage.SUCCESS){
+			return;
+		}
+		fail("can not create profitvo");
 	}
 
 	@Test
 	public void testAdd() {
-		fail("Not yet implemented");
+		result = costbl.add(DataTool.getcosts().get(0));
+		
+		if(result == ResultMessage.SUCCESS){
+			return;
+		}
+		fail("can not add costvo");
 	}
 
 	@Test
 	public void testModify() {
-		fail("Not yet implemented");
+		ArrayList<CostVO> temp = costbl.showCosts();
+		if(temp.size() == 0){
+			fail("can not show cost");
+		}else{
+			temp.get(0).type = "123";
+			result  =  costbl.modify(temp.get(0));
+			if(result == ResultMessage.SUCCESS ){
+				return;
+			}
+			
+		}
+		fail("can not modify cost ");
+		
 	}
 
 	@Test
 	public void testDel() {
-		fail("Not yet implemented");
+		costbl.add(DataTool.getcosts().get(0));
+		result =  costbl.del(DataTool.getcosts().get(0));
+		if(result == ResultMessage.FAIL){
+			fail("can not del");
+		}
+		result = costbl.del(DataTool.getcosts().get(0));
+		if(result == ResultMessage.SUCCESS){
+			fail("allow to delete twice");
+		}
 	}
 
 	@Test
 	public void testShowCosts() {
-		fail("Not yet implemented");
+		//在testmodify方法测试
 	}
 
 	@Test
 	public void testShowPays() {
-		fail("Not yet implemented");
+		//在其他方法测试
+	}
+	@Test
+	public void testCreateDeposit() {
+		result = depositbl.createDeposit(DataTool.getDeposits().get(0));
+		if(result ==ResultMessage.SUCCESS){
+			return;
+		}
+		fail("can ot return deposit");
 	}
 
+	@Test
+	public void testShowDeposit() {
+		ArrayList<DepositVO> temp = depositbl.showDeposit();
+		if(temp.size() == 0){
+			fail("can not get deposits");		}
+	}
 }

@@ -55,12 +55,12 @@ public class FinanceController implements BankAccountService, CostService, PaySe
 		return null;
 	}
 
-	public ResultMessage create(DepositVO vo) {
+	public ResultMessage createDeposit(DepositVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ArrayList<DepositVO> show() {
+	public ArrayList<DepositVO> showDeposit() {
 		// TODO Auto-generated method stub
 		return null;
 	}

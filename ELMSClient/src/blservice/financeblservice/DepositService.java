@@ -17,10 +17,10 @@ public interface DepositService {
 	 * @param vo
 	 * @return 操作结果
 	 */
-	public ResultMessage create(DepositVO vo);
+	public ResultMessage createDeposit(DepositVO vo);
 	/**
 	 * 查看收款信息
 	 * @return 查看的Deposit的ArrayList
 	 */
-	public ArrayList< DepositVO > show(); 
+	public ArrayList< DepositVO > showDeposit(); 
 }
