@@ -8,13 +8,24 @@ import po.LoadDocPO;
 import po.SendGoodDocPO;
 import po.TransferDocPO;
 import util.ResultMessage;
+import dataSuper.DataSuperClass;
 import ds.transportdataservice.Transportdataservice;
  /** 
  * 
  * @author czq 
  * @version 2015年11月5日 下午10:04:10 
  */
-public class TransportDataImpl implements Transportdataservice {
+public class TransportDataImpl extends DataSuperClass implements Transportdataservice {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public TransportDataImpl() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public LoadDocPO getLoadDocPO(int id) throws RemoteException {
 		// TODO Auto-generated method stub

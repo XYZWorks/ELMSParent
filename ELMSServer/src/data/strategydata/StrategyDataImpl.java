@@ -8,13 +8,24 @@ import po.ConstPO;
 import po.SalaryWayPO;
 import util.ResultMessage;
 import util.StaffType;
+import dataSuper.DataSuperClass;
 import ds.strategydataservice.StrategyDataService;
  /** 
  * 
  * @author czq 
  * @version 2015年11月5日 下午10:03:11 
  */
-public class StrategyDataImpl  implements StrategyDataService{
+public class StrategyDataImpl extends DataSuperClass implements StrategyDataService{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public StrategyDataImpl() throws RemoteException {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public ConstPO getConst() throws RemoteException {
 		// TODO Auto-generated method stub
