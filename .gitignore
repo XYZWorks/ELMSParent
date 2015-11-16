@@ -22,3 +22,5 @@ tmp/**/*
 .classpath
 .settings/**
 tartget/**
+*.class
+*.classpath

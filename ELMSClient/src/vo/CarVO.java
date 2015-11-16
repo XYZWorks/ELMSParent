@@ -8,7 +8,7 @@ package vo;
  */
 public class CarVO{
 	/**
-	 * 车辆编号
+	 * 车辆代号（城市编号（电话号码区号南京025）+营业厅编号（000三位数字）+000三位数字
 	 */
 	public String ID;
 	/**

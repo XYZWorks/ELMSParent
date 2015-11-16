@@ -28,6 +28,9 @@ public class PersonnelControllerTest {
 
 	@Test
 	public void testGetPeopleByInst() {
+		bl.getPeopleByInst("123456");
+		
+		
 		fail("Not yet implemented");
 	}
 
