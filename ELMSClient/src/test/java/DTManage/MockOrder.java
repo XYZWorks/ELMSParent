@@ -1,9 +1,9 @@
-package DTManage;
+package test.java.DTManage;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-import other.DataTool;
+import test.java.other.DataTool;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;

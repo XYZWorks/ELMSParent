@@ -1,4 +1,4 @@
-package personnel;
+package test.java.personnel;
 
 import static org.junit.Assert.fail;
 
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import other.DataTool;
+import test.java.other.DataTool;
 import util.ResultMessage;
 import vo.InstVO;
 import vo.PersonVO;

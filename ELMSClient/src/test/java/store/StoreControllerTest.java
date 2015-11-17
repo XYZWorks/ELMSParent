@@ -1,4 +1,4 @@
-package store;
+package test.java.store;
 
 import static org.junit.Assert.fail;
 
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import other.DataTool;
+import test.java.other.DataTool;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;

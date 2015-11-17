@@ -1,4 +1,4 @@
-package account;
+package test.java.account;
 
 import static org.junit.Assert.*;
 

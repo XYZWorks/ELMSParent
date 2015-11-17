@@ -1,6 +1,6 @@
-package order;
+package test.java.order;
 
-import other.DataTool;
+import test.java.other.DataTool;
 import vo.ConstVO;
  /** 
  * 

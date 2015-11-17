@@ -1,8 +1,8 @@
-package approval;
+package test.java.approval;
 
 import java.util.ArrayList;
 
-import other.DataTool;
+import test.java.other.DataTool;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;

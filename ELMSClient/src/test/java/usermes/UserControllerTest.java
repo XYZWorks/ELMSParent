@@ -1,4 +1,4 @@
-package usermes;
+package test.java.usermes;
 
 import static org.junit.Assert.*;
 

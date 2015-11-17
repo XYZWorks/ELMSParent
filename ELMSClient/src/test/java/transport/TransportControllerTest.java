@@ -1,4 +1,4 @@
-package transport;
+package test.java.transport;
 
 import static org.junit.Assert.fail;
 
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import other.DataTool;
+import test.java.other.DataTool;
 import util.Date;
 import util.DocState;
 import util.DocType;

@@ -38,7 +38,7 @@ public class DataSuperClass extends UnicastRemoteObject {
 	 * 数据库语句
 	 */
 	protected String sql;
-
+	
 	protected ResultSet result;
 	/**
 	 * 查找返回的消息
@@ -51,6 +51,7 @@ public class DataSuperClass extends UnicastRemoteObject {
 	static {
 		SQLmap.put("account", bulidSQL("account", 6, "id", "name", "type", "password","phone", "email"));
 		SQLmap.put("person", bulidSQL("person" , 5 , "id" , "instid" , "name" , "type" ,"phone"));
+		SQLmap.put("inst", bulidSQL("inst", 3, "id" , "location" , "type"));
 	}
 
 	public DataSuperClass() throws RemoteException {
@@ -204,8 +205,8 @@ public class DataSuperClass extends UnicastRemoteObject {
 
 	
 	private static String bulidAddSQL(String name, int paraNum) {
-		StringBuffer buffer = new StringBuffer("insert into `" + name
-				+ "` values (");
+		StringBuffer buffer = new StringBuffer("INSERT INTO `" + name
+				+ "` VALUES (");
 		for (int i = 0; i < paraNum - 1; i++) {
 			buffer.append(" ? ,");
 		}
@@ -216,23 +217,23 @@ public class DataSuperClass extends UnicastRemoteObject {
 	}
 
 	private static String bulidDelSQL(String name) {
-		return "delete from `" + name + "` where ID = ";
+		return "DELETE FROM `" + name + "` WHERE ID = ";
 	}
 
 	private static String bulidFindSQL(String name) {
-		return "select * from `" + name + "` where id =";
+		return "SELECT * FROM `" + name + "` WHERE id =";
 	}
 
 	private static String bulidUpdateSQL(String name, int paraNum,
 			String... paras) {
 		StringBuffer buffer = new StringBuffer();
-		buffer.append("update `").append(name).append("` set ");
+		buffer.append("UPDATE `").append(name).append("` SET ");
 		for (int i = 0; i < paraNum - 1; i++) {
 			buffer.append(paras[i + 1]).append('=').append(" ? ,");
 		}
 		buffer.deleteCharAt(buffer.length() - 1);
 
-		buffer.append("where " + paras[0] + " = ");
+		buffer.append("WHERE " + paras[0] + " = ");
 
 		return buffer.toString();
 	}

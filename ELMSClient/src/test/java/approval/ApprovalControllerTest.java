@@ -1,4 +1,4 @@
-package approval;
+package test.java.approval;
 
 import static org.junit.Assert.fail;
 

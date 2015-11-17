@@ -1,4 +1,4 @@
-package other;
+package test.java.other;
 
 import java.util.ArrayList;
 

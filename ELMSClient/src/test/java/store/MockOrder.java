@@ -1,4 +1,4 @@
-package store;
+package test.java.store;
 
 import java.util.ArrayList;
 

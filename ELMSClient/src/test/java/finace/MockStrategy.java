@@ -1,8 +1,8 @@
-package finace;
+package test.java.finace;
 
 import java.util.ArrayList;
 
-import other.DataTool;
+import test.java.other.DataTool;
 import util.StaffType;
 import vo.ConstVO;
 import vo.SalaryWayVO;

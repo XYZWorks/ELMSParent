@@ -1,11 +1,11 @@
-package DTManage;
+package test.java.DTManage;
 
 import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import other.DataTool;
+import test.java.other.DataTool;
 import util.ResultMessage;
 import vo.CarVO;
 import vo.DriverVO;
