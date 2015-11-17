@@ -1,5 +1,7 @@
 package po;
 
+import java.io.Serializable;
+
 import util.InstType;
 
 /**
@@ -7,10 +9,14 @@ import util.InstType;
  * @author czq
  * 
  */
-public class InstPO {
+public class InstPO implements Serializable{
 	
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 机构ID
 	 */

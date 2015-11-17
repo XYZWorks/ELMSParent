@@ -1,4 +1,4 @@
-package data.DTManagedata;
+package test.java.data.DTManagedata;
 
 import static org.junit.Assert.*;
 

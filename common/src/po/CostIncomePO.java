@@ -1,14 +1,20 @@
 package po;
 
+import java.io.Serializable;
+
 
 /**
  * 成本收益表
  * @author czq
  * @date 2015-10-23
  */
-public class CostIncomePO {
+public class CostIncomePO implements Serializable{
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 总收入，根据所有订单生成
 	 */

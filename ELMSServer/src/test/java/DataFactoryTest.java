@@ -1,4 +1,4 @@
-package test.java.data.accountdata;
+package test.java;
 
 import static org.junit.Assert.*;
 
@@ -7,56 +7,61 @@ import org.junit.Test;
  /** 
  * 
  * @author czq 
- * @version 2015年11月17日 上午12:31:26 
+ * @version 2015年11月17日 下午7:50:41 
  */
-public class AccountDataServiceImplBySQLTest {
+public class DataFactoryTest {
 
 	@Before
 	public void setUp() throws Exception {
 	}
 
 	@Test
-	public void testAccountDataServiceImplBySQL() {
+	public void testGetDataFactory() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testAdd() {
+	public void testGetAccountDataImpl() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testInitial() {
+	public void testGetDTMangeDataImpl() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testFind() {
+	public void testGetFinanceDataImpl() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testDelete() {
+	public void testGetOrderDataImpl() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testModify() {
+	public void testGetStatisticDataImpl() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testCheck() {
+	public void testGetTransportDataImpl() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testGetMes() {
+	public void testGetStrategyDataImpl() {
 		fail("Not yet implemented");
 	}
 
 	@Test
-	public void testMain() {
+	public void testGetPersonnelDataImpl() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetStoreDataImpl() {
 		fail("Not yet implemented");
 	}
 

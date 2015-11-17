@@ -43,27 +43,27 @@ public interface StoreDataService extends Remote{
 	 * 得到出库单PO
 	 * @return
 	 */
-	public ArrayList<OutStoreDocPO> getOut();
+	public ArrayList<OutStoreDocPO> getOut()throws RemoteException;
 	/**
 	 * 更新库存PO
 	 * @param po
 	 * @return
 	 */
-	public ResultMessage update(StoreMessagePO po);
+	public ResultMessage update(StoreMessagePO po)throws RemoteException;
 	/**
 	 * 设置库存警戒值
 	 * @return
 	 */
-	public boolean alarmValue(String value);
+	public boolean alarmValue(String value)throws RemoteException;
 	/**
 	 * 存储快照信息PO
 	 * @param po
 	 * @return
 	 */
-	public ResultMessage storeCheck(StoreCheckPO po);
+	public ResultMessage storeCheck(StoreCheckPO po)throws RemoteException;
 	/**
 	 * 得到快照PO
 	 * @return
 	 */
-	public ArrayList<StoreCheckPO> getCheck();
+	public ArrayList<StoreCheckPO> getCheck()throws RemoteException;
 }

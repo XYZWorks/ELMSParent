@@ -10,6 +10,10 @@ public class SalaryPO extends CostPO {
 	
 	
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
 	 * 员工类型(driver,courier,workman)
 	 */
 	private String worker;

@@ -1,5 +1,7 @@
 package po;
 
+import java.io.Serializable;
+
 import util.StaffType;
 import util.WageStrategy;
 
@@ -8,10 +10,14 @@ import util.WageStrategy;
  * @author czq
  * @date 2015-10-22
  */
-public class SalaryWayPO {
+public class SalaryWayPO implements Serializable{
 	
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 职员类型
 	 */

@@ -1,4 +1,4 @@
-package data;
+package test.java.data;
 
 import static org.junit.Assert.*;
 

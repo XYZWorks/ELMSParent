@@ -1,5 +1,7 @@
 package po;
 
+import java.io.Serializable;
+
 import util.StaffType;
 
 /**
@@ -8,8 +10,13 @@ import util.StaffType;
  * @author czq
  * @date 2015/10/20
  */
-public class PersonPO {
+public class PersonPO implements Serializable{
 	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 所在机构编号

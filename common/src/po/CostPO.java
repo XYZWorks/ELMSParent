@@ -1,15 +1,21 @@
 package po;
 
+import java.io.Serializable;
+
 
 /**
  * 成本信息（父类）
  * @author ymc
  *
  */
-public class CostPO {
+public class CostPO implements Serializable{
 	
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 金额
 	 */

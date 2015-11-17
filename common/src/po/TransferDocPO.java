@@ -12,7 +12,11 @@ import util.DocType;
 public class TransferDocPO extends DocPO {
 
 	
-//	/**
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	//	/**
 //	 * 中转单ID
 //	 */
 //	private  int TransferDocID;

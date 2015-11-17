@@ -1,5 +1,6 @@
 package po;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import util.Date;
@@ -9,9 +10,14 @@ import util.Date;
  * @author czq
  *
  */
-public class BillPO {
+public class BillPO implements Serializable{
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * 
 	 */

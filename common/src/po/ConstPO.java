@@ -1,14 +1,20 @@
 package po;
 
+import java.io.Serializable;
+
 
 /**
  * 系统常量PO类
  * @author czq
  * @date 2015-10-22
  */
-public class ConstPO {
+public class ConstPO implements Serializable{
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 北京、南京距离
 	 */

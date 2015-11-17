@@ -45,11 +45,11 @@ public interface StatisticDataService extends Remote {
 	 * @param po
 	 * @return
 	 */
-	public ResultMessage bulidBill(BillPO po);
+	public ResultMessage bulidBill(BillPO po) throws RemoteException;
 	/**
 	 * 获得所有期初建账的账单
 	 * @return
 	 */
-	public ArrayList<BillPO> getBills();
+	public ArrayList<BillPO> getBills() throws RemoteException;
 	
 }
