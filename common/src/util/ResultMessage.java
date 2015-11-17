@@ -16,5 +16,12 @@ public enum ResultMessage {
 	/**
 	 * 中断
 	 */
-	PAUSE
+	PAUSE,
+	
+	
+	
+	/**
+	 * 数据不存在
+	 */
+	notExist
 }

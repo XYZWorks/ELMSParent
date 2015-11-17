@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import config.StaticMessage;
 import data.datafactory.DataFactory;
 
 /**
@@ -27,7 +28,7 @@ public class RMIManage {
 	private String hostName;
 	private String port;
 	private static DataFactory datafactory;
-	private static Map<String, Class<? extends Remote>> NAMING_MAP = new HashMap<String, Class<? extends Remote>>();
+	private static Map<String, Class<? extends Remote>> NAMING_MAP = new HashMap<String, Class<? extends Remote>>(10);
 
 	static {
 		datafactory = DataFactory.getDataFactory();
@@ -62,7 +63,8 @@ public class RMIManage {
 	}
 
 	public synchronized boolean startRMI() {
-		String pres = "rmi://" + hostAdr + ":" + port + "/";
+//		String pres = "rmi://" + hostAdr + ":" + port + "/";
+		String pres = StaticMessage.RMIPres;
 		System.out.println(pres);
 		try {
 			LocateRegistry.createRegistry(Integer.parseInt(port));
@@ -92,9 +94,11 @@ public class RMIManage {
 		} catch (InstantiationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return false;
 		} catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return false;
 		}
 
 		// String pre = "rmi://" + hostAdr

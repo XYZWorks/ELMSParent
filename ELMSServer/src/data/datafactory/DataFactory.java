@@ -3,7 +3,7 @@ package data.datafactory;
 import java.rmi.RemoteException;
 
 import data.DTManagedata.DTManageDataImpl;
-import data.accountdata.AccountDataServiceImplBySQL;
+import data.accountdata.AccountDataServiceImpl;
 import data.financedata.FinanceDataImpl;
 import data.orderdata.OrderDataImpl;
 import data.personneldata.PersonnelDataServiceImpl;
@@ -46,7 +46,7 @@ public class DataFactory implements DataFactoryService {
 	}
 
 	public AccountDataService getAccountDataImpl() throws RemoteException {
-		return new AccountDataServiceImplBySQL();
+		return new AccountDataServiceImpl();
 	}
 
 	public DTManagedateservice getDTMangeDataImpl() throws RemoteException {
