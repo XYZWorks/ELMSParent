@@ -1,6 +1,6 @@
 package vo;
 
-import util.Date;
+import util.MyDate;
 import util.DocState;
 import util.DocType;
 import util.GoodsState;
@@ -33,7 +33,7 @@ public class ArriveZZDocVO extends DocVO {
 	 */
 	public GoodsState goodState;
 
-	public ArriveZZDocVO(String iD, Date date, String zZID, String sendCity,
+	public ArriveZZDocVO(String iD, MyDate date, String zZID, String sendCity,
 			GoodsState goodState) {
 		super(iD, DocType.arriveZZDoc, date, DocState.wait);
 		ZZID = zZID;

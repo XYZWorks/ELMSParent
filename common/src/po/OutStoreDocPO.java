@@ -3,7 +3,7 @@ package po;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import util.Date;
+import util.MyDate;
 import util.DocState;
 import util.DocType;
 /**
@@ -43,7 +43,7 @@ public class OutStoreDocPO extends DocPO implements Serializable{
 	
 	
 	
-	public OutStoreDocPO(String iD, Date date,
+	public OutStoreDocPO(String iD, MyDate date,
 			ArrayList<OrderPO> orderPOs, String loc, String transferDoc,
 			String shipWay) {
 		super(iD, DocType.outStoreDoc, date,DocState.wait);

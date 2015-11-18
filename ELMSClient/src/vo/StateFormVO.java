@@ -2,7 +2,7 @@ package vo;
 
 import java.util.ArrayList;
 
-import util.Date;
+import util.MyDate;
 
 /**
  * 经营状况表VO类
@@ -13,11 +13,11 @@ public class StateFormVO {
 	/**
 	 * 起始日期
 	 */
-	public Date startDate;
+	public MyDate startDate;
 	/**
 	 * 截止日期
 	 */
-	public Date endDate;
+	public MyDate endDate;
 	/**
 	 * 付款信息
 	 */
@@ -27,7 +27,7 @@ public class StateFormVO {
 	 * 收款信息
 	 */
 	public ArrayList<DepositVO> deposits;
-	public StateFormVO(Date startDate, Date endDate, ArrayList<PayVO> pays,
+	public StateFormVO(MyDate startDate, MyDate endDate, ArrayList<PayVO> pays,
 			ArrayList<DepositVO> deposits) {
 		super();
 		this.startDate = startDate;

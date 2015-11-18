@@ -2,7 +2,7 @@ package test.java.other;
 
 import java.util.ArrayList;
 
-import util.Date;
+import util.MyDate;
 import util.DocType;
 import util.GoodsState;
 import util.InstType;
@@ -37,11 +37,11 @@ import vo.TransferDocVO;
  *
  */
 public class DataTool {
-	static Date d1 = new Date(2015, 11, 11);
-	static Date d2 = new Date(2015, 11, 12);
-	static Date d3 = new Date(2015, 11, 13);
-	static Date d4 = new Date(2015, 11, 14);
-	static Date d5 = new Date(2015, 11, 15);
+	static MyDate d1 = new MyDate(2015, 11, 11);
+	static MyDate d2 = new MyDate(2015, 11, 12);
+	static MyDate d3 = new MyDate(2015, 11, 13);
+	static MyDate d4 = new MyDate(2015, 11, 14);
+	static MyDate d5 = new MyDate(2015, 11, 15);
 	
 	static String instid1 = "000000";
 	static String instid2 = "000001";
@@ -67,8 +67,8 @@ public class DataTool {
 				"sh", "仙林大道73号", 8, "food", 5, 20, 20, 20, "wood box", "economic model", 1, 30, test));
 		locs.add("汽运区8排5架6位");
 		
-		drivers.add(new DriverVO("000001", "章撒",instid1, new Date(1992, 4, 12) , "445202199204121134", "18324522334", true, 5));
-		drivers.add(new DriverVO("000002", "张田田",instid2, new Date(1990, 4, 11) , "445202199004111134", "18324522333", false, 6));
+		drivers.add(new DriverVO("000001", "章撒",instid1, new MyDate(1992, 4, 12) , "445202199204121134", "18324522334", true, 5));
+		drivers.add(new DriverVO("000002", "张田田",instid2, new MyDate(1990, 4, 11) , "445202199004111134", "18324522333", false, 6));
 		
 		
 		cars.add(new CarVO("025000001", "粤VDC798" , 1));

@@ -1,7 +1,7 @@
 package blservice.transportblservice;
 
 import java.util.ArrayList;
-import util.Date;
+import util.MyDate;
 
 import blservice.DocApprovalService;
 import util.DocType;
@@ -30,7 +30,7 @@ public interface Transportblservice extends DocApprovalService{
 	 * @param date
 	 * @return
 	 */
-	public ArrayList<LoadDocVO> getDayLoadDocs(Date date);
+	public ArrayList<LoadDocVO> getDayLoadDocs(MyDate date);
 	/**
 	 * 增加派件单
 	 * @param vo
@@ -42,7 +42,7 @@ public interface Transportblservice extends DocApprovalService{
 	 * @param date
 	 * @return
 	 */
-	public ArrayList<SendGoodDocVO> getDaySendDocs(Date date);
+	public ArrayList<SendGoodDocVO> getDaySendDocs(MyDate date);
 	/**
 	 * 增加接收单
 	 * @param vo
@@ -54,7 +54,7 @@ public interface Transportblservice extends DocApprovalService{
 	 * @param date
 	 * @return
 	 */
-	public ArrayList<ArriveYYDocVO> getDayArriveYYDocs(Date date);
+	public ArrayList<ArriveYYDocVO> getDayArriveYYDocs(MyDate date);
 	/**
 	 * 增加到达单
 	 * @param vo
@@ -66,7 +66,7 @@ public interface Transportblservice extends DocApprovalService{
 	 * @param date
 	 * @return
 	 */
-	public ArrayList<ArriveZZDocVO> getDayArriveZZDocs(Date date);
+	public ArrayList<ArriveZZDocVO> getDayArriveZZDocs(MyDate date);
 	/**
 	 * 增加中转单
 	 * @param vo
@@ -78,7 +78,7 @@ public interface Transportblservice extends DocApprovalService{
 	 * @param date
 	 * @return
 	 */
-	public ArrayList<TransferDocVO> getDayTransferDocs(Date date);
+	public ArrayList<TransferDocVO> getDayTransferDocs(MyDate date);
 	/**
 	 * 从货物流转包中获得该单据
 	 * @param type

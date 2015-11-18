@@ -2,7 +2,7 @@ package po;
 
 import java.io.Serializable;
 
-import util.Date;
+import util.MyDate;
 
 /**
  * 利润信息PO类
@@ -18,7 +18,7 @@ public class ProfitPO implements Serializable{
 	/**
 	 * 时间
 	 */
-	private Date time;
+	private MyDate time;
 	/**
 	 * 收款
 	 */
@@ -31,10 +31,10 @@ public class ProfitPO implements Serializable{
 	 * 收益
 	 */
 	private int profit;
-	public Date getTime() {
+	public MyDate getTime() {
 		return time;
 	}
-	public void setTime(Date time) {
+	public void setTime(MyDate time) {
 		this.time = time;
 	}
 	public int getDeposit() {
@@ -62,7 +62,7 @@ public class ProfitPO implements Serializable{
 	 * @param pay
 	 * @param profit
 	 */
-	public ProfitPO(Date time, int deposit, int pay, int profit) {
+	public ProfitPO(MyDate time, int deposit, int pay, int profit) {
 		super();
 		this.time = time;
 		this.deposit = deposit;

@@ -43,7 +43,7 @@ public class TransferDocPO extends DocPO {
 
 
 
-	public TransferDocPO(String iD, util.Date date,
+	public TransferDocPO(String iD, util.MyDate date,
 			 String transferWayID,
 			String sendCity, int containerNum, String loadManName,
 			String[] orderBarCode) {

@@ -38,7 +38,9 @@ public class AccountPO  implements Serializable {
 	 */
 	private String mail;
 	
-	
+	public AccountPO() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	
 	

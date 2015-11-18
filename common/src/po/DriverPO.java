@@ -1,7 +1,7 @@
 package po;
 
 import java.io.Serializable;
-import util.Date;
+import util.MyDate;
 /**
  * 司机信息PO类
  * @author JerryZhang
@@ -25,7 +25,7 @@ public class DriverPO implements Serializable{
 	/**
 	 * 出生日期
 	 */
-	private  Date birthDay;
+	private  MyDate birthDay;
 	/**
 	 * 身份证号
 	 */
@@ -53,7 +53,7 @@ public class DriverPO implements Serializable{
 	 * @param isman
 	 * @param licenseYear
 	 */
-	public DriverPO(String ID,String name,Date birthDay,String IDcard,
+	public DriverPO(String ID,String name,MyDate birthDay,String IDcard,
 			String phoneNum,boolean isman,int licenseYear){
 		super();
 		this.birthDay=birthDay;
@@ -82,11 +82,11 @@ public class DriverPO implements Serializable{
 		this.name = name;
 	}
 
-	public Date getBirthDay() {
+	public MyDate getBirthDay() {
 		return birthDay;
 	}
 
-	public void setBirthDay(Date birthDay) {
+	public void setBirthDay(MyDate birthDay) {
 		this.birthDay = birthDay;
 	}
 

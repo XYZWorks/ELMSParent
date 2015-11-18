@@ -2,7 +2,7 @@ package po;
 
 import java.io.Serializable;
 
-import util.Date;
+import util.MyDate;
 
 /**
  * 利润信息
@@ -19,15 +19,15 @@ public class DepositPO implements Serializable{
 	/**
 	 * 时间
 	 */
-	private Date time;
+	private MyDate time;
 	/**
 	 * 金额
 	 */
 	private int money;
-	public Date getTime() {
+	public MyDate getTime() {
 		return time;
 	}
-	public void setTime(Date time) {
+	public void setTime(MyDate time) {
 		this.time = time;
 	}
 	public int getMoney() {
@@ -41,7 +41,7 @@ public class DepositPO implements Serializable{
 	 * @param time
 	 * @param money
 	 */
-	public DepositPO(Date time, int money) {
+	public DepositPO(MyDate time, int money) {
 		super();
 		this.time = time;
 		this.money = money;

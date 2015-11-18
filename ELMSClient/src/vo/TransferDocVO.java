@@ -39,7 +39,7 @@ public class TransferDocVO extends DocVO{
 	public String[] orderBarCode;
 	
 	
-	public TransferDocVO(String iD, util.Date date,
+	public TransferDocVO(String iD, util.MyDate date,
 			String transferWayID,
 			String sendCity, int containerNum, String loadManName,
 			String[] orderBarCode) {

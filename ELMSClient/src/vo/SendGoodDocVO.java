@@ -1,6 +1,6 @@
 package vo;
 
-import util.Date;
+import util.MyDate;
 import util.DocState;
 import util.DocType;
 
@@ -21,7 +21,7 @@ public class SendGoodDocVO extends DocVO{
 	 */
 	public String orderBarCode;
 	
-	public SendGoodDocVO(String iD, Date date,
+	public SendGoodDocVO(String iD, MyDate date,
 			 String sendMan, String orderBarCode) {
 		super(iD, DocType.sendGoodDoc, date, DocState.wait);
 		

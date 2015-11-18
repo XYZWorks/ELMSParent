@@ -4,7 +4,7 @@ package po;
 
 import java.io.Serializable;
 
-import util.Date;
+import util.MyDate;
 import util.DocState;
 import util.DocType;
 
@@ -15,7 +15,9 @@ import util.DocType;
  */
 public abstract class DocPO implements Serializable{
 	
-
+	public DocPO() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	/**
 	 * 
@@ -32,14 +34,14 @@ public abstract class DocPO implements Serializable{
 	/**
 	 * 日期
 	 */
-	protected Date date;
+	protected MyDate date;
 	/**
 	 * 单据状态
 	 */
 	protected DocState state;
 	
 	
-	public DocPO(String iD, DocType type, Date date, DocState state) {
+	public DocPO(String iD, DocType type, MyDate date, DocState state) {
 		super();
 		ID = iD;
 		this.type = type;
@@ -68,12 +70,12 @@ public abstract class DocPO implements Serializable{
 	}
 
 
-	public Date getDate() {
+	public MyDate getDate() {
 		return date;
 	}
 
 
-	public void setDate(Date date) {
+	public void setDate(MyDate date) {
 		this.date = date;
 	}
 

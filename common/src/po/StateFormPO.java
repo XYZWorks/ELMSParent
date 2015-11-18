@@ -3,7 +3,7 @@ package po;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import util.Date;
+import util.MyDate;
 
 /**
  * 经营状况表PO类
@@ -20,11 +20,11 @@ public class StateFormPO implements Serializable{
 	/**
 	 * 开始日期
 	 */
-	private Date startDate;
+	private MyDate startDate;
 	/**
 	 * 结束日期
 	 */
-	private Date endDate;
+	private MyDate endDate;
 	/**
 	 * 收款信息
 	 */
@@ -33,7 +33,7 @@ public class StateFormPO implements Serializable{
 	 * 付款信息
 	 */
 	private ArrayList<PayPO> pays;
-	public StateFormPO(Date startDate, Date endDate,
+	public StateFormPO(MyDate startDate, MyDate endDate,
 			ArrayList<DepositPO> deposits, ArrayList<PayPO> pays) {
 		super();
 		this.startDate = startDate;
@@ -43,10 +43,10 @@ public class StateFormPO implements Serializable{
 	}
 	
 	//生成之后不可改变，只有get方法
-	public Date getStartDate() {
+	public MyDate getStartDate() {
 		return startDate;
 	}
-	public Date getEndDate() {
+	public MyDate getEndDate() {
 		return endDate;
 	}
 	public ArrayList<DepositPO> getDeposits() {

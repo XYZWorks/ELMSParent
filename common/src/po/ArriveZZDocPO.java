@@ -2,7 +2,7 @@ package po;
 
 import java.io.Serializable;
 
-import util.Date;
+import util.MyDate;
 import util.DocState;
 import util.DocType;
 import util.GoodsState;
@@ -14,7 +14,9 @@ import util.GoodsState;
  *
  */
 public class ArriveZZDocPO extends DocPO implements Serializable{
-	
+	public ArriveZZDocPO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 序列化UID
 	 */
@@ -67,7 +69,7 @@ public class ArriveZZDocPO extends DocPO implements Serializable{
 		this.goodState = goodState;
 	}
 
-	public ArriveZZDocPO(String iD, Date date,
+	public ArriveZZDocPO(String iD, MyDate date,
 			String zZID, String sendCity, GoodsState goodState) {
 		super(iD, DocType.arriveZZDoc, date, DocState.wait);
 		ZZID = zZID;

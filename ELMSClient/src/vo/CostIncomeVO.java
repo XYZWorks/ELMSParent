@@ -1,6 +1,6 @@
 package vo;
 
-import util.Date;
+import util.MyDate;
 
 /**
  * 成本收益表PO类
@@ -20,15 +20,15 @@ public class CostIncomeVO {
 	/**
 	 * 起始日期
 	 */
-	public Date startDate;
+	public MyDate startDate;
 	
 	/**
 	 * 结束日期
 	 */
-	public Date endDate;
+	public MyDate endDate;
 
-	public CostIncomeVO(int income, int expense, Date startDate,
-			Date endDate) {
+	public CostIncomeVO(int income, int expense, MyDate startDate,
+			MyDate endDate) {
 		super();
 		this.income = income;
 		this.expense = expense;

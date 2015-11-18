@@ -2,7 +2,7 @@ package vo;
 
 import java.util.ArrayList;
 
-import util.Date;
+import util.MyDate;
 import util.DocState;
 import util.DocType;
 
@@ -30,7 +30,7 @@ public class InStoreDocVO extends DocVO {
 	
 	
 
-	public InStoreDocVO(String iD,  Date date,
+	public InStoreDocVO(String iD,  MyDate date,
 			ArrayList<OrderVO> orderVOs, String loc, ArrayList<String> location) {
 		
 		//初始建单状态

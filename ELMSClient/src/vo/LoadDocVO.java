@@ -1,6 +1,6 @@
 package vo;
 
-import util.Date;
+import util.MyDate;
 import util.DocState;
 import util.DocType;
 
@@ -39,7 +39,7 @@ public class LoadDocVO extends DocVO{
 	
 
 
-	public LoadDocVO(String iD, Date date,
+	public LoadDocVO(String iD, MyDate date,
 			String yYID, String loadDocID, String arriveCity, String carID,
 			String supervisor, String escort) {
 		super(iD, DocType.loadDoc, date, DocState.wait);

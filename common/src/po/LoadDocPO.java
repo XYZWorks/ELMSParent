@@ -2,7 +2,7 @@ package po;
 
 import java.io.Serializable;
 
-import util.Date;
+import util.MyDate;
 import util.DocState;
 import util.DocType;
 
@@ -44,7 +44,7 @@ public class LoadDocPO extends DocPO implements Serializable{
 	 */
 	private String Escort;
 
-	public LoadDocPO(String iD, Date date, String yYID, String loadDocID,
+	public LoadDocPO(String iD, MyDate date, String yYID, String loadDocID,
 			String arriveCity, String carID, String supervisor, String escort) {
 		super(iD, DocType.loadDoc, date, DocState.wait);
 		YYID = yYID;
