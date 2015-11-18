@@ -2,6 +2,7 @@ package test.java.other;
 
 import java.lang.reflect.Constructor;
 
+import po.CostPO;
 
 import java.lang.reflect.*;
 import util.MyDate;
@@ -29,19 +30,21 @@ public class VOPOchange {
 		
 		Field[] field = voClass.getDeclaredFields();
 		
-		for(int i= 0 ; i<field.length;i++)
-			System.out.println(field[i].getType()+" "+ field[i].getName());
-		try {		
+		Method met = null;
+		
+		
+		for(int i= 0 ; i<field.length;i++){
+			System.out.println(field[i]+" "+field[i].getType()+" "+ field[i].getName());
+			
+		}
+			try {		
 			poClass = Class.forName(poName);
 			
 			po = poClass.newInstance();
-			Method[] met = poClass.getDeclaredMethods();
-			for(int i = 0; i<met.length ; i++)
-				System.out.println(met[i].getName()+" "+met[i].getReturnType());
+//			met = poClass.getDeclaredMethods();
+//			for(int i = 0; i<met.length ; i++)
+//				System.out.println(met[i].getName()+" "+met[i].getReturnType());
 			
-			Constructor[] cons = poClass.getConstructors();
-			System.out.println("cons"+cons[0]);
-
 		//	po = poClass.newInstance();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -57,8 +60,24 @@ public class VOPOchange {
 			e.printStackTrace();
 		}
 		
+		String tmp="";
 		
-		System.out.println(poName);
+		try {
+			for(int i= 0 ; i<field.length;i++){
+				
+				tmp=(char)(field[i].getName().charAt(0)-'a'+'A')+field[i].getName().substring(1);
+				System.out.println("set"+tmp);
+				
+				met = po.getClass().getMethod("set"+tmp, field[i].getType());
+				
+				met.invoke(po, new Object[]{field[i]});
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		//System.out.println(poName);
 		return po;
 		
 	}
@@ -70,7 +89,9 @@ public class VOPOchange {
 		
 		VOPOchange test = new VOPOchange();
 		
-		test.VOtoPO(vo);
+		CostPO po = (CostPO)test.VOtoPO(vo);
+		
+		System.out.println(po.getMoney()+" "+po.getType());
 
 	}
 
