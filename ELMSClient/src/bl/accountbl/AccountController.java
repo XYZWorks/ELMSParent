@@ -9,25 +9,27 @@ import blservice.accountblservice.Accountblservice;
  * @version 2015年11月15日 上午9:15:28 
  */
 public class AccountController implements Accountblservice{
-
+	
+	Account account;
+	
+	public AccountController(){
+		account=new Account();
+	}
+	
 	public ResultMessage add(AccountVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return account.add(vo);
 	}
 
 	public ResultMessage delete(AccountVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return account.delete(vo);
 	}
 
 	public AccountVO find(String ID) {
-		// TODO Auto-generated method stub
-		return null;
+		return account.find(ID);
 	}
 
 	public ResultMessage modify(AccountVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return account.modify(vo);
 	}
 
 }

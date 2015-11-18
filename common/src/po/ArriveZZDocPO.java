@@ -14,7 +14,9 @@ import util.GoodsState;
  *
  */
 public class ArriveZZDocPO extends DocPO implements Serializable{
-	
+	public ArriveZZDocPO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 序列化UID
 	 */

@@ -12,7 +12,9 @@ import util.MyDate;
  */
 public class BillPO implements Serializable{
 	
-	
+	public BillPO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 
 	 */

@@ -15,7 +15,9 @@ import util.DocType;
  */
 public abstract class DocPO implements Serializable{
 	
-
+	public DocPO() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	/**
 	 * 

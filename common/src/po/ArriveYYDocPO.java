@@ -16,7 +16,9 @@ import util.GoodsState;
 public class ArriveYYDocPO extends DocPO implements Serializable{
 
 	
-	
+	public ArriveYYDocPO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 序列化UID
 	 */
