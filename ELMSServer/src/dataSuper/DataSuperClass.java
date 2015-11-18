@@ -44,14 +44,22 @@ public class DataSuperClass extends UnicastRemoteObject {
 	 * 查找返回的消息
 	 */
 	protected ArrayList<String> findMes;
-
+	/**
+	 * 
+	 */
+	protected static DataServiceHelper helper = new DataServiceHelper();
 
 	private static final Map<String, ArrayList<String>> SQLmap = new HashMap<String, ArrayList<String>>(100);
 
 	static {
-		SQLmap.put("account", bulidSQL("account", 6, "id", "name", "type", "password","phone", "email"));
-		SQLmap.put("person", bulidSQL("person" , 5 , "id" , "instid" , "name" , "type" ,"phone"));
-		SQLmap.put("inst", bulidSQL("inst", 3, "id" , "location" , "type"));
+		SQLmap.put("account", helper.bulidSQL("account", 6, "id", "name", "type", "password","phone", "email"));
+		SQLmap.put("person", helper.bulidSQL("person" , 5 , "id" , "instid" , "name" , "type" ,"phone"));
+		SQLmap.put("inst", helper.bulidSQL("inst", 3, "id" , "location" , "type"));
+		SQLmap.put("car",helper.bulidSQL("car", 3, "id" , "plateNum" , "useYear") );
+		SQLmap.put("driver", helper.bulidSQL("driver", 7, "id", "name" , "birthday" , "idCard" , "phoneNum" , "isman" , "licenseYear" ));
+		//id是为了适应数据库存储增加的，具有自增属性
+		SQLmap.put("deposit", helper.bulidSQL("deposit", 3, "id" ,"date" , "money"));
+		SQLmap.put("pay", helper.bulidSQL("pay", 4 , "id" , "time" , "money" , "type"));
 	}
 
 	public DataSuperClass() throws RemoteException {
@@ -132,6 +140,34 @@ public class DataSuperClass extends UnicastRemoteObject {
 		return null;
 
 	}
+	/**
+	 * 用于没有ID的SQL处理
+	 * @param tableName
+	 * @return
+	 */
+	protected ArrayList<String> findFromSQL(String tableName){
+		ArrayList<String> temp = new ArrayList<String>();
+		try {
+			preState = conn.prepareStatement(SQLmap.get(tableName).get(3));
+			result = preState.executeQuery();
+			while(result.next()) {
+				int paralen = Integer.parseInt(SQLmap.get(tableName).get(0));
+				temp = new ArrayList<String>(paralen);
+				for (int i = 0; i < paralen; i++) {
+					temp.add(result.getString(i + 1));
+				}
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		if(temp.size() == 0 ) {
+			return null;
+		}else{
+			return temp;
+		}
+	}
 	
 	/**
 	 * 修改一条数据
@@ -191,52 +227,7 @@ public class DataSuperClass extends UnicastRemoteObject {
 //		return ResultMessage.FAIL;
 //	}
 
-	private static ArrayList<String> bulidSQL(String tableName, int num,
-			String... paras) {
-		ArrayList<String> temp = new ArrayList<String>(6);
-		temp.add(String.valueOf(num));
-		temp.add(bulidAddSQL(tableName, num));
-		temp.add(bulidDelSQL(tableName));
-		temp.add(bulidFindSQL(tableName));
-		temp.add(bulidUpdateSQL(tableName, num, paras));
-		temp.add("TRUNCATE TABLE " + tableName);
-		return temp;
-	}
 
-	
-	private static String bulidAddSQL(String name, int paraNum) {
-		StringBuffer buffer = new StringBuffer("INSERT INTO `" + name
-				+ "` VALUES (");
-		for (int i = 0; i < paraNum - 1; i++) {
-			buffer.append(" ? ,");
-		}
-
-		buffer.append("? )");
-
-		return buffer.toString();
-	}
-
-	private static String bulidDelSQL(String name) {
-		return "DELETE FROM `" + name + "` WHERE ID = ";
-	}
-
-	private static String bulidFindSQL(String name) {
-		return "SELECT * FROM `" + name + "` WHERE id =";
-	}
-
-	private static String bulidUpdateSQL(String name, int paraNum,
-			String... paras) {
-		StringBuffer buffer = new StringBuffer();
-		buffer.append("UPDATE `").append(name).append("` SET ");
-		for (int i = 0; i < paraNum - 1; i++) {
-			buffer.append(paras[i + 1]).append('=').append(" ? ,");
-		}
-		buffer.deleteCharAt(buffer.length() - 1);
-
-		buffer.append("WHERE " + paras[0] + " = ");
-
-		return buffer.toString();
-	}
 
 	/**
 	 * 仅供测试

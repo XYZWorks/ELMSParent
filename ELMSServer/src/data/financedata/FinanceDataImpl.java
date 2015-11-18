@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import po.CostPO;
 import po.DepositPO;
 import po.PayPO;
+import util.Date;
 import util.ResultMessage;
 import dataSuper.DataSuperClass;
 import ds.financedataservice.FinanceDataService;
@@ -22,14 +23,15 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private final String depositTable = "deposit";
+	
+	private final String payTable = "pay";
 
-	public FinanceDataImpl() throws RemoteException {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	public FinanceDataImpl() throws RemoteException {}
 
 	public ArrayList<DepositPO> getDepositPO() throws RemoteException {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -39,13 +41,11 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	}
 
 	public ResultMessage addDeposit(DepositPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return addToSQL(depositTable, "0" , Date.toString(po.getTime()) , String.valueOf(po.getMoney()));
 	}
 
 	public ResultMessage addPay(PayPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return addToSQL(payTable, "0" , Date.toString(po.getTime()) , String.valueOf(po.getMoney()) , po.getType());
 	}
 
 	public ArrayList<CostPO> show() throws RemoteException {
@@ -57,7 +57,10 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	/**
+	 *  TODO  怎么修改，改什么？？？？
+	 */
 	public ResultMessage modify(CostPO po) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;

@@ -19,14 +19,14 @@ public interface DTManagedateservice extends Remote{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public DriverPO getDriverMes(int id) throws RemoteException;
+	public DriverPO getDriverMes(String id) throws RemoteException;
 	/**
 	 * 得到车辆信息PO
 	 * @param id
 	 * @return
 	 * @throws RemoteException
 	 */
-	public CarPO getCarMes(int id) throws RemoteException;
+	public CarPO getCarMes(String id) throws RemoteException;
 	/**
 	 * 增加一个司机PO
 	 * @param po

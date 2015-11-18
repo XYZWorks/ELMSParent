@@ -1,8 +1,5 @@
 package ds.financedataservice;
-/**
- * 财务的数据接口
- * @author ymc
- */
+
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -11,7 +8,10 @@ import po.CostPO;
 import po.DepositPO;
 import po.PayPO;
 import util.ResultMessage;
-
+/**
+ * 财务的数据接口
+ * @author ymc
+ */
 public interface FinanceDataService extends Remote{
 	/**
 	 * 收款信息PO
