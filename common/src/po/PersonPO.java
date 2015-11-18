@@ -12,7 +12,9 @@ import util.StaffType;
  */
 public class PersonPO implements Serializable{
 	
-
+	public PersonPO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 
 	 */

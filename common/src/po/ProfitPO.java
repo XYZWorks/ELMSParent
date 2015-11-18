@@ -11,6 +11,10 @@ import util.MyDate;
  */
 public class ProfitPO implements Serializable{
 	
+	public ProfitPO() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	/**
 	 * 序列化UID
 	 */

@@ -9,6 +9,10 @@ import util.MyDate;
  *
  */
 public class ReceivePO implements Serializable{
+	
+	public ReceivePO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 序列化UID
 	 */

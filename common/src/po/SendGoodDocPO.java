@@ -13,6 +13,10 @@ import util.DocType;
  *
  */
 public class SendGoodDocPO extends DocPO implements Serializable{
+	
+	public SendGoodDocPO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 序列化UID
 	 */

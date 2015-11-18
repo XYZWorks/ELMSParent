@@ -9,7 +9,9 @@ import util.MyDate;
  *
  */
 public class StoreCheckPO implements Serializable{
-	
+	public StoreCheckPO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 序列化UID
 	 */

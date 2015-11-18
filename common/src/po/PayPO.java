@@ -10,6 +10,10 @@ import util.MyDate;
  */
 public class PayPO implements Serializable{
 	
+	public PayPO() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	/**
 	 * 序列化UID
 	 */
