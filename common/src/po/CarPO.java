@@ -17,7 +17,7 @@ public class CarPO implements Serializable{
 	/**
 	 * 车辆编号
 	 */
-	private  String ID;
+	private  String ID = 5;
 	/**
 	 * 车牌号
 	 */
