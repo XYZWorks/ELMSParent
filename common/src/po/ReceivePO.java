@@ -2,7 +2,7 @@ package po;
 
 import java.io.Serializable;
 
-import util.Date;
+import util.MyDate;
 /**
  * 收件信息录入
  * @author xingcheng
@@ -22,14 +22,14 @@ public class ReceivePO implements Serializable{
 	/**
 	 *  收件日期
 	 */
-	private	Date orderDate;
+	private	MyDate orderDate;
 		
 	/**
 	 * 真实收件人
 	 */
 	private	String realReceiver;
 
-	public ReceivePO(String orderBarCode, Date orderDate, String realReceiver) {
+	public ReceivePO(String orderBarCode, MyDate orderDate, String realReceiver) {
 		super();
 		this.orderBarCode = orderBarCode;
 		this.orderDate = orderDate;
@@ -44,11 +44,11 @@ public class ReceivePO implements Serializable{
 		this.orderBarCode = orderBarCode;
 	}
 
-	public Date getOrderDate() {
+	public MyDate getOrderDate() {
 		return orderDate;
 	}
 
-	public void setOrderDate(Date orderDate) {
+	public void setOrderDate(MyDate orderDate) {
 		this.orderDate = orderDate;
 	}
 

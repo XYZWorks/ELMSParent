@@ -3,7 +3,7 @@ package po;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import util.Date;
+import util.MyDate;
 
 /**
  * 期初建账数据PO类
@@ -26,7 +26,7 @@ public class BillPO implements Serializable{
 	/**
 	 * 
 	 */
-	private Date date;
+	private MyDate date;
 	
 	
 	/**
@@ -44,7 +44,7 @@ public class BillPO implements Serializable{
 	  */
 	 private ArrayList<CarPO> cars;
 
-	public BillPO(String finaceman, Date date, ArrayList<InstPO> instituations,
+	public BillPO(String finaceman, MyDate date, ArrayList<InstPO> instituations,
 			ArrayList<PersonPO> persons, ArrayList<CarPO> cars) {
 		super();
 		this.finaceman = finaceman;
@@ -58,7 +58,7 @@ public class BillPO implements Serializable{
 		return finaceman;
 	}
 
-	public Date getDate() {
+	public MyDate getDate() {
 		return date;
 	}
 

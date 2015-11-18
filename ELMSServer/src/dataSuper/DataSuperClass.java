@@ -57,9 +57,10 @@ public class DataSuperClass extends UnicastRemoteObject {
 		SQLmap.put("inst", helper.bulidSQL("inst", 3, "id" , "location" , "type"));
 		SQLmap.put("car",helper.bulidSQL("car", 3, "id" , "plateNum" , "useYear") );
 		SQLmap.put("driver", helper.bulidSQL("driver", 7, "id", "name" , "birthday" , "idCard" , "phoneNum" , "isman" , "licenseYear" ));
+		SQLmap.put("orderTable", helper.bulidSQL("orderTable" , 27 , "orderBarCode" , "type" , "date" , "state" , "senderName" , "senderPhone" ,"senderCompany" , "senderAddress" , "receiverName" , "receiverPhone" , "receiverCompany" , "receiverAddress" , "goodNum" , "goodName" , "goodWeight" , "goodLong" , "goodWidth" , "goodHeight" , "goodPack" , "orderForm" , "orderEestiTime" , "orderCost" , "loadDoc" , "arriveZZDoc" , "transferDoc" ,"arriveYYDoc" , "sendGoodDoc" ,"realReceiver" ,"orderReceiveDate"));
 		//id是为了适应数据库存储增加的，具有自增属性
-		SQLmap.put("deposit", helper.bulidSQL("deposit", 3, "id" ,"date" , "money"));
-		SQLmap.put("pay", helper.bulidSQL("pay", 4 , "id" , "time" , "money" , "type"));
+		SQLmap.put("deposit", helper.bulidSQLForNoID("deposit", 3, "id" ,"date" , "money"));
+		SQLmap.put("pay", helper.bulidSQLForNoID("pay", 4 , "id" , "time" , "money" , "type"));
 	}
 
 	public DataSuperClass() throws RemoteException {
@@ -140,18 +141,46 @@ public class DataSuperClass extends UnicastRemoteObject {
 		return null;
 
 	}
+//	/**
+//	 * 用于没有ID的SQL处理
+//	 * @param tableName
+//	 * @return
+//	 */
+//	protected ArrayList<String> findFromSQL(String tableName){
+//		ArrayList<String> temp = new ArrayList<String>();
+//		try {
+//			preState = conn.prepareStatement(SQLmap.get(tableName).get(3));
+//			result = preState.executeQuery();
+//			while(result.next()) {
+//				int paralen = Integer.parseInt(SQLmap.get(tableName).get(0));
+//				temp = new ArrayList<String>(paralen);
+//				for (int i = 0; i < paralen; i++) {
+//					temp.add(result.getString(i + 1));
+//				}
+//			}
+//
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		if(temp.size() == 0 ) {
+//			return null;
+//		}else{
+//			return temp;
+//		}
+//	}
+	
 	/**
 	 * 用于没有ID的SQL处理
 	 * @param tableName
 	 * @return
 	 */
-	protected ArrayList<String> findFromSQL(String tableName){
+	protected ArrayList<String> findFromSQL(String sql , int paralen){
 		ArrayList<String> temp = new ArrayList<String>();
 		try {
-			preState = conn.prepareStatement(SQLmap.get(tableName).get(3));
+			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while(result.next()) {
-				int paralen = Integer.parseInt(SQLmap.get(tableName).get(0));
 				temp = new ArrayList<String>(paralen);
 				for (int i = 0; i < paralen; i++) {
 					temp.add(result.getString(i + 1));

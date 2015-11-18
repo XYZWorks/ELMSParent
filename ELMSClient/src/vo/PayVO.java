@@ -1,6 +1,6 @@
 package vo;
 
-import util.Date;
+import util.MyDate;
 
 /**
  * 付款信息
@@ -11,7 +11,7 @@ public class PayVO {
 	/**
 	 * 时间
 	 */
-	public Date time;
+	public MyDate time;
 	/**
 	 * 金额
 	 */
@@ -25,7 +25,7 @@ public class PayVO {
 	 * @param time
 	 * @param money
 	 */
-	public PayVO(Date time, int money,String type) {
+	public PayVO(MyDate time, int money,String type) {
 		super();
 		this.time = time;
 		this.money = money;

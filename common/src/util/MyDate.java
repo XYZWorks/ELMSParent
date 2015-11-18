@@ -4,7 +4,7 @@ package util;
  * @author czq
  *
  */
-public class Date {
+public class MyDate {
 	
 
 	public int year;
@@ -20,7 +20,7 @@ public class Date {
 	public int second;
 	
 	
-	public Date(int year, int month, int day) {
+	public MyDate(int year, int month, int day) {
 		super();
 		this.year = year;
 		this.month = month;
@@ -31,7 +31,7 @@ public class Date {
 	}
 
 
-	public Date(int year, int month, int day, int hour, int minute, int second) {
+	public MyDate(int year, int month, int day, int hour, int minute, int second) {
 		super();
 		this.year = year;
 		this.month = month;
@@ -41,7 +41,7 @@ public class Date {
 		this.second = second;
 	}
 	
-	public static String toString(Date date){
+	public static String toString(MyDate date){
 		if(date.hour == -1){
 			return String.valueOf(date.year)+ "-" + String.valueOf(date.month) + "-" + String.valueOf(date.day);
 		}else{
@@ -49,12 +49,12 @@ public class Date {
 		}
 	}
 	
-	public static Date getDate(String date){
+	public static MyDate getDate(String date){
 		String[] temp = date.split("-");
 		if(temp.length == 3){
-			return new Date(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), Integer.parseInt(temp[2]));
+			return new MyDate(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), Integer.parseInt(temp[2]));
 		}else{
-			return new Date(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), Integer.parseInt(temp[2]) ,Integer.parseInt(temp[3]), Integer.parseInt(temp[4]), Integer.parseInt(temp[5]));
+			return new MyDate(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), Integer.parseInt(temp[2]) ,Integer.parseInt(temp[3]), Integer.parseInt(temp[4]), Integer.parseInt(temp[5]));
 		}
 	}
 	

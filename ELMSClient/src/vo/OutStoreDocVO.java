@@ -2,7 +2,7 @@ package vo;
 
 import java.util.ArrayList;
 
-import util.Date;
+import util.MyDate;
 import util.DocState;
 import util.DocType;
 
@@ -42,7 +42,7 @@ public class OutStoreDocVO extends DocVO{
 	 * @param transferDoc
 	 * @param shipWay
 	 */
-	public OutStoreDocVO(String ID,Date time, ArrayList<OrderVO> orderVOs, String loc, String transferDoc, String shipWay) {
+	public OutStoreDocVO(String ID,MyDate time, ArrayList<OrderVO> orderVOs, String loc, String transferDoc, String shipWay) {
 		//
 		super(ID, DocType.outStoreDoc, time, DocState.wait);
 		

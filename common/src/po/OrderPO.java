@@ -1,7 +1,7 @@
 package po;
 
 import java.io.Serializable;
-import java.util.Date;
+import util.MyDate;
 
 import util.DocState;
 import util.DocType;
@@ -144,9 +144,9 @@ public class OrderPO extends DocPO implements Serializable{
 	/**
 	 * 订单被接收的真实时间
 	 */
-	private Date orderReceiveDate;
+	private MyDate orderReceiveDate;
 
-	public OrderPO(util.Date date, String orderBarCode, String senderName,
+	public OrderPO(String orderBarCode, util.MyDate date,  String senderName,
 			String senderPhone, String senderCompany, String senderAddress,
 			String receiverName, String receiverPhone, String receiverCompany,
 			String receiverAddress, int goodNum, String goodName,
@@ -154,7 +154,7 @@ public class OrderPO extends DocPO implements Serializable{
 			String goodPack, String orderForm, int orderEestiTime,
 			int orderCost, String loadDoc, String arriveZZDoc,
 			String transferDoc, String arriveYYDoc, String sendGoodDoc,
-			String realReceiver, Date orderReceiveDate) {
+			String realReceiver, util.MyDate orderReceiveDate) {
 
 		// 将条形码号付给订单的父类ID edit by czq
 		super(orderBarCode, DocType.order, date, DocState.wait);
@@ -318,11 +318,11 @@ public class OrderPO extends DocPO implements Serializable{
 		this.realReceiver = realReceiver;
 	}
 
-	public Date getOrderReceiveDate() {
+	public MyDate getOrderReceiveDate() {
 		return orderReceiveDate;
 	}
 
-	public void setOrderReceiveDate(Date orderReceiveDate) {
+	public void setOrderReceiveDate(MyDate orderReceiveDate) {
 		this.orderReceiveDate = orderReceiveDate;
 	}
 

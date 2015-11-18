@@ -2,7 +2,7 @@ package po;
 
 import java.io.Serializable;
 
-import util.Date;
+import util.MyDate;
 import util.DocState;
 import util.DocType;
 import util.GoodsState;
@@ -57,7 +57,7 @@ public class ArriveYYDocPO extends DocPO implements Serializable{
 	 * @param SendCity
 	 * @param GoodState
 	 */
-	public ArriveYYDocPO(String ZZID, Date arriveDate, String TransferDocID,
+	public ArriveYYDocPO(String ZZID, MyDate arriveDate, String TransferDocID,
 			String SendCity, GoodsState GoodState) {
 		super(TransferDocID, DocType.arriveYYDoc, arriveDate, DocState.wait);
 		this.goodState = GoodState;

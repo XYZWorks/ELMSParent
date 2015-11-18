@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import po.CostPO;
 import po.DepositPO;
 import po.PayPO;
-import util.Date;
+import util.MyDate;
 import util.ResultMessage;
 import dataSuper.DataSuperClass;
 import ds.financedataservice.FinanceDataService;
@@ -41,11 +41,11 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	}
 
 	public ResultMessage addDeposit(DepositPO po) throws RemoteException {
-		return addToSQL(depositTable, "0" , Date.toString(po.getTime()) , String.valueOf(po.getMoney()));
+		return addToSQL(depositTable, "0" , MyDate.toString(po.getTime()) , String.valueOf(po.getMoney()));
 	}
 
 	public ResultMessage addPay(PayPO po) throws RemoteException {
-		return addToSQL(payTable, "0" , Date.toString(po.getTime()) , String.valueOf(po.getMoney()) , po.getType());
+		return addToSQL(payTable, "0" , MyDate.toString(po.getTime()) , String.valueOf(po.getMoney()) , po.getType());
 	}
 
 	public ArrayList<CostPO> show() throws RemoteException {

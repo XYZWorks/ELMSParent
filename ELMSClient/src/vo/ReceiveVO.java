@@ -1,6 +1,6 @@
 package vo;
 
-import util.Date;
+import util.MyDate;
 
 /**
  * 收件信息录入
@@ -17,14 +17,14 @@ public class ReceiveVO {
 	/**
 	 * 收件日期
 	 */
-	public Date orderDate;
+	public MyDate orderDate;
 
 	/**
 	 * 真实收件人
 	 */
 	public String realReceiver;
 
-	public ReceiveVO(String orderBarCode, Date orderDate, String realReceiver) {
+	public ReceiveVO(String orderBarCode, MyDate orderDate, String realReceiver) {
 		super();
 		this.orderBarCode = orderBarCode;
 		this.orderDate = orderDate;

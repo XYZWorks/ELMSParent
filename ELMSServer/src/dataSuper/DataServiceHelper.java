@@ -1,5 +1,11 @@
 package dataSuper;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
  /** 
  * 
@@ -94,4 +100,47 @@ public class DataServiceHelper {
 	public boolean changeFromInt(String num){
 		return (num.equalsIgnoreCase("0"))?false:true;
 	}
+	
+	public boolean writeToSerFile(Object object , String name){
+		String pres = "data\\";
+		ObjectOutputStream out;
+		try {
+			out = new ObjectOutputStream(new FileOutputStream(pres + name));
+			out.writeObject(object);
+			out.close();
+			return true;
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			
+		}
+		
+		return false;
+		
+	}
+	
+	public Object readFromSerFile(String name){
+		String pres = "data\\";
+		Object result;
+		ObjectInputStream input;
+		try {
+			input = new ObjectInputStream(new FileInputStream(pres + name));
+			result = input.readObject();
+			input.close();
+			return result;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
 }

@@ -1,6 +1,6 @@
 package vo;
 
-import util.Date;
+import util.MyDate;
 
 /**
  * DriverVO类
@@ -23,7 +23,7 @@ public class DriverVO {
 	/**
 	 * 出生日期
 	 */
-	public Date birthDay;
+	public MyDate birthDay;
 	/**
 	 * 身份证号
 	 */
@@ -40,7 +40,7 @@ public class DriverVO {
 	 * 驾驶证期限
 	 */
 	public int licenseYear;
-	public DriverVO(String iD, String name, String instID, Date birthDay,
+	public DriverVO(String iD, String name, String instID, MyDate birthDay,
 			String iDcard, String phoneNum, boolean isman, int licenseYear) {
 		super();
 		ID = iD;

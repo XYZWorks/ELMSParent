@@ -2,7 +2,7 @@ package po;
 
 import java.io.Serializable;
 
-import util.Date;
+import util.MyDate;
 /**
  * 库存快照信息
  * @author ymc
@@ -17,15 +17,15 @@ public class StoreCheckPO implements Serializable{
 	/**
 	 * 时间
 	 */
-	private Date time;
+	private MyDate time;
 	/**
 	 * 库存信息
 	 */
 	private StoreMessagePO po;
-	public Date getTime() {
+	public MyDate getTime() {
 		return time;
 	}
-	public void setTime(Date time) {
+	public void setTime(MyDate time) {
 		this.time = time;
 	}
 	public StoreMessagePO getPo() {
@@ -39,7 +39,7 @@ public class StoreCheckPO implements Serializable{
 	 * @param time
 	 * @param vo
 	 */
-	public StoreCheckPO(Date time, StoreMessagePO po) {
+	public StoreCheckPO(MyDate time, StoreMessagePO po) {
 		super();
 		this.time = time;
 		this.po = po;

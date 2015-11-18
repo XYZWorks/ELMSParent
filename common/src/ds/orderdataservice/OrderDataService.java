@@ -3,11 +3,11 @@ package ds.orderdataservice;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.Date;
 
 import po.DocPO;
 import po.OrderPO;
 import po.ReceivePO;
+import util.MyDate;
 import util.ResultMessage;
 
 public interface OrderDataService extends Remote{
@@ -17,7 +17,7 @@ public interface OrderDataService extends Remote{
 	 * @param date
 	 * @return ArrayList<orderPO>
 	 */
-	public ArrayList<OrderPO> getDayOrderPO(Date date) throws RemoteException;
+	public ArrayList<OrderPO> getDayOrderPO(MyDate date) throws RemoteException;
 
 	/**
 	 * 增加订单

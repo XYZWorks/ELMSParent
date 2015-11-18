@@ -2,7 +2,7 @@ package po;
 
 import java.io.Serializable;
 
-import util.Date;
+import util.MyDate;
 /**
  * 付款信息
  * @author Administrator
@@ -17,7 +17,7 @@ public class PayPO implements Serializable{
 	/**
 	 * 时间
 	 */
-	private Date time;
+	private MyDate time;
 	/**
 	 * 金额
 	 */
@@ -26,10 +26,10 @@ public class PayPO implements Serializable{
 	 * 类型
 	 */
 	private String type;
-	public Date getTime() {
+	public MyDate getTime() {
 		return time;
 	}
-	public void setTime(Date time) {
+	public void setTime(MyDate time) {
 		this.time = time;
 	}
 	public int getMoney() {
@@ -49,7 +49,7 @@ public class PayPO implements Serializable{
 	 * @param time
 	 * @param money
 	 */
-	public PayPO(Date time, int money,String type) {
+	public PayPO(MyDate time, int money,String type) {
 		super();
 		this.time = time;
 		this.money = money;

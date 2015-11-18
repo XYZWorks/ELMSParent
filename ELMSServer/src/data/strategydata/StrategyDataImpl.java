@@ -21,29 +21,39 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * 工资计算方式表 表名
+	 */
+	private final String salaryTable = "salary";
 
 	public StrategyDataImpl() throws RemoteException {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public ConstPO getConst() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return (ConstPO)helper.readFromSerFile("const");
 	}
 
 	public ResultMessage setConst(ConstPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		if(helper.writeToSerFile(po, "const")){
+			return ResultMessage.SUCCESS;
+		}else{
+			return ResultMessage.FAIL;
+		}
 	}
 
 	public ArrayList<SalaryWayPO> getSalary() throws RemoteException {
-		// TODO Auto-generated method stub
+		ArrayList<SalaryWayPO> pos = new ArrayList<SalaryWayPO>();
+		sql = "SELECT * from " + salaryTable;
+		preState = conn.prepareStatement(sql);
+		
+		
+		
 		return null;
 	}
 
 	public ResultMessage setSalaryWay(SalaryWayPO po) throws RemoteException {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

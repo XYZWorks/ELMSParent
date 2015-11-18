@@ -2,7 +2,7 @@ package po;
 
 import java.io.Serializable;
 
-import util.Date;
+import util.MyDate;
 import util.DocState;
 import util.DocType;
 
@@ -27,7 +27,7 @@ public class SendGoodDocPO extends DocPO implements Serializable{
 	 */
 	private String orderBarCode;
 
-	public SendGoodDocPO(String iD, Date date, String sendMan,
+	public SendGoodDocPO(String iD, MyDate date, String sendMan,
 			String orderBarCode) {
 		super(iD, DocType.sendGoodDoc, date, DocState.wait);
 		SendMan = sendMan;
