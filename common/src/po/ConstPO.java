@@ -10,7 +10,9 @@ import java.io.Serializable;
  */
 public class ConstPO implements Serializable{
 	
-	
+	public ConstPO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 
 	 */

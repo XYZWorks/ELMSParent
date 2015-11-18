@@ -9,6 +9,10 @@ import java.io.Serializable;
  */
 public class RentPO extends CostPO implements Serializable{
 	
+	public RentPO() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	/**
 	 * 序列化UID
 	 */

@@ -8,6 +8,10 @@ import java.io.Serializable;
 * 运费信息
 */
 public class FreightPO extends CostPO implements Serializable{
+	
+	public FreightPO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 序列化UID
 	 */

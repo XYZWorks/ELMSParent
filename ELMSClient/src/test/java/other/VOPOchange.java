@@ -4,7 +4,7 @@ import java.lang.reflect.Constructor;
 
 
 import java.lang.reflect.*;
-import util.Date;
+import util.MyDate;
 import vo.CostVO;
 import vo.InStoreDocVO;
 
@@ -34,6 +34,7 @@ public class VOPOchange {
 		try {		
 			poClass = Class.forName(poName);
 			
+			po = poClass.newInstance();
 			Method[] met = poClass.getDeclaredMethods();
 			for(int i = 0; i<met.length ; i++)
 				System.out.println(met[i].getName()+" "+met[i].getReturnType());
@@ -45,12 +46,12 @@ public class VOPOchange {
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-//		} catch (InstantiationException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IllegalAccessException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (SecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,7 +66,7 @@ public class VOPOchange {
 	public static void main(String[] args) {
 		CostVO  vo = new CostVO(1000, "freigt");
 		
-		InStoreDocVO vo2 = new InStoreDocVO("", new Date(1,1,1), null, "", null);
+		InStoreDocVO vo2 = new InStoreDocVO("", new MyDate(1,1,1), null, "", null);
 		
 		VOPOchange test = new VOPOchange();
 		

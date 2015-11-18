@@ -8,6 +8,10 @@ import java.util.ArrayList;
  *
  */
 public class StoreMessagePO implements Serializable{
+	
+	public StoreMessagePO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 序列化UID
 	 */

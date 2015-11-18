@@ -14,6 +14,10 @@ import util.DocType;
  */
 
 public class OrderPO extends DocPO implements Serializable{
+	
+	public OrderPO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 序列化UID
 	 */
