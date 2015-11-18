@@ -10,7 +10,9 @@ import java.io.Serializable;
  */
 public class CostIncomePO implements Serializable{
 	
-	
+	public CostIncomePO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 
 	 */

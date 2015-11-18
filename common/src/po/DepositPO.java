@@ -10,7 +10,9 @@ import util.MyDate;
  *
  */
 public class DepositPO implements Serializable{
-	
+	public DepositPO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 序列化UID
 	 */
