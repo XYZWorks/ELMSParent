@@ -58,6 +58,7 @@ public class DataSuperClass extends UnicastRemoteObject {
 		SQLmap.put("car",helper.bulidSQL("car", 3, "id" , "plateNum" , "useYear") );
 		SQLmap.put("driver", helper.bulidSQL("driver", 7, "id", "name" , "birthday" , "idCard" , "phoneNum" , "isman" , "licenseYear" ));
 		SQLmap.put("orderTable", helper.bulidSQL("orderTable" , 27 , "orderBarCode" , "type" , "date" , "state" , "senderName" , "senderPhone" ,"senderCompany" , "senderAddress" , "receiverName" , "receiverPhone" , "receiverCompany" , "receiverAddress" , "goodNum" , "goodName" , "goodWeight" , "goodLong" , "goodWidth" , "goodHeight" , "goodPack" , "orderForm" , "orderEestiTime" , "orderCost" , "loadDoc" , "arriveZZDoc" , "transferDoc" ,"arriveYYDoc" , "sendGoodDoc" ,"realReceiver" ,"orderReceiveDate"));
+		SQLmap.put("salary", helper.bulidSQL("salary", 4, "type" , "basicMoney" , "moreMoney" , "way"));
 		//id是为了适应数据库存储增加的，具有自增属性
 		SQLmap.put("deposit", helper.bulidSQLForNoID("deposit", 3, "id" ,"date" , "money"));
 		SQLmap.put("pay", helper.bulidSQLForNoID("pay", 4 , "id" , "time" , "money" , "type"));
@@ -141,46 +142,18 @@ public class DataSuperClass extends UnicastRemoteObject {
 		return null;
 
 	}
-//	/**
-//	 * 用于没有ID的SQL处理
-//	 * @param tableName
-//	 * @return
-//	 */
-//	protected ArrayList<String> findFromSQL(String tableName){
-//		ArrayList<String> temp = new ArrayList<String>();
-//		try {
-//			preState = conn.prepareStatement(SQLmap.get(tableName).get(3));
-//			result = preState.executeQuery();
-//			while(result.next()) {
-//				int paralen = Integer.parseInt(SQLmap.get(tableName).get(0));
-//				temp = new ArrayList<String>(paralen);
-//				for (int i = 0; i < paralen; i++) {
-//					temp.add(result.getString(i + 1));
-//				}
-//			}
-//
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		if(temp.size() == 0 ) {
-//			return null;
-//		}else{
-//			return temp;
-//		}
-//	}
-	
 	/**
 	 * 用于没有ID的SQL处理
 	 * @param tableName
 	 * @return
 	 */
-	protected ArrayList<String> findFromSQL(String sql , int paralen){
+	protected ArrayList<String> findFromSQL(String tableName){
 		ArrayList<String> temp = new ArrayList<String>();
 		try {
-			preState = conn.prepareStatement(sql);
+			preState = conn.prepareStatement(SQLmap.get(tableName).get(3));
 			result = preState.executeQuery();
 			while(result.next()) {
+				int paralen = Integer.parseInt(SQLmap.get(tableName).get(0));
 				temp = new ArrayList<String>(paralen);
 				for (int i = 0; i < paralen; i++) {
 					temp.add(result.getString(i + 1));
@@ -197,6 +170,35 @@ public class DataSuperClass extends UnicastRemoteObject {
 			return temp;
 		}
 	}
+	
+	/**
+	 * 用于没有ID的SQL处理
+	 * @param tableName
+	 * @return
+	 */
+//	protected ArrayList< ArrayList<String> > findFromSQL(String sql , int paralen){
+//		ArrayList< ArrayList<String> > result = new ArrayList<>();
+//		ArrayList<String> temp;
+//		try {
+//			preState = conn.prepareStatement(sql);
+//			result = preState.executeQuery();
+//			while(result.next()) {
+//				temp = new ArrayList<String>(paralen);
+//				for (int i = 0; i < paralen; i++) {
+//					temp.add(result.getString(i + 1));
+//				}
+//			}
+//
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		if(temp.size() == 0 ) {
+//			return null;
+//		}else{
+//			return temp;
+//		}
+//	}
 	
 	/**
 	 * 修改一条数据
@@ -239,22 +241,22 @@ public class DataSuperClass extends UnicastRemoteObject {
 		return ResultMessage.FAIL;
 	}
 	
-//	/**
-//	 * 执行语句并返回执行结果
-//	 * 
-//	 * @param tempPreState
-//	 * @return
-//	 */
-//	protected ResultMessage getDoResult(PreparedStatement tempPreState) {
-//		try {
-//			if (tempPreState.execute()) {
-//				return ResultMessage.SUCCESS;
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return ResultMessage.FAIL;
-//	}
+	/**
+	 * 执行语句并返回执行结果
+	 * 
+	 * @param tempPreState
+	 * @return
+	 */
+	protected ResultMessage getDoResult(PreparedStatement tempPreState) {
+		try {
+			if (tempPreState.execute()) {
+				return ResultMessage.SUCCESS;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
+	}
 
 
 
@@ -266,7 +268,9 @@ public class DataSuperClass extends UnicastRemoteObject {
 			System.out.println(temp.getKey());
 			for (int i = 0; i < 6; i++) {
 				System.out.println(temp.getValue().get(i));
+				
 			}
+			System.out.println("------------------------------------------------");
 
 		}
 	}
