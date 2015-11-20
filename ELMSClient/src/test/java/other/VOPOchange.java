@@ -20,9 +20,9 @@ public class VOPOchange {
 		
 		Object po = null;
 		
-		Class voClass = o.getClass();
+		Class<? extends Object> voClass = o.getClass();
 		
-		Class poClass = null;
+		Class<? extends Object> poClass = null;
 		
 		String voName = voClass.getName();
 		
@@ -70,7 +70,7 @@ public class VOPOchange {
 				
 				met = po.getClass().getMethod("set"+tmp, field[i].getType());
 				
-				met.invoke(po, new Object[]{field[i]});
+				met.invoke(po,field[i].get(null));
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
