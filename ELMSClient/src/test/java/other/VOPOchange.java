@@ -1,7 +1,5 @@
 package test.java.other;
 
-import java.lang.reflect.Constructor;
-
 import po.CostPO;
 
 import java.lang.reflect.*;
@@ -64,13 +62,14 @@ public class VOPOchange {
 		
 		try {
 			for(int i= 0 ; i<field.length;i++){
-				
+
 				tmp=(char)(field[i].getName().charAt(0)-'a'+'A')+field[i].getName().substring(1);
-				System.out.println("set"+tmp);
 				
 				met = po.getClass().getMethod("set"+tmp, field[i].getType());
+				Object ob = field[i].get(o);
 				
-				met.invoke(po,field[i].get(null));
+				System.out.println(met.getName()+" "+met.getReturnType());
+				met.invoke(po,ob);
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
