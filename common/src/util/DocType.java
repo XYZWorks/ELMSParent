@@ -13,35 +13,35 @@ public enum DocType {
 	/**
 	 * 订单
 	 */
-	order("order"),
+	order("订单"),
 	/**
 	 * 装车单
 	 */
-	loadDoc("loadDoc"),
+	loadDoc("装车单"),
 	/**
 	 * 装车单（营业厅和中转中心流转）
 	 */
-	arriveZZDoc("arriveZZDoc"),
+	arriveZZDoc("装车单"),
 	/**
 	 * 装车单
 	 */
-	transferDoc("transferDoc"),
+	transferDoc("装车单"),
 	/**
 	 * 装车单
 	 */
-	arriveYYDoc("arriveYYDoc"),
+	arriveYYDoc("装车单"),
 	/**
 	 * 装车单
 	 */
-	sendGoodDoc("sendGoodDoc"),
+	sendGoodDoc("装车单"),
 	/**
 	 * 入库单
 	 */
-	inStoreDoc("inStoreDoc"),
+	inStoreDoc("入库单"),
 	/**
 	 * 入库单
 	 */
-	outStoreDoc("outStoreDoc");
+	outStoreDoc("出库单");
 	
 	private final String name;
 	

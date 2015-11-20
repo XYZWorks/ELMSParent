@@ -11,7 +11,7 @@ import data.statisticdata.StatisticDataImpl;
 import data.storedata.StoreDataImpl;
 import data.strategydata.StrategyDataImpl;
 import data.transportdata.TransportDataImpl;
-import ds.DTManagedataservice.DTManagedataservice;
+import ds.DTManagedataservice.DTManagedateservice;
 import ds.accountdataservice.AccountDataService;
 import ds.datafactoryservice.DataFactoryService;
 import ds.financedataservice.FinanceDataService;
@@ -32,7 +32,9 @@ public class DataFactory implements DataFactoryService {
 
 	private static DataFactory dataFactory;
 
-	private DataFactory() {}
+	private DataFactory() {
+
+	}
 
 	public static DataFactory getDataFactory() {
 		if (dataFactory == null) {
@@ -47,7 +49,7 @@ public class DataFactory implements DataFactoryService {
 		return new AccountDataServiceImpl();
 	}
 
-	public DTManagedataservice getDTMangeDataImpl() throws RemoteException {
+	public DTManagedateservice getDTMangeDataImpl() throws RemoteException {
 		return new DTManageDataImpl();
 	}
 
@@ -72,7 +74,14 @@ public class DataFactory implements DataFactoryService {
 	}
 
 	public PersonnelDataService getPersonnelDataImpl() throws RemoteException {
-		return new PersonnelDataServiceImpl();
+		PersonnelDataService pdservice = null;
+		try {
+			pdservice = new PersonnelDataServiceImpl();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return pdservice;
 	}
 
 	public StoreDataService getStoreDataImpl() throws RemoteException {

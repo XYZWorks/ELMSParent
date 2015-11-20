@@ -1,10 +1,10 @@
 package test.java.other;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 
-import util.MyDate;
+
+import java.lang.reflect.*;
+import util.Date;
 import vo.CostVO;
 import vo.InStoreDocVO;
 
@@ -65,7 +65,7 @@ public class VOPOchange {
 	public static void main(String[] args) {
 		CostVO  vo = new CostVO(1000, "freigt");
 		
-		InStoreDocVO vo2 = new InStoreDocVO("", new MyDate(1,1,1), null, "", null);
+		InStoreDocVO vo2 = new InStoreDocVO("", new Date(1,1,1), null, "", null);
 		
 		VOPOchange test = new VOPOchange();
 		

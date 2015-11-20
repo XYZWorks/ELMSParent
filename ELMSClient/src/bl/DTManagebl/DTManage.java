@@ -3,7 +3,7 @@ package bl.DTManagebl;
 import java.util.ArrayList;
 
 import blservice.DTManageblservice.DTManageblservice;
-import ds.DTManagedataservice.DTManagedataservice;
+import ds.DTManagedataservice.DTManagedateservice;
 import util.ResultMessage;
 import vo.CarVO;
 import vo.DriverVO;
@@ -16,7 +16,7 @@ import vo.DriverVO;
 public class DTManage{
 	
 	
-	DTManagedataservice manageData;
+	DTManagedateservice manageData;
 	
 	
 	public ResultMessage add(DriverVO vo) {
