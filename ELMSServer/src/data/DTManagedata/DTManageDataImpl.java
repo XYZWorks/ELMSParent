@@ -7,13 +7,13 @@ import po.DriverPO;
 import util.MyDate;
 import util.ResultMessage;
 import dataSuper.DataSuperClass;
-import ds.DTManagedataservice.DTManagedateservice;
+import ds.DTManagedataservice.DTManagedataservice;
  /** 
  * 车辆司机信息管理
  * @author czq 
  * @version 2015年11月5日 下午8:45:11 
  */
-public class DTManageDataImpl extends DataSuperClass implements DTManagedateservice{
+public class DTManageDataImpl extends DataSuperClass implements DTManagedataservice{
 
 	/**
 	 * 

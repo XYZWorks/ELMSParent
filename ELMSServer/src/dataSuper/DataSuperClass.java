@@ -12,6 +12,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import util.ResultMessage;
+
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
+
 import config.DataBaseInit;
 
 /**
@@ -38,18 +41,24 @@ public class DataSuperClass extends UnicastRemoteObject {
 	 * 数据库语句
 	 */
 	protected String sql;
-	
+	/**
+	 * 数据库操作影响结果集
+	 */
 	protected ResultSet result;
 	/**
 	 * 查找返回的消息
 	 */
 	protected ArrayList<String> findMes;
 	/**
+	 * 在数据库操作中影响到的行数（信息条数）
+	 */
+	protected int affectRows;
+	/**
 	 * 
 	 */
 	protected static DataServiceHelper helper = new DataServiceHelper();
 
-	private static final Map<String, ArrayList<String>> SQLmap = new HashMap<String, ArrayList<String>>(100);
+	private static final Map<String, ArrayList<String>> SQLmap = new HashMap<String, ArrayList<String>>(30);
 
 	static {
 		SQLmap.put("account", helper.bulidSQL("account", 6, "id", "name", "type", "password","phone", "email"));
@@ -57,7 +66,7 @@ public class DataSuperClass extends UnicastRemoteObject {
 		SQLmap.put("inst", helper.bulidSQL("inst", 3, "id" , "location" , "type"));
 		SQLmap.put("car",helper.bulidSQL("car", 3, "id" , "plateNum" , "useYear") );
 		SQLmap.put("driver", helper.bulidSQL("driver", 7, "id", "name" , "birthday" , "idCard" , "phoneNum" , "isman" , "licenseYear" ));
-		SQLmap.put("orderTable", helper.bulidSQL("orderTable" , 27 , "orderBarCode" , "type" , "date" , "state" , "senderName" , "senderPhone" ,"senderCompany" , "senderAddress" , "receiverName" , "receiverPhone" , "receiverCompany" , "receiverAddress" , "goodNum" , "goodName" , "goodWeight" , "goodLong" , "goodWidth" , "goodHeight" , "goodPack" , "orderForm" , "orderEestiTime" , "orderCost" , "loadDoc" , "arriveZZDoc" , "transferDoc" ,"arriveYYDoc" , "sendGoodDoc" ,"realReceiver" ,"orderReceiveDate"));
+		SQLmap.put("order", helper.bulidSQL("order" , 27 , "orderBarCode" , "type" , "date" , "state" , "senderName" , "senderPhone" ,"senderCompany" , "senderAddress" , "receiverName" , "receiverPhone" , "receiverCompany" , "receiverAddress" , "goodNum" , "goodName" , "goodWeight" , "goodLong" , "goodWidth" , "goodHeight" , "goodPack" , "orderForm" , "orderEestiTime" , "orderCost" , "loadDoc" , "arriveZZDoc" , "transferDoc" ,"arriveYYDoc" , "sendGoodDoc" ,"realReceiver" ,"orderReceiveDate"));
 		SQLmap.put("salary", helper.bulidSQL("salary", 4, "type" , "basicMoney" , "moreMoney" , "way"));
 		//id是为了适应数据库存储增加的，具有自增属性
 		SQLmap.put("deposit", helper.bulidSQLForNoID("deposit", 3, "id" ,"date" , "money"));
@@ -66,7 +75,16 @@ public class DataSuperClass extends UnicastRemoteObject {
 
 	public DataSuperClass() throws RemoteException {
 		this.conn = DataBaseInit.getConnection();
+		System.out.println("succeed to bulid dataservice");
 	}
+	
+//	/**
+//	 * 初始化数据
+//	 */
+//	protected void intial() {
+//		
+//	}
+	
 
 	/**
 	 * 向数据库中增加一条数据
@@ -81,14 +99,20 @@ public class DataSuperClass extends UnicastRemoteObject {
 			for (int i = 0; i < paralen; i++) {
 				preState.setString(i + 1, paras[i]);
 			}
-			if (preState.execute()) {
-				return ResultMessage.SUCCESS;
-			}
+			affectRows = preState.executeUpdate();
+		} catch(MySQLIntegrityConstraintViolationException e){
+			return ResultMessage.hasExist;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return ResultMessage.FAIL;
 		}
-		return ResultMessage.FAIL;
-
+		
+		if(affectRows == 0){
+			return ResultMessage.FAIL;
+		}
+		
+		
+		return ResultMessage.SUCCESS;
 	}
 	
 	/**
@@ -99,15 +123,18 @@ public class DataSuperClass extends UnicastRemoteObject {
 	 */
 	protected ResultMessage delFromSQL(String tableName , String ID) {
 		try {
-			preState = conn.prepareStatement(SQLmap.get(tableName).get(2));
-			if(preState.execute()){
-				return ResultMessage.SUCCESS;
-			}
+			preState = conn.prepareStatement(SQLmap.get(tableName).get(2) + ID);
+			affectRows = preState.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return ResultMessage.FAIL;
 		}
 		
-		return ResultMessage.FAIL;
+		if(affectRows != 1){
+			return ResultMessage.FAIL;
+		}
+		
+		return ResultMessage.SUCCESS;
 	}
 	
 	
@@ -135,7 +162,6 @@ public class DataSuperClass extends UnicastRemoteObject {
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -214,14 +240,19 @@ public class DataSuperClass extends UnicastRemoteObject {
 			for (int i = 0; i < paralen - 1; i++) {
 				preState.setString(i + 1, newParas[i + 1]);
 			}
-			if(preState.execute()){
-				return ResultMessage.SUCCESS;
-			}
-			
+			affectRows = preState.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return ResultMessage.FAIL;
 		}
-		return ResultMessage.FAIL;
+		
+		if(affectRows == 0){
+			return ResultMessage.NOT_EXIST;
+		}else if(affectRows > 1){
+			return ResultMessage.FAIL;
+		}
+		
+		return ResultMessage.SUCCESS;
 	}
 	
 	/**
@@ -232,9 +263,8 @@ public class DataSuperClass extends UnicastRemoteObject {
 	protected ResultMessage initialFromSQL(String tableName) {
 		try {
 			preState = conn.prepareStatement(SQLmap.get(tableName).get(5));
-			if(preState.execute()){
-				return ResultMessage.SUCCESS;
-			}
+			preState.executeUpdate();
+			return ResultMessage.SUCCESS;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
