@@ -18,10 +18,10 @@ public enum ResultMessage {
 	 */
 	PAUSE,
 	
-	
+	hasExist,
 	
 	/**
 	 * 数据不存在
 	 */
-	notExist
+	NOT_EXIST
 }

@@ -5,6 +5,11 @@ package util;
  * @date 2015/10/20
  */
 public enum AccountType {
+	
+	/**
+	 * 管理员
+	 */
+	Adminstrator("Adminstrator"),
 	/**
 	 * 总经理
 	 */

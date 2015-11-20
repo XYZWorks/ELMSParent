@@ -32,8 +32,10 @@ public class AccountDataServiceImpl extends DataSuperClass implements
 	}
 	
 	public ResultMessage initial() throws RemoteException {
-		//需要增加管理员账户 TODO
-		return initialFromSQL(tableName);
+		ResultMessage result = initialFromSQL(tableName);
+		//管理员账户
+		add(new AccountPO("000000" , "Adminstrator" , AccountType.Adminstrator , "000000"));
+		return result;
 	}
 
 	public AccountPO find(String ID) throws RemoteException {

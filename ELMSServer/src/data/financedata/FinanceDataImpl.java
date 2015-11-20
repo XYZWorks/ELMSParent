@@ -24,9 +24,9 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private final String depositTable = "deposit";
+	private static final String depositTable = "deposit";
 	
-	private final String payTable = "pay";
+	private static final String payTable = "pay";
 
 	public FinanceDataImpl() throws RemoteException {}
 
@@ -36,7 +36,6 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	}
 
 	public ArrayList<PayPO> getPayPO() throws RemoteException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -49,7 +48,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	}
 
 	public ArrayList<CostPO> show() throws RemoteException {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

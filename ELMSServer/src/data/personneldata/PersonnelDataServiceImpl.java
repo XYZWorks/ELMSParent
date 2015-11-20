@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import po.InstPO;
 import po.PersonPO;
+import util.InstType;
 import util.ResultMessage;
 import util.StaffType;
 import dataSuper.DataSuperClass;
@@ -24,46 +25,43 @@ public class PersonnelDataServiceImpl extends DataSuperClass implements
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private final String personTable = "person";
+	
+	private final String instTable = "inst";
 
-	public PersonnelDataServiceImpl() throws RemoteException {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	public PersonnelDataServiceImpl() throws RemoteException {}
 
 	public ArrayList<PersonPO> getPeoByInst(String ID) throws RemoteException {
 		ArrayList<PersonPO> personPOs = new ArrayList<PersonPO>();
 		try {
-			sql = "SELECT * from `person` WHERE `instid` = " + ID;
+			sql = "SELECT * FROM `person` WHERE `instid` = " + ID;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
-			
-			
-			
-			while(result.next()){
-					personPOs.add(new PersonPO(result.getString(1), result.getString(2), result.getString(3), StaffType.getType(result.getString(4)), result.getString(5))) ;
+			while (result.next()) {
+				personPOs.add(new PersonPO(result.getString(1), result
+						.getString(2), result.getString(3), StaffType
+						.getType(result.getString(4)), result.getString(5)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		if(personPOs.isEmpty()){
+		if (personPOs.isEmpty()) {
 			return null;
-		}else{
+		} else {
 			return personPOs;
 		}
 	}
 
 	public PersonPO getPersonByID(String ID) throws RemoteException {
-		try {
-			sql = "SELECT * FROM `person` WHERE `id` =" + ID;
-			preState = conn.prepareStatement(sql);
-			result = preState.executeQuery();
-			while(result.next()){
-				return new PersonPO(result.getString(1), result.getString(2), result.getString(3), StaffType.getType(result.getString(4)), result.getString(5)) ;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		
+		findMes = findFromSQL(personTable, ID);
+		if(findMes == null){
+			return null;
+		}else{
+			//instid 在 id前
+			return new PersonPO(findMes.get(1),findMes.get(0), findMes.get(2), StaffType.getType(findMes.get(3)), findMes.get(4));
 		}
-		return null;
 	}
 
 	public ArrayList<PersonPO> getPeoByName(String name) throws RemoteException {
@@ -71,15 +69,17 @@ public class PersonnelDataServiceImpl extends DataSuperClass implements
 		
 		
 		try {
-			sql = "SELECT * FROM `account` WHERE `name` LIKE '%" + name + "%'";
+			sql = "SELECT * FROM `" + personTable +  "` WHERE `name` LIKE '%" + name + "%'";
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {
-				persons.add(new PersonPO(result.getString(1), result
-						.getString(2), result.getString(3), StaffType
+				//instid 在 id前
+				persons.add(new PersonPO(result.getString(2), result
+						.getString(1), result.getString(3), StaffType
 						.getType(result.getString(4)), result.getString(5)));
 
 			}
+			return persons;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -89,47 +89,53 @@ public class PersonnelDataServiceImpl extends DataSuperClass implements
 	}
 
 	public ResultMessage addPerson(PersonPO po) throws RemoteException {
-		
-		try {
-			sql = "INSERT INTO `person` values(?,?,?,?,?)";
-			preState = conn.prepareStatement(sql);
-			preState.setString(1, po.getInstID());
-			preState.setString(2, po.getID());
-			preState.setString(3, po.getName());
-			preState.setString(4, po.getType().getName());
-			preState.setString(5, po.getName());
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return getDoResult(preState);
+		return addToSQL(personTable, po.getID() , po.getInstID() , po.getName() , po.getType().name() , po.getPhoneNum());
 	}
 
 	public ResultMessage delPerson(PersonPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return delFromSQL(personTable, po.getID());
 	}
 
 	public ResultMessage addInst(InstPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return addToSQL(instTable, po.getID() , po.getLocation() , po.getType().name());
 	}
 
 	public ResultMessage delInst(InstPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		return delFromSQL(instTable, po.getID());
 	}
 
 	public ArrayList<InstPO> getInst() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<InstPO> institutions = new ArrayList<InstPO>();
+		InstPO po;
+		try {
+			sql = "SELECT　* FROM " + instTable ;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while(result.next()){
+				po = new InstPO(result.getString(1), result.getString(2), InstType.valueOf(result.getString(3)));
+				institutions.add(po);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		if(institutions.isEmpty()){
+			return null;
+		}else{
+			return institutions;
+		}
+		
+		
+		
 	}
 	
-	public static void main(String[] args) throws RemoteException {
-		PersonnelDataService test = new PersonnelDataServiceImpl();
-//		test.addPerson(new PersonPO("112233", "111111", "张薇", StaffType.storemanager, "13184836488"));
-//		test.addPerson(new PersonPO("112233", "111112", "张薇按", StaffType.storemanager, "13184836488"));
-		test.addPerson(new PersonPO("112233", "111114", "时辰", StaffType.storemanager, "13184836488"));
-		System.out.println(test.getPeoByInst("112233").size());;
-	}
+//	public static void main(String[] args) throws RemoteException {
+//		PersonnelDataService test = new PersonnelDataServiceImpl();
+////		test.addPerson(new PersonPO("112233", "111111", "张薇", StaffType.storemanager, "13184836488"));
+////		test.addPerson(new PersonPO("112233", "111112", "张薇按", StaffType.storemanager, "13184836488"));
+//		test.addPerson(new PersonPO("112233", "111114", "时辰", StaffType.storemanager, "13184836488"));
+//		System.out.println(test.getPeoByInst("112233").size());;
+//	}
 
 }

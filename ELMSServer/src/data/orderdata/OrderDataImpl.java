@@ -3,6 +3,7 @@ package data.orderdata;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import util.DocState;
 import util.DocType;
@@ -11,6 +12,7 @@ import po.DocPO;
 import po.OrderPO;
 import po.ReceivePO;
 import util.ResultMessage;
+import data.storedata.StoreDataImpl;
 import dataSuper.DataSuperClass;
 import ds.orderdataservice.OrderDataService;
  /** 
@@ -25,12 +27,9 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private final String orderTable = "orderTable";
+	private final String orderTable = "order";
 
-	public OrderDataImpl() throws RemoteException {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	public OrderDataImpl() throws RemoteException {}
 
 	public ArrayList<OrderPO> getDayOrderPO(MyDate date) throws RemoteException {
 		sql = "SELECT * FROM " + orderTable + "WHERE date =" + MyDate.toString(date);
@@ -63,13 +62,9 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 			
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
-		
-		
-		
 		
 		return pos;
 	}
@@ -79,29 +74,100 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	}
 
 	public ResultMessage del(String orderBarCode) throws RemoteException {
-		return delFromSQL(orderBarCode, orderBarCode);
+		return delFromSQL(orderTable, orderBarCode);
 	}
 
-	public ResultMessage addDocToList(DocPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMessage addDocToList(DocPO po, ArrayList<String> orderBarCodes)
+			throws RemoteException {
+		try {
+			String type = po.getType().name();
+			int affectNum = 0;
+			for (String temp : orderBarCodes) {
+				sql = "MODIFY `" + orderTable + "` SET " + type + "` = ?" + "WHERE orderBarCode ="
+						+ temp;
+				preState.setString(1, po.getID());
+				preState = conn.prepareStatement(sql);
+				affectNum = preState.executeUpdate();
+			}
+			if(affectNum == 0){
+				return ResultMessage.NOT_EXIST;
+			}else{
+				return ResultMessage.SUCCESS;
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return ResultMessage.FAIL;
 	}
 
 	public OrderPO getSingleOrderPO(String orderBarCode) throws RemoteException {
-//		findMes = 
-		return null;
-	}
-
-	public ArrayList<DocPO> getSingleOrderDocs(String orderBarCode)
-			throws RemoteException {
-		
 		findMes = findFromSQL(orderTable, orderBarCode);
-		return null; 
+		if(findMes == null){
+			return null;
+		}else{
+			return new OrderPO(findMes.get(1), MyDate.getDate(findMes
+					.get(2)), findMes.get(3),
+					findMes.get(4), findMes.get(5),
+					findMes.get(6), findMes.get(7),
+					findMes.get(8), findMes.get(9),
+					findMes.get(10), Integer.parseInt(findMes.get(11)),
+					findMes.get(12),
+					Integer.parseInt(findMes.get(13)),
+					Integer.parseInt(findMes.get(14)),
+					Integer.parseInt(findMes.get(15)),
+					Integer.parseInt(findMes.get(16)),
+					findMes.get(17), findMes.get(18),
+					Integer.parseInt(findMes.get(19)),
+					Integer.parseInt(findMes.get(20)),
+					findMes.get(21), findMes.get(22),
+					findMes.get(23), findMes.get(24),
+					findMes.get(25), findMes.get(26),
+					MyDate.getDate(findMes.get(27)));
+		}
+		
+	}
+	
+	
+	//改成 String ，返回的应该是单据的ID，然后去查找   edit by czq
+	public ArrayList<String> getSingleOrderDocs(String orderBarCode )
+			throws RemoteException {
+		ArrayList<String> docpos ;
+		findMes = findFromSQL(orderTable, orderBarCode);
+		if(findMes == null){
+			return null; 
+		}else{
+			docpos = new ArrayList<String>(5);
+			docpos.add(findMes.get(20));
+			docpos.add(findMes.get(21));
+			docpos.add(findMes.get(22));
+			docpos.add(findMes.get(23));
+			docpos.add(findMes.get(24));
+			return docpos;
+		}
 	}
 
-	public ResultMessage receiveInfo(ReceivePO PO) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMessage receiveInfo(ReceivePO PO ,String orderBarCode) throws RemoteException {
+		int affectRows = 0;
+		try {
+			sql = "UPDATE " + orderTable + "SET `senderAddress`= ? , `receiverName`= ? ,`receiverPhone`= ? ,`receiverCompany`= ? ,`receiverAddress`= ?  WHERE orderBarCode = "
+					+ orderBarCode;
+			preState = conn.prepareStatement(sql);
+			affectRows = preState.executeUpdate();
+			if(affectRows == 0){
+				return ResultMessage.NOT_EXIST;
+			}else{
+				return ResultMessage.SUCCESS;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return ResultMessage.FAIL;
 	}
 
 }

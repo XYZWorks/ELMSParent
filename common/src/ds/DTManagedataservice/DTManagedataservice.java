@@ -12,7 +12,7 @@ import util.ResultMessage;
  * @author JerryZhang
  *
  */
-public interface DTManagedateservice extends Remote{
+public interface DTManagedataservice extends Remote{
 	/**
 	 * 得到司机信息PO
 	 * @param id
