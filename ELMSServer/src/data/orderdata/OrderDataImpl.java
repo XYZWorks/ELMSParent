@@ -88,7 +88,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	}
 
 	public OrderPO getSingleOrderPO(String orderBarCode) throws RemoteException {
-		findMes = 
+//		findMes = 
 		return null;
 	}
 

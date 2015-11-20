@@ -22,8 +22,8 @@ public class DataServiceHelper {
 		ArrayList<String> temp = new ArrayList<String>(6);
 		temp.add(String.valueOf(num));
 		temp.add(bulidAddSQL(tableName, num));
-		temp.add(bulidDelSQL(tableName));
-		temp.add(bulidFindSQL(tableName , 1));
+		temp.add(bulidDelSQL(tableName , paras[0]));
+		temp.add(bulidFindSQL(tableName , paras[0]));
 		temp.add(bulidUpdateSQL(tableName, num, paras));
 		//清空表内数据，用于初始化
 		temp.add("TRUNCATE TABLE " + tableName);
@@ -38,8 +38,8 @@ public class DataServiceHelper {
 		ArrayList<String> temp = new ArrayList<String>(6);
 		temp.add(String.valueOf(num));
 		temp.add(bulidAddSQL(tableName, num));
-		temp.add(bulidDelSQL(tableName));
-		temp.add(bulidFindSQL(tableName , 0));
+		temp.add(bulidDelSQL(tableName , paras[0]));
+		temp.add(bulidFindSQL(tableName , paras[0]));
 		temp.add(bulidUpdateSQL(tableName, num, paras));
 		//清空表内数据，用于初始化
 		temp.add("TRUNCATE TABLE " + tableName);
@@ -65,16 +65,14 @@ public class DataServiceHelper {
 	
 	
 
-	private String bulidDelSQL(String name) {
-		return "DELETE FROM `" + name + "` WHERE ID = ";
+	private String bulidDelSQL(String name ,String primaryKey) {
+		return "DELETE FROM `" + name + "` WHERE " + primaryKey + " =";
 	}
 
-	private String bulidFindSQL(String name , int type) {
-		if(type == 1){
-			return "SELECT * FROM `" + name + "` WHERE id =";
-		}else{
-			return "SELECT * FROM `" + name + "`";
-		}
+	private String bulidFindSQL(String name , String primaryKey) {
+		
+			return "SELECT * FROM `" + name + "` WHERE " + primaryKey + " =" ;
+	
 		
 	}
 

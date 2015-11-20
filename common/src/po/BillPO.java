@@ -21,7 +21,7 @@ public class BillPO implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 
+	 * 财务人员姓名
 	 */
 	private String finaceman;
 	
