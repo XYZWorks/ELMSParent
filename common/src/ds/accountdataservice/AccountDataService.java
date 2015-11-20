@@ -1,8 +1,8 @@
 package ds.accountdataservice;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 
+import ds.DataserviceParent;
 import po.AccountPO;
 import util.ResultMessage;
 /**
@@ -10,18 +10,14 @@ import util.ResultMessage;
  * @author czq
  * @date 2015-10-22
  */
-public interface AccountDataService extends Remote{
+public interface AccountDataService extends DataserviceParent{
 	/**
 	 * 增加账户
 	 * @param po 只包括账号、密码、种类，其他信息自动初始化为零值即可
 	 * @return
 	 */
 	public ResultMessage add(AccountPO po) throws RemoteException;
-	/**
-	 * 初始化账户数据（即清空所有账户，管理员除外）
-	 * @return
-	 */
-	public ResultMessage initial() throws RemoteException;
+	
 	/**
 	 * 管理员查找账户，返回账户信息
 	 * @param ID

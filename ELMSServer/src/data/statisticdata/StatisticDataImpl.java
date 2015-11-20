@@ -21,9 +21,11 @@ public class StatisticDataImpl extends DataSuperClass implements StatisticDataSe
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public StatisticDataImpl() throws RemoteException {
-		super();
-		// TODO Auto-generated constructor stub
+	public StatisticDataImpl() throws RemoteException {}
+	
+	public void initial() throws RemoteException {
+		// TODO Auto-generated method stub
+		
 	}
 
 	public ArrayList<StateFormPO> getStateForm() throws RemoteException {

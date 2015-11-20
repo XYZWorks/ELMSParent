@@ -30,6 +30,11 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 	
 	
 	public DTManageDataImpl() throws RemoteException {}
+	
+	public void initial() throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
 
 	public DriverPO getDriverMes(String ID) throws RemoteException {
 		findMes = findFromSQL(driverTable, ID);
@@ -66,5 +71,7 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 	public ResultMessage updateCarPo(CarPO po) throws RemoteException {
 		return modifyFromSQL(carTable, carTable, po.getID() , po.getPlateNum() , String.valueOf(po.getUseYear()));
 	}
+
+	
 
 }

@@ -79,4 +79,6 @@ public class DataFactory implements DataFactoryService {
 		return new StoreDataImpl();
 	}
 
+	public void initial() throws RemoteException {}
+
 }

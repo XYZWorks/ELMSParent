@@ -1,18 +1,18 @@
 package ds.DTManagedataservice;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 import po.CarPO;
 import po.DriverPO;
 import util.ResultMessage;
+import ds.DataserviceParent;
 
 /**
  * 车辆、司机信息数据层接口
  * @author JerryZhang
  *
  */
-public interface DTManagedataservice extends Remote{
+public interface DTManagedataservice extends DataserviceParent{
 	/**
 	 * 得到司机信息PO
 	 * @param id

@@ -1,6 +1,5 @@
 package ds.transportdataservice;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 import po.ArriveYYDocPO;
@@ -9,13 +8,14 @@ import po.LoadDocPO;
 import po.SendGoodDocPO;
 import po.TransferDocPO;
 import util.ResultMessage;
+import ds.DataserviceParent;
 
 /**
  * 流转数据层接口
  * @author JerryZhang
  *
  */
-public interface Transportdataservice  extends Remote{
+public interface Transportdataservice  extends DataserviceParent{
 	/**
 	 * 获得一个装车单PO
 	 * @param id

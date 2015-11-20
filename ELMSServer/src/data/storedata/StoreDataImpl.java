@@ -1,5 +1,4 @@
 package data.storedata;
-
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -22,9 +21,11 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public StoreDataImpl() throws RemoteException {
-		super();
-		// TODO Auto-generated constructor stub
+	public StoreDataImpl() throws RemoteException {}
+	
+	public void initial() throws RemoteException {
+		// TODO Auto-generated method stub
+		
 	}
 
 	public StoreMessagePO getStoreMessage() throws RemoteException {

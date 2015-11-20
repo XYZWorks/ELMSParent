@@ -47,14 +47,7 @@ public class AccountDataServiceImplTest {
 	}
 
 	@Test
-	public void testInitial() throws RemoteException {
-		result = test.initial();
-		if(result == ResultMessage.SUCCESS){
-			
-		}else {
-			fail();
-		}
-	}
+	public void testInitial() throws RemoteException {}
 
 	@Test
 	public void testFind() throws RemoteException {

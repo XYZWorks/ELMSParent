@@ -14,8 +14,7 @@ import java.util.ArrayList;
  */
 public class DataServiceHelper {
 	
-	public DataServiceHelper() {
-	}
+	public DataServiceHelper() {}
 	
 	public ArrayList<String> bulidSQL(String tableName, int num,
 			String... paras) {
@@ -99,6 +98,13 @@ public class DataServiceHelper {
 		return (num.equalsIgnoreCase("0"))?false:true;
 	}
 	
+	
+	/**
+	 * 向序列化文件中写入一个对象
+	 * @param object
+	 * @param name
+	 * @return
+	 */
 	public boolean writeToSerFile(Object object , String name){
 		String pres = "data\\";
 		ObjectOutputStream out;
@@ -121,6 +127,11 @@ public class DataServiceHelper {
 		
 	}
 	
+	/**
+	 * 从序列化文件中读取一个对象
+	 * @param name
+	 * @return
+	 */
 	public Object readFromSerFile(String name){
 		String pres = "data\\";
 		Object result;

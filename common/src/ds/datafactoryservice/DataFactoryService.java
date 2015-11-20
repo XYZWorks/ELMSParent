@@ -2,6 +2,7 @@ package ds.datafactoryservice;
 
 import java.rmi.RemoteException;
 
+import ds.DataserviceParent;
 import ds.DTManagedataservice.DTManagedataservice;
 import ds.accountdataservice.AccountDataService;
 import ds.financedataservice.FinanceDataService;
@@ -18,7 +19,7 @@ import ds.transportdataservice.Transportdataservice;
  * @author czq
  * @version 2015年11月5日 下午7:06:59
  */
-public interface DataFactoryService {
+public interface DataFactoryService extends DataserviceParent{
 
 	public AccountDataService getAccountDataImpl() throws RemoteException;
 

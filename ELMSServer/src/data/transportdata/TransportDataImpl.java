@@ -22,9 +22,11 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public TransportDataImpl() throws RemoteException {
-		super();
-		// TODO Auto-generated constructor stub
+	public TransportDataImpl() throws RemoteException {}
+	
+	public void initial() throws RemoteException {
+		// TODO Auto-generated method stub
+		
 	}
 
 	public LoadDocPO getLoadDocPO(int id) throws RemoteException {

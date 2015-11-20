@@ -31,6 +31,11 @@ public class PersonnelDataServiceImpl extends DataSuperClass implements
 	private final String instTable = "inst";
 
 	public PersonnelDataServiceImpl() throws RemoteException {}
+	
+	public void initial() throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
 
 	public ArrayList<PersonPO> getPeoByInst(String ID) throws RemoteException {
 		ArrayList<PersonPO> personPOs = new ArrayList<PersonPO>();

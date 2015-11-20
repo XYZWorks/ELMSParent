@@ -30,6 +30,11 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	private final String orderTable = "order";
 
 	public OrderDataImpl() throws RemoteException {}
+	
+	public void initial() throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
 
 	public ArrayList<OrderPO> getDayOrderPO(MyDate date) throws RemoteException {
 		sql = "SELECT * FROM " + orderTable + "WHERE date =" + MyDate.toString(date);
@@ -169,5 +174,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 		
 		return ResultMessage.FAIL;
 	}
+
+	
 
 }

@@ -1,6 +1,5 @@
 package ds.orderdataservice;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -9,8 +8,9 @@ import po.OrderPO;
 import po.ReceivePO;
 import util.MyDate;
 import util.ResultMessage;
+import ds.DataserviceParent;
 
-public interface OrderDataService extends Remote{
+public interface OrderDataService extends DataserviceParent{
 	/**
 	 * 得到某日新增的所有订单
 	 * 

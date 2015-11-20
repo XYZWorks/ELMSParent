@@ -29,6 +29,11 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	private static final String payTable = "pay";
 
 	public FinanceDataImpl() throws RemoteException {}
+	
+	public void initial() throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
 
 	public ArrayList<DepositPO> getDepositPO() throws RemoteException {
 		
@@ -69,5 +74,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 
 }
