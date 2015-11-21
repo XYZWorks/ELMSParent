@@ -25,6 +25,8 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService{
 	
 	private final String outstoreDocTable = "OutStoreDoc";
 	
+	private final String storeCheckTable = "StoreCheck";
+	
 
 	public StoreDataImpl() throws RemoteException {}
 	

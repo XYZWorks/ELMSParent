@@ -4,7 +4,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import ds.financedataservice.FinanceDataService;
-import ds.financedataservice.TempFinanceDataImpl;
 import po.CostPO;
 import util.ResultMessage;
 import vo.CostVO;
@@ -17,7 +16,6 @@ public class CostService_Stub implements CostService {
 	FinanceDataService financeDS;
 	
 	public ArrayList<CostVO> showCosts() {
-		financeDS=new TempFinanceDataImpl();
 		ArrayList<CostVO> vos = null;
 		try {
 			ArrayList<CostPO> pos=financeDS.show();
