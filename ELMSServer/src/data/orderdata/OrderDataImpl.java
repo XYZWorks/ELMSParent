@@ -3,16 +3,13 @@ package data.orderdata;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 
-import util.DocState;
-import util.DocType;
-import util.MyDate;
 import po.DocPO;
 import po.OrderPO;
 import po.ReceivePO;
+import util.DocType;
+import util.MyDate;
 import util.ResultMessage;
-import data.storedata.StoreDataImpl;
 import dataSuper.DataSuperClass;
 import ds.orderdataservice.OrderDataService;
  /** 
@@ -32,8 +29,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	public OrderDataImpl() throws RemoteException {}
 	
 	public void initial() throws RemoteException {
-		// TODO Auto-generated method stub
-		
+		initialFromSQL(orderTable);
 	}
 
 	public ArrayList<OrderPO> getDayOrderPO(MyDate date) throws RemoteException {

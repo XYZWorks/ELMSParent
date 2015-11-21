@@ -34,20 +34,20 @@ public class BillPO implements Serializable{
 	/**
 	 * 机构列表
 	 */
-	 private ArrayList<InstPO> instituations;
+	 private ArrayList<String> instituations;
 	
 	 /**
 	  * 人员信息列表
 	  */
-	 private ArrayList<PersonPO> persons;
+	 private ArrayList<String> persons;
 	 
 	 /**
 	  * 车辆信息列表
 	  */
-	 private ArrayList<CarPO> cars;
+	 private ArrayList<String> cars;
 
-	public BillPO(String finaceman, MyDate date, ArrayList<InstPO> instituations,
-			ArrayList<PersonPO> persons, ArrayList<CarPO> cars) {
+	public BillPO(String finaceman, MyDate date, ArrayList<String> instituations,
+			ArrayList<String> persons, ArrayList<String> cars) {
 		super();
 		this.finaceman = finaceman;
 		this.date = date;
@@ -64,15 +64,15 @@ public class BillPO implements Serializable{
 		return date;
 	}
 
-	public ArrayList<InstPO> getInstituations() {
+	public ArrayList<String> getInstituations() {
 		return instituations;
 	}
 
-	public ArrayList<PersonPO> getPersons() {
+	public ArrayList<String> getPersons() {
 		return persons;
 	}
 
-	public ArrayList<CarPO> getCars() {
+	public ArrayList<String> getCars() {
 		return cars;
 	}
 	 

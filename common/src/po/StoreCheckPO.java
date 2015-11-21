@@ -9,9 +9,7 @@ import util.MyDate;
  *
  */
 public class StoreCheckPO implements Serializable{
-	public StoreCheckPO() {
-		// TODO Auto-generated constructor stub
-	}
+
 	/**
 	 * 序列化UID
 	 */
@@ -24,6 +22,10 @@ public class StoreCheckPO implements Serializable{
 	 * 库存信息
 	 */
 	private StoreMessagePO po;
+	
+	
+	public StoreCheckPO() {}
+	
 	public MyDate getTime() {
 		return time;
 	}

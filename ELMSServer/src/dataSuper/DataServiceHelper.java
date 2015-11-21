@@ -110,6 +110,13 @@ public class DataServiceHelper {
 		return buffer.toString();
 	}
 	
+	public String tranFromArrayToString(ArrayList<String> datas){
+		StringBuffer buffer = new StringBuffer(datas.size()*15);
+		for (int i = 0; i < datas.size(); i++) {
+			buffer.append(datas.get(i)).append(',');
+		}
+		return buffer.toString();
+	}
 	
 	public  String[] tranFromStringToArray(String data){
 		String[]  temp =  data.split(",");
