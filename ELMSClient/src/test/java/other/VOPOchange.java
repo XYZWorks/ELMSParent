@@ -1,9 +1,12 @@
 package test.java.other;
 
 import po.CostPO;
+import po.InStoreDocPO;
 
 import java.lang.reflect.*;
-import util.MyDate;
+import java.util.ArrayList;
+
+import util.DocType;
 import vo.CostVO;
 import vo.InStoreDocVO;
 
@@ -35,15 +38,11 @@ public class VOPOchange {
 			System.out.println(field[i]+" "+field[i].getType()+" "+ field[i].getName());
 			
 		}
-			try {		
+		try {		
 			poClass = Class.forName(poName);
 			
 			po = poClass.newInstance();
-//			met = poClass.getDeclaredMethods();
-//			for(int i = 0; i<met.length ; i++)
-//				System.out.println(met[i].getName()+" "+met[i].getReturnType());
-			
-		//	po = poClass.newInstance();
+
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -84,13 +83,13 @@ public class VOPOchange {
 	public static void main(String[] args) {
 		CostVO  vo = new CostVO(1000, "freigt");
 		
-		InStoreDocVO vo2 = new InStoreDocVO("", new MyDate(1,1,1), null, "", null);
-		
+		ArrayList<InStoreDocVO> vo2 = (ArrayList<InStoreDocVO>)DataTool.getDocList(DocType.inStoreDoc);
+		System.out.println(vo2.size());
 		VOPOchange test = new VOPOchange();
 		
-		CostPO po = (CostPO)test.VOtoPO(vo);
+		InStoreDocPO po = (InStoreDocPO)test.VOtoPO(vo2.get(0));
 		
-		System.out.println(po.getMoney()+" "+po.getType());
+		System.out.println(po.getID()+" "+po.getLoc()+" "+po.getLocation());
 
 	}
 
