@@ -73,7 +73,9 @@ public class DataSuperClass extends UnicastRemoteObject {
 		SQLmap.put("TransferDoc", helper.bulidSQL("TransferDoc", 9, "id", "type" , "date" , "state", "TransferWayID" ,"sendCity" ,"containerNum" ,"loadManName" ,"orderBarCode"));
 		SQLmap.put("ArriveZZDoc", helper.bulidSQL("ArriveZZDoc", 7, "id", "type" , "date" , "state", "ZZID" , "sendCity" , "goodState"));
 		SQLmap.put("ArriveYYDoc", helper.bulidSQL("ArriveYYDoc", 7, "id", "type" , "date", "state" , "ZZID" , "sendCity" , "goodState"));
-		SQLmap.put("", value)
+//		SQLmap.put("InStoreDoc", helper.bulidSQL("InStoreDoc", num, paras);
+//		SQLmap.put("OutStoreDoc", helper.bulidSQL("OutStoreDoc", num, paras);
+//		SQLmap.put("StoreCheck", helper.bulidSQL("StoreCheck", num, paras);
 		//id是为了适应数据库存储增加的，具有自增属性
 		SQLmap.put("deposit", helper.bulidSQLForNoID("deposit", 3, "id" ,"date" , "money"));
 		SQLmap.put("pay", helper.bulidSQLForNoID("pay", 4 , "id" , "time" , "money" , "type"));

@@ -20,12 +20,20 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private final String instoreDocTable = "InStoreDoc";
+	
+	private final String outstoreDocTable = "OutStoreDoc";
+	
 
 	public StoreDataImpl() throws RemoteException {}
 	
+	
+	
 	public void initial() throws RemoteException {
-		// TODO Auto-generated method stub
-		
+		initialFromSQL(instoreDocTable);
+		initialFromSQL(outstoreDocTable);
+		initialFromSQL(storeCheckTable);
 	}
 
 	public StoreMessagePO getStoreMessage() throws RemoteException {
