@@ -8,6 +8,10 @@ package po;
 */
 public class SalaryPO extends CostPO {
 	
+	public SalaryPO() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	
 	/**
 	 * 

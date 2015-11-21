@@ -12,7 +12,9 @@ import util.WageStrategy;
  */
 public class SalaryWayPO implements Serializable{
 	
-
+	public SalaryWayPO() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	/**
 	 * 

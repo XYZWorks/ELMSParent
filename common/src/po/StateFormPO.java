@@ -12,7 +12,9 @@ import util.MyDate;
  */
 public class StateFormPO implements Serializable{
 	
-
+	public StateFormPO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 
 	 */

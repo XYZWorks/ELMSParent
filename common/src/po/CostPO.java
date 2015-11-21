@@ -11,7 +11,9 @@ import java.io.Serializable;
 public class CostPO implements Serializable{
 	
 
-	
+	public CostPO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 
 	 */

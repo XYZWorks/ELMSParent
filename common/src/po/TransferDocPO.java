@@ -12,7 +12,9 @@ import util.MyDate;
  */
 public class TransferDocPO extends DocPO {
 
-	
+	public TransferDocPO() {
+		// TODO Auto-generated constructor stub
+	}
 /**
 	 * 
 	 */

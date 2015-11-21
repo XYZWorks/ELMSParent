@@ -12,7 +12,9 @@ import util.InstType;
 public class InstPO implements Serializable{
 	
 	
-	
+	public InstPO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 
 	 */

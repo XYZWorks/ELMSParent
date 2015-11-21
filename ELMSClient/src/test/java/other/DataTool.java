@@ -85,7 +85,7 @@ public class DataTool {
 	
 	public static ArrayList<? extends DocVO> getDocList(DocType tpye) {
 
-		ArrayList<DocVO> al = null;
+		ArrayList<DocVO> al = new ArrayList<DocVO>();
 		
 		switch (tpye) {
 		case arriveYYDoc:

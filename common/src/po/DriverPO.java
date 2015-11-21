@@ -8,7 +8,9 @@ import util.MyDate;
  *
  */
 public class DriverPO implements Serializable{
-	
+	public DriverPO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 序列化UID
 	 */
