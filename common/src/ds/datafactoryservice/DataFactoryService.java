@@ -2,6 +2,7 @@ package ds.datafactoryservice;
 
 import java.rmi.RemoteException;
 
+import ds.DTManagedataservice.DTManagedateservice;
 import ds.accountdataservice.AccountDataService;
 import ds.financedataservice.FinanceDataService;
 import ds.orderdataservice.OrderDataService;
