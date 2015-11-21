@@ -13,7 +13,9 @@ import util.DocType;
  *
  */
 public class LoadDocPO extends DocPO implements Serializable{
-	
+	public LoadDocPO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 序列化UID
 	 */

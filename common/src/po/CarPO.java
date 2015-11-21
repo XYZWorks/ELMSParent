@@ -8,7 +8,9 @@ import java.io.Serializable;
  *
  */
 public class CarPO implements Serializable{
-	
+	public CarPO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 序列化UID
 	 */

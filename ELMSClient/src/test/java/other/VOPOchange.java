@@ -1,10 +1,20 @@
 package test.java.other;
 
+
+import po.CostPO;
+import po.InStoreDocPO;
+
+import java.lang.reflect.*;
+import java.util.ArrayList;
+
+import util.DocType;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 import util.MyDate;
+
 import vo.CostVO;
 import vo.InStoreDocVO;
 
@@ -19,9 +29,9 @@ public class VOPOchange {
 		
 		Object po = null;
 		
-		Class voClass = o.getClass();
+		Class<? extends Object> voClass = o.getClass();
 		
-		Class poClass = null;
+		Class<? extends Object> poClass = null;
 		
 		String voName = voClass.getName();
 		
@@ -29,35 +39,51 @@ public class VOPOchange {
 		
 		Field[] field = voClass.getDeclaredFields();
 		
-		for(int i= 0 ; i<field.length;i++)
-			System.out.println(field[i].getType()+" "+ field[i].getName());
+		Method met = null;
+		
+		
+		for(int i= 0 ; i<field.length;i++){
+			System.out.println(field[i]+" "+field[i].getType()+" "+ field[i].getName());
+			
+		}
 		try {		
 			poClass = Class.forName(poName);
 			
-			Method[] met = poClass.getDeclaredMethods();
-			for(int i = 0; i<met.length ; i++)
-				System.out.println(met[i].getName()+" "+met[i].getReturnType());
-			
-			Constructor[] cons = poClass.getConstructors();
-			System.out.println("cons"+cons[0]);
+			po = poClass.newInstance();
 
-		//	po = poClass.newInstance();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-//		} catch (InstantiationException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (IllegalAccessException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (SecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		String tmp="";
 		
-		System.out.println(poName);
+		try {
+			for(int i= 0 ; i<field.length;i++){
+
+				tmp=(char)(field[i].getName().charAt(0)-'a'+'A')+field[i].getName().substring(1);
+				
+				met = po.getClass().getMethod("set"+tmp, field[i].getType());
+				Object ob = field[i].get(o);
+				
+				System.out.println(met.getName()+" "+met.getReturnType());
+				met.invoke(po,ob);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		//System.out.println(poName);
 		return po;
 		
 	}
@@ -65,11 +91,17 @@ public class VOPOchange {
 	public static void main(String[] args) {
 		CostVO  vo = new CostVO(1000, "freigt");
 		
-		InStoreDocVO vo2 = new InStoreDocVO("", new MyDate(1,1,1), null, "", null);
+
+		ArrayList<InStoreDocVO> vo2 = (ArrayList<InStoreDocVO>)DataTool.getDocList(DocType.inStoreDoc);
+		System.out.println(vo2.size());
+
 		
+
 		VOPOchange test = new VOPOchange();
 		
-		test.VOtoPO(vo);
+		InStoreDocPO po = (InStoreDocPO)test.VOtoPO(vo2.get(0));
+		
+		System.out.println(po.getID()+" "+po.getLoc()+" "+po.getLocation());
 
 	}
 
