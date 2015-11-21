@@ -3,10 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>ELMSClient</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
-
-
 	
+
 	<dependencies>
 		<dependency>
 			<groupId>AXIS</groupId>
@@ -15,9 +13,10 @@
 		</dependency>
 		<dependency>
 			<groupId>AXIS</groupId>
-			<artifactId>ELMSClient</artifactId>
+			<artifactId>ELMSServer</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		
 	</dependencies>
 
 	<parent>
