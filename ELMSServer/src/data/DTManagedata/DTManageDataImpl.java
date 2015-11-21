@@ -32,8 +32,8 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 	public DTManageDataImpl() throws RemoteException {}
 	
 	public void initial() throws RemoteException {
-		// TODO Auto-generated method stub
-		
+		initialFromSQL(carTable);
+		initialFromSQL(driverTable);
 	}
 
 	public DriverPO getDriverMes(String ID) throws RemoteException {

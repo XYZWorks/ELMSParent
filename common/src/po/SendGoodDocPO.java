@@ -21,27 +21,47 @@ public class SendGoodDocPO extends DocPO implements Serializable{
 	/**
 	 * 快递员
 	 */
-	private String SendMan;
+	private String sendMan;
 	/**
 	 * 订单条形码号
 	 */
 	private String orderBarCode;
-
+	
+	/**
+	 * 产生单据时使用
+	 * @param iD
+	 * @param date
+	 * @param sendMan
+	 * @param orderBarCode
+	 */
 	public SendGoodDocPO(String iD, MyDate date, String sendMan,
 			String orderBarCode) {
 		super(iD, DocType.sendGoodDoc, date, DocState.wait);
-		SendMan = sendMan;
+		this.sendMan = sendMan;
+		this.orderBarCode = orderBarCode;
+	}
+	/**
+	 * 数据库读取时使用
+	 * @param iD
+	 * @param type
+	 * @param date
+	 * @param state
+	 * @param sendMan
+	 * @param orderBarCode
+	 */
+	public SendGoodDocPO(String iD, DocType type ,MyDate date,DocState state, String sendMan,
+			String orderBarCode) {
+		super(iD, type, date, state);
+		this.sendMan = sendMan;
 		this.orderBarCode = orderBarCode;
 	}
 
-	
-
 	public String getSendMan() {
-		return SendMan;
+		return sendMan;
 	}
 
 	public void setSendMan(String sendMan) {
-		SendMan = sendMan;
+		this.sendMan = sendMan;
 	}
 
 	public String getOrderBarCode() {

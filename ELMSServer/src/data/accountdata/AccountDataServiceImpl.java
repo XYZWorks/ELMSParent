@@ -44,7 +44,6 @@ public class AccountDataServiceImpl extends DataSuperClass implements
 			po.setMail(null);
 			po.setPhoneNum(null);
 		}
-
 		return po;
 	}
 

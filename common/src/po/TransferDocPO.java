@@ -2,6 +2,7 @@ package po;
 
 import util.DocState;
 import util.DocType;
+import util.MyDate;
 
 /**
  * 中转单PO
@@ -23,11 +24,11 @@ public class TransferDocPO extends DocPO {
 	/**
 	 * 航班号/车次/车牌号
 	 */
-	private  String TransferWayID;
+	private  String transferWayID;
 	/**
 	 * 出发地
 	 */
-	private  String SendCity;
+	private  String sendCity;
 	/**
 	 * 货柜号
 	 */
@@ -35,7 +36,7 @@ public class TransferDocPO extends DocPO {
 	/**
 	 * 监装员
 	 */
-	private  String LoadManName;
+	private  String loadManName;
 	/**
 	 * 所有托运单号
 	 */
@@ -48,14 +49,24 @@ public class TransferDocPO extends DocPO {
 			String sendCity, int containerNum, String loadManName,
 			String[] orderBarCode) {
 		super(iD,DocType.transferDoc, date, DocState.wait);
-		TransferWayID = transferWayID;
-		SendCity = sendCity;
+		this.transferWayID = transferWayID;
+		this.sendCity = sendCity;
 		this.containerNum = containerNum;
-		LoadManName = loadManName;
+		this.loadManName = loadManName;
 		this.orderBarCode = orderBarCode;
 	}
 
-	
+	public TransferDocPO(String iD, DocType type, MyDate date, DocState state,
+			String transferWayID, String sendCity, int containerNum,
+			String loadManName, String[] orderBarCode) {
+		super(iD, type, date, state);
+		this.transferWayID = transferWayID;
+		this.sendCity = sendCity;
+		this.containerNum = containerNum;
+		this.loadManName = loadManName;
+		this.orderBarCode = orderBarCode;
+	}
+
 
 //	public int getTransferDocID() {
 //		return TransferDocID;
@@ -65,20 +76,23 @@ public class TransferDocPO extends DocPO {
 //		TransferDocID = transferDocID;
 //	}
 
+	
+
+
 	public String getTransferWayID() {
-		return TransferWayID;
+		return transferWayID;
 	}
 
 	public void setTransferWayID(String transferWayID) {
-		TransferWayID = transferWayID;
+		this.transferWayID = transferWayID;
 	}
 
 	public String getSendCity() {
-		return SendCity;
+		return sendCity;
 	}
 
 	public void setSendCity(String sendCity) {
-		SendCity = sendCity;
+		this.sendCity = sendCity;
 	}
 
 	public int getContainerNum() {
@@ -90,11 +104,11 @@ public class TransferDocPO extends DocPO {
 	}
 
 	public String getLoadManName() {
-		return LoadManName;
+		return loadManName;
 	}
 
 	public void setLoadManName(String loadManName) {
-		LoadManName = loadManName;
+		this.loadManName = loadManName;
 	}
 
 	public String[] getOrderBarCode() {

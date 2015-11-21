@@ -1,6 +1,7 @@
 package data.financedata;
 
 import java.rmi.RemoteException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import po.CostPO;
@@ -36,12 +37,33 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	}
 
 	public ArrayList<DepositPO> getDepositPO() throws RemoteException {
-		
-		return null;
+		ArrayList<DepositPO> pos = new ArrayList<DepositPO>();
+		try {
+			sql = "SELECT * FROM " + depositTable;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while(result.next()){
+				pos.add(new DepositPO(MyDate.getDate(result.getString(2)), Integer.parseInt(result.getString(3))));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return (pos==null)?null:pos;
 	}
 
 	public ArrayList<PayPO> getPayPO() throws RemoteException {
-		return null;
+		ArrayList<PayPO> pos = new ArrayList<PayPO>();
+		try {
+			sql = "SELECT * FROM " + payTable;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while(result.next()){
+				pos.add(new PayPO(MyDate.getDate(result.getString(2)), Integer.parseInt(result.getString(3)), result.getString(4)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return (pos==null)?null:pos;
 	}
 
 	public ResultMessage addDeposit(DepositPO po) throws RemoteException {

@@ -22,7 +22,7 @@ public interface Transportdataservice  extends DataserviceParent{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public LoadDocPO getLoadDocPO(int id) throws RemoteException;
+	public LoadDocPO getLoadDocPO(String id) throws RemoteException;
 	/**
 	 * 增加一个装车单PO
 	 * @param po
@@ -37,7 +37,7 @@ public interface Transportdataservice  extends DataserviceParent{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public SendGoodDocPO getSendGoodDocPO(int id) throws RemoteException;
+	public SendGoodDocPO getSendGoodDocPO(String id) throws RemoteException;
 	/**
 	 * 增加一个派送单PO
 	 * @param po
@@ -52,7 +52,7 @@ public interface Transportdataservice  extends DataserviceParent{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public TransferDocPO getTransferDocPO(int id) throws RemoteException;
+	public TransferDocPO getTransferDocPO(String id) throws RemoteException;
 	/**
 	 * 增加一个中转单PO
 	 * @param po
@@ -67,7 +67,7 @@ public interface Transportdataservice  extends DataserviceParent{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArriveZZDocPO getArriveZZDocPO(int id) throws RemoteException;
+	public ArriveZZDocPO getArriveZZDocPO(String id) throws RemoteException;
 	/**
 	 * 增加一个到达单PO
 	 * @param po
@@ -82,7 +82,7 @@ public interface Transportdataservice  extends DataserviceParent{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArriveYYDocPO getArriveYYDocPO(int id) throws RemoteException;
+	public ArriveYYDocPO getArriveYYDocPO(String id) throws RemoteException;
 	/**
 	 * 增加一个接收单PO
 	 * @param po

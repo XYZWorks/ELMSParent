@@ -68,6 +68,12 @@ public class DataSuperClass extends UnicastRemoteObject {
 		SQLmap.put("driver", helper.bulidSQL("driver", 7, "id", "name" , "birthday" , "idCard" , "phoneNum" , "isman" , "licenseYear" ));
 		SQLmap.put("order", helper.bulidSQL("order" , 27 , "orderBarCode" , "type" , "date" , "state" , "senderName" , "senderPhone" ,"senderCompany" , "senderAddress" , "receiverName" , "receiverPhone" , "receiverCompany" , "receiverAddress" , "goodNum" , "goodName" , "goodWeight" , "goodLong" , "goodWidth" , "goodHeight" , "goodPack" , "orderForm" , "orderEestiTime" , "orderCost" , "loadDoc" , "arriveZZDoc" , "transferDoc" ,"arriveYYDoc" , "sendGoodDoc" ,"realReceiver" ,"orderReceiveDate"));
 		SQLmap.put("salary", helper.bulidSQL("salary", 4, "type" , "basicMoney" , "moreMoney" , "way"));
+		SQLmap.put("LoadDoc", helper.bulidSQL("LoadDoc", 10 , "id", "type" , "date" , "state", "YYID" , "LoadDocID" ,"arriveCity" ,"carID" ,"Supervisor" ,"Escort"));
+		SQLmap.put("SendGoodDoc", helper.bulidSQL("SendGoodDoc", 6,  "id", "type" , "date" , "state", "sendMan" , "orderBarCode"));
+		SQLmap.put("TransferDoc", helper.bulidSQL("TransferDoc", 9, "id", "type" , "date" , "state", "TransferWayID" ,"sendCity" ,"containerNum" ,"loadManName" ,"orderBarCode"));
+		SQLmap.put("ArriveZZDoc", helper.bulidSQL("ArriveZZDoc", 7, "id", "type" , "date" , "state", "ZZID" , "sendCity" , "goodState"));
+		SQLmap.put("ArriveYYDoc", helper.bulidSQL("ArriveYYDoc", 7, "id", "type" , "date", "state" , "ZZID" , "sendCity" , "goodState"));
+		SQLmap.put("", value)
 		//id是为了适应数据库存储增加的，具有自增属性
 		SQLmap.put("deposit", helper.bulidSQLForNoID("deposit", 3, "id" ,"date" , "money"));
 		SQLmap.put("pay", helper.bulidSQLForNoID("pay", 4 , "id" , "time" , "money" , "type"));
