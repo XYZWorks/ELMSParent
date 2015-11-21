@@ -14,8 +14,7 @@ import java.util.ArrayList;
  */
 public class DataServiceHelper {
 	
-	public DataServiceHelper() {
-	}
+	public DataServiceHelper() {}
 	
 	public ArrayList<String> bulidSQL(String tableName, int num,
 			String... paras) {
@@ -99,6 +98,44 @@ public class DataServiceHelper {
 		return (num.equalsIgnoreCase("0"))?false:true;
 	}
 	
+	/**
+	 * 辅助方法，实现将数组转化为字符串
+	 * @return
+	 */
+	public  String tranFromArrayToString(String[] datas){
+		StringBuffer buffer = new StringBuffer(datas.length*15);
+		for (int i = 0; i < datas.length; i++) {
+			buffer.append(datas[i]).append(',');
+		}
+		return buffer.toString();
+	}
+	
+	
+	public  String[] tranFromStringToArray(String data){
+		String[]  temp =  data.split(",");
+		return (temp.length==0)?null:temp;
+	}
+	
+	public  ArrayList<String> tranFromStringToArrayList(String data){
+		ArrayList<String> result;
+		String[] temp = tranFromStringToArray(data);
+		if(temp != null){
+			result = new ArrayList<String>(temp.length);
+			for (int i = 0; i < temp.length; i++) {
+				result.add(temp[i]);
+			}
+			return result;
+		}else{
+			return null;
+		}
+	}
+	
+	/**
+	 * 向序列化文件中写入一个对象
+	 * @param object
+	 * @param name
+	 * @return
+	 */
 	public boolean writeToSerFile(Object object , String name){
 		String pres = "data\\";
 		ObjectOutputStream out;
@@ -121,6 +158,11 @@ public class DataServiceHelper {
 		
 	}
 	
+	/**
+	 * 从序列化文件中读取一个对象
+	 * @param name
+	 * @return
+	 */
 	public Object readFromSerFile(String name){
 		String pres = "data\\";
 		Object result;

@@ -1,6 +1,5 @@
 package ds.storedataservice;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -9,6 +8,7 @@ import po.OutStoreDocPO;
 import po.StoreCheckPO;
 import po.StoreMessagePO;
 import util.ResultMessage;
+import ds.DataserviceParent;
 
 /**
  * 
@@ -16,7 +16,7 @@ import util.ResultMessage;
  * @author ymc
  *
  */
-public interface StoreDataService extends Remote{
+public interface StoreDataService extends DataserviceParent{
 	/**
 	 * 得到库存信息PO
 	 * @return

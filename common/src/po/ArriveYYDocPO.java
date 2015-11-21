@@ -67,6 +67,20 @@ public class ArriveYYDocPO extends DocPO implements Serializable{
 		this.ZZID = ZZID;
 
 	}
+	
+	
+	
+	
+	public ArriveYYDocPO(String iD, DocType type, MyDate date, DocState state,
+			String zZID, String sendCity, GoodsState goodState) {
+		super(iD, type, date, state);
+		ZZID = zZID;
+		SendCity = sendCity;
+		this.goodState = goodState;
+	}
+
+
+
 
 	public String getZZID() {
 		return ZZID;

@@ -1,5 +1,6 @@
 package test.java.other;
 
+
 import po.CostPO;
 import po.InStoreDocPO;
 
@@ -7,6 +8,13 @@ import java.lang.reflect.*;
 import java.util.ArrayList;
 
 import util.DocType;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+import util.MyDate;
+
 import vo.CostVO;
 import vo.InStoreDocVO;
 
@@ -83,8 +91,12 @@ public class VOPOchange {
 	public static void main(String[] args) {
 		CostVO  vo = new CostVO(1000, "freigt");
 		
+
 		ArrayList<InStoreDocVO> vo2 = (ArrayList<InStoreDocVO>)DataTool.getDocList(DocType.inStoreDoc);
 		System.out.println(vo2.size());
+
+		
+
 		VOPOchange test = new VOPOchange();
 		
 		InStoreDocPO po = (InStoreDocPO)test.VOtoPO(vo2.get(0));

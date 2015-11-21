@@ -28,7 +28,7 @@ public class LoadDocPO extends DocPO implements Serializable{
 	/**
 	 * 汽运编号
 	 */
-	private String LoadDocID;
+	private String loadDocID;
 	/**
 	 * 到达地
 	 */
@@ -36,41 +36,61 @@ public class LoadDocPO extends DocPO implements Serializable{
 	/**
 	 * 车辆代号
 	 */
-	private String CarID;
+	private String carID;
 	/**
 	 * 监运员姓名
 	 */
-	private String Supervisor;
+	private String supervisor;
 	/**
 	 * 押送员代号
 	 */
-	private String Escort;
+	private String escort;
 
 	public LoadDocPO(String iD, MyDate date, String yYID, String loadDocID,
 			String arriveCity, String carID, String supervisor, String escort) {
 		super(iD, DocType.loadDoc, date, DocState.wait);
-		YYID = yYID;
-		LoadDocID = loadDocID;
+		this.YYID = yYID;
+		this.loadDocID = loadDocID;
 		this.arriveCity = arriveCity;
-		CarID = carID;
-		Supervisor = supervisor;
-		Escort = escort;
+		this.carID = carID;
+		this.supervisor = supervisor;
+		this.escort = escort;
 	}
+	
+	public LoadDocPO(String iD, DocType type, MyDate date, DocState state, String yYID, String loadDocID,
+			String arriveCity, String carID, String supervisor, String escort) {
+		
+		super(iD, type, date, state);
+		this.YYID = yYID;
+		this.loadDocID = loadDocID;
+		this.arriveCity = arriveCity;
+		this.carID = carID;
+		this.supervisor = supervisor;
+		this.escort = escort;
+	}
+
+
+
+
+
+
+
+
 
 	public String getYYID() {
 		return YYID;
 	}
 
 	public void setYYID(String yYID) {
-		YYID = yYID;
+		this.YYID = yYID;
 	}
 
 	public String getLoadDocID() {
-		return LoadDocID;
+		return loadDocID;
 	}
 
 	public void setLoadDocID(String loadDocID) {
-		LoadDocID = loadDocID;
+		this.loadDocID = loadDocID;
 	}
 
 	public String getArriveCity() {
@@ -82,27 +102,27 @@ public class LoadDocPO extends DocPO implements Serializable{
 	}
 
 	public String getCarID() {
-		return CarID;
+		return carID;
 	}
 
 	public void setCarID(String carID) {
-		CarID = carID;
+		this.carID = carID;
 	}
 
 	public String getSupervisor() {
-		return Supervisor;
+		return supervisor;
 	}
 
 	public void setSupervisor(String supervisor) {
-		Supervisor = supervisor;
+		this.supervisor = supervisor;
 	}
 
 	public String getEscort() {
-		return Escort;
+		return escort;
 	}
 
 	public void setEscort(String escort) {
-		Escort = escort;
+		this.escort = escort;
 	}
 
 }

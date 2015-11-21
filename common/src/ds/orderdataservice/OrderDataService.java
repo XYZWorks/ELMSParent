@@ -1,6 +1,5 @@
 package ds.orderdataservice;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -9,8 +8,9 @@ import po.OrderPO;
 import po.ReceivePO;
 import util.MyDate;
 import util.ResultMessage;
+import ds.DataserviceParent;
 
-public interface OrderDataService extends Remote{
+public interface OrderDataService extends DataserviceParent{
 	/**
 	 * 得到某日新增的所有订单
 	 * 
@@ -35,14 +35,16 @@ public interface OrderDataService extends Remote{
 	 */
 	public ResultMessage del(String orderBarCode) throws RemoteException;
 
+
 	/**
 	 * 将流转单中的所有订单的物流状态均更新
-	 * 
+	 * 增加订单号列表                 ---- edit by czq
 	 * @param po
+	 * @param orderBarCodes 要修改的订单号列表
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMessage addDocToList(DocPO po) throws RemoteException;
+	public ResultMessage addDocToList(DocPO po ,ArrayList<String> orderBarCodes) throws RemoteException;
 
 	/**
 	 * 获取单个订单的所有信息
@@ -54,21 +56,21 @@ public interface OrderDataService extends Remote{
 
 	/**
 	 * 获取单个订单的流转情况
-	 * 
+	 * 将DocPO改为String       ---edit by czq 
 	 * @param orderBarCode
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ArrayList<DocPO> getSingleOrderDocs(String orderBarCode)
+	public ArrayList<String> getSingleOrderDocs(String orderBarCode)
 			throws RemoteException;
 
 	/**
 	 * 更新订单的收件信息状态
-	 * 
+	 * 增加参数订单号                       ---edit by czq
 	 * @param PO
-	 * @return
+	 * @return  notExist:表示修改的订单不存在  Fail:失败
 	 * @throws RemoteException
 	 */
-	public ResultMessage receiveInfo(ReceivePO PO) throws RemoteException;
+	public ResultMessage receiveInfo(ReceivePO PO , String orderBarCode) throws RemoteException;
 
 }

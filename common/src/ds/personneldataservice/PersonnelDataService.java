@@ -1,19 +1,19 @@
 package ds.personneldataservice;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.InstPO;
 import po.PersonPO;
 import util.ResultMessage;
+import ds.DataserviceParent;
 
 /**
  * 人员机构管理数据接口类
  * @author czq
  * @date 2015/10/20
  */
-public interface PersonnelDataService extends Remote{
+public interface PersonnelDataService extends DataserviceParent{
 	/**
 	 * 通过机构ID查找机构下属人员
 	 * @param ID

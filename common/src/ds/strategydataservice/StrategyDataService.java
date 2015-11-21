@@ -1,6 +1,5 @@
 package ds.strategydataservice;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -9,13 +8,14 @@ import po.ConstPO;
 import po.SalaryWayPO;
 import util.ResultMessage;
 import util.StaffType;
+import ds.DataserviceParent;
 
 /**
  * 系统常量及薪水策略数据层接口
  * @author czq
  * @date 2015-10-22
  */
-public interface StrategyDataService extends Remote{
+public interface StrategyDataService extends DataserviceParent{
 	/**
 	 * 获得所有常量
 	 * @return

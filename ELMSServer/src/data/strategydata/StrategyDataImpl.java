@@ -27,6 +27,11 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 
 	public StrategyDataImpl() throws RemoteException {}
 	
+	public void initial() throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	//const 暂时用序列化实现
 	public ConstPO getConst() throws RemoteException {
 		return (ConstPO)helper.readFromSerFile("const");
@@ -47,15 +52,19 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 			sql = "SELECT * from " + salaryTable;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
-			
+			while(result.next()){
+				pos.add(new SalaryWayPO(StaffType.getType(result.getString(1)), Integer.parseInt(result.getString(2)), Integer.parseInt(result.getString(3)), WageStrategy.valueOf(result.getString(4))));
+			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		}
 		
-		
-		
-		return null;
+		if(pos.isEmpty()){
+			return null;
+		}else{
+			return pos;
+		}
 	}
 
 	public ResultMessage setSalaryWay(SalaryWayPO po) throws RemoteException {

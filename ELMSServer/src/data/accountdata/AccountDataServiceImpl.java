@@ -31,9 +31,11 @@ public class AccountDataServiceImpl extends DataSuperClass implements
 				.getName(), po.getPassword(), "", "");
 	}
 	
-	public ResultMessage initial() throws RemoteException {
-		//需要增加管理员账户 TODO
-		return initialFromSQL(tableName);
+	public void initial() throws RemoteException {
+		initialFromSQL(tableName);
+		//管理员账户
+		add(new AccountPO("000000" , "Adminstrator" , AccountType.Adminstrator , "000000"));
+		
 	}
 
 	public AccountPO find(String ID) throws RemoteException {
@@ -42,7 +44,6 @@ public class AccountDataServiceImpl extends DataSuperClass implements
 			po.setMail(null);
 			po.setPhoneNum(null);
 		}
-
 		return po;
 	}
 
