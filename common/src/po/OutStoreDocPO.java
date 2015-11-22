@@ -21,7 +21,7 @@ public class OutStoreDocPO extends DocPO implements Serializable{
 	/**
 	 * 订单
 	 */
-	private ArrayList<String> orderPOs;
+	private ArrayList<String> orders;
 	/**
 	 * 目的地
 	 */
@@ -48,7 +48,7 @@ public class OutStoreDocPO extends DocPO implements Serializable{
 			ArrayList<String> orderPOs, String loc, String transferDoc,
 			String shipWay) {
 		super(iD, DocType.outStoreDoc, date,DocState.wait);
-		this.orderPOs = orderPOs;
+		this.orders = orderPOs;
 		this.loc = loc;
 		this.transferDoc = transferDoc;
 		this.shipWay = shipWay;
@@ -61,17 +61,17 @@ public class OutStoreDocPO extends DocPO implements Serializable{
 			ArrayList<String> orderPOs, String loc, String transferDoc,
 			String shipWay) {
 		super(iD, type, date, state);
-		this.orderPOs = orderPOs;
+		this.orders = orderPOs;
 		this.loc = loc;
 		this.transferDoc = transferDoc;
 		this.shipWay = shipWay;
 	}
 
 	public ArrayList<String> getOrderPOs() {
-		return orderPOs;
+		return orders;
 	}
 	public void setOrderPOs(ArrayList<String> orderPOs) {
-		this.orderPOs = orderPOs;
+		this.orders = orderPOs;
 	}
 	public String getLoc() {
 		return loc;

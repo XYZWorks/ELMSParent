@@ -1,22 +1,13 @@
 package test.java.other;
 
 
-import po.CostPO;
-import po.InStoreDocPO;
-
-import java.lang.reflect.*;
-import java.util.ArrayList;
-
-import util.DocType;
-
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.rmi.RemoteException;
 
-import util.MyDate;
-
-import vo.CostVO;
-import vo.InStoreDocVO;
+import ds.storedataservice.StoreDataService;
+import net.RMIManage;
+import util.DataServiceType;
 
 /** 
  * @author ymc 
@@ -38,14 +29,12 @@ public class VOPOchange {
 		String poName = "po"+voName.substring(2,voName.length()-2)+"PO";
 		
 		Field[] field = voClass.getDeclaredFields();
-		
+	
 		Method met = null;
 		
 		
-		for(int i= 0 ; i<field.length;i++){
-			System.out.println(field[i]+" "+field[i].getType()+" "+ field[i].getName());
-			
-		}
+		
+		
 		try {		
 			poClass = Class.forName(poName);
 			
@@ -65,6 +54,14 @@ public class VOPOchange {
 			e.printStackTrace();
 		}
 		
+		if(voClass.getSuperclass().toString().endsWith("DocVO")){
+			setSuperField(po, o, "ID");
+			setSuperField(po, o, "type");
+			setSuperField(po, o, "date");
+			setSuperField(po, o, "state");
+			
+			
+		}
 		String tmp="";
 		
 		try {
@@ -88,20 +85,63 @@ public class VOPOchange {
 		
 	}
 	
+	private void setSuperField(Object po,Object o, String name) {
+		
+		Field field1 = getSuperField(o.getClass(), name);
+		Field field2 = getSuperField(po.getClass(), name);
+		
+		try {
+			Object val = field1.get(o);
+			//System.out.println(val.toString());
+			field2.setAccessible(true);
+			field2.set(po, val);
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	private Field getSuperField(Class clazz, String name) {
+		
+		Field[] field = clazz.getDeclaredFields();
+		
+		for(Field f:field ){
+			if(f.getName().equals(name)){
+				return f;
+				
+			}
+		}
+		
+		Class supClass = clazz.getSuperclass();
+		System.out.println(supClass);
+		if(supClass!=null){
+			return getSuperField(supClass, name);
+		}
+		return null;
+	}
 	public static void main(String[] args) {
-		CostVO  vo = new CostVO(1000, "freigt");
+//		CostVO  vo = new CostVO(1000, "freigt");		
+//
+//		ArrayList<InStoreDocVO> vo2 = (ArrayList<InStoreDocVO>)DataTool.getDocList(DocType.inStoreDoc);
+//
+//		VOPOchange test = new VOPOchange();
+//		
+//		InStoreDocPO po = (InStoreDocPO)test.VOtoPO(vo2.get(0));
+//		
+//		System.out.println(po.getID()+" "+po.getLoc()+" "+po.getLocation());
 		
-
-		ArrayList<InStoreDocVO> vo2 = (ArrayList<InStoreDocVO>)DataTool.getDocList(DocType.inStoreDoc);
-		System.out.println(vo2.size());
-
+		StoreDataService storeData = (StoreDataService)RMIManage.getDataService(DataServiceType.StoreDataService);
 		
-
-		VOPOchange test = new VOPOchange();
-		
-		InStoreDocPO po = (InStoreDocPO)test.VOtoPO(vo2.get(0));
-		
-		System.out.println(po.getID()+" "+po.getLoc()+" "+po.getLocation());
+		try {
+			storeData.getIn();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
