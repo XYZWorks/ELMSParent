@@ -40,6 +40,7 @@ public class Login extends JFrame{
 	public void LoginMainFrame(){
 	}
 	
+	
 	public static void main(String[] args) {
 		JFrame frame=new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
