@@ -10,7 +10,9 @@ import org.junit.Test;
 
 import po.DocPO;
 import po.DriverPO;
-import po.OrderPO;
+import po.order.OrderPO;
+import util.DocState;
+import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
 import vo.CarVO;
@@ -50,7 +52,7 @@ public class OrderDataImplTest {
 
 	@Test
 	public void testAdd() throws RemoteException {
-		result = test1.add(new OrderPO("2311278906", d1, "czq", "13188907872", "nju", "常府街44号", "ymc", "13497269020",
+		result = test1.add(new OrderPO("2311278906", DocType.order ,d1,DocState.wait, "czq", "13188907872", "nju", "常府街44号", "ymc", "13497269020",
 				"hs", "仙林大道163号", 1, "book", 2, 30, 20, 10, "wood box", "fast model", 2, 20, "123" ,"123" , "123" ,"123" ,"123" ,"123" , d2));
 		if(result == ResultMessage.SUCCESS){
 			

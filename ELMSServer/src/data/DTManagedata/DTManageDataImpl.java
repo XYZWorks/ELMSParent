@@ -69,7 +69,7 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 	}
 
 	public ResultMessage updateCarPo(CarPO po) throws RemoteException {
-		return modifyFromSQL(carTable, carTable, po.getID() , po.getPlateNum() , String.valueOf(po.getUseYear()));
+		return modifyFromSQL(carTable,  po.getID() , po.getPlateNum() , String.valueOf(po.getUseYear()));
 	}
 
 	
