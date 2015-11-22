@@ -13,6 +13,14 @@ public class StoreMessagePO implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 	/**
+	 * 所在城市
+	 */
+	private String location;
+	/**
+	 * 区位置
+	 */
+	private String storeLoc;
+	/**
 	 * 序列化UID
 	 */
 	private static final long serialVersionUID = 1L;
@@ -56,6 +64,19 @@ public class StoreMessagePO implements Serializable{
 	}
 	public void setOutStoreDocs(ArrayList<OutStoreDocPO> outStoreDocs) {
 		OutStoreDocs = outStoreDocs;
+	}
+
+	public String getStoreLoc() {
+		return storeLoc;
+	}
+	public void setStoreLoc(String storeLoc) {
+		this.storeLoc = storeLoc;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
 	}
 	
 }

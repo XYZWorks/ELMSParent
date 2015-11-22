@@ -13,6 +13,11 @@ public class StoreMessageVO {
 	 */
 	public String location;
 	/**
+	 * 区位置
+	 */
+	public String storeLoc;
+
+	/**
 	 * 库存数量
 	 */
 	public int number;
@@ -24,21 +29,16 @@ public class StoreMessageVO {
 	 * 出库单集合
 	 */
 	public ArrayList<OutStoreDocVO> OutStoreDocs;
-	/**
-	 * 
-	 * @param location
-	 * @param number
-	 * @param inStoreDocs
-	 * @param outStoreDocs
-	 */
-	public StoreMessageVO(String location, int number, ArrayList<InStoreDocVO> inStoreDocs,
+	public StoreMessageVO(String location, String storeLoc, int number, ArrayList<InStoreDocVO> inStoreDocs,
 			ArrayList<OutStoreDocVO> outStoreDocs) {
 		super();
 		this.location = location;
+		this.storeLoc = storeLoc;
 		this.number = number;
 		this.inStoreDocs = inStoreDocs;
 		OutStoreDocs = outStoreDocs;
 	}
+
 
 	
 	
