@@ -15,9 +15,7 @@ import util.DocType;
  */
 public class InStoreDocPO extends DocPO implements Serializable{
 	
-	public InStoreDocPO() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	/**
 	 * 序列化UID
 	 */
@@ -26,7 +24,7 @@ public class InStoreDocPO extends DocPO implements Serializable{
 	/**
 	 * 订单
 	 */
-	private ArrayList<OrderPO> orderPOs;
+	private ArrayList<String> orderPOs;
 	/**
 	 * 目的地
 	 */
@@ -40,8 +38,10 @@ public class InStoreDocPO extends DocPO implements Serializable{
 	 * 位置信息
 	 */
 	private ArrayList<String> location;
+	
+	public InStoreDocPO() {}
 
-	public InStoreDocPO(String iD, MyDate date, ArrayList<OrderPO> orderPOs,
+	public InStoreDocPO(String iD, MyDate date, ArrayList<String> orderPOs,
 			String loc, ArrayList<String> location) {
 
 		super(iD, DocType.inStoreDoc, date, DocState.wait);
@@ -49,12 +49,26 @@ public class InStoreDocPO extends DocPO implements Serializable{
 		this.loc = loc;
 		this.location = location;
 	}
+	
+	
+	
+	
+	public InStoreDocPO(String iD, DocType type, MyDate date, DocState state,
+			ArrayList<String> orderPOs, String loc, ArrayList<String> location) {
+		super(iD, type, date, state);
+		this.orderPOs = orderPOs;
+		this.loc = loc;
+		this.location = location;
+	}
 
-	public ArrayList<OrderPO> getOrderPOs() {
+
+
+
+	public ArrayList<String> getOrderPOs() {
 		return orderPOs;
 	}
 
-	public void setOrderPOs(ArrayList<OrderPO> orderPOs) {
+	public void setOrderPOs(ArrayList<String> orderPOs) {
 		this.orderPOs = orderPOs;
 	}
 

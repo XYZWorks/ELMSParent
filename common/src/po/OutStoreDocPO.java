@@ -12,9 +12,7 @@ import util.DocType;
  *
  */
 public class OutStoreDocPO extends DocPO implements Serializable{
-	public OutStoreDocPO() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	/**
 	 * 序列化UID
 	 */
@@ -23,7 +21,7 @@ public class OutStoreDocPO extends DocPO implements Serializable{
 	/**
 	 * 订单
 	 */
-	private ArrayList<OrderPO> orderPOs;
+	private ArrayList<String> orderPOs;
 	/**
 	 * 目的地
 	 */
@@ -44,10 +42,10 @@ public class OutStoreDocPO extends DocPO implements Serializable{
 	
 	
 	
-	
+	public OutStoreDocPO() {}
 	
 	public OutStoreDocPO(String iD, MyDate date,
-			ArrayList<OrderPO> orderPOs, String loc, String transferDoc,
+			ArrayList<String> orderPOs, String loc, String transferDoc,
 			String shipWay) {
 		super(iD, DocType.outStoreDoc, date,DocState.wait);
 		this.orderPOs = orderPOs;
@@ -55,10 +53,24 @@ public class OutStoreDocPO extends DocPO implements Serializable{
 		this.transferDoc = transferDoc;
 		this.shipWay = shipWay;
 	}
-	public ArrayList<OrderPO> getOrderPOs() {
+	
+	
+	
+	
+	public OutStoreDocPO(String iD, DocType type, MyDate date, DocState state,
+			ArrayList<String> orderPOs, String loc, String transferDoc,
+			String shipWay) {
+		super(iD, type, date, state);
+		this.orderPOs = orderPOs;
+		this.loc = loc;
+		this.transferDoc = transferDoc;
+		this.shipWay = shipWay;
+	}
+
+	public ArrayList<String> getOrderPOs() {
 		return orderPOs;
 	}
-	public void setOrderPOs(ArrayList<OrderPO> orderPOs) {
+	public void setOrderPOs(ArrayList<String> orderPOs) {
 		this.orderPOs = orderPOs;
 	}
 	public String getLoc() {

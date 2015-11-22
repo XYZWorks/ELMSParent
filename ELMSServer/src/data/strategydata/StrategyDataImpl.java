@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import po.BillPO;
 import po.ConstPO;
 import po.SalaryWayPO;
+import util.MyDate;
 import util.ResultMessage;
 import util.StaffType;
 import util.WageStrategy;
@@ -24,12 +25,14 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 	 * 工资计算方式表 表名
 	 */
 	private final String salaryTable = "salary";
+	
+	
 
 	public StrategyDataImpl() throws RemoteException {}
 	
 	public void initial() throws RemoteException {
-		// TODO Auto-generated method stub
-		
+		initialFromSQL(salaryTable);
+		//TODO const 未初始化
 	}
 	
 	//const 暂时用序列化实现
@@ -81,14 +84,6 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 		}
 	}
 
-	public ResultMessage bulidBill(BillPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public ArrayList<BillPO> getBills() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

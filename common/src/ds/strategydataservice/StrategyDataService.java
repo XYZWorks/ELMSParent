@@ -3,7 +3,6 @@ package ds.strategydataservice;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.BillPO;
 import po.ConstPO;
 import po.SalaryWayPO;
 import util.ResultMessage;
@@ -44,16 +43,16 @@ public interface StrategyDataService extends DataserviceParent{
 	 * @return
 	 */
 	public SalaryWayPO getOneSalary(StaffType type) throws RemoteException;
-	/**
-	 * 期初建账数据
-	 * @param po 账单PO类
-	 * @return
-	 */
-	public ResultMessage bulidBill(BillPO po) throws RemoteException;
-	/**
-	 * 获得所有的总账单
-	 * @return
-	 */
-	public ArrayList<BillPO> getBills() throws RemoteException;
+//	/**
+//	 * 期初建账数据
+//	 * @param po 账单PO类
+//	 * @return
+//	 */
+//	public ResultMessage bulidBill(BillPO po) throws RemoteException;
+//	/**
+//	 * 获得所有的总账单
+//	 * @return
+//	 */
+//	public ArrayList<BillPO> getBills() throws RemoteException;
 	
 }

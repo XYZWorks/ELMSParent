@@ -33,8 +33,8 @@ public class PersonnelDataServiceImpl extends DataSuperClass implements
 	public PersonnelDataServiceImpl() throws RemoteException {}
 	
 	public void initial() throws RemoteException {
-		// TODO Auto-generated method stub
-		
+		initialFromSQL(instTable);
+		initialFromSQL(personTable);
 	}
 
 	public ArrayList<PersonPO> getPeoByInst(String ID) throws RemoteException {
