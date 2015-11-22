@@ -12,6 +12,9 @@ import java.util.List;
   * @date 2015-10-26
   */
 public class UserfulMethod {
+	
+	
+	
 	public static List<String> getDocument(String filePath) {
 		List<String> document = new ArrayList<String>();
 		try {

@@ -15,8 +15,6 @@ import util.ResultMessage;
 
 import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
-import config.DataBaseInit;
-
 /**
  * 所有数据实现层的父类
  * 
@@ -75,7 +73,7 @@ public class DataSuperClass extends UnicastRemoteObject {
 		SQLmap.put("ArriveYYDoc", helper.bulidSQL("ArriveYYDoc", 7, "id", "type" , "date", "state" , "ZZID" , "sendCity" , "goodState"));
 		SQLmap.put("InStoreDoc", helper.bulidSQL("InStoreDoc", 7, "id", "type" , "date", "state" , "orderPOs" , "loc" ,"location" ));
 		SQLmap.put("OutStoreDoc", helper.bulidSQL("OutStoreDoc", 8, "id", "type" , "date", "state" , "orderPOs" , "loc" ,"transferDoc" ,"shipWay" ));
-//		SQLmap.put("StoreCheck", helper.bulidSQL("StoreCheck", 2, paras);
+		SQLmap.put("StoreCheck", helper.bulidSQL("StoreMessage", 5, "" , "" , "" , "" ,"") ); // TODO
 		SQLmap.put("bill", helper.bulidSQL("bill", 5, "finaceMan" , "date" , "instituations" , "persons" ,"cars" ));
 		//id是为了适应数据库存储增加的，具有自增属性
 		SQLmap.put("deposit", helper.bulidSQLForNoID("deposit", 3, "id" ,"date" , "money"));

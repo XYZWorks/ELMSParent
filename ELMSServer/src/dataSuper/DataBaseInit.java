@@ -1,4 +1,5 @@
-package config;
+package dataSuper;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -62,5 +63,8 @@ public class DataBaseInit {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
 	
 }
