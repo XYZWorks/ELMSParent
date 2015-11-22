@@ -83,6 +83,11 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 		return null;
 	}
 
+	public ResultMessage delDriverPO(DriverPO po) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 }

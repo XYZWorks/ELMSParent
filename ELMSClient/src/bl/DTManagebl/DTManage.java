@@ -22,17 +22,21 @@ public class DTManage{
 	
 	
 	public ResultMessage add(DriverVO vo) {
+		
 		DriverPO po = (DriverPO) VOPOchange.VOtoPO(vo);
 		ResultMessage result = null;
+		
 		try {
 			result = manageData.addDriverPO(po);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
+		
 		return result;
 	}
 
 	public ArrayList<DriverVO> CheckByName(String name) {
+		
 		ArrayList<DriverPO> pos = new ArrayList<DriverPO>();
 		ArrayList<DriverVO> vos = new ArrayList<DriverVO>();
 
@@ -44,35 +48,68 @@ public class DTManage{
 		}
 		
 		for(DriverPO po : pos){
-			vos.add((DriverVO)VOPOchange.POtoVO(pos));
+			vos.add((DriverVO)VOPOchange.POtoVO(po));
 		}
 		return vos;
 	}
 
 	public DriverVO CheckDriverByID(String ID) {
+		
 		DriverPO po = null;
+		
 		try {
 			po = manageData.getDriverMes(ID);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		DriverVO vo = (DriverVO) VOPOchange.POtoVO(po);
 		return vo;
 	}
 
 	public ArrayList<DriverVO> CheckByInst(String InstID) {
-		return null;
+		
+		ArrayList<DriverPO> pos = new ArrayList<DriverPO>();
+		ArrayList<DriverVO> vos = new ArrayList<DriverVO>();
+
+		try {
+			pos = manageData.getDriverByInst(InstID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		for(DriverPO po : pos){
+			vos.add((DriverVO)VOPOchange.POtoVO(po));
+		}
+		return vos;
 	}
 
 	public ResultMessage modify(DriverVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		DriverPO po = (DriverPO) VOPOchange.VOtoPO(vo);
+		ResultMessage result=null;
+		try {
+			result = manageData.updateDriverPo(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 
 	public ResultMessage Del(DriverVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		DriverPO po = (DriverPO) VOPOchange.VOtoPO(vo);
+		ResultMessage result=null;
+		try {
+			result = manageData.delDriverPO(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 
 	public ArrayList<String> getDriverName(String InstID) {

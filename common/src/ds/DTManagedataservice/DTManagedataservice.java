@@ -64,6 +64,13 @@ public interface DTManagedataservice extends DataserviceParent{
 	 */
 	public ResultMessage updateDriverPo(DriverPO po) throws RemoteException;
 	/**
+	 * 删除司机信息
+	 * @param po
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ResultMessage delDriverPO(DriverPO po) throws RemoteException;
+	/**
 	 * 更新一个车辆PO
 	 * @param po
 	 * @return
