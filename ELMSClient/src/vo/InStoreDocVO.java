@@ -29,7 +29,9 @@ public class InStoreDocVO extends DocVO {
 	public ArrayList<String> location;
 	
 	
-
+	public InStoreDocVO() {
+		// TODO Auto-generated constructor stub
+	}
 	public InStoreDocVO(String iD,  MyDate date,
 			ArrayList<OrderVO> orderVOs, String loc, ArrayList<String> location) {
 		

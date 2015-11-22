@@ -37,7 +37,9 @@ public class TransferDocVO extends DocVO{
 	 *所有托运单号
 	 */
 	public String[] orderBarCode;
-	
+	public TransferDocVO() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public TransferDocVO(String iD, util.MyDate date,
 			String transferWayID,

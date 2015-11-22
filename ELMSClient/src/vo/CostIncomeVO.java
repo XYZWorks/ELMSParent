@@ -26,7 +26,9 @@ public class CostIncomeVO {
 	 * 结束日期
 	 */
 	public MyDate endDate;
-
+	public CostIncomeVO() {
+		// TODO Auto-generated constructor stub
+	}
 	public CostIncomeVO(int income, int expense, MyDate startDate,
 			MyDate endDate) {
 		super();

@@ -26,7 +26,9 @@ public class CarVO{
 	 * @param PlateNum
 	 * @param useYear
 	 */
-
+	public CarVO() {
+		// TODO Auto-generated constructor stub
+	}
 	public CarVO(String ID, String PlateNum, int useYear) {
 		super();
 		this.ID = ID;

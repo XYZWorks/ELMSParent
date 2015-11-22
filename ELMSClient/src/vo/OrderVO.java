@@ -117,7 +117,9 @@ public class OrderVO extends DocVO{
 	 */
 	public ArrayList<DocVO> docList;
 
-
+	public OrderVO() {
+		// TODO Auto-generated constructor stub
+	}
 	public OrderVO(String iD, util.MyDate date,
 			String orderYYT,  String senderName,
 			String senderPhone, String senderCompany, String senderAddress,

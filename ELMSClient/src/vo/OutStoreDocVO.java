@@ -34,6 +34,9 @@ public class OutStoreDocVO extends DocVO{
 	 * 装运方式
 	 */
 	public String shipWay;
+	public OutStoreDocVO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 
 	 * @param orderVOs

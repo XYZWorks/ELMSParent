@@ -27,6 +27,9 @@ public class StateFormVO {
 	 * 收款信息
 	 */
 	public ArrayList<DepositVO> deposits;
+	public StateFormVO() {
+		// TODO Auto-generated constructor stub
+	}
 	public StateFormVO(MyDate startDate, MyDate endDate, ArrayList<PayVO> pays,
 			ArrayList<DepositVO> deposits) {
 		super();

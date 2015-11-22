@@ -38,4 +38,8 @@ public class BillVO {
 	  * 车辆信息列表
 	  */
 	public ArrayList<CarPO> cars;
+	
+	public BillVO() {
+		// TODO Auto-generated constructor stub
+	}
 }

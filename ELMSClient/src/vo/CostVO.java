@@ -13,6 +13,10 @@ public class CostVO {
 	 * 成本类型
 	 */
 	public String type;
+	
+	public CostVO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 
 	 * @param money

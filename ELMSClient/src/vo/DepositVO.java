@@ -16,6 +16,9 @@ public class DepositVO {
 	 * 金额
 	 */
 	public int money;
+	public DepositVO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 
 	 * @param time

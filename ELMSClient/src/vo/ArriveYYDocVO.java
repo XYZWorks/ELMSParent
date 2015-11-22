@@ -37,6 +37,9 @@ public class ArriveYYDocVO extends DocVO{
 	 * 货物到达状态
 	 */
 	public  GoodsState goodState;
+	public ArriveYYDocVO() {
+		// TODO Auto-generated constructor stub
+	}
 	public ArriveYYDocVO(String iD, MyDate date,
 			String zZID, String sendCity, GoodsState goodState) {
 		super(iD, DocType.arriveYYDoc, date, DocState.wait);

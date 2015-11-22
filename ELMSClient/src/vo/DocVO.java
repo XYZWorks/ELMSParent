@@ -27,7 +27,9 @@ public abstract class DocVO {
 	 */
 	public DocState state;
 	
-	
+	public DocVO() {
+		// TODO Auto-generated constructor stub
+	}
 	public DocVO(String iD, DocType type, MyDate date, DocState state) {
 		super();
 		ID = iD;

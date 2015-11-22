@@ -28,6 +28,9 @@ public class PersonVO {
 	 * 手机号码
 	 */
 	public String phoneNum;
+	public PersonVO() {
+		// TODO Auto-generated constructor stub
+	}
 	public PersonVO(String instID, String iD, String name, StaffType type,
 			String phoneNum) {
 		super();

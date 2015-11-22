@@ -20,7 +20,9 @@ public class SendGoodDocVO extends DocVO{
 	 *订单条形码号
 	 */
 	public String orderBarCode;
-	
+	public SendGoodDocVO() {
+		// TODO Auto-generated constructor stub
+	}
 	public SendGoodDocVO(String iD, MyDate date,
 			 String sendMan, String orderBarCode) {
 		super(iD, DocType.sendGoodDoc, date, DocState.wait);

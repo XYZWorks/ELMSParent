@@ -24,6 +24,9 @@ public class ProfitVO {
 	 * 收益
 	 */
 	public int profit;
+	public ProfitVO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 
 	 * @param time

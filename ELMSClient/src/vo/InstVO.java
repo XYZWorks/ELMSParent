@@ -19,6 +19,9 @@ public class InstVO {
 	 * 机构类型  营业厅、中转中心、总部
 	 */
 	public InstType type;
+	public InstVO() {
+		// TODO Auto-generated constructor stub
+	}
 	public InstVO(String iD, String location, InstType type) {
 		super();
 		ID = iD;

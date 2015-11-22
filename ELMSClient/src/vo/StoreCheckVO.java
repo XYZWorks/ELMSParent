@@ -13,6 +13,9 @@ public class StoreCheckVO {
 	 * 库存信息
 	 */
 	public StoreMessageVO vo;
+	public StoreCheckVO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 
 	 * @param time

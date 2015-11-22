@@ -23,7 +23,9 @@ public class ReceiveVO {
 	 * 真实收件人
 	 */
 	public String realReceiver;
-
+	public ReceiveVO() {
+		// TODO Auto-generated constructor stub
+	}
 	public ReceiveVO(String orderBarCode, MyDate orderDate, String realReceiver) {
 		super();
 		this.orderBarCode = orderBarCode;

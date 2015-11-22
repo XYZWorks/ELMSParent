@@ -20,6 +20,9 @@ public class PayVO {
 	 * 类型
 	 */
 	public String type;
+	public PayVO() {
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * 
 	 * @param time

@@ -32,7 +32,9 @@ public class ArriveZZDocVO extends DocVO {
 	 * 货物到达状态
 	 */
 	public GoodsState goodState;
-
+	public ArriveZZDocVO() {
+		// TODO Auto-generated constructor stub
+	}
 	public ArriveZZDocVO(String iD, MyDate date, String zZID, String sendCity,
 			GoodsState goodState) {
 		super(iD, DocType.arriveZZDoc, date, DocState.wait);

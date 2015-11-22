@@ -25,7 +25,9 @@ public class SalaryWayVO {
 	 * 计费策略  
 	 */
 	public WageStrategy way;
-	
+	public SalaryWayVO() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public SalaryWayVO(StaffType type, int basicSalary, int moreMoney,
 			WageStrategy way) {

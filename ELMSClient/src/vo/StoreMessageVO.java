@@ -29,6 +29,9 @@ public class StoreMessageVO {
 	 * 出库单集合
 	 */
 	public ArrayList<OutStoreDocVO> OutStoreDocs;
+	public StoreMessageVO() {
+		// TODO Auto-generated constructor stub
+	}
 	public StoreMessageVO(String location, String storeLoc, int number, ArrayList<InStoreDocVO> inStoreDocs,
 			ArrayList<OutStoreDocVO> outStoreDocs) {
 		super();

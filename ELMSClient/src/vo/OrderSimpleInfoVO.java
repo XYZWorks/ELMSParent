@@ -20,7 +20,9 @@ public class OrderSimpleInfoVO {
 	 * 得到简易信息的时间
 	 */
 	public String time;
-	
+	public OrderSimpleInfoVO() {
+		// TODO Auto-generated constructor stub
+	}
 	public OrderSimpleInfoVO(String orderBarCode,String place,String time){
 		this.orderBarCode=orderBarCode;
 		this.place=place;

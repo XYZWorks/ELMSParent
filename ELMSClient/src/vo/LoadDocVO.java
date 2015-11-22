@@ -1,6 +1,7 @@
 package vo;
 
 import util.MyDate;
+import ui.saleman.LoadDocShow;
 import util.DocState;
 import util.DocType;
 
@@ -37,7 +38,9 @@ public class LoadDocVO extends DocVO{
 	 */
 	public String Escort;
 	
-
+	public LoadDocVO() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public LoadDocVO(String iD, MyDate date,
 			String yYID, String loadDocID, String arriveCity, String carID,

@@ -40,6 +40,9 @@ public class DriverVO {
 	 * 驾驶证期限
 	 */
 	public int licenseYear;
+	public DriverVO() {
+		// TODO Auto-generated constructor stub
+	}
 	public DriverVO(String iD, String name, String instID, MyDate birthDay,
 			String iDcard, String phoneNum, boolean isman, int licenseYear) {
 		super();
