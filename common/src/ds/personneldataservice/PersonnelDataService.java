@@ -43,7 +43,7 @@ public interface PersonnelDataService extends DataserviceParent{
 	 * @param po
 	 * @return 是否成功
 	 */
-	public ResultMessage delPerson(PersonPO po) throws RemoteException;
+	public ResultMessage delPerson(String ID) throws RemoteException;
 	/**
 	 * 增加机构
 	 * @param po

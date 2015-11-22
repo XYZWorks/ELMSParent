@@ -8,11 +8,13 @@ import java.util.ArrayList;
 
 import ds.storedataservice.StoreDataService;
 import net.RMIManage;
+import po.DTManage.DriverPO;
 import po.account.AccountPO;
 import po.finance.CostPO;
 import po.store.InStoreDocPO;
 import util.DataServiceType;
 import util.DocType;
+import vo.DTManage.DriverVO;
 import vo.account.AccountVO;
 import vo.finance.CostVO;
 import vo.store.InStoreDocVO;
@@ -156,7 +158,8 @@ public class VOPOchange {
 		try {
 			field1.setAccessible(true);
 			Object val = field1.get(o);
-			//System.out.println(val.toString());
+//			System.out.println(val.toString());
+//			System.out.println("ready to change "+field2.getName());
 			field2.setAccessible(true);
 			field2.set(po, val);
 		} catch (IllegalArgumentException e) {
@@ -188,22 +191,28 @@ public class VOPOchange {
 		return null;
 	}
 	public static void main(String[] args) {
-		CostVO  vo = new CostVO(1000, "freigt");		
-		CostPO po = (CostPO) VOtoPO(vo);
-		System.out.println(po.getMoney()+ " "+ po.getType());
+//		CostVO  vo = new CostVO(1000, "freigt");		
+//		CostPO po = (CostPO) VOtoPO(vo);
+//		System.out.println(po.getMoney()+ " "+ po.getType());
+//		
+//		ArrayList<InStoreDocVO> vo2 = (ArrayList<InStoreDocVO>)DataTool.getDocList(DocType.inStoreDoc);
+//		InStoreDocPO po2 = (InStoreDocPO)VOtoPO(vo2.get(0));
+//		System.out.println(po2.getID()+" "+po2.getLoc()+" "+po2.getLocation()+" "+ po2.getDate());
+//
+//		
+//		AccountVO voa= DataTool.getAccountVO();
+//		AccountPO poa = (AccountPO) VOtoPO(voa);
+//		
+//		System.out.println(poa.getID()+" "+ poa.getPassword());
+//		
+//		AccountVO voav = (AccountVO)POtoVO(poa);
+//		System.out.println(voav.ID+" "+voav.password);
 		
-		ArrayList<InStoreDocVO> vo2 = (ArrayList<InStoreDocVO>)DataTool.getDocList(DocType.inStoreDoc);
-		InStoreDocPO po2 = (InStoreDocPO)VOtoPO(vo2.get(0));
-		System.out.println(po2.getID()+" "+po2.getLoc()+" "+po2.getLocation()+" "+ po2.getDate());
-
-		
-		AccountVO voa= DataTool.getAccountVO();
-		AccountPO poa = (AccountPO) VOtoPO(voa);
-		
-		System.out.println(poa.getID()+" "+ poa.getPassword());
-		
-		AccountVO voav = (AccountVO)POtoVO(poa);
-		System.out.println(voav.ID+" "+voav.password);
+		ArrayList<DriverVO> vod = DataTool.getDriverList();
+		DriverVO vo1 = vod.get(0);
+		System.out.println(vo1.ID+" "+vo1.IDcard+" "+vo1.licenseYear+" "+vo1.name);
+		DriverPO po1 = (DriverPO) VOtoPO(vo1);
+		System.out.println(po1.getID()+" "+po1.getIDcard()+" "+po1.getLicenseYear()+" "+po1.getName());
 		
 
 	}

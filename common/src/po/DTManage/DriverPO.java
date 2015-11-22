@@ -29,6 +29,10 @@ public class DriverPO implements Serializable{
 	 */
 	private  MyDate birthDay;
 	/**
+	 * 机构ID
+	 */
+	private String InstID;
+	/**
 	 * 身份证号
 	 */
 	private  String IDcard;
@@ -47,25 +51,26 @@ public class DriverPO implements Serializable{
 	
 	/**
 	 * 
-	 * @param ID
+	 * @param iD
 	 * @param name
 	 * @param birthDay
-	 * @param IDcard
+	 * @param instID
+	 * @param iDcard
 	 * @param phoneNum
 	 * @param isman
 	 * @param licenseYear
 	 */
-	public DriverPO(String ID,String name,MyDate birthDay,String IDcard,
-			String phoneNum,boolean isman,int licenseYear){
+	public DriverPO(String iD, String name, MyDate birthDay, String instID, String iDcard, String phoneNum,
+			boolean isman, int licenseYear) {
 		super();
-		this.birthDay=birthDay;
-		this.ID=ID;
-		this.IDcard=IDcard;
-		this.isman=isman;
-		this.licenseYear=licenseYear;
-		this.name=name;
-		this.phoneNum=phoneNum;
-		
+		ID = iD;
+		this.name = name;
+		this.birthDay = birthDay;
+		InstID = instID;
+		IDcard = iDcard;
+		this.phoneNum = phoneNum;
+		this.isman = isman;
+		this.licenseYear = licenseYear;
 	}
 
 	public String getID() {
@@ -122,6 +127,14 @@ public class DriverPO implements Serializable{
 
 	public void setLicenseYear(int licenseYear) {
 		this.licenseYear = licenseYear;
+	}
+
+	public String getInstID() {
+		return InstID;
+	}
+
+	public void setInstID(String instID) {
+		InstID = instID;
 	}
 	
 	

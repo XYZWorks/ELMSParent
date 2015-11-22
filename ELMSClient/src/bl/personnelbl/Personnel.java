@@ -1,8 +1,13 @@
 package bl.personnelbl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import blservice.personnelblservice.Personnelblservice;
+import ds.personneldataservice.PersonnelDataService;
+import net.RMIManage;
+import po.personnel.PersonPO;
+import test.java.other.VOPOchange;
+import util.DataServiceType;
 import util.ResultMessage;
 import vo.personnel.InstVO;
 import vo.personnel.PersonVO;
@@ -15,32 +20,93 @@ import vo.personnel.PersonVO;
 public class Personnel {
 	
 	
-	Personnelblservice personnelbl;
+	PersonnelDataService personnelData;
 	
-	
+	public Personnel() {
+		personnelData = (PersonnelDataService) RMIManage.getDataService(DataServiceType.PersonnelDataService);
+		
+		try {
+			personnelData.initial();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public ArrayList<PersonVO> getPeopleByInst(String ID) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		ArrayList<PersonVO> vos = new ArrayList<PersonVO>();
+		ArrayList<PersonPO> pos = new ArrayList<PersonPO>();
+		
+		try {
+			pos = personnelData.getPeoByInst(ID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		for(PersonPO po: pos){
+			vos.add((PersonVO)VOPOchange.POtoVO(po));
+		}
+		return vos;
 	}
 
 	public PersonVO getPeopleByID(String ID) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		PersonVO vo = null;
+		PersonPO po = null;
+		
+		try {
+			po = personnelData.getPersonByID(ID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		vo = (PersonVO) VOPOchange.POtoVO(po);
+		return vo;
 	}
 	
 
 	public ArrayList<PersonVO> getPeopleByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		ArrayList<PersonVO> vos = new ArrayList<PersonVO>();
+		ArrayList<PersonPO> pos = new ArrayList<PersonPO>();
+		
+		try {
+			pos = personnelData.getPeoByName(name);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		for(PersonPO po: pos){
+			vos.add((PersonVO)VOPOchange.POtoVO(po));
+		}
+		return vos;
 	}
 
 	public ResultMessage addPeople(PersonVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		PersonPO po = (PersonPO) VOPOchange.VOtoPO(vo);
+		ResultMessage result = null;
+		
+		try {
+			result = personnelData.addPerson(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 
 	public ResultMessage delPeople(String ID) {
-		// TODO Auto-generated method stub
+		try {
+			personnelData.delPerson(ID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 
