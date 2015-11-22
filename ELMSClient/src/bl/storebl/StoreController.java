@@ -52,10 +52,6 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 
 
 
-	public ResultMessage changeOneDocState(String docID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	public ResultMessage generate(OutStoreDocVO vo) {
 		// TODO Auto-generated method stub
@@ -78,6 +74,11 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 	}
 
 	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
 		// TODO Auto-generated method stub
 		return null;
 	}

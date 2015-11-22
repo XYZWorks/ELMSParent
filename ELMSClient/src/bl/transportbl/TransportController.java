@@ -82,18 +82,17 @@ public class TransportController implements Transportblservice{
 	}
 
 
-
-	public ResultMessage changeOneDocState(String docID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public double getExpense(ArriveZZDocVO arriveVO, TransferDocVO transferVO) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
 		// TODO Auto-generated method stub
 		return null;
 	}

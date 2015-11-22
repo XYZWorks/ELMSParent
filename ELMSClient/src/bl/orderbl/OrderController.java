@@ -64,12 +64,12 @@ public class OrderController implements Orderblservice{
 	}
 
 
-	public ResultMessage changeOneDocState(String docID) {
+	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
+	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -62,4 +62,9 @@ public class MockDocs implements DocApprovalService {
 		return null;
 	}
 
+	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

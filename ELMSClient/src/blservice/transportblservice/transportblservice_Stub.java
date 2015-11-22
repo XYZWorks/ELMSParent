@@ -111,4 +111,11 @@ public class transportblservice_Stub implements Transportblservice{
 		return null;
 	}
 
+
+
+	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

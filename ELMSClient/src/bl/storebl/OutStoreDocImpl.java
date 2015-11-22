@@ -37,10 +37,6 @@ public class OutStoreDocImpl implements OutStoreDocService {
 	}
 
 
-	public ResultMessage changeOneDocState(String docID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	public ArrayList<OutStoreDocVO> showOutStoreDocs() {
 		// TODO Auto-generated method stub
@@ -48,6 +44,11 @@ public class OutStoreDocImpl implements OutStoreDocService {
 	}
 
 	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -102,7 +102,7 @@ public class StoreControllerTest {
 		
 		String id=vos.get(0).ID;
 		
-		result = in.changeOneDocState(id);
+		result = in.changeOneDocState(id, DocType.inStoreDoc, DocState.pass);
 		
 		if(result!=ResultMessage.SUCCESS)
 			fail("Not change states");		}

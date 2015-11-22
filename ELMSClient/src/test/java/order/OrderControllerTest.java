@@ -139,7 +139,7 @@ public class OrderControllerTest {
 	public void testChangeOneDocState() {
 		ArrayList<DocVO> vos = (ArrayList<DocVO>) bl.getDocLists(DocType.order);
 		vos.get(0).state = DocState.pass;
-		result = bl.changeOneDocState(vos.get(0).ID);
+		result = bl.changeOneDocState(vos.get(0).ID, DocType.order, DocState.pass);
 		if(result == ResultMessage.SUCCESS){
 			return;
 		}
