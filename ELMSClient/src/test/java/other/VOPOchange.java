@@ -1,16 +1,22 @@
 package test.java.other;
 
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
+import po.CostPO;
+import po.InStoreDocPO;
+
+import java.lang.reflect.*;
 import java.util.ArrayList;
 
-import po.TransferDocPO;
 import util.DocType;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+import util.MyDate;
+
 import vo.CostVO;
-import vo.TransferDocVO;
+import vo.InStoreDocVO;
 
 /** 
  * @author ymc 
@@ -46,30 +52,19 @@ public class VOPOchange {
 			po = poClass.newInstance();
 
 		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		if(voClass.getSuperclass().toString().endsWith("DocVO")){
-			try {
-				Method m1 = po.getClass().getMethod("setID");
-				Method m2 = po.getClass().getMethod("setType");
-				Method m3 = po.getClass().getMethod("setDate");
-				Method m4 = po.getClass().getMethod("setState");
-			} catch (NoSuchMethodException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SecurityException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-		}
 		String tmp="";
 		
 		try {
@@ -78,24 +73,14 @@ public class VOPOchange {
 				tmp=(char)(field[i].getName().charAt(0)-'a'+'A')+field[i].getName().substring(1);
 				
 				met = po.getClass().getMethod("set"+tmp, field[i].getType());
-				
 				Object ob = field[i].get(o);
 				
-				if(field[i].getType().toString().endsWith("ArrayList")){
-					ParameterizedType type = (ParameterizedType)field[i].getGenericType();
-					
-					Type[] types = type.getActualTypeArguments();
-					
-					for(Type t: types){
-						//TODO
-						System.out.println(t.toString());
-					}
-				}
-				
+				System.out.println(met.getName()+" "+met.getReturnType());
 				met.invoke(po,ob);
 			}
 		} catch (Exception e) {
- 			e.printStackTrace();
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} 
 		
 		//System.out.println(poName);
@@ -107,15 +92,16 @@ public class VOPOchange {
 		CostVO  vo = new CostVO(1000, "freigt");
 		
 
-		ArrayList<TransferDocVO> vo2 = (ArrayList<TransferDocVO>)DataTool.getDocList(DocType.transferDoc);
-		
+		ArrayList<InStoreDocVO> vo2 = (ArrayList<InStoreDocVO>)DataTool.getDocList(DocType.inStoreDoc);
+		System.out.println(vo2.size());
+
 		
 
 		VOPOchange test = new VOPOchange();
 		
-		TransferDocPO po = (TransferDocPO)test.VOtoPO(vo2.get(0));
+		InStoreDocPO po = (InStoreDocPO)test.VOtoPO(vo2.get(0));
 		
-		System.out.println(po.getID()+" "+po.getContainerNum()+" "+po.getLoadManName()+ " "+ po.getOrderBarCode()[0]+" "+po.getOrderBarCode()[1]);
+		System.out.println(po.getID()+" "+po.getLoc()+" "+po.getLocation());
 
 	}
 

@@ -17,7 +17,7 @@ public class InStoreDocVO extends DocVO {
 	/**
 	 * 订单
 	 */
-	public ArrayList<OrderVO> orders;
+	public ArrayList<OrderVO> orderVOs;
 	/**
 	 * 目的地
 	 */
@@ -35,17 +35,17 @@ public class InStoreDocVO extends DocVO {
 		
 		//初始建单状态
 		super(iD,DocType.inStoreDoc, date, DocState.wait);
-		this.orders = orderVOs;
+		this.orderVOs = orderVOs;
 		this.loc = loc;
 		this.location = location;
 	}
 
 	public ArrayList<OrderVO> getOrderVOs() {
-		return orders;
+		return orderVOs;
 	}
 
 	public void setOrderVOs(ArrayList<OrderVO> orderVOs) {
-		this.orders = orderVOs;
+		this.orderVOs = orderVOs;
 	}
 
 	public String getLoc() {
