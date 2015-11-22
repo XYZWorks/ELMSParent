@@ -5,8 +5,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import po.DocPO;
+import po.order.GoodMes;
 import po.order.OrderPO;
+import po.order.OtherOrderMes;
+import po.order.PeopleMes;
 import po.order.ReceivePO;
+import po.order.TransferDocs;
+import util.DocState;
 import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
@@ -35,29 +40,13 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	public ArrayList<OrderPO> getDayOrderPO(MyDate date) throws RemoteException {
 		sql = "SELECT * FROM " + orderTable + "WHERE date =" + MyDate.toString(date);
 		ArrayList<OrderPO> pos = new ArrayList<OrderPO>(50);
-		OrderPO po; 
+		OrderPO po;
 		try {
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while(result.next()){
-				po = new OrderPO(result.getString(1), MyDate.getDate(result
-						.getString(2)), result.getString(3),
-						result.getString(4), result.getString(5),
-						result.getString(6), result.getString(7),
-						result.getString(8), result.getString(9),
-						result.getString(10), Integer.parseInt(result.getString(11)),
-						result.getString(12),
-						Integer.parseInt(result.getString(13)),
-						Integer.parseInt(result.getString(14)),
-						Integer.parseInt(result.getString(15)),
-						Integer.parseInt(result.getString(16)),
-						result.getString(17), result.getString(18),
-						Integer.parseInt(result.getString(19)),
-						Integer.parseInt(result.getString(20)),
-						result.getString(21), result.getString(22),
-						result.getString(23), result.getString(24),
-						result.getString(25), result.getString(26),
-						MyDate.getDate(result.getString(27)));
+				po = new OrderPO(result.getString(1),DocType.valueOf(result.getString(2)) , MyDate.getDate(result.getString(3) ),
+						DocState.valueOf(result.getString(4)), new PeopleMes(result.getString(5), result.getString(6), result.getString(7), result.getString(8)) , new PeopleMes(result.getString(9), result.getString(10), result.getString(11), result.getString(12)) , new GoodMes(Integer.parseInt(result.getString(13)), result.getString(14), Integer.parseInt(result.getString(15)), Integer.parseInt(result.getString(16)), Integer.parseInt(result.getString(17)), Integer.parseInt(result.getString(18))) , new OtherOrderMes(result.getString(19), result.getString(20), Integer.parseInt(result.getString(21)), Integer.parseInt(result.getString(22)), result.getString(28), MyDate.getDate(result.getString(29)) ), new TransferDocs(result.getString(23), result.getString(23), result.getString(23), result.getString(23), result.getString(23)));
 				pos.add(po);
 			}
 			
@@ -71,7 +60,28 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	}
 
 	public ResultMessage add(OrderPO po) throws RemoteException {
-		return addToSQL(orderTable, po.getOrderBarCode() , DocType.getName(po.getType()) , MyDate.toString(po.getDate()) , po.getState().name() , po.getSenderName() , po.getSenderPhone() , po.getSenderAddress() , po.getReceiverName() , po.getReceiverPhone() , po.getReceiverCompany() , po.getReceiverAddress() , String.valueOf(po.getGoodNum()) ,po.getGoodName() , String.valueOf(po.getGoodWeight()) , String.valueOf(po.getGoodLong()) , String.valueOf(po.getGoodWidth()) , String.valueOf(po.getGoodHeight()) , po.getGoodPack() , po.getOrderForm() , String.valueOf(po.getOrderEestiTime()) ,String.valueOf(po.getOrderCost()) , po.getLoadDoc() , po.getArriveZZDoc() , po.getTransferDoc() , po.getArriveYYDoc() , po.getSendGoodDoc() , po.getRealReceiver() , MyDate.toString(po.getOrderReceiveDate())) ;
+		return addToSQL(orderTable, po.getID(), DocType.getName(po.getType()),
+				MyDate.toString(po.getDate()), po.getState().name(), po
+						.getSender().getName(), po.getSender().getPhone(), po
+						.getSender().getCompany(), po.getSender().getAddress(),
+				po.getReceiver().getName(), po.getReceiver().getPhone(), po
+						.getReceiver().getCompany(), po.getReceiver()
+						.getAddress(), String.valueOf(po.getGoodMes()
+						.getGoodNum()), po.getGoodMes().getGoodName(),
+				String.valueOf(po.getGoodMes().getGoodWeight()),
+				String.valueOf(po.getGoodMes().getGoodLong()),
+				String.valueOf(po.getGoodMes().getGoodWidth()),
+				String.valueOf(po.getGoodMes().getGoodHeight()), po
+						.getOtherMes().getGoodPack(), po.getOtherMes()
+						.getOrderForm(), String.valueOf(po.getOtherMes()
+						.getOrderEestiTime()), String.valueOf(po.getOtherMes()
+						.getOrderCost()), po.getTransferDocs().getLoadDoc(), po
+						.getTransferDocs().getArriveZZDoc(), po
+						.getTransferDocs().getTransferDoc(), po
+						.getTransferDocs().getArriveYYDoc(), po
+						.getTransferDocs().getSendGoodDoc(), po.getOtherMes()
+						.getRealReceiver(), MyDate.toString(po.getOtherMes()
+						.getOrderReceiveDate()));
 	}
 
 	public ResultMessage del(String orderBarCode) throws RemoteException {
@@ -84,7 +94,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 			String type = po.getType().name();
 			int affectNum = 0;
 			for (String temp : orderBarCodes) {
-				sql = "MODIFY `" + orderTable + "` SET " + type + "` = ?" + "WHERE orderBarCode ="
+				sql = "MODIFY `" + orderTable + "` SET " + type + "` = ?" + "WHERE id ="
 						+ temp;
 				preState.setString(1, po.getID());
 				preState = conn.prepareStatement(sql);
