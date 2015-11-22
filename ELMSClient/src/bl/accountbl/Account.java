@@ -2,7 +2,7 @@ package bl.accountbl;
 
 import java.rmi.RemoteException;
 
-import po.AccountPO;
+import po.account.AccountPO;
 import test.java.other.VOPOchange;
 import util.DataServiceType;
 import util.ResultMessage;

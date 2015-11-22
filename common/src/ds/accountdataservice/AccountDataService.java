@@ -3,7 +3,7 @@ package ds.accountdataservice;
 import java.rmi.RemoteException;
 
 import ds.DataserviceParent;
-import po.AccountPO;
+import po.account.AccountPO;
 import util.ResultMessage;
 /**
  * 账户数据层接口

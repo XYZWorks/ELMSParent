@@ -15,9 +15,7 @@ import util.DocType;
  */
 public abstract class DocPO implements Serializable{
 	
-	public DocPO() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	
 	/**
 	 * 
@@ -40,6 +38,8 @@ public abstract class DocPO implements Serializable{
 	 */
 	protected DocState state;
 	
+	
+	public DocPO() {}
 	
 	public DocPO(String iD, DocType type, MyDate date, DocState state) {
 		super();

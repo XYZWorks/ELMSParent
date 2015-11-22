@@ -3,8 +3,8 @@ package ds.personneldataservice;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.InstPO;
-import po.PersonPO;
+import po.personnel.InstPO;
+import po.personnel.PersonPO;
 import util.ResultMessage;
 import ds.DataserviceParent;
 

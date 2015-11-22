@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 import ds.storedataservice.StoreDataService;
 import net.RMIManage;
-import po.AccountPO;
-import po.CostPO;
-import po.InStoreDocPO;
+import po.account.AccountPO;
+import po.finance.CostPO;
+import po.store.InStoreDocPO;
 import util.DataServiceType;
 import util.DocType;
 import vo.AccountVO;

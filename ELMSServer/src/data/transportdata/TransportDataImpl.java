@@ -2,11 +2,11 @@ package data.transportdata;
 
 import java.rmi.RemoteException;
 
-import po.ArriveYYDocPO;
-import po.ArriveZZDocPO;
-import po.LoadDocPO;
-import po.SendGoodDocPO;
-import po.TransferDocPO;
+import po.transport.ArriveYYDocPO;
+import po.transport.ArriveZZDocPO;
+import po.transport.LoadDocPO;
+import po.transport.SendGoodDocPO;
+import po.transport.TransferDocPO;
 import util.DocState;
 import util.DocType;
 import util.GoodsState;

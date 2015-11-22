@@ -2,10 +2,10 @@ package data.storedata;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.InStoreDocPO;
-import po.OutStoreDocPO;
-import po.StoreCheckPO;
-import po.StoreMessagePO;
+import po.store.InStoreDocPO;
+import po.store.OutStoreDocPO;
+import po.store.StoreCheckPO;
+import po.store.StoreMessagePO;
 import util.ResultMessage;
 import dataSuper.DataSuperClass;
 import ds.storedataservice.StoreDataService;

@@ -4,8 +4,8 @@ import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import po.ConstPO;
-import po.SalaryWayPO;
+import po.strategy.ConstPO;
+import po.strategy.SalaryWayPO;
 import util.ResultMessage;
 import util.StaffType;
 import util.WageStrategy;

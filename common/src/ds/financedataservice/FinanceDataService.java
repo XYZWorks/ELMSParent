@@ -3,9 +3,9 @@ package ds.financedataservice;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.CostPO;
-import po.DepositPO;
-import po.PayPO;
+import po.finance.CostPO;
+import po.finance.DepositPO;
+import po.finance.PayPO;
 import util.ResultMessage;
 import ds.DataserviceParent;
 /**

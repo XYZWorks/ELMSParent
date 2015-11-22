@@ -3,9 +3,9 @@ package ds.statisticdataservice;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.BillPO;
-import po.CostIncomePO;
-import po.StateFormPO;
+import po.statistic.BillPO;
+import po.statistic.CostIncomePO;
+import po.statistic.StateFormPO;
 import util.ResultMessage;
 import ds.DataserviceParent;
 

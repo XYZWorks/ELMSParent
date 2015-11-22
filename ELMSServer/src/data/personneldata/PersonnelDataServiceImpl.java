@@ -4,8 +4,8 @@ import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import po.InstPO;
-import po.PersonPO;
+import po.personnel.InstPO;
+import po.personnel.PersonPO;
 import util.InstType;
 import util.ResultMessage;
 import util.StaffType;

@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import ds.financedataservice.FinanceDataService;
-import po.CostPO;
+import po.finance.CostPO;
 import util.ResultMessage;
 import vo.CostVO;
 /**

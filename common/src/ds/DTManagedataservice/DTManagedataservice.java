@@ -2,8 +2,8 @@ package ds.DTManagedataservice;
 
 import java.rmi.RemoteException;
 
-import po.CarPO;
-import po.DriverPO;
+import po.DTManage.CarPO;
+import po.DTManage.DriverPO;
 import util.ResultMessage;
 import ds.DataserviceParent;
 
