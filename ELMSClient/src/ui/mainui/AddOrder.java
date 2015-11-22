@@ -60,11 +60,11 @@ public class AddOrder extends JFrame {
 	 */
 	public AddOrder() {
 		setTitle("LogIn\r\n");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(0	, 0, 200, 200));
-		setContentPane(contentPane);
+		this.setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
