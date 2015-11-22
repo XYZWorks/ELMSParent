@@ -47,10 +47,11 @@ public class AccountVO {
 	 * @param iD
 	 * @param password
 	 */
-	public AccountVO(String iD, String password) {
+	public AccountVO(String iD, String password,AccountType type) {
 		super();
 		ID = iD;
 		this.password = password;
+		this.type=type;
 	}
 
 	/**

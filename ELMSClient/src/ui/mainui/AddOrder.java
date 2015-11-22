@@ -16,6 +16,7 @@ import java.awt.GridLayout;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+import util.AccountType;
 import util.ResultMessage;
 import vo.AccountVO;
 import bl.userbl.UserController;
@@ -92,7 +93,7 @@ public class AddOrder extends JFrame {
 				String key = new String(passwordField_1.getPassword());
 				
 				UserMesblservice bl = new UserController();
-				change(bl.login(new AccountVO(account,key))) ;
+				change(bl.login(new AccountVO(account,key,AccountType.courier))) ;
 				
 				
 				

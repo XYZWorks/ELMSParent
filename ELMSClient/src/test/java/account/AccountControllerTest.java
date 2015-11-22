@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import util.AccountType;
 import util.ResultMessage;
 import vo.AccountVO;
 import bl.accountbl.AccountController;
@@ -28,7 +29,8 @@ public class AccountControllerTest {
 
 	@Test
 	public void testAdd() {
-		result = bl.add(new AccountVO("112233", "zxcvbn"));
+		result = bl.add(new AccountVO("112233", "zxcvbn",AccountType.courier));
+		//System.out.println(result.name());
 		if (bl.find("112233").password.equalsIgnoreCase("zxcvbn")
 				&& result == ResultMessage.SUCCESS) {
 			return;
@@ -36,7 +38,7 @@ public class AccountControllerTest {
 			fail("fail to add account");
 		}
 		
-		if(bl.add(new AccountVO("112233", "zxcvbn")) == ResultMessage.SUCCESS){
+		if(bl.add(new AccountVO("112233", "zxcvbn",AccountType.courier)) == ResultMessage.SUCCESS){
 			fail("");
 		}
 		
@@ -44,11 +46,11 @@ public class AccountControllerTest {
 
 	@Test
 	public void testDelete() {
-		result = bl.delete(new AccountVO("112233", "zxcvbn"));
+		result = bl.delete(new AccountVO("112233", "zxcvbn",AccountType.courier));
 
-		if (bl.find("112233") == null) {
+		if (bl.find("112233") != null) {
 			fail("delete fail!!!");
-		} else if (bl.delete(new AccountVO("999999", "999999")) == ResultMessage.SUCCESS) {
+		} else if (bl.delete(new AccountVO("999999", "999999",AccountType.courier)) == ResultMessage.SUCCESS) {
 			fail("删除空账户，没有报错");
 		}
 		
@@ -61,9 +63,9 @@ public class AccountControllerTest {
 
 	@Test
 	public void testModify() {
-		bl.add(new AccountVO("1111111", "1233456"));
+		bl.add(new AccountVO("1111111", "1233456",AccountType.courier));
 		
-		result = bl.modify(new AccountVO("1111111", "aaaaaa"));
+		result = bl.modify(new AccountVO("1111111", "aaaaaa",AccountType.courier));
 		
 		if(result == ResultMessage.SUCCESS && bl.find("1111111").password.equalsIgnoreCase("aaaaaa")){
 			return;

@@ -46,8 +46,14 @@ public class Account {
 	}
 
 	public ResultMessage delete(AccountVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		ResultMessage result = null;
+		try {
+			result = accountData.delete(vo.ID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	public AccountVO find(String ID) {
@@ -58,13 +64,23 @@ public class Account {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		AccountVO vo = (AccountVO) VOPOchange.POtoVO(po);
-		return vo;
+		if(po!=null){
+			AccountVO vo = (AccountVO) VOPOchange.POtoVO(po);
+			return vo;
+		}
+		return null;
 	}
 
 	public ResultMessage modify(AccountVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		AccountPO po = (AccountPO) VOPOchange.VOtoPO(vo);
+		ResultMessage result = null;
+		try {
+			result = accountData.modify(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }

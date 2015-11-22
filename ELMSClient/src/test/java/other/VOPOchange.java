@@ -8,9 +8,12 @@ import java.util.ArrayList;
 
 import ds.storedataservice.StoreDataService;
 import net.RMIManage;
+import po.AccountPO;
+import po.CostPO;
 import po.InStoreDocPO;
 import util.DataServiceType;
 import util.DocType;
+import vo.AccountVO;
 import vo.CostVO;
 import vo.InStoreDocVO;
 
@@ -60,7 +63,29 @@ public class VOPOchange {
 	
 		
 		for(Field f : fields){
-			setSuperField(vo, o, f.getName());
+			Field tmp = null;
+			if(f.getName().equals("serialVersionUID"))
+				continue;
+			try {
+				tmp = voClass.getDeclaredField(f.getName());
+			} catch (NoSuchFieldException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SecurityException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			f.setAccessible(true);
+			tmp.setAccessible(true);
+			try {
+				tmp.set(vo, f.get(o));
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return vo;
 		
@@ -129,6 +154,7 @@ public class VOPOchange {
 		Field field2 = getSuperField(po.getClass(), name);
 		
 		try {
+			field1.setAccessible(true);
 			Object val = field1.get(o);
 			//System.out.println(val.toString());
 			field2.setAccessible(true);
@@ -163,14 +189,22 @@ public class VOPOchange {
 	}
 	public static void main(String[] args) {
 		CostVO  vo = new CostVO(1000, "freigt");		
-
+		CostPO po = (CostPO) VOtoPO(vo);
+		System.out.println(po.getMoney()+ " "+ po.getType());
+		
 		ArrayList<InStoreDocVO> vo2 = (ArrayList<InStoreDocVO>)DataTool.getDocList(DocType.inStoreDoc);
+		InStoreDocPO po2 = (InStoreDocPO)VOtoPO(vo2.get(0));
+		System.out.println(po2.getID()+" "+po2.getLoc()+" "+po2.getLocation()+" "+ po2.getDate());
 
-		VOPOchange test = new VOPOchange();
 		
-		InStoreDocPO po = (InStoreDocPO)test.VOtoPO(vo2.get(0));
+		AccountVO voa= DataTool.getAccountVO();
+		AccountPO poa = (AccountPO) VOtoPO(voa);
 		
-		System.out.println(po.getID()+" "+po.getLoc()+" "+po.getLocation()+" "+ po.getLoc());
+		System.out.println(poa.getID()+" "+ poa.getPassword());
+		
+		AccountVO voav = (AccountVO)POtoVO(poa);
+		System.out.println(voav.ID+" "+voav.password);
+		//System.out.println(po.getID()+" "+po.getLoc()+" "+po.getLocation()+" "+ po.getLoc());
 //		
 //		StoreDataService storeData = (StoreDataService)RMIManage.getDataService(DataServiceType.StoreDataService);
 //		

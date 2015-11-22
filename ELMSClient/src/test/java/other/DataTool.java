@@ -3,11 +3,13 @@ package test.java.other;
 import java.util.ArrayList;
 
 import util.MyDate;
+import util.AccountType;
 import util.DocType;
 import util.GoodsState;
 import util.InstType;
 import util.StaffType;
 import util.WageStrategy;
+import vo.AccountVO;
 import vo.ArriveYYDocVO;
 import vo.ArriveZZDocVO;
 import vo.BillVO;
@@ -217,6 +219,12 @@ public class DataTool {
 	public static BillVO getBill() {
 
 		BillVO vo = new BillVO();
+		return vo;
+	}
+
+
+	public static AccountVO getAccountVO() {
+		AccountVO vo = new AccountVO("12323","wsada",AccountType.courier);
 		return vo;
 	}
 }
