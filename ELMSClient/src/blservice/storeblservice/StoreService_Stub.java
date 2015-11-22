@@ -13,11 +13,9 @@ import vo.StoreMessageVO;
 public class StoreService_Stub implements StoreblService {
 
 	public ArrayList<StoreMessageVO> show() {
-		StoreMessageVO vo1=new StoreMessageVO("上海", 1000, null, null);
-		StoreMessageVO vo2=new StoreMessageVO("南京", 900, null, null);
+
 		ArrayList<StoreMessageVO> storeMes=new ArrayList<StoreMessageVO>();
-		storeMes.add(vo1);
-		storeMes.add(vo2);
+		
 		return storeMes;
 	}
 

@@ -7,9 +7,8 @@ import vo.StoreMessageVO;
 
 public class StoreService_Driver {
 	public void drive(StoreblService store){
-		ResultMessage result;
+		ResultMessage result = null;
 		System.out.println("更新库存信息");
-		result=store.update(new StoreMessageVO("ss", 123, null, null));
 		if(result==ResultMessage.SUCCESS)
 			System.out.println("更新库存信息成功");
 		else

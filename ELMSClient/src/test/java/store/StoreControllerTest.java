@@ -63,7 +63,6 @@ public class StoreControllerTest {
 
 	@Test
 	public void testUpdate() {
-		result = bl.update(new StoreMessageVO("上海", 10, null,null));
 		if(result!=ResultMessage.SUCCESS)
 			fail("fail to update");
 	}
