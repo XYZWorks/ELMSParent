@@ -33,17 +33,35 @@ public class DTManage{
 	}
 
 	public ArrayList<DriverVO> CheckByName(String name) {
+		ArrayList<DriverPO> pos = new ArrayList<DriverPO>();
+		ArrayList<DriverVO> vos = new ArrayList<DriverVO>();
+
+		try {
+			pos = manageData.getDriverByName(name);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		return null;
+		for(DriverPO po : pos){
+			vos.add((DriverVO)VOPOchange.POtoVO(pos));
+		}
+		return vos;
 	}
 
 	public DriverVO CheckDriverByID(String ID) {
-		// TODO Auto-generated method stub
-		return null;
+		DriverPO po = null;
+		try {
+			po = manageData.getDriverMes(ID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DriverVO vo = (DriverVO) VOPOchange.POtoVO(po);
+		return vo;
 	}
 
 	public ArrayList<DriverVO> CheckByInst(String InstID) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

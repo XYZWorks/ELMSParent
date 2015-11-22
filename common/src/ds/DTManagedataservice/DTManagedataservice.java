@@ -29,6 +29,13 @@ public interface DTManagedataservice extends DataserviceParent{
 	 */
 	public ArrayList<DriverPO> getDriverByName(String name) throws RemoteException;
 	/**
+	 * 通过机构得到司机信息
+	 * @param inst
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<DriverPO> getDriverByInst(String inst) throws RemoteException;
+	/**
 	 * 得到车辆信息PO
 	 * @param id
 	 * @return
