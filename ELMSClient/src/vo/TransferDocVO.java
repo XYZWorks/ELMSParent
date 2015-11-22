@@ -20,19 +20,20 @@ public class TransferDocVO extends DocVO{
 	/**
 	 * 航班号/车次/车牌号
 	 */
-	public String TransferWayID;
+	public String transferWayID;
 	/**
 	 * 出发地
 	 */
-	public String SendCity;
+	public String sendCity;
 	/**
 	 * 货柜号
+	 * 
 	 */
 	public int containerNum;
 	/**
 	 * 监装员
 	 */
-	public String LoadManName;
+	public String loadManName;
 	/**
 	 *所有托运单号
 	 */
@@ -45,10 +46,10 @@ public class TransferDocVO extends DocVO{
 			String[] orderBarCode) {
 		super(iD, DocType.transferDoc, date, DocState.wait);
 		
-		TransferWayID = transferWayID;
-		SendCity = sendCity;
+		this.transferWayID = transferWayID;
+		this.sendCity = sendCity;
 		this.containerNum = containerNum;
-		LoadManName = loadManName;
+		this.loadManName = loadManName;
 		this.orderBarCode = orderBarCode;
 	}
 

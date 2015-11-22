@@ -26,7 +26,7 @@ public class InStoreDocPO extends DocPO implements Serializable{
 	/**
 	 * 订单
 	 */
-	private ArrayList<OrderPO> orderPOs;
+	private ArrayList<OrderPO> orders;
 	/**
 	 * 目的地
 	 */
@@ -45,17 +45,17 @@ public class InStoreDocPO extends DocPO implements Serializable{
 			String loc, ArrayList<String> location) {
 
 		super(iD, DocType.inStoreDoc, date, DocState.wait);
-		this.orderPOs = orderPOs;
+		this.orders = orderPOs;
 		this.loc = loc;
 		this.location = location;
 	}
 
 	public ArrayList<OrderPO> getOrderPOs() {
-		return orderPOs;
+		return orders;
 	}
 
 	public void setOrderPOs(ArrayList<OrderPO> orderPOs) {
-		this.orderPOs = orderPOs;
+		this.orders = orderPOs;
 	}
 
 	public String getLoc() {

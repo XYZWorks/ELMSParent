@@ -20,10 +20,14 @@ public class StoreMessagePO implements Serializable{
 	 * 库存数量
 	 */
 	private int number;
-
+	/**
+	 * 所在城市
+	 */
+	public String location;
 	/**
 	 * 入库单集合
 	 */
+	
 	private ArrayList<InStoreDocPO> inStoreDocs;
 	/**
 	 * 出库单集合
@@ -34,13 +38,23 @@ public class StoreMessagePO implements Serializable{
 	 * @param inStoreDocs
 	 * @param outStoreDocs
 	 */
-	public StoreMessagePO(ArrayList<InStoreDocPO> inStoreDocs, ArrayList<OutStoreDocPO> outStoreDocs) {
-		super();
-		this.inStoreDocs = inStoreDocs;
-		this.OutStoreDocs = outStoreDocs;
-	}
+	
 	public int getNumber() {
 		return number;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	public StoreMessagePO(int number, String location, ArrayList<InStoreDocPO> inStoreDocs,
+			ArrayList<OutStoreDocPO> outStoreDocs) {
+		super();
+		this.number = number;
+		this.location = location;
+		this.inStoreDocs = inStoreDocs;
+		OutStoreDocs = outStoreDocs;
 	}
 	public void setNumber(int number) {
 		this.number = number;

@@ -15,7 +15,7 @@ public class OutStoreDocVO extends DocVO{
 	/**
 	 * 订单
 	 */
-	public ArrayList<OrderVO> orderVOs;
+	public ArrayList<OrderVO> orders;
 	/**
 	 * 目的地
 	 */
@@ -47,7 +47,7 @@ public class OutStoreDocVO extends DocVO{
 		super(ID, DocType.outStoreDoc, time, DocState.wait);
 		
 		
-		this.orderVOs = orderVOs;
+		this.orders = orderVOs;
 		this.loc = loc;
 		
 		this.transferDoc = transferDoc;
