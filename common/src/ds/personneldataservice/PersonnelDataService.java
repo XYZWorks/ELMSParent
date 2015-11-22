@@ -55,7 +55,7 @@ public interface PersonnelDataService extends DataserviceParent{
 	 * @param po
 	 * @return 是否成功
 	 */
-	public ResultMessage delInst(InstPO po) throws RemoteException;
+	public ResultMessage delInst(String ID) throws RemoteException;
 	/**
 	 * 获得所有机构信息
 	 * @return

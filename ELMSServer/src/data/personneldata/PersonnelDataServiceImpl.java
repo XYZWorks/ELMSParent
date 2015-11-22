@@ -105,8 +105,8 @@ public class PersonnelDataServiceImpl extends DataSuperClass implements
 		return addToSQL(instTable, po.getID() , po.getLocation() , po.getType().name());
 	}
 
-	public ResultMessage delInst(InstPO po) throws RemoteException {
-		return delFromSQL(instTable, po.getID());
+	public ResultMessage delInst(String ID) throws RemoteException {
+		return delFromSQL(instTable, ID);
 	}
 
 	public ArrayList<InstPO> getInst() throws RemoteException {

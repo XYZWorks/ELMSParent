@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import ds.personneldataservice.PersonnelDataService;
 import net.RMIManage;
+import po.personnel.InstPO;
 import po.personnel.PersonPO;
 import test.java.other.VOPOchange;
 import util.DataServiceType;
@@ -101,28 +102,63 @@ public class Personnel {
 	}
 
 	public ResultMessage delPeople(String ID) {
+		
+		ResultMessage result = null;
 		try {
-			personnelData.delPerson(ID);
+			result = personnelData.delPerson(ID);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return result;
 	}
 
 	public ResultMessage addInst(InstVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		InstPO po = (InstPO) VOPOchange.VOtoPO(vo);
+		ResultMessage result = null;
+		
+		try {
+			result = personnelData.addInst(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return result;
+
 	}
 
 	public ResultMessage delInst(String ID) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		ResultMessage result = null;
+		try {
+			result = personnelData.delInst(ID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 
 	public ArrayList<InstVO> getInst() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		ArrayList<InstVO> vos = new ArrayList<InstVO>();
+		ArrayList<InstPO> pos = new ArrayList<InstPO>();
+		
+		try {
+			pos = personnelData.getInst();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		for(InstPO po:pos){
+			vos.add((InstVO)VOPOchange.POtoVO(po));
+		}
+		return vos;
 	}
 
 }
