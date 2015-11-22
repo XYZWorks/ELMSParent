@@ -11,7 +11,7 @@ import util.ResultMessage;
  * @author czq 
  * @version 2015年11月22日 下午2:20:52 
  */
-public interface DocApprovalDataService {
+public interface DocApprovalDataService extends DataserviceParent{
 	/**
 	 * 获得单据列表
 	 * @return

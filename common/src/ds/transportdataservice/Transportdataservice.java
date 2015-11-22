@@ -8,14 +8,14 @@ import po.transport.LoadDocPO;
 import po.transport.SendGoodDocPO;
 import po.transport.TransferDocPO;
 import util.ResultMessage;
-import ds.DataserviceParent;
+import ds.DocApprovalDataService;
 
 /**
  * 流转数据层接口
  * @author JerryZhang
  *
  */
-public interface Transportdataservice  extends DataserviceParent{
+public interface Transportdataservice  extends DocApprovalDataService{
 	/**
 	 * 获得一个装车单PO
 	 * @param id

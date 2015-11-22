@@ -8,9 +8,9 @@ import po.order.OrderPO;
 import po.order.ReceivePO;
 import util.MyDate;
 import util.ResultMessage;
-import ds.DataserviceParent;
+import ds.DocApprovalDataService;
 
-public interface OrderDataService extends DataserviceParent{
+public interface OrderDataService extends DocApprovalDataService{
 	/**
 	 * 得到某日新增的所有订单
 	 * 
