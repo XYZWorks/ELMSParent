@@ -126,7 +126,7 @@ public class OrderControllerTest {
 		temp.add(vos.get(0).ID);
 		temp.add(vos.get(1).ID);
 		
-		result = bl.changeDocsState(temp);
+		result = bl.changeDocsState(temp, DocType.order, DocState.pass);
 		
 		if(result == ResultMessage.SUCCESS){
 			return;

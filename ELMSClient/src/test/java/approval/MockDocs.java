@@ -3,6 +3,7 @@ package test.java.approval;
 import java.util.ArrayList;
 
 import test.java.other.DataTool;
+import util.DocState;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
@@ -54,6 +55,11 @@ public class MockDocs implements DocApprovalService {
 
 	public ResultMessage changeOneDocState(String docID) {
 		return ResultMessage.SUCCESS;
+	}
+
+	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

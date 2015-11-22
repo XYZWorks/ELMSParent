@@ -2,7 +2,7 @@ package bl.transportbl;
 
 import java.util.ArrayList;
 import util.MyDate;
-
+import util.DocState;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
@@ -20,7 +20,7 @@ import blservice.transportblservice.Transportblservice;
 public class TransportController implements Transportblservice{
 
 	public ResultMessage add(LoadDocVO vo) {
-		// TODO Auto-generated method stub
+	 	// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -81,10 +81,7 @@ public class TransportController implements Transportblservice{
 		return null;
 	}
 
-	public ResultMessage changeDocsState(ArrayList<String> docsID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	public ResultMessage changeOneDocState(String docID) {
 		// TODO Auto-generated method stub
@@ -94,6 +91,11 @@ public class TransportController implements Transportblservice{
 	public double getExpense(ArriveZZDocVO arriveVO, TransferDocVO transferVO) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

@@ -2,50 +2,50 @@ package bl.DTManagebl;
 
 import java.util.ArrayList;
 
+import blservice.DTManageblservice.DTManageblservice;
+import po.DTManage.DriverPO;
+import test.java.other.VOPOchange;
 import util.ResultMessage;
 import vo.DTManage.CarVO;
 import vo.DTManage.DriverVO;
-import blservice.DTManageblservice.DTManageblservice;
  /** 
  * 
  * @author czq 
  * @version 2015年11月15日 上午9:16:29 
  */
 public class DTManageController implements DTManageblservice{
-
+	DTManage dtm;
+	
+	public DTManageController() {
+		dtm = new DTManage();
+	}
 	public ResultMessage add(DriverVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return dtm.add(vo);
 	}
 
 	public ArrayList<DriverVO> CheckByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		return dtm.CheckByName(name);
 	}
 
 	public DriverVO CheckDriverByID(String ID) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return dtm.CheckDriverByID(ID);
 	}
 
 	public ArrayList<DriverVO> CheckByInst(String InstID) {
-		// TODO Auto-generated method stub
-		return null;
+		return dtm.CheckByInst(InstID);
 	}
 
 	public ResultMessage modify(DriverVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return dtm.modify(vo);
 	}
 
 	public ResultMessage Del(DriverVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return dtm.Del(vo);
 	}
 
 	public ArrayList<String> getDriverName(String InstID) {
-		// TODO Auto-generated method stub
-		return null;
+		return dtm.getDriverName(InstID);
 	}
 
 	public ResultMessage add(CarVO vo) {

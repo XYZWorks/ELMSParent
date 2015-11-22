@@ -1,9 +1,11 @@
 package bl.DTManagebl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import blservice.DTManageblservice.DTManageblservice;
 import ds.DTManagedataservice.DTManagedataservice;
+import po.DTManage.DriverPO;
+import test.java.other.VOPOchange;
 import util.ResultMessage;
 import vo.DTManage.CarVO;
 import vo.DTManage.DriverVO;
@@ -20,8 +22,14 @@ public class DTManage{
 	
 	
 	public ResultMessage add(DriverVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		DriverPO po = (DriverPO) VOPOchange.VOtoPO(vo);
+		ResultMessage result = null;
+		try {
+			result = manageData.addDriverPO(po);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	public ArrayList<DriverVO> CheckByName(String name) {

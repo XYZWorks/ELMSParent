@@ -2,7 +2,7 @@ package blservice.transportblservice;
 
 import java.util.ArrayList;
 import util.MyDate;
-
+import util.DocState;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
@@ -102,6 +102,13 @@ public class transportblservice_Stub implements Transportblservice{
 	public double getExpense(ArriveZZDocVO arriveVO, TransferDocVO transferVO) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+
+
+	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

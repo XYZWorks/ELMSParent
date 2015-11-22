@@ -2,6 +2,7 @@ package bl.storebl;
 
 import java.util.ArrayList;
 
+import util.DocState;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
@@ -49,10 +50,7 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 		return null;
 	}
 
-	public ResultMessage changeDocsState(ArrayList<String> docsID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	public ResultMessage changeOneDocState(String docID) {
 		// TODO Auto-generated method stub
@@ -75,6 +73,11 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 	}
 
 	public ArrayList<InStoreDocVO> showInstoreDocs() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
 		// TODO Auto-generated method stub
 		return null;
 	}

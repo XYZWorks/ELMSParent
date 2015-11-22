@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import test.java.other.DataTool;
+import util.DocState;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
@@ -89,7 +90,7 @@ public class StoreControllerTest {
 		ArrayList<String> ids=null;
 		for(DocVO vo:vos)
 			ids.add(vo.ID);
-		result = in.changeDocsState(ids);
+		result = in.changeDocsState(ids, DocType.inStoreDoc, DocState.pass);
 		if(result!=ResultMessage.SUCCESS)
 			fail("Not change states");	
 	}
