@@ -39,29 +39,45 @@ public class StatisticDataImpl extends DataSuperClass implements StatisticDataSe
 	}
 
 	public ArrayList<StateFormPO> getStateForm() throws RemoteException {
-//		ArrayList<StateFormPO> pos = 
-//		sql = "SELECT * FROM " + stateFormTable;
-//		preState = conn.prepareStatement(sql);
-//		result = preState.executeQuery();
-//		while(result.next()){
-			
-//		}
-		return null;
+		ArrayList<StateFormPO> pos = new ArrayList<StateFormPO>();
+		try {
+			sql = "SELECT * FROM " + stateFormTable;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while(result.next()){
+				pos.add(new StateFormPO(MyDate.getDate(result.getString(1)), MyDate.getDate(result.getString(2)), helper.tranFromStringToArrayList(result.getString(3)), helper.tranFromStringToArrayList(result.getString(4))));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return (pos==null)?null:pos;
 	}
 
 	public ArrayList<CostIncomePO> getCostIncomeForm() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<CostIncomePO> pos = new ArrayList<CostIncomePO>();
+		try {
+			sql = "SELECT * FROM " + costIncomeForm;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while(result.next()){
+				pos.add(new CostIncomePO(Integer.parseInt(result.getString(1)) , Integer.parseInt(result.getString(2)) , MyDate.getDate(result.getString(3)) , MyDate.getDate(result.getString(4))));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return (pos==null)?null:pos;
 	}
 
 	public ResultMessage bulidStateForm(StateFormPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return addToSQL(stateFormTable, MyDate.toString(po.getStartDate()) , MyDate.toString(po.getEndDate()) , helper.tranFromArrayToString(po.getDeposits()) , helper.tranFromArrayToString(po.getPays()));
 	}
 
 	public ResultMessage CostIncomeForm(CostIncomePO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return  addToSQL(costIncomeForm	, String.valueOf(po.getIncome()) ,String.valueOf(po.getExpense()) , MyDate.toString(po.getStartDate()) , MyDate.toString(po.getEndDate()));
 	}
 
 	public ResultMessage bulidBill(BillPO po) throws RemoteException {

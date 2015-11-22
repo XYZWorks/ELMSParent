@@ -12,9 +12,7 @@ import util.MyDate;
  */
 public class StateFormPO implements Serializable{
 	
-	public StateFormPO() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	/**
 	 * 
 	 */
@@ -30,13 +28,16 @@ public class StateFormPO implements Serializable{
 	/**
 	 * 收款信息
 	 */
-	private ArrayList<DepositPO> deposits;
+	private ArrayList<String> deposits;
 	/**
 	 * 付款信息
 	 */
-	private ArrayList<PayPO> pays;
+	private ArrayList<String> pays;
+	
+	public StateFormPO() {}
+	
 	public StateFormPO(MyDate startDate, MyDate endDate,
-			ArrayList<DepositPO> deposits, ArrayList<PayPO> pays) {
+			ArrayList<String> deposits, ArrayList<String> pays) {
 		super();
 		this.startDate = startDate;
 		this.endDate = endDate;
@@ -51,10 +52,10 @@ public class StateFormPO implements Serializable{
 	public MyDate getEndDate() {
 		return endDate;
 	}
-	public ArrayList<DepositPO> getDeposits() {
+	public ArrayList<String> getDeposits() {
 		return deposits;
 	}
-	public ArrayList<PayPO> getPays() {
+	public ArrayList<String> getPays() {
 		return pays;
 	}
 	

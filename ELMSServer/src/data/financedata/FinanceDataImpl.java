@@ -32,8 +32,8 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	public FinanceDataImpl() throws RemoteException {}
 	
 	public void initial() throws RemoteException {
-		// TODO Auto-generated method stub
-		
+		initialFromSQL(payTable);
+		initialFromSQL(depositTable);
 	}
 
 	public ArrayList<DepositPO> getDepositPO() throws RemoteException {

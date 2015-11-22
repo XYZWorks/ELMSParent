@@ -2,6 +2,8 @@ package po;
 
 import java.io.Serializable;
 
+import util.MyDate;
+
 
 /**
  * 成本收益表
@@ -10,9 +12,7 @@ import java.io.Serializable;
  */
 public class CostIncomePO implements Serializable{
 	
-	public CostIncomePO() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	/**
 	 * 
 	 */
@@ -29,15 +29,17 @@ public class CostIncomePO implements Serializable{
 	/**
 	 * 起始日期
 	 */
-	private String startDate;
+	private MyDate startDate;
 	
 	/**
 	 * 结束日期
 	 */
-	private String endDate;
+	private MyDate endDate;
+	
+	public CostIncomePO() {}
 
-	public CostIncomePO(int income, int expense, String startDate,
-			String endDate) {
+	public CostIncomePO(int income, int expense, MyDate startDate,
+			MyDate endDate) {
 		super();
 		this.income = income;
 		this.expense = expense;
@@ -56,11 +58,11 @@ public class CostIncomePO implements Serializable{
 		return expense;
 	}
 
-	public String getStartDate() {
+	public MyDate getStartDate() {
 		return startDate;
 	}
 
-	public String getEndDate() {
+	public MyDate getEndDate() {
 		return endDate;
 	}
 	

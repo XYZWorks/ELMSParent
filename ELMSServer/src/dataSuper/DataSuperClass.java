@@ -80,6 +80,7 @@ public class DataSuperClass extends UnicastRemoteObject {
 		//id是为了适应数据库存储增加的，具有自增属性
 		SQLmap.put("deposit", helper.bulidSQLForNoID("deposit", 3, "id" ,"date" , "money"));
 		SQLmap.put("pay", helper.bulidSQLForNoID("pay", 4 , "id" , "time" , "money" , "type"));
+		
 	}
 
 	public DataSuperClass() throws RemoteException {
