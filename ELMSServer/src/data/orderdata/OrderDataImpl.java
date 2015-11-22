@@ -24,7 +24,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private final String orderTable = "order";
+	private static final String orderTable = "myorder";
 
 	public OrderDataImpl() throws RemoteException {}
 	
