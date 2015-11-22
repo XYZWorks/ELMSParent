@@ -73,11 +73,15 @@ public class DataSuperClass extends UnicastRemoteObject {
 		SQLmap.put("ArriveYYDoc", helper.bulidSQL("ArriveYYDoc", 7, "id", "type" , "date", "state" , "ZZID" , "sendCity" , "goodState"));
 		SQLmap.put("InStoreDoc", helper.bulidSQL("InStoreDoc", 7, "id", "type" , "date", "state" , "orderPOs" , "loc" ,"location" ));
 		SQLmap.put("OutStoreDoc", helper.bulidSQL("OutStoreDoc", 8, "id", "type" , "date", "state" , "orderPOs" , "loc" ,"transferDoc" ,"shipWay" ));
+		
+		
+		
+		SQLmap.put("StateForm", helper.bulidSQL("StateForm", 4, "startDate" , "endDate" , "deposits" ,"pays"));
+		SQLmap.put("CostIncomeForm", helper.bulidSQL("CostIncomeForm", 4, "income" , "expense" , "startDate" , "endDate"));
 		SQLmap.put("StoreCheck", helper.bulidSQL("StoreMessage", 5, "" , "" , "" , "" ,"") ); // TODO
 		SQLmap.put("bill", helper.bulidSQL("bill", 5, "finaceMan" , "date" , "instituations" , "persons" ,"cars" ));
-		//id是为了适应数据库存储增加的，具有自增属性
-		SQLmap.put("deposit", helper.bulidSQLForNoID("deposit", 3, "id" ,"date" , "money"));
-		SQLmap.put("pay", helper.bulidSQLForNoID("pay", 4 , "id" , "time" , "money" , "type"));
+		SQLmap.put("deposit", helper.bulidSQL("deposit", 3, "id" ,"date" , "money"));
+		SQLmap.put("pay", helper.bulidSQL("pay", 4 , "id" , "time" , "money" , "type"));
 		
 	}
 

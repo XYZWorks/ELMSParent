@@ -10,9 +10,7 @@ import util.MyDate;
  */
 public class PayPO implements Serializable{
 	
-	public PayPO() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	
 	/**
 	 * 序列化UID
@@ -30,6 +28,9 @@ public class PayPO implements Serializable{
 	 * 类型
 	 */
 	private String type;
+	
+	public PayPO() {}
+	
 	public MyDate getTime() {
 		return time;
 	}

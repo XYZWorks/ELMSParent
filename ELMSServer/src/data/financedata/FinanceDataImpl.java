@@ -75,7 +75,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	}
 
 	public ArrayList<CostPO> show() throws RemoteException {
-		
+		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -54,7 +54,7 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService{
 		return addToSQL(outstoreDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , helper.tranFromArrayToString(po.getOrderPOs()) , po.getLoc() , po.getTransferDoc() , po.getShipWay());
 	}
 	public ArrayList<InStoreDocPO> getIn() throws RemoteException {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

@@ -15,9 +15,7 @@ import util.GoodsState;
  *
  */
 public class ArriveZZDocPO extends DocPO implements Serializable{
-	public ArriveZZDocPO() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	/**
 	 * 序列化UID
 	 */
@@ -46,12 +44,14 @@ public class ArriveZZDocPO extends DocPO implements Serializable{
 	 */
 	private GoodsState goodState;
 	
+	public ArriveZZDocPO() {}
+	
 	public String getZZID() {
 		return zZID;
 	}
 
 	public void setZZID(String zZID) {
-		zZID = zZID;
+		this.zZID = zZID;
 	}
 
 	public String getSendCity() {
@@ -81,7 +81,7 @@ public class ArriveZZDocPO extends DocPO implements Serializable{
 	public ArriveZZDocPO(String iD, DocType type, MyDate date, DocState state,
 			String zZID, String sendCity, GoodsState goodState) {
 		super(iD, type, date, state);
-		zZID = zZID;
+		this.zZID = zZID;
 		this.sendCity = sendCity;
 		this.goodState = goodState;
 	}

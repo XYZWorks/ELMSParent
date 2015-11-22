@@ -22,7 +22,7 @@ import vo.DTManage.CarVO;
  * @version 2015年11月19日 上午8:14:31 
  */
 public class OrderDataImplTest {
-	OrderDataImpl test1;
+//	OrderDataImpl test1;
 	static MyDate d1 = new MyDate(2015, 11, 11);
 	static MyDate d2 = new MyDate(2015, 11, 12);
 	static MyDate d3 = new MyDate(2015, 11, 13);
@@ -37,7 +37,7 @@ public class OrderDataImplTest {
 	ResultMessage result;
 	@Before
 	public void setUp() throws Exception {
-		test1 = new OrderDataImpl();
+//		test1 = new OrderDataImpl();
 	}
 
 	@Test
@@ -52,8 +52,8 @@ public class OrderDataImplTest {
 
 	@Test
 	public void testAdd() throws RemoteException {
-		result = test1.add(new OrderPO("2311278906", DocType.order ,d1,DocState.wait, "czq", "13188907872", "nju", "常府街44号", "ymc", "13497269020",
-				"hs", "仙林大道163号", 1, "book", 2, 30, 20, 10, "wood box", "fast model", 2, 20, "123" ,"123" , "123" ,"123" ,"123" ,"123" , d2));
+//		result = test1.add(new OrderPO("2311278906", DocType.order ,d1,DocState.wait, "czq", "13188907872", "nju", "常府街44号", "ymc", "13497269020",
+//				"hs", "仙林大道163号", 1, "book", 2, 30, 20, 10, "wood box", "fast model", 2, 20, "123" ,"123" , "123" ,"123" ,"123" ,"123" , d2));
 		if(result == ResultMessage.SUCCESS){
 			
 		}else{
@@ -63,7 +63,7 @@ public class OrderDataImplTest {
 
 	@Test
 	public void testDel() throws RemoteException {
-		result = test1.del("2311278906");
+//		result = test1.del("2311278906");
 		
 		if(result != ResultMessage.SUCCESS){
 			fail("can not del");
