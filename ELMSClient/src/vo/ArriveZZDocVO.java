@@ -15,7 +15,7 @@ public class ArriveZZDocVO extends DocVO {
 	/**
 	 * 中转中心编号
 	 */
-	public String ZZID;
+	public String zZID;
 	// /**
 	// * 到达日期
 	// */
@@ -27,7 +27,7 @@ public class ArriveZZDocVO extends DocVO {
 	/**
 	 * 出发地
 	 */
-	public String SendCity;
+	public String sendCity;
 	/**
 	 * 货物到达状态
 	 */
@@ -36,8 +36,8 @@ public class ArriveZZDocVO extends DocVO {
 	public ArriveZZDocVO(String iD, MyDate date, String zZID, String sendCity,
 			GoodsState goodState) {
 		super(iD, DocType.arriveZZDoc, date, DocState.wait);
-		ZZID = zZID;
-		SendCity = sendCity;
+		this.zZID = zZID;
+		this.sendCity = sendCity;
 		this.goodState = goodState;
 	}
 

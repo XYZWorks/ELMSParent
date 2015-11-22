@@ -27,7 +27,7 @@ public class ArriveYYDocPO extends DocPO implements Serializable{
 	/**
 	 * 中转中心编号
 	 */
-	private String ZZID;
+	private String zZID;
 		
 //	/**
 //	 * 到达日期
@@ -45,7 +45,7 @@ public class ArriveYYDocPO extends DocPO implements Serializable{
 	/**
 	 * 出发地
 	 */
-	private  String SendCity;
+	private  String sendCity;
 	/**
 	 * 货物到达状态
 	 */
@@ -63,8 +63,8 @@ public class ArriveYYDocPO extends DocPO implements Serializable{
 			String SendCity, GoodsState GoodState) {
 		super(TransferDocID, DocType.arriveYYDoc, arriveDate, DocState.wait);
 		this.goodState = GoodState;
-		this.SendCity = SendCity;
-		this.ZZID = ZZID;
+		this.sendCity = SendCity;
+		this.zZID = ZZID;
 
 	}
 	
@@ -74,8 +74,8 @@ public class ArriveYYDocPO extends DocPO implements Serializable{
 	public ArriveYYDocPO(String iD, DocType type, MyDate date, DocState state,
 			String zZID, String sendCity, GoodsState goodState) {
 		super(iD, type, date, state);
-		ZZID = zZID;
-		SendCity = sendCity;
+		zZID = zZID;
+		sendCity = sendCity;
 		this.goodState = goodState;
 	}
 
@@ -83,19 +83,19 @@ public class ArriveYYDocPO extends DocPO implements Serializable{
 
 
 	public String getZZID() {
-		return ZZID;
+		return zZID;
 	}
 
 	public void setZZID(String zZID) {
-		ZZID = zZID;
+		zZID = zZID;
 	}
 
 	public String getSendCity() {
-		return SendCity;
+		return sendCity;
 	}
 
 	public void setSendCity(String sendCity) {
-		SendCity = sendCity;
+		sendCity = sendCity;
 	}
 
 	public GoodsState getGoodState() {
