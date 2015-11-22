@@ -31,6 +31,7 @@ public class DTManageControllerTest {
 	@Test
 	public void testAddDriverVO() {
 		result = bl.add(DataTool.getDriverList().get(0));
+		System.out.println(result);
 		if(result == ResultMessage.SUCCESS){
 		}else{
 			fail("can not add a driver");

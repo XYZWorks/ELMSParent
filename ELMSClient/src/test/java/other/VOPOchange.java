@@ -204,16 +204,7 @@ public class VOPOchange {
 		
 		AccountVO voav = (AccountVO)POtoVO(poa);
 		System.out.println(voav.ID+" "+voav.password);
-		//System.out.println(po.getID()+" "+po.getLoc()+" "+po.getLocation()+" "+ po.getLoc());
-//		
-//		StoreDataService storeData = (StoreDataService)RMIManage.getDataService(DataServiceType.StoreDataService);
-//		
-//		try {
-//			storeData.getIn();
-//		} catch (RemoteException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		
 
 	}
 

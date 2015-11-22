@@ -113,8 +113,13 @@ public class DTManage{
 	}
 
 	public ArrayList<String> getDriverName(String InstID) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<DriverVO> vos = CheckByInst(InstID);
+		ArrayList<String> names = new ArrayList<String>();
+		
+		for(DriverVO vo : vos){
+			names.add(vo.name);
+		}
+		return names;
 	}
 
 	public ResultMessage add(CarVO vo) {
