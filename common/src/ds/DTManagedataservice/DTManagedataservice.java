@@ -1,6 +1,7 @@
 package ds.DTManagedataservice;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import po.DTManage.CarPO;
 import po.DTManage.DriverPO;
@@ -20,6 +21,13 @@ public interface DTManagedataservice extends DataserviceParent{
 	 * @throws RemoteException
 	 */
 	public DriverPO getDriverMes(String id) throws RemoteException;
+	/**
+	 * 通过名字得到司机信息
+	 * @param name
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<DriverPO> getDriverByName(String name) throws RemoteException;
 	/**
 	 * 得到车辆信息PO
 	 * @param id

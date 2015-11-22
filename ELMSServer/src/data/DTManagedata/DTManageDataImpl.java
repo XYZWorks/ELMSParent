@@ -1,6 +1,7 @@
 package data.DTManagedata;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import po.DTManage.CarPO;
 import po.DTManage.DriverPO;
@@ -70,6 +71,11 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 
 	public ResultMessage updateCarPo(CarPO po) throws RemoteException {
 		return modifyFromSQL(carTable,  po.getID() , po.getPlateNum() , String.valueOf(po.getUseYear()));
+	}
+
+	public ArrayList<DriverPO> getDriverByName(String name) throws RemoteException {
+	
+		return null;
 	}
 
 	
