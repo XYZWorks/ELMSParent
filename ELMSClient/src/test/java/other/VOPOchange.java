@@ -4,10 +4,15 @@ package test.java.other;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import ds.storedataservice.StoreDataService;
 import net.RMIManage;
+import po.InStoreDocPO;
 import util.DataServiceType;
+import util.DocType;
+import vo.CostVO;
+import vo.InStoreDocVO;
 
 /** 
  * @author ymc 
@@ -16,7 +21,51 @@ import util.DataServiceType;
  */
 public class VOPOchange {
 	
-	public Object VOtoPO(Object o){
+	public static Object POtoVO(Object o){
+		
+		Object vo = null;
+		
+		Class<? extends Object> poClass = o.getClass();
+		
+		Class< ? extends Object> voClass = null;
+		String poName = poClass.getName();
+		
+		String voName = "vo"+poName.substring(2,poName.length()-2)+"VO";
+		
+		try {
+			voClass = Class.forName(voName);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			vo = voClass.newInstance();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Field[] fields = poClass.getDeclaredFields();
+		
+		if(poClass.getSuperclass().toString().endsWith("DocVO")){
+			setSuperField(vo, o, "ID");
+			setSuperField(vo, o, "type");
+			setSuperField(vo, o, "date");
+			setSuperField(vo, o, "state");
+			
+			
+		}
+	
+		
+		for(Field f : fields){
+			setSuperField(vo, o, f.getName());
+		}
+		return vo;
+		
+	}
+	public static Object VOtoPO(Object o){
 		
 		Object po = null;
 		
@@ -62,30 +111,19 @@ public class VOPOchange {
 			
 			
 		}
-		String tmp="";
 		
-		try {
-			for(int i= 0 ; i<field.length;i++){
+		
+		for(int i= 0 ; i<field.length;i++){
 
-				tmp=(char)(field[i].getName().charAt(0)-'a'+'A')+field[i].getName().substring(1);
-				
-				met = po.getClass().getMethod("set"+tmp, field[i].getType());
-				Object ob = field[i].get(o);
-				
-				System.out.println(met.getName()+" "+met.getReturnType());
-				met.invoke(po,ob);
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
+			setSuperField(po, o, field[i].getName());
+		}
 		
 		//System.out.println(poName);
 		return po;
 		
 	}
 	
-	private void setSuperField(Object po,Object o, String name) {
+	private static void setSuperField(Object po,Object o, String name) {
 		
 		Field field1 = getSuperField(o.getClass(), name);
 		Field field2 = getSuperField(po.getClass(), name);
@@ -105,7 +143,7 @@ public class VOPOchange {
 		
 	}
 	
-	private Field getSuperField(Class clazz, String name) {
+	private static Field getSuperField(Class clazz, String name) {
 		
 		Field[] field = clazz.getDeclaredFields();
 		
@@ -117,31 +155,31 @@ public class VOPOchange {
 		}
 		
 		Class supClass = clazz.getSuperclass();
-		System.out.println(supClass);
+		//System.out.println(supClass);
 		if(supClass!=null){
 			return getSuperField(supClass, name);
 		}
 		return null;
 	}
 	public static void main(String[] args) {
-//		CostVO  vo = new CostVO(1000, "freigt");		
-//
-//		ArrayList<InStoreDocVO> vo2 = (ArrayList<InStoreDocVO>)DataTool.getDocList(DocType.inStoreDoc);
-//
-//		VOPOchange test = new VOPOchange();
-//		
-//		InStoreDocPO po = (InStoreDocPO)test.VOtoPO(vo2.get(0));
-//		
-//		System.out.println(po.getID()+" "+po.getLoc()+" "+po.getLocation());
+		CostVO  vo = new CostVO(1000, "freigt");		
+
+		ArrayList<InStoreDocVO> vo2 = (ArrayList<InStoreDocVO>)DataTool.getDocList(DocType.inStoreDoc);
+
+		VOPOchange test = new VOPOchange();
 		
-		StoreDataService storeData = (StoreDataService)RMIManage.getDataService(DataServiceType.StoreDataService);
+		InStoreDocPO po = (InStoreDocPO)test.VOtoPO(vo2.get(0));
 		
-		try {
-			storeData.getIn();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		System.out.println(po.getID()+" "+po.getLoc()+" "+po.getLocation()+" "+ po.getLoc());
+//		
+//		StoreDataService storeData = (StoreDataService)RMIManage.getDataService(DataServiceType.StoreDataService);
+//		
+//		try {
+//			storeData.getIn();
+//		} catch (RemoteException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
 	}
 
