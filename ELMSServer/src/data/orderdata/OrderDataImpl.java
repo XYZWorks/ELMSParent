@@ -181,6 +181,23 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 		return ResultMessage.FAIL;
 	}
 
+	public ArrayList<? extends DocPO> getDocLists(DocType type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeDocsState(ArrayList<String> docsID,
+			DocType type, DocState state) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeOneDocState(String docID,
+			DocType type, DocState state) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 }

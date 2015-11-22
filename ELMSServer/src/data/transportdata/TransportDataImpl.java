@@ -1,7 +1,9 @@
 package data.transportdata;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
+import po.DocPO;
 import po.transport.ArriveYYDocPO;
 import po.transport.ArriveZZDocPO;
 import po.transport.LoadDocPO;
@@ -114,6 +116,23 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 			throws RemoteException {
 		
 		return addToSQL(arriveYYDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , po.getZZID() , po.getSendCity() , po.getGoodState().name());
+	}
+
+	public ArrayList<? extends DocPO> getDocLists(DocType type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeDocsState(ArrayList<String> docsID,
+			DocType type, DocState state) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeOneDocState(String docID,
+			DocType type, DocState state) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

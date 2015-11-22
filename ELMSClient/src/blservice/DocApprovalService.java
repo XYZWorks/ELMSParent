@@ -31,7 +31,8 @@ public interface DocApprovalService {
 	 * @param docID
 	 * @return
 	 */
-	public ResultMessage changeOneDocState(String docID);
+	public ResultMessage changeOneDocState(String docID,
+			DocType type, DocState state);
 	
 	
 }

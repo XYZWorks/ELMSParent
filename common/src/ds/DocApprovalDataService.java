@@ -28,5 +28,6 @@ public interface DocApprovalDataService extends DataserviceParent{
 	 * @param docID
 	 * @return
 	 */
-	public ResultMessage changeOneDocState(String docID);
+	public ResultMessage changeOneDocState(String docID,
+			DocType type, DocState state);
 }
