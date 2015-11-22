@@ -84,7 +84,7 @@ public class PersonnelDataServiceImpl extends DataSuperClass implements
 						.getType(result.getString(4)), result.getString(5)));
 
 			}
-			return persons;
+			return persons.isEmpty()?null:persons;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

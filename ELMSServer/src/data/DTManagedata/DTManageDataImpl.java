@@ -1,6 +1,7 @@
 package data.DTManagedata;
 
 import java.rmi.RemoteException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import po.DTManage.CarPO;
@@ -74,18 +75,46 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 	}
 
 	public ArrayList<DriverPO> getDriverByName(String name) throws RemoteException {
-	
+		ArrayList<DriverPO> pos = new ArrayList<DriverPO>();
+		try {
+			sql = "SELECT * FROM `" + driverTable +  "` WHERE `name` LIKE '%" + name + "%'";
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while (result.next()) {
+				//instid 在 id前
+				pos.add(new DriverPO(result.getString(1), result.getString(2), MyDate.getDate(result.getString(3)), result.getString(4), result.getString(5), helper.changeFromInt(result.getString(6)), Integer.parseInt(result.getString(7))));
+			}
+			return (pos.isEmpty())?null:pos;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
 		return null;
 	}
 
 	public ArrayList<DriverPO> getDriverByInst(String inst) throws RemoteException {
-		// TODO Auto-generated method stub
+		ArrayList<DriverPO> pos = new ArrayList<DriverPO>();
+		try {
+			sql = "SELECT * FROM `" + driverTable +  "` WHERE instid = " + inst;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while (result.next()) {
+				//instid 在 id前
+				pos.add(new DriverPO(result.getString(1), result.getString(2), MyDate.getDate(result.getString(3)), result.getString(4), result.getString(5), helper.changeFromInt(result.getString(6)), Integer.parseInt(result.getString(7))));
+			}
+			return (pos.isEmpty())?null:pos;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
 		return null;
 	}
 
 	public ResultMessage delDriverPO(DriverPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return delFromSQL(driverTable, po.getID());
 	}
 
 	

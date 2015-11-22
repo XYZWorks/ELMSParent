@@ -6,6 +6,7 @@ import po.store.InStoreDocPO;
 import po.store.OutStoreDocPO;
 import po.store.StoreCheckPO;
 import po.store.StoreMessagePO;
+import util.MyDate;
 import util.ResultMessage;
 import dataSuper.DataSuperClass;
 import ds.storedataservice.StoreDataService;
@@ -44,15 +45,14 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService{
 	}
 
 	public ResultMessage addIn(InStoreDocPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return addToSQL(instoreDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , helper.tranFromArrayToString(po.getOrders()) , po.getLoc() , helper.tranFromArrayToString(po.getLocation()));
 	}
 
 	public ResultMessage addOut(OutStoreDocPO po) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return addToSQL(outstoreDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , helper.tranFromArrayToString(po.getOrderPOs()) , po.getLoc() , po.getTransferDoc() , po.getShipWay());
 	}
-
 	public ArrayList<InStoreDocPO> getIn() throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;

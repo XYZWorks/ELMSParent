@@ -1,4 +1,4 @@
-package data.orderdata;
+package test.java.data;
 
 import static org.junit.Assert.fail;
 

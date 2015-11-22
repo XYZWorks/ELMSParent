@@ -1,6 +1,7 @@
 package data.transportdata;
 
 import java.rmi.RemoteException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import po.DocPO;
@@ -119,20 +120,118 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 	}
 
 	public ArrayList<? extends DocPO> getDocLists(DocType type) {
-		// TODO Auto-generated method stub
-		return null;
+		String temptable = "";
+		ArrayList<DocPO> pos = new ArrayList<DocPO>();
+		switch (type) {
+		case loadDoc:
+			temptable = loadDocTable;
+			break;
+		case arriveYYDoc:
+			temptable = arriveYYDocTable;
+			break;
+		case arriveZZDoc:
+			temptable = arriveZZDocTable;
+			break;
+		case transferDoc:
+			temptable = transferDocTable;
+			break;
+		case sendGoodDoc:
+			temptable = sendGoodDocTable;
+			break;
+		default:
+			return null;
+		}
+		
+		
+		try {
+			sql = "SELECT * FROM  `" + temptable + "` WHERE state = wait" ;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			switch (type) {
+			case loadDoc:
+				while(result.next())
+				pos.add(new LoadDocPO(result.getString(0), DocType.valueOf(result.getString(0)), MyDate.getDate(result.getString(1)), DocState.valueOf(result.getString(2)), result.getString(3), result.getString(4), result.getString(5), result.getString(6), result.getString(7), result.getString(8)));
+				break;
+			case arriveYYDoc:
+				while(result.next())
+					pos.add(new ArriveYYDocPO(result.getString(0), DocType.valueOf(result.getString(0)), MyDate.getDate(result.getString(1)), DocState.valueOf(result.getString(2)), result.getString(3), result.getString(4) , GoodsState.valueOf(result.getString(5)) ) );
+				break;
+			case arriveZZDoc:
+				while(result.next())
+					pos.add(new ArriveZZDocPO(result.getString(0), DocType.valueOf(result.getString(0)), MyDate.getDate(result.getString(1)), DocState.valueOf(result.getString(2)), result.getString(3), result.getString(4) , GoodsState.valueOf(result.getString(5)) ) );
+				break;
+			case transferDoc:
+				while(result.next())
+					pos.add(new TransferDocPO(result.getString(0), DocType.valueOf(result.getString(1)), MyDate.getDate(result.getString(2)), DocState.valueOf(result.getString(3)), result.getString(4), result.getString(5) ,  Integer.parseInt(result.getString(6)) , result.getString(7) , helper.tranFromStringToArray(result.getString(8))) );
+				break;
+			case sendGoodDoc:
+				while(result.next())
+					pos.add(new SendGoodDocPO(result.getString(0), DocType.valueOf(result.getString(1)), MyDate.getDate(result.getString(2)), DocState.valueOf(result.getString(3)), result.getString(4), result.getString(5)) );
+					
+				break;
+			default:
+				return null;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		if(pos.isEmpty()){
+			return null;
+		}else{
+			return pos;
+		}
+		
 	}
 
 	public ResultMessage changeDocsState(ArrayList<String> docsID,
 			DocType type, DocState state) {
-		// TODO Auto-generated method stub
-		return null;
+		ResultMessage result;
+		for (String string : docsID) {
+			result = changeOneDocState(string, type, state);
+			if(result != ResultMessage.SUCCESS){
+				return ResultMessage.FAIL;
+			}
+		}
+		return ResultMessage.SUCCESS;
 	}
 
 	public ResultMessage changeOneDocState(String docID,
 			DocType type, DocState state) {
-		// TODO Auto-generated method stub
-		return null;
+		String temptable = "";
+		switch (type) {
+		case loadDoc:
+			temptable = loadDocTable;
+			break;
+		case arriveYYDoc:
+			temptable = arriveYYDocTable;
+			break;
+		case arriveZZDoc:
+			temptable = arriveZZDocTable;
+			break;
+		case transferDoc:
+			temptable = transferDocTable;
+			break;
+		case sendGoodDoc:
+			temptable = sendGoodDocTable;
+			break;
+		default:
+			return null;
+		}
+		try {
+			sql = "UPDATE `" + temptable + "` SET state =  ? WHERE id = " + docID ;
+			preState = conn.prepareStatement(sql);
+			preState.setString(1, state.name());
+			affectRows = preState.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return ResultMessage.FAIL;
+		}
+		if(affectRows == 0){
+			return ResultMessage.NOT_EXIST;
+		}else{
+			return ResultMessage.SUCCESS;
+		}
 	}
 
 }

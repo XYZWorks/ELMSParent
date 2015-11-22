@@ -114,7 +114,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 			String type = po.getType().name();
 			int affectNum = 0;
 			for (String temp : orderBarCodes) {
-				sql = "MODIFY `" + orderTable + "` SET " + type + "` = ?" + "WHERE id ="
+				sql = "MODIFY `" + orderTable + "` SET `" + type + "` = ?" + "WHERE id ="
 						+ temp;
 				preState.setString(1, po.getID());
 				preState = conn.prepareStatement(sql);
@@ -187,7 +187,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	public ResultMessage receiveInfo(ReceivePO PO ,String orderBarCode) throws RemoteException {
 		int affectRows = 0;
 		try {
-			sql = "UPDATE " + orderTable + "SET `senderAddress`= ? , `receiverName`= ? ,`receiverPhone`= ? ,`receiverCompany`= ? ,`receiverAddress`= ?  WHERE orderBarCode = "
+			sql = "UPDATE " + orderTable + " SET `senderAddress`= ? , `receiverName`= ? ,`receiverPhone`= ? ,`receiverCompany`= ? ,`receiverAddress`= ?  WHERE orderBarCode = "
 					+ orderBarCode;
 			preState = conn.prepareStatement(sql);
 			affectRows = preState.executeUpdate();
@@ -206,7 +206,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	}
 
 	public ArrayList<? extends DocPO> getDocLists(DocType type) {
-		sql = "SELECT * FROM " + orderTable + "WHERE state = wait" ;
+		sql = "SELECT * FROM " + orderTable + " WHERE state = wait" ;
 		ArrayList<OrderPO> pos = new ArrayList<OrderPO>(50);
 		OrderPO po;
 		try {
@@ -249,14 +249,33 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 
 	public ResultMessage changeDocsState(ArrayList<String> docsID,
 			DocType type, DocState state) {
-		// TODO Auto-generated method stub
-		return null;
+		ResultMessage result;
+		for (String string : docsID) {
+			result = changeOneDocState(string, type, state);
+			if(result != ResultMessage.SUCCESS){
+				return ResultMessage.FAIL;
+			}
+		}
+		return ResultMessage.SUCCESS;
 	}
 
 	public ResultMessage changeOneDocState(String docID,
 			DocType type, DocState state) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		try {
+			sql = "UPDATE `" + orderTable + "` SET state =  ? WHERE id = " + docID ;
+			preState = conn.prepareStatement(sql);
+			preState.setString(1, state.name());
+			affectRows = preState.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return ResultMessage.FAIL;
+		}
+		if(affectRows == 0){
+			return ResultMessage.NOT_EXIST;
+		}else{
+			return ResultMessage.SUCCESS;
+		}
 	}
 
 	
