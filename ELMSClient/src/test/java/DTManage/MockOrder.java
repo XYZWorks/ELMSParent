@@ -7,7 +7,7 @@ import test.java.other.DataTool;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
-import vo.OrderVO;
+import vo.order.OrderVO;
 import bl.orderbl.OrderController;
 
 /** 

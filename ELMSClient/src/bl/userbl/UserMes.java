@@ -4,7 +4,7 @@ import java.rmi.RemoteException;
 
 import ds.accountdataservice.AccountDataService;
 import util.ResultMessage;
-import vo.AccountVO;
+import vo.account.AccountVO;
 
 /**
  * 

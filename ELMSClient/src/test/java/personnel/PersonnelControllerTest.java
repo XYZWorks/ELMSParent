@@ -9,8 +9,8 @@ import org.junit.Test;
 
 import test.java.other.DataTool;
 import util.ResultMessage;
-import vo.InstVO;
-import vo.PersonVO;
+import vo.personnel.InstVO;
+import vo.personnel.PersonVO;
 import bl.personnelbl.PersonnelController;
 import blservice.personnelblservice.Personnelblservice;
 

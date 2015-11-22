@@ -9,9 +9,9 @@ import org.junit.Test;
 
 import test.java.other.DataTool;
 import util.ResultMessage;
-import vo.CostVO;
-import vo.DepositVO;
-import vo.ProfitVO;
+import vo.finance.CostVO;
+import vo.finance.DepositVO;
+import vo.finance.ProfitVO;
 import bl.financebl.FinanceController;
 import blservice.financeblservice.BankAccountService;
 import blservice.financeblservice.CostService;

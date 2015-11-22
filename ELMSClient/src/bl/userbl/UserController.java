@@ -1,7 +1,7 @@
 package bl.userbl;
 
 import util.ResultMessage;
-import vo.AccountVO;
+import vo.account.AccountVO;
 import blservice.usermesblservice.UserMesblservice;
  /** 
  * 

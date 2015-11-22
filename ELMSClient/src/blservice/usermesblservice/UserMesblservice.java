@@ -1,7 +1,7 @@
 package blservice.usermesblservice;
 
 import util.ResultMessage;
-import vo.AccountVO;
+import vo.account.AccountVO;
 
 /**
  * 个人账户信息管理

@@ -6,9 +6,9 @@ import java.util.Date;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
-import vo.OrderSimpleInfoVO;
-import vo.OrderVO;
-import vo.ReceiveVO;
+import vo.order.OrderSimpleInfoVO;
+import vo.order.OrderVO;
+import vo.order.ReceiveVO;
 import blservice.orderblservice.Orderblservice;
  /** 
  * 订单controller类

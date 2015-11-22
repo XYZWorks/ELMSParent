@@ -2,7 +2,7 @@ package blservice.accountblservice;
 
 import util.AccountType;
 import util.ResultMessage;
-import vo.AccountVO;
+import vo.account.AccountVO;
 
 /** * @author czq @version 创建时间：2015年10月25日 下午2:47:45 * 简单说明 */
 public class Accountblservice_Driver {

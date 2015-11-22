@@ -18,7 +18,7 @@ import javax.swing.JButton;
 
 import util.AccountType;
 import util.ResultMessage;
-import vo.AccountVO;
+import vo.account.AccountVO;
 import bl.userbl.UserController;
 import bl.userbl.UserMes;
 import blservice.accountblservice.AccountblService_Stub;

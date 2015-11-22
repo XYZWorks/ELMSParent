@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import blservice.personnelblservice.Personnelblservice;
 import util.ResultMessage;
-import vo.InstVO;
-import vo.PersonVO;
+import vo.personnel.InstVO;
+import vo.personnel.PersonVO;
 
 /** 
  * @author ymc 

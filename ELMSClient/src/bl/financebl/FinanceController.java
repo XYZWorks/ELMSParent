@@ -3,10 +3,10 @@ package bl.financebl;
 import java.util.ArrayList;
 
 import util.ResultMessage;
-import vo.CostVO;
-import vo.DepositVO;
-import vo.PayVO;
-import vo.ProfitVO;
+import vo.finance.CostVO;
+import vo.finance.DepositVO;
+import vo.finance.PayVO;
+import vo.finance.ProfitVO;
 import blservice.financeblservice.BankAccountService;
 import blservice.financeblservice.CostService;
 import blservice.financeblservice.DepositService;

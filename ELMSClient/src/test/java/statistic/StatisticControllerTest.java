@@ -9,9 +9,9 @@ import org.junit.Test;
 
 import test.java.other.DataTool;
 import util.ResultMessage;
-import vo.BillVO;
-import vo.CostIncomeVO;
-import vo.StateFormVO;
+import vo.statistic.BillVO;
+import vo.statistic.CostIncomeVO;
+import vo.statistic.StateFormVO;
 import bl.statisticbl.StatisticController;
 import blservice.statisticblservice.Statisticblservice;
 /** 

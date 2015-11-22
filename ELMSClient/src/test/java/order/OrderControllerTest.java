@@ -12,8 +12,8 @@ import util.DocState;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
-import vo.OrderSimpleInfoVO;
-import vo.OrderVO;
+import vo.order.OrderSimpleInfoVO;
+import vo.order.OrderVO;
 import bl.orderbl.OrderController;
 import blservice.orderblservice.Orderblservice;
 /** 

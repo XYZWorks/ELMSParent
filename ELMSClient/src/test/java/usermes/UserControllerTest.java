@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import util.AccountType;
 import util.ResultMessage;
-import vo.AccountVO;
+import vo.account.AccountVO;
 import bl.accountbl.AccountController;
 import bl.userbl.UserController;
 import blservice.usermesblservice.UserMesblservice;

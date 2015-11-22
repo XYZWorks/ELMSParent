@@ -3,8 +3,8 @@ package bl.DTManagebl;
 import java.util.ArrayList;
 
 import util.ResultMessage;
-import vo.CarVO;
-import vo.DriverVO;
+import vo.DTManage.CarVO;
+import vo.DTManage.DriverVO;
 import blservice.DTManageblservice.DTManageblservice;
  /** 
  * 

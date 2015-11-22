@@ -3,7 +3,7 @@ package blservice.financeblservice;
 import java.util.ArrayList;
 
 import util.ResultMessage;
-import vo.CostVO;
+import vo.finance.CostVO;
 
 /**
  * 

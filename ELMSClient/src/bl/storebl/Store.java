@@ -3,8 +3,8 @@ package bl.storebl;
 import java.util.ArrayList;
 
 import util.ResultMessage;
-import vo.StoreCheckVO;
-import vo.StoreMessageVO;
+import vo.store.StoreCheckVO;
+import vo.store.StoreMessageVO;
 import ds.storedataservice.StoreDataService;
 
 /** 

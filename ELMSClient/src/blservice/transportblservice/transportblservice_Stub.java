@@ -5,12 +5,12 @@ import util.MyDate;
 
 import util.DocType;
 import util.ResultMessage;
-import vo.ArriveYYDocVO;
-import vo.ArriveZZDocVO;
 import vo.DocVO;
-import vo.LoadDocVO;
-import vo.SendGoodDocVO;
-import vo.TransferDocVO;
+import vo.transport.ArriveYYDocVO;
+import vo.transport.ArriveZZDocVO;
+import vo.transport.LoadDocVO;
+import vo.transport.SendGoodDocVO;
+import vo.transport.TransferDocVO;
 
 public class transportblservice_Stub implements Transportblservice{
 

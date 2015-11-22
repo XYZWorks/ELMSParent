@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import util.DocType;
 import util.ResultMessage;
-import vo.ArriveYYDocVO;
+import vo.transport.ArriveYYDocVO;
 import bl.approvalbl.ApprovalController;
 import blservice.approvalblservice.Approvalblservice;
 

@@ -7,9 +7,9 @@ import util.CarList;
 import util.DriverList;
 import util.ResultMessage;
 import util.StaffType;
-import vo.CarVO;
-import vo.DriverVO;
-import vo.PersonVO;
+import vo.DTManage.CarVO;
+import vo.DTManage.DriverVO;
+import vo.personnel.PersonVO;
 
 public class DTManageblservice_Stub implements DTManageblservice{
 

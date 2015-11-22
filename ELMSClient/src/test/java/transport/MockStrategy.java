@@ -1,6 +1,6 @@
 package test.java.transport;
 
-import vo.ConstVO;
+import vo.strategy.ConstVO;
  /** 
  * 
  * @author czq 

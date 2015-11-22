@@ -3,9 +3,9 @@ package bl.statisticbl;
 import java.util.ArrayList;
 
 import util.ResultMessage;
-import vo.BillVO;
-import vo.CostIncomeVO;
-import vo.StateFormVO;
+import vo.statistic.BillVO;
+import vo.statistic.CostIncomeVO;
+import vo.statistic.StateFormVO;
 import blservice.statisticblservice.Statisticblservice;
  /** 
  * 

@@ -7,8 +7,8 @@ import org.junit.Test;
 
 import test.java.other.DataTool;
 import util.ResultMessage;
-import vo.CarVO;
-import vo.DriverVO;
+import vo.DTManage.CarVO;
+import vo.DTManage.DriverVO;
 import bl.DTManagebl.DTManageController;
 import blservice.DTManageblservice.DTManageblservice;
  /** 

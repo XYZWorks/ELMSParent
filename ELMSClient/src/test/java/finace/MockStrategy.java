@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import test.java.other.DataTool;
 import util.StaffType;
-import vo.ConstVO;
-import vo.SalaryWayVO;
+import vo.strategy.ConstVO;
+import vo.strategy.SalaryWayVO;
 
 /**
  * 

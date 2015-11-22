@@ -3,9 +3,9 @@ package blservice.statisticblservice;
 import java.util.ArrayList;
 
 import util.ResultMessage;
-import vo.BillVO;
-import vo.CostIncomeVO;
-import vo.StateFormVO;
+import vo.statistic.BillVO;
+import vo.statistic.CostIncomeVO;
+import vo.statistic.StateFormVO;
  /** * @author czq @version 创建时间：2015年10月26日 上午12:15:05 * 简单说明 */
 public class StatisticblService_Stub implements Statisticblservice{
 

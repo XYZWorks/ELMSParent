@@ -2,7 +2,7 @@ package blservice.usermesblservice;
 
 import util.AccountType;
 import util.ResultMessage;
-import vo.AccountVO;
+import vo.account.AccountVO;
  /** * @author czq @version 创建时间：2015年10月25日 下午4:26:47 * 简单说明 */
 public class UserMesblservice_Driver {
 	public void drive(UserMesblservice bl){

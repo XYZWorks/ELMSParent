@@ -11,8 +11,8 @@ import ds.financedataservice.FinanceDataService;
 import po.finance.CostPO;
 import po.finance.SalaryPO;
 import util.ResultMessage;
-import vo.CostVO;
-import vo.SalaryVO;
+import vo.finance.CostVO;
+import vo.finance.SalaryVO;
 
 /** 
  * @author ymc 

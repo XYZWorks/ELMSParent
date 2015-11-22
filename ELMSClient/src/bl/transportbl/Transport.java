@@ -5,12 +5,12 @@ import java.util.Date;
 
 import util.DocType;
 import util.ResultMessage;
-import vo.ArriveYYDocVO;
-import vo.ArriveZZDocVO;
 import vo.DocVO;
-import vo.LoadDocVO;
-import vo.SendGoodDocVO;
-import vo.TransferDocVO;
+import vo.transport.ArriveYYDocVO;
+import vo.transport.ArriveZZDocVO;
+import vo.transport.LoadDocVO;
+import vo.transport.SendGoodDocVO;
+import vo.transport.TransferDocVO;
 import blservice.orderblservice.Orderblservice;
 import blservice.strategyblservice.StrategyblService;
 import ds.transportdataservice.Transportdataservice;

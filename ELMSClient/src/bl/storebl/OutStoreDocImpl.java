@@ -8,7 +8,7 @@ import ds.storedataservice.StoreDataService;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
-import vo.OutStoreDocVO;
+import vo.store.OutStoreDocVO;
 
 /** 
  * @author ymc 

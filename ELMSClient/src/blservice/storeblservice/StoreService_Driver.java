@@ -3,7 +3,7 @@ package blservice.storeblservice;
 import java.util.ArrayList;
 
 import util.ResultMessage;
-import vo.StoreMessageVO;
+import vo.store.StoreMessageVO;
 
 public class StoreService_Driver {
 	public void drive(StoreblService store){

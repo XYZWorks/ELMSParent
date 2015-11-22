@@ -6,7 +6,7 @@ import blservice.financeblservice.DepositService;
 import blservice.orderblservice.Orderblservice;
 import ds.financedataservice.FinanceDataService;
 import util.ResultMessage;
-import vo.DepositVO;
+import vo.finance.DepositVO;
 
 /** 
  * @author ymc 

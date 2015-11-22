@@ -6,7 +6,7 @@ import po.account.AccountPO;
 import test.java.other.VOPOchange;
 import util.DataServiceType;
 import util.ResultMessage;
-import vo.AccountVO;
+import vo.account.AccountVO;
 import ds.accountdataservice.AccountDataService;
 import net.RMIManage;
 

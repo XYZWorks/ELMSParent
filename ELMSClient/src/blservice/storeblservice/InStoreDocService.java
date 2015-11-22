@@ -3,8 +3,8 @@ package blservice.storeblservice;
 import java.util.ArrayList;
 
 import blservice.DocApprovalService;
-import vo.InStoreDocVO;
 import util.ResultMessage;
+import vo.store.InStoreDocVO;
 
 /**
  * 入库单借口

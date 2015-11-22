@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import ds.financedataservice.FinanceDataService;
 import po.finance.CostPO;
 import util.ResultMessage;
-import vo.CostVO;
+import vo.finance.CostVO;
 /**
  * 成本信息管理接口
  * @author ymc

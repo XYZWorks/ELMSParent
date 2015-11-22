@@ -6,6 +6,7 @@
 package blservice.financeblservice;
 
 import vo.*;
+import vo.finance.DepositVO;
 
 import java.util.ArrayList;
 

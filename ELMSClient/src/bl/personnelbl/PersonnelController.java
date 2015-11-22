@@ -3,8 +3,8 @@ package bl.personnelbl;
 import java.util.ArrayList;
 
 import util.ResultMessage;
-import vo.InstVO;
-import vo.PersonVO;
+import vo.personnel.InstVO;
+import vo.personnel.PersonVO;
 import blservice.personnelblservice.Personnelblservice;
  /** 
  * 

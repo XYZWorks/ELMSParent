@@ -5,8 +5,8 @@ import java.util.Date;
 
 import util.ResultMessage;
 import vo.DocVO;
-import vo.OrderVO;
-import vo.ReceiveVO;
+import vo.order.OrderVO;
+import vo.order.ReceiveVO;
 import blservice.strategyblservice.StrategyblService;
 import ds.orderdataservice.OrderDataService;
 

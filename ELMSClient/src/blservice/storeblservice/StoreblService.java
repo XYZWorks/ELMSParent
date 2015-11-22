@@ -6,8 +6,8 @@ package blservice.storeblservice;
 import java.util.ArrayList;
 
 import util.ResultMessage;
-import vo.StoreCheckVO;
-import vo.StoreMessageVO;
+import vo.store.StoreCheckVO;
+import vo.store.StoreMessageVO;
 /**
  * 库存管理接口
  * @author ymc

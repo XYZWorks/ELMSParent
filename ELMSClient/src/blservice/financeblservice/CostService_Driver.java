@@ -2,7 +2,7 @@ package blservice.financeblservice;
 
 import java.util.ArrayList;
 
-import vo.CostVO;
+import vo.finance.CostVO;
 
 /** 
 * @author ymc 

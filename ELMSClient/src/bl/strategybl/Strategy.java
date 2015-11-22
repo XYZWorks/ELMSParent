@@ -6,8 +6,8 @@ import blservice.strategyblservice.StrategyblService;
 import ds.strategydataservice.StrategyDataService;
 import util.ResultMessage;
 import util.StaffType;
-import vo.ConstVO;
-import vo.SalaryWayVO;
+import vo.strategy.ConstVO;
+import vo.strategy.SalaryWayVO;
 
 /** 
  * @author ymc 

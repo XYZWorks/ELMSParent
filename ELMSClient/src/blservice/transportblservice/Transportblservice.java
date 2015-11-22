@@ -6,12 +6,12 @@ import util.MyDate;
 import blservice.DocApprovalService;
 import util.DocType;
 import util.ResultMessage;
-import vo.ArriveYYDocVO;
-import vo.ArriveZZDocVO;
 import vo.DocVO;
-import vo.LoadDocVO;
-import vo.SendGoodDocVO;
-import vo.TransferDocVO;
+import vo.transport.ArriveYYDocVO;
+import vo.transport.ArriveZZDocVO;
+import vo.transport.LoadDocVO;
+import vo.transport.SendGoodDocVO;
+import vo.transport.TransferDocVO;
 
 /**
  * 流转单管理接口类

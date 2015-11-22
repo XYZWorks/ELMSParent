@@ -6,9 +6,9 @@ import blservice.statisticblservice.Statisticblservice;
 import ds.financedataservice.FinanceDataService;
 import ds.statisticdataservice.StatisticDataService;
 import util.ResultMessage;
-import vo.BillVO;
-import vo.CostIncomeVO;
-import vo.StateFormVO;
+import vo.statistic.BillVO;
+import vo.statistic.CostIncomeVO;
+import vo.statistic.StateFormVO;
 
 /** 
  * @author ymc 

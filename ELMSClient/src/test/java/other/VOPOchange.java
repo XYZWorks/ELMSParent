@@ -13,9 +13,9 @@ import po.finance.CostPO;
 import po.store.InStoreDocPO;
 import util.DataServiceType;
 import util.DocType;
-import vo.AccountVO;
-import vo.CostVO;
-import vo.InStoreDocVO;
+import vo.account.AccountVO;
+import vo.finance.CostVO;
+import vo.store.InStoreDocVO;
 
 /** 
  * @author ymc 

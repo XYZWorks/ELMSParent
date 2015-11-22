@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
-import vo.LoadDocVO;
-import vo.OrderVO;
+import vo.order.OrderVO;
+import vo.transport.LoadDocVO;
  /** * @author czq @version 创建时间：2015年10月25日 下午3:28:42 * 简单说明 */
 public class Approvalblservice_Stub implements Approvalblservice {
 	public ArrayList<DocVO> getBills(DocType type) {
