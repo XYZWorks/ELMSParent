@@ -6,7 +6,7 @@ package config;
  */
 public class StaticMessage {
 	
-	public static String RMIPres = "rmi://172.26.114.24:6600/";
+	public static String RMIPres = "rmi://127.0.0.1:6600/";
 	
 	
 	

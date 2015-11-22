@@ -1,16 +1,16 @@
 package po;
 
 
-/** 
-* @author ymc 
-* @version 创建时间：2015年10月26日 下午7:09:23 
-* 薪水信息
-*/
+/**
+ * 薪水信息
+ * 
+ * @author ymc
+ * @version 创建时间：2015年10月26日 下午7:09:23
+ * 
+ */
 public class SalaryPO extends CostPO {
 	
-	public SalaryPO() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	
 	
 	/**
@@ -21,10 +21,10 @@ public class SalaryPO extends CostPO {
 	 * 员工类型(driver,courier,workman)
 	 */
 	private String worker;
+	
+	public SalaryPO() {}
 
-	public void setWorker(String worker) {
-		this.worker = worker;
-	}
+	
 
 	public SalaryPO(int money, String type, String worker) {
 		super(money, type);
@@ -32,8 +32,10 @@ public class SalaryPO extends CostPO {
 	}
 
 	public String getWorker() {
-		// TODO Auto-generated method stub
 		return worker;
+	}
+	public void setWorker(String worker) {
+		this.worker = worker;
 	}
 	
 

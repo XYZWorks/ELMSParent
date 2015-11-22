@@ -9,9 +9,10 @@ import java.util.ArrayList;
  */
 public class StoreMessagePO implements Serializable{
 	
-	public StoreMessagePO() {
-		// TODO Auto-generated constructor stub
-	}
+	/**
+	 * 序列化UID
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 所在城市
 	 */
@@ -21,14 +22,9 @@ public class StoreMessagePO implements Serializable{
 	 */
 	private String storeLoc;
 	/**
-	 * 序列化UID
-	 */
-	private static final long serialVersionUID = 1L;
-	/**
 	 * 库存数量
 	 */
 	private int number;
-
 	/**
 	 * 入库单集合
 	 */
@@ -37,6 +33,9 @@ public class StoreMessagePO implements Serializable{
 	 * 出库单集合
 	 */
 	private ArrayList<OutStoreDocPO> OutStoreDocs;
+	
+	public StoreMessagePO() {}
+	
 	/**
 	 * 
 	 * @param inStoreDocs
