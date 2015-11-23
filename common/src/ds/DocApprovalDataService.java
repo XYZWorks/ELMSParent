@@ -1,5 +1,6 @@
 package ds;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.DocPO;
@@ -16,18 +17,18 @@ public interface DocApprovalDataService extends DataserviceParent{
 	 * 获得单据列表
 	 * @return
 	 */
-	public ArrayList<? extends DocPO> getDocLists(DocType type);
+	public ArrayList<? extends DocPO> getDocLists(DocType type)  throws RemoteException;
 	/**
 	 * 批量修改单据状态
 	 * @param docsID
 	 * @return
 	 */
-	public ResultMessage changeDocsState(ArrayList<String> docsID , DocType type , DocState state);
+	public ResultMessage changeDocsState(ArrayList<String> docsID , DocType type , DocState state)  throws RemoteException;
 	/**
 	 * 修改单个单据状态
 	 * @param docID
 	 * @return
 	 */
 	public ResultMessage changeOneDocState(String docID,
-			DocType type, DocState state);
+			DocType type, DocState state)  throws RemoteException;
 }

@@ -205,7 +205,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 		return ResultMessage.FAIL;
 	}
 
-	public ArrayList<? extends DocPO> getDocLists(DocType type) {
+	public ArrayList<? extends DocPO> getDocLists(DocType type)  throws RemoteException{
 		sql = "SELECT * FROM " + orderTable + " WHERE state = wait" ;
 		ArrayList<OrderPO> pos = new ArrayList<OrderPO>(50);
 		OrderPO po;
@@ -248,7 +248,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	}
 
 	public ResultMessage changeDocsState(ArrayList<String> docsID,
-			DocType type, DocState state) {
+			DocType type, DocState state)  throws RemoteException{
 		ResultMessage result;
 		for (String string : docsID) {
 			result = changeOneDocState(string, type, state);
@@ -259,8 +259,8 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 		return ResultMessage.SUCCESS;
 	}
 
-	public ResultMessage changeOneDocState(String docID,
-			DocType type, DocState state) {
+	public ResultMessage changeOneDocState (String docID,
+			DocType type, DocState state)  throws RemoteException {
 		
 		try {
 			sql = "UPDATE `" + orderTable + "` SET state =  ? WHERE id = " + docID ;

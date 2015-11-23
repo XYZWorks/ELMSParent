@@ -119,7 +119,7 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 		return addToSQL(arriveYYDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , po.getZZID() , po.getSendCity() , po.getGoodState().name());
 	}
 
-	public ArrayList<? extends DocPO> getDocLists(DocType type) {
+	public ArrayList<? extends DocPO> getDocLists(DocType type) throws RemoteException {
 		String temptable = "";
 		ArrayList<DocPO> pos = new ArrayList<DocPO>();
 		switch (type) {
@@ -185,7 +185,7 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 	}
 
 	public ResultMessage changeDocsState(ArrayList<String> docsID,
-			DocType type, DocState state) {
+			DocType type, DocState state)  throws RemoteException{
 		ResultMessage result;
 		for (String string : docsID) {
 			result = changeOneDocState(string, type, state);
@@ -197,7 +197,7 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 	}
 
 	public ResultMessage changeOneDocState(String docID,
-			DocType type, DocState state) {
+			DocType type, DocState state)  throws RemoteException{
 		String temptable = "";
 		switch (type) {
 		case loadDoc:
