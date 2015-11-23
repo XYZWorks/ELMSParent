@@ -82,7 +82,10 @@ public class DataSuperClass extends UnicastRemoteObject {
 		SQLmap.put("bill", helper.bulidSQL("bill", 5, "finaceMan" , "date" , "instituations" , "persons" ,"cars" ));
 		SQLmap.put("deposit", helper.bulidSQL("deposit", 3, "id" ,"date" , "money"));
 		SQLmap.put("pay", helper.bulidSQL("pay", 4 , "id" , "time" , "money" , "type"));
-		
+		SQLmap.put("rent", helper.bulidSQL("rent", 4, "startDate" , "endDate" , "money" , "type" ,"costType"));
+		SQLmap.put("frieght", helper.bulidSQL("frieght", 4, "startDate" , "endDate" , "money"  ,"costType"));
+		SQLmap.put("salarycost", helper.bulidSQL("salarycost", 5, "startDate" , "endDate" , "money"  ,"costType" , "worker"));
+	
 	}
 
 	public DataSuperClass() throws RemoteException {
@@ -143,7 +146,7 @@ public class DataSuperClass extends UnicastRemoteObject {
 		}
 		
 		if(affectRows != 1){
-			return ResultMessage.FAIL;
+			return ResultMessage.NOT_EXIST;
 		}
 		
 		return ResultMessage.SUCCESS;

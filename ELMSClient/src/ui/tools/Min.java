@@ -1,18 +1,19 @@
 import java.awt.BasicStroke;
-	import java.awt.Color;
-	import java.awt.Dimension;
-	import java.awt.Graphics;
-	import java.awt.Graphics2D;
-	import java.awt.Image;
-	import java.awt.RenderingHints;
-	import java.awt.Toolkit;
-	import java.awt.event.MouseEvent;
-	import java.awt.event.MouseListener;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
+import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 	import javax.swing.ImageIcon;
-	import javax.swing.JLabel;
+import javax.swing.JLabel;
 
-	import edu.nju.main.JMineSweeper;
+import edu.nju.main.JMineSweeper;
 	/*
 	 * 最小化按钮
 	 * 
@@ -63,7 +64,7 @@ public void paintComponent(Graphics g) {
 
 }
 
-class ExitListener implements MouseListener{
+class ExitListener extends MouseAdapter{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {

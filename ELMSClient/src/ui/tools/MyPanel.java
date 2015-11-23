@@ -28,6 +28,7 @@ public class MyPanel extends JPanel{
 	{  
 	    super.paintComponent(g);   
 	    g.drawImage(bg, 0,0, null);
+	    g.drawim
 	   
 	} 
 	

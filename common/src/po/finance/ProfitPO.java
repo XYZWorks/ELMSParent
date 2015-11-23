@@ -11,9 +11,7 @@ import util.MyDate;
  */
 public class ProfitPO implements Serializable{
 	
-	public ProfitPO() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	
 	/**
 	 * 序列化UID
@@ -35,6 +33,9 @@ public class ProfitPO implements Serializable{
 	 * 收益
 	 */
 	private int profit;
+	
+	public ProfitPO() {}
+	
 	public MyDate getTime() {
 		return time;
 	}

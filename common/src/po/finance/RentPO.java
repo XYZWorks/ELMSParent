@@ -2,6 +2,9 @@ package po.finance;
 
 import java.io.Serializable;
 
+import util.CostType;
+import util.MyDate;
+
 /**
  *租金成本信息
  *@author ymc
@@ -18,9 +21,8 @@ public class RentPO extends CostPO implements Serializable{
 	
 	public RentPO() {}
 	
-	public RentPO(int money, String type) {
-		super(money, type);
-		// TODO Auto-generated constructor stub
+	public RentPO(MyDate startDate, MyDate endDate, int money, CostType costType) {
+		super(startDate, endDate, money,costType);
 	}
 
 }

@@ -96,7 +96,6 @@ public class StatisticDataImpl extends DataSuperClass implements StatisticDataSe
 				pos.add(new BillPO(result.getString(1), MyDate.getDate(result.getString(2)), helper.tranFromStringToArrayList(result.getString(3)), helper.tranFromStringToArrayList(result.getString(4)), helper.tranFromStringToArrayList(result.getString(5))));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if(pos.size() == 0){

@@ -9,7 +9,11 @@ import java.awt.Image;
 import java.awt.RenderingHints;
 
 import javax.swing.ImageIcon;
-
+/**
+ * 
+ * @author xingcheng
+ *
+ */
 public class initalPanel {
 	private Exit exit=new Exit();
 	private Min min=new Min();
@@ -20,7 +24,7 @@ public class initalPanel {
 	add(min);
 	
 	}
-	public void paint Component(Graphics g){
+	public void paintComponent(Graphics g){
 		Graphics2D g2d = (Graphics2D) g;
 		
 		g2d.drawImage(workingBackground,0,0,1080,720,null);
