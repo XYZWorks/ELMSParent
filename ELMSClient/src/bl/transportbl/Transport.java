@@ -220,18 +220,18 @@ public class Transport {
 		ArrayList<DocPO> pos = new ArrayList<DocPO>();
 		ArrayList<DocVO> vos = new ArrayList<DocVO>();
 		
-		try {
-			pos = (ArrayList<TransferDocPO>) transportData.getDocLists(DocType.transferDoc);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
-		
-		for(TransferDocPO po: pos){
-			if(po.getDate().equals(date)){
-				vos.add((TransferDocVO)VOPOchange.POtoVO(po));
-			}
-		}
+//		try {
+//			pos = (ArrayList<TransferDocPO>) transportData.getDocLists(DocType.transferDoc);
+//		} catch (RemoteException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}		
+//		
+//		for(TransferDocPO po: pos){
+//			if(po.getDate().equals(date)){
+//				vos.add((TransferDocVO)VOPOchange.POtoVO(po));
+//			}
+//		}
 		
 		return vos;
 	}

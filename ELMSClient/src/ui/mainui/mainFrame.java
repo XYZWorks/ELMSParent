@@ -28,8 +28,8 @@ public class mainFrame extends JFrame{
 
 		}
 		
-	public static void main(String[] args) {
-		mainFrame mainFrame=new mainFrame();
+	 public static void main(String[] args){
+		 mainFrame mf=new mainFrame();
 	}
 	
 }
