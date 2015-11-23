@@ -38,7 +38,7 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService{
 		initialFromSQL(outstoreDocTable);
 		initialFromSQL(storeCheckTable);
 	}
-
+ 
 	public StoreMessagePO getStoreMessage() throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;

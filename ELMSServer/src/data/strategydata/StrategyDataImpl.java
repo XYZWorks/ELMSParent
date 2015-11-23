@@ -17,7 +17,7 @@ import ds.strategydataservice.StrategyDataService;
  * @version 2015年11月5日 下午10:03:11 
  */
 public class StrategyDataImpl extends DataSuperClass implements StrategyDataService{
-
+ 
 	private static final long serialVersionUID = 1L;
 	/**
 	 * 工资计算方式表 表名

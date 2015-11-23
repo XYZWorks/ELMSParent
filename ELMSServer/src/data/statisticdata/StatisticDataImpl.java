@@ -37,6 +37,7 @@ public class StatisticDataImpl extends DataSuperClass implements StatisticDataSe
 		initialFromSQL(costIncomeForm);
 		
 	}
+	
 
 	public ArrayList<StateFormPO> getStateForm() throws RemoteException {
 		ArrayList<StateFormPO> pos = new ArrayList<StateFormPO>();

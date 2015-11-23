@@ -58,4 +58,15 @@ public class MyDate {
 		}
 	}
 	
+	public boolean equals(MyDate date){
+		if(this.year!=date.year)
+			return false;
+		if(this.month!=date.year)
+			return false;
+		if(this.day!=date.year)
+			return false;
+		return true;
+		
+	}
+	
 }
