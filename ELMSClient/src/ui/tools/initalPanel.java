@@ -1,15 +1,18 @@
-package AXIS.ELMSParent;
+package ui.tools;
 
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.RenderingHints;
+
+import javax.swing.ImageIcon;
 
 public class initalPanel {
 	private Exit exit=new Exit();
-	private Min min=new min();
+	private Min min=new Min();
 	
 	public initalPanel(){
 	Image workingBackground=new ImageIcon("").getImage();

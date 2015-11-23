@@ -1,4 +1,4 @@
-package AXIS.ELMSParent;
+package ui.tools;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,7 +13,7 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import edu.nju.main.JMineSweeper;
+
 /*
  * 退出按钮
  * 
@@ -66,27 +66,23 @@ public class Exit extends JLabel{
 	}
 
 	class ExitListener implements MouseListener{
-
-		@Override
+ 
 		public void mouseClicked(MouseEvent e) {
 			// TODO Auto-generated method stub
 			//comfirm to exit!!
 			
 		}
 
-		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
 			
 		}
 
-		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
 			
 		}
 
-		@Override
 		public void mouseEntered(MouseEvent e) {
 			// TODO Auto-generated method stub
 			
@@ -96,7 +92,6 @@ public class Exit extends JLabel{
 			repaint();
 		}
 
-		@Override
 		public void mouseExited(MouseEvent e) {
 			// TODO Auto-generated method stub
 			//重绘，变小
@@ -108,6 +103,6 @@ public class Exit extends JLabel{
 		
 	}
 		
-	}
+	
 
 }

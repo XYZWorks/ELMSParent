@@ -15,7 +15,7 @@ import javax.swing.JPanel;
  * @author czq
  * 10-19
  */
-public class mainFrame extends Jframe{
+public class mainFrame extends JFrame{
 	public mainFrame() {
 		
 		JFrame frame = new JFrame();
@@ -35,7 +35,7 @@ public class mainFrame extends Jframe{
 		
 		
 		
-	}
+	
 	
 	
 }
