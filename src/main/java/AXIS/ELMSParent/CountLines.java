@@ -24,6 +24,7 @@ class CountLines {
 
 			private static final long serialVersionUID = 1L;
 
+			@Override
 			public void paint(Graphics g) {
 				g.setColor(Color.BLACK);
 				g.setFont(new Font("", Font.PLAIN, 30));

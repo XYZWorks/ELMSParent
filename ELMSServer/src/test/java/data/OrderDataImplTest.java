@@ -11,8 +11,6 @@ import org.junit.Test;
 import po.DocPO;
 import po.DTManage.DriverPO;
 import po.order.OrderPO;
-import util.DocState;
-import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
 import vo.DTManage.CarVO;
