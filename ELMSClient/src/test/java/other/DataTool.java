@@ -62,11 +62,9 @@ public class DataTool {
 	static ArrayList<DepositVO> deposits = new ArrayList<DepositVO>();
 	
 	static{
-		orders.add(new OrderVO("2311278906", d1, "02500", "czq", "13188907872", "nju", "常府街44号", "ymc", "13497269020",
-				"hs", "仙林大道163号", 1, "book", 2, 30, 20, 10, "wood box", "fast model", 2, 20, test));
+		orders.add(new OrderVO());
 		locs.add("航空区2排3架2位");
-		orders.add(new OrderVO("2311222479", d2, "02500", "zr", "13137947872", "nju", "常府街21号", "xc", "13132097020",
-				"sh", "仙林大道73号", 8, "food", 5, 20, 20, 20, "wood box", "economic model", 1, 30, test));
+		orders.add(new OrderVO());
 		locs.add("汽运区8排5架6位");
 		
 		drivers.add(new DriverVO("000001", "章撒",instid1, new MyDate(1992, 4, 12) , "445202199204121134", "18324522334", true, 5));
