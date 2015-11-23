@@ -78,14 +78,14 @@ public class DataSuperClass extends UnicastRemoteObject {
 		
 		SQLmap.put("StateForm", helper.bulidSQL("StateForm", 4, "startDate" , "endDate" , "deposits" ,"pays"));
 		SQLmap.put("CostIncomeForm", helper.bulidSQL("CostIncomeForm", 4, "income" , "expense" , "startDate" , "endDate"));
-		SQLmap.put("StoreCheck", helper.bulidSQL("StoreMessage", 5, "" , "" , "" , "" ,"") ); // TODO
 		SQLmap.put("bill", helper.bulidSQL("bill", 5, "finaceMan" , "date" , "instituations" , "persons" ,"cars" ));
 		SQLmap.put("deposit", helper.bulidSQL("deposit", 3, "id" ,"date" , "money"));
 		SQLmap.put("pay", helper.bulidSQL("pay", 4 , "id" , "time" , "money" , "type"));
 		SQLmap.put("rent", helper.bulidSQL("rent", 4, "startDate" , "endDate" , "money" , "type" ,"costType"));
 		SQLmap.put("frieght", helper.bulidSQL("frieght", 4, "startDate" , "endDate" , "money"  ,"costType"));
 		SQLmap.put("salarycost", helper.bulidSQL("salarycost", 5, "startDate" , "endDate" , "money"  ,"costType" , "worker"));
-	
+		SQLmap.put("StoreCheck", helper.bulidSQL("StoreCheck", 6, "date" , "location" , "storeLoc" , "number" , "inStoreDocs" ,"outStoreDocs"));
+		SQLmap.put("alarm", helper.bulidSQL("alarm", 2, "city" , "value"));
 	}
 
 	public DataSuperClass() throws RemoteException {

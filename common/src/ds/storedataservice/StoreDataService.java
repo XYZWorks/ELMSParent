@@ -7,6 +7,7 @@ import po.store.InStoreDocPO;
 import po.store.OutStoreDocPO;
 import po.store.StoreCheckPO;
 import po.store.StoreMessagePO;
+import util.City;
 import util.ResultMessage;
 import ds.DataserviceParent;
 
@@ -51,10 +52,14 @@ public interface StoreDataService extends DataserviceParent{
 	 */
 	public ResultMessage update(StoreMessagePO po)throws RemoteException;
 	/**
-	 * 设置库存警戒值
+	 * 获得某个城市的库存警戒值
+	 */
+	public String getAlarmValue(City city) throws RemoteException;
+	/**
+	 * 设置某个城市的库存警戒值
 	 * @return
 	 */
-	public boolean alarmValue(String value)throws RemoteException;
+	public ResultMessage setAlarmValue(String value , City city)throws RemoteException;
 	/**
 	 * 存储快照信息PO
 	 * @param po

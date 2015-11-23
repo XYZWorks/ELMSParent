@@ -2,6 +2,8 @@ package po.store;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import util.City;
 /**
  * 库存信息
  * @author ymc
@@ -16,7 +18,7 @@ public class StoreMessagePO implements Serializable{
 	/**
 	 * 所在城市
 	 */
-	private String location;
+	private City location;
 	/**
 	 * 区位置
 	 */
@@ -32,20 +34,23 @@ public class StoreMessagePO implements Serializable{
 	/**
 	 * 出库单集合
 	 */
-	private ArrayList<OutStoreDocPO> OutStoreDocs;
+	private ArrayList<OutStoreDocPO> outStoreDocs;
 	
 	public StoreMessagePO() {}
 	
-	/**
-	 * 
-	 * @param inStoreDocs
-	 * @param outStoreDocs
-	 */
-	public StoreMessagePO(ArrayList<InStoreDocPO> inStoreDocs, ArrayList<OutStoreDocPO> outStoreDocs) {
+	
+	public StoreMessagePO(City location, String storeLoc, int number,
+			ArrayList<InStoreDocPO> inStoreDocs,
+			ArrayList<OutStoreDocPO> outStoreDocs) {
 		super();
+		this.location = location;
+		this.storeLoc = storeLoc;
+		this.number = number;
 		this.inStoreDocs = inStoreDocs;
-		this.OutStoreDocs = outStoreDocs;
+		this.outStoreDocs = outStoreDocs;
 	}
+
+
 	public int getNumber() {
 		return number;
 	}
@@ -59,10 +64,10 @@ public class StoreMessagePO implements Serializable{
 		this.inStoreDocs = inStoreDocs;
 	}
 	public ArrayList<OutStoreDocPO> getOutStoreDocs() {
-		return OutStoreDocs;
+		return outStoreDocs;
 	}
 	public void setOutStoreDocs(ArrayList<OutStoreDocPO> outStoreDocs) {
-		OutStoreDocs = outStoreDocs;
+		this.outStoreDocs = outStoreDocs;
 	}
 
 	public String getStoreLoc() {
@@ -71,10 +76,10 @@ public class StoreMessagePO implements Serializable{
 	public void setStoreLoc(String storeLoc) {
 		this.storeLoc = storeLoc;
 	}
-	public String getLocation() {
+	public City getLocation() {
 		return location;
 	}
-	public void setLocation(String location) {
+	public void setLocation(City location) {
 		this.location = location;
 	}
 	

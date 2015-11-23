@@ -4,9 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import po.DocPO;
-import util.MyDate;
+import util.City;
 import util.DocState;
 import util.DocType;
+import util.MyDate;
 /**
  * 出库单
  * @author ymc
@@ -26,7 +27,7 @@ public class OutStoreDocPO extends DocPO implements Serializable{
 	/**
 	 * 目的地
 	 */
-	private String loc;
+	private City loc;
 //	/**
 //	 * 时间
 //	 */
@@ -45,21 +46,12 @@ public class OutStoreDocPO extends DocPO implements Serializable{
 	
 	public OutStoreDocPO() {}
 	
-	public OutStoreDocPO(String iD, MyDate date,
-			ArrayList<String> orderPOs, String loc, String transferDoc,
-			String shipWay) {
-		super(iD, DocType.outStoreDoc, date,DocState.wait);
-		this.orders = orderPOs;
-		this.loc = loc;
-		this.transferDoc = transferDoc;
-		this.shipWay = shipWay;
-	}
 	
 	
 	
 	
 	public OutStoreDocPO(String iD, DocType type, MyDate date, DocState state,
-			ArrayList<String> orderPOs, String loc, String transferDoc,
+			ArrayList<String> orderPOs, City loc, String transferDoc,
 			String shipWay) {
 		super(iD, type, date, state);
 		this.orders = orderPOs;
@@ -74,10 +66,10 @@ public class OutStoreDocPO extends DocPO implements Serializable{
 	public void setOrderPOs(ArrayList<String> orderPOs) {
 		this.orders = orderPOs;
 	}
-	public String getLoc() {
+	public City getLoc() {
 		return loc;
 	}
-	public void setLoc(String loc) {
+	public void setLoc(City loc) {
 		this.loc = loc;
 	}
 
