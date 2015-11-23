@@ -17,6 +17,10 @@ public class MyButton extends JButton {
 		this.setVisible(true);
 	}
 	
-	
+	public MyButton(String text) {
+		super.setText(text);
+		this.setOpaque(true);
+		this.setVisible(true);
+	}
 
 }

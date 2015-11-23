@@ -1,35 +1,34 @@
 package ui.tools;
 
 import java.awt.Graphics;
+import java.awt.Image;
 
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import config.StaticMessage;
+import ui.config.GraphicsUtils;
  /** 
- * 
+ * 有背景图的panel
  * @author czq 
  * @version 2015年11月22日 下午8:25:12 
  */
 @SuppressWarnings("serial")
 public class MyPanel extends JPanel{
 	
-	ImageIcon bg;
+	Image bg;
 	
-	public MyPanel() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	
 	public MyPanel(String picture) {
-		bg = new ImageIcon(StaticMessage.imagePath + picture);
+		bg = GraphicsUtils.getImage(picture);
+		
 		repaint();
 	}
 	
 	public void paintComponent(Graphics g)  
 	{  
 	    super.paintComponent(g);   
-	    System.out.println("paint");
-	    g.drawImage(bg.getImage(), 0, 0, null);
+	    g.drawImage(bg, 0,0, null);
+	   
 	} 
 	
 }
