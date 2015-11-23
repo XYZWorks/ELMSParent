@@ -2,8 +2,18 @@ package bl.transportbl;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.Date;
 
+import blservice.orderblservice.Orderblservice;
+import blservice.strategyblservice.StrategyblService;
+import ds.transportdataservice.Transportdataservice;
+import net.RMIManage;
+import po.DocPO;
+import po.transport.ArriveYYDocPO;
+import po.transport.ArriveZZDocPO;
+import po.transport.LoadDocPO;
+import po.transport.SendGoodDocPO;
+import po.transport.TransferDocPO;
+import test.java.other.VOPOchange;
 import util.DataServiceType;
 import util.DocType;
 import util.MyDate;
@@ -14,13 +24,6 @@ import vo.transport.ArriveZZDocVO;
 import vo.transport.LoadDocVO;
 import vo.transport.SendGoodDocVO;
 import vo.transport.TransferDocVO;
-import blservice.orderblservice.Orderblservice;
-import blservice.strategyblservice.StrategyblService;
-import blservice.transportblservice.transportblservice_Driver;
-import ds.transportdataservice.Transportdataservice;
-import net.RMIManage;
-import po.transport.LoadDocPO;
-import test.java.other.VOPOchange;
 
 /** 
  * @author ymc 
@@ -81,48 +84,156 @@ public class Transport {
 	}
 
 	public ResultMessage add(SendGoodDocVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		SendGoodDocPO po = (SendGoodDocPO) VOPOchange.VOtoPO(vo);
+		ResultMessage result = null;
+		
+		try {
+			result=transportData.addSendGoodDocPO(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	public ArrayList<SendGoodDocVO> getDaySendDocs(MyDate date) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<SendGoodDocPO> pos = new ArrayList<SendGoodDocPO>();
+		ArrayList<SendGoodDocVO> vos = new ArrayList<SendGoodDocVO>();
+		
+		try {
+			pos = (ArrayList<SendGoodDocPO>) transportData.getDocLists(DocType.sendGoodDoc);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		
+		for(SendGoodDocPO po: pos){
+			if(po.getDate().equals(date)){
+				vos.add((SendGoodDocVO)VOPOchange.POtoVO(po));
+			}
+		}
+		
+		return vos;
 	}
 
 	public ResultMessage add(ArriveYYDocVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		ArriveYYDocPO po = (ArriveYYDocPO) VOPOchange.VOtoPO(vo);
+		ResultMessage result = null;
+		
+		try {
+			result=transportData.addArriveYYDocPO(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
-	public ArrayList<ArriveZZDocVO> getDayArriveYYDocs(MyDate date) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<ArriveYYDocVO> getDayArriveYYDocs(MyDate date) {
+		ArrayList<ArriveYYDocPO> pos = new ArrayList<ArriveYYDocPO>();
+		ArrayList<ArriveYYDocVO> vos = new ArrayList<ArriveYYDocVO>();
+		
+		try {
+			pos = (ArrayList<ArriveYYDocPO>) transportData.getDocLists(DocType.arriveYYDoc);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		
+		for(ArriveYYDocPO po: pos){
+			if(po.getDate().equals(date)){
+				vos.add((ArriveYYDocVO)VOPOchange.POtoVO(po));
+			}
+		}
+		
+		return vos;
 	}
 
 	public ResultMessage add(ArriveZZDocVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		ArriveZZDocPO po = (ArriveZZDocPO) VOPOchange.VOtoPO(vo);
+		ResultMessage result = null;
+		
+		try {
+			result=transportData.addArriveZZDocPO(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	public ArrayList<ArriveZZDocVO> getDayArriveZZDocs(MyDate date) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<ArriveZZDocPO> pos = new ArrayList<ArriveZZDocPO>();
+		ArrayList<ArriveZZDocVO> vos = new ArrayList<ArriveZZDocVO>();
+		
+		try {
+			pos = (ArrayList<ArriveZZDocPO>) transportData.getDocLists(DocType.arriveZZDoc);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		
+		for(ArriveZZDocPO po: pos){
+			if(po.getDate().equals(date)){
+				vos.add((ArriveZZDocVO)VOPOchange.POtoVO(po));
+			}
+		}
+		
+		return vos;
 	}
 
 	public ResultMessage add(TransferDocVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		TransferDocPO po = (TransferDocPO) VOPOchange.VOtoPO(vo);
+		ResultMessage result = null;
+		
+		try {
+			result=transportData.addTransferDocPO(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	public ArrayList<TransferDocVO> getDayTransferDocs(MyDate date) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		ArrayList<TransferDocPO> pos = new ArrayList<TransferDocPO>();
+		ArrayList<TransferDocVO> vos = new ArrayList<TransferDocVO>();
+		
+		try {
+			pos = (ArrayList<TransferDocPO>) transportData.getDocLists(DocType.transferDoc);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		
+		for(TransferDocPO po: pos){
+			if(po.getDate().equals(date)){
+				vos.add((TransferDocVO)VOPOchange.POtoVO(po));
+			}
+		}
+		
+		return vos;
 	}
 
 	public ArrayList<DocVO> getDoc(DocType type) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<DocPO> pos = new ArrayList<DocPO>();
+		ArrayList<DocVO> vos = new ArrayList<DocVO>();
+		
+		try {
+			pos = (ArrayList<TransferDocPO>) transportData.getDocLists(DocType.transferDoc);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		
+		for(TransferDocPO po: pos){
+			if(po.getDate().equals(date)){
+				vos.add((TransferDocVO)VOPOchange.POtoVO(po));
+			}
+		}
+		
+		return vos;
 	}
 
 	public double getExpense(DocType type) {
