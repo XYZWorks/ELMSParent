@@ -8,9 +8,7 @@ import util.MyDate;
  *
  */
 public class DriverPO implements Serializable{
-	public DriverPO() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	/**
 	 * 序列化UID
 	 */
@@ -48,6 +46,8 @@ public class DriverPO implements Serializable{
 	 * 驾驶证期限
 	 */
 	private int licenseYear;
+	
+	public DriverPO() {}
 	
 	/**
 	 * 

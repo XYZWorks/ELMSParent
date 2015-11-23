@@ -8,5 +8,8 @@ import javax.swing.JCheckBox;
  */
 @SuppressWarnings("serial")
 public class MyCheckBox extends JCheckBox{
-
+	public MyCheckBox() {
+		this.setOpaque(true);
+		this.setVisible(true);
+	}
 }

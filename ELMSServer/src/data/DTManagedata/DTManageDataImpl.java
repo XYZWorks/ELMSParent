@@ -43,7 +43,7 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 		if(findMes == null){
 			return null;
 		}else{
-			return new DriverPO(findMes.get(0), findMes.get(1), MyDate.getDate(findMes.get(2)), findMes.get(3), findMes.get(4), helper.changeFromInt(findMes.get(5)), Integer.parseInt(findMes.get(6)));
+			return new DriverPO(findMes.get(0), findMes.get(1), MyDate.getDate(findMes.get(2)), findMes.get(3), findMes.get(4),findMes.get(5) , helper.changeFromInt(findMes.get(6)), Integer.parseInt(findMes.get(7)));
 		}
 		
 	}
@@ -81,8 +81,7 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {
-				//instid 在 id前
-				pos.add(new DriverPO(result.getString(1), result.getString(2), MyDate.getDate(result.getString(3)), result.getString(4), result.getString(5), helper.changeFromInt(result.getString(6)), Integer.parseInt(result.getString(7))));
+				pos.add(new DriverPO(result.getString(1), result.getString(2), MyDate.getDate(result.getString(3)), result.getString(4), result.getString(5),result.getString(6) ,  helper.changeFromInt(result.getString(7)), Integer.parseInt(result.getString(8))));
 			}
 			return (pos.isEmpty())?null:pos;
 		} catch (SQLException e) {
@@ -100,8 +99,7 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {
-				//instid 在 id前
-				pos.add(new DriverPO(result.getString(1), result.getString(2), MyDate.getDate(result.getString(3)), result.getString(4), result.getString(5), helper.changeFromInt(result.getString(6)), Integer.parseInt(result.getString(7))));
+				pos.add(new DriverPO(result.getString(1), result.getString(2), MyDate.getDate(result.getString(3)), result.getString(4),result.getString(5) , result.getString(6), helper.changeFromInt(result.getString(7)), Integer.parseInt(result.getString(8))));
 			}
 			return (pos.isEmpty())?null:pos;
 		} catch (SQLException e) {

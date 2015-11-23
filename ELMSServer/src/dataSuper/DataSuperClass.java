@@ -63,7 +63,7 @@ public class DataSuperClass extends UnicastRemoteObject {
 		SQLmap.put("person", helper.bulidSQL("person" , 5 , "id" , "instid" , "name" , "type" ,"phone"));
 		SQLmap.put("inst", helper.bulidSQL("inst", 3, "id" , "location" , "type"));
 		SQLmap.put("car",helper.bulidSQL("car", 3, "id" , "plateNum" , "useYear") );
-		SQLmap.put("driver", helper.bulidSQL("driver", 7, "id", "name" , "birthday" , "idCard" , "phoneNum" , "isman" , "licenseYear" ));
+		SQLmap.put("driver", helper.bulidSQL("driver", 8, "id", "name" , "birthday" ,  "instid" ,"idCard" , "phoneNum" , "isman" , "licenseYear" ));
 		SQLmap.put("myorder", helper.bulidSQL("myorder" , 29 , "id" , "type" , "date" , "state" , "senderName" , "senderPhone" ,"senderCompany" , "senderAddress" , "receiverName" , "receiverPhone" , "receiverCompany" , "receiverAddress" , "goodNum" , "goodName" , "goodWeight" , "goodLong" , "goodWidth" , "goodHeight" , "goodPack" , "orderForm" , "orderEestiTime" , "orderCost" , "loadDoc" , "arriveZZDoc" , "transferDoc" ,"arriveYYDoc" , "sendGoodDoc" ,"realReceiver" ,"orderReceiveDate"));
 		SQLmap.put("salary", helper.bulidSQL("salary", 4, "type" , "basicMoney" , "moreMoney" , "way"));
 		SQLmap.put("LoadDoc", helper.bulidSQL("LoadDoc", 10 , "id", "type" , "date" , "state", "YYID" , "LoadDocID" ,"arriveCity" ,"carID" ,"Supervisor" ,"Escort"));

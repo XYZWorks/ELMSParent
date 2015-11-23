@@ -12,7 +12,10 @@ import javax.swing.JButton;
 @SuppressWarnings("serial")
 public class MyButton extends JButton {
 	
-	
+	public MyButton() {
+		this.setOpaque(true);
+		this.setVisible(true);
+	}
 	
 	
 

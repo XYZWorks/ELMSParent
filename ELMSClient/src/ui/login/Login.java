@@ -2,9 +2,6 @@ package ui.login;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.TexturePaint;
-import java.io.PushbackInputStream;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -37,8 +34,7 @@ public class Login extends JFrame{
 		}
 	};*/
 	
-	public void LoginMainFrame(){
-	}
+	public void LoginMainFrame(){}
 	
 	
 	public static void main(String[] args) {

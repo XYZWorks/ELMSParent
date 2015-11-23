@@ -1,5 +1,6 @@
 package ui.tools;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JTextField;
@@ -12,7 +13,14 @@ import javax.swing.JTextField;
 @SuppressWarnings("serial")
 public class MyTextField extends JTextField {
 
-	public void paintCompoment(Graphics g) {
-
+	public MyTextField() {
+		this.setOpaque(true);
+		this.setForeground(Color.BLACK);
+		
+		
+		this.setVisible(true);
+		
 	}
+	
+	
 }
