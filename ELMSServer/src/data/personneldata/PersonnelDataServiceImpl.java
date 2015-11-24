@@ -40,7 +40,7 @@ public class PersonnelDataServiceImpl extends DataSuperClass implements
 	public ArrayList<PersonPO> getPeoByInst(String ID) throws RemoteException {
 		ArrayList<PersonPO> personPOs = new ArrayList<PersonPO>();
 		try {
-			sql = "SELECT * FROM `person` WHERE `instid` = " + ID;
+			sql = "SELECT * FROM `person` WHERE `instid` = " +"\""+ ID+"\"";
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {

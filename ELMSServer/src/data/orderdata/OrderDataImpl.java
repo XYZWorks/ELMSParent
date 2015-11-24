@@ -38,7 +38,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	}
 
 	public ArrayList<OrderPO> getDayOrderPO(MyDate date) throws RemoteException {
-		sql = "SELECT * FROM " + orderTable + "WHERE date =" + MyDate.toString(date);
+		sql = "SELECT * FROM " + orderTable + "WHERE date =" +"\""+ MyDate.toString(date)+"\"";
 		ArrayList<OrderPO> pos = new ArrayList<OrderPO>(50);
 		OrderPO po;
 		try {
@@ -115,7 +115,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 			int affectNum = 0;
 			for (String temp : orderBarCodes) {
 				sql = "MODIFY `" + orderTable + "` SET `" + type + "` = ?" + "WHERE id ="
-						+ temp;
+						+"\""+ temp+"\"";
 				preState.setString(1, po.getID());
 				preState = conn.prepareStatement(sql);
 				affectNum = preState.executeUpdate();
@@ -188,7 +188,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 		int affectRows = 0;
 		try {
 			sql = "UPDATE " + orderTable + " SET `senderAddress`= ? , `receiverName`= ? ,`receiverPhone`= ? ,`receiverCompany`= ? ,`receiverAddress`= ?  WHERE orderBarCode = "
-					+ orderBarCode;
+					+"\""+ orderBarCode+"\"";
 			preState = conn.prepareStatement(sql);
 			affectRows = preState.executeUpdate();
 			if(affectRows == 0){
@@ -206,7 +206,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	}
 
 	public ArrayList<? extends DocPO> getDocLists(DocType type)  throws RemoteException{
-		sql = "SELECT * FROM " + orderTable + " WHERE state = wait" ;
+		sql = "SELECT * FROM " + orderTable + " WHERE state = \"wait\" " ;
 		ArrayList<OrderPO> pos = new ArrayList<OrderPO>(50);
 		OrderPO po;
 		try {
@@ -263,7 +263,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 			DocType type, DocState state)  throws RemoteException {
 		
 		try {
-			sql = "UPDATE `" + orderTable + "` SET state =  ? WHERE id = " + docID ;
+			sql = "UPDATE `" + orderTable + "` SET state =  ? WHERE id = "+"\"" + docID+"\"" ;
 			preState = conn.prepareStatement(sql);
 			preState.setString(1, state.name());
 			affectRows = preState.executeUpdate();

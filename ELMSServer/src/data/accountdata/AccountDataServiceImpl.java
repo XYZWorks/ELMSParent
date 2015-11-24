@@ -59,7 +59,7 @@ public class AccountDataServiceImpl extends DataSuperClass implements
 	public ResultMessage check(String ID, String password)
 			throws RemoteException {
 		try {
-			sql = "select id,password from " + tableName;
+			sql = "SELECT `id`,`password` FROM "  + tableName ;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {

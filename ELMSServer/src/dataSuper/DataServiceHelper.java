@@ -25,7 +25,7 @@ public class DataServiceHelper {
 		temp.add(bulidFindSQL(tableName , paras[0]));
 		temp.add(bulidUpdateSQL(tableName, num, paras));
 		//清空表内数据，用于初始化
-		temp.add("TRUNCATE TABLE " + tableName);
+		temp.add("TRUNCATE TABLE " + tableName);		
 		return temp;
 	}
 	
@@ -70,7 +70,7 @@ public class DataServiceHelper {
 
 	private String bulidFindSQL(String name , String primaryKey) {
 		
-			return "SELECT * FROM `" + name + "` WHERE " + primaryKey + " =" ;
+			return "SELECT * FROM `" + name + "` WHERE " + primaryKey + " = " ;
 	
 		
 	}
@@ -180,7 +180,7 @@ public class DataServiceHelper {
 			input.close();
 			return result;
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			return null;
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {

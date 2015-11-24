@@ -95,7 +95,7 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 	public ArrayList<DriverPO> getDriverByInst(String inst) throws RemoteException {
 		ArrayList<DriverPO> pos = new ArrayList<DriverPO>();
 		try {
-			sql = "SELECT * FROM `" + driverTable +  "` WHERE instid = " + inst;
+			sql = "SELECT * FROM `" + driverTable +  "` WHERE instid = " +"\"" + inst +"\"";
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {

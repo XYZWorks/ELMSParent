@@ -138,7 +138,7 @@ public class DataSuperClass extends UnicastRemoteObject {
 	 */
 	protected ResultMessage delFromSQL(String tableName , String ID) {
 		try {
-			preState = conn.prepareStatement(SQLmap.get(tableName).get(2) + ID);
+			preState = conn.prepareStatement(SQLmap.get(tableName).get(2) +"\"" + ID + "\"");
 			affectRows = preState.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -163,7 +163,8 @@ public class DataSuperClass extends UnicastRemoteObject {
 		
 		
 		try {
-			preState = conn.prepareStatement(SQLmap.get(tableName).get(3) + ID);
+			preState = conn.prepareStatement(SQLmap.get(tableName).get(3) + "\""+ ID + "\"");
+			System.out.println(SQLmap.get(tableName).get(3) + ID);
 			result = preState.executeQuery();
 			if(result.next()) {
 				// 如果查找到对应的ID
@@ -276,8 +277,10 @@ public class DataSuperClass extends UnicastRemoteObject {
 	 * @return
 	 */
 	protected ResultMessage initialFromSQL(String tableName) {
+		
 		try {
-			preState = conn.prepareStatement(SQLmap.get(tableName).get(5));
+			sql = SQLmap.get(tableName).get(5);
+			preState = conn.prepareStatement(sql);
 			preState.executeUpdate();
 			return ResultMessage.SUCCESS;
 		} catch (SQLException e) {

@@ -64,7 +64,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	public ArrayList<PayPO> getPayPO() throws RemoteException {
 		ArrayList<PayPO> pos = new ArrayList<PayPO>();
 		try {
-			sql = "SELECT * FROM " + payTable;
+			sql = "SELECT * FROM "  + payTable ;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while(result.next()){

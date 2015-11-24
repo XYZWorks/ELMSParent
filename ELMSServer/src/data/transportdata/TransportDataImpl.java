@@ -144,7 +144,7 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 		
 		
 		try {
-			sql = "SELECT * FROM  `" + temptable + "` WHERE state = wait" ;
+			sql = "SELECT * FROM  `" + temptable + "` WHERE state = \"wait\"" ;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			switch (type) {
@@ -219,7 +219,7 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 			return null;
 		}
 		try {
-			sql = "UPDATE `" + temptable + "` SET state =  ? WHERE id = " + docID ;
+			sql = "UPDATE `" + temptable + "` SET state =  ? WHERE id = " +"\""+ docID +"\"";
 			preState = conn.prepareStatement(sql);
 			preState.setString(1, state.name());
 			affectRows = preState.executeUpdate();

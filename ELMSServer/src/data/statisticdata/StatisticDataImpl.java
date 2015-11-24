@@ -42,7 +42,7 @@ public class StatisticDataImpl extends DataSuperClass implements StatisticDataSe
 	public ArrayList<StateFormPO> getStateForm() throws RemoteException {
 		ArrayList<StateFormPO> pos = new ArrayList<StateFormPO>();
 		try {
-			sql = "SELECT * FROM " + stateFormTable;
+			sql = "SELECT * FROM "+ stateFormTable;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while(result.next()){
@@ -89,7 +89,7 @@ public class StatisticDataImpl extends DataSuperClass implements StatisticDataSe
 	public ArrayList<BillPO> getBills() throws RemoteException {
 		ArrayList<BillPO> pos = new ArrayList<BillPO>();
 		try {
-			sql = "SELECT * FROM " + billTable;
+			sql = "SELECT * FROM "+ billTable;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while(result.next()){

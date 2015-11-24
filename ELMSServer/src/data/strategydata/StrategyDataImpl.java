@@ -30,6 +30,12 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 	
 	public void initial() throws RemoteException {
 		initialFromSQL(salaryTable);
+		addToSQL(salaryTable, "courier" , "0" , "0" , "byMonth");
+		addToSQL(salaryTable, "financeman" , "0" , "0" , "byMonth");
+		addToSQL(salaryTable, "saleman" , "0" , "0" , "byMonth");
+		addToSQL(salaryTable, "storeman" , "0" , "0" , "byMonth");
+		addToSQL(salaryTable, "storemanager" , "0" , "0" , "byMonth");
+		addToSQL(salaryTable, "driver" , "0" , "0" , "byMonth");
 		//TODO const 未初始化
 	}
 	
