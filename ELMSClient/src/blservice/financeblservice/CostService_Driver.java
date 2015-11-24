@@ -16,7 +16,7 @@ public class CostService_Driver {
 		vos=cost.showCosts();
 		if(vos!=null){
 			for(CostVO vo:vos){
-				System.out.println(vo.money+" "+vo.type);
+				System.out.println(vo.money+" ");
 			}
 		}
 

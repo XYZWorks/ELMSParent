@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2015-11-22 11:20:57
+-- Generation Time: 2015-11-23 18:33:52
 -- 服务器版本： 5.6.26
 -- PHP Version: 5.6.12
 
@@ -27,8 +27,6 @@ USE `elmssql`;
 --
 -- 表的结构 `account`
 --
--- 创建时间： 2015-11-17 14:59:22
---
 
 DROP TABLE IF EXISTS `account`;
 CREATE TABLE IF NOT EXISTS `account` (
@@ -41,6 +39,11 @@ CREATE TABLE IF NOT EXISTS `account` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `account`
+--
+
+TRUNCATE TABLE `account`;
+--
 -- 转存表中的数据 `account`
 --
 
@@ -51,9 +54,24 @@ INSERT INTO `account` (`id`, `name`, `type`, `password`, `phone`, `email`) VALUE
 -- --------------------------------------------------------
 
 --
--- 表的结构 `arriveyydoc`
+-- 表的结构 `alarm`
 --
--- 创建时间： 2015-11-22 09:49:29
+
+DROP TABLE IF EXISTS `alarm`;
+CREATE TABLE IF NOT EXISTS `alarm` (
+  `city` varchar(45) NOT NULL,
+  `value` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 插入之前先把表清空（truncate） `alarm`
+--
+
+TRUNCATE TABLE `alarm`;
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `arriveyydoc`
 --
 
 DROP TABLE IF EXISTS `arriveyydoc`;
@@ -67,12 +85,15 @@ CREATE TABLE IF NOT EXISTS `arriveyydoc` (
   `goodstate` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `arriveyydoc`
+--
+
+TRUNCATE TABLE `arriveyydoc`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `arrivezzdoc`
---
--- 创建时间： 2015-11-22 09:49:47
 --
 
 DROP TABLE IF EXISTS `arrivezzdoc`;
@@ -86,12 +107,15 @@ CREATE TABLE IF NOT EXISTS `arrivezzdoc` (
   `goodstate` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `arrivezzdoc`
+--
+
+TRUNCATE TABLE `arrivezzdoc`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `car`
---
--- 创建时间： 2015-11-22 09:50:04
 --
 
 DROP TABLE IF EXISTS `car`;
@@ -101,6 +125,11 @@ CREATE TABLE IF NOT EXISTS `car` (
   `useYear` int(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='车辆信息';
 
+--
+-- 插入之前先把表清空（truncate） `car`
+--
+
+TRUNCATE TABLE `car`;
 --
 -- 转存表中的数据 `car`
 --
@@ -112,8 +141,6 @@ INSERT INTO `car` (`id`, `plateNum`, `useYear`) VALUES
 
 --
 -- 表的结构 `const`
---
--- 创建时间： 2015-11-17 15:50:34
 --
 
 DROP TABLE IF EXISTS `const`;
@@ -135,12 +162,15 @@ CREATE TABLE IF NOT EXISTS `const` (
   `ratio3` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='常量表';
 
+--
+-- 插入之前先把表清空（truncate） `const`
+--
+
+TRUNCATE TABLE `const`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `costincomeform`
---
--- 创建时间： 2015-11-22 10:06:22
 --
 
 DROP TABLE IF EXISTS `costincomeform`;
@@ -151,12 +181,15 @@ CREATE TABLE IF NOT EXISTS `costincomeform` (
   `enddate` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `costincomeform`
+--
+
+TRUNCATE TABLE `costincomeform`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `deposit`
---
--- 创建时间： 2015-11-22 09:50:29
 --
 
 DROP TABLE IF EXISTS `deposit`;
@@ -166,12 +199,15 @@ CREATE TABLE IF NOT EXISTS `deposit` (
   `money` int(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='存款数据信息表';
 
+--
+-- 插入之前先把表清空（truncate） `deposit`
+--
+
+TRUNCATE TABLE `deposit`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `driver`
---
--- 创建时间： 2015-11-22 09:50:52
 --
 
 DROP TABLE IF EXISTS `driver`;
@@ -179,18 +215,41 @@ CREATE TABLE IF NOT EXISTS `driver` (
   `id` varchar(45) NOT NULL,
   `name` varchar(45) DEFAULT NULL,
   `birthday` varchar(45) DEFAULT NULL,
+  `instid` varchar(45) DEFAULT NULL,
   `idCard` varchar(45) DEFAULT NULL,
   `phoneNum` varchar(15) DEFAULT NULL,
   `isman` varchar(8) DEFAULT NULL,
   `licenseyear` int(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='司机信息表';
 
+--
+-- 插入之前先把表清空（truncate） `driver`
+--
+
+TRUNCATE TABLE `driver`;
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `freight`
+--
+
+DROP TABLE IF EXISTS `freight`;
+CREATE TABLE IF NOT EXISTS `freight` (
+  `startdate` varchar(20) NOT NULL,
+  `enddate` varchar(20) NOT NULL,
+  `money` int(4) NOT NULL,
+  `costtype` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 插入之前先把表清空（truncate） `freight`
+--
+
+TRUNCATE TABLE `freight`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `inst`
---
--- 创建时间： 2015-11-22 09:51:03
 --
 
 DROP TABLE IF EXISTS `inst`;
@@ -200,12 +259,15 @@ CREATE TABLE IF NOT EXISTS `inst` (
   `type` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='机构信息';
 
+--
+-- 插入之前先把表清空（truncate） `inst`
+--
+
+TRUNCATE TABLE `inst`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `instoredoc`
---
--- 创建时间： 2015-11-22 10:09:54
 --
 
 DROP TABLE IF EXISTS `instoredoc`;
@@ -219,12 +281,15 @@ CREATE TABLE IF NOT EXISTS `instoredoc` (
   `location` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `instoredoc`
+--
+
+TRUNCATE TABLE `instoredoc`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `loaddoc`
---
--- 创建时间： 2015-11-22 09:51:44
 --
 
 DROP TABLE IF EXISTS `loaddoc`;
@@ -241,12 +306,15 @@ CREATE TABLE IF NOT EXISTS `loaddoc` (
   `escort` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='装车单';
 
+--
+-- 插入之前先把表清空（truncate） `loaddoc`
+--
+
+TRUNCATE TABLE `loaddoc`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `myorder`
---
--- 创建时间： 2015-11-22 05:33:14
 --
 
 DROP TABLE IF EXISTS `myorder`;
@@ -282,12 +350,15 @@ CREATE TABLE IF NOT EXISTS `myorder` (
   `orderReceiveDate` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单表';
 
+--
+-- 插入之前先把表清空（truncate） `myorder`
+--
+
+TRUNCATE TABLE `myorder`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `outstoredoc`
---
--- 创建时间： 2015-11-22 10:12:17
 --
 
 DROP TABLE IF EXISTS `outstoredoc`;
@@ -302,12 +373,15 @@ CREATE TABLE IF NOT EXISTS `outstoredoc` (
   `shipway` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `outstoredoc`
+--
+
+TRUNCATE TABLE `outstoredoc`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `pay`
---
--- 创建时间： 2015-11-22 09:59:01
 --
 
 DROP TABLE IF EXISTS `pay`;
@@ -318,12 +392,15 @@ CREATE TABLE IF NOT EXISTS `pay` (
   `type` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `pay`
+--
+
+TRUNCATE TABLE `pay`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `person`
---
--- 创建时间： 2015-11-22 09:52:15
 --
 
 DROP TABLE IF EXISTS `person`;
@@ -335,12 +412,34 @@ CREATE TABLE IF NOT EXISTS `person` (
   `phone` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `person`
+--
+
+TRUNCATE TABLE `person`;
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `rent`
+--
+
+DROP TABLE IF EXISTS `rent`;
+CREATE TABLE IF NOT EXISTS `rent` (
+  `startdate` varchar(45) NOT NULL,
+  `enddate` varchar(45) NOT NULL,
+  `money` int(4) NOT NULL,
+  `type` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 插入之前先把表清空（truncate） `rent`
+--
+
+TRUNCATE TABLE `rent`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `salary`
---
--- 创建时间： 2015-11-18 10:05:09
 --
 
 DROP TABLE IF EXISTS `salary`;
@@ -351,6 +450,11 @@ CREATE TABLE IF NOT EXISTS `salary` (
   `way` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='工资计算方式';
 
+--
+-- 插入之前先把表清空（truncate） `salary`
+--
+
+TRUNCATE TABLE `salary`;
 --
 -- 转存表中的数据 `salary`
 --
@@ -366,9 +470,27 @@ INSERT INTO `salary` (`type`, `basicSalary`, `moreMoney`, `way`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `sendgooddoc`
+-- 表的结构 `salarycost`
 --
--- 创建时间： 2015-11-22 09:52:59
+
+DROP TABLE IF EXISTS `salarycost`;
+CREATE TABLE IF NOT EXISTS `salarycost` (
+  `startdate` varchar(45) NOT NULL,
+  `enddate` varchar(45) NOT NULL,
+  `money` int(4) NOT NULL,
+  `costtype` varchar(45) NOT NULL,
+  `worker` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 插入之前先把表清空（truncate） `salarycost`
+--
+
+TRUNCATE TABLE `salarycost`;
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `sendgooddoc`
 --
 
 DROP TABLE IF EXISTS `sendgooddoc`;
@@ -381,12 +503,15 @@ CREATE TABLE IF NOT EXISTS `sendgooddoc` (
   `orderBarCode` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `sendgooddoc`
+--
+
+TRUNCATE TABLE `sendgooddoc`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `stateform`
---
--- 创建时间： 2015-11-22 10:05:30
 --
 
 DROP TABLE IF EXISTS `stateform`;
@@ -397,12 +522,36 @@ CREATE TABLE IF NOT EXISTS `stateform` (
   `pays` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `stateform`
+--
+
+TRUNCATE TABLE `stateform`;
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `storecheck`
+--
+
+DROP TABLE IF EXISTS `storecheck`;
+CREATE TABLE IF NOT EXISTS `storecheck` (
+  `date` varchar(45) NOT NULL,
+  `location` varchar(45) NOT NULL,
+  `storeLoc` varchar(45) NOT NULL,
+  `number` int(4) NOT NULL,
+  `inStoreDocs` text,
+  `outStoreDocs` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 插入之前先把表清空（truncate） `storecheck`
+--
+
+TRUNCATE TABLE `storecheck`;
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `transferdoc`
---
--- 创建时间： 2015-11-22 09:54:06
 --
 
 DROP TABLE IF EXISTS `transferdoc`;
@@ -418,6 +567,11 @@ CREATE TABLE IF NOT EXISTS `transferdoc` (
   `orderbarcode` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `transferdoc`
+--
+
+TRUNCATE TABLE `transferdoc`;
 --
 -- Indexes for dumped tables
 --
@@ -506,6 +660,12 @@ ALTER TABLE `salary`
 --
 ALTER TABLE `sendgooddoc`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `storecheck`
+--
+ALTER TABLE `storecheck`
+  ADD PRIMARY KEY (`date`);
 
 --
 -- Indexes for table `transferdoc`

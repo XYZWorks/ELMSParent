@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import test.java.other.DataTool;
+import util.CostType;
 import util.ResultMessage;
 import vo.finance.CostVO;
 import vo.finance.DepositVO;
@@ -79,7 +80,7 @@ public class FinanceControllerTest {
 		if(temp.size() == 0){
 			fail("can not show cost");
 		}else{
-			temp.get(0).type = "123";
+			temp.get(0).costType = CostType.FREIGHT;
 			result  =  costbl.modify(temp.get(0));
 			if(result == ResultMessage.SUCCESS ){
 				return;

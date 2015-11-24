@@ -10,6 +10,8 @@ import blservice.transportblservice.Transportblservice;
 import ds.financedataservice.FinanceDataService;
 import po.finance.CostPO;
 import po.finance.SalaryPO;
+import test.java.other.VOPOchange;
+import util.CostType;
 import util.ResultMessage;
 import vo.finance.CostVO;
 import vo.finance.SalaryVO;
@@ -27,12 +29,23 @@ public class Cost {
 	public ArrayList<CostVO> showCosts() {
 		
 		ArrayList<CostVO> vos = null;
+		ArrayList<CostPO> pos = null;
+		
 		try {
-			ArrayList<CostPO> pos=financeData.show();
+			ArrayList<CostPO> fre=financeData.show(CostType.FREIGHT);
+			ArrayList<CostPO> ren=financeData.show(CostType.RENT);
+			ArrayList<CostPO> sal=financeData.show(CostType.SALARY);
+			pos = new ArrayList<CostPO>();
+			for(CostPO f : fre)
+				pos.add(f);
+			for(CostPO r : ren)
+				pos.add(r);
+			for(CostPO s : sal)
+				pos.add(s);
 			vos = new ArrayList<CostVO>();
 			if(pos!=null)
 				for(CostPO po:pos){
-					vos.add(getValue(po));
+					vos.add((CostVO)VOPOchange.POtoVO(po));
 				}
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
@@ -43,7 +56,7 @@ public class Cost {
 	}
 
 	public ResultMessage add(CostVO vo) {
-		CostPO po=setValue(vo);
+		CostPO po=(CostPO) VOPOchange.VOtoPO(vo);
 		ResultMessage result = null;
 		try {
 			result = financeData.add(po);
@@ -55,7 +68,7 @@ public class Cost {
 	}
 
 	public ResultMessage modify(CostVO vo) {
-		CostPO po=setValue(vo);
+		CostPO po=(CostPO) VOPOchange.VOtoPO(vo);
 		ResultMessage result = null;
 		try {
 			result = financeData.modify(po);
@@ -67,37 +80,15 @@ public class Cost {
 	}
 
 	public ResultMessage del(CostVO vo) {
-		CostPO po=setValue(vo);
+	
 		ResultMessage result = null;
 		try {
-			result = financeData.del(po);
+			result = financeData.del(vo);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
 	}
-	private  CostVO getValue(CostPO po){
-		CostVO vo;
-		if(po.getType().equals("salary")){
-			SalaryVO so= new SalaryVO(po.getMoney(), po.getType(),((SalaryPO) po).getWorker());
-			return so;
-		}
-		else
-			vo= new CostVO(po.getMoney(), po.getType());
-		
-		return vo;
-		
-	} 
-	private CostPO setValue(CostVO vo){
-		CostPO po;
-		if(vo.type.equals("salary")){
-			SalaryPO so=new SalaryPO(vo.money, vo.type, ((SalaryVO)vo).worker);
-			return so;
-		}
-		else
-			po=new CostPO(vo.money, vo.type);
-		
-		return po;
-	}
+	
 }

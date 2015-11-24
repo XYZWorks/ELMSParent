@@ -43,4 +43,19 @@ public class StoreService_Stub implements StoreblService {
 			return ResultMessage.FAIL;
 	}
 
+	public String getAlarmValue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage setAlarmValue(String value, String city) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getAlarmValue(String city) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

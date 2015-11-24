@@ -8,7 +8,7 @@ public class StaticMessage {
 	
 	public static final String RMIPres = "rmi://127.0.0.1:6600/";
 	
-	public static final String imagePath = "image\\";
+	public static final String imagePath = "image//";
 	
 	public static final String xmlPath = "docs\\";
 }

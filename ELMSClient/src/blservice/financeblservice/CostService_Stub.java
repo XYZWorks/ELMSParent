@@ -18,7 +18,7 @@ public class CostService_Stub implements CostService {
 	public ArrayList<CostVO> showCosts() {
 		ArrayList<CostVO> vos = null;
 		try {
-			ArrayList<CostPO> pos=financeDS.show();
+			ArrayList<CostPO> pos=financeDS.show(null);
 			vos = new ArrayList<CostVO>();
 			if(pos!=null)
 				for(CostPO po:pos){
@@ -45,7 +45,7 @@ public class CostService_Stub implements CostService {
 		return ResultMessage.SUCCESS;
 	}
 	private  CostVO getValue(CostPO po){
-		CostVO vo = new CostVO(po.getMoney(), po.getType());
+		CostVO vo = new CostVO(null, null, null, po.getMoney(), po.getCostType());
 		
 		return vo;
 		

@@ -38,5 +38,10 @@ public class Store {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public String getAlarmValue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

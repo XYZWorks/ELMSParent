@@ -42,7 +42,12 @@ public interface StoreblService {
 	 * @param value
 	 * @return
 	 */
-	public ResultMessage setAlarmValue(String value);
+	public ResultMessage setAlarmValue(String value,String city);
+	/**
+	 * 得到库存报警值
+	 * @return
+	 */
+	public String getAlarmValue(String city);
 
 
 }

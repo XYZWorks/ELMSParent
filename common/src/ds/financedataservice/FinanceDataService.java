@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import po.finance.CostPO;
 import po.finance.DepositPO;
 import po.finance.PayPO;
+import util.CostType;
 import util.ResultMessage;
 import ds.DataserviceParent;
 /**
@@ -39,7 +40,7 @@ public interface FinanceDataService extends DataserviceParent{
 	 * 查看cost信息
 	 * @return
 	 */
-	public ArrayList<CostPO> show() throws RemoteException;
+	public ArrayList<CostPO> show(CostType type) throws RemoteException;
 	/**
 	 * 增加cost信息
 	 * @param po
@@ -57,5 +58,5 @@ public interface FinanceDataService extends DataserviceParent{
 	 * @param po
 	 * @return
 	 */
-	public ResultMessage del(CostPO po) throws RemoteException;
+	public ResultMessage del(String ID , CostType type) throws RemoteException;
 }

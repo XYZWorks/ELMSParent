@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import util.MyDate;
 import util.AccountType;
+import util.CostType;
 import util.DocType;
 import util.GoodsState;
 import util.InstType;
@@ -152,8 +153,8 @@ public class DataTool {
 	
 	public static ArrayList<CostVO> getcosts(){
 		ArrayList<CostVO> costs = new ArrayList<CostVO>();
-		costs.add(new CostVO(3000, ""));
-		costs.add(new CostVO(5000, ""));
+		costs.add(new CostVO("10002",d1, d3, 12000, CostType.FREIGHT));
+		costs.add(new CostVO("19202",d1, d4, 10000, CostType.RENT));
 		
 		return costs;
 		

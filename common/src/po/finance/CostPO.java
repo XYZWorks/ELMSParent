@@ -1,6 +1,10 @@
 package po.finance;
 
+
 import java.io.Serializable;
+
+import util.CostType;
+import util.MyDate;
 
 
 /**
@@ -11,41 +15,111 @@ import java.io.Serializable;
 public class CostPO implements Serializable{
 	
 
-	public CostPO() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private String ID;
+	/**
+	 * 创建时间
+	 */
+	private MyDate startDate;
+	/**
+	 * 结束时间
+	 */
+	private MyDate endDate;
+	
 	/**
 	 * 金额
 	 */
 	private int money;
 	/**
-	 * 成本类型
+	 * cost类型(运费信息、租金信息、人员工资)
 	 */
-	private String type;
-	/**
-	 * 
-	 * @param money
-	 * @param type
-	 */
-	public CostPO(int money, String type) {
+	private CostType costType;
+	
+	public CostPO() {	}
+	
+
+	
+
+
+
+
+
+
+	public CostPO(String iD, MyDate startDate, MyDate endDate, int money, CostType costType) {
 		super();
+		ID = iD;
+		this.startDate = startDate;
+		this.endDate = endDate;
 		this.money = money;
-		this.type = type;
+		this.costType = costType;
 	}
+
+
+
+
+
+
+
+
+
+	public CostType getCostType() {
+		return costType;
+	}
+
+
+	public void setCostType(CostType costType) {
+		this.costType = costType;
+	}
+
+
+
+
+
+
+	public MyDate getStartDate() {
+		return startDate;
+	}
+
+
+
+	public void setStartDate(MyDate startDate) {
+		this.startDate = startDate;
+	}
+
+
+
+	public MyDate getEndDate() {
+		return endDate;
+	}
+
+
+
+	public void setEndDate(MyDate endDate) {
+		this.endDate = endDate;
+	}
+
+
+
 	public int getMoney() {
 		return money;
 	}
 	public void setMoney(int money) {
 		this.money = money;
 	}
-	public String getType() {
-		return type;
+
+
+	public String getID() {
+		return ID;
 	}
-	public void setType(String type) {
-		this.type = type;
+
+
+	public void setID(String iD) {
+		ID = iD;
 	}
+	
 }

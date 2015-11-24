@@ -40,10 +40,6 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 		return null;
 	}
 
-	public ResultMessage setAlarmValue(String value) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	public ArrayList<DocVO> getDocLists(DocType type) {
 		// TODO Auto-generated method stub
@@ -79,6 +75,17 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 	}
 
 	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public ResultMessage setAlarmValue(String value, String city) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getAlarmValue(String city) {
 		// TODO Auto-generated method stub
 		return null;
 	}

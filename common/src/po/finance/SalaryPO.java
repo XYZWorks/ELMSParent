@@ -1,5 +1,8 @@
 package po.finance;
 
+import util.CostType;
+import util.MyDate;
+
 
 
 /**
@@ -23,12 +26,14 @@ public class SalaryPO extends CostPO {
 	 */
 	private String worker;
 	
+	
+	
 	public SalaryPO() {}
 
 	
 
-	public SalaryPO(int money, String type, String worker) {
-		super(money, type);
+	public SalaryPO(String ID,MyDate startDate, MyDate endDate, int money,CostType costType, String worker) {
+		super(worker, startDate, endDate, money , costType);
 		this.worker = worker;
 	}
 

@@ -70,7 +70,7 @@ public class StoreControllerTest {
 
 	@Test
 	public void testSetAlarmValue() {
-		result = bl.setAlarmValue("90%");
+		result = bl.setAlarmValue("90%","nj");
 		if(result!=ResultMessage.SUCCESS)
 			fail("fail to set alarm value");
 
