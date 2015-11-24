@@ -55,7 +55,7 @@ public class RMIManage {
 			hostInetAddress = InetAddress.getLocalHost();
 			hostAdr = hostInetAddress.getHostAddress();
 			hostName = hostInetAddress.getHostName();
-			port = "6600";
+			port = "6500";
 
 		} catch (UnknownHostException e) {
 			e.printStackTrace();

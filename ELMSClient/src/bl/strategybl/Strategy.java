@@ -80,13 +80,32 @@ public class Strategy {
 	}
 
 	public SalaryWayVO getOneSalary(StaffType type) {
-		// TODO Auto-generated method stub
-		return null;
+		SalaryWayPO po = null;
+		SalaryWayVO vo = null;
+		try {
+			po = strategyData.getOneSalary(type);
+			System.out.println(po==null);
+			if(po!=null)
+				vo = (SalaryWayVO) VOPOchange.POtoVO(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	return vo;
 	}
 
 	public ResultMessage setSalary(SalaryWayVO way) {
-		// TODO Auto-generated method stub
-		return null;
+		SalaryWayPO po = (SalaryWayPO) VOPOchange.VOtoPO(way);
+		
+		ResultMessage resultMessage= null;
+		
+		try {
+			resultMessage = strategyData.setSalaryWay(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultMessage;
 	}
 
 }
