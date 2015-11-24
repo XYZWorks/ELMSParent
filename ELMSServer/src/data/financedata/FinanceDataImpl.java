@@ -94,11 +94,11 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 				preState = conn.prepareStatement(sql);
 				result = preState.executeQuery();
 				while (result.next()) {
-					costs.add(new FreightPO(
-							MyDate.getDate(result.getString(1)), MyDate
-									.getDate(result.getString(2)), Integer
-									.parseInt(result.getString(3)), CostType
-									.valueOf(result.getString(4))));
+					costs.add(new FreightPO(result.getString(1),
+							MyDate.getDate(result.getString(2)), MyDate
+									.getDate(result.getString(3)), Integer
+									.parseInt(result.getString(4)), CostType
+									.valueOf(result.getString(5))));
 				}
 				break;
 			case RENT:
@@ -107,10 +107,10 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 				preState = conn.prepareStatement(sql);
 				result = preState.executeQuery();
 				while (result.next()) {
-					costs.add(new RentPO(MyDate.getDate(result.getString(1)),
-							MyDate.getDate(result.getString(2)), Integer
-									.parseInt(result.getString(3)), CostType
-									.valueOf(result.getString(4))));
+					costs.add(new RentPO(result.getString(1),MyDate.getDate(result.getString(2)),
+							MyDate.getDate(result.getString(3)), Integer
+									.parseInt(result.getString(4)), CostType
+									.valueOf(result.getString(5))));
 				}
 				break;
 			case SALARY:
@@ -119,11 +119,11 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 				preState = conn.prepareStatement(sql);
 				result = preState.executeQuery();
 				while (result.next()) {
-					costs.add(new SalaryPO(MyDate.getDate(result.getString(1)),
-							MyDate.getDate(result.getString(2)), Integer
-									.parseInt(result.getString(3)), CostType
-									.valueOf(result.getString(4)), result
-									.getString(5)));
+					costs.add(new SalaryPO(result.getString(1),MyDate.getDate(result.getString(2)),
+							MyDate.getDate(result.getString(3)), Integer
+									.parseInt(result.getString(4)), CostType
+									.valueOf(result.getString(5)), result
+									.getString(6)));
 				}
 				break;
 			default:
@@ -142,17 +142,17 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 		switch (po.getCostType()) {
 		case FREIGHT:
 			FreightPO fpo = (FreightPO) po;
-			return addToSQL(frieghtTable, MyDate.toString(fpo.getStartDate()),
+			return addToSQL(frieghtTable,fpo.getID(), MyDate.toString(fpo.getStartDate()),
 					MyDate.toString(fpo.getEndDate()),
 					String.valueOf(fpo.getMoney()), fpo.getCostType().name());
 		case RENT:
 			RentPO rpo = (RentPO) po;
-			return addToSQL(rentTable, MyDate.toString(rpo.getStartDate()),
+			return addToSQL(rentTable,rpo.getID(), MyDate.toString(rpo.getStartDate()),
 					MyDate.toString(rpo.getEndDate()),
 					String.valueOf(rpo.getMoney()), rpo.getCostType().name());
 		case SALARY:
 			SalaryPO spo = (SalaryPO) po;
-			return addToSQL(salaryTable, MyDate.toString(spo.getStartDate()),
+			return addToSQL(salaryTable,spo.getID(), MyDate.toString(spo.getStartDate()),
 					MyDate.toString(spo.getEndDate()),
 					String.valueOf(spo.getMoney()), spo.getCostType().name(),
 					spo.getWorker());
@@ -166,17 +166,17 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 		switch (po.getCostType()) {
 		case FREIGHT:
 			FreightPO fpo = (FreightPO) po;
-			return modifyFromSQL(frieghtTable, MyDate.toString(fpo.getStartDate()),
+			return modifyFromSQL(frieghtTable,fpo.getID(), MyDate.toString(fpo.getStartDate()),
 					MyDate.toString(fpo.getEndDate()),
 					String.valueOf(fpo.getMoney()), fpo.getCostType().name());
 		case RENT:
 			RentPO rpo = (RentPO) po;
-			return modifyFromSQL(rentTable, MyDate.toString(rpo.getStartDate()),
+			return modifyFromSQL(rentTable, rpo.getID(),MyDate.toString(rpo.getStartDate()),
 					MyDate.toString(rpo.getEndDate()),
 					String.valueOf(rpo.getMoney()), rpo.getCostType().name());
 		case SALARY:
 			SalaryPO spo = (SalaryPO) po;
-			return modifyFromSQL(salaryTable, MyDate.toString(spo.getStartDate()),
+			return modifyFromSQL(salaryTable, spo.getID(),MyDate.toString(spo.getStartDate()),
 					MyDate.toString(spo.getEndDate()),
 					String.valueOf(spo.getMoney()), spo.getCostType().name(),
 					spo.getWorker());
