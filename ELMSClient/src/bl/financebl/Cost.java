@@ -83,7 +83,7 @@ public class Cost {
 	
 		ResultMessage result = null;
 		try {
-			result = financeData.del(vo);
+			result = financeData.del(vo.ID, vo.costType);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
