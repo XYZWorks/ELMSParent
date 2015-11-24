@@ -23,7 +23,7 @@ public class StatisticDataImpl extends DataSuperClass implements StatisticDataSe
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private final String billTable = "Bill";
+	private final String billTable = "bill";
 	
 	private final String stateFormTable = "StateForm";
 	
