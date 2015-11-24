@@ -3,6 +3,8 @@ package bl.userbl;
 import java.rmi.RemoteException;
 
 import ds.accountdataservice.AccountDataService;
+import po.account.AccountPO;
+import test.java.other.VOPOchange;
 import util.ResultMessage;
 import vo.account.AccountVO;
 
@@ -27,13 +29,31 @@ public class UserMes {
 	}
 
 	public ResultMessage modify(AccountVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		AccountPO po = (AccountPO) VOPOchange.VOtoPO(vo);
+		ResultMessage re = null;
+		try {
+			re =  accountds.modify(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		return re;
 	}
 
-	public AccountVO getMes() {
-		// TODO Auto-generated method stub
-		return null;
+	public AccountVO getMes(String ID) {
+		AccountVO vo = null ;
+		AccountPO po = null;
+		try {
+			po = accountds.getMes(ID);
+			
+			vo = (AccountVO) VOPOchange.POtoVO(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return vo;
 	}
 
 }

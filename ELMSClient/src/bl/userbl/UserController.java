@@ -9,22 +9,24 @@ import blservice.usermesblservice.UserMesblservice;
  * @version 2015年11月15日 上午9:27:39 
  */
 public class UserController implements UserMesblservice{
-
+	
+	UserMes userMes ;
+	
+	public UserController() {
+		userMes = new UserMes();
+	}
 	public ResultMessage login(AccountVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return userMes.login(vo);
 	}
 
 	public ResultMessage modify(AccountVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return userMes.modify(vo);
 	}
 
 
 
 	public AccountVO getMes(String ID) {
-		// TODO Auto-generated method stub
-		return null;
+		return userMes.getMes(ID);
 	}
 
 }

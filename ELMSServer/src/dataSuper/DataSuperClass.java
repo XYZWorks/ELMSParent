@@ -277,7 +277,10 @@ public class DataSuperClass extends UnicastRemoteObject {
 	 */
 	protected ResultMessage initialFromSQL(String tableName) {
 		try {
-			preState = conn.prepareStatement(SQLmap.get(tableName).get(5));
+			ArrayList<String> tempa = SQLmap.get(tableName);
+					String temp = tempa.get(5);
+			System.out.println(temp);
+			preState = conn.prepareStatement(temp);
 			preState.executeUpdate();
 			return ResultMessage.SUCCESS;
 		} catch (SQLException e) {

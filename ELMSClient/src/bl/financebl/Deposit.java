@@ -19,7 +19,7 @@ public class Deposit {
 	public ResultMessage create(DepositVO vo) {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	} 
 
 	public ArrayList<DepositVO> show() {
 		// TODO Auto-generated method stub

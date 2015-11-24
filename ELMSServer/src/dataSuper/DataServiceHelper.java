@@ -25,7 +25,7 @@ public class DataServiceHelper {
 		temp.add(bulidFindSQL(tableName , paras[0]));
 		temp.add(bulidUpdateSQL(tableName, num, paras));
 		//清空表内数据，用于初始化
-		temp.add("TRUNCATE TABLE " + tableName);
+		temp.add("TRUNCATE TABLE " + tableName);		
 		return temp;
 	}
 	

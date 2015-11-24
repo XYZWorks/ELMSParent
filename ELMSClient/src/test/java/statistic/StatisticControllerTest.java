@@ -43,6 +43,8 @@ public class StatisticControllerTest {
 	public void testBulidCostIncomeForm() {
 		CostIncomeVO vo = DataTool.getCostIncomeForm();
 		result = bl.bulidCostIncomeForm(vo);
+		System.out.println("---------------------------");
+		System.out.println(result);
 		if(result!=ResultMessage.SUCCESS)
 			fail("fail to build income form");
 	}
