@@ -2,9 +2,9 @@
 <erp>
 	<loginframe width = "497" height = "411" >
 		<buttons>
-			<close text = "" x1 = "455" y1 = "36" x2 = "489" y2 = "69"/>
-			<login text = "" x1 = "3" y1 = "358" x2 = "492" y2 = "411"/>
-			<checkOrder text = "" x1 = "213" y1 = "316" x2 = "285" y2 = "333"/>
+			<close text = "" x = "455" y = "36" width = "34" height = "33"/>
+			<login text = "" x = "3" y = "358" width = "489" height = "53"/>
+			<checkOrder text = "" x = "213" y = "316" width = "72" height = "17"/>
 		</buttons>
 	
 	

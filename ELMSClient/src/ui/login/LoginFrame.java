@@ -6,6 +6,9 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JOptionPane;
 
+import org.dom4j.Element;
+
+import ui.config.ParseXML;
 import ui.config.UserfulMethod;
 import ui.tools.MyButton;
 import ui.tools.MyCheckBox;
@@ -46,19 +49,23 @@ public class LoginFrame extends MyFrame{
 	
 	private LoginFrame frame;
 	
-	public LoginFrame() {
+	public LoginFrame(Element config) {
 		super(497 ,411);
 		bl = BusinessLogicDataFactory.getFactory().getUserMesBusinessLogic();
 		
 
 		mainpanel = new MyPanel("login\\bg");
 		this.setBackground(new Color(0, 0, 0, 0));
-		closeButton = new MyButton(455, 36 , 489 , 69);
-		login = new MyButton(3 ,358 , 492 , 411);
-		checkOrder = new MyButton(213 , 316, 285 , 333);
+//		closeButton = new MyButton(455, 36 , 489 , 69);
+//		login = new MyButton(3 ,358 , 492 , 411);
+//		checkOrder = new MyButton(213 , 316, 285 , 333);
 		userName = new MyTextField(179 ,185 , 353 - 179, 216 - 185);
 		rememberMe = new MyCheckBox(284,287,293,296);
 		password = new MyPasswordField(179 , 241 , 353 - 179 , 272 - 241);
+		
+		closeButton = new MyButton(config.element("buttons").element("close"));
+		login = new MyButton(config.element("buttons").element("login"));
+		checkOrder = new MyButton(config.element("buttons").element("checkOrder"));
 		
 		this.frame = this;
 		this.setContentPane(mainpanel);
@@ -79,16 +86,16 @@ public class LoginFrame extends MyFrame{
 		mainpanel.add(checkOrder);
 		mainpanel.add(login);
 		mainpanel.add(closeButton);
-//		checkOrder.setBounds(400, 450, 450, 100);
-//		mainpanel.add(checkOrder);
+		mainpanel.add(rememberMe);
+
 		
 		
 	}
 	
 	private void  addListener(){
-		login.addMouseListener(new MyLoginListener());
-		
+		login.addMouseListener(new MyLoginListener());		
 		closeButton.addMouseListener(new MyCloseListener());
+		checkOrder.addMouseListener(new MyCheckOrderListener());
 	}
 	
 class MyLoginListener extends MouseAdapter{
@@ -150,10 +157,31 @@ class MyCloseListener extends MouseAdapter{
 		
 		
 	}
+
+}
+class MyCheckOrderListener extends MouseAdapter{
+	@Override
+	 public void mouseClicked(MouseEvent e) {
+		
+		
+	}
+	
+	@Override
+   public void mouseEntered(MouseEvent e) {
+		
+		
+	}
+
+	@Override
+   public void mouseExited(MouseEvent e) {
+		
+		
+	}
 }
 
+
 public static void main(String[] args) {
-//	ParseXML xmlReader = new ParseXML("loginframe");
-	new LoginFrame();
+	ParseXML xmlReader = ParseXML.getXMLReader();
+	new LoginFrame(xmlReader.getConfig("loginframe"));
 }	
 }
