@@ -16,7 +16,7 @@ public class AXIS {
 	public static void main(String[] args) throws RemoteException {
 		
 		//启动登陆界面（在登陆界面构造函数中启动RMI服务）
-		new LoginFrame();
+		new LoginFrame(null);
 		
 	}
 }

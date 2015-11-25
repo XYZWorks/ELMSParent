@@ -6,6 +6,7 @@ import net.RMIManage;
 import ds.accountdataservice.AccountDataService;
 import po.account.AccountPO;
 import test.java.other.VOPOchange;
+import util.AccountType;
 import util.DataServiceType;
 import util.ResultMessage;
 import vo.account.AccountVO;
@@ -23,7 +24,7 @@ public class UserMes {
 		accountds = (AccountDataService)RMIManage.getDataService(DataServiceType.AccountDataService);
 	}
 	
-	public ResultMessage login(AccountVO vo) {
+	public AccountType login(AccountVO vo) {
 		try {
 			return accountds.check(vo.ID, vo.password);
 		} catch (RemoteException e) {
