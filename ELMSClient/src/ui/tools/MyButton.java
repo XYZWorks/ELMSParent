@@ -5,6 +5,8 @@ import java.awt.Graphics;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import org.dom4j.Element;
+
 /**
  * 
  * @author czq
@@ -29,5 +31,13 @@ public class MyButton extends JLabel {
 		this.setOpaque(false);
 		this.setVisible(true);
 	}
+	
+	public MyButton(Element config){
+		this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));
+		this.setText(config.attributeValue("text"));
+		this.setOpaque(false);
+		this.setVisible(true);
+	}
+	
 	
 }
