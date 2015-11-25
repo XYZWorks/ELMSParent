@@ -29,7 +29,7 @@ public class UserMes {
 			return accountds.check(vo.ID, vo.password);
 		} catch (RemoteException e) {
 			e.printStackTrace();
-			return ResultMessage.FAIL;
+			return null;
 		}
 
 	}
