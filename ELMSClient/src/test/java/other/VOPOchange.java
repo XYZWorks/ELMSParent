@@ -134,22 +134,60 @@ public class VOPOchange {
 		
 		
 		for(int i= 0 ; i<field.length;i++){
-			if(field[i].getType().toString().endsWith("ArrayList")){
+			if(field[i].getType().toString().endsWith("ArrayList")&&!field[i].getGenericType().toString().endsWith("String>")){
 				
 				Type listType = field[i].getGenericType();
-				
-				String[] spl = listType.toString().split("<");
-				String votName = spl[1].substring(0, spl[1].length()-1);
-				System.out.println(votName);
+				Object list = null;
 				
 				try {
-					Class<? extends Object> votmp = Class.forName(votName);
+					 list = field[i].get(o);
+				} catch (IllegalArgumentException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IllegalAccessException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				ArrayList<Object> volist = (ArrayList<Object>)list;
+				
+				String[] spl = listType.toString().split("<");		
+				String potName = "po"+spl[1].substring(2, spl[1].length()-3)+"PO";
+
+				Class<? extends Object> potmp = null;
+
+				try {
+					potmp = Class.forName(potName);
+
 				} catch (ClassNotFoundException e) {
+			
+					e.printStackTrace();
+				}
+				ArrayList<Object> polist = new ArrayList<Object>(volist.size());
+				for(int j =0 ; j< volist.size(); j++){
+					polist.add(potmp.cast(VOtoPO(volist.get(j))));
+				}
+				
+				Field ft = null;
+				try {
+					ft = po.getClass().getDeclaredField(field[i].getName());
+				} catch (NoSuchFieldException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SecurityException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				ft.setAccessible(true);
+				try {
+					ft.set(po, polist);
+				} catch (IllegalArgumentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
-					//TODO
 				
 				
 			}
