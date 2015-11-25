@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import util.MyDate;
 import vo.DocVO;
 import vo.order.OrderVO;
+import util.City;
 import util.DocState;
 import util.DocType;
 
@@ -23,7 +24,7 @@ public class InStoreDocVO extends DocVO {
 	/**
 	 * 目的地
 	 */
-	public String loc;
+	public City loc;
 	
 	/**
 	 * 位置信息
@@ -35,7 +36,7 @@ public class InStoreDocVO extends DocVO {
 		// TODO Auto-generated constructor stub
 	}
 	public InStoreDocVO(String iD,  MyDate date,
-			ArrayList<String> orderVOs, String loc, ArrayList<String> location) {
+			ArrayList<String> orderVOs, City loc, ArrayList<String> location) {
 		
 		//初始建单状态
 		super(iD,DocType.inStoreDoc, date, DocState.wait);

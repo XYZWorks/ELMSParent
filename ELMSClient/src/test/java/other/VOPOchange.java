@@ -3,16 +3,14 @@ package test.java.other;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-import javax.management.ObjectInstance;
-
-import po.DTManage.DriverPO;
 import po.statistic.StateFormPO;
-import vo.DTManage.DriverVO;
+import po.store.InStoreDocPO;
+import util.DocType;
 import vo.statistic.StateFormVO;
+import vo.store.InStoreDocVO;
 
 /** 
  * @author ymc 
@@ -245,10 +243,11 @@ public class VOPOchange {
 //		CostPO po = (CostPO) VOtoPO(vo);
 //		System.out.println(po.getMoney()+ " "+ po.getType());
 //		
-//		ArrayList<InStoreDocVO> vo2 = (ArrayList<InStoreDocVO>)DataTool.getDocList(DocType.inStoreDoc);
-//		InStoreDocPO po2 = (InStoreDocPO)VOtoPO(vo2.get(0));
-//		System.out.println(po2.getID()+" "+po2.getLoc()+" "+po2.getLocation()+" "+ po2.getDate());
-//
+		ArrayList<InStoreDocVO> vo2 = (ArrayList<InStoreDocVO>)DataTool.getDocList(DocType.inStoreDoc);
+		InStoreDocPO po2 = (InStoreDocPO)VOtoPO(vo2.get(0));
+		System.out.println(po2.getID()+" "+po2.getLoc()+" "+ po2.getOrders()+" "+po2.getLocation()+" "+ po2.getDate());
+
+		
 //		
 //		AccountVO voa= DataTool.getAccountVO();
 //		AccountPO poa = (AccountPO) VOtoPO(voa);
@@ -264,9 +263,9 @@ public class VOPOchange {
 //		DriverPO po1 = (DriverPO) VOtoPO(vo1);
 //		System.out.println(po1.getID()+" "+po1.getIDcard()+" "+po1.getLicenseYear()+" "+po1.getName());
 		
-		StateFormVO vo = DataTool.getStateForm();
-		StateFormPO po = (StateFormPO) VOtoPO(vo);
-		System.out.println(po.getEndDate()+ " "+po.getPays());
+//		StateFormVO vo = DataTool.getStateForm();
+//		StateFormPO po = (StateFormPO) VOtoPO(vo);
+//		System.out.println(po.getEndDate()+ " "+po.getPays());
 		
 
 	}

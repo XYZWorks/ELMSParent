@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import util.MyDate;
 import vo.DocVO;
 import vo.order.OrderVO;
+import util.City;
 import util.DocState;
 import util.DocType;
 
@@ -21,7 +22,7 @@ public class OutStoreDocVO extends DocVO{
 	/**
 	 * 目的地
 	 */
-	public String loc;
+	public City loc;
 	/**
 	 * 时间
 	 */
@@ -47,7 +48,7 @@ public class OutStoreDocVO extends DocVO{
 	 * @param transferDoc
 	 * @param shipWay
 	 */
-	public OutStoreDocVO(String ID,MyDate time, ArrayList<String> orderVOs, String loc, String transferDoc, String shipWay) {
+	public OutStoreDocVO(String ID,MyDate time, ArrayList<String> orderVOs, City loc, String transferDoc, String shipWay) {
 		//
 		super(ID, DocType.outStoreDoc, time, DocState.wait);
 		

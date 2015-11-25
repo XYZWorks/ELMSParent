@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import util.MyDate;
 import util.AccountType;
+import util.City;
 import util.CostType;
 import util.DocType;
 import util.GoodsState;
@@ -112,8 +113,8 @@ public class DataTool {
 			al.add(new LoadDocVO("ZCD1511140000001", d4, "02504", "02501511120000006", "南京", "009", null, null));
 			break;
 		case inStoreDoc:
-			al.add(new InStoreDocVO("RKD1511120000001", d2, orderID, "南京", locs));
-			al.add(new InStoreDocVO("RKD1511150000001", d5, orderID, "上海", locs));
+			al.add(new InStoreDocVO("RKD1511120000001", d2, orderID, City.NANJING, locs));
+			al.add(new InStoreDocVO("RKD1511150000001", d5, orderID, City.GUANGZHOU, locs));
 			break;
 		case order:
 			for (int i = 0; i < orders.size(); i++) {
@@ -121,9 +122,9 @@ public class DataTool {
 			}
 			break;
 		case outStoreDoc:
-			al.add(new OutStoreDocVO("CKD1511120000001", d2, orderID, "南京","ZZD1511120000001","flight"));
-			al.add(new OutStoreDocVO("CKD1511120000002", d2, orderID, "上海","ZZD1511120000002","flight"));
-			al.add(new OutStoreDocVO("CKD1511140000001", d4, orderID, "南京","ZZD1511140000001","train"));
+			al.add(new OutStoreDocVO("CKD1511120000001", d2, orderID, City.BEIJING,"ZZD1511120000001","flight"));
+			al.add(new OutStoreDocVO("CKD1511120000002", d2, orderID, City.GUANGZHOU,"ZZD1511120000002","flight"));
+			al.add(new OutStoreDocVO("CKD1511140000001", d4, orderID, City.SHANGHAI,"ZZD1511140000001","train"));
 			break;
 		case sendGoodDoc:
 			al.add(new SendGoodDocVO("PSD1511120000001", d2, "moxigan","3213640812"));
