@@ -3,6 +3,9 @@ package po.statistic;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import po.DTManage.CarPO;
+import po.personnel.InstPO;
+import po.personnel.PersonPO;
 import util.MyDate;
 
 /**
@@ -34,20 +37,21 @@ public class BillPO implements Serializable{
 	/**
 	 * 机构列表
 	 */
-	 private ArrayList<String> instituations;
+	 private ArrayList<InstPO> instituations;
 	
 	 /**
 	  * 人员信息列表
 	  */
-	 private ArrayList<String> persons;
+	 private ArrayList<PersonPO> persons;
 	 
 	 /**
 	  * 车辆信息列表
 	  */
-	 private ArrayList<String> cars;
+	 private ArrayList<CarPO> cars;
 
-	public BillPO(String finaceman, MyDate date, ArrayList<String> instituations,
-			ArrayList<String> persons, ArrayList<String> cars) {
+	public BillPO(String finaceman, MyDate date,
+			ArrayList<InstPO> instituations, ArrayList<PersonPO> persons,
+			ArrayList<CarPO> cars) {
 		super();
 		this.finaceman = finaceman;
 		this.date = date;
@@ -64,17 +68,18 @@ public class BillPO implements Serializable{
 		return date;
 	}
 
-	public ArrayList<String> getInstituations() {
+	public ArrayList<InstPO> getInstituations() {
 		return instituations;
 	}
 
-	public ArrayList<String> getPersons() {
+	public ArrayList<PersonPO> getPersons() {
 		return persons;
 	}
 
-	public ArrayList<String> getCars() {
+	public ArrayList<CarPO> getCars() {
 		return cars;
 	}
+
 	 
 	 
 	 
