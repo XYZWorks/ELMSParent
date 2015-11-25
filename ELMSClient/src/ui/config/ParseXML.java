@@ -16,32 +16,30 @@ public class ParseXML {
 
 	
 	private Element root;
-
-	private String xmlPath=  "docs\\UIConfig.xml";
 	
-	private static ParseXML XMLReader;
+	private String pres = "docs\\";
+	
+	private String xmlPath=  "UIConfig.xml";
+	
+	
 	
 	private SAXReader reader;
 	
 	private Document doc;
 
-	private ParseXML() {
+	public ParseXML() {
 		init(xmlPath);
 	}
 	
-	public static ParseXML getXMLReader(){
-		if(XMLReader==null){
-			XMLReader = new ParseXML();
-		}
-		
-		return XMLReader;
+	public ParseXML(String xmlPath) {
+		init(xmlPath);
 	}
 	
 	private void init(String xmlPath){
 		
 		try {
 			 reader = new SAXReader();
-			 doc = reader.read(new File(xmlPath));
+			 doc = reader.read(new File(pres + xmlPath));
 			 root = doc.getRootElement();
 			
 			
@@ -54,5 +52,13 @@ public class ParseXML {
 	
 	public Element getConfig(String node){
 		return root.element(node);
+	}
+	
+	/**
+	 * 获得根节点
+	 * @return
+	 */
+	public Element getRoot(){
+		return root;
 	}
 }

@@ -12,7 +12,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import ui.config.GraphicsUtils;
-
+/**
+ * 
+ * @author xingcheng
+ *
+ */
 public class InitalPanel extends JPanel{
 	private Exit exit=new Exit();
 	private Min min=new Min();

@@ -11,6 +11,7 @@ import org.dom4j.Element;
 
 import ui.config.ParseXML;
 import ui.config.UserfulMethod;
+import ui.mainui.mainFrame;
 import ui.tools.MyButton;
 import ui.tools.MyCheckBox;
 import ui.tools.MyFrame;
@@ -18,6 +19,7 @@ import ui.tools.MyOptionPane;
 import ui.tools.MyPanel;
 import ui.tools.MyPasswordField;
 import ui.tools.MyTextField;
+import util.AccountType;
 import util.FormatMes;
 import util.ResultMessage;
 import vo.account.AccountVO;
@@ -32,7 +34,7 @@ import blservice.usermesblservice.UserMesblservice;
 @SuppressWarnings("serial")
 public class LoginFrame extends MyFrame{
 	
-	private MyPanel mainpanel;
+	private LoginPanel mainpanel;
 	
 	private MyButton closeButton;
 	
@@ -50,30 +52,21 @@ public class LoginFrame extends MyFrame{
 	
 	private LoginFrame frame;
 	
+	private Element config;
+	
 	public LoginFrame(Element config) {
 		super(config);
+		this.config = config;
 		bl = BusinessLogicDataFactory.getFactory().getUserMesBusinessLogic();
-		
-
-		mainpanel = new MyPanel("login\\bg");
+		mainpanel = new LoginPanel();
 		this.setBackground(new Color(0, 0, 0, 0));
-//		closeButton = new MyButton(455, 36 , 489 , 69);
-//		login = new MyButton(3 ,358 , 492 , 411);
-//		checkOrder = new MyButton(213 , 316, 285 , 333);
-		userName = new MyTextField(179 ,185 , 353 - 179, 216 - 185);
-		rememberMe = new MyCheckBox(284,287,293,296);
-		password = new MyPasswordField(179 , 241 , 353 - 179 , 272 - 241);
-		
-		closeButton = new MyButton(config.element("buttons").element("close"));
-		login = new MyButton(config.element("buttons").element("login"));
-		checkOrder = new MyButton(config.element("buttons").element("checkOrder"));
-//		rememberMe = new MyCheckBox(config.element("checkboxes").element("remember"));
-//		userName = new 
+
 		initButtons(config.element("buttons"));
-		
+		initOtherCom(config);
+		config.attributeValue("width");
 		this.frame = this;
 		this.setContentPane(mainpanel);
-		setLocation();
+		addCom();
 		addListener();
 		
 		this.validate();
@@ -83,11 +76,27 @@ public class LoginFrame extends MyFrame{
 	}
 	
 	private void initButtons(Element config){
-		
+		login = new MyButton(config.element("login"));
+		checkOrder = new MyButton(config.element("checkOrder"));
 		closeButton = new MyButton(config.element("close"));
 	}
 	
-	private void setLocation(){
+	private void initCheckBox(Element config){
+		
+	}
+	
+	private void initTextField(Element config){
+		
+		
+	}
+	
+	private void initOtherCom(Element config){
+		userName = new MyTextField(179 ,185 , 353 - 179, 216 - 185);
+		rememberMe = new MyCheckBox(284,287,293,296);
+		password = new MyPasswordField(179 , 241 , 353 - 179 , 272 - 241);
+	}
+	
+	private void addCom(){
 		
 		mainpanel.setLayout(null);
 		mainpanel.add(userName);
@@ -107,13 +116,26 @@ public class LoginFrame extends MyFrame{
 		checkOrder.addMouseListener(new MyCheckOrderListener());
 		
 	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 class MyLoginListener extends MouseAdapter{
 	@Override
 	 public void mouseClicked(MouseEvent e) {
+//		mainpanel.bg
+		mainpanel.changeBG(6);
+		
 		String id = userName.getText();
 		String passwords = new String(password.getPassword());
-		ResultMessage result;
+		AccountType result;
 		FormatMes format;
 		format = UserfulMethod.checkID(id);
 		if(format == FormatMes.ILEGAL_CHAR){
@@ -126,24 +148,24 @@ class MyLoginListener extends MouseAdapter{
 			
 		}
 		 result= bl.login(new AccountVO(id, passwords, null));
-		if( result== ResultMessage.SUCCESS){
-			//TODO 
-			System.out.println("登录成功！");
-		}else{
+		if( result== null){
 			new MyOptionPane(frame, "用户名或密码错误，请您重新输入");
+		}else{
+			System.out.println("登录成功，用户类型为 " + result.name());
+			new mainFrame(config.getParent() , result);
 		}
 		
 	}
 	
 	@Override
    public void mouseEntered(MouseEvent e) {
-		
+		mainpanel.changeBG(5);
 		
 	}
 
 	@Override
    public void mouseExited(MouseEvent e) {
-		
+		mainpanel.changeBG(0);
 		
 	}
 }
@@ -153,12 +175,12 @@ class MyCloseListener extends MouseAdapter{
 	 public void mouseClicked(MouseEvent e) {
 		frame.dispose();
 		System.exit(0);
-		
+		mainpanel.changeBG(4);
 	}
 	
 	@Override
     public void mouseEntered(MouseEvent e) {
-		
+		mainpanel.changeBG(5);
 		
 	}
 
@@ -191,7 +213,7 @@ class MyCheckOrderListener extends MouseAdapter{
 
 
 public static void main(String[] args) {
-	ParseXML xmlReader = ParseXML.getXMLReader();
+	ParseXML xmlReader = new ParseXML();
 	new LoginFrame(xmlReader.getConfig("loginframe"));
 }	
 }

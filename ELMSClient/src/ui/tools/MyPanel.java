@@ -1,37 +1,42 @@
 package ui.tools;
 
-import java.awt.Graphics;
-import java.awt.Image;
-
 import javax.swing.JPanel;
 
-import ui.config.GraphicsUtils;
+import org.dom4j.Element;
  /** 
- * 有背景图的panel
+ * panel 父类
  * @author czq 
  * @version 2015年11月22日 下午8:25:12 
  */
 @SuppressWarnings("serial")
-public class MyPanel extends JPanel{
+public abstract class MyPanel extends JPanel{
 	
-	Image bg;
-	
-	
-	
-	public MyPanel(String picture) {
-		bg = GraphicsUtils.getImage(picture);
+	public MyPanel() {
 		
-		repaint();
 	}
 	
-	@Override
-	public void paintComponent(Graphics g)  
-	{  
-	   
-	    g.drawImage(bg, 0,0, null);
-	    
-//	    g.drawim
-	   
-	} 
+	/**
+	 * 初始化按钮
+	 */
+	protected abstract void initButtons(Element e);
+	/**
+	 * 初始化文本域
+	 */
+	protected abstract void initTextFields(Element e);
+	/**
+	 * 初始化标签
+	 */
+	protected abstract void initLables(Element e);
 	
+	protected abstract void initOtherCompoment(Element e);
+	/**
+	 * 初始化其他组件
+	 */
+	protected abstract void addCompoment();
+	
+	/**
+	 * 增加监听（内部类机制）
+	 */
+	protected abstract void addListener();
+
 }

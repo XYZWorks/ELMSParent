@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<erp>
+<ELMS width = "1080" height = "720">
 	<loginframe width = "497" height = "411" >
 		<buttons>
 			<close text = "" x = "455" y = "36" width = "34" height = "33"/>
@@ -28,4 +28,4 @@
 
 
 
-</erp>
+</ELMS>
