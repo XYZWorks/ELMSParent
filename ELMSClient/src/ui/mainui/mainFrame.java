@@ -9,7 +9,7 @@ import ui.tools.MyPanel;
 import util.AccountType;
 
 /**
- * 主界面
+ * 构建
  * 
  * @author czq 10-19
  */
@@ -27,7 +27,7 @@ public class mainFrame extends MyFrame {
 	public mainFrame(Element e , AccountType type) {
 		super(e);
 
-		InitalPanel initalPanel = new InitalPanel();
+		//InitalPanel initalPanel = new InitalPanel();
 
 		this.setContentPane(initalPanel);
 

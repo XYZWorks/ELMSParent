@@ -1,4 +1,5 @@
 package AXIS.ELMSParent;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -10,8 +11,10 @@ import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 /**
  * 数代码工具
+ * 
  * @author czq
  *
  */
@@ -43,7 +46,7 @@ class CountLines {
 	}
 
 	int codeSum = 0;
-	
+
 	int blankSum = 0;
 
 	int commentSum = 0;

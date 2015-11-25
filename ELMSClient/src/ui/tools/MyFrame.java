@@ -21,6 +21,8 @@ public class MyFrame extends JFrame{
 		this.setResizable(false);
 		//居中放置
 		this.setLocationRelativeTo(null);
+		
+		
 	}
 	
 	//TODO 实现拖动界面
