@@ -17,4 +17,13 @@ public class MyPasswordField extends JPasswordField{
 		this.setVisible(true);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public MyPasswordField(int x , int y , int width , int height) {
+		this.setBounds(x, y , width , height);
+		this.setForeground(Color.black);
+		
+		this.setVisible(true);
+		// TODO Auto-generated constructor stub
+	}
+	
 }

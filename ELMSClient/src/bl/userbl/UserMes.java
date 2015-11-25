@@ -2,9 +2,11 @@ package bl.userbl;
 
 import java.rmi.RemoteException;
 
+import net.RMIManage;
 import ds.accountdataservice.AccountDataService;
 import po.account.AccountPO;
 import test.java.other.VOPOchange;
+import util.DataServiceType;
 import util.ResultMessage;
 import vo.account.AccountVO;
 
@@ -16,7 +18,11 @@ import vo.account.AccountVO;
 
 public class UserMes {
 	AccountDataService accountds;
-
+	
+	public UserMes() {
+		accountds = (AccountDataService)RMIManage.getDataService(DataServiceType.AccountDataService);
+	}
+	
 	public ResultMessage login(AccountVO vo) {
 		try {
 			return accountds.check(vo.ID, vo.password);

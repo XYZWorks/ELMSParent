@@ -1,1 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<erp>
+	<loginframe width = "497" height = "411" >
+		<buttons>
+			<close text = "" x1 = "455" y1 = "36" x2 = "489" y2 = "69"/>
+			<login text = "" x1 = "3" y1 = "358" x2 = "492" y2 = "411"/>
+			<checkOrder text = "" x1 = "213" y1 = "316" x2 = "285" y2 = "333"/>
+		</buttons>
+	
+	
+	
+	
+	</loginframe>
+
+
+
+
+</erp>

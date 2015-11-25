@@ -21,6 +21,12 @@ public class MyTextField extends JTextField {
 		this.setVisible(true);
 		
 	}
+
+	public MyTextField(int x, int y, int width, int height) {
+		this.setBounds(x, y, width, height);
+		this.setForeground(Color.BLACK);
+		this.setVisible(true);
+	}
 	
 	
 }

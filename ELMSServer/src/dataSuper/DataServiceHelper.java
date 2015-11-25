@@ -182,9 +182,7 @@ public class DataServiceHelper {
 		} catch (FileNotFoundException e) {
 			return null;
 		} catch (IOException e) {
-			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		}
 		return null;
 	}

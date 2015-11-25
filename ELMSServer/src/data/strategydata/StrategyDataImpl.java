@@ -41,7 +41,7 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 	
 	//const 暂时用序列化实现
 	public ConstPO getConst() throws RemoteException {
-		return (ConstPO)helper.readFromSerFile("const");
+		return (ConstPO)helper.readFromSerFile("Const");
 	}
 
 	public ResultMessage setConst(ConstPO po) throws RemoteException {
