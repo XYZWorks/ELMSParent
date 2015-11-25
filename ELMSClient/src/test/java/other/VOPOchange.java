@@ -107,7 +107,7 @@ public class VOPOchange {
 				}
 				ft.setAccessible(true);
 				try {
-					ft.set(vo, polist);
+					ft.set(vo, volist);
 				} catch (IllegalArgumentException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
