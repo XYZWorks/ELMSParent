@@ -82,8 +82,9 @@ public class StatisticDataImpl extends DataSuperClass implements StatisticDataSe
 	}
 
 	public ResultMessage bulidBill(BillPO po) throws RemoteException {
-		
-		return addToSQL(billTable, po.getFinaceman() , MyDate.toString(po.getDate()) , helper.tranFromArrayToString(po.getInstituations()) , helper.tranFromArrayToString(po.getPersons()) , helper.tranFromArrayToString(po.getCars()));
+		return null;
+		//TODO
+//		return addToSQL(billTable, po.getFinaceman() , MyDate.toString(po.getDate()) , helper.tranFromArrayToString(po.getInstituations()) , helper.tranFromArrayToString(po.getPersons()) , helper.tranFromArrayToString(po.getCars()));
 	}
 
 	public ArrayList<BillPO> getBills() throws RemoteException {
@@ -92,9 +93,9 @@ public class StatisticDataImpl extends DataSuperClass implements StatisticDataSe
 			sql = "SELECT * FROM "+ billTable;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
-			while(result.next()){
-				pos.add(new BillPO(result.getString(1), MyDate.getDate(result.getString(2)), helper.tranFromStringToArrayList(result.getString(3)), helper.tranFromStringToArrayList(result.getString(4)), helper.tranFromStringToArrayList(result.getString(5))));
-			}
+//			while(result.next()){
+//				pos.add(new BillPO(result.getString(1), MyDate.getDate(result.getString(2)), helper.tranFromStringToArrayList(result.getString(3)), helper.tranFromStringToArrayList(result.getString(4)), helper.tranFromStringToArrayList(result.getString(5))));
+//			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -104,5 +105,9 @@ public class StatisticDataImpl extends DataSuperClass implements StatisticDataSe
 			return pos;
 		}
 	}
-
+	
+	private ArrayList<String> changeToStringArray(){
+		return null;
+	}
+	
 }

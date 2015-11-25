@@ -3,6 +3,7 @@ package ds.accountdataservice;
 import java.rmi.RemoteException;
 
 import po.account.AccountPO;
+import util.AccountType;
 import util.ResultMessage;
 import ds.DataserviceParent;
 /**
@@ -42,7 +43,7 @@ public interface AccountDataService extends DataserviceParent{
 	 * @param password
 	 * @return
 	 */
-	public ResultMessage check(String ID , String password) throws RemoteException;
+	public AccountType check(String ID , String password) throws RemoteException;
 	/**
 	 * 查看个人账户信息（用于用户修改个人信息界面）
 	 * @param ID
