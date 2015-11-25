@@ -65,7 +65,7 @@ public class DataSuperClass extends UnicastRemoteObject {
 		SQLmap.put("car",helper.bulidSQL("car", 3, "id" , "plateNum" , "useYear") );
 		SQLmap.put("driver", helper.bulidSQL("driver", 8, "id", "name" , "birthday" ,  "instid" ,"idCard" , "phoneNum" , "isman" , "licenseYear" ));
 		SQLmap.put("myorder", helper.bulidSQL("myorder" , 29 , "id" , "type" , "date" , "state" , "senderName" , "senderPhone" ,"senderCompany" , "senderAddress" , "receiverName" , "receiverPhone" , "receiverCompany" , "receiverAddress" , "goodNum" , "goodName" , "goodWeight" , "goodLong" , "goodWidth" , "goodHeight" , "goodPack" , "orderForm" , "orderEestiTime" , "orderCost" , "loadDoc" , "arriveZZDoc" , "transferDoc" ,"arriveYYDoc" , "sendGoodDoc" ,"realReceiver" ,"orderReceiveDate"));
-		SQLmap.put("salary", helper.bulidSQL("salary", 4, "type" , "basicMoney" , "moreMoney" , "way"));
+		SQLmap.put("salary", helper.bulidSQL("salary", 4, "type" , "basicSalary" , "moreMoney" , "way"));
 		SQLmap.put("LoadDoc", helper.bulidSQL("LoadDoc", 10 , "id", "type" , "date" , "state", "YYID" , "LoadDocID" ,"arriveCity" ,"carID" ,"Supervisor" ,"Escort"));
 		SQLmap.put("SendGoodDoc", helper.bulidSQL("SendGoodDoc", 6,  "id", "type" , "date" , "state", "sendMan" , "orderBarCode"));
 		SQLmap.put("TransferDoc", helper.bulidSQL("TransferDoc", 9, "id", "type" , "date" , "state", "TransferWayID" ,"sendCity" ,"containerNum" ,"loadManName" ,"orderBarCode"));
@@ -252,7 +252,7 @@ public class DataSuperClass extends UnicastRemoteObject {
 		
 		try {
 			int paralen = Integer.parseInt(SQLmap.get(tableName).get(0));
-			preState = conn.prepareStatement(SQLmap.get(tableName).get(4) + newParas[0]);
+			preState = conn.prepareStatement(SQLmap.get(tableName).get(4) +"\"" + newParas[0]  +"\"");
 			for (int i = 0; i < paralen - 1; i++) {
 				preState.setString(i + 1, newParas[i + 1]);
 			}

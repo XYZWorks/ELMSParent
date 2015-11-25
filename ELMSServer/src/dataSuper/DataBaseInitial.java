@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-import config.UserfulMethod;
+
  /** 
  * 
  * @author czq 
@@ -13,18 +13,18 @@ import config.UserfulMethod;
  */
 public class DataBaseInitial {
 	
-	public static void main(String[] args) throws SQLException {
-		readFromSQLFile();
-	}
-	
-	public static boolean readFromSQLFile() throws SQLException{
-		List<String> sqls =  UserfulMethod.getDocument("elmssql.sql");
-		Connection conn = DataBaseInit.getConnection();
-		PreparedStatement pre;
-		for(String temp : sqls){
-			pre = conn.prepareStatement(temp);
-			pre.execute();
-		}
-		return true;
-	}
+//	public static void main(String[] args) throws SQLException {
+//		readFromSQLFile();
+//	}
+//	
+//	public static boolean readFromSQLFile() throws SQLException{
+//		List<String> sqls =  UserfulMethod.getDocument("elmssql.sql"); 
+//		Connection conn = DataBaseInit.getConnection();
+//		PreparedStatement pre;
+//		for(String temp : sqls){
+//			pre = conn.prepareStatement(temp);
+//			pre.execute();
+//		}
+//		return true;
+//	}
 }

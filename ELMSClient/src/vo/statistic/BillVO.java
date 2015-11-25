@@ -2,10 +2,10 @@ package vo.statistic;
 
 import java.util.ArrayList;
 
-import po.DTManage.CarPO;
-import po.personnel.InstPO;
-import po.personnel.PersonPO;
 import util.MyDate;
+import vo.DTManage.CarVO;
+import vo.personnel.InstVO;
+import vo.personnel.PersonVO;
 
 /**
  * 期初建账账单VO类
@@ -27,17 +27,17 @@ public class BillVO {
 	/**
 	 * 机构列表
 	 */
-	public ArrayList<InstPO> instituations;
+	public ArrayList<InstVO> instituations;
 	
 	 /**
 	  * 人员信息列表
 	  */
-	public ArrayList<PersonPO> persons;
+	public ArrayList<PersonVO> persons;
 	 
 	 /**
 	  * 车辆信息列表
 	  */
-	public ArrayList<CarPO> cars;
+	public ArrayList<CarVO> cars;
 	
 	public BillVO() {
 		// TODO Auto-generated constructor stub

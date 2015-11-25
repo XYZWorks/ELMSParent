@@ -35,7 +35,7 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 		addToSQL(salaryTable, "saleman" , "0" , "0" , "byMonth");
 		addToSQL(salaryTable, "storeman" , "0" , "0" , "byMonth");
 		addToSQL(salaryTable, "storemanager" , "0" , "0" , "byMonth");
-		addToSQL(salaryTable, "driver" , "0" , "0" , "byMonth");
+		addToSQL(salaryTable, "driver" , "0" , "0" , "byMonth");  
 		//TODO const 未初始化
 	}
 	
@@ -56,10 +56,11 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 		ArrayList<SalaryWayPO> pos = new ArrayList<SalaryWayPO>();
 		
 		try {
-			sql = "SELECT * from " + salaryTable;
+			sql = "SELECT * FROM " + salaryTable  ;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while(result.next()){
+				System.out.println("-----------------");
 				pos.add(new SalaryWayPO(StaffType.getType(result.getString(1)), Integer.parseInt(result.getString(2)), Integer.parseInt(result.getString(3)), WageStrategy.valueOf(result.getString(4))));
 			}
 		} catch (SQLException e) {

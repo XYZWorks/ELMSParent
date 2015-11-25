@@ -69,6 +69,7 @@ public class Strategy {
 		try {
 			pos = strategyData.getSalary();
 			if(pos!=null)
+				vos = new ArrayList<SalaryWayVO>(pos.size());
 				for(SalaryWayPO po : pos){
 					vos.add((SalaryWayVO)VOPOchange.POtoVO(po));
 				}

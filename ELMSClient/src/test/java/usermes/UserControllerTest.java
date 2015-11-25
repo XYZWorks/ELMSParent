@@ -33,7 +33,9 @@ public class UserControllerTest {
 	@Test
 	public void testLogin() {
 		result = bl.login(new AccountVO("0001", "123456", AccountType.courier));
+		System.out.println(result);
 		if (result != ResultMessage.SUCCESS) {
+			
 			fail("Not yet implemented");
 		} else {
 			if (ac.find("0001") == null) {

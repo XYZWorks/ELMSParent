@@ -2,9 +2,12 @@ package bl.storebl;
 
 import java.util.ArrayList;
 
+import blservice.approvalblservice.Approvalblservice;
 import blservice.orderblservice.Orderblservice;
 import blservice.storeblservice.InStoreDocService;
 import ds.storedataservice.StoreDataService;
+import net.RMIManage;
+import util.DataServiceType;
 import util.DocState;
 import util.DocType;
 import util.ResultMessage;
@@ -19,11 +22,15 @@ import vo.store.InStoreDocVO;
 public class InStoreDocImpl implements InStoreDocService {
 	
 	StoreDataService storeData;
-	
+	Approvalblservice approvalbl;
 	Orderblservice orderbl;
 	
+	public InStoreDocImpl() {
+		
+		storeData = (StoreDataService) RMIManage.getDataService(DataServiceType.StoreDataService);
+	}
 	public ArrayList<InStoreDocVO> show() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

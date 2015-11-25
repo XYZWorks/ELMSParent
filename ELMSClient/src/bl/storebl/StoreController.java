@@ -19,7 +19,16 @@ import blservice.storeblservice.StoreblService;
  * @version 2015年11月15日 上午9:25:23 
  */
 public class StoreController implements StoreblService , InStoreDocService , OutStoreDocService{
-
+	
+	Store store;
+	
+	InStoreDocImpl inStoreDocImpl;
+	
+	OutStoreDocImpl outStoreDocImpl;
+	
+	public StoreController() {
+		// TODO Auto-generated constructor stub
+	}
 	public ArrayList<StoreMessageVO> show() {
 		// TODO Auto-generated method stub
 		return null;
