@@ -59,7 +59,7 @@ public class AccountDataServiceImpl extends DataSuperClass implements
 	public AccountType check(String ID, String password)
 			throws RemoteException {
 		try {
-			sql = "SELECT `id`,`password` FROM "  + tableName ;
+			sql = "SELECT `id`,`password`,`type` FROM "  + tableName ;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {
