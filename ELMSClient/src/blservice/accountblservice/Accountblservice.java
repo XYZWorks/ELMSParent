@@ -6,7 +6,7 @@
 package blservice.accountblservice;
 
 import util.ResultMessage;
-import vo.AccountVO;
+import vo.account.AccountVO;
 
 public interface Accountblservice {
 	/**

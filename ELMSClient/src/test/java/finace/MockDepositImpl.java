@@ -1,4 +1,4 @@
-package finace;
+package test.java.finace;
 
 import bl.financebl.Deposit;
 

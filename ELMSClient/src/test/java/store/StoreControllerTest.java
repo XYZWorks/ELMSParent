@@ -1,4 +1,4 @@
-package store;
+package test.java.store;
 
 import static org.junit.Assert.fail;
 
@@ -7,14 +7,15 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import other.DataTool;
+import test.java.other.DataTool;
+import util.DocState;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
-import vo.InStoreDocVO;
-import vo.OutStoreDocVO;
-import vo.StoreCheckVO;
-import vo.StoreMessageVO;
+import vo.store.InStoreDocVO;
+import vo.store.OutStoreDocVO;
+import vo.store.StoreCheckVO;
+import vo.store.StoreMessageVO;
 import bl.storebl.StoreController;
 import blservice.storeblservice.InStoreDocService;
 import blservice.storeblservice.OutStoreDocService;
@@ -63,14 +64,13 @@ public class StoreControllerTest {
 
 	@Test
 	public void testUpdate() {
-		result = bl.update(new StoreMessageVO("上海", 10, null,null));
 		if(result!=ResultMessage.SUCCESS)
 			fail("fail to update");
 	}
 
 	@Test
 	public void testSetAlarmValue() {
-		result = bl.setAlarmValue("90%");
+		result = bl.setAlarmValue("90%","nj");
 		if(result!=ResultMessage.SUCCESS)
 			fail("fail to set alarm value");
 
@@ -90,7 +90,7 @@ public class StoreControllerTest {
 		ArrayList<String> ids=null;
 		for(DocVO vo:vos)
 			ids.add(vo.ID);
-		result = in.changeDocsState(ids);
+		result = in.changeDocsState(ids, DocType.inStoreDoc, DocState.pass);
 		if(result!=ResultMessage.SUCCESS)
 			fail("Not change states");	
 	}
@@ -102,7 +102,7 @@ public class StoreControllerTest {
 		
 		String id=vos.get(0).ID;
 		
-		result = in.changeOneDocState(id);
+		result = in.changeOneDocState(id, DocType.inStoreDoc, DocState.pass);
 		
 		if(result!=ResultMessage.SUCCESS)
 			fail("Not change states");		}

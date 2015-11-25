@@ -16,8 +16,9 @@ import java.awt.GridLayout;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+import util.AccountType;
 import util.ResultMessage;
-import vo.AccountVO;
+import vo.account.AccountVO;
 import bl.userbl.UserController;
 import bl.userbl.UserMes;
 import blservice.accountblservice.AccountblService_Stub;
@@ -59,11 +60,11 @@ public class AddOrder extends JFrame {
 	 */
 	public AddOrder() {
 		setTitle("LogIn\r\n");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(0	, 0, 200, 200));
-		setContentPane(contentPane);
+		this.setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -92,7 +93,7 @@ public class AddOrder extends JFrame {
 				String key = new String(passwordField_1.getPassword());
 				
 				UserMesblservice bl = new UserController();
-				change(bl.login(new AccountVO(account,key))) ;
+				change(bl.login(new AccountVO(account,key,AccountType.courier))) ;
 				
 				
 				

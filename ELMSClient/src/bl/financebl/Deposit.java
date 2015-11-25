@@ -6,7 +6,7 @@ import blservice.financeblservice.DepositService;
 import blservice.orderblservice.Orderblservice;
 import ds.financedataservice.FinanceDataService;
 import util.ResultMessage;
-import vo.DepositVO;
+import vo.finance.DepositVO;
 
 /** 
  * @author ymc 
@@ -19,7 +19,7 @@ public class Deposit {
 	public ResultMessage create(DepositVO vo) {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	} 
 
 	public ArrayList<DepositVO> show() {
 		// TODO Auto-generated method stub

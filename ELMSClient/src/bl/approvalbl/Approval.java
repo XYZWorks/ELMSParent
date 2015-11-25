@@ -15,9 +15,8 @@ import blservice.transportblservice.Transportblservice;
  *
  */
 public class Approval {
-	Transportblservice transportbl;
-	Orderblservice orderbl;
-	StoreblService storebl;
+	
+	
 	public ArrayList<DocVO> getBills(DocType type) {
 		// TODO Auto-generated method stub
 		return null;

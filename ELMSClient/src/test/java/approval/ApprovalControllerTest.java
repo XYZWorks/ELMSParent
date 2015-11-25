@@ -1,4 +1,4 @@
-package approval;
+package test.java.approval;
 
 import static org.junit.Assert.fail;
 
@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import util.DocType;
 import util.ResultMessage;
-import vo.ArriveYYDocVO;
+import vo.transport.ArriveYYDocVO;
 import bl.approvalbl.ApprovalController;
 import blservice.approvalblservice.Approvalblservice;
 

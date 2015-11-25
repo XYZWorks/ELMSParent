@@ -1,12 +1,13 @@
-package usermes;
+package test.java.usermes;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import util.AccountType;
 import util.ResultMessage;
-import vo.AccountVO;
+import vo.account.AccountVO;
 import bl.accountbl.AccountController;
 import bl.userbl.UserController;
 import blservice.usermesblservice.UserMesblservice;
@@ -31,7 +32,7 @@ public class UserControllerTest {
 
 	@Test
 	public void testLogin() {
-		result = bl.login(new AccountVO("0001", "123456"));
+		result = bl.login(new AccountVO("0001", "123456", AccountType.courier));
 		if (result != ResultMessage.SUCCESS) {
 			fail("Not yet implemented");
 		} else {
@@ -45,7 +46,7 @@ public class UserControllerTest {
 
 	@Test
 	public void testModify() {
-		result = bl.modify(new AccountVO("0001", "123456"));
+		result = bl.modify(new AccountVO("0001", "123456", AccountType.courier));
 		if (result != ResultMessage.SUCCESS) {
 			fail("Not yet implemented");
 		} else {
@@ -55,12 +56,12 @@ public class UserControllerTest {
 				fail("Modify fail");
 			}
 		}
-		
+
 	}
 
 	@Test
 	public void testGetMes() {
-		//由其他类测试
+		// 由其他类测试
 	}
 
 }

@@ -1,20 +1,20 @@
 package ds.statisticdataservice;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.BillPO;
-import po.CostIncomePO;
-import po.StateFormPO;
+import po.statistic.BillPO;
+import po.statistic.CostIncomePO;
+import po.statistic.StateFormPO;
 import util.ResultMessage;
+import ds.DataserviceParent;
 
 /**
  * 成本收益表、经营状况表增查接口
  * @author czq
  * @date 2015-10-22
  */
-public interface StatisticDataService extends Remote {
+public interface StatisticDataService extends DataserviceParent {
 	/**
 	 * 获取所有的经营状况表
 	 * @return
@@ -45,11 +45,11 @@ public interface StatisticDataService extends Remote {
 	 * @param po
 	 * @return
 	 */
-	public ResultMessage bulidBill(BillPO po);
+	public ResultMessage bulidBill(BillPO po) throws RemoteException;
 	/**
 	 * 获得所有期初建账的账单
 	 * @return
 	 */
-	public ArrayList<BillPO> getBills();
+	public ArrayList<BillPO> getBills() throws RemoteException;
 	
 }

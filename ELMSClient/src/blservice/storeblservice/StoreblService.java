@@ -6,8 +6,8 @@ package blservice.storeblservice;
 import java.util.ArrayList;
 
 import util.ResultMessage;
-import vo.StoreCheckVO;
-import vo.StoreMessageVO;
+import vo.store.StoreCheckVO;
+import vo.store.StoreMessageVO;
 /**
  * 库存管理接口
  * @author ymc
@@ -42,7 +42,12 @@ public interface StoreblService {
 	 * @param value
 	 * @return
 	 */
-	public ResultMessage setAlarmValue(String value);
+	public ResultMessage setAlarmValue(String value,String city);
+	/**
+	 * 得到库存报警值
+	 * @return
+	 */
+	public String getAlarmValue(String city);
 
 
 }

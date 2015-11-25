@@ -4,10 +4,9 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import ds.financedataservice.FinanceDataService;
-import ds.financedataservice.TempFinanceDataImpl;
-import po.CostPO;
+import po.finance.CostPO;
 import util.ResultMessage;
-import vo.CostVO;
+import vo.finance.CostVO;
 /**
  * 成本信息管理接口
  * @author ymc
@@ -17,10 +16,9 @@ public class CostService_Stub implements CostService {
 	FinanceDataService financeDS;
 	
 	public ArrayList<CostVO> showCosts() {
-		financeDS=new TempFinanceDataImpl();
 		ArrayList<CostVO> vos = null;
 		try {
-			ArrayList<CostPO> pos=financeDS.show();
+			ArrayList<CostPO> pos=financeDS.show(null);
 			vos = new ArrayList<CostVO>();
 			if(pos!=null)
 				for(CostPO po:pos){
@@ -47,7 +45,7 @@ public class CostService_Stub implements CostService {
 		return ResultMessage.SUCCESS;
 	}
 	private  CostVO getValue(CostPO po){
-		CostVO vo = new CostVO(po.getMoney(), po.getType());
+		CostVO vo = new CostVO(null, null, null, po.getMoney(), po.getCostType());
 		
 		return vo;
 		

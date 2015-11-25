@@ -1,14 +1,15 @@
 package ds.storedataservice;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.InStoreDocPO;
-import po.OutStoreDocPO;
-import po.StoreCheckPO;
-import po.StoreMessagePO;
+import po.store.InStoreDocPO;
+import po.store.OutStoreDocPO;
+import po.store.StoreCheckPO;
+import po.store.StoreMessagePO;
+import util.City;
 import util.ResultMessage;
+import ds.DataserviceParent;
 
 /**
  * 
@@ -16,7 +17,7 @@ import util.ResultMessage;
  * @author ymc
  *
  */
-public interface StoreDataService extends Remote{
+public interface StoreDataService extends DataserviceParent{
 	/**
 	 * 得到库存信息PO
 	 * @return
@@ -43,27 +44,31 @@ public interface StoreDataService extends Remote{
 	 * 得到出库单PO
 	 * @return
 	 */
-	public ArrayList<OutStoreDocPO> getOut();
+	public ArrayList<OutStoreDocPO> getOut()throws RemoteException;
 	/**
 	 * 更新库存PO
 	 * @param po
 	 * @return
 	 */
-	public ResultMessage update(StoreMessagePO po);
+	public ResultMessage update(StoreMessagePO po)throws RemoteException;
 	/**
-	 * 设置库存警戒值
+	 * 获得某个城市的库存警戒值
+	 */
+	public String getAlarmValue(City city) throws RemoteException;
+	/**
+	 * 设置某个城市的库存警戒值
 	 * @return
 	 */
-	public boolean alarmValue(String value);
+	public ResultMessage setAlarmValue(String value , City city)throws RemoteException;
 	/**
 	 * 存储快照信息PO
 	 * @param po
 	 * @return
 	 */
-	public ResultMessage storeCheck(StoreCheckPO po);
+	public ResultMessage storeCheck(StoreCheckPO po)throws RemoteException;
 	/**
 	 * 得到快照PO
 	 * @return
 	 */
-	public ArrayList<StoreCheckPO> getCheck();
+	public ArrayList<StoreCheckPO> getCheck()throws RemoteException;
 }

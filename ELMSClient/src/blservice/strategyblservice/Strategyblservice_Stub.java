@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import util.ResultMessage;
 import util.StaffType;
 import util.WageStrategy;
-import vo.ConstVO;
-import vo.SalaryWayVO;
+import vo.strategy.ConstVO;
+import vo.strategy.SalaryWayVO;
  /** * @author czq @version 创建时间：2015年10月25日 下午4:25:54 * 简单说明 */
 public class Strategyblservice_Stub implements StrategyblService{
 

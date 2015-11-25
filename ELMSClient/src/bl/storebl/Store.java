@@ -3,8 +3,8 @@ package bl.storebl;
 import java.util.ArrayList;
 
 import util.ResultMessage;
-import vo.StoreCheckVO;
-import vo.StoreMessageVO;
+import vo.store.StoreCheckVO;
+import vo.store.StoreMessageVO;
 import ds.storedataservice.StoreDataService;
 
 /** 
@@ -35,6 +35,11 @@ public class Store {
 	}
 
 	public ResultMessage setAlarmValue(String value) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public String getAlarmValue() {
 		// TODO Auto-generated method stub
 		return null;
 	}

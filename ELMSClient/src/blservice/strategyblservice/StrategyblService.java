@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import util.ResultMessage;
 import util.StaffType;
-import vo.ConstVO;
-import vo.SalaryWayVO;
+import vo.strategy.ConstVO;
+import vo.strategy.SalaryWayVO;
 
 /**
  * 薪水策略、常量的逻辑接口

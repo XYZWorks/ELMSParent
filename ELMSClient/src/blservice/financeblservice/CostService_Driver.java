@@ -2,7 +2,7 @@ package blservice.financeblservice;
 
 import java.util.ArrayList;
 
-import vo.CostVO;
+import vo.finance.CostVO;
 
 /** 
 * @author ymc 
@@ -16,7 +16,7 @@ public class CostService_Driver {
 		vos=cost.showCosts();
 		if(vos!=null){
 			for(CostVO vo:vos){
-				System.out.println(vo.money+" "+vo.type);
+				System.out.println(vo.money+" ");
 			}
 		}
 

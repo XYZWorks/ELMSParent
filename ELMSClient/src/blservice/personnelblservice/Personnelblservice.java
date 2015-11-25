@@ -3,8 +3,8 @@ package blservice.personnelblservice;
 import java.util.ArrayList;
 
 import util.ResultMessage;
-import vo.InstVO;
-import vo.PersonVO;
+import vo.personnel.InstVO;
+import vo.personnel.PersonVO;
 /** 
   * 人员机构管理接口类
   * *@author czq 

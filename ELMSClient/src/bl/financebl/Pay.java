@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import blservice.financeblservice.PayService;
 import ds.financedataservice.FinanceDataService;
 import util.ResultMessage;
-import vo.PayVO;
+import vo.finance.PayVO;
 
 /** 
  * @author ymc 

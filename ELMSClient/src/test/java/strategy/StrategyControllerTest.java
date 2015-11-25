@@ -1,4 +1,4 @@
-package strategy;
+package test.java.strategy;
 
 import static org.junit.Assert.*;
 
@@ -10,8 +10,8 @@ import org.junit.Test;
 import util.ResultMessage;
 import util.StaffType;
 import util.WageStrategy;
-import vo.ConstVO;
-import vo.SalaryWayVO;
+import vo.strategy.ConstVO;
+import vo.strategy.SalaryWayVO;
 import bl.strategybl.StrategyController;
 import blservice.strategyblservice.StrategyblService;
 /** 

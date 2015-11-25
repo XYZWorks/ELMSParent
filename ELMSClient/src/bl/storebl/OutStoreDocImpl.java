@@ -5,10 +5,11 @@ import java.util.ArrayList;
 import blservice.orderblservice.Orderblservice;
 import blservice.storeblservice.OutStoreDocService;
 import ds.storedataservice.StoreDataService;
+import util.DocState;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
-import vo.OutStoreDocVO;
+import vo.store.OutStoreDocVO;
 
 /** 
  * @author ymc 
@@ -35,17 +36,19 @@ public class OutStoreDocImpl implements OutStoreDocService {
 		return null;
 	}
 
-	public ResultMessage changeDocsState(ArrayList<String> docsID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	public ResultMessage changeOneDocState(String docID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	public ArrayList<OutStoreDocVO> showOutStoreDocs() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
 		// TODO Auto-generated method stub
 		return null;
 	}

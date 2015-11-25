@@ -3,20 +3,19 @@ package blservice.storeblservice;
 import java.util.ArrayList;
 
 import util.ResultMessage;
-import vo.StoreMessageVO;
+import vo.store.StoreMessageVO;
 
 public class StoreService_Driver {
 	public void drive(StoreblService store){
-		ResultMessage result;
+		ResultMessage result = null;
 		System.out.println("更新库存信息");
-		result=store.update(new StoreMessageVO("ss", 123, null, null));
 		if(result==ResultMessage.SUCCESS)
 			System.out.println("更新库存信息成功");
 		else
 			System.out.println("更新库存信息失败");
 		
 		System.out.println("设置库存报警");
-		result=store.setAlarmValue("90");
+		result=store.setAlarmValue("90","sd");
 		if(result==ResultMessage.SUCCESS)
 			System.out.println("设置库存报警成功");
 		else

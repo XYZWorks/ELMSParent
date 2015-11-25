@@ -1,18 +1,19 @@
 package ds.financedataservice;
+
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
+import po.finance.CostPO;
+import po.finance.DepositPO;
+import po.finance.PayPO;
+import util.CostType;
+import util.ResultMessage;
+import ds.DataserviceParent;
 /**
  * 财务的数据接口
  * @author ymc
  */
-import java.rmi.Remote;
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-
-import po.CostPO;
-import po.DepositPO;
-import po.PayPO;
-import util.ResultMessage;
-
-public interface FinanceDataService extends Remote{
+public interface FinanceDataService extends DataserviceParent{
 	/**
 	 * 收款信息PO
 	 * @return
@@ -39,7 +40,7 @@ public interface FinanceDataService extends Remote{
 	 * 查看cost信息
 	 * @return
 	 */
-	public ArrayList<CostPO> show() throws RemoteException;
+	public ArrayList<CostPO> show(CostType type) throws RemoteException;
 	/**
 	 * 增加cost信息
 	 * @param po
@@ -57,5 +58,5 @@ public interface FinanceDataService extends Remote{
 	 * @param po
 	 * @return
 	 */
-	public ResultMessage del(CostPO po) throws RemoteException;
+	public ResultMessage del(String ID , CostType type) throws RemoteException;
 }

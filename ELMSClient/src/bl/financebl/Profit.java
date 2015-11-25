@@ -2,7 +2,7 @@ package bl.financebl;
 
 import blservice.financeblservice.ProfitService;
 import ds.financedataservice.FinanceDataService;
-import vo.ProfitVO;
+import vo.finance.ProfitVO;
 
 /** 
  * @author ymc 

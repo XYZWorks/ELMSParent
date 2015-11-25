@@ -2,10 +2,13 @@ package bl.accountbl;
 
 import java.rmi.RemoteException;
 
-import po.AccountPO;
+import po.account.AccountPO;
+import test.java.other.VOPOchange;
+import util.DataServiceType;
 import util.ResultMessage;
-import vo.AccountVO;
+import vo.account.AccountVO;
 import ds.accountdataservice.AccountDataService;
+import net.RMIManage;
 
 /**
  * @author ymc
@@ -13,20 +16,25 @@ import ds.accountdataservice.AccountDataService;
  *
  */
 public class Account {
-	
+
 	AccountDataService accountData;
-	
+
+
+	public Account() {
+		accountData = (AccountDataService) new RMIManage().getDataService(DataServiceType.AccountDataService);
+		try {
+			accountData.initial();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	public ResultMessage add(AccountVO vo) {
-		AccountPO po;
+		AccountPO po = null;
 		ResultMessage result = null;
 		
-		if (vo.phoneNum == null || vo.mail == null) {
-			po = new AccountPO(vo.ID, vo.name, vo.type, vo.password);
-		} else {
-			po = new AccountPO(vo.ID, vo.name, vo.type, vo.password,
-					vo.phoneNum, vo.mail);
-		}
-		
+		po = (AccountPO) VOPOchange.VOtoPO(vo);
 		
 		try {
 			result = accountData.add(po);
@@ -38,18 +46,41 @@ public class Account {
 	}
 
 	public ResultMessage delete(AccountVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		ResultMessage result = null;
+		try {
+			result = accountData.delete(vo.ID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	public AccountVO find(String ID) {
-		// TODO Auto-generated method stub
+		AccountPO po = null;
+		try {
+			po = accountData.find(ID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(po!=null){
+			AccountVO vo = (AccountVO) VOPOchange.POtoVO(po);
+			return vo;
+		}
 		return null;
 	}
 
 	public ResultMessage modify(AccountVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		AccountPO po = (AccountPO) VOPOchange.VOtoPO(vo);
+		ResultMessage result = null;
+		try {
+			result = accountData.modify(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }

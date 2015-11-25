@@ -1,4 +1,4 @@
-package statistic;
+package test.java.statistic;
 
 import static org.junit.Assert.fail;
 
@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import other.DataTool;
+import test.java.other.DataTool;
 import util.ResultMessage;
-import vo.BillVO;
-import vo.CostIncomeVO;
-import vo.StateFormVO;
+import vo.statistic.BillVO;
+import vo.statistic.CostIncomeVO;
+import vo.statistic.StateFormVO;
 import bl.statisticbl.StatisticController;
 import blservice.statisticblservice.Statisticblservice;
 /** 
@@ -43,6 +43,8 @@ public class StatisticControllerTest {
 	public void testBulidCostIncomeForm() {
 		CostIncomeVO vo = DataTool.getCostIncomeForm();
 		result = bl.bulidCostIncomeForm(vo);
+		System.out.println("---------------------------");
+		System.out.println(result);
 		if(result!=ResultMessage.SUCCESS)
 			fail("fail to build income form");
 	}

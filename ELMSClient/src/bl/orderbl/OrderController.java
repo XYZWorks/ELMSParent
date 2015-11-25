@@ -3,12 +3,13 @@ package bl.orderbl;
 import java.util.ArrayList;
 import java.util.Date;
 
+import util.DocState;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
-import vo.OrderSimpleInfoVO;
-import vo.OrderVO;
-import vo.ReceiveVO;
+import vo.order.OrderSimpleInfoVO;
+import vo.order.OrderVO;
+import vo.order.ReceiveVO;
 import blservice.orderblservice.Orderblservice;
  /** 
  * 订单controller类
@@ -62,12 +63,13 @@ public class OrderController implements Orderblservice{
 		return null;
 	}
 
-	public ResultMessage changeDocsState(ArrayList<String> docsID) {
+
+	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ResultMessage changeOneDocState(String docID) {
+	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
 		// TODO Auto-generated method stub
 		return null;
 	}

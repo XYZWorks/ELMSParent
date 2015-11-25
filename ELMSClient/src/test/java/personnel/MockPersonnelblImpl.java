@@ -1,4 +1,4 @@
-package personnel;
+package test.java.personnel;
 
 import bl.personnelbl.Personnel;
 

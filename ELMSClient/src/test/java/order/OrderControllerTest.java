@@ -1,4 +1,4 @@
-package order;
+package test.java.order;
 
 import static org.junit.Assert.fail;
 
@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import other.DataTool;
+import test.java.other.DataTool;
 import util.DocState;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
-import vo.OrderSimpleInfoVO;
-import vo.OrderVO;
+import vo.order.OrderSimpleInfoVO;
+import vo.order.OrderVO;
 import bl.orderbl.OrderController;
 import blservice.orderblservice.Orderblservice;
 /** 
@@ -126,7 +126,7 @@ public class OrderControllerTest {
 		temp.add(vos.get(0).ID);
 		temp.add(vos.get(1).ID);
 		
-		result = bl.changeDocsState(temp);
+		result = bl.changeDocsState(temp, DocType.order, DocState.pass);
 		
 		if(result == ResultMessage.SUCCESS){
 			return;
@@ -139,7 +139,7 @@ public class OrderControllerTest {
 	public void testChangeOneDocState() {
 		ArrayList<DocVO> vos = (ArrayList<DocVO>) bl.getDocLists(DocType.order);
 		vos.get(0).state = DocState.pass;
-		result = bl.changeOneDocState(vos.get(0).ID);
+		result = bl.changeOneDocState(vos.get(0).ID, DocType.order, DocState.pass);
 		if(result == ResultMessage.SUCCESS){
 			return;
 		}

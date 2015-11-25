@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import util.ResultMessage;
 import util.StaffType;
-import vo.InstVO;
-import vo.PersonVO;
+import vo.personnel.InstVO;
+import vo.personnel.PersonVO;
 
  /** * @author czq @version 创建时间：2015年10月25日 下午11:12:25 * 简单说明 */
 public class Personnelblservice_Driver {

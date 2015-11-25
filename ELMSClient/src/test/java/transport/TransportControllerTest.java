@@ -1,4 +1,4 @@
-package transport;
+package test.java.transport;
 
 import static org.junit.Assert.fail;
 
@@ -7,17 +7,17 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import other.DataTool;
-import util.Date;
+import test.java.other.DataTool;
+import util.MyDate;
 import util.DocState;
 import util.DocType;
 import util.ResultMessage;
-import vo.ArriveYYDocVO;
-import vo.ArriveZZDocVO;
 import vo.DocVO;
-import vo.LoadDocVO;
-import vo.SendGoodDocVO;
-import vo.TransferDocVO;
+import vo.transport.ArriveYYDocVO;
+import vo.transport.ArriveZZDocVO;
+import vo.transport.LoadDocVO;
+import vo.transport.SendGoodDocVO;
+import vo.transport.TransferDocVO;
 import bl.transportbl.TransportController;
 import blservice.transportblservice.Transportblservice;
 
@@ -48,7 +48,7 @@ public class TransportControllerTest {
 	@Test
 	public void testGetDayLoadDocs() {
 	
-		ArrayList<LoadDocVO> vos= bl.getDayLoadDocs( new Date(2015, 11, 11));
+		ArrayList<LoadDocVO> vos= bl.getDayLoadDocs( new MyDate(2015, 11, 11));
 		if(vos==null)
 			fail("fail to get loadDoc");
 
@@ -65,7 +65,7 @@ public class TransportControllerTest {
 
 	@Test
 	public void testGetDaySendDocs() {
-		ArrayList<SendGoodDocVO> vos= bl.getDaySendDocs( new Date(2015, 11, 11));
+		ArrayList<SendGoodDocVO> vos= bl.getDaySendDocs( new MyDate(2015, 11, 11));
 		if(vos==null)
 			fail("fail to get loadDoc");
 	}
@@ -81,7 +81,7 @@ public class TransportControllerTest {
 
 	@Test
 	public void testGetDayArriveYYDocs() {
-		ArrayList<ArriveYYDocVO> vos= bl.getDayArriveYYDocs( new Date(2015, 11, 11));
+		ArrayList<ArriveYYDocVO> vos= bl.getDayArriveYYDocs( new MyDate(2015, 11, 11));
 		if(vos==null)
 			fail("fail to get loadDoc");
 	}
@@ -97,7 +97,7 @@ public class TransportControllerTest {
 
 	@Test
 	public void testGetDayArriveZZDocs() {
-		ArrayList<ArriveZZDocVO> vos= bl.getDayArriveZZDocs( new Date(2015, 11, 11));
+		ArrayList<ArriveZZDocVO> vos= bl.getDayArriveZZDocs( new MyDate(2015, 11, 11));
 		if(vos==null)
 			fail("fail to get loadDoc");	}
 
@@ -111,7 +111,7 @@ public class TransportControllerTest {
 
 	@Test
 	public void testGetDayTransferDocs() {
-		ArrayList<TransferDocVO> vos= bl.getDayTransferDocs( new Date(2015, 11, 11));
+		ArrayList<TransferDocVO> vos= bl.getDayTransferDocs( new MyDate(2015, 11, 11));
 		if(vos==null)
 			fail("fail to get loadDoc");
 	}

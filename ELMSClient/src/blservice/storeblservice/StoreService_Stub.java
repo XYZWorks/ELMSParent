@@ -3,8 +3,8 @@ package blservice.storeblservice;
 import java.util.ArrayList;
 
 import util.ResultMessage;
-import vo.StoreCheckVO;
-import vo.StoreMessageVO;
+import vo.store.StoreCheckVO;
+import vo.store.StoreMessageVO;
 /**
  * 
  * @author ymc
@@ -13,11 +13,9 @@ import vo.StoreMessageVO;
 public class StoreService_Stub implements StoreblService {
 
 	public ArrayList<StoreMessageVO> show() {
-		StoreMessageVO vo1=new StoreMessageVO("上海", 1000, null, null);
-		StoreMessageVO vo2=new StoreMessageVO("南京", 900, null, null);
+
 		ArrayList<StoreMessageVO> storeMes=new ArrayList<StoreMessageVO>();
-		storeMes.add(vo1);
-		storeMes.add(vo2);
+		
 		return storeMes;
 	}
 
@@ -43,6 +41,21 @@ public class StoreService_Stub implements StoreblService {
 			return ResultMessage.SUCCESS;
 		else 
 			return ResultMessage.FAIL;
+	}
+
+	public String getAlarmValue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage setAlarmValue(String value, String city) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getAlarmValue(String city) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

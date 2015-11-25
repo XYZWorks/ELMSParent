@@ -1,19 +1,19 @@
 package ds.personneldataservice;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.InstPO;
-import po.PersonPO;
+import po.personnel.InstPO;
+import po.personnel.PersonPO;
 import util.ResultMessage;
+import ds.DataserviceParent;
 
 /**
  * 人员机构管理数据接口类
  * @author czq
  * @date 2015/10/20
  */
-public interface PersonnelDataService extends Remote{
+public interface PersonnelDataService extends DataserviceParent{
 	/**
 	 * 通过机构ID查找机构下属人员
 	 * @param ID
@@ -43,7 +43,7 @@ public interface PersonnelDataService extends Remote{
 	 * @param po
 	 * @return 是否成功
 	 */
-	public ResultMessage delPerson(PersonPO po) throws RemoteException;
+	public ResultMessage delPerson(String ID) throws RemoteException;
 	/**
 	 * 增加机构
 	 * @param po
@@ -55,7 +55,7 @@ public interface PersonnelDataService extends Remote{
 	 * @param po
 	 * @return 是否成功
 	 */
-	public ResultMessage delInst(InstPO po) throws RemoteException;
+	public ResultMessage delInst(String ID) throws RemoteException;
 	/**
 	 * 获得所有机构信息
 	 * @return

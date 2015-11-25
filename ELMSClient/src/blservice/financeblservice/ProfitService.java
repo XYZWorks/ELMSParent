@@ -1,6 +1,6 @@
 package blservice.financeblservice;
 
-import vo.ProfitVO;
+import vo.finance.ProfitVO;
 
 /**
  * 利润接口

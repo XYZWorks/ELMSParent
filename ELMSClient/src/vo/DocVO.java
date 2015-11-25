@@ -1,7 +1,7 @@
 package vo;
 
 
-import util.Date;
+import util.MyDate;
 import util.DocState;
 import util.DocType;
 /**
@@ -21,14 +21,16 @@ public abstract class DocVO {
 	/**
 	 * 日期
 	 */
-	public Date date;
+	public MyDate date;
 	/**
 	 * 单据状态
 	 */
 	public DocState state;
 	
-	
-	public DocVO(String iD, DocType type, Date date, DocState state) {
+	public DocVO() {
+		// TODO Auto-generated constructor stub
+	}
+	public DocVO(String iD, DocType type, MyDate date, DocState state) {
 		super();
 		ID = iD;
 		this.type = type;

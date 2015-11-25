@@ -1,7 +1,7 @@
-package order;
+package test.java.order;
 
-import other.DataTool;
-import vo.ConstVO;
+import test.java.other.DataTool;
+import vo.strategy.ConstVO;
  /** 
  * 
  * @author czq 

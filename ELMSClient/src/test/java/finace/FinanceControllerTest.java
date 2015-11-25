@@ -1,4 +1,4 @@
-package finace;
+package test.java.finace;
 
 import static org.junit.Assert.fail;
 
@@ -7,11 +7,12 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import other.DataTool;
+import test.java.other.DataTool;
+import util.CostType;
 import util.ResultMessage;
-import vo.CostVO;
-import vo.DepositVO;
-import vo.ProfitVO;
+import vo.finance.CostVO;
+import vo.finance.DepositVO;
+import vo.finance.ProfitVO;
 import bl.financebl.FinanceController;
 import blservice.financeblservice.BankAccountService;
 import blservice.financeblservice.CostService;
@@ -79,7 +80,7 @@ public class FinanceControllerTest {
 		if(temp.size() == 0){
 			fail("can not show cost");
 		}else{
-			temp.get(0).type = "123";
+			temp.get(0).costType = CostType.FREIGHT;
 			result  =  costbl.modify(temp.get(0));
 			if(result == ResultMessage.SUCCESS ){
 				return;

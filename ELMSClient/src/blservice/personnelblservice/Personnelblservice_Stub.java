@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import util.InstType;
 import util.ResultMessage;
 import util.StaffType;
-import vo.InstVO;
-import vo.PersonVO;
+import vo.personnel.InstVO;
+import vo.personnel.PersonVO;
  
 public class Personnelblservice_Stub implements Personnelblservice {
 

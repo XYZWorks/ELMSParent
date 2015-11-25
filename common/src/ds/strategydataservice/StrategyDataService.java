@@ -1,21 +1,20 @@
 package ds.strategydataservice;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.BillPO;
-import po.ConstPO;
-import po.SalaryWayPO;
+import po.strategy.ConstPO;
+import po.strategy.SalaryWayPO;
 import util.ResultMessage;
 import util.StaffType;
+import ds.DataserviceParent;
 
 /**
  * 系统常量及薪水策略数据层接口
  * @author czq
  * @date 2015-10-22
  */
-public interface StrategyDataService extends Remote{
+public interface StrategyDataService extends DataserviceParent{
 	/**
 	 * 获得所有常量
 	 * @return
@@ -44,16 +43,16 @@ public interface StrategyDataService extends Remote{
 	 * @return
 	 */
 	public SalaryWayPO getOneSalary(StaffType type) throws RemoteException;
-	/**
-	 * 期初建账数据
-	 * @param po 账单PO类
-	 * @return
-	 */
-	public ResultMessage bulidBill(BillPO po) throws RemoteException;
-	/**
-	 * 获得所有的总账单
-	 * @return
-	 */
-	public ArrayList<BillPO> getBills() throws RemoteException;
+//	/**
+//	 * 期初建账数据
+//	 * @param po 账单PO类
+//	 * @return
+//	 */
+//	public ResultMessage bulidBill(BillPO po) throws RemoteException;
+//	/**
+//	 * 获得所有的总账单
+//	 * @return
+//	 */
+//	public ArrayList<BillPO> getBills() throws RemoteException;
 	
 }

@@ -4,6 +4,8 @@ import java.util.ArrayList;
  
 
 
+
+import util.DocState;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
@@ -23,13 +25,14 @@ public interface DocApprovalService {
 	 * @param docsID
 	 * @return
 	 */
-	public ResultMessage changeDocsState(ArrayList<String> docsID);
+	public ResultMessage changeDocsState(ArrayList<String> docsID , DocType type , DocState state);
 	/**
 	 * 修改单个单据状态
 	 * @param docID
 	 * @return
 	 */
-	public ResultMessage changeOneDocState(String docID);
+	public ResultMessage changeOneDocState(String docID,
+			DocType type, DocState state);
 	
 	
 }

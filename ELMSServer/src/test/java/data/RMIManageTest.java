@@ -1,6 +1,4 @@
-package data;
-
-import static org.junit.Assert.*;
+package test.java.data;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,23 +14,15 @@ public class RMIManageTest {
 	}
 
 	@Test
-	public void testRMIManage() {
-		fail("Not yet implemented");
-	}
+	public void testRMIManage() {}
 
 	@Test
-	public void testStartRMI() {
-		fail("Not yet implemented");
-	}
+	public void testStartRMI() {}
 
 	@Test
-	public void testStopRMI() {
-		fail("Not yet implemented");
-	}
+	public void testStopRMI() {}
 
 	@Test
-	public void testMain() {
-		fail("Not yet implemented");
-	}
+	public void testMain() {}
 
 }

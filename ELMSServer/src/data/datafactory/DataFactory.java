@@ -3,7 +3,7 @@ package data.datafactory;
 import java.rmi.RemoteException;
 
 import data.DTManagedata.DTManageDataImpl;
-import data.accountdata.AccountDataServiceImplBySQL;
+import data.accountdata.AccountDataServiceImpl;
 import data.financedata.FinanceDataImpl;
 import data.orderdata.OrderDataImpl;
 import data.personneldata.PersonnelDataServiceImpl;
@@ -11,7 +11,7 @@ import data.statisticdata.StatisticDataImpl;
 import data.storedata.StoreDataImpl;
 import data.strategydata.StrategyDataImpl;
 import data.transportdata.TransportDataImpl;
-import ds.DTManagedataservice.DTManagedateservice;
+import ds.DTManagedataservice.DTManagedataservice;
 import ds.accountdataservice.AccountDataService;
 import ds.datafactoryservice.DataFactoryService;
 import ds.financedataservice.FinanceDataService;
@@ -32,9 +32,7 @@ public class DataFactory implements DataFactoryService {
 
 	private static DataFactory dataFactory;
 
-	private DataFactory() {
-
-	}
+	private DataFactory() {}
 
 	public static DataFactory getDataFactory() {
 		if (dataFactory == null) {
@@ -46,10 +44,10 @@ public class DataFactory implements DataFactoryService {
 	}
 
 	public AccountDataService getAccountDataImpl() throws RemoteException {
-		return new AccountDataServiceImplBySQL();
+		return new AccountDataServiceImpl();
 	}
 
-	public DTManagedateservice getDTMangeDataImpl() throws RemoteException {
+	public DTManagedataservice getDTMangeDataImpl() throws RemoteException {
 		return new DTManageDataImpl();
 	}
 
@@ -74,18 +72,13 @@ public class DataFactory implements DataFactoryService {
 	}
 
 	public PersonnelDataService getPersonnelDataImpl() throws RemoteException {
-		PersonnelDataService pdservice = null;
-		try {
-			pdservice = new PersonnelDataServiceImpl();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return pdservice;
+		return new PersonnelDataServiceImpl();
 	}
 
 	public StoreDataService getStoreDataImpl() throws RemoteException {
 		return new StoreDataImpl();
 	}
+
+	public void initial() throws RemoteException {}
 
 }

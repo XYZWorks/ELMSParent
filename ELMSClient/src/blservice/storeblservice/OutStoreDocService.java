@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import blservice.DocApprovalService;
 import util.ResultMessage;
-import vo.OutStoreDocVO;
+import vo.store.OutStoreDocVO;
 
 /**
  * 

@@ -3,8 +3,8 @@ package bl.personnelbl;
 import java.util.ArrayList;
 
 import util.ResultMessage;
-import vo.InstVO;
-import vo.PersonVO;
+import vo.personnel.InstVO;
+import vo.personnel.PersonVO;
 import blservice.personnelblservice.Personnelblservice;
  /** 
  * 
@@ -12,45 +12,42 @@ import blservice.personnelblservice.Personnelblservice;
  * @version 2015年11月15日 上午9:24:36 
  */
 public class PersonnelController implements Personnelblservice{
-
+	Personnel per;
+	
+	public PersonnelController() {
+		per = new Personnel();
+	}
 	public ArrayList<PersonVO> getPeopleByInst(String ID) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return per.getPeopleByInst(ID);
 	}
 
 	public PersonVO getPeopleByID(String ID) {
-		// TODO Auto-generated method stub
-		return null;
+		return per.getPeopleByID(ID);
 	}
 
 	public ArrayList<PersonVO> getPeopleByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		return per.getPeopleByName(name);
 	}
 
 	public ResultMessage addPeople(PersonVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return per.addPeople(vo);
 	}
 
 	public ResultMessage delPeople(String ID) {
-		// TODO Auto-generated method stub
-		return null;
+		return per.delPeople(ID);
 	}
 
 	public ResultMessage addInst(InstVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return per.addInst(vo);
 	}
 
 	public ResultMessage delInst(String ID) {
-		// TODO Auto-generated method stub
-		return null;
+		return per.delInst(ID);
 	}
 
 	public ArrayList<InstVO> getInst() {
-		// TODO Auto-generated method stub
-		return null;
+		return per.getInst();
 	}
 
 }

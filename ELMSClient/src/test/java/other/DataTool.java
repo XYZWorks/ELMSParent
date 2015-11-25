@@ -1,34 +1,37 @@
-package other;
+package test.java.other;
 
 import java.util.ArrayList;
 
-import util.Date;
+import util.MyDate;
+import util.AccountType;
+import util.CostType;
 import util.DocType;
 import util.GoodsState;
 import util.InstType;
 import util.StaffType;
 import util.WageStrategy;
-import vo.ArriveYYDocVO;
-import vo.ArriveZZDocVO;
-import vo.BillVO;
-import vo.CarVO;
-import vo.ConstVO;
-import vo.CostIncomeVO;
-import vo.CostVO;
-import vo.DepositVO;
 import vo.DocVO;
-import vo.DriverVO;
-import vo.InStoreDocVO;
-import vo.InstVO;
-import vo.LoadDocVO;
-import vo.OrderVO;
-import vo.OutStoreDocVO;
-import vo.PayVO;
-import vo.PersonVO;
-import vo.SalaryWayVO;
-import vo.SendGoodDocVO;
-import vo.StateFormVO;
-import vo.TransferDocVO;
+import vo.DTManage.CarVO;
+import vo.DTManage.DriverVO;
+import vo.account.AccountVO;
+import vo.finance.CostVO;
+import vo.finance.DepositVO;
+import vo.finance.PayVO;
+import vo.order.OrderVO;
+import vo.personnel.InstVO;
+import vo.personnel.PersonVO;
+import vo.statistic.BillVO;
+import vo.statistic.CostIncomeVO;
+import vo.statistic.StateFormVO;
+import vo.store.InStoreDocVO;
+import vo.store.OutStoreDocVO;
+import vo.strategy.ConstVO;
+import vo.strategy.SalaryWayVO;
+import vo.transport.ArriveYYDocVO;
+import vo.transport.ArriveZZDocVO;
+import vo.transport.LoadDocVO;
+import vo.transport.SendGoodDocVO;
+import vo.transport.TransferDocVO;
 
 /**
  * 用于产生测试用数据
@@ -37,11 +40,11 @@ import vo.TransferDocVO;
  *
  */
 public class DataTool {
-	static Date d1 = new Date(2015, 11, 11);
-	static Date d2 = new Date(2015, 11, 12);
-	static Date d3 = new Date(2015, 11, 13);
-	static Date d4 = new Date(2015, 11, 14);
-	static Date d5 = new Date(2015, 11, 15);
+	static MyDate d1 = new MyDate(2015, 11, 11);
+	static MyDate d2 = new MyDate(2015, 11, 12);
+	static MyDate d3 = new MyDate(2015, 11, 13);
+	static MyDate d4 = new MyDate(2015, 11, 14);
+	static MyDate d5 = new MyDate(2015, 11, 15);
 	
 	static String instid1 = "000000";
 	static String instid2 = "000001";
@@ -60,15 +63,13 @@ public class DataTool {
 	static ArrayList<DepositVO> deposits = new ArrayList<DepositVO>();
 	
 	static{
-		orders.add(new OrderVO("2311278906", d1, "02500", "czq", "13188907872", "nju", "常府街44号", "ymc", "13497269020",
-				"hs", "仙林大道163号", 1, "book", 2, 30, 20, 10, "wood box", "fast model", 2, 20, test));
+		orders.add(new OrderVO());
 		locs.add("航空区2排3架2位");
-		orders.add(new OrderVO("2311222479", d2, "02500", "zr", "13137947872", "nju", "常府街21号", "xc", "13132097020",
-				"sh", "仙林大道73号", 8, "food", 5, 20, 20, 20, "wood box", "economic model", 1, 30, test));
+		orders.add(new OrderVO());
 		locs.add("汽运区8排5架6位");
 		
-		drivers.add(new DriverVO("000001", "章撒",instid1, new Date(1992, 4, 12) , "445202199204121134", "18324522334", true, 5));
-		drivers.add(new DriverVO("000002", "张田田",instid2, new Date(1990, 4, 11) , "445202199004111134", "18324522333", false, 6));
+		drivers.add(new DriverVO("000001", "章撒",instid1, new MyDate(1992, 4, 12) , "445202199204121134", "18324522334", true, 5));
+		drivers.add(new DriverVO("000002", "张田田",instid2, new MyDate(1990, 4, 11) , "445202199004111134", "18324522333", false, 6));
 		
 		
 		cars.add(new CarVO("025000001", "粤VDC798" , 1));
@@ -85,7 +86,7 @@ public class DataTool {
 	
 	public static ArrayList<? extends DocVO> getDocList(DocType tpye) {
 
-		ArrayList<DocVO> al = null;
+		ArrayList<DocVO> al = new ArrayList<DocVO>();
 		
 		switch (tpye) {
 		case arriveYYDoc:
@@ -152,8 +153,8 @@ public class DataTool {
 	
 	public static ArrayList<CostVO> getcosts(){
 		ArrayList<CostVO> costs = new ArrayList<CostVO>();
-		costs.add(new CostVO(3000, ""));
-		costs.add(new CostVO(5000, ""));
+		costs.add(new CostVO("10002",d1, d3, 12000, CostType.FREIGHT));
+		costs.add(new CostVO("19202",d1, d4, 10000, CostType.RENT));
 		
 		return costs;
 		
@@ -217,6 +218,12 @@ public class DataTool {
 	public static BillVO getBill() {
 
 		BillVO vo = new BillVO();
+		return vo;
+	}
+
+
+	public static AccountVO getAccountVO() {
+		AccountVO vo = new AccountVO("12323","wsada",AccountType.courier);
 		return vo;
 	}
 }

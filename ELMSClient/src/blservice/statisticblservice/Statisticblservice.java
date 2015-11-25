@@ -3,9 +3,9 @@ package blservice.statisticblservice;
 import java.util.ArrayList;
 
 import util.ResultMessage;
-import vo.BillVO;
-import vo.CostIncomeVO;
-import vo.StateFormVO;
+import vo.statistic.BillVO;
+import vo.statistic.CostIncomeVO;
+import vo.statistic.StateFormVO;
  /**
   * 查看经营状况表、成本收益表、期初建账逻辑接口
   * @author czq
