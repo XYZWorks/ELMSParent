@@ -16,7 +16,15 @@
 	
 	
 	</loginframe>
-
+	
+	<approval width = "497" height = "411" >
+		<buttons>
+			<close text = "" x = "455" y = "36" width = "34" height = "33"/>
+			<login text = "" x = "3" y = "358" width = "489" height = "53"/>
+			<checkOrder text = "" x = "213" y = "316" width = "72" height = "17"/>
+		</buttons>
+	
+	</approval>
 
 
 

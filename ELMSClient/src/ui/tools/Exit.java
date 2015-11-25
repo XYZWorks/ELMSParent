@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -22,13 +23,14 @@ import ui.config.GraphicsUtils;
  */
 public class Exit extends JLabel{
 
-		Image next = new ImageIcon("").getImage();//设置退出按钮
+//		Image next = new ImageIcon("").getImage();//设置退出按钮
 		Boolean mouseContained = false;
 		Boolean mouseClicked = false;
 		
 	public Exit(){
 		this.setBounds(1050,0 , 30, 30);
 		this.addMouseListener(new ExitListener());
+		this.setVisible(true);
 	}
 
 //	public boolean isMouseClicked(){
@@ -49,38 +51,30 @@ public class Exit extends JLabel{
 		g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
 		g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,RenderingHints.VALUE_TEXT_ANTIALIAS_ON );
 
-		
 		if(!mouseContained){
-			g2d.drawImage(GraphicsUtils.getImage("closeGrey"),1050,0,null);
+			System.out.println("---------");
+			g2d.drawImage(GraphicsUtils.getImage("closeGrey"),0,0,null);
 		}
 		else {
-			g2d.drawImage(GraphicsUtils.getImage("closeGreen"),1050,0,null);
+			System.out.println("---------");
+			g2d.drawImage(GraphicsUtils.getImage("closeGreen"),0,0,null);
 		}
 	}
 	
-	class ExitListener implements MouseListener{
+	class ExitListener extends MouseAdapter{
 
+		@Override
 		public void mouseClicked(MouseEvent e) {
 			//弹窗
 			
 		}
-
-		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
+		@Override
 		public void mouseEntered(MouseEvent e) {
 			mouseContained=true;
 			repaint();
 			
 		}
-
+		@Override
 		public void mouseExited(MouseEvent e) {
 			mouseContained=false;
 			repaint();

@@ -1,7 +1,7 @@
 package ui.mainui;
 
 import javax.swing.JFrame;
-import ui.tools.initalPanel;
+import ui.tools.InitalPanel;
 
 
 /**
@@ -18,13 +18,15 @@ public class mainFrame extends JFrame{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);//不使用布局函数
 		frame.setLocationRelativeTo(null);//使窗口显示在屏幕正中央
-		frame.setVisible(true);
+		
 		
 		//frame.setResizable(false);	
 		System.out.println("mainframe");
-		initalPanel initalPanel=new initalPanel();
+		InitalPanel initalPanel=new InitalPanel();
 		System.out.println("initalpanel");
 		frame.setContentPane(initalPanel);
+		
+		frame.setVisible(true);
 
 		}
 		
