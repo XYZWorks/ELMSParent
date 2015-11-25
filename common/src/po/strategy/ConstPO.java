@@ -69,7 +69,7 @@ public class ConstPO implements Serializable{
 	/**
 	 * 经济快递、标准快递、次晨特快价格比
 	 */
-	private int[] ratio;
+	private int[] ratios;
 	
 	
 	
@@ -89,7 +89,7 @@ public class ConstPO implements Serializable{
 		this.paperBox = paperBox;
 		this.woodBox = woodBox;
 		this.plasticBag = plasticBag;
-		this.ratio = ratio;
+		this.ratios = ratio;
 	}
 	public int getMileInBN() {
 		return mileInBN;
@@ -163,11 +163,11 @@ public class ConstPO implements Serializable{
 	public void setPlasticBag(int plasticBag) {
 		this.plasticBag = plasticBag;
 	}
-	public int[] getRatio() {
-		return ratio;
+	public int[] getRatios() {
+		return ratios;
 	}
-	public void setRatio(int[] ratio) {
-		this.ratio = ratio;
+	public void setRatios(int[] ratio) {
+		this.ratios = ratio;
 	}
 	
 	

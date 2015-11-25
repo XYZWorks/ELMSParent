@@ -68,7 +68,7 @@ public class Statistic {
 
 		try {
 			result = statisticData.CostIncomeForm(po);
-			System.out.println("biuld cost income form" + " "+ result);
+		//	System.out.println("biuld cost income form" + " "+ result);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

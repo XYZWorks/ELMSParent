@@ -26,7 +26,6 @@ public class UserMes {
 	public ResultMessage login(AccountVO vo) {
 		try {
 			return accountds.check(vo.ID, vo.password);
-
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return ResultMessage.FAIL;
