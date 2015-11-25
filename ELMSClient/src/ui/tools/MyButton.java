@@ -1,10 +1,7 @@
 package ui.tools;
 
-import java.awt.Graphics;
 
-import javax.swing.JButton;
 import javax.swing.JLabel;
-
 import org.dom4j.Element;
 
 /**
@@ -16,6 +13,7 @@ import org.dom4j.Element;
 public class MyButton extends JLabel {
 	
 	public MyButton() {
+		
 		this.setOpaque(true);
 		this.setVisible(true);
 	}

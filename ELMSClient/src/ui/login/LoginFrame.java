@@ -3,6 +3,7 @@ package ui.login;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JOptionPane;
 
@@ -50,7 +51,7 @@ public class LoginFrame extends MyFrame{
 	private LoginFrame frame;
 	
 	public LoginFrame(Element config) {
-		super(497 ,411);
+		super(config);
 		bl = BusinessLogicDataFactory.getFactory().getUserMesBusinessLogic();
 		
 
@@ -66,6 +67,9 @@ public class LoginFrame extends MyFrame{
 		closeButton = new MyButton(config.element("buttons").element("close"));
 		login = new MyButton(config.element("buttons").element("login"));
 		checkOrder = new MyButton(config.element("buttons").element("checkOrder"));
+//		rememberMe = new MyCheckBox(config.element("checkboxes").element("remember"));
+//		userName = new 
+		initButtons(config.element("buttons"));
 		
 		this.frame = this;
 		this.setContentPane(mainpanel);
@@ -76,6 +80,11 @@ public class LoginFrame extends MyFrame{
 		this.repaint();
 		this.mainpanel.repaint();
 		this.setVisible(true);
+	}
+	
+	private void initButtons(Element config){
+		
+		closeButton = new MyButton(config.element("close"));
 	}
 	
 	private void setLocation(){
@@ -96,6 +105,7 @@ public class LoginFrame extends MyFrame{
 		login.addMouseListener(new MyLoginListener());		
 		closeButton.addMouseListener(new MyCloseListener());
 		checkOrder.addMouseListener(new MyCheckOrderListener());
+		
 	}
 	
 class MyLoginListener extends MouseAdapter{

@@ -6,7 +6,12 @@
 			<login text = "" x = "3" y = "358" width = "489" height = "53"/>
 			<checkOrder text = "" x = "213" y = "316" width = "72" height = "17"/>
 		</buttons>
-	
+		<lables>
+		</lables>
+		<textfield>
+			
+		</textfield>
+		
 	
 	
 	

@@ -24,7 +24,7 @@ public class mainFrame extends JFrame{
 		System.out.println("mainframe");
 		initalPanel initalPanel=new initalPanel();
 		System.out.println("initalpanel");
-		frame.add(initalPanel);
+		frame.setContentPane(initalPanel);
 
 		}
 		
