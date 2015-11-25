@@ -3,21 +3,16 @@ package test.java.other;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.rmi.RemoteException;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-import ds.storedataservice.StoreDataService;
-import net.RMIManage;
+import javax.management.ObjectInstance;
+
 import po.DTManage.DriverPO;
-import po.account.AccountPO;
-import po.finance.CostPO;
-import po.store.InStoreDocPO;
-import util.DataServiceType;
-import util.DocType;
+import po.statistic.StateFormPO;
 import vo.DTManage.DriverVO;
-import vo.account.AccountVO;
-import vo.finance.CostVO;
-import vo.store.InStoreDocVO;
+import vo.statistic.StateFormVO;
 
 /** 
  * @author ymc 
@@ -108,9 +103,7 @@ public class VOPOchange {
 	
 		Method met = null;
 		
-		
-		
-		
+			
 		try {		
 			poClass = Class.forName(poName);
 			
@@ -141,8 +134,27 @@ public class VOPOchange {
 		
 		
 		for(int i= 0 ; i<field.length;i++){
-
-			setSuperField(po, o, field[i].getName());
+			if(field[i].getType().toString().endsWith("ArrayList")){
+				
+				Type listType = field[i].getGenericType();
+				
+				String[] spl = listType.toString().split("<");
+				String votName = spl[1].substring(0, spl[1].length()-1);
+				System.out.println(votName);
+				
+				try {
+					Class<? extends Object> votmp = Class.forName(votName);
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+					//TODO
+				
+				
+			}
+			else
+				setSuperField(po, o, field[i].getName());
 		}
 		
 		//System.out.println(poName);
@@ -208,11 +220,15 @@ public class VOPOchange {
 //		AccountVO voav = (AccountVO)POtoVO(poa);
 //		System.out.println(voav.ID+" "+voav.password);
 		
-		ArrayList<DriverVO> vod = DataTool.getDriverList();
-		DriverVO vo1 = vod.get(0);
-		System.out.println(vo1.ID+" "+vo1.IDcard+" "+vo1.licenseYear+" "+vo1.name);
-		DriverPO po1 = (DriverPO) VOtoPO(vo1);
-		System.out.println(po1.getID()+" "+po1.getIDcard()+" "+po1.getLicenseYear()+" "+po1.getName());
+//		ArrayList<DriverVO> vod = DataTool.getDriverList();
+//		DriverVO vo1 = vod.get(0);
+//		System.out.println(vo1.ID+" "+vo1.IDcard+" "+vo1.licenseYear+" "+vo1.name);
+//		DriverPO po1 = (DriverPO) VOtoPO(vo1);
+//		System.out.println(po1.getID()+" "+po1.getIDcard()+" "+po1.getLicenseYear()+" "+po1.getName());
+		
+		StateFormVO vo = DataTool.getStateForm();
+		StateFormPO po = (StateFormPO) VOtoPO(vo);
+		System.out.println(po.getEndDate()+ " "+po.getPays());
 		
 
 	}

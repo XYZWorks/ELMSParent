@@ -1,5 +1,6 @@
 package bl.userbl;
 
+import util.AccountType;
 import util.ResultMessage;
 import vo.account.AccountVO;
 import blservice.usermesblservice.UserMesblservice;
@@ -15,7 +16,7 @@ public class UserController implements UserMesblservice{
 	public UserController() {
 		userMes = new UserMes();
 	}
-	public ResultMessage login(AccountVO vo) {
+	public AccountType login(AccountVO vo) {
 		return userMes.login(vo);
 	}
 
