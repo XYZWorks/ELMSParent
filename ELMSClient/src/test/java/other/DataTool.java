@@ -53,7 +53,9 @@ public class DataTool {
 	static String phone1 = "13142321234";
 	static String phone2 = "13923689344";
 	
-	static ArrayList<DocVO> test = null;
+	static ArrayList<String> orderID = new ArrayList<String>();
+	
+	static ArrayList<DocVO> test = new ArrayList<DocVO>();
 	static ArrayList<OrderVO> orders = new ArrayList<OrderVO>();
 	static ArrayList<String> locs = new ArrayList<String>();
 	static ArrayList<DriverVO> drivers = new ArrayList<DriverVO>();
@@ -67,6 +69,10 @@ public class DataTool {
 		locs.add("航空区2排3架2位");
 		orders.add(new OrderVO());
 		locs.add("汽运区8排5架6位");
+		
+		orderID.add("1234536433");
+		orderID.add("2069601212");
+		orderID.add("4902720820");
 		
 		drivers.add(new DriverVO("000001", "章撒",instid1, new MyDate(1992, 4, 12) , "445202199204121134", "18324522334", true, 5));
 		drivers.add(new DriverVO("000002", "张田田",instid2, new MyDate(1990, 4, 11) , "445202199004111134", "18324522333", false, 6));
@@ -106,8 +112,8 @@ public class DataTool {
 			al.add(new LoadDocVO("ZCD1511140000001", d4, "02504", "02501511120000006", "南京", "009", null, null));
 			break;
 		case inStoreDoc:
-			al.add(new InStoreDocVO("RKD1511120000001", d2, orders, "南京", locs));
-			al.add(new InStoreDocVO("RKD1511150000001", d5, orders, "上海", locs));
+			al.add(new InStoreDocVO("RKD1511120000001", d2, orderID, "南京", locs));
+			al.add(new InStoreDocVO("RKD1511150000001", d5, orderID, "上海", locs));
 			break;
 		case order:
 			for (int i = 0; i < orders.size(); i++) {
@@ -115,9 +121,9 @@ public class DataTool {
 			}
 			break;
 		case outStoreDoc:
-			al.add(new OutStoreDocVO("CKD1511120000001", d2, orders, "南京","ZZD1511120000001","flight"));
-			al.add(new OutStoreDocVO("CKD1511120000002", d2, orders, "上海","ZZD1511120000002","flight"));
-			al.add(new OutStoreDocVO("CKD1511140000001", d4, orders, "南京","ZZD1511140000001","train"));
+			al.add(new OutStoreDocVO("CKD1511120000001", d2, orderID, "南京","ZZD1511120000001","flight"));
+			al.add(new OutStoreDocVO("CKD1511120000002", d2, orderID, "上海","ZZD1511120000002","flight"));
+			al.add(new OutStoreDocVO("CKD1511140000001", d4, orderID, "南京","ZZD1511140000001","train"));
 			break;
 		case sendGoodDoc:
 			al.add(new SendGoodDocVO("PSD1511120000001", d2, "moxigan","3213640812"));

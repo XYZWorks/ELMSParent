@@ -17,7 +17,7 @@ public class OutStoreDocVO extends DocVO{
 	/**
 	 * 订单
 	 */
-	public ArrayList<OrderVO> orders;
+	public ArrayList<String> orders;
 	/**
 	 * 目的地
 	 */
@@ -47,7 +47,7 @@ public class OutStoreDocVO extends DocVO{
 	 * @param transferDoc
 	 * @param shipWay
 	 */
-	public OutStoreDocVO(String ID,MyDate time, ArrayList<OrderVO> orderVOs, String loc, String transferDoc, String shipWay) {
+	public OutStoreDocVO(String ID,MyDate time, ArrayList<String> orderVOs, String loc, String transferDoc, String shipWay) {
 		//
 		super(ID, DocType.outStoreDoc, time, DocState.wait);
 		
