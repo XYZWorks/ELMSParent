@@ -26,13 +26,11 @@ public class InitalPanel extends JPanel{
 		this.add(exit);
 		this.add(min);
 		repaint();
-		System.out.println("enter");
 	}
 	
 @Override
 	public void paintComponent(Graphics g){
 		Graphics2D g2d = (Graphics2D) g;
-		System.out.println("work!!");
 		g2d.drawImage(GraphicsUtils.getImage("workingBackground"),0,0,1080,720,null);
 		
 		//paint 状态栏

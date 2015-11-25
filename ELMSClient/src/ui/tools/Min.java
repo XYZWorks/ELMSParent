@@ -19,8 +19,8 @@ public class Min extends JLabel{
 	Boolean mouseClicked = false;
 	
 public Min(){
-	
-	this.setBounds(1020,0 , 30, 30);
+	System.out.println("min");
+	this.setBounds(800,0 , 30, 30);
 	this.addMouseListener(new MinListener());
 }
 

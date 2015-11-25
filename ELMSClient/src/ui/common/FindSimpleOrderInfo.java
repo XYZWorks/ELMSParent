@@ -1,9 +1,9 @@
 package ui.common;
 /**
- * 个人信息修改界面
- * @author czq
+ * 查询订单
+ * @author xingcheng
  *
  */
-public class FindSimpleOrderInfo {
-
+public class FindSimpleOrderInfo extends JPanel {
+	private
 }
