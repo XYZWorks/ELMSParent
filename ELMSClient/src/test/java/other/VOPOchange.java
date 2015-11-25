@@ -47,7 +47,7 @@ public class VOPOchange {
 		}
 		Field[] fields = poClass.getDeclaredFields();
 		
-		if(poClass.getSuperclass().toString().endsWith("DocPO")){
+		if(poClass.getSuperclass().toString().endsWith("DocVO")){
 			setSuperField(vo, o, "ID");
 			setSuperField(vo, o, "type");
 			setSuperField(vo, o, "date");
@@ -61,85 +61,25 @@ public class VOPOchange {
 			Field tmp = null;
 			if(f.getName().equals("serialVersionUID"))
 				continue;
-			
-			if(f.getType().toString().endsWith("ArrayList")&&!f.getGenericType().toString().endsWith("String>")){
-				
-				Type listType = f.getGenericType();
-				Object list = null;
-				f.setAccessible(true);
-				try {
-					 list = f.get(o);
-				} catch (IllegalArgumentException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (IllegalAccessException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				ArrayList<Object> polist = (ArrayList<Object>)list;
-				
-				String[] spl = listType.toString().split("<");		
-				String votName = "vo"+spl[1].substring(2, spl[1].length()-3)+"VO";
-
-				Class<? extends Object> votmp = null;
-
-				try {
-					votmp = Class.forName(votName);
-
-				} catch (ClassNotFoundException e) {
-			
-					e.printStackTrace();
-				}
-				ArrayList<Object> volist = new ArrayList<Object>(polist.size());
-				for(int j =0 ; j< polist.size(); j++){
-					volist.add(votmp.cast(POtoVO(polist.get(j))));
-				}
-				
-				Field ft = null;
-				try {
-					ft = vo.getClass().getDeclaredField(f.getName());
-				} catch (NoSuchFieldException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (SecurityException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				ft.setAccessible(true);
-				try {
-					ft.set(vo, polist);
-				} catch (IllegalArgumentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				
-				
+			try {
+				tmp = voClass.getDeclaredField(f.getName());
+			} catch (NoSuchFieldException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SecurityException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			else{
-				try {
-					tmp = voClass.getDeclaredField(f.getName());
-				} catch (NoSuchFieldException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (SecurityException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				f.setAccessible(true);
-				tmp.setAccessible(true);
-				try {
-					tmp.set(vo, f.get(o));
-				} catch (IllegalArgumentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+			f.setAccessible(true);
+			tmp.setAccessible(true);
+			try {
+				tmp.set(vo, f.get(o));
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 		return vo;
@@ -257,7 +197,7 @@ public class VOPOchange {
 		return po;
 		
 	}
-	 
+	
 	private static void setSuperField(Object po,Object o, String name) {
 		
 		Field field1 = getSuperField(o.getClass(), name);
@@ -306,8 +246,8 @@ public class VOPOchange {
 		ArrayList<InStoreDocVO> vo2 = (ArrayList<InStoreDocVO>)DataTool.getDocList(DocType.inStoreDoc);
 		InStoreDocPO po2 = (InStoreDocPO)VOtoPO(vo2.get(0));
 		System.out.println(po2.getID()+" "+po2.getLoc()+" "+ po2.getOrders()+" "+po2.getLocation()+" "+ po2.getDate());
-		InStoreDocVO vo22 = (InStoreDocVO) POtoVO(po2);
-		System.out.println(vo22.ID+ " "+vo22.loc+" "+vo22.orders+" "+ vo22.location+ " "+ vo22.date);
+
+		
 //		
 //		AccountVO voa= DataTool.getAccountVO();
 //		AccountPO poa = (AccountPO) VOtoPO(voa);
@@ -323,11 +263,9 @@ public class VOPOchange {
 //		DriverPO po1 = (DriverPO) VOtoPO(vo1);
 //		System.out.println(po1.getID()+" "+po1.getIDcard()+" "+po1.getLicenseYear()+" "+po1.getName());
 		
-		StateFormVO vo = DataTool.getStateForm();
-		StateFormPO po = (StateFormPO) VOtoPO(vo);
-		System.out.println(po.getEndDate()+ " "+po.getPays());
-		StateFormVO vot = (StateFormVO) POtoVO(po);
-		System.out.println(vot.endDate+" "+vot.pays);
+//		StateFormVO vo = DataTool.getStateForm();
+//		StateFormPO po = (StateFormPO) VOtoPO(vo);
+//		System.out.println(po.getEndDate()+ " "+po.getPays());
 		
 
 	}
