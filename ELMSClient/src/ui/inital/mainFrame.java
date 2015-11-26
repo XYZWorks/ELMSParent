@@ -44,10 +44,5 @@ public class mainFrame extends MyFrame {
 	public mainFrame getMainFrame(){
 		return this.getMainFrame();
 	}
-	
-	
-	public static void main(String[] args) {
-		ParseXML xml=new ParseXML("xc.xml");
-		xml.getRoot();
-	}
+
 }

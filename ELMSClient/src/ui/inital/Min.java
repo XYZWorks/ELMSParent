@@ -6,6 +6,8 @@ import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JFrame;
+
 import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
@@ -19,7 +21,9 @@ import ui.tools.MyButton;
 public class Min extends MyButton {
 	private boolean  mouseContained = false;
 	private boolean mouseClicked = false;
-
+	private mainFrame mainframe;
+	
+	
 	public Min(Element e) {
 		super(e);
 		this.addMouseListener(new MinListener());
@@ -49,11 +53,16 @@ public class Min extends MyButton {
 //		}
 //	}
 
+	public void setMainFrmae(mainFrame frame){
+		mainframe=frame;
+	}
+	
+	
 	class MinListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			// mins
-
+			  mainframe.setExtendedState(JFrame.ICONIFIED);
 		}
 
 		@Override
