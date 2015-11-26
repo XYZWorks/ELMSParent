@@ -5,6 +5,8 @@ import java.awt.Graphics;
 
 import javax.swing.JTextField;
 
+import org.dom4j.Element;
+
 /**
  * 
  * @author czq
@@ -28,5 +30,11 @@ public class MyTextField extends JTextField {
 		this.setVisible(true);
 	}
 	
+	public MyTextField(Element config){
+		this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));
+
+		this.setVisible(true);
+		
+	}
 	
 }

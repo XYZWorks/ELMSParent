@@ -10,10 +10,7 @@ import org.dom4j.Element;
  */
 @SuppressWarnings("serial")
 public class MyCheckBox extends JCheckBox{
-	public MyCheckBox() {
-		this.setOpaque(true);
-		this.setVisible(true);
-	}
+
 
 	public MyCheckBox(int x1, int x2, int y1,  int y2) {
 		super();

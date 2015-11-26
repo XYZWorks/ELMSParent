@@ -10,6 +10,7 @@ import ui.config.ParseXML;
 import ui.tools.MyFrame;
 import ui.tools.MyPanel;
 import util.AccountType;
+import vo.account.AccountVO;
 
 /**
  * 主界面
@@ -25,9 +26,9 @@ public class mainFrame extends MyFrame {
 	/**
 	 * 
 	 * @param e
-	 * @param type 用户类型
+	 * @param vo 用户类型
 	 */
-	public mainFrame(Element e , AccountType type) {
+	public mainFrame(Element e , AccountVO vo) {
 		super(e);
 		
 		

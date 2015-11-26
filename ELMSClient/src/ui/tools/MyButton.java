@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import org.dom4j.Element;
 
 /**
- * 
+ * Button父类
  * @author czq
  * @version 2015年11月16日 下午7:35:33
  */

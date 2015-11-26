@@ -3,7 +3,6 @@ package ui.login;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.JOptionPane;
 
@@ -16,12 +15,10 @@ import ui.tools.MyButton;
 import ui.tools.MyCheckBox;
 import ui.tools.MyFrame;
 import ui.tools.MyOptionPane;
-import ui.tools.MyPanel;
 import ui.tools.MyPasswordField;
 import ui.tools.MyTextField;
 import util.AccountType;
 import util.FormatMes;
-import util.ResultMessage;
 import vo.account.AccountVO;
 import bl.BusinessLogicDataFactory;
 import blservice.usermesblservice.UserMesblservice;
@@ -62,6 +59,8 @@ public class LoginFrame extends MyFrame{
 		this.setBackground(new Color(0, 0, 0, 0));
 
 		initButtons(config.element("buttons"));
+		initTextField(config.element("textfields"));
+		
 		initOtherCom(config);
 		config.attributeValue("width");
 		this.frame = this;
@@ -81,19 +80,17 @@ public class LoginFrame extends MyFrame{
 		closeButton = new MyButton(config.element("close"));
 	}
 	
-	private void initCheckBox(Element config){
-		
-	}
+	
 	
 	private void initTextField(Element config){
-		
+		userName = new MyTextField(config.element("userName"));
 		
 	}
 	
 	private void initOtherCom(Element config){
-		userName = new MyTextField(179 ,185 , 353 - 179, 216 - 185);
-		rememberMe = new MyCheckBox(284,287,293,296);
-		password = new MyPasswordField(179 , 241 , 353 - 179 , 272 - 241);
+		
+		rememberMe = new MyCheckBox(config.element("rememberMe"));
+		password = new MyPasswordField(config.element("password"));
 	}
 	
 	private void addCom(){
@@ -147,12 +144,13 @@ class MyLoginListener extends MouseAdapter{
 			return;
 			
 		}
-		 result= bl.login(new AccountVO(id, passwords, null));
-		if( result== null){
+		AccountVO vo;
+		 vo = bl.login(new AccountVO(id, passwords, null));
+		if( vo == null){
 			new MyOptionPane(frame, "用户名或密码错误，请您重新输入");
 		}else{
-			System.out.println("登录成功，用户类型为 " + result.name());
-			new mainFrame(config.getParent() , result);
+			System.out.println("登录成功，用户类型为 " + vo.type.name());
+			new mainFrame(config.getParent() , vo);
 		}
 		
 	}

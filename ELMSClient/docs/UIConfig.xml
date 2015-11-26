@@ -8,11 +8,11 @@
 		</buttons>
 		<lables>
 		</lables>
-		<textfield>
-			
-		</textfield>
-		
-	
+		<textfields>
+			<userName x = "179" y = "185"  width = "174" height = "31" />
+		</textfields>
+		<rememberMe x = "284" y = "287" width = "15" height = "15" />	
+		<password x = "179" y = "241" width = "174" height = "31" />
 	
 	
 	</loginframe>

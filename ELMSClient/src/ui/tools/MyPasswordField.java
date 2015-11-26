@@ -3,6 +3,8 @@ package ui.tools;
 import java.awt.Color;
 
 import javax.swing.JPasswordField;
+
+import org.dom4j.Element;
  /** 
  * 
  * @author czq 
@@ -24,6 +26,11 @@ public class MyPasswordField extends JPasswordField{
 		
 		this.setVisible(true);
 		// TODO Auto-generated constructor stub
+	}
+
+	public MyPasswordField(Element config) {
+		this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));
+		this.setVisible(true);
 	}
 	
 }
