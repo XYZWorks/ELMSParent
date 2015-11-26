@@ -17,7 +17,6 @@ import ui.tools.MyFrame;
 import ui.tools.MyOptionPane;
 import ui.tools.MyPasswordField;
 import ui.tools.MyTextField;
-import util.AccountType;
 import util.FormatMes;
 import vo.account.AccountVO;
 import bl.BusinessLogicDataFactory;
@@ -132,7 +131,6 @@ class MyLoginListener extends MouseAdapter{
 		
 		String id = userName.getText();
 		String passwords = new String(password.getPassword());
-		AccountType result;
 		FormatMes format;
 		format = UserfulMethod.checkID(id);
 		if(format == FormatMes.ILEGAL_CHAR){

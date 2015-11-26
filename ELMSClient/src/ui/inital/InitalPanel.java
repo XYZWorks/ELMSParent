@@ -1,22 +1,11 @@
 package ui.inital;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.RenderingHints;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
-import ui.tools.MyButton;
+import ui.tools.MyFrame;
 import ui.tools.MyPanel;
 
 /**
@@ -27,20 +16,19 @@ import ui.tools.MyPanel;
  */
 @SuppressWarnings("serial")
 public class InitalPanel extends MyPanel {
-	// private Exit exit=new Exit();
-	// private Min min=new Min();
+
 
 	private Exit exit;
 	private Min min;
 	private Home home;
 	private Rectangle rectangle;
 	private ShowCareer career;
-	
-//	private JLabel hello;
-//	private JLabel sd;
+	private MyFrame parent;
 
-	public InitalPanel(Element e) {
+
+	public InitalPanel(Element e , MyFrame frame) {
 		super(e);
+		this.parent = frame;
 		initButtons(e.element("buttons"));
 		initLables(e.element("labels"));
 		initTextFields(e.element("textfields"));
@@ -61,8 +49,8 @@ public class InitalPanel extends MyPanel {
 
 	@Override
 	protected void initButtons(Element e) {
-		exit = new Exit(e.element("exit"));
-		min = new Min(e.element("min"));
+		exit = new Exit(e.element("exit"),parent);
+		min = new Min(e.element("min"),parent);
 		home=new Home(e.element("home"));
 		rectangle=new Rectangle(e.element("rectangle"));
 		career=new ShowCareer(e.element("showCareer"));
@@ -98,19 +86,14 @@ public class InitalPanel extends MyPanel {
 	protected void addCompoment() {
 		this.add(exit);
 		this.add(min);
-
 		this.add(home);
 		this.add(rectangle);
 		this.add(career);
-		
-//		this.add(hello);
-		
-
 	}
 
 	@Override
 	protected void addListener() {
-		// TODO Auto-generated method stub
+		
 
 	}
 }

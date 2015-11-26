@@ -13,8 +13,9 @@ public class MyOptionPane extends JOptionPane {
 		super(message);
 		MyOptionPane.showMessageDialog(parent, message);
 	}
-	public MyOptionPane(JFrame parent , String message , int messageType){
-		super(message, messageType);
+	public MyOptionPane(JFrame parent , String message , int chooseType){
+//		super(message, messageType);
+		super(message, JOptionPane.INFORMATION_MESSAGE, chooseType);
 		MyOptionPane.showMessageDialog(parent, message, "" , messageType);
 		
 	}

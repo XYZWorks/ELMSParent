@@ -30,7 +30,7 @@ public class testframeforxc extends MyFrame {
 			/**
 			 * 整个过程中不动的界面，底色
 			 */
-			InitalPanel initalPanel = new InitalPanel(e.element("initialpanel"));
+			InitalPanel initalPanel = new InitalPanel(e.element("initialpanel") , this);
 
 			this.setContentPane(initalPanel);
 

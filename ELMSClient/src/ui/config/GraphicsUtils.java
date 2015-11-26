@@ -22,8 +22,6 @@ public class GraphicsUtils {
 			Icon image = null;
 			image = new ImageIcon(getImage(StaticMessage.ICON_PATH + fileName));
 			return image;
-			
-			
 		}
 		
 		public static final Image getImage(String fileName){

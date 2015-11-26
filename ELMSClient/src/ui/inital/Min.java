@@ -1,17 +1,16 @@
 package ui.inital;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.Icon;
 import javax.swing.JFrame;
 
 import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
 import ui.tools.MyButton;
+import ui.tools.MyFrame;
 
 /*
  * 最小化按钮
@@ -19,15 +18,21 @@ import ui.tools.MyButton;
  */
 @SuppressWarnings("serial")
 public class Min extends MyButton {
-	private boolean  mouseContained = false;
-	private boolean mouseClicked = false;
-	private mainFrame mainframe;
 	
+	private MyFrame parent;
+//	private mainFrame mainframe;
+	private Icon normal;
+	private Icon clicked;
+	private Icon entered;
 	
-	public Min(Element e) {
+	public Min(Element e , MyFrame parent) {
 		super(e);
+		this.parent = parent;
 		this.addMouseListener(new MinListener());
-		this.setIcon(GraphicsUtils.getIcon("minGrey"));
+		normal = GraphicsUtils.getIcon("");
+		clicked = GraphicsUtils.getIcon("");
+		entered = GraphicsUtils.getIcon("");
+		setIcon(normal);
 		this.setVisible(true);
 	}
 
@@ -53,30 +58,28 @@ public class Min extends MyButton {
 //		}
 //	}
 
-	public void setMainFrmae(mainFrame frame){
-		mainframe=frame;
-	}
+	
 	
 	
 	class MinListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			// mins
-			  mainframe.setExtendedState(JFrame.ICONIFIED);
+			setIcon(clicked);
+			  parent.setExtendedState(JFrame.ICONIFIED);
 		}
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
-			mouseContained = true;
-			setIcon(GraphicsUtils.getIcon("minGreen"));
+//			setIcon(GraphicsUtils.getIcon("minGreen"));
+			setIcon(entered);
 			repaint();
 
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
-			mouseContained = false;
-			setIcon(GraphicsUtils.getIcon("minGrey"));
+			setIcon(normal);
 			repaint();
 		}
 
