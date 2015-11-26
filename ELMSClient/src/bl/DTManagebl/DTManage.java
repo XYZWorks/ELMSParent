@@ -4,8 +4,10 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import ds.DTManagedataservice.DTManagedataservice;
+import net.RMIManage;
 import po.DTManage.DriverPO;
 import test.java.other.VOPOchange;
+import util.DataServiceType;
 import util.ResultMessage;
 import vo.DTManage.CarVO;
 import vo.DTManage.DriverVO;
@@ -20,7 +22,15 @@ public class DTManage{
 	
 	DTManagedataservice manageData;
 	
-	
+	public DTManage() {
+		manageData = (DTManagedataservice) RMIManage.getDataService(DataServiceType.DTManageDataService);
+		try {
+			manageData.initial();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public ResultMessage add(DriverVO vo) {
 		
 		DriverPO po = (DriverPO) VOPOchange.VOtoPO(vo);

@@ -1,11 +1,19 @@
 package util;
+
+import java.io.Serializable;
+
 /**
  * 日期类
  * @author czq
  *
  */
-public class MyDate {
+public class MyDate implements Serializable{
 	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public int year;
 	
