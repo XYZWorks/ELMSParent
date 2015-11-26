@@ -23,13 +23,20 @@
 		<hello text = "" x = "1" y = "1" width = "930"  height = "30"/>
 		</buttons>
 	</initialpanel>
-	<approval width = "497" height = "411" >
+	<approval width = "1080" height = "720" >
 		<buttons>
-			<close text = "" x = "455" y = "36" width = "34" height = "33"/>
-			<login text = "" x = "3" y = "358" width = "489" height = "53"/>
-			<checkOrder text = "" x = "213" y = "316" width = "72" height = "17"/>
+			<close text = "" x = "1041" y = "17" width = "19" height = "18"/>
+			<min text = "" x = "1004" y = "24" width = "22" height = "3"/>
+			<drop-down-box text = "" x = "955" y = "24" width = "15" height = "8"/>
+			<home text = "" x = "773" y = "16" width = "26" height = "22"/>		
+			<DanJuShenPi text = "" x = "280" y = "213" width = "137" height = "152"/>
+			<TongJiFenXi text = "" x = "584" y = "203" width = "131" height = "160"/>
+			<ZhiDingChangLiang text = "" x = "893" y = "203" width = "111" height = "160"/>
+			<ZhiDingXinShuiCeLue text = "" x = "285" y = "421" width = "131" height = "151"/>
+			<RenYuanGuanLi text = "" x = "584" y = "407" width = "131" height = "165"/>		
+			<JiGouGuanLi text = "" x = "880" y = "402" width = "138" height = "170"/>		
 		</buttons>
-	
+
 	</approval>
 
 
