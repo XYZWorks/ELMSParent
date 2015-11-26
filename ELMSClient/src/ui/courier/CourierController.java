@@ -1,5 +1,7 @@
 package ui.courier;
 
+import org.dom4j.Element;
+
 import ui.tools.MyPanel;
 import ui.util.PanelController;
  /** 
@@ -10,10 +12,37 @@ import ui.util.PanelController;
 public class CourierController extends PanelController{
 	
 	
-	
-	public CourierController(MyPanel initialPanel) {
-		super(initialPanel);
+
+
+	public CourierController(MyPanel initialPanel, Element root) {
+		super(initialPanel, root);
 		// TODO Auto-generated constructor stub
 	}
+	
+	@Override
+	protected void initPanel(Element e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void addButtons(Element e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void addPanels() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void addListeners() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 }

@@ -38,20 +38,16 @@ public abstract class PanelController {
 		
 	}
 	
-	private void initial(Element e){
-		panelManager = new CardLayout();
-		this.changePanel = new JPanel(panelManager);
-		changePanel.setBounds(Integer.parseInt(e.attributeValue("x")),
-				Integer.parseInt(e.attributeValue("y")),
-				Integer.parseInt(e.attributeValue("width")),
-				Integer.parseInt(e.attributeValue("height")));
-		this.mainPanel.add(changePanel);
-	}
+	/**
+	 * 初始化panel
+	 */
+	protected abstract void initPanel(Element e);
+	
 	
 	/**
 	 * 向panel上左侧栏的Buttons
 	 */
-	protected abstract void addButtons();
+	protected abstract void addButtons(Element e);
 	/**
 	 * 增加panel
 	 */
@@ -62,4 +58,17 @@ public abstract class PanelController {
 	protected abstract void addListeners();
 	
 	
+	/**
+	 * 父类自初始化
+	 * @param e
+	 */
+	private void initial(Element e){
+		panelManager = new CardLayout();
+		this.changePanel = new JPanel(panelManager);
+		changePanel.setBounds(Integer.parseInt(e.attributeValue("x")),
+				Integer.parseInt(e.attributeValue("y")),
+				Integer.parseInt(e.attributeValue("width")),
+				Integer.parseInt(e.attributeValue("height")));
+		this.mainPanel.add(changePanel);
+	}
 }

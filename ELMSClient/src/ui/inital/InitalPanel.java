@@ -7,7 +7,6 @@ import org.dom4j.Element;
 import ui.config.GraphicsUtils;
 import ui.tools.MyFrame;
 import ui.tools.MyPanel;
-import ui.tools.MyPictureButton;
 import util.AccountType;
 import vo.account.AccountVO;
 
@@ -62,7 +61,7 @@ public class InitalPanel extends MyPanel {
 
 			break;
 		case manager:
-
+//			new GeneralManagerController(this, )
 			break;
 		case saleman:
 

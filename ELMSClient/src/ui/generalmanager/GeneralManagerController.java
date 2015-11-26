@@ -29,19 +29,26 @@ public class GeneralManagerController extends PanelController{
 	
 	public GeneralManagerController(MyPanel initialPanel , Element e) {
 		super(initialPanel , e);
-		
+		addButtons(e.element("buttons"));
 	}
 
 	@Override
-	protected void addButtons() {
+	protected void addButtons(Element e) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	@Override
+	protected void initPanel(Element e) {
+//		approvalPanel = new ApprovalDocsPanel(e.attributeValue("approval"));
+		
+	}
+	
+	
 	@Override
 	protected void addPanels() {
-		approvalPanel = new ApprovalDocsPanel(e);
-		changePanel.add(approvalPanel, e.attributeValue("approval"));
+		
+//		changePanel.add(approvalPanel, e.attributeValue("approval"));
 		
 	}
 
@@ -50,5 +57,7 @@ public class GeneralManagerController extends PanelController{
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 }
