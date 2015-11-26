@@ -42,7 +42,6 @@ public class Login extends JFrame{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setUndecorated(true);
 		frame.setBounds(500,500,500,375);
-		AWTUtilities.setWindowOpaque(frame, false);
 		//设置窗口完全透明
 		
 		JPanel pane = new JPanel(){

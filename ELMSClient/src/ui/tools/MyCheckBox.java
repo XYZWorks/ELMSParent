@@ -21,7 +21,7 @@ public class MyCheckBox extends JCheckBox{
 		this.setVisible(true);
 	}
 
-	public MyCheckBox(Element element) {
+	public MyCheckBox(Element config) {
 		this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));
 		this.setVisible(true);
 	}

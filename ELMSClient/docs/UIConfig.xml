@@ -16,7 +16,13 @@
 	
 	
 	</loginframe>
-	
+	<initialpanel x = "0" y = "0" width = "1080"  height = "720" >
+		<buttons>
+		<exit text = "---" x = "1" y = "1" width = "970"  height = "30"/>
+		<min text = "---" x = "1" y = "1" width = "930"  height = "30"/>
+		<hello text = "" x = "1" y = "1" width = "930"  height = "30"/>
+		</buttons>
+	</initialpanel>
 	<approval width = "497" height = "411" >
 		<buttons>
 			<close text = "" x = "455" y = "36" width = "34" height = "33"/>
