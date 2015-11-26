@@ -1,5 +1,9 @@
 package ui.inital;
 
+import org.dom4j.Element;
+
+import ui.config.GraphicsUtils;
+import ui.tools.MyButton;
 import ui.tools.MyLabel;
 
 /**
@@ -7,6 +11,13 @@ import ui.tools.MyLabel;
 *@author:xingcheng
 *@version 2015年11月26日
 */
-public class ShowCareer extends MyLabel {
+@SuppressWarnings("serial")
+public class ShowCareer extends MyButton{
 
+	public ShowCareer(Element config) {
+		super(config);
+		this.setIcon(GraphicsUtils.getIcon(""));
+		this.setVisible(true);
+	}
+	
 }

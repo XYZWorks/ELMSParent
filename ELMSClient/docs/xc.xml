@@ -1,1 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<xc>
+<ELMS width = "1080" height = "720">
+
+	<initialpanel x = "0" y = "0" width = "1080"  height = "720" >
+		<buttons>
+		<exit  x = "1" y = "1" width = "30"  height = "30"/>
+		<min x = "1" y = "1" width = "930"  height = "30"/>
+		<home x = "1" y = "1" width = "930"  height = "30"/>
+		<rectangle x = "1" y = "1" width = "930"  height = "30"/>
+		<showCareer x = "1" y = "1" width = "30"  height = "30"/>
+		
+		</buttons>
+		
+	
+	</initialpanel>
+	
+
+
+</ELMS>
+</xc>

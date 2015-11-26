@@ -32,8 +32,12 @@ public class InitalPanel extends MyPanel {
 
 	private Exit exit;
 	private Min min;
-	private JLabel hello;
-	private JLabel sd;
+	private Home home;
+	private Rectangle rectangle;
+	private ShowCareer career;
+	
+//	private JLabel hello;
+//	private JLabel sd;
 
 	public InitalPanel(Element e) {
 		super(e);
@@ -59,12 +63,16 @@ public class InitalPanel extends MyPanel {
 	protected void initButtons(Element e) {
 		exit = new Exit(e.element("exit"));
 		min = new Min(e.element("min"));
-		hello = new JLabel("asdasdasdsa");
-		hello.setBounds(300 , 400 , 50 , 50);
-		sd = new JLabel("aaaaaaaaa");
-		sd.setBounds(200, 200, 30, 30);
-		sd.setVisible(true);
-		this.add(sd);
+		home=new Home(e.element("home"));
+		rectangle=new Rectangle(e.element("rectangle"));
+		career=new ShowCareer(e.element("showCareer"));
+		
+//		hello = new JLabel("asdasdasdsa");
+//		hello.setBounds(300 , 400 , 50 , 50);
+//		sd = new JLabel("aaaaaaaaa");
+//		sd.setBounds(200, 200, 30, 30);
+//		sd.setVisible(true);
+//		this.add(sd);
 	}
 
 	@Override
@@ -75,7 +83,7 @@ public class InitalPanel extends MyPanel {
 
 	@Override
 	protected void initLables(Element e) {
-		// TODO Auto-generated method stub
+	
 
 	}
 
@@ -89,7 +97,12 @@ public class InitalPanel extends MyPanel {
 	protected void addCompoment() {
 		this.add(exit);
 		this.add(min);
-		this.add(hello);
+		this.add(home);
+		this.add(rectangle);
+		this.add(career);
+		
+//		this.add(hello);
+		
 	}
 
 	@Override

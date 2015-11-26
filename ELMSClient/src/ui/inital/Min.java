@@ -59,6 +59,7 @@ public class Min extends MyButton {
 		@Override
 		public void mouseEntered(MouseEvent e) {
 			mouseContained = true;
+			setIcon(GraphicsUtils.getIcon("minGreen"));
 			repaint();
 
 		}
@@ -66,6 +67,7 @@ public class Min extends MyButton {
 		@Override
 		public void mouseExited(MouseEvent e) {
 			mouseContained = false;
+			setIcon(GraphicsUtils.getIcon("minGrey"));
 			repaint();
 		}
 

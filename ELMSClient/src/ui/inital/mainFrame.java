@@ -1,9 +1,12 @@
 package ui.inital;
 
+import java.text.ParseException;
+
 import javax.swing.JFrame;
 
 import org.dom4j.Element;
 
+import ui.config.ParseXML;
 import ui.tools.MyFrame;
 import ui.tools.MyPanel;
 import util.AccountType;
@@ -37,5 +40,14 @@ public class mainFrame extends MyFrame {
 
 		this.setVisible(true);
 
+	}
+	public mainFrame getMainFrame(){
+		return this.getMainFrame();
+	}
+	
+	
+	public static void main(String[] args) {
+		ParseXML xml=new ParseXML("xc.xml");
+		xml.getRoot();
 	}
 }
