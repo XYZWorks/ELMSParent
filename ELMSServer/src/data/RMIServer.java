@@ -21,7 +21,7 @@ import data.datafactory.DataFactory;
  * @author czq
  * @version 2015年11月8日 下午11:34:57
  */
-public class RMIManage {
+public class RMIServer {
 
 	private InetAddress hostInetAddress;
 	private String hostAdr;
@@ -50,7 +50,7 @@ public class RMIManage {
 		}
 	}
 
-	public RMIManage() {
+	public RMIServer() {
 		try {
 			hostInetAddress = InetAddress.getLocalHost();
 			hostAdr = hostInetAddress.getHostAddress();
@@ -110,12 +110,5 @@ public class RMIManage {
 		System.exit(0);
 	}
 
-	public static void main(String[] args) {
-		RMIManage rmi = new RMIManage();
-		
-		if(rmi.startRMI()){
-			System.out.println("服务器端正常运行中");
-		}
 
-	}
 }

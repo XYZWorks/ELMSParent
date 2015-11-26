@@ -28,7 +28,7 @@ public class mainFrame extends MyFrame {
 		/**
 		 * 整个过程中不动的界面，底色
 		 */
-		InitalPanel initalPanel = new InitalPanel(e.element("initialpanel") , this);
+		InitalPanel initalPanel = new InitalPanel(e.element("initialpanel") , this , vo);
 
 		this.setContentPane(initalPanel);
 

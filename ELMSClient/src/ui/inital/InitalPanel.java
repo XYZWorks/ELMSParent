@@ -7,6 +7,8 @@ import org.dom4j.Element;
 import ui.config.GraphicsUtils;
 import ui.tools.MyFrame;
 import ui.tools.MyPanel;
+import util.AccountType;
+import vo.account.AccountVO;
 
 /**
  * 主面板界面，不动的界面
@@ -26,7 +28,7 @@ public class InitalPanel extends MyPanel {
 	private MyFrame parent;
 
 
-	public InitalPanel(Element e , MyFrame frame) {
+	public InitalPanel(Element e , MyFrame frame ,AccountVO vo) {
 		super(e);
 		this.parent = frame;
 		initButtons(e.element("buttons"));
@@ -35,8 +37,42 @@ public class InitalPanel extends MyPanel {
 		initOtherCompoment(e);
 		addCompoment();
 		addListener();
+		//界面跳转方法
+		addOtherPanel(vo);
+		
 		repaint();
 		this.setVisible(true);
+	}
+	
+	/**
+	 * 根据账户类型跳转至不同的界面
+	 * @param vo
+	 */
+	private void addOtherPanel(AccountVO vo) {
+		AccountType type = vo.type;
+		switch (type) {
+		case Adminstrator:
+
+			break;
+		case courier:
+
+			break;
+		case financeman:
+
+			break;
+		case manager:
+
+			break;
+		case saleman:
+
+			break;
+		case storeman:
+
+			break;
+		default:
+			break;
+		}
+
 	}
 
 	@Override

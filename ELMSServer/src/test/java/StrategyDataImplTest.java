@@ -1,4 +1,4 @@
-package data.strategydata;
+package test.java;
 
 import static org.junit.Assert.*;
 
@@ -12,9 +12,11 @@ import org.junit.Test;
 
 
 
+
 import po.strategy.SalaryWayPO;
 import util.StaffType;
 import data.statisticdata.StatisticDataImpl;
+import data.strategydata.StrategyDataImpl;
 import ds.statisticdataservice.StatisticDataService;
 import ds.strategydataservice.StrategyDataService;
 /** 

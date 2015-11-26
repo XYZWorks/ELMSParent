@@ -23,7 +23,7 @@ public class UserMesblservice_Stub implements UserMesblservice {
 	}
 
 
-	public AccountType login(AccountVO vo) {
+	public AccountVO login(AccountVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
