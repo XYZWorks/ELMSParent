@@ -16,7 +16,9 @@ import ui.util.ButtonState;
  */
 @SuppressWarnings("serial")
 public class MyPictureButton extends JLabel {
-
+	
+//一个按钮分：普通、进入、点击 三种不同的图片状态
+	
 	private Icon normal;
 	private Icon entered;
 	private Icon clicked;
