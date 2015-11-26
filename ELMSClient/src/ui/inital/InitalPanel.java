@@ -63,6 +63,7 @@ public class InitalPanel extends MyPanel {
 	protected void initButtons(Element e) {
 		exit = new Exit(e.element("exit"));
 		min = new Min(e.element("min"));
+<<<<<<< HEAD
 		home=new Home(e.element("home"));
 		rectangle=new Rectangle(e.element("rectangle"));
 		career=new ShowCareer(e.element("showCareer"));
@@ -73,6 +74,9 @@ public class InitalPanel extends MyPanel {
 //		sd.setBounds(200, 200, 30, 30);
 //		sd.setVisible(true);
 //		this.add(sd);
+=======
+		
+>>>>>>> origin/master
 	}
 
 	@Override
@@ -97,12 +101,15 @@ public class InitalPanel extends MyPanel {
 	protected void addCompoment() {
 		this.add(exit);
 		this.add(min);
+<<<<<<< HEAD
 		this.add(home);
 		this.add(rectangle);
 		this.add(career);
 		
 //		this.add(hello);
 		
+=======
+>>>>>>> origin/master
 	}
 
 	@Override
