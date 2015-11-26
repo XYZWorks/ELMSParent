@@ -6,23 +6,27 @@ import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
 import javax.swing.JLabel;
 
+import org.dom4j.Element;
+
 import ui.config.GraphicsUtils;
+import ui.tools.MyButton;
 
 
 /*
  * 退出按钮
  * 
  */
-public class Exit extends JLabel{
+@SuppressWarnings("serial")
+public class Exit extends MyButton{
 
-		Boolean mouseContained = false;
-		Boolean mouseClicked = false;
+	private	boolean mouseContained = false;
+	private	boolean mouseClicked = false;
 		
-	public Exit(){
-		System.out.println("exit!");
-		this.setBounds(720,0 , 30, 30);
+	public Exit(Element e){
+		super(e);
 		this.addMouseListener(new ExitListener());
 		this.setVisible(true);
 	}

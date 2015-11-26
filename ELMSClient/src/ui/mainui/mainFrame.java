@@ -26,8 +26,12 @@ public class mainFrame extends MyFrame {
 	 */
 	public mainFrame(Element e , AccountType type) {
 		super(e);
-
-		InitalPanel initalPanel = new InitalPanel();
+		
+		
+		/**
+		 * 整个过程中不动的界面，底色
+		 */
+		InitalPanel initalPanel = new InitalPanel(e.element("initialpanel"));
 
 		this.setContentPane(initalPanel);
 
