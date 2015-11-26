@@ -20,10 +20,12 @@
 		<buttons>
 		<exit text = "" x = "1" y = "1" width = "970"  height = "30"/>
 		<min text = "" x = "1" y = "1" width = "930"  height = "30"/>
-		<hello text = "" x = "1" y = "1" width = "930"  height = "30"/>
 		</buttons>
+		
+		<changePanel                                            />
 	</initialpanel>
-	<approval width = "1080" height = "720" >
+	<GeneralManager width = "1080" height = "720" >
+		<changePanel x = "" />
 		<buttons>
 			<close text = "" x = "1041" y = "17" width = "19" height = "18"/>
 			<min text = "" x = "1004" y = "24" width = "22" height = "3"/>
@@ -37,7 +39,7 @@
 			<JiGouGuanLi text = "" x = "880" y = "402" width = "138" height = "170"/>		
 		</buttons>
 
-	</approval>
+	</GeneralManager>
 
 
 

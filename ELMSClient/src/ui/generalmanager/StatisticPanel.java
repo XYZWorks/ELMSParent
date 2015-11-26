@@ -1,9 +1,9 @@
 package ui.generalmanager;
 /**
- * 人员管理
+ * 统计分析
  * @author xingcheng
  *
  */
-public class PeopleManage {
+public class StatisticPanel {
 
 }

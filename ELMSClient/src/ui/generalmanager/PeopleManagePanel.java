@@ -1,9 +1,9 @@
 package ui.generalmanager;
 /**
- * 机构管理
+ * 人员管理
  * @author xingcheng
  *
  */
-public class InstManage {
+public class PeopleManagePanel {
 
 }

@@ -1,9 +1,9 @@
 package ui.generalmanager;
 /**
- * 指定常量界面
+ * 机构管理
  * @author xingcheng
  *
  */
-public class ConstSet {
+public class InstManagePanel {
 
 }
