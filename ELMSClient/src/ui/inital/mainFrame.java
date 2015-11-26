@@ -9,7 +9,7 @@ import ui.tools.MyPanel;
 import util.AccountType;
 
 /**
- * 构建mainframe主框架
+ * 主界面
  * 
  * @author czq 10-19
  */
@@ -17,6 +17,7 @@ import util.AccountType;
 @SuppressWarnings("serial")
 public class mainFrame extends MyFrame {
 	
+//	private MyPanel panel;
 	
 	/**
 	 * 
@@ -25,8 +26,12 @@ public class mainFrame extends MyFrame {
 	 */
 	public mainFrame(Element e , AccountType type) {
 		super(e);
-
-		InitalPanel initalPanel = new InitalPanel();
+		
+		
+		/**
+		 * 整个过程中不动的界面，底色
+		 */
+		InitalPanel initalPanel = new InitalPanel(e.element("initialpanel"));
 
 		this.setContentPane(initalPanel);
 

@@ -9,44 +9,92 @@ import java.awt.Image;
 import java.awt.RenderingHints;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import org.dom4j.Element;
+
 import ui.config.GraphicsUtils;
+import ui.tools.MyButton;
+import ui.tools.MyPanel;
+
 /**
- * 初始化界面 添加组件
+ * 主面板界面，不动的界面
+ * 
  * @author xingcheng
  *
  */
-public class InitalPanel extends JPanel{
-	private Exit exit=new Exit();
-	private Min min=new Min();
-	private Set set=new Set();
-	private ShowCareer showCareer=new ShowCareer();
-	
-	//搜索框根据情况再加？？？？？在讨论？？？
-	
-	public InitalPanel(){
+@SuppressWarnings("serial")
+public class InitalPanel extends MyPanel {
+	// private Exit exit=new Exit();
+	// private Min min=new Min();
+
+	private Exit exit;
+	private Min min;
+	private JLabel hello;
+	private JLabel sd;
+
+	public InitalPanel(Element e) {
+		super(e);
+		initButtons(e.element("buttons"));
+		initLables(e.element("labels"));
+		initTextFields(e.element("textfields"));
+		initOtherCompoment(e);
+		addCompoment();
+		addListener();
+		repaint();
+		this.setVisible(true);
+	}
+
+	@Override
+	 public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.drawImage(GraphicsUtils.getImage("workingBackground"), 0, 0, null);
 		
+		
+	};
+
+	@Override
+	protected void initButtons(Element e) {
+		exit = new Exit(e.element("exit"));
+		min = new Min(e.element("min"));
+		hello = new JLabel("asdasdasdsa");
+		hello.setBounds(300 , 400 , 50 , 50);
+		sd = new JLabel("aaaaaaaaa");
+		sd.setBounds(200, 200, 30, 30);
+		sd.setVisible(true);
+		this.add(sd);
+	}
+
+	@Override
+	protected void initTextFields(Element e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void initLables(Element e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void initOtherCompoment(Element e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void addCompoment() {
 		this.add(exit);
 		this.add(min);
-		this.add(set);
-		this.add(showCareer);
-		
-		repaint();
+		this.add(hello);
 	}
-	
-@Override
-	public void paintComponent(Graphics g){
-		Graphics2D g2d = (Graphics2D) g;
-		g2d.drawImage(GraphicsUtils.getImage("workingBackground"),0,0,1080,720,null);
-		
-		
-		//paint 状态栏 日期
-	//	g2d.setColor(Color.BLACK);
-//		g2d.setFont(new Font("状态栏", Font.BOLD, 30));
-//	g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
-	//			RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-//		
-		
+
+	@Override
+	protected void addListener() {
+		// TODO Auto-generated method stub
+
 	}
 }
