@@ -29,7 +29,7 @@ public class Exit extends MyButton{
 	public Exit(Element e){
 		super(e);
 		this.addMouseListener(new ExitListener());
-		this.setIcon(GraphicsUtils.getIcon("closeGrey"));
+		this.setIcon(GraphicsUtils.getIcon("close-gray"));
 		this.setVisible(true);
 
 	}

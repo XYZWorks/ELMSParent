@@ -20,7 +20,7 @@ public class GraphicsUtils {
 
 		public static final Icon getIcon(String fileName){
 			Icon image = null;
-			image = new ImageIcon(getImage(fileName));
+			image = new ImageIcon(getImage(StaticMessage.ICON_PATH + fileName));
 			return image;
 			
 			
@@ -29,10 +29,10 @@ public class GraphicsUtils {
 		public static final Image getImage(String fileName){
 			Image image = null;
 			try {
-				image = ImageIO.read(new File(StaticMessage.imagePath + fileName + ".png"));
+				image = ImageIO.read(new File(StaticMessage.IMAGE_PATH + fileName + ".png"));
 			} catch (IOException e) {
 				System.err.println("图片读取出错");
-				System.err.println("图片路径为：" + StaticMessage.imagePath + fileName + ".png" );
+				System.err.println("图片路径为：" + StaticMessage.IMAGE_PATH + fileName + ".png" );
 				e.printStackTrace();
 			}
 			return image;
