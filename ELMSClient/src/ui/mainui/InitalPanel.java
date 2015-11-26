@@ -9,6 +9,8 @@ import java.awt.Image;
 import java.awt.RenderingHints;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import org.dom4j.Element;
@@ -28,8 +30,10 @@ public class InitalPanel extends MyPanel {
 	// private Exit exit=new Exit();
 	// private Min min=new Min();
 
-	private MyButton exit;
-	private MyButton min;
+	private Exit exit;
+	private Min min;
+	private JLabel hello;
+	private JLabel sd;
 
 	public InitalPanel(Element e) {
 		super(e);
@@ -40,15 +44,27 @@ public class InitalPanel extends MyPanel {
 		addCompoment();
 		addListener();
 		repaint();
+		this.setVisible(true);
 	}
 
-	
+	@Override
+	 public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.drawImage(GraphicsUtils.getImage("workingBackground"), 0, 0, null);
+		
+		
+	};
 
 	@Override
 	protected void initButtons(Element e) {
-		exit = new MyButton(e);
-		min = new MyButton(e);
-
+		exit = new Exit(e.element("exit"));
+		min = new Min(e.element("min"));
+		hello = new JLabel("asdasdasdsa");
+		hello.setBounds(300 , 400 , 50 , 50);
+		sd = new JLabel("aaaaaaaaa");
+		sd.setBounds(200, 200, 30, 30);
+		sd.setVisible(true);
+		this.add(sd);
 	}
 
 	@Override
@@ -73,7 +89,7 @@ public class InitalPanel extends MyPanel {
 	protected void addCompoment() {
 		this.add(exit);
 		this.add(min);
-
+		this.add(hello);
 	}
 
 	@Override

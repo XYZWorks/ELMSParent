@@ -37,6 +37,7 @@ public class Exit extends MyButton{
 	
 	@Override
 	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
 		/*
 		 * 下面这几行代码是java2D的黑魔法，上边是开启抗锯齿，下边是开启图片最高质量渲染，还有一个没用到，
 			是开启文字抗锯齿

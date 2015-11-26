@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 import config.StaticMessage;
  /** 
@@ -16,7 +18,13 @@ import config.StaticMessage;
  */
 public class GraphicsUtils {
 
-		
+		public static final Icon getIcon(String fileName){
+			Icon image = null;
+			image = new ImageIcon(getImage(fileName));
+			return image;
+			
+			
+		}
 		
 		public static final Image getImage(String fileName){
 			Image image = null;

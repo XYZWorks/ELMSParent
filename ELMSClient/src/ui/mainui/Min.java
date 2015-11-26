@@ -23,6 +23,7 @@ public class Min extends MyButton {
 	public Min(Element e) {
 		super(e);
 		this.addMouseListener(new MinListener());
+		this.setIcon(GraphicsUtils.getIcon("minGrey"));
 		this.setVisible(true);
 	}
 
@@ -30,23 +31,23 @@ public class Min extends MyButton {
 	// return mouseClicked;
 	// }
 
-	@Override
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		Graphics2D g2d = (Graphics2D) g;
-		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-				RenderingHints.VALUE_ANTIALIAS_ON);
-		g2d.setRenderingHint(RenderingHints.KEY_RENDERING,
-				RenderingHints.VALUE_RENDER_QUALITY);
-		g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
-				RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-
-		if (!mouseContained) {
-			g2d.drawImage(GraphicsUtils.getImage("minGrey"), 0, 0, null);
-		} else {
-			g2d.drawImage(GraphicsUtils.getImage("minGreen"), 0, 0, null);
-		}
-	}
+//	@Override
+//	public void paintComponent(Graphics g) {
+//		super.paintComponent(g);
+//		Graphics2D g2d = (Graphics2D) g;
+//		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+//				RenderingHints.VALUE_ANTIALIAS_ON);
+//		g2d.setRenderingHint(RenderingHints.KEY_RENDERING,
+//				RenderingHints.VALUE_RENDER_QUALITY);
+//		g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
+//				RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+//
+//		if (!mouseContained) {
+//			g2d.drawImage(GraphicsUtils.getImage("minGrey"), 0, 0, null);
+//		} else {
+//			g2d.drawImage(GraphicsUtils.getImage("minGreen"), 0, 0, null);
+//		}
+//	}
 
 	class MinListener extends MouseAdapter {
 		@Override
