@@ -24,7 +24,7 @@ public class UserMes {
 		accountds = (AccountDataService)RMIManage.getDataService(DataServiceType.AccountDataService);
 	}
 	
-	public AccountType login(AccountVO vo) {
+	public AccountVO login(AccountVO vo) {
 		try {
 			return accountds.check(vo.ID, vo.password);
 		} catch (RemoteException e) {

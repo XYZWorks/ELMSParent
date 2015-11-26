@@ -32,6 +32,7 @@ public class GraphicsUtils {
 				image = ImageIO.read(new File(StaticMessage.imagePath + fileName + ".png"));
 			} catch (IOException e) {
 				System.err.println("图片读取出错");
+				System.err.println("图片路径为：" + StaticMessage.imagePath + fileName + ".png" );
 				e.printStackTrace();
 			}
 			return image;

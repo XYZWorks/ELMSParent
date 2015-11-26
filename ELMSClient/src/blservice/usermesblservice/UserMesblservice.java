@@ -1,6 +1,5 @@
 package blservice.usermesblservice;
 
-import util.AccountType;
 import util.ResultMessage;
 import vo.account.AccountVO;
 
@@ -13,9 +12,9 @@ public interface UserMesblservice {
 	/**
 	 * 登录接口
 	 * @param vo
-	 * @return 若成功返回null，否则返回有关错误信息
+	 * @return 若成功返回对应的AccountVO，否则返回null
 	 */
-	public AccountType login(AccountVO vo);
+	public AccountVO login(AccountVO vo);
 	
 	/**
 	 * 修改个人账户信息

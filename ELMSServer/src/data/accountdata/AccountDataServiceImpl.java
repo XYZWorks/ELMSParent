@@ -56,16 +56,16 @@ public class AccountDataServiceImpl extends DataSuperClass implements
 				.getName(), po.getPassword(), po.getPhoneNum(), po.getMail());
 	}
 
-	public AccountType check(String ID, String password)
+	public AccountPO check(String ID, String password)
 			throws RemoteException {
 		try {
-			sql = "SELECT `id`,`password`,`type` FROM "  + tableName ;
+			sql = "SELECT `id`,`password` FROM "  + tableName ;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {
 				if (result.getString(1).equalsIgnoreCase(ID)
 						&& result.getString(2).equalsIgnoreCase(password)) {
-					return AccountType.valueOf(result.getString(3));
+					return find(ID);
 				}
 			}
 		} catch (SQLException e) {

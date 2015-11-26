@@ -16,7 +16,7 @@ public class UserController implements UserMesblservice{
 	public UserController() {
 		userMes = new UserMes();
 	}
-	public AccountType login(AccountVO vo) {
+	public AccountVO login(AccountVO vo) {
 		return userMes.login(vo);
 	}
 

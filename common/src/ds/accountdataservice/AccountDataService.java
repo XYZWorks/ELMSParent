@@ -43,7 +43,7 @@ public interface AccountDataService extends DataserviceParent{
 	 * @param password
 	 * @return
 	 */
-	public AccountType check(String ID , String password) throws RemoteException;
+	public AccountPO check(String ID , String password) throws RemoteException;
 	/**
 	 * 查看个人账户信息（用于用户修改个人信息界面）
 	 * @param ID
