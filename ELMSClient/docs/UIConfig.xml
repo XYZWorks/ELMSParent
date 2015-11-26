@@ -33,12 +33,18 @@
 			normal = "element//drop-normal"  enter="element//drop-enter"  exit="element//drop-exit"/>
 			<home text = "" x = "773" y = "16" width = "26" height = "22"
 			normal = "element//home-normal"  enter="element//home-enter"  exit="element//home-exit"/>		
-			<GMApproval text = "" x = "280" y = "213" width = "137" height = "152"/>
-			<Statistic text = "" x = "584" y = "203" width = "131" height = "160"/>
-			<ConstSet text = "" x = "893" y = "203" width = "111" height = "160"/>
-			<SalaryStrategySet text = "" x = "285" y = "421" width = "131" height = "151"/>
-			<PeopleManage text = "" x = "584" y = "407" width = "131" height = "165"/>		
-			<InstManage text = "" x = "880" y = "402" width = "138" height = "170"/>		
+			<GMApproval text = "" x = "280" y = "213" width = "137" height = "152"
+			normal = "GeneralManager//GMApproval"  enter="GeneralManager//GMApproval-enter"  exit="GeneralManager//GMApproval-exit"/>
+			<Statistic text = "" x = "584" y = "203" width = "131" height = "160"
+			normal = "GeneralManager//Statistic"  enter="GeneralManager//Statistic-enter"  exit="GeneralManager//Statistic-exit"/>
+			<ConstSet text = "" x = "893" y = "203" width = "111" height = "160"
+			normal = "GeneralManager//ConstSet"  enter="GeneralManager//ConstSet-enter"  exit="GeneralManager//ConstSet-exit"/>
+			<SalaryStrategySet text = "" x = "285" y = "421" width = "131" height = "151"
+			normal = "GeneralManager//SalaryStrategySet"  enter="GeneralManager//SalaryStrategySet-enter"  exit="GeneralManager//SalaryStrategySet-exit"/>
+			<PeopleManage text = "" x = "584" y = "407" width = "131" height = "165"
+			normal = "GeneralManager//PeopleManage"  enter="GeneralManager//PeopleManage-enter"  exit="GeneralManager//PeopleManage-exit"/>		
+			<InstManage text = "" x = "880" y = "402" width = "138" height = "170"
+			normal = "GeneralManager//InstManage"  enter="GeneralManager//InstManage-enter"  exit="GeneralManager//InstManage-exit"/>		
 		</buttons  >
 		
 
