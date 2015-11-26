@@ -1,4 +1,4 @@
-package ui.careerChoose;
+package ui.inital;
 /**
 *负责 职业选择 主界面跳转
 *@author:xingcheng

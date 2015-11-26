@@ -1,4 +1,4 @@
-package ui.mainui;
+package ui.inital;
 
 import javax.swing.JFrame;
 
@@ -9,7 +9,7 @@ import ui.tools.MyPanel;
 import util.AccountType;
 
 /**
- * 构建
+ * 构建mainframe主框架
  * 
  * @author czq 10-19
  */
@@ -17,7 +17,6 @@ import util.AccountType;
 @SuppressWarnings("serial")
 public class mainFrame extends MyFrame {
 	
-//	private MyPanel panel;
 	
 	/**
 	 * 
@@ -27,7 +26,7 @@ public class mainFrame extends MyFrame {
 	public mainFrame(Element e , AccountType type) {
 		super(e);
 
-		//InitalPanel initalPanel = new InitalPanel();
+		InitalPanel initalPanel = new InitalPanel();
 
 		this.setContentPane(initalPanel);
 

@@ -1,4 +1,4 @@
-package ui.mainui;
+package ui.inital;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -17,8 +17,8 @@ import ui.config.GraphicsUtils;
  */
 public class Exit extends JLabel{
 
-		Boolean mouseContained = false;
-		Boolean mouseClicked = false;
+		private boolean mouseContained = false;
+		private boolean mouseClicked = false;
 		
 	public Exit(){
 		System.out.println("exit!");

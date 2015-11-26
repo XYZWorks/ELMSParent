@@ -11,7 +11,7 @@ import org.dom4j.Element;
 
 import ui.config.ParseXML;
 import ui.config.UserfulMethod;
-import ui.mainui.mainFrame;
+import ui.inital.mainFrame;
 import ui.tools.MyButton;
 import ui.tools.MyCheckBox;
 import ui.tools.MyFrame;

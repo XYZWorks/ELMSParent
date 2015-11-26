@@ -1,4 +1,4 @@
-package ui.mainui;
+package ui.inital;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -9,14 +9,15 @@ import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 
 import ui.config.GraphicsUtils;
+import ui.tools.MyButton;
 
 	/*
 	 * 最小化按钮
 	 * 
 	 */
-public class Min extends JLabel{
-	Boolean mouseContained = false;
-	Boolean mouseClicked = false;
+public class Min extends MyButton{
+	private boolean mouseContained = false;
+	private boolean mouseClicked = false;
 	
 public Min(){
 	System.out.println("min");
