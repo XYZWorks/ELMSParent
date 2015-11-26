@@ -59,12 +59,7 @@ public class InitalPanel extends MyPanel {
 	protected void initButtons(Element e) {
 		exit = new Exit(e.element("exit"));
 		min = new Min(e.element("min"));
-		hello = new JLabel("asdasdasdsa");
-		hello.setBounds(300 , 400 , 50 , 50);
-		sd = new JLabel("aaaaaaaaa");
-		sd.setBounds(200, 200, 30, 30);
-		sd.setVisible(true);
-		this.add(sd);
+		
 	}
 
 	@Override
@@ -89,7 +84,6 @@ public class InitalPanel extends MyPanel {
 	protected void addCompoment() {
 		this.add(exit);
 		this.add(min);
-		this.add(hello);
 	}
 
 	@Override
