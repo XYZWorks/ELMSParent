@@ -13,4 +13,6 @@ public class StaticMessage {
 	public static final String xmlPath = "docs\\";
 	
 	public static final String ICON_PATH = "element//";
+	
+	public static final String MAIN_WINDOW = "mainWindow";
 }

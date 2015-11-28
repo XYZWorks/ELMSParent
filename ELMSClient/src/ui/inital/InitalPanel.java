@@ -119,7 +119,7 @@ public class InitalPanel extends MyPanel {
 
 	@Override
 	protected void initLables(Element e) {
-	
+		career = new MyLabel(e.element("career"));
 
 	}
 
@@ -194,6 +194,7 @@ public class InitalPanel extends MyPanel {
 		public void mouseClicked(MouseEvent e) {
 			home.setMyIcon(ButtonState.MOUSE_CLICKED);
 			//切换到主页
+			controller.jumpBackToMainWindow();
 		}
 
 		@Override

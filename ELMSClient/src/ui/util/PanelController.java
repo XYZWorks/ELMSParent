@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import config.StaticMessage;
 import ui.tools.MyPanel;
  /** 
  * 界面跳转控制器父类
@@ -58,6 +59,13 @@ public abstract class PanelController {
 	 * 增加监听，将按钮与panel联系起来
 	 */
 	protected abstract void addListeners();
+	
+	/**
+	 * 跳回主界面
+	 */
+	public  void  jumpBackToMainWindow() {
+		panelManager.show(changePanel, StaticMessage.MAIN_WINDOW);
+	}
 	
 	
 	/**

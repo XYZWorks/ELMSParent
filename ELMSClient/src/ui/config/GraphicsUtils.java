@@ -1,5 +1,6 @@
 package ui.config;
 import java.awt.AlphaComposite;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -10,6 +11,8 @@ import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import org.dom4j.Element;
+
 import config.StaticMessage;
  /** 
  * 存放UI层一些可用的静态方法
@@ -18,7 +21,19 @@ import config.StaticMessage;
  */
 public class GraphicsUtils {
 
-	 
+		public static final Font getFont(Element config){
+			Font font;
+			try {
+				font = new Font(config.attributeValue("name"), Font.PLAIN, Integer.parseInt(config.attributeValue("size")));
+				
+				return font;
+			} catch (NullPointerException e) {
+				return new Font("华文新魏", Font.PLAIN, 20);
+			}
+			
+		}
+	
+	
 		public static final Icon getIcon(String fileName){
 			Icon image = null;
 			image = new ImageIcon(getImage(fileName));
