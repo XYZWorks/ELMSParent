@@ -17,7 +17,7 @@ public class ParseXML {
 	
 	private Element root;
 	
-	private String pres = "docs\\";
+	private String pres = "docs//";
 	
 	private String xmlPath=  "UIConfig.xml";
 	

@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
+import ui.courier.CourierController;
 import ui.generalmanager.GeneralManagerController;
 import ui.tools.MyFrame;
 import ui.tools.MyLabel;
@@ -28,10 +29,6 @@ import vo.account.AccountVO;
 @SuppressWarnings("serial")
 public class InitalPanel2 extends MyPanel {
 
-
-//	private Exit exit;
-//	private Min min;
-//	private Home home;
 //	private ShowCareer career;
 	private MyPictureButton exit;
 	private MyPictureButton min;
@@ -69,7 +66,9 @@ public class InitalPanel2 extends MyPanel {
 //		AccountType type = vo.type;
 		
 		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
-		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
+		controller =  new CourierController(this, e.element("CourierManager")) ;
+		//controller =  new CourierController(this, e.element("CourierManager")) ;
+		
 //		switch (type) {
 //		case Adminstrator:
 //			
