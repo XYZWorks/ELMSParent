@@ -26,13 +26,15 @@ public class MyPictureButton extends JLabel {
 	public MyPictureButton(Element e) {
 
 		normal = GraphicsUtils.getIcon(e.attributeValue("normal"));
-		entered = GraphicsUtils.getIcon(e.attributeValue("entered"));
-		clicked = GraphicsUtils.getIcon(e.attributeValue("exited"));
+		entered = GraphicsUtils.getIcon(e.attributeValue("enter"));
+		clicked = GraphicsUtils.getIcon(e.attributeValue("clicked"));
+		
+		this.setIcon(normal);
 		this.setBounds(Integer.parseInt(e.attributeValue("x")),
 				Integer.parseInt(e.attributeValue("y")),
 				Integer.parseInt(e.attributeValue("width")),
 				Integer.parseInt(e.attributeValue("height")));
-		this.setIcon(normal);
+		this.repaint();
 		this.setVisible(true);
 	}
 

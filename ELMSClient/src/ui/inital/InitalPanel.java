@@ -4,15 +4,19 @@ import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JFrame;
+
 import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
+import ui.generalmanager.GeneralManagerController;
 import ui.tools.MyFrame;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.util.ButtonState;
-import util.AccountType;
+import ui.util.CompomentType;
+import ui.util.PanelController;
 import vo.account.AccountVO;
 
 /**
@@ -24,83 +28,89 @@ import vo.account.AccountVO;
 @SuppressWarnings("serial")
 public class InitalPanel extends MyPanel {
 
+
+//	private Exit exit;
+//	private Min min;
+//	private Home home;
+//	private ShowCareer career;
 	private MyPictureButton exit;
 	private MyPictureButton min;
 	private MyPictureButton home;
 	private MyPictureButton rectangle;
 	private MyLabel career;
+	/**
+	 * 控制器
+	 */
+	private PanelController controller;
 	private MyFrame parent;
 
-	public InitalPanel(Element e, MyFrame frame, AccountVO vo) {
+
+	public InitalPanel(Element e , MyFrame frame ,AccountVO vo) {
 		super(e);
 		this.parent = frame;
-		initButtons(e.element("buttons"));
-		initLables(e.element("labels"));
-		initTextFields(e.element("textfields"));
-		initOtherCompoment(e);
-		addCompoment();
-		addListener();
-		// 界面跳转方法
-		addOtherPanel(vo);
-
-		repaint();
+		this.initButtons(e.element(CompomentType.BUTTONS.name()));
+		this.initLables(e.element(CompomentType.LABLES.name()));
+		this.initTextFields(e.element(CompomentType.TEXTFIELDS.name()));
+		this.initOtherCompoment(e);
+		this.addCompoment();
+		this.addListener();
+		//界面跳转方法
+		this.addOtherPanel(vo ,e); 
+		
+		this.repaint();
 		this.setVisible(true);
 	}
-
+	
 	/**
 	 * 根据账户类型跳转至不同的界面
-	 * 
 	 * @param vo
 	 */
-	private void addOtherPanel(AccountVO vo) {
-		AccountType type = vo.type;
-		switch (type) {
-		case Adminstrator:
-
-			break;
-		case courier:
-
-			break;
-		case financeman:
-
-			break;
-		case manager:
-			// new GeneralManagerController(this, )
-			break;
-		case saleman:
-
-			break;
-		case storeman:
-
-			break;
-		default:
-			break;
-		}
+	private void addOtherPanel(AccountVO vo  ,Element e) {
+//		AccountType type = vo.type;
+		
+		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
+		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
+//		switch (type) {
+//		case Adminstrator:
+//			
+//			break;
+//		case courier:
+//
+//			break;
+//		case financeman:
+//
+//			break;
+//		case manager:
+////			new GeneralManagerController(this, )
+//			break;
+//		case saleman:
+//
+//			break;
+//		case storeman:
+//
+//			break;
+//		default:
+//			break;
+//		}
 
 	}
 
 	@Override
-	public void paintComponent(Graphics g) {
+	 public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(GraphicsUtils.getImage("workingBackground"), 0, 0, null);
-
-	};
+		g.drawImage(GraphicsUtils.getImage("bg//main-bg-1"), 0, 0, null);
+		//TODO 待修改，改成图片是预读进来的
+		
+		
+	};                                                        
 
 	@Override
 	protected void initButtons(Element e) {
-		exit = new MyPictureButton(e.element("exit"));
+
 		min = new MyPictureButton(e.element("min"));
 		home = new MyPictureButton(e.element("home"));
-		rectangle = new MyPictureButton(e.element("rectangle"));
-		career = new MyLabel(e.element("Career"));
-
-		// hello = new JLabel("asdasdasdsa");
-		// hello.setBounds(300 , 400 , 50 , 50);
-		// sd = new JLabel("aaaaaaaaa");
-		// sd.setBounds(200, 200, 30, 30);
-		// sd.setVisible(true);
-		// this.add(sd);
-
+		exit = new MyPictureButton(e.element("exit"));
+		rectangle = new MyPictureButton(e.element("drop"));
 	}
 
 	@Override
@@ -111,6 +121,7 @@ public class InitalPanel extends MyPanel {
 
 	@Override
 	protected void initLables(Element e) {
+	
 
 	}
 
@@ -125,8 +136,9 @@ public class InitalPanel extends MyPanel {
 		this.add(exit);
 		this.add(min);
 		this.add(home);
+		
 		this.add(rectangle);
-		this.add(career);
+//		this.add(career);
 	}
 
 	@Override
@@ -135,14 +147,16 @@ public class InitalPanel extends MyPanel {
 		min.addMouseListener(new MinListener());
 		home.addMouseListener(new HomeListener());
 		rectangle.addMouseListener(new RectangleListener());
-		
-	}
 
+	}
+	
 	class ExitListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			exit.setMyIcon(ButtonState.MOUSE_CLICKED);
-			//弹出optionpane 确认退出
+			//弹出optionpane 确认退出 TODO
+			
+			System.exit(0);
 			
 		}
 
@@ -162,6 +176,7 @@ public class InitalPanel extends MyPanel {
 		public void mouseClicked(MouseEvent e) {
 			min.setMyIcon(ButtonState.MOUSE_CLICKED);
 			//最小化到任务栏
+			parent.setExtendedState(JFrame.ICONIFIED);
 		}
 
 		@Override
@@ -210,7 +225,4 @@ public class InitalPanel extends MyPanel {
 			rectangle.setMyIcon(ButtonState.NORMAL);
 		}
 	}
-
-
-	
 }

@@ -65,6 +65,9 @@ public abstract class PanelController {
 	private void initial(Element e){
 		panelManager = new CardLayout();
 		this.changePanel = new JPanel(panelManager);
+		if(e==null){
+			System.err.println("-----------配置文件出错");
+		}
 		changePanel.setBounds(Integer.parseInt(e.attributeValue("x")),
 				Integer.parseInt(e.attributeValue("y")),
 				Integer.parseInt(e.attributeValue("width")),
