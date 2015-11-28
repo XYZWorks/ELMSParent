@@ -30,17 +30,17 @@
 		</BUTTONS>
 		<GeneralManager x="232" y="54" width="1080" height="637">
 			<BUTTONS>
-				<GMApproval text="审批单据" x="280" y="213" width="137" height="152"
+				<GMApproval text="审批单据" x="0" y="227" 
 						  />
-					<Statistic text="查看报表" x="584" y="203" width="131" height="160"
+					<Statistic text="查看报表" x="0" y="267" 
 						 />
-					<ConstSet text="制定常量" x="893" y="203" width="111" height="160"
+					<ConstSet text="制定常量" x="0" y="307" 
 						  />
-					<SalaryStrategySet text="制定薪水策略" x="285" y="421" width="131" height="160"
+					<SalaryStrategySet text="制定薪水策略" x="0" y="347" 
 						 />
-					<PeopleManage text="人员管理" x="584" y="407" width="131" height="160"
+					<PeopleManage text="人员管理" x="0" y="387"
 						 />
-					<InstManage text="机构管理" x="880" y="402" width="138" height="170"
+					<InstManage text="机构管理" x="0" y="427"
 						  />
 
 			</BUTTONS>
@@ -65,12 +65,53 @@
 					<InstManage text="" x="880" y="402" width="138" height="170"
 						normal="GeneralManager//InstManage" enter="GeneralManager//InstManage-enter"
 						clicked="GeneralManager//InstManage-clicked" />
-
-
-
 				</BUTTONS>
-
 			</GMmainpanel>
+			
+			<ApprovalPanel x="232" y="54" width="1080" height="637">
+				<BUTTONS>
+				</BUTTONS>
+			
+			
+			</ApprovalPanel>
+			
+			<ConstSetPanel x="232" y="54" width="1080" height="637">
+			<BUTTONS>
+				</BUTTONS>
+			
+			
+			
+			
+			</ConstSetPanel>
+			
+			
+			<StatisticPanel x="232" y="54" width="1080" height="637">
+			<BUTTONS>
+				</BUTTONS>
+			
+			
+			</StatisticPanel>
+			
+			<InstManagePanel x="232" y="54" width="1080" height="637">
+			<BUTTONS>
+				</BUTTONS>
+			
+			</InstManagePanel>
+			
+			<PeopleManagePanel x="232" y="54" width="1080" height="637">
+			<BUTTONS>
+				</BUTTONS>
+			
+			
+			</PeopleManagePanel>
+			
+			<SalaryStrategySetPanel x="232" y="54" width="1080" height="637">
+			<BUTTONS>
+				</BUTTONS>
+			
+			
+			</SalaryStrategySetPanel>
+			
 		</GeneralManager>
 	</initialpanel>
 

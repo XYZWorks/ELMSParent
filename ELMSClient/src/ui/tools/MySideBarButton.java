@@ -34,8 +34,7 @@ public class MySideBarButton extends JLabel{
 		this.setIcon(normal);
 		this.setBounds(Integer.parseInt(e.attributeValue("x")),
 				Integer.parseInt(e.attributeValue("y")),
-				Integer.parseInt(e.attributeValue("width")),
-				Integer.parseInt(e.attributeValue("height")));
+				232 ,40);
 
 		this.setFont(GraphicsUtils.getFont(null));
 
