@@ -37,7 +37,7 @@ public class MySideBarButton extends JLabel{
 				232 ,40);
 
 		this.setFont(GraphicsUtils.getFont(null));
-
+		
 		this.setText(e.attributeValue("text"));
 		this.repaint();
 		this.setVisible(true);
