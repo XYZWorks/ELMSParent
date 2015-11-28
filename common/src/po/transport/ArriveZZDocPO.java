@@ -1,6 +1,7 @@
 package po.transport;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import po.DocPO;
 import util.City;
@@ -44,7 +45,10 @@ public class ArriveZZDocPO extends DocPO implements Serializable{
 	 * 货物到达状态
 	 */
 	private GoodsState goodState;
-	
+	/**
+	 * 订单号集合
+	 */
+	private ArrayList<String> orderBarCodes;
 	public ArriveZZDocPO() {}
 	
 	public String getZZID() {
@@ -72,19 +76,29 @@ public class ArriveZZDocPO extends DocPO implements Serializable{
 	}
 
 	public ArriveZZDocPO(String iD, MyDate date,
-			String zZID, City sendCity, GoodsState goodState) {
+			String zZID, City sendCity, GoodsState goodState,ArrayList<String> orderBarCodes) {
 		super(iD, DocType.arriveZZDoc, date, DocState.wait);
 		this.zZID = zZID;
 		this.sendCity = sendCity;
 		this.goodState = goodState;
+		this.orderBarCodes = orderBarCodes;
 	}
 
 	public ArriveZZDocPO(String iD, DocType type, MyDate date, DocState state,
-			String zZID, City sendCity, GoodsState goodState) {
+			String zZID, City sendCity, GoodsState goodState,ArrayList<String> orderBarCodes) {
 		super(iD, type, date, state);
 		this.zZID = zZID;
 		this.sendCity = sendCity;
 		this.goodState = goodState;
+		this.orderBarCodes = orderBarCodes;
+	}
+
+	public ArrayList<String> getOrderBarCodes() {
+		return orderBarCodes;
+	}
+
+	public void setOrderBarCodes(ArrayList<String> orderBarCodes) {
+		this.orderBarCodes = orderBarCodes;
 	}
 
 	

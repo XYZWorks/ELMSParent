@@ -2,6 +2,9 @@ package vo.transport;
 
 import util.MyDate;
 import vo.DocVO;
+
+import java.util.ArrayList;
+
 import ui.saleman.LoadDocShow;
 import util.City;
 import util.DocState;
@@ -38,7 +41,11 @@ public class LoadDocVO extends DocVO{
 	/**
 	 * 押送员代号
 	 */
-	public String Escort;
+	public String Escort; 
+	/**
+	 * 订单号集合
+	 */
+	public ArrayList<String> orderBarCodes;
 	
 	public LoadDocVO() {
 		// TODO Auto-generated constructor stub
@@ -46,7 +53,7 @@ public class LoadDocVO extends DocVO{
 
 	public LoadDocVO(String iD, MyDate date,
 			String yYID, String loadDocID, City arriveCity, String carID,
-			String supervisor, String escort) {
+			String supervisor, String escort,ArrayList<String> orderBarCodes) {
 		super(iD, DocType.loadDoc, date, DocState.wait);
 		YYID = yYID;
 		LoadDocID = loadDocID;
@@ -54,6 +61,7 @@ public class LoadDocVO extends DocVO{
 		CarID = carID;
 		Supervisor = supervisor;
 		Escort = escort;
+		this.orderBarCodes = orderBarCodes;
 	}
 
 	

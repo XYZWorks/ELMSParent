@@ -14,6 +14,7 @@ import util.ResultMessage;
 import vo.DocVO;
 import vo.order.OrderSimpleInfoVO;
 import vo.order.OrderVO;
+import vo.transport.ArriveYYDocVO;
 import bl.orderbl.OrderController;
 import blservice.orderblservice.Orderblservice;
 /** 
@@ -99,7 +100,7 @@ public class OrderControllerTest {
 
 	@Test
 	public void testAddDocToList() {
-		if(bl.addDocToList((DocVO) DataTool.getDocList(DocType.arriveYYDoc).get(0)) == ResultMessage.SUCCESS){
+		if(bl.addDocToList((DocVO) DataTool.getDocList(DocType.arriveYYDoc).get(0),null) == ResultMessage.SUCCESS){
 			
 		}else{
 			fail(" fail  to AddDocToList");

@@ -65,7 +65,10 @@ public class Transport {
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
+	
+		if(result ==ResultMessage.SUCCESS)
+			result = orderbl.addDocToList(vo, vo.orderBarCodes);
 		return result;
 	}
 
@@ -101,7 +104,13 @@ public class Transport {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(result ==ResultMessage.SUCCESS){
+			ArrayList<String> orderBarCodes = new ArrayList<>(1);
+			orderBarCodes.add(vo.orderBarCode);
+			result = orderbl.addDocToList(vo, orderBarCodes);
+		}
 		return result;
+	
 	}
 
 	public ArrayList<SendGoodDocVO> getDaySendDocs(MyDate date) {
@@ -134,6 +143,8 @@ public class Transport {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(result ==ResultMessage.SUCCESS)
+			result = orderbl.addDocToList(vo, vo.orderBarCodes);
 		return result;
 	}
 

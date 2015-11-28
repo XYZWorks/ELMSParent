@@ -1,5 +1,6 @@
 package ui.tools;
 
+import java.awt.Color;
 import java.security.KeyStore.PrivateKeyEntry;
 
 import javax.swing.Icon;
@@ -31,15 +32,17 @@ public class MySideBarButton extends JLabel{
 	}
 	
 	public MySideBarButton(Element e) {
-		
+//		super(e.attributeValue("text"), normal, JLabel.CENTER);
 		this.setIcon(normal);
 		this.setBounds(Integer.parseInt(e.attributeValue("x")),
 				Integer.parseInt(e.attributeValue("y")),
 				232 ,40);
 
 		this.setFont(GraphicsUtils.getFont(null));
-		
+		this.setForeground(Color.WHITE);
 		this.setText(e.attributeValue("text"));
+		this.setVerticalTextPosition(JLabel.CENTER);
+		this.setHorizontalTextPosition(JLabel.CENTER);
 		this.repaint();
 		this.setVisible(true);
 	}

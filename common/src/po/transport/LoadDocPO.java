@@ -1,6 +1,7 @@
 package po.transport;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import po.DocPO;
 import util.MyDate;
@@ -14,15 +15,16 @@ import util.DocType;
  * @author JerryZhang
  *
  */
-public class LoadDocPO extends DocPO implements Serializable{
+public class LoadDocPO extends DocPO implements Serializable {
 	public LoadDocPO() {
 		// TODO Auto-generated constructor stub
 	}
+
 	/**
 	 * 序列化UID
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * 本营业厅编号
 	 */
@@ -47,9 +49,13 @@ public class LoadDocPO extends DocPO implements Serializable{
 	 * 押送员代号
 	 */
 	private String escort;
+	/**
+	 * 订单号集合
+	 */
+	private ArrayList<String> orderBarCodes;
 
-	public LoadDocPO(String iD, MyDate date, String yYID, String loadDocID,
-			City arriveCity, String carID, String supervisor, String escort) {
+	public LoadDocPO(String iD, MyDate date, String yYID, String loadDocID, City arriveCity, String carID,
+			String supervisor, String escort, ArrayList<String> orderBarCodes) {
 		super(iD, DocType.loadDoc, date, DocState.wait);
 		this.YYID = yYID;
 		this.loadDocID = loadDocID;
@@ -57,11 +63,12 @@ public class LoadDocPO extends DocPO implements Serializable{
 		this.carID = carID;
 		this.supervisor = supervisor;
 		this.escort = escort;
+		this.orderBarCodes = orderBarCodes;
 	}
-	
+
 	public LoadDocPO(String iD, DocType type, MyDate date, DocState state, String yYID, String loadDocID,
-			City arriveCity, String carID, String supervisor, String escort) {
-		
+			City arriveCity, String carID, String supervisor, String escort,ArrayList<String> orderBarCodes) {
+
 		super(iD, type, date, state);
 		this.YYID = yYID;
 		this.loadDocID = loadDocID;
@@ -69,15 +76,8 @@ public class LoadDocPO extends DocPO implements Serializable{
 		this.carID = carID;
 		this.supervisor = supervisor;
 		this.escort = escort;
+		this.orderBarCodes = orderBarCodes;
 	}
-
-
-
-
-
-
-
-
 
 	public String getYYID() {
 		return YYID;
@@ -125,6 +125,14 @@ public class LoadDocPO extends DocPO implements Serializable{
 
 	public void setEscort(String escort) {
 		this.escort = escort;
+	}
+
+	public ArrayList<String> getOrderBarCodes() {
+		return orderBarCodes;
+	}
+
+	public void setOrderBarCodes(ArrayList<String> orderBarCodes) {
+		this.orderBarCodes = orderBarCodes;
 	}
 
 }
