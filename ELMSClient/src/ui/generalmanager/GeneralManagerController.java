@@ -184,14 +184,16 @@ class peopleManageListener extends MouseAdapter{
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		
+		peopleManageButton.setMyIcon(ButtonState.MOUSE_CLICKED);
 		
 	}
 	@Override
 	public void mouseEntered(MouseEvent e) {
+		peopleManageButton.setMyIcon(ButtonState.MOUSE_ENTERED);
 	}
 	@Override
 	public void mouseExited(MouseEvent e) {
+		peopleManageButton.setMyIcon(ButtonState.MOUSE_ENTERED);
 	}
 	
 }
