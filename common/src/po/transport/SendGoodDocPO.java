@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import po.DocPO;
 import util.MyDate;
+import util.City;
 import util.DocState;
 import util.DocType;
 
@@ -29,6 +30,10 @@ public class SendGoodDocPO extends DocPO implements Serializable{
 	 * 订单条形码号
 	 */
 	private String orderBarCode;
+	/**
+	 * 目的地
+	 */
+	private City sendCity;
 	
 	public SendGoodDocPO() {}
 	
@@ -40,10 +45,11 @@ public class SendGoodDocPO extends DocPO implements Serializable{
 	 * @param orderBarCode
 	 */
 	public SendGoodDocPO(String iD, MyDate date, String sendMan,
-			String orderBarCode) {
+			String orderBarCode,City sendCity) {
 		super(iD, DocType.sendGoodDoc, date, DocState.wait);
 		this.sendMan = sendMan;
 		this.orderBarCode = orderBarCode;
+		this.sendCity = sendCity;
 	}
 	/**
 	 * 数据库读取时使用
@@ -55,9 +61,10 @@ public class SendGoodDocPO extends DocPO implements Serializable{
 	 * @param orderBarCode
 	 */
 	public SendGoodDocPO(String iD, DocType type ,MyDate date,DocState state, String sendMan,
-			String orderBarCode) {
+			String orderBarCode,City sendCity) {
 		super(iD, type, date, state);
 		this.sendMan = sendMan;
+		this.sendCity= sendCity;
 		this.orderBarCode = orderBarCode;
 	}
 
@@ -75,6 +82,14 @@ public class SendGoodDocPO extends DocPO implements Serializable{
 
 	public void setOrderBarCode(String orderBarCode) {
 		this.orderBarCode = orderBarCode;
+	}
+
+	public City getSendCity() {
+		return sendCity;
+	}
+
+	public void setSendCity(City sendCity) {
+		this.sendCity = sendCity;
 	}
 
 }
