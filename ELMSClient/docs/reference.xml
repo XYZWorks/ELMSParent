@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<courier width="1080" height="720">
+		<buttons>
+			<close text="" x="1041" y="17" width="19" height="18"
+				normal="element//close-normal" enter="element//close-enter" exit="element//close-exit" />
+			<min text="" x="1004" y="24" width="22" height="3"
+				normal="element//min-normal" enter="element//min-enter" exit="element//min-exit" />
+			<drop text="" x="955" y="24" width="15" height="8"
+				normal="element//drop-normal" enter="element//drop-enter" exit="element//drop-exit" />
+			<home text="" x="773" y="16" width="26" height="22"
+				normal="element//home-normal" enter="element//home-enter" exit="element//home-exit" />
+			<Addorder text="" x="58" y="237" width="115" height="159"
+				normal="courier//AddOrder" enter="courier//AddOrder-enter" exit="courier//AddOrder-exit" />
+			<CheckOrder text="" x="359" y="239" width="119" height="155"
+				normal="courier//CheckOrder" enter="courier//CheckOrder-enter" exit="courier//CheckOrder-exit" />
+			<InputReceive text="" x="657" y="237" width="121" height="157"
+			 normal="courier//InputReceive" enter="courier//InputReceive-enter"
+				exit="courier//InputReceive-exit" />
+
+
+		</buttons>
+
+
+
+	</courier>
