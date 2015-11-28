@@ -18,7 +18,7 @@ public abstract class PanelController {
 	 * 全局panel
 	 */
 	protected MyPanel mainPanel;
-//	/**
+//	/**vr43
 //	 * 左边条
 //	 */
 //	protected MyPanel leftBar;

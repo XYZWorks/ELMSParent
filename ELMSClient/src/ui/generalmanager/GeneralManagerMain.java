@@ -97,6 +97,12 @@ public class GeneralManagerMain extends MyPanel {
 		public void mouseExited(MouseEvent e) {
 			constsetButton.setMyIcon(ButtonState.NORMAL);
 		}
+		
+		public void mouseMoved(MouseEvent e){
+			
+			
+			
+		}
 	}
 	class approvalListener extends MouseAdapter{
 		@Override
@@ -159,7 +165,7 @@ class salaryStrategyListener extends MouseAdapter{
 	}
 	@Override
 	public void mouseExited(MouseEvent e) {
-		salaryStrategySetButton.setMyIcon(ButtonState.MOUSE_ENTERED);
+		salaryStrategySetButton.setMyIcon(ButtonState.NORMAL);
 	}
 	}
 
