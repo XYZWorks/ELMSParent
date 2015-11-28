@@ -3,6 +3,7 @@ package bl.storebl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.orderbl.Order;
 import util.City;
 import util.DataServiceType;
 import util.DocState;
@@ -104,8 +105,14 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 		return null;
 	}
 	public DocVO getByID(String ID) {
-		// TODO Auto-generated method stub
-		return null;
+		try{
+			return inStoreDocImpl.getByID(ID);
+		}
+		catch(NullPointerException e){
+			return outStoreDocImpl.getByID(ID);
+		}
+		
+				
 	}
 
 }

@@ -75,5 +75,9 @@ public class InStoreDocImpl  {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public DocVO getByID(String iD) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

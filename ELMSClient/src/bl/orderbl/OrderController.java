@@ -5,6 +5,7 @@ import java.util.Date;
 
 import util.DocState;
 import util.DocType;
+import util.MyDate;
 import util.ResultMessage;
 import vo.DocVO;
 import vo.order.OrderSimpleInfoVO;
@@ -30,7 +31,7 @@ public class OrderController implements Orderblservice{
 		return order.checkBarCode(orderBarCode);
 	}
 
-	public ArrayList<OrderVO> getOrderVO(Date date) {
+	public ArrayList<OrderVO> getOrderVO(MyDate date) {
 		return order.getOrderVO(date);
 	}
 
@@ -47,13 +48,11 @@ public class OrderController implements Orderblservice{
 	}
 
 	public ResultMessage receiveInfo(ArrayList<ReceiveVO> vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return order.receiveInfo(vo);
 	}
 
 	public ResultMessage addDocToList(DocVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return order.addDocToList(vo);
 	}
 
 	public ArrayList<DocVO> getDocLists(DocType type) {
@@ -75,5 +74,6 @@ public class OrderController implements Orderblservice{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 
 }
