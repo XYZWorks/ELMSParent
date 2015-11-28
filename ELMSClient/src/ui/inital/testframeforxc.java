@@ -14,7 +14,7 @@ public class testframeforxc extends MyFrame {
 	
 		public static void main(String[] args) {
 			ParseXML xml = new ParseXML("xc.xml");
-			testframeforxc test = new testframeforxc(xml.getRoot(), null);
+			testframeforxc test = new testframeforxc(xml.getConfig("ELMS"), null);
 		}
 //		private MyPanel panel;
 		

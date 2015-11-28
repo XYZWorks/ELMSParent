@@ -29,9 +29,9 @@ public class Exit extends MyButton{
 		super(e);
 		this.parent = parent;
 		this.addMouseListener(new ExitListener());
-		normal = GraphicsUtils.getIcon("close-gray");
-		clicked = GraphicsUtils.getIcon("");
-		entered = GraphicsUtils.getIcon("");
+		normal = GraphicsUtils.getIcon("close-normal");
+		clicked = GraphicsUtils.getIcon("close-exit");
+		entered = GraphicsUtils.getIcon("close-enter");
 		
 		this.setIcon(normal);
 		this.setVisible(true);
