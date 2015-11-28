@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import test.java.other.DataTool;
+import util.City;
 import util.DocState;
 import util.DocType;
 import util.ResultMessage;
@@ -70,7 +71,7 @@ public class StoreControllerTest {
 
 	@Test
 	public void testSetAlarmValue() {
-		result = bl.setAlarmValue("90%","nj");
+		result = bl.setAlarmValue("90%",City.BEIJING);
 		if(result!=ResultMessage.SUCCESS)
 			fail("fail to set alarm value");
 

@@ -57,4 +57,9 @@ public class OutStoreDocImpl implements OutStoreDocService {
 		return null;
 	}
 
+	public DocVO getByID(String ID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

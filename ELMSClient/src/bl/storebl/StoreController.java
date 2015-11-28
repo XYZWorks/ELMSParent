@@ -3,6 +3,7 @@ package bl.storebl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.orderbl.Order;
 import util.City;
 import util.DataServiceType;
 import util.DocState;
@@ -102,6 +103,16 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 	public String getAlarmValue(String city) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	public DocVO getByID(String ID) {
+		try{
+			return inStoreDocImpl.getByID(ID);
+		}
+		catch(NullPointerException e){
+			return outStoreDocImpl.getByID(ID);
+		}
+		
+				
 	}
 
 }

@@ -1,3 +1,4 @@
+
 package blservice.storeblservice;
 
 import java.util.ArrayList;
@@ -23,4 +24,6 @@ public interface InStoreDocService extends DocApprovalService{
 	 * @return
 	 */
 	public ResultMessage generate(InStoreDocVO vo);
+	
+	
 }

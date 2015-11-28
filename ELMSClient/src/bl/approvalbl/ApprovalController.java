@@ -33,11 +33,7 @@ public class ApprovalController implements Approvalblservice {
 	}
 
 	public ArrayList<DocVO> getBills(DocType type) {
-		transportbl = new TransportController();	
-		storebl = new StoreController();
-		orderbl = new OrderController();
-		
-		
+
 		return approval.getBills(type);
 	}
 

@@ -97,20 +97,20 @@ public class DataTool {
 		
 		switch (tpye) {
 		case arriveYYDoc:
-			al.add(new ArriveYYDocVO("JSD1511110000001", d1, "0250", "南京", GoodsState.Complete));
-			al.add(new ArriveYYDocVO("JSD1511110000002", d1, "0250", "南京", GoodsState.Damage));
-			al.add(new ArriveYYDocVO("JSD1511120000001", d2, "0251", "上海", GoodsState.Complete));
-			al.add(new ArriveYYDocVO("JSD1511130000001", d3, "0250", "南京", GoodsState.Complete));
+			al.add(new ArriveYYDocVO("JSD1511110000001", d1, "0250", City.BEIJING, GoodsState.Complete));
+			al.add(new ArriveYYDocVO("JSD1511110000002", d1, "0250", City.NANJING, GoodsState.Damage));
+			al.add(new ArriveYYDocVO("JSD1511120000001", d2, "0251", City.GUANGZHOU, GoodsState.Complete));
+			al.add(new ArriveYYDocVO("JSD1511130000001", d3, "0250", City.SHANGHAI, GoodsState.Complete));
 			break;
 		case arriveZZDoc:
-			al.add(new ArriveZZDocVO("DDD1511140000001", d4, "0250", "南京", GoodsState.Complete));
-			al.add(new ArriveZZDocVO("DDD1511140000002", d4, "0251", "上海", GoodsState.Complete));
-			al.add(new ArriveZZDocVO("DDD1511150000001", d5, "0251", "上海", GoodsState.Damage));
+			al.add(new ArriveZZDocVO("DDD1511140000001", d4, "0250", City.BEIJING, GoodsState.Complete));
+			al.add(new ArriveZZDocVO("DDD1511140000002", d4, "0251", City.BEIJING, GoodsState.Complete));
+			al.add(new ArriveZZDocVO("DDD1511150000001", d5, "0251", City.SHANGHAI, GoodsState.Damage));
 			break;
 		case loadDoc:
-			al.add(new LoadDocVO("ZCD1511120000001", d2, "02500", "02501511120000001", "南京", "001", "ttt", null));
-			al.add(new LoadDocVO("ZCD1511120000002", d2, "02500", "02501511120000001", "南京", "002", "hhh", "yyy"));
-			al.add(new LoadDocVO("ZCD1511140000001", d4, "02504", "02501511120000006", "南京", "009", null, null));
+			al.add(new LoadDocVO("ZCD1511120000001", d2, "02500", "02501511120000001", City.GUANGZHOU, "001", "ttt", null));
+			al.add(new LoadDocVO("ZCD1511120000002", d2, "02500", "02501511120000001", City.NANJING, "002", "hhh", "yyy"));
+			al.add(new LoadDocVO("ZCD1511140000001", d4, "02504", "02501511120000006", City.SHANGHAI, "009", null, null));
 			break;
 		case inStoreDoc:
 			al.add(new InStoreDocVO("RKD1511120000001", d2, orderID, City.NANJING, locs));
@@ -133,8 +133,8 @@ public class DataTool {
 			break;
 		case transferDoc:
 			String[] orderID={"3228709728","2297304730","9983018392","2182966170"};
-			al.add(new TransferDocVO("ZZD1511130000001", d3, "K155","南京",3,"cee",orderID));
-			al.add(new TransferDocVO("ZZD1511150000001", d5, "苏A18729","南京",8,"yio",orderID));
+			al.add(new TransferDocVO("ZZD1511130000001", d3, "K155",City.SHANGHAI,3,"cee",orderID));
+			al.add(new TransferDocVO("ZZD1511150000001", d5, "苏A18729",City.NANJING,8,"yio",orderID));
 			break;
 		default:
 			break;
