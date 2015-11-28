@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xc>
 <ELMS width = "1080" height = "720">
-
+<loginframe width = "497" height = "411" >
+		<buttons>
+			<close text = "" x = "455" y = "36" width = "34" height = "33"/>
+			<login text = "" x = "3" y = "358" width = "489" height = "53"/>
+			<checkOrder text = "" x = "213" y = "316" width = "72" height = "17"/>
+		</buttons>
+		<lables>
+		</lables>
+		<textfields>
+			<userName x = "179" y = "185"  width = "174" height = "31" />
+		</textfields>
+		<rememberMe x = "284" y = "287" width = "15" height = "15" />	
+		<password x = "179" y = "241" width = "174" height = "31" />
+	
+	
+	</loginframe>
 	<initialpanel x = "0" y = "0" width = "1080"  height = "720" >
 		<buttons>
 		<exit  x = "1" y = "1" width = "30"  height = "30"/>

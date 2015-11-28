@@ -80,6 +80,7 @@ public class DTManageControllerTest {
 		DriverVO vo = DataTool.getDriverList().get(0);
 		vo.InstID = "123456";
 		result = bl.modify(vo);
+		System.out.println(result);
 		if(result == ResultMessage.SUCCESS && vo.InstID.equalsIgnoreCase("123456")){
 			
 		}else{
