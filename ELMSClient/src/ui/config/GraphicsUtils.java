@@ -30,7 +30,7 @@ public class GraphicsUtils {
 			try {
 				font = new Font(config.attributeValue("name"), Font.PLAIN, Integer.parseInt(config.attributeValue("size")));
 				return font;
-			} catch (NullPointerException e) {
+			} catch (Exception e) {
 				return new Font("华文细黑", Font.PLAIN, 20);
 			}
 			

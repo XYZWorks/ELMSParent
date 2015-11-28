@@ -120,7 +120,7 @@ public class InitalPanel extends MyPanel {
 
 	@Override
 	protected void initLables(Element e) {
-		career = new MyLabel(e.element("career") , vo.type.name() + "," + vo.name);
+//		career = new MyLabel(e.element("career") , vo.type.name() + "," + vo.name);
 
 	}
 

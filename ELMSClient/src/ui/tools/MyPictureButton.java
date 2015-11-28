@@ -35,7 +35,7 @@ public class MyPictureButton extends JLabel {
 				Integer.parseInt(e.attributeValue("width")),
 				Integer.parseInt(e.attributeValue("height")));
 
-		this.setFont(GraphicsUtils.getFont(e.addAttribute("fontname", "size")));
+		this.setFont(GraphicsUtils.getFont(e));
 
 		this.setText(e.attributeValue("text"));
 		this.repaint();
