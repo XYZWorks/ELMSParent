@@ -17,17 +17,19 @@ import ui.util.ButtonState;
 @SuppressWarnings("serial")
 public class MySideBarButton extends JLabel{
 	
-	private Icon nowPanel;
-	private Icon normal;
-	private Icon entered;
-	private Icon clicked;
+	private static Icon nowPanel;
+	private static Icon normal;
+	private static Icon entered;
+	private static Icon clicked;
+	
+	static{
+		nowPanel = GraphicsUtils.getIcon("element//sidebar-now");
+		normal = GraphicsUtils.getIcon("element//sidebar");
+		entered = GraphicsUtils.getIcon("element//sidebar-enter");
+		clicked = GraphicsUtils.getIcon("element//sidebar-clicked");
+	}
 	
 	public MySideBarButton(Element e) {
-		
-		nowPanel = GraphicsUtils.sideBarNow;
-		normal = GraphicsUtils.sideBarNormal;
-		entered = GraphicsUtils.sideBarEntered;
-		clicked = GraphicsUtils.sideBarClicked;
 		
 		this.setIcon(normal);
 		this.setBounds(Integer.parseInt(e.attributeValue("x")),
@@ -35,7 +37,7 @@ public class MySideBarButton extends JLabel{
 				Integer.parseInt(e.attributeValue("width")),
 				Integer.parseInt(e.attributeValue("height")));
 
-		this.setFont(GraphicsUtils.getFont(e.addAttribute("fontname", "size")));
+		this.setFont(GraphicsUtils.getFont(null));
 
 		this.setText(e.attributeValue("text"));
 		this.repaint();

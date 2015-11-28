@@ -8,6 +8,7 @@ import org.dom4j.Element;
 import ui.tools.MyButton;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
+import ui.tools.MySideBarButton;
 import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.PanelController;
@@ -25,12 +26,12 @@ public class GeneralManagerController extends PanelController{
 	private PeopleManagePanel peopleManagePanel;
 	private StatisticPanel statisticPanel;
 	
-	private MyPictureButton constsetButton;
-	private MyPictureButton approvalButton;
-	private MyPictureButton instManageButton;
-	private MyPictureButton peopleManageButton;
-	private MyPictureButton statisticButton;
-	private MyPictureButton salaryStrategySetButton;
+	private MySideBarButton constsetButton;
+	private MySideBarButton approvalButton;
+	private MySideBarButton instManageButton;
+	private MySideBarButton peopleManageButton;
+	private MySideBarButton statisticButton;
+	private MySideBarButton salaryStrategySetButton;
 	
 	
 	public GeneralManagerController(MyPanel initialPanel , Element e) {
@@ -44,12 +45,12 @@ public class GeneralManagerController extends PanelController{
 	
 	@Override
 	protected void initButtons(Element e) {
-		constsetButton = new MyPictureButton(e.element("ConstSet"));
-		instManageButton = new MyPictureButton(e.element("InstManage"));
-		approvalButton = new MyPictureButton(e.element("GMApproval"));
-		statisticButton = new MyPictureButton(e.element("Statistic"));
-		salaryStrategySetButton = new MyPictureButton(e.element("SalaryStrategySet"));
-		peopleManageButton = new MyPictureButton(e.element("PeopleManage"));
+		constsetButton = new MySideBarButton(e.element("ConstSet"));
+		instManageButton = new MySideBarButton(e.element("InstManage"));
+		approvalButton = new MySideBarButton(e.element("GMApproval"));
+		statisticButton = new MySideBarButton(e.element("Statistic"));
+		salaryStrategySetButton = new MySideBarButton(e.element("SalaryStrategySet"));
+		peopleManageButton = new MySideBarButton(e.element("PeopleManage"));
 		
 	}
 	

@@ -30,7 +30,18 @@
 		</BUTTONS>
 		<GeneralManager x="232" y="54" width="1080" height="637">
 			<BUTTONS>
-
+				<GMApproval text="审批单据" x="280" y="213" width="137" height="152"
+						  />
+					<Statistic text="查看报表" x="584" y="203" width="131" height="160"
+						 />
+					<ConstSet text="制定常量" x="893" y="203" width="111" height="160"
+						  />
+					<SalaryStrategySet text="制定薪水策略" x="285" y="421" width="131"
+						 />
+					<PeopleManage text="人员管理" x="584" y="407" width="131"
+						 />
+					<InstManage text="机构管理" x="880" y="402" width="138" height="170"
+						  />
 
 			</BUTTONS>
 

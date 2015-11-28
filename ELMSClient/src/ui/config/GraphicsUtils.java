@@ -21,14 +21,12 @@ import config.StaticMessage;
  */
 public class GraphicsUtils {
 	
-		public static final Icon sideBarNow = getIcon("");
-		public static final Icon sideBarNormal = getIcon("");
-		public static final Icon sideBarClicked = getIcon("");
-		public static final Icon sideBarEntered = getIcon("");
-	
 		
 		public static final Font getFont(Element config){
 			Font font;
+			if(config == null){
+				return new Font("华文细黑", Font.PLAIN, 20);
+			}
 			try {
 				font = new Font(config.attributeValue("name"), Font.PLAIN, Integer.parseInt(config.attributeValue("size")));
 				return font;
