@@ -2,6 +2,7 @@ package vo.transport;
 
 import util.MyDate;
 import vo.DocVO;
+import util.City;
 import util.DocState;
 import util.DocType;
 import util.GoodsState;
@@ -33,7 +34,7 @@ public class ArriveYYDocVO extends DocVO{
 	/**
 	 * 出发地
 	 */
-	public  String sendCity;
+	public  City sendCity;
 	/**
 	 * 货物到达状态
 	 */
@@ -42,7 +43,7 @@ public class ArriveYYDocVO extends DocVO{
 		// TODO Auto-generated constructor stub
 	}
 	public ArriveYYDocVO(String iD, MyDate date,
-			String zZID, String sendCity, GoodsState goodState) {
+			String zZID, City sendCity, GoodsState goodState) {
 		super(iD, DocType.arriveYYDoc, date, DocState.wait);
 		this.zZID = zZID;
 		this.sendCity = sendCity;

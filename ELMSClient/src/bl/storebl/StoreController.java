@@ -1,7 +1,10 @@
 package bl.storebl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import util.City;
+import util.DataServiceType;
 import util.DocState;
 import util.DocType;
 import util.ResultMessage;
@@ -13,6 +16,8 @@ import vo.store.StoreMessageVO;
 import blservice.storeblservice.InStoreDocService;
 import blservice.storeblservice.OutStoreDocService;
 import blservice.storeblservice.StoreblService;
+import ds.storedataservice.StoreDataService;
+import net.RMIManage;
  /** 
  * 库存管理、出库入库单Controller类
  * @author czq 
@@ -26,32 +31,38 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 	
 	OutStoreDocImpl outStoreDocImpl;
 	
+	StoreDataService storeDataService;
 	public StoreController() {
-		// TODO Auto-generated constructor stub
+		storeDataService = (StoreDataService) RMIManage.getDataService(DataServiceType.StoreDataService);
+		try {
+			storeDataService.initial();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		store = new Store(storeDataService);
+		inStoreDocImpl = new InStoreDocImpl(storeDataService);
+		outStoreDocImpl = new OutStoreDocImpl(storeDataService);
 	}
 	public ArrayList<StoreMessageVO> show() {
-		// TODO Auto-generated method stub
-		return null;
+		return store.show();
 	}
 
 	public ArrayList<StoreCheckVO> showCheck() {
-		// TODO Auto-generated method stub
-		return null;
+		return store.showCheck();
 	}
 
 	public ResultMessage exportExcel(String path) {
-		// TODO Auto-generated method stub
-		return null;
+		return store.exportExcel(path);
 	}
 
 	public ResultMessage update(StoreMessageVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return store.update(vo);
 	}
 
 
 	public ArrayList<DocVO> getDocLists(DocType type) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -59,27 +70,22 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 
 
 	public ResultMessage generate(OutStoreDocVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return outStoreDocImpl.generate(vo);
 	}
 
 	public ResultMessage generate(InStoreDocVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return inStoreDocImpl.generate(vo);
 	}
 
 	public ArrayList<OutStoreDocVO> showOutStoreDocs() {
-		// TODO Auto-generated method stub
-		return null;
+		return outStoreDocImpl.show();
 	}
 
 	public ArrayList<InStoreDocVO> showInstoreDocs() {
-		// TODO Auto-generated method stub
-		return null;
+		return inStoreDocImpl.show();
 	}
 
 	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -89,9 +95,8 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 	}
 
 
-	public ResultMessage setAlarmValue(String value, String city) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMessage setAlarmValue(String value, City city) {
+		return store.setAlarmValue(value,city);
 	}
 
 	public String getAlarmValue(String city) {

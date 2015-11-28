@@ -28,15 +28,9 @@ public class InStoreDocImpl  {
 	Approvalblservice approvalbl;
 	Orderblservice orderbl;
 	
-	public InStoreDocImpl() {
+	public InStoreDocImpl(StoreDataService storeDataService) {
 		
-		storeData = (StoreDataService) RMIManage.getDataService(DataServiceType.StoreDataService);
-		try {
-			storeData.initial();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		storeData = storeDataService;
 	}
 	public ArrayList<InStoreDocVO> show() {
 		ArrayList<InStoreDocPO> pos = new ArrayList<InStoreDocPO>();

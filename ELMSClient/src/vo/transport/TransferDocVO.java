@@ -1,7 +1,6 @@
 package vo.transport;
 
-import java.util.Date;
-
+import util.City;
 import util.DocState;
 import util.DocType;
 import vo.DocVO;
@@ -25,7 +24,7 @@ public class TransferDocVO extends DocVO{
 	/**
 	 * 出发地
 	 */
-	public String SendCity;
+	public City SendCity;
 	/**
 	 * 货柜号
 	 */
@@ -44,7 +43,7 @@ public class TransferDocVO extends DocVO{
 	
 	public TransferDocVO(String iD, util.MyDate date,
 			String transferWayID,
-			String sendCity, int containerNum, String loadManName,
+			City sendCity, int containerNum, String loadManName,
 			String[] orderBarCode) {
 		super(iD, DocType.transferDoc, date, DocState.wait);
 		

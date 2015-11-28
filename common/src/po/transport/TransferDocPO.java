@@ -1,6 +1,7 @@
 package po.transport;
 
 import po.DocPO;
+import util.City;
 import util.DocState;
 import util.DocType;
 import util.MyDate;
@@ -31,7 +32,7 @@ public class TransferDocPO extends DocPO {
 	/**
 	 * 出发地
 	 */
-	private  String sendCity;
+	private  City sendCity;
 	/**
 	 * 货柜号
 	 */
@@ -49,7 +50,7 @@ public class TransferDocPO extends DocPO {
 
 	public TransferDocPO(String iD, util.MyDate date,
 			 String transferWayID,
-			String sendCity, int containerNum, String loadManName,
+			City sendCity, int containerNum, String loadManName,
 			String[] orderBarCode) {
 		super(iD,DocType.transferDoc, date, DocState.wait);
 		this.transferWayID = transferWayID;
@@ -60,7 +61,7 @@ public class TransferDocPO extends DocPO {
 	}
 
 	public TransferDocPO(String iD, DocType type, MyDate date, DocState state,
-			String transferWayID, String sendCity, int containerNum,
+			String transferWayID, City sendCity, int containerNum,
 			String loadManName, String[] orderBarCode) {
 		super(iD, type, date, state);
 		this.transferWayID = transferWayID;
@@ -90,11 +91,11 @@ public class TransferDocPO extends DocPO {
 		this.transferWayID = transferWayID;
 	}
 
-	public String getSendCity() {
+	public City getSendCity() {
 		return sendCity;
 	}
 
-	public void setSendCity(String sendCity) {
+	public void setSendCity(City sendCity) {
 		this.sendCity = sendCity;
 	}
 

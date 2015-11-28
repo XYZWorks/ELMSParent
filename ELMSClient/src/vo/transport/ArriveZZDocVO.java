@@ -1,10 +1,11 @@
 package vo.transport;
 
-import util.MyDate;
-import vo.DocVO;
+import util.City;
 import util.DocState;
 import util.DocType;
 import util.GoodsState;
+import util.MyDate;
+import vo.DocVO;
 
 /**
  * 到达单VO类
@@ -28,7 +29,7 @@ public class ArriveZZDocVO extends DocVO {
 	/**
 	 * 出发地
 	 */
-	public String sendCity;
+	public City sendCity;
 	/**
 	 * 货物到达状态
 	 */
@@ -36,7 +37,7 @@ public class ArriveZZDocVO extends DocVO {
 	public ArriveZZDocVO() {
 		// TODO Auto-generated constructor stub
 	}
-	public ArriveZZDocVO(String iD, MyDate date, String zZID, String sendCity,
+	public ArriveZZDocVO(String iD, MyDate date, String zZID, City sendCity,
 			GoodsState goodState) {
 		super(iD, DocType.arriveZZDoc, date, DocState.wait);
 		this.zZID = zZID;

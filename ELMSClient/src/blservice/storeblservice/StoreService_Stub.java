@@ -2,6 +2,7 @@ package blservice.storeblservice;
 
 import java.util.ArrayList;
 
+import util.City;
 import util.ResultMessage;
 import vo.store.StoreCheckVO;
 import vo.store.StoreMessageVO;
@@ -54,6 +55,11 @@ public class StoreService_Stub implements StoreblService {
 	}
 
 	public String getAlarmValue(String city) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ResultMessage setAlarmValue(String value, City city) {
 		// TODO Auto-generated method stub
 		return null;
 	}

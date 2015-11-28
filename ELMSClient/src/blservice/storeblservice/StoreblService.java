@@ -5,6 +5,7 @@ package blservice.storeblservice;
  */
 import java.util.ArrayList;
 
+import util.City;
 import util.ResultMessage;
 import vo.store.StoreCheckVO;
 import vo.store.StoreMessageVO;
@@ -42,7 +43,7 @@ public interface StoreblService {
 	 * @param value
 	 * @return
 	 */
-	public ResultMessage setAlarmValue(String value,String city);
+	public ResultMessage setAlarmValue(String value,City city);
 	/**
 	 * 得到库存报警值
 	 * @return

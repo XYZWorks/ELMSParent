@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import bl.approvalbl.Approval;
 import blservice.approvalblservice.Approvalblservice;
 import blservice.approvalblservice.Approvalblservice_Stub;
+import util.City;
 import util.ResultMessage;
 import vo.store.StoreCheckVO;
 import vo.store.StoreMessageVO;
@@ -18,7 +19,9 @@ import ds.storedataservice.StoreDataService;
 public class Store {
 	StoreDataService storeData;
 
-	
+	public Store(StoreDataService storeDataService) {
+		storeData = storeDataService;
+	}
 	
 	public ArrayList<StoreMessageVO> show() {
 		// TODO Auto-generated method stub
@@ -40,7 +43,7 @@ public class Store {
 		return null;
 	}
 
-	public ResultMessage setAlarmValue(String value) {
+	public ResultMessage setAlarmValue(String value,City city) {
 		// TODO Auto-generated method stub
 		return null;
 	}

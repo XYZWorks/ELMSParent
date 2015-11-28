@@ -21,6 +21,11 @@ public class OutStoreDocImpl implements OutStoreDocService {
 	StoreDataService storeData;
 	Orderblservice orderbl;
 	
+	public OutStoreDocImpl(StoreDataService storeDataService) {
+		
+		storeData = storeDataService;
+	}
+	
 	public ArrayList<OutStoreDocVO> show() {
 		return null;
 	}

@@ -3,6 +3,8 @@ package bl.transportbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.strategybl.Strategy;
+import bl.strategybl.StrategyController;
 import blservice.orderblservice.Orderblservice;
 import blservice.strategyblservice.StrategyblService;
 import ds.transportdataservice.Transportdataservice;
@@ -19,6 +21,7 @@ import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
 import vo.DocVO;
+import vo.strategy.ConstVO;
 import vo.transport.ArriveYYDocVO;
 import vo.transport.ArriveZZDocVO;
 import vo.transport.LoadDocVO;
@@ -47,6 +50,8 @@ public class Transport {
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
+		
+		strategybl = new StrategyController();
 	}
 	
 	public ResultMessage add(LoadDocVO vo) {
@@ -237,6 +242,7 @@ public class Transport {
 	}
 
 	public double getExpense(ArriveZZDocVO arriveVO, TransferDocVO transferVO) {
+		ConstVO vo = strategybl.getConst();
 		
 		return 0;
 	}

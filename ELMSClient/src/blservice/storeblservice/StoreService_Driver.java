@@ -15,7 +15,7 @@ public class StoreService_Driver {
 			System.out.println("更新库存信息失败");
 		
 		System.out.println("设置库存报警");
-		result=store.setAlarmValue("90","sd");
+		//result=store.setAlarmValue("90","sd");
 		if(result==ResultMessage.SUCCESS)
 			System.out.println("设置库存报警成功");
 		else

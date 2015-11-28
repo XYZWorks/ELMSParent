@@ -3,6 +3,7 @@ package po.transport;
 import java.io.Serializable;
 
 import po.DocPO;
+import util.City;
 import util.DocState;
 import util.DocType;
 import util.GoodsState;
@@ -44,7 +45,7 @@ public class ArriveYYDocPO extends DocPO implements Serializable{
 	/**
 	 * 出发地
 	 */
-	private  String sendCity;
+	private  City sendCity;
 	/**
 	 * 货物到达状态
 	 */
@@ -61,7 +62,7 @@ public class ArriveYYDocPO extends DocPO implements Serializable{
 	 * @param GoodState
 	 */
 	public ArriveYYDocPO(String ZZID, MyDate arriveDate, String TransferDocID,
-			String SendCity, GoodsState GoodState) {
+			City SendCity, GoodsState GoodState) {
 		super(TransferDocID, DocType.arriveYYDoc, arriveDate, DocState.wait);
 		this.goodState = GoodState;
 		this.sendCity = SendCity;
@@ -73,7 +74,7 @@ public class ArriveYYDocPO extends DocPO implements Serializable{
 	
 	
 	public ArriveYYDocPO(String iD, DocType type, MyDate date, DocState state,
-			String zZID, String sendCity, GoodsState goodState) {
+			String zZID, City sendCity, GoodsState goodState) {
 		super(iD, type, date, state);
 		this.zZID = zZID;
 		this.sendCity = sendCity;
@@ -91,11 +92,11 @@ public class ArriveYYDocPO extends DocPO implements Serializable{
 		this.zZID = zZID;
 	}
 
-	public String getSendCity() {
+	public City getSendCity() {
 		return sendCity;
 	}
 
-	public void setSendCity(String sendCity) {
+	public void setSendCity(City sendCity) {
 		this.sendCity = sendCity;
 	}
 
