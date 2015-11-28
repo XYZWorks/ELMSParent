@@ -1,8 +1,10 @@
-package ui.inital;
+ package ui.inital;
 
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import javax.swing.JFrame;
 
 import org.dom4j.Element;
 
@@ -42,6 +44,7 @@ public class InitalPanel extends MyPanel {
 		addListener();
 		// 界面跳转方法
 		addOtherPanel(vo);
+		//TODO panel的名字
 
 		repaint();
 		this.setVisible(true);
@@ -144,6 +147,7 @@ public class InitalPanel extends MyPanel {
 			exit.setMyIcon(ButtonState.MOUSE_CLICKED);
 			//弹出optionpane 确认退出
 			
+			
 		}
 
 		@Override
@@ -162,6 +166,7 @@ public class InitalPanel extends MyPanel {
 		public void mouseClicked(MouseEvent e) {
 			min.setMyIcon(ButtonState.MOUSE_CLICKED);
 			//最小化到任务栏
+			parent.setExtendedState(JFrame.ICONIFIED);
 		}
 
 		@Override

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xc>
 <ELMS width = "1080" height = "720">
 <loginframe width = "497" height = "411" >
 		<buttons>
@@ -33,4 +32,3 @@
 
 
 </ELMS>
-</xc>
