@@ -2,8 +2,6 @@ package ui.courier;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
@@ -32,6 +30,7 @@ public class CourierMainPanel extends MyPanel {
 		addCompoment();
 		addListener();
 		setVisible(true);
+		//System.out.println("couriermainpanel has existed!!");
 	}
 
 	@Override
@@ -39,6 +38,7 @@ public class CourierMainPanel extends MyPanel {
 		addOrderButton = new MyPictureButton(e.element("AddOrder"));
 		findFullInfoButton = new MyPictureButton(e.element("CheckOrder"));
 		inputReceiveButton = new MyPictureButton(e.element("InputReceive"));
+		//System.out.println("initbuttons!!");
 	}
 
 	@Override
@@ -64,6 +64,7 @@ public class CourierMainPanel extends MyPanel {
 		this.add(addOrderButton);
 		this.add(findFullInfoButton);
 		this.add(inputReceiveButton);
+	
 
 	}
 
@@ -72,6 +73,7 @@ public class CourierMainPanel extends MyPanel {
 		addOrderButton.addMouseListener(new AddOrderListener());
 		findFullInfoButton.addMouseListener(new findFullInfoListener());
 		inputReceiveButton.addMouseListener(new inputReceiveListener());
+		//System.out.println("addlistener");
 	}
 
 	class AddOrderListener extends MouseAdapter {

@@ -10,7 +10,6 @@ import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
 import ui.courier.CourierController;
-import ui.generalmanager.GeneralManagerController;
 import ui.tools.MyFrame;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
