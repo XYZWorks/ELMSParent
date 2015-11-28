@@ -65,7 +65,12 @@ public class Transport {
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
+		/**
+		 * 订单号集合
+		 */
+		if(result ==ResultMessage.SUCCESS)
+			result = orderbl.addDocToList(vo, vo.orderBarCodes);
 		return result;
 	}
 

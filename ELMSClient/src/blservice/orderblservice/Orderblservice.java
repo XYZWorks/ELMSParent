@@ -56,14 +56,14 @@ public interface Orderblservice extends DocApprovalService{
 	 * @param ArrayList ReceiveVO  vo
 	 * @return 
 	 */
-	public ResultMessage receiveInfo(ArrayList<ReceiveVO> vo);
+	public ResultMessage receiveInfo(ReceiveVO vo);
 
 	/**
 	 * 将流转单中的所有订单的物流状态均更新
 	 * @param vo
 	 * @return
 	 */
-	public ResultMessage addDocToList (DocVO vo);
+	public ResultMessage addDocToList (DocVO vo,ArrayList<String> orderBarCodes);
 	
 	
 	

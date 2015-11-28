@@ -8,7 +8,9 @@ import bl.transportbl.TransportController;
 import blservice.strategyblservice.StrategyblService;
 import ds.orderdataservice.OrderDataService;
 import net.RMIManage;
+import po.DocPO;
 import po.order.OrderPO;
+import po.order.ReceivePO;
 import test.java.other.VOPOchange;
 import util.DataServiceType;
 import util.MyDate;
@@ -187,14 +189,26 @@ public class Order {
 		}
 	}
 
-	public ResultMessage receiveInfo(ArrayList<ReceiveVO> vo) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMessage receiveInfo(ReceiveVO vo) {
+		String orderBarCode = vo.orderBarCode;
+		ReceivePO po = (ReceivePO) VOPOchange.VOtoPO(vo);
+		try {
+			return orderData.receiveInfo(po, orderBarCode);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
 	}
 
-	public ResultMessage addDocToList(DocVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMessage addDocToList(DocVO vo,ArrayList<String> orderBarCodes) {
+		DocPO po = (DocPO) VOPOchange.VOtoPO(vo);
+		try {
+			return orderData.addDocToList(po, orderBarCodes);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
 	}
 
 }

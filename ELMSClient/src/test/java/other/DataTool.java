@@ -108,9 +108,9 @@ public class DataTool {
 			al.add(new ArriveZZDocVO("DDD1511150000001", d5, "0251", City.SHANGHAI, GoodsState.Damage));
 			break;
 		case loadDoc:
-			al.add(new LoadDocVO("ZCD1511120000001", d2, "02500", "02501511120000001", City.GUANGZHOU, "001", "ttt", null));
-			al.add(new LoadDocVO("ZCD1511120000002", d2, "02500", "02501511120000001", City.NANJING, "002", "hhh", "yyy"));
-			al.add(new LoadDocVO("ZCD1511140000001", d4, "02504", "02501511120000006", City.SHANGHAI, "009", null, null));
+			al.add(new LoadDocVO("ZCD1511120000001", d2, "02500", "02501511120000001", City.GUANGZHOU, "001", "ttt", null,orderID));
+			al.add(new LoadDocVO("ZCD1511120000002", d2, "02500", "02501511120000001", City.NANJING, "002", "hhh", "yyy",orderID));
+			al.add(new LoadDocVO("ZCD1511140000001", d4, "02504", "02501511120000006", City.SHANGHAI, "009", null, null,orderID));
 			break;
 		case inStoreDoc:
 			al.add(new InStoreDocVO("RKD1511120000001", d2, orderID, City.NANJING, locs));

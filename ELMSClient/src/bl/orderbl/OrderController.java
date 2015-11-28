@@ -47,12 +47,12 @@ public class OrderController implements Orderblservice{
 		return order.getFullInfo(orderBarCode);
 	}
 
-	public ResultMessage receiveInfo(ArrayList<ReceiveVO> vo) {
+	public ResultMessage receiveInfo(ReceiveVO vo) {
 		return order.receiveInfo(vo);
 	}
 
-	public ResultMessage addDocToList(DocVO vo) {
-		return order.addDocToList(vo);
+	public ResultMessage addDocToList(DocVO vo,ArrayList<String> orderBarCodes) {
+		return order.addDocToList(vo,orderBarCodes);
 	}
 
 	public ArrayList<DocVO> getDocLists(DocType type) {
