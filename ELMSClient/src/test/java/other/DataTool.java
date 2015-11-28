@@ -97,15 +97,15 @@ public class DataTool {
 		
 		switch (tpye) {
 		case arriveYYDoc:
-			al.add(new ArriveYYDocVO("JSD1511110000001", d1, "0250", City.BEIJING, GoodsState.Complete));
-			al.add(new ArriveYYDocVO("JSD1511110000002", d1, "0250", City.NANJING, GoodsState.Damage));
-			al.add(new ArriveYYDocVO("JSD1511120000001", d2, "0251", City.GUANGZHOU, GoodsState.Complete));
-			al.add(new ArriveYYDocVO("JSD1511130000001", d3, "0250", City.SHANGHAI, GoodsState.Complete));
+			al.add(new ArriveYYDocVO("JSD1511110000001", d1, "0250", City.BEIJING, GoodsState.Complete,orderID));
+			al.add(new ArriveYYDocVO("JSD1511110000002", d1, "0250", City.NANJING, GoodsState.Damage,orderID));
+			al.add(new ArriveYYDocVO("JSD1511120000001", d2, "0251", City.GUANGZHOU, GoodsState.Complete,orderID));
+			al.add(new ArriveYYDocVO("JSD1511130000001", d3, "0250", City.SHANGHAI, GoodsState.Complete,orderID));
 			break;
 		case arriveZZDoc:
-			al.add(new ArriveZZDocVO("DDD1511140000001", d4, "0250", City.BEIJING, GoodsState.Complete));
-			al.add(new ArriveZZDocVO("DDD1511140000002", d4, "0251", City.BEIJING, GoodsState.Complete));
-			al.add(new ArriveZZDocVO("DDD1511150000001", d5, "0251", City.SHANGHAI, GoodsState.Damage));
+			al.add(new ArriveZZDocVO("DDD1511140000001", d4, "0250", City.BEIJING, GoodsState.Complete,orderID));
+			al.add(new ArriveZZDocVO("DDD1511140000002", d4, "0251", City.BEIJING, GoodsState.Complete,orderID));
+			al.add(new ArriveZZDocVO("DDD1511150000001", d5, "0251", City.SHANGHAI, GoodsState.Damage,orderID));
 			break;
 		case loadDoc:
 			al.add(new LoadDocVO("ZCD1511120000001", d2, "02500", "02501511120000001", City.GUANGZHOU, "001", "ttt", null,orderID));
