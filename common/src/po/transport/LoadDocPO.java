@@ -16,9 +16,7 @@ import util.DocType;
  *
  */
 public class LoadDocPO extends DocPO implements Serializable {
-	public LoadDocPO() {
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	/**
 	 * 序列化UID
@@ -53,6 +51,8 @@ public class LoadDocPO extends DocPO implements Serializable {
 	 * 订单号集合
 	 */
 	private ArrayList<String> orderBarCodes;
+	
+	public LoadDocPO() {}
 
 	public LoadDocPO(String iD, MyDate date, String yYID, String loadDocID, City arriveCity, String carID,
 			String supervisor, String escort, ArrayList<String> orderBarCodes) {

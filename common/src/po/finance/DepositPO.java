@@ -26,6 +26,9 @@ public class DepositPO implements Serializable{
 	private int money;
 	
 	public DepositPO() {}
+	
+	
+	
 	public MyDate getTime() {
 		return time;
 	}

@@ -49,6 +49,9 @@ public class ArriveZZDocPO extends DocPO implements Serializable{
 	 * 订单号集合
 	 */
 	private ArrayList<String> orderBarCodes;
+	
+	
+	
 	public ArriveZZDocPO() {}
 	
 	public String getZZID() {

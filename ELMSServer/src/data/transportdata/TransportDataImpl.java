@@ -10,6 +10,7 @@ import po.transport.ArriveZZDocPO;
 import po.transport.LoadDocPO;
 import po.transport.SendGoodDocPO;
 import po.transport.TransferDocPO;
+import util.City;
 import util.DocState;
 import util.DocType;
 import util.GoodsState;
@@ -54,12 +55,12 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 		if(findMes==null){
 			return null;
 		}else{
-			return new LoadDocPO(findMes.get(0), DocType.valueOf(findMes.get(1)), MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes.get(3)), findMes.get(4), findMes.get(5), findMes.get(6), findMes.get(7), findMes.get(8), findMes.get(9));
+			return new LoadDocPO(findMes.get(0), DocType.valueOf(findMes.get(1)), MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes.get(3)), findMes.get(4), findMes.get(5), City.valueOf(findMes.get(6)), findMes.get(7), findMes.get(8), findMes.get(9) , helper.tranFromStringToArrayList(findMes.get(10)));
 		}
 	}
 
 	public ResultMessage addLoadDocPO(LoadDocPO po) throws RemoteException {
-		return addToSQL(loadDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , po.getYYID() , po.getLoadDocID(), po.getArriveCity() ,po.getCarID(), po.getSupervisor() , po.getEscort());
+		return addToSQL(loadDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , po.getYYID() , po.getLoadDocID(), po.getArriveCity().name() ,po.getCarID(), po.getSupervisor() , po.getEscort() , helper.tranFromArrayToString(po.getOrderBarCodes()));
 	}
 
 	public SendGoodDocPO getSendGoodDocPO(String id) throws RemoteException {
@@ -67,13 +68,13 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 		if(findMes==null){
 			return null;
 		}else{
-			return new SendGoodDocPO(findMes.get(0), DocType.valueOf(findMes.get(1)), MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes.get(3)), findMes.get(4), findMes.get(5));
+			return new SendGoodDocPO(findMes.get(0), DocType.valueOf(findMes.get(1)), MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes.get(3)), findMes.get(4),findMes.get(5), City.valueOf(findMes.get(6)));
 		}
 	}
 
 	public ResultMessage addSendGoodDocPO(SendGoodDocPO po)
 			throws RemoteException {
-		return addToSQL(sendGoodDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , po.getSendMan() , po.getOrderBarCode());
+		return addToSQL(sendGoodDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , po.getSendMan() , po.getOrderBarCode() , po.getSendCity().name());
 	}
 
 	public TransferDocPO getTransferDocPO(String id) throws RemoteException {
@@ -81,13 +82,13 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 		if(findMes==null){
 			return null;
 		}else{
-			return new TransferDocPO(findMes.get(0), DocType.valueOf(findMes.get(1)), MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes.get(3)), findMes.get(4), findMes.get(5) ,  Integer.parseInt(findMes.get(6)) , findMes.get(7) , helper.tranFromStringToArray(findMes.get(8)));
+			return new TransferDocPO(findMes.get(0), DocType.valueOf(findMes.get(1)), MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes.get(3)), findMes.get(4), City.valueOf(findMes.get(5) ),  Integer.parseInt(findMes.get(6)) , findMes.get(7) , helper.tranFromStringToArray(findMes.get(8)));
 		}
 	}
 
 	public ResultMessage addTransferDocPO(TransferDocPO po)
 			throws RemoteException {
-		return addToSQL(transferDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , po.getTransferWayID() , po.getSendCity() , String.valueOf(po.getContainerNum()) , po.getLoadManName() , helper.tranFromArrayToString(po.getOrderBarCode()));
+		return addToSQL(transferDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , po.getTransferWayID() , po.getSendCity().name() , String.valueOf(po.getContainerNum()) , po.getLoadManName() , helper.tranFromArrayToString(po.getOrderBarCode()));
 	}
 
 	public ArriveZZDocPO getArriveZZDocPO(String id) throws RemoteException {
@@ -95,13 +96,13 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 		if(findMes==null){
 			return null;
 		}else{
-			return new ArriveZZDocPO(findMes.get(0), DocType.valueOf(findMes.get(1)), MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes.get(3)), findMes.get(4), findMes.get(5) , GoodsState.valueOf(findMes.get(6)) );
+			return new ArriveZZDocPO(findMes.get(0), DocType.valueOf(findMes.get(1)), MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes.get(3)), findMes.get(4), City.valueOf(findMes.get(5) ) , GoodsState.valueOf(findMes.get(6)) , helper.tranFromStringToArrayList(findMes.get(7)) );
 		}
 	}
 
 	public ResultMessage addArriveZZDocPO(ArriveZZDocPO po)
 			throws RemoteException {
-		return addToSQL(arriveZZDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , po.getZZID() , po.getSendCity() , po.getGoodState().name());
+		return addToSQL(arriveZZDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , po.getZZID() , po.getSendCity().name() , po.getGoodState().name() , helper.tranFromArrayToString(po.getOrderBarCodes()));
 	}
 
 	public ArriveYYDocPO getArriveYYDocPO(String id) throws RemoteException {
@@ -109,14 +110,14 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 		if(findMes==null){
 			return null;
 		}else{
-			return new ArriveYYDocPO(findMes.get(0), DocType.valueOf(findMes.get(1)), MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes.get(3)), findMes.get(4), findMes.get(5) , GoodsState.valueOf(findMes.get(6)) );
+			return new ArriveYYDocPO(findMes.get(0), DocType.valueOf(findMes.get(1)), MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes.get(3)), findMes.get(4),City.valueOf(findMes.get(5) ) , GoodsState.valueOf(findMes.get(6)) , helper.tranFromStringToArrayList(findMes.get(7))  );
 		}
 	}
 
 	public ResultMessage addArriveYYDocPO(ArriveYYDocPO po)
 			throws RemoteException {
 		
-		return addToSQL(arriveYYDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , po.getZZID() , po.getSendCity() , po.getGoodState().name());
+		return addToSQL(arriveYYDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , po.getZZID() , po.getSendCity().name() , po.getGoodState().name() ,  helper.tranFromArrayToString(po.getOrderBarCodes()));
 	}
 
 	public ArrayList<? extends DocPO> getDocLists(DocType type) throws RemoteException {
@@ -144,29 +145,29 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 		
 		
 		try {
-			sql = "SELECT * FROM  `" + temptable + "` WHERE state = \"wait\"" ;
+			sql = "SELECT * FROM  `" + temptable + "` WHERE state = \"wait\" " ;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			switch (type) {
 			case loadDoc:
 				while(result.next())
-				pos.add(new LoadDocPO(result.getString(0), DocType.valueOf(result.getString(0)), MyDate.getDate(result.getString(1)), DocState.valueOf(result.getString(2)), result.getString(3), result.getString(4), result.getString(5), result.getString(6), result.getString(7), result.getString(8)));
+					pos.add(new LoadDocPO(result.getString(0), DocType.valueOf(result.getString(1)), MyDate.getDate(result.getString(2)), DocState.valueOf(result.getString(3)), result.getString(4), result.getString(5),  City.valueOf(result.getString(6)),result.getString(7) , result.getString(8), result.getString(9) , helper.tranFromStringToArrayList(result.getString(10)))  );
 				break;
 			case arriveYYDoc:
 				while(result.next())
-					pos.add(new ArriveYYDocPO(result.getString(0), DocType.valueOf(result.getString(0)), MyDate.getDate(result.getString(1)), DocState.valueOf(result.getString(2)), result.getString(3), result.getString(4) , GoodsState.valueOf(result.getString(5)) ) );
+					pos.add(new ArriveYYDocPO(result.getString(0), DocType.valueOf(result.getString(1)), MyDate.getDate(result.getString(2)), DocState.valueOf(result.getString(3)), result.getString(4), City.valueOf(result.getString(5)) , GoodsState.valueOf(result.getString(6)) , helper.tranFromStringToArrayList(result.getString(7))  ) );
 				break;
 			case arriveZZDoc:
 				while(result.next())
-					pos.add(new ArriveZZDocPO(result.getString(0), DocType.valueOf(result.getString(0)), MyDate.getDate(result.getString(1)), DocState.valueOf(result.getString(2)), result.getString(3), result.getString(4) , GoodsState.valueOf(result.getString(5)) ) );
+					pos.add(new ArriveZZDocPO(result.getString(0), DocType.valueOf(result.getString(1)), MyDate.getDate(result.getString(2)), DocState.valueOf(result.getString(3)), result.getString(4), City.valueOf(result.getString(5)) , GoodsState.valueOf(result.getString(6)) , helper.tranFromStringToArrayList(result.getString(7))  ) );
 				break;
 			case transferDoc:
 				while(result.next())
-					pos.add(new TransferDocPO(result.getString(0), DocType.valueOf(result.getString(1)), MyDate.getDate(result.getString(2)), DocState.valueOf(result.getString(3)), result.getString(4), result.getString(5) ,  Integer.parseInt(result.getString(6)) , result.getString(7) , helper.tranFromStringToArray(result.getString(8))) );
+					pos.add(new TransferDocPO(result.getString(0), DocType.valueOf(result.getString(1)), MyDate.getDate(result.getString(2)), DocState.valueOf(result.getString(3)), result.getString(4), City.valueOf(result.getString(5)) ,  Integer.parseInt(result.getString(6)) , result.getString(7) , helper.tranFromStringToArray(result.getString(8))) );
 				break;
 			case sendGoodDoc:
 				while(result.next())
-					pos.add(new SendGoodDocPO(result.getString(0), DocType.valueOf(result.getString(1)), MyDate.getDate(result.getString(2)), DocState.valueOf(result.getString(3)), result.getString(4), result.getString(5)) );
+					pos.add(new SendGoodDocPO(result.getString(0), DocType.valueOf(result.getString(1)), MyDate.getDate(result.getString(2)), DocState.valueOf(result.getString(3)), result.getString(4), result.getString(5)  ,City.valueOf(result.getString(6))) );
 					
 				break;
 			default:

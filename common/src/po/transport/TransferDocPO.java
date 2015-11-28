@@ -14,9 +14,7 @@ import util.MyDate;
  */
 public class TransferDocPO extends DocPO {
 
-	public TransferDocPO() {
-		// TODO Auto-generated constructor stub
-	}
+	
 /**
 	 * 
 	 */
@@ -46,7 +44,7 @@ public class TransferDocPO extends DocPO {
 	 */
 	private  String[] orderBarCode;
 
-
+	public TransferDocPO() {}
 
 	public TransferDocPO(String iD, util.MyDate date,
 			 String transferWayID,
