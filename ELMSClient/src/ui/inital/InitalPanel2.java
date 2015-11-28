@@ -1,4 +1,4 @@
- package ui.inital;
+package ui.inital;
 
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
@@ -26,7 +26,7 @@ import vo.account.AccountVO;
  *
  */
 @SuppressWarnings("serial")
-public class InitalPanel extends MyPanel {
+public class InitalPanel2 extends MyPanel {
 
 
 //	private Exit exit;
@@ -45,22 +45,9 @@ public class InitalPanel extends MyPanel {
 	private MyFrame parent;
 
 
-	public InitalPanel(Element e , MyFrame frame ,AccountVO vo) {
+	public InitalPanel2(Element e , MyFrame frame ,AccountVO vo) {
 		super(e);
 		this.parent = frame;
-<<<<<<< HEAD
-		initButtons(e.element("buttons"));
-		initLables(e.element("labels"));
-		initTextFields(e.element("textfields"));
-		initOtherCompoment(e);
-		addCompoment();
-		addListener();
-		// 界面跳转方法
-		addOtherPanel(vo);
-		//TODO panel的名字
-
-		repaint();
-=======
 		this.initButtons(e.element(CompomentType.BUTTONS.name()));
 		this.initLables(e.element(CompomentType.LABLES.name()));
 		this.initTextFields(e.element(CompomentType.TEXTFIELDS.name()));
@@ -71,7 +58,6 @@ public class InitalPanel extends MyPanel {
 		this.addOtherPanel(vo ,e); 
 		
 		this.repaint();
->>>>>>> origin/master
 		this.setVisible(true);
 	}
 	
@@ -171,7 +157,6 @@ public class InitalPanel extends MyPanel {
 			//弹出optionpane 确认退出 TODO
 			
 			System.exit(0);
-			
 			
 		}
 

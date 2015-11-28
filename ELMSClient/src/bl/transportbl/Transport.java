@@ -236,8 +236,8 @@ public class Transport {
 		return vos;
 	}
 
-	public double getExpense(DocType type) {
-		// TODO Auto-generated method stub
+	public double getExpense(ArriveZZDocVO arriveVO, TransferDocVO transferVO) {
+		
 		return 0;
 	}
 

@@ -14,6 +14,7 @@ import org.dom4j.Element;
 public abstract class MyPanel extends JPanel{
 	
 	public MyPanel(Element config) {
+		this.setLayout(null);
 		this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));
 	}
 	

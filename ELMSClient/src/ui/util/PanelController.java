@@ -42,12 +42,14 @@ public abstract class PanelController {
 	 * 初始化panel
 	 */
 	protected abstract void initPanel(Element e);
-	
-	
+	/**
+	 * 初始化按钮
+	 */
+	protected abstract void initButtons(Element e) ;
 	/**
 	 * 向panel上左侧栏的Buttons
 	 */
-	protected abstract void addButtons(Element e);
+	protected abstract void addButtons();
 	/**
 	 * 增加panel
 	 */
@@ -65,6 +67,9 @@ public abstract class PanelController {
 	private void initial(Element e){
 		panelManager = new CardLayout();
 		this.changePanel = new JPanel(panelManager);
+		if(e==null){
+			System.err.println("-----------配置文件出错");
+		}
 		changePanel.setBounds(Integer.parseInt(e.attributeValue("x")),
 				Integer.parseInt(e.attributeValue("y")),
 				Integer.parseInt(e.attributeValue("width")),

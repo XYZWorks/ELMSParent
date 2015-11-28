@@ -34,7 +34,10 @@ public class MyButton extends JLabel {
 //	}
 	
 	public MyButton(Element config){
-		this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));
+		this.setBounds(Integer.parseInt(config.attributeValue("x")),
+				Integer.parseInt(config.attributeValue("y")),
+				Integer.parseInt(config.attributeValue("width")),
+				Integer.parseInt(config.attributeValue("height")));
 		this.setVisible(true);
 		//		this.setText(config.attributeValue("text"));
 	//	this.setForeground(Color.red);

@@ -3,7 +3,6 @@ package ui.inital;
 import org.dom4j.Element;
 
 import ui.config.ParseXML;
-import ui.login.LoginFrame;
 import ui.tools.MyFrame;
 import util.AccountType;
  /** 
@@ -16,8 +15,6 @@ public class testframeforxc extends MyFrame {
 		public static void main(String[] args) {
 			ParseXML xml = new ParseXML("xc.xml");
 			testframeforxc test = new testframeforxc(xml.getRoot(), null);
-		//	new LoginFrame(xml.getConfig("loginframe"));
-			
 		}
 //		private MyPanel panel;
 		
@@ -33,7 +30,7 @@ public class testframeforxc extends MyFrame {
 			/**
 			 * 整个过程中不动的界面，底色
 			 */
-			InitalPanel initalPanel = new InitalPanel(e.element("initialpanel") , this ,null);
+			InitalPanel2 initalPanel = new InitalPanel2(e.element("initialpanel") , this ,null);
 
 			this.setContentPane(initalPanel);
 

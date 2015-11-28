@@ -3,6 +3,7 @@ package ui.storemanager;
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
+import ui.util.CompomentType;
 import ui.util.PanelController;
  /** 
  * 仓库管理人员控制器
@@ -11,9 +12,13 @@ import ui.util.PanelController;
  */
 public class StoreManagerController extends PanelController {
 
-	public StoreManagerController(MyPanel initialPanel, Element root) {
-		super(initialPanel, root);
-		// TODO Auto-generated constructor stub
+	public StoreManagerController(MyPanel initialPanel, Element e) {
+		super(initialPanel , e);
+		initButtons(e.element(CompomentType.BUTTONS.name()));
+		initPanel(e);
+		addButtons();
+		addPanels();
+		addListeners();
 	}
 
 	@Override
@@ -23,7 +28,13 @@ public class StoreManagerController extends PanelController {
 	}
 
 	@Override
-	protected void addButtons(Element e) {
+	protected void initButtons(Element e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void addButtons() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -39,6 +50,7 @@ public class StoreManagerController extends PanelController {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 	
 

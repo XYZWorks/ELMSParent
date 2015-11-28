@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <ELMS width = "1080" height = "720">
 <loginframe width = "497" height = "411" >
 		<buttons>
@@ -15,20 +16,103 @@
 		<password x = "179" y = "241" width = "174" height = "31" />
 	
 	
+=======
+<ELMS width="1080" height="720">
+	<loginframe width="497" height="411">
+		<BUTTONS>
+			<close text="" x="455" y="36" width="34" height="33" />
+			<login text="" x="3" y="358" width="489" height="53" />
+			<checkOrder text="" x="213" y="316" width="72" height="17" />
+		</BUTTONS>
+		<LABLES>
+		</LABLES>
+		<TEXTFIELDS>
+			<userName x="179" y="185" width="174" height="31" />
+		</TEXTFIELDS>
+		<rememberMe x="284" y="287" width="15" height="15" />
+		<password x="179" y="241" width="174" height="31" />
+
+
+>>>>>>> origin/master
 	</loginframe>
-	<initialpanel x = "0" y = "0" width = "1080"  height = "720" >
-		<buttons>
-		<exit  x = "1" y = "1" width = "30"  height = "30"/>
-		<min x = "1" y = "1" width = "930"  height = "30"/>
-		<home x = "1" y = "1" width = "930"  height = "30"/>
-		<rectangle x = "1" y = "1" width = "930"  height = "30"/>
-		<showCareer x = "1" y = "1" width = "30"  height = "30"/>
-		
-		</buttons>
-		
-	
+	<initialpanel x="0" y="0" width="1080" height="720">
+		<BUTTONS>
+			<exit text="" x="1041" y="17" width="19" height="18" normal="element//close"
+				enter="element//close-enter" clicked="element//close-clicked" />
+			<min text="" x="1004" y="24" width="22" height="3" normal="element//min"
+				enter="element//min-enter" clicked="element//min-clicked" />
+			<drop text="" x="955" y="24" width="15" height="8" normal="element//drop"
+				enter="element//drop-enter" clicked="element//drop-clicked" />
+			<home text="" x="773" y="16" width="26" height="22" normal="element//home"
+				enter="element//home-enter" clicked="element//home-clicked" />
+
+		</BUTTONS>
+		<GeneralManager x="232" y="54" width="1080" height="637">
+			<BUTTONS>
+
+
+			</BUTTONS>
+
+			<GMmainpanel x="232" y="54" width="1080" height="637">
+				<BUTTONS>
+					<GMApproval text="" x="280" y="213" width="137" height="152"
+						normal="GeneralManager//GMApproval" enter="GeneralManager//GMApproval-enter"
+						clicked="GeneralManager//GMApproval-clicked" />
+					<Statistic text="" x="584" y="203" width="131" height="160"
+						normal="GeneralManager//Statistic" enter="GeneralManager//Statistic-enter"
+						clicked="GeneralManager//Statistic-clicked" />
+					<ConstSet text="" x="893" y="203" width="111" height="160"
+						normal="GeneralManager//ConstSet" enter="GeneralManager//ConstSet-enter"
+						clicked="GeneralManager//ConstSet-clicked" />
+					<SalaryStrategySet text="" x="285" y="421" width="131"
+						height="151" normal="GeneralManager//SalaryStrategySet" enter="GeneralManager//SalaryStrategySet-enter"
+						clicked="GeneralManager//SalaryStrategySet-clicked" />
+					<PeopleManage text="" x="584" y="407" width="131"
+						height="165" normal="GeneralManager//PeopleManage" enter="GeneralManager//PeopleManage-enter"
+						clicked="GeneralManager//PeopleManage-clicked" />
+					<InstManage text="" x="880" y="402" width="138" height="170"
+						normal="GeneralManager//InstManage" enter="GeneralManager//InstManage-enter"
+						clicked="GeneralManager//InstManage-clicked" />
+
+
+
+				</BUTTONS>
+
+			</GMmainpanel>
+		</GeneralManager>
 	</initialpanel>
-	
+
+
+
+	<courier width="1080" height="720">
+		<buttons>
+			<close text="" x="1041" y="17" width="19" height="18"
+				normal="element//close-normal" enter="element//close-enter" exit="element//close-exit" />
+			<min text="" x="1004" y="24" width="22" height="3"
+				normal="element//min-normal" enter="element//min-enter" exit="element//min-exit" />
+			<drop text="" x="955" y="24" width="15" height="8"
+				normal="element//drop-normal" enter="element//drop-enter" exit="element//drop-exit" />
+			<home text="" x="773" y="16" width="26" height="22"
+				normal="element//home-normal" enter="element//home-enter" exit="element//home-exit" />
+			<Addorder text="" x="290" y="290" width="115" height="159"
+				normal="courier//AddOrder" enter="courier//AddOrder-enter" exit="courier//AddOrder-exit" />
+			<CheckOrder text="" x="591" y="292" width="119" height="155"
+				normal="courier//CheckOrder" enter="courier//CheckOrder-enter" exit="courier//CheckOrder-exit" />
+			<InputReceive text="" x="889" y="290" width="121"
+				height="157" normal="courier//InputReceive" enter="courier//InputReceive-enter"
+				exit="courier//InputReceive-exit" />
+
+
+		</buttons>
+
+
+<<<<<<< HEAD
+</ELMS>
+=======
+
+	</courier>
+
 
 
 </ELMS>
+>>>>>>> origin/master

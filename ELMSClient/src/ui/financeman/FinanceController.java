@@ -3,6 +3,7 @@ package ui.financeman;
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
+import ui.util.CompomentType;
 import ui.util.PanelController;
  /** 
  * 财务管理人员控制器类
@@ -11,9 +12,13 @@ import ui.util.PanelController;
  */
 public class FinanceController extends PanelController {
 
-	public FinanceController(MyPanel initialPanel, Element root) {
-		super(initialPanel, root);
-		// TODO Auto-generated constructor stub
+	public FinanceController(MyPanel initialPanel, Element e) {
+		super(initialPanel , e);
+		initButtons(e.element(CompomentType.BUTTONS.name()));
+		initPanel(e);
+		addButtons();
+		addPanels();
+		addListeners();
 	}
 
 	@Override
@@ -23,7 +28,13 @@ public class FinanceController extends PanelController {
 	}
 
 	@Override
-	protected void addButtons(Element e) {
+	protected void initButtons(Element e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void addButtons() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -40,7 +51,7 @@ public class FinanceController extends PanelController {
 		
 	}
 
-
+	
 
 	
 }

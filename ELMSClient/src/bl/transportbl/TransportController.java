@@ -19,72 +19,58 @@ import blservice.transportblservice.Transportblservice;
  */
 public class TransportController implements Transportblservice{
 
+	Transport transport ;
+	
+	public TransportController() {
+		transport = new Transport();
+	}
 	public ResultMessage add(LoadDocVO vo) {
-	 	// TODO Auto-generated method stub
-		return null;
+		return transport.add(vo);
 	}
 
 	public ArrayList<LoadDocVO> getDayLoadDocs(MyDate date) {
-		// TODO Auto-generated method stub
-		return null;
+		return transport.getDayLoadDocs(date);
 	}
 
 	public ResultMessage add(SendGoodDocVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return transport.add(vo);
 	}
 
 	public ArrayList<SendGoodDocVO> getDaySendDocs(MyDate date) {
-		// TODO Auto-generated method stub
-		return null;
+		return transport.getDaySendDocs(date);
 	}
 
 	public ResultMessage add(ArriveYYDocVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return transport.add(vo);
 	}
 
 	public ArrayList<ArriveYYDocVO> getDayArriveYYDocs(MyDate date) {
-		// TODO Auto-generated method stub
-		return null;
+		return transport.getDayArriveYYDocs(date);
 	}
 
 	public ResultMessage add(ArriveZZDocVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return transport.add(vo);
 	}
 
 	public ArrayList<ArriveZZDocVO> getDayArriveZZDocs(MyDate date) {
-		// TODO Auto-generated method stub
-		return null;
+		return transport.getDayArriveZZDocs(date);
 	}
 
 	public ResultMessage add(TransferDocVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return transport.add(vo);
 	}
 
 	public ArrayList<TransferDocVO> getDayTransferDocs(MyDate date) {
-		// TODO Auto-generated method stub
-		return null;
+		return transport.getDayTransferDocs(date);
 	}
 
 	public ArrayList<DocVO> getDoc(DocType type) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
-	public ArrayList<DocVO> getDocLists(DocType type) {
-		// TODO Auto-generated method stub
-		return null;
+		return transport.getDoc(type);
 	}
 
 
 	public double getExpense(ArriveZZDocVO arriveVO, TransferDocVO transferVO) {
-		// TODO Auto-generated method stub
-		return 0;
+		return transport.getExpense(arriveVO,transferVO);
 	}
 
 	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
@@ -93,6 +79,10 @@ public class TransportController implements Transportblservice{
 	}
 
 	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public ArrayList<? extends DocVO> getDocLists(DocType type) {
 		// TODO Auto-generated method stub
 		return null;
 	}
