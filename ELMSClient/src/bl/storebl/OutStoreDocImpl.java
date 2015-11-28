@@ -22,7 +22,6 @@ public class OutStoreDocImpl implements OutStoreDocService {
 	Orderblservice orderbl;
 	
 	public ArrayList<OutStoreDocVO> show() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
