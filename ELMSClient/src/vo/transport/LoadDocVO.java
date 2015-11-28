@@ -3,6 +3,7 @@ package vo.transport;
 import util.MyDate;
 import vo.DocVO;
 import ui.saleman.LoadDocShow;
+import util.City;
 import util.DocState;
 import util.DocType;
 
@@ -25,7 +26,7 @@ public class LoadDocVO extends DocVO{
 	/**
 	 * 到达地
 	 */
-	public String arriveCity;
+	public City arriveCity;
 	/**
 	 * 车辆代号
 	 */
@@ -44,7 +45,7 @@ public class LoadDocVO extends DocVO{
 	}
 
 	public LoadDocVO(String iD, MyDate date,
-			String yYID, String loadDocID, String arriveCity, String carID,
+			String yYID, String loadDocID, City arriveCity, String carID,
 			String supervisor, String escort) {
 		super(iD, DocType.loadDoc, date, DocState.wait);
 		YYID = yYID;

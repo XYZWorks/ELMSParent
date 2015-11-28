@@ -33,6 +33,10 @@ public interface DocApprovalService {
 	 */
 	public ResultMessage changeOneDocState(String docID,
 			DocType type, DocState state);
-	
-	
+	/**
+	 * 根据id得到订单VO
+	 * @param ID
+	 * @return
+	 */
+	public DocVO getByID(String ID);
 }

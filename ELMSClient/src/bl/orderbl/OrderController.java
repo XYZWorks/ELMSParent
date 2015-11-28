@@ -18,34 +18,32 @@ import blservice.orderblservice.Orderblservice;
  */
 public class OrderController implements Orderblservice{
 
+	Order order ;
+	public OrderController() {
+		order = new Order();
+	}
 	public ResultMessage add(OrderVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return order.add(vo);
 	}
 
 	public ResultMessage checkBarCode(String orderBarCode) {
-		// TODO Auto-generated method stub
-		return null;
+		return order.checkBarCode(orderBarCode);
 	}
 
 	public ArrayList<OrderVO> getOrderVO(Date date) {
-		// TODO Auto-generated method stub
-		return null;
+		return order.getOrderVO(date);
 	}
 
 	public ResultMessage del(String orderBarCode) {
-		// TODO Auto-generated method stub
-		return null;
+		return order.del(orderBarCode);
 	}
 
 	public ArrayList<OrderSimpleInfoVO> getSimpleInfo(String orderBarCode) {
-		// TODO Auto-generated method stub
-		return null;
+		return order.getSimpleInfo(orderBarCode);
 	}
 
 	public OrderVO getFullInfo(String orderBarCode) {
-		// TODO Auto-generated method stub
-		return null;
+		return order.getFullInfo(orderBarCode);
 	}
 
 	public ResultMessage receiveInfo(ArrayList<ReceiveVO> vo) {
@@ -70,6 +68,10 @@ public class OrderController implements Orderblservice{
 	}
 
 	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public DocVO getByID(String ID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

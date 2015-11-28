@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import po.DocPO;
 import util.MyDate;
+import util.City;
 import util.DocState;
 import util.DocType;
 
@@ -33,7 +34,7 @@ public class LoadDocPO extends DocPO implements Serializable{
 	/**
 	 * 到达地
 	 */
-	private String arriveCity;
+	private City arriveCity;
 	/**
 	 * 车辆代号
 	 */
@@ -48,7 +49,7 @@ public class LoadDocPO extends DocPO implements Serializable{
 	private String escort;
 
 	public LoadDocPO(String iD, MyDate date, String yYID, String loadDocID,
-			String arriveCity, String carID, String supervisor, String escort) {
+			City arriveCity, String carID, String supervisor, String escort) {
 		super(iD, DocType.loadDoc, date, DocState.wait);
 		this.YYID = yYID;
 		this.loadDocID = loadDocID;
@@ -59,7 +60,7 @@ public class LoadDocPO extends DocPO implements Serializable{
 	}
 	
 	public LoadDocPO(String iD, DocType type, MyDate date, DocState state, String yYID, String loadDocID,
-			String arriveCity, String carID, String supervisor, String escort) {
+			City arriveCity, String carID, String supervisor, String escort) {
 		
 		super(iD, type, date, state);
 		this.YYID = yYID;
@@ -94,11 +95,11 @@ public class LoadDocPO extends DocPO implements Serializable{
 		this.loadDocID = loadDocID;
 	}
 
-	public String getArriveCity() {
+	public City getArriveCity() {
 		return arriveCity;
 	}
 
-	public void setArriveCity(String arriveCity) {
+	public void setArriveCity(City arriveCity) {
 		this.arriveCity = arriveCity;
 	}
 

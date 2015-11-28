@@ -103,5 +103,9 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public DocVO getByID(String ID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

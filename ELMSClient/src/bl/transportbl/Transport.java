@@ -3,6 +3,7 @@ package bl.transportbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.orderbl.OrderController;
 import bl.strategybl.Strategy;
 import bl.strategybl.StrategyController;
 import blservice.orderblservice.Orderblservice;
@@ -52,6 +53,8 @@ public class Transport {
 		}
 		
 		strategybl = new StrategyController();
+		orderbl = new OrderController();
+			
 	}
 	
 	public ResultMessage add(LoadDocVO vo) {

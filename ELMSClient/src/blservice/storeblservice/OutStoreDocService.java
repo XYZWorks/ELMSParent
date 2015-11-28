@@ -23,4 +23,6 @@ public interface OutStoreDocService extends DocApprovalService{
 	 * @return
 	 */
 	public ResultMessage generate(OutStoreDocVO vo);
+	
+	
 }
