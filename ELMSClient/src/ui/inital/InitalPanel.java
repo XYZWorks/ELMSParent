@@ -29,9 +29,6 @@ import vo.account.AccountVO;
 public class InitalPanel extends MyPanel {
 
 
-//	private Exit exit;
-//	private Min min;
-//	private Home home;
 //	private ShowCareer career;
 	private MyPictureButton exit;
 	private MyPictureButton min;
@@ -48,19 +45,6 @@ public class InitalPanel extends MyPanel {
 	public InitalPanel(Element e , MyFrame frame ,AccountVO vo) {
 		super(e);
 		this.parent = frame;
-<<<<<<< HEAD
-		initButtons(e.element("buttons"));
-		initLables(e.element("labels"));
-		initTextFields(e.element("textfields"));
-		initOtherCompoment(e);
-		addCompoment();
-		addListener();
-		// 界面跳转方法
-		addOtherPanel(vo);
-		//TODO panel的名字
-
-		repaint();
-=======
 		this.initButtons(e.element(CompomentType.BUTTONS.name()));
 		this.initLables(e.element(CompomentType.LABLES.name()));
 		this.initTextFields(e.element(CompomentType.TEXTFIELDS.name()));
@@ -71,7 +55,7 @@ public class InitalPanel extends MyPanel {
 		this.addOtherPanel(vo ,e); 
 		
 		this.repaint();
->>>>>>> origin/master
+		
 		this.setVisible(true);
 	}
 	

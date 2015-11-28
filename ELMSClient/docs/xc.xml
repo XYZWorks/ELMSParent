@@ -1,23 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <ELMS width = "1080" height = "720">
-<loginframe width = "497" height = "411" >
-		<buttons>
-			<close text = "" x = "455" y = "36" width = "34" height = "33"/>
-			<login text = "" x = "3" y = "358" width = "489" height = "53"/>
-			<checkOrder text = "" x = "213" y = "316" width = "72" height = "17"/>
-		</buttons>
-		<lables>
-		</lables>
-		<textfields>
-			<userName x = "179" y = "185"  width = "174" height = "31" />
-		</textfields>
-		<rememberMe x = "284" y = "287" width = "15" height = "15" />	
-		<password x = "179" y = "241" width = "174" height = "31" />
-	
-	
-=======
-<ELMS width="1080" height="720">
 	<loginframe width="497" height="411">
 		<BUTTONS>
 			<close text="" x="455" y="36" width="34" height="33" />
@@ -31,10 +13,8 @@
 		</TEXTFIELDS>
 		<rememberMe x="284" y="287" width="15" height="15" />
 		<password x="179" y="241" width="174" height="31" />
-
-
->>>>>>> origin/master
 	</loginframe>
+	
 	<initialpanel x="0" y="0" width="1080" height="720">
 		<BUTTONS>
 			<exit text="" x="1041" y="17" width="19" height="18" normal="element//close"
@@ -105,14 +85,7 @@
 
 		</buttons>
 
-
-<<<<<<< HEAD
-</ELMS>
-=======
-
 	</courier>
 
-
-
 </ELMS>
->>>>>>> origin/master
+
