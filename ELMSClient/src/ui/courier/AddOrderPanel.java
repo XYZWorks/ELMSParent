@@ -10,9 +10,9 @@ import ui.tools.MyPanel;
  *
  */
 @SuppressWarnings("serial")
-public class AddOrder extends MyPanel{
+public class AddOrderPanel extends MyPanel{
 
-	public AddOrder(Element config) {
+	public AddOrderPanel(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}

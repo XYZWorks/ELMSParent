@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ELMS width = "1080" height = "720">
+<ELMS width="1080" height="720">
 	<loginframe width="497" height="411">
 		<BUTTONS>
 			<close text="" x="455" y="36" width="34" height="33" />
@@ -14,18 +14,17 @@
 		<rememberMe x="284" y="287" width="15" height="15" />
 		<password x="179" y="241" width="174" height="31" />
 	</loginframe>
-	
+
 	<initialpanel x="0" y="0" width="1080" height="720">
 		<BUTTONS>
-			<exit text="" x="1041" y="17" width="19" height="18" normal="element//close"
-				enter="element//close-enter" clicked="element//close-clicked" />
-			<min text="" x="1004" y="24" width="22" height="3" normal="element//min"
-				enter="element//min-enter" clicked="element//min-clicked" />
-			<drop text="" x="955" y="24" width="15" height="8" normal="element//drop"
-				enter="element//drop-enter" clicked="element//drop-clicked" />
-			<home text="" x="773" y="16" width="26" height="22" normal="element//home"
-				enter="element//home-enter" clicked="element//home-clicked" />
-
+			<exit text="" x="1027" y="0" width="53" height="53"
+				normal="element//close" enter="element//close-enter" clicked="element//close-clicked" />
+			<min text="" x="974" y="0" width="53" height="53"
+				normal="element//min" enter="element//min-enter" clicked="element//min-clicked" />
+			<drop text="" x="716" y="0" width="257" height="53"
+				normal="element//drop" enter="element//drop-enter" clicked="element//drop-clicked" />
+			<home text="" x="655" y="0" width="60" height="53"
+				normal="element//home" enter="element//home-enter" clicked="element//home-clicked" />
 		</BUTTONS>
 		<GeneralManager x="232" y="54" width="1080" height="637">
 			<BUTTONS>
@@ -60,32 +59,27 @@
 
 			</GMmainpanel>
 		</GeneralManager>
+
+		<CourierManager x="232" y="54" width="1080" height="637">
+			<BUTTONS>
+
+
+
+			</BUTTONS>
+
+			<CourierMain x="232" y="54" width="1080" height="637">
+				<BUTTONS>
+					<AddOrder text="" x="58" y="237" width="115" height="159"
+						normal="courier//AddOrder" enter="courier//AddOrder-enter" clicked="courier//AddOrder-clicked" />
+					<CheckOrder text="" x="359" y="239" width="119" height="155"
+						normal="courier//CheckOrder" enter="courier//CheckOrder-enter"
+						clicked="courier//CheckOrder-clicked" />
+					<InputReceive text="" x="657" y="237" width="121"
+						height="157" normal="courier//InputReceive" enter="courier//InputReceive-enter"
+						clicked="courier//InputReceive-clicked" />
+				</BUTTONS>
+			</CourierMain>
+		</CourierManager>
 	</initialpanel>
-
-
-
-	<courier width="1080" height="720">
-		<buttons>
-			<close text="" x="1041" y="17" width="19" height="18"
-				normal="element//close-normal" enter="element//close-enter" exit="element//close-exit" />
-			<min text="" x="1004" y="24" width="22" height="3"
-				normal="element//min-normal" enter="element//min-enter" exit="element//min-exit" />
-			<drop text="" x="955" y="24" width="15" height="8"
-				normal="element//drop-normal" enter="element//drop-enter" exit="element//drop-exit" />
-			<home text="" x="773" y="16" width="26" height="22"
-				normal="element//home-normal" enter="element//home-enter" exit="element//home-exit" />
-			<Addorder text="" x="290" y="290" width="115" height="159"
-				normal="courier//AddOrder" enter="courier//AddOrder-enter" exit="courier//AddOrder-exit" />
-			<CheckOrder text="" x="591" y="292" width="119" height="155"
-				normal="courier//CheckOrder" enter="courier//CheckOrder-enter" exit="courier//CheckOrder-exit" />
-			<InputReceive text="" x="889" y="290" width="121"
-				height="157" normal="courier//InputReceive" enter="courier//InputReceive-enter"
-				exit="courier//InputReceive-exit" />
-
-
-		</buttons>
-
-	</courier>
-
 </ELMS>
 

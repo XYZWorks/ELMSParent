@@ -3,20 +3,28 @@
 <courier width="1080" height="720">
 		<buttons>
 			<close text="" x="1027" y="0" width="53" height="53"
-				normal="element//close" enter="element//close-enter" exit="element//close-clicked" />
+				normal="element//close" enter="element//close-enter" clicked="element//close-clicked" />
 			<min text="" x="974" y="0" width="53" height="53"
+
 				normal="element//min" enter="element//min-enter" exit="element//min-clicked" />
 			<drop text="" x="920" y="0" width="53" height="53"
 				normal="element//drop" enter="element//drop-enter" exit="element//drop-clicked" />
 			<home text="" x="659" y="0" width="53" height="53"
 				normal="element//home" enter="element//home-enter" exit="element//home-clicked" />
+
+				normal="element//min" enter="element//min-enter" clicked="element//min-clicked" />
+			<drop text="" x="716" y="0" width="257" height="53"
+				normal="element//drop" enter="element//drop-enter" clicked="element//drop-clicked" />
+			<home text="" x="655" y="0" width="60" height="53"
+				normal="element//home" enter="element//home-enter" clicked="element//home-clicked" />
+
 			<Addorder text="" x="58" y="237" width="115" height="159"
-				normal="courier//AddOrder" enter="courier//AddOrder-enter" exit="courier//AddOrder-exit" />
+				normal="courier//AddOrder" enter="courier//AddOrder-enter" clicked="courier//AddOrder-exit" />
 			<CheckOrder text="" x="359" y="239" width="119" height="155"
-				normal="courier//CheckOrder" enter="courier//CheckOrder-enter" exit="courier//CheckOrder-exit" />
+				normal="courier//CheckOrder" enter="courier//CheckOrder-enter" clicked="courier//CheckOrder-exit" />
 			<InputReceive text="" x="657" y="237" width="121" height="157"
 			 normal="courier//InputReceive" enter="courier//InputReceive-enter"
-				exit="courier//InputReceive-exit" />
+				clicked="courier//InputReceive-exit" />
 
 
 		</buttons>

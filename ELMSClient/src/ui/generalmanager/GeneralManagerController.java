@@ -33,6 +33,14 @@ public class GeneralManagerController extends PanelController{
 	private MySideBarButton statisticButton;
 	private MySideBarButton salaryStrategySetButton;
 	
+	private final String GMmainpanelStr = "GMmainpanel";
+	private final String constSetPanelStr = "ConstSetPanel";
+	private final String approvalPanelStr = "ApprovalPanel";
+	private final String instManagePanelStr = "InstManagePanel";
+	private final String peopleManagePanelStr = "PeopleManagePanel";
+	private final String statisticPanelStr = "StatisticPanel";
+	private final String salaryStrategySetnStr = "SalaryStrategySetPanel";
+	
 	
 	public GeneralManagerController(MyPanel initialPanel , Element e) {
 		super(initialPanel , e);
@@ -41,6 +49,8 @@ public class GeneralManagerController extends PanelController{
 		addButtons();
 		addPanels();
 		addListeners();
+//		panelManager.show(changePanel, "GMmainpanel");
+		changePanel.setVisible(true);
 	}
 	
 	@Override
@@ -69,23 +79,23 @@ public class GeneralManagerController extends PanelController{
 	
 	@Override
 	protected void initPanel(Element e) {
-		GMmainpanel = new GeneralManagerMain(e.element("GMmainpanel"));
-		approvalPanel = new ApprovalDocsPanel(e.element("Approval"));
-		constSetPanel = new ConstSetPanel(e.element("ConstSetPanel"));
-		statisticPanel = new StatisticPanel(e.element("Statistic"));
-		instManagePanel = new InstManagePanel(e.element("InstManage"));
-		peopleManagePanel = new PeopleManagePanel(e.element("PeopleManage"));
+		GMmainpanel = new GeneralManagerMain(e.element(GMmainpanelStr));
+		approvalPanel = new ApprovalDocsPanel(e.element(approvalPanelStr));
+		constSetPanel = new ConstSetPanel(e.element(constSetPanelStr));
+		statisticPanel = new StatisticPanel(e.element(statisticPanelStr));
+		instManagePanel = new InstManagePanel(e.element(instManagePanelStr));
+		peopleManagePanel = new PeopleManagePanel(e.element(peopleManagePanelStr));
 	}
 	
 	
 	@Override
 	protected void addPanels() {
-		changePanel.add(GMmainpanel, "GMmainpanel");
-		changePanel.add(approvalPanel,"Approval");
-		changePanel.add(constSetPanel, "ConstSet");
-		changePanel.add(statisticPanel , "Statistic");
-		changePanel.add(instManagePanel , "InstManage");
-		changePanel.add(peopleManagePanel , "PeopleManage");
+		changePanel.add(GMmainpanel, GMmainpanelStr);
+		changePanel.add(approvalPanel,approvalPanelStr);
+		changePanel.add(constSetPanel, constSetPanelStr);
+		changePanel.add(statisticPanel , statisticPanelStr);
+		changePanel.add(instManagePanel , instManagePanelStr);
+		changePanel.add(peopleManagePanel , peopleManagePanelStr);
 		
 	}
 
