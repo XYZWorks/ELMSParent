@@ -3,6 +3,7 @@ package ui.courier;
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
+import ui.util.CompomentType;
 import ui.util.PanelController;
  /** 
  * 
@@ -14,11 +15,15 @@ public class CourierController extends PanelController{
 	
 
 
-	public CourierController(MyPanel initialPanel, Element root) {
-		super(initialPanel, root);
-		// TODO Auto-generated constructor stub
+	public CourierController(MyPanel initialPanel, Element e) {
+		super(initialPanel , e);
+		initButtons(e.element(CompomentType.BUTTONS.name()));
+		initPanel(e);
+		addButtons();
+		addPanels();
+		addListeners();
 	}
-	
+
 	@Override
 	protected void initPanel(Element e) {
 		// TODO Auto-generated method stub
@@ -26,7 +31,13 @@ public class CourierController extends PanelController{
 	}
 
 	@Override
-	protected void addButtons(Element e) {
+	protected void initButtons(Element e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void addButtons() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -42,7 +53,8 @@ public class CourierController extends PanelController{
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	
 	
 
 }

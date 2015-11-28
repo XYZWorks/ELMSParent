@@ -42,12 +42,14 @@ public abstract class PanelController {
 	 * 初始化panel
 	 */
 	protected abstract void initPanel(Element e);
-	
-	
+	/**
+	 * 初始化按钮
+	 */
+	protected abstract void initButtons(Element e) ;
 	/**
 	 * 向panel上左侧栏的Buttons
 	 */
-	protected abstract void addButtons(Element e);
+	protected abstract void addButtons();
 	/**
 	 * 增加panel
 	 */

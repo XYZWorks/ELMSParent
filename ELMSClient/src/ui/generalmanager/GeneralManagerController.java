@@ -31,20 +31,27 @@ public class GeneralManagerController extends PanelController{
 	
 	public GeneralManagerController(MyPanel initialPanel , Element e) {
 		super(initialPanel , e);
-		addButtons(e.element(CompomentType.BUTTONS.name()));
+		initButtons(e.element(CompomentType.BUTTONS.name()));
 		initPanel(e);
+		addButtons();
 		addPanels();
 		addListeners();
 	}
-
+	
 	@Override
-	protected void addButtons(Element e) {
+	protected void initButtons(Element e) {
 //		constsetButton = new MyPictureButton(e.element("ConstSet"));
 //		instManageButton = new MyPictureButton(e.element("InstManage"));
 //		approvalButton = new MyPictureButton(e.element("GMApproval"));
 //		statisticButton = new MyPictureButton(e.element("Statistic"));
 //		salaryStrategySetButton = new MyPictureButton(e.element("SalaryStrategySet"));
 //		peopleManageButton = new MyPictureButton(e.element("PeopleManage"));
+		
+	}
+	
+	@Override
+	protected void addButtons() {
+
 //		
 //		mainPanel.add(constsetButton);
 //		mainPanel.add(instManageButton);
@@ -74,6 +81,8 @@ public class GeneralManagerController extends PanelController{
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 	
 
