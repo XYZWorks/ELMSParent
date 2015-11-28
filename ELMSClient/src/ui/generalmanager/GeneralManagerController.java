@@ -31,7 +31,7 @@ public class GeneralManagerController extends PanelController{
 	
 	public GeneralManagerController(MyPanel initialPanel , Element e) {
 		super(initialPanel , e);
-		initButtons(e.element(CompomentType.BUTTONS.name()));
+		initButtons(e.element(CompomentType.BUTTONS.name())); 
 		initPanel(e);
 		addButtons();
 		addPanels();
