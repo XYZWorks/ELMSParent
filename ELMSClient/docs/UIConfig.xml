@@ -26,7 +26,7 @@
 				enter="element//drop-enter" clicked="element//drop-clicked" />
 			<home text="" x="773" y="16" width="26" height="22" normal="element//home"
 				enter="element//home-enter" clicked="element//home-clicked" />
-
+			
 		</BUTTONS>
 		<GeneralManager x="232" y="54" width="1080" height="637">
 			<BUTTONS>

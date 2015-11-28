@@ -20,15 +20,20 @@ import config.StaticMessage;
  * @version 2015年11月23日 上午10:52:51 
  */
 public class GraphicsUtils {
-
+	
+		public static final Icon sideBarNow = getIcon("");
+		public static final Icon sideBarNormal = getIcon("");
+		public static final Icon sideBarClicked = getIcon("");
+		public static final Icon sideBarEntered = getIcon("");
+	
+		
 		public static final Font getFont(Element config){
 			Font font;
 			try {
 				font = new Font(config.attributeValue("name"), Font.PLAIN, Integer.parseInt(config.attributeValue("size")));
-				
 				return font;
 			} catch (NullPointerException e) {
-				return new Font("华文新魏", Font.PLAIN, 20);
+				return new Font("华文细黑", Font.PLAIN, 20);
 			}
 			
 		}

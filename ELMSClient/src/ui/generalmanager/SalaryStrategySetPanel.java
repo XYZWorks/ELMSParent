@@ -5,14 +5,14 @@ import org.dom4j.Element;
 import ui.tools.MyPanel;
 
 /**
- * 统计分析
+ * 指定薪水策略
  * @author xingcheng
  *
  */
 @SuppressWarnings("serial")
-public class StatisticPanel extends MyPanel{
+public class SalaryStrategySetPanel  extends MyPanel{
 
-	public StatisticPanel(Element config) {
+	public SalaryStrategySetPanel(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}

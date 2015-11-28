@@ -1,5 +1,7 @@
 package ui.tools;
 
+import java.security.KeyStore.PrivateKeyEntry;
+
 import javax.swing.Icon;
 import javax.swing.JLabel;
 
@@ -7,28 +9,26 @@ import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
 import ui.util.ButtonState;
-
-/**
- * 带有图片的button按钮
- * 
- * @author czq
- * @version 2015年11月26日 下午7:19:05
+ /** 
+ * 左边条Button
+ * @author czq 
+ * @version 2015年11月28日 下午3:27:24 
  */
 @SuppressWarnings("serial")
-public class MyPictureButton extends JLabel {
-
-	// 一个按钮分：普通、进入、点击 三种不同的图片状态
-
+public class MySideBarButton extends JLabel{
+	
+	private Icon nowPanel;
 	private Icon normal;
 	private Icon entered;
 	private Icon clicked;
-
-	public MyPictureButton(Element e) {
-
-		normal = GraphicsUtils.getIcon(e.attributeValue("normal"));
-		entered = GraphicsUtils.getIcon(e.attributeValue("enter"));
-		clicked = GraphicsUtils.getIcon(e.attributeValue("clicked"));
-
+	
+	public MySideBarButton(Element e) {
+		
+		nowPanel = GraphicsUtils.sideBarNow;
+		normal = GraphicsUtils.sideBarNormal;
+		entered = GraphicsUtils.sideBarEntered;
+		clicked = GraphicsUtils.sideBarClicked;
+		
 		this.setIcon(normal);
 		this.setBounds(Integer.parseInt(e.attributeValue("x")),
 				Integer.parseInt(e.attributeValue("y")),
@@ -41,8 +41,12 @@ public class MyPictureButton extends JLabel {
 		this.repaint();
 		this.setVisible(true);
 	}
-
+	
 	public void setMyIcon(ButtonState state) {
+		if(state == null){
+			this.setIcon(nowPanel);
+			return;
+		}
 		switch (state) {
 		case NORMAL:
 			this.setIcon(normal);
@@ -58,4 +62,5 @@ public class MyPictureButton extends JLabel {
 		}
 
 	}
+	
 }

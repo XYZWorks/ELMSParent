@@ -40,6 +40,7 @@ public class InitalPanel extends MyPanel {
 	 */
 	private PanelController controller;
 	private MyFrame parent;
+	private  AccountVO vo;
 
 
 	public InitalPanel(Element e , MyFrame frame ,AccountVO vo) {
@@ -52,7 +53,7 @@ public class InitalPanel extends MyPanel {
 		this.addCompoment();
 		this.addListener();
 		//界面跳转方法
-		this.addOtherPanel(vo ,e); 
+		this.addOtherPanel(e); 
 		
 		this.repaint();
 		
@@ -63,7 +64,7 @@ public class InitalPanel extends MyPanel {
 	 * 根据账户类型跳转至不同的界面
 	 * @param vo
 	 */
-	private void addOtherPanel(AccountVO vo  ,Element e) {
+	private void addOtherPanel(Element e) {
 //		AccountType type = vo.type;
 		
 		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
@@ -119,7 +120,7 @@ public class InitalPanel extends MyPanel {
 
 	@Override
 	protected void initLables(Element e) {
-		career = new MyLabel(e.element("career"));
+		career = new MyLabel(e.element("career") , vo.type.name() + "," + vo.name);
 
 	}
 
