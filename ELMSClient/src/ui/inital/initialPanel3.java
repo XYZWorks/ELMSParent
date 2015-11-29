@@ -26,7 +26,7 @@ import vo.account.AccountVO;
  *
  */
 @SuppressWarnings("serial")
-public class InitalPanel extends MyPanel {
+public class initialPanel3 extends MyPanel {
 
 
 //	private ShowCareer career;
@@ -43,7 +43,7 @@ public class InitalPanel extends MyPanel {
 	private  AccountVO vo;
 
 
-	public InitalPanel(Element e , MyFrame frame ,AccountVO vo) {
+	public initialPanel3(Element e , MyFrame frame ,AccountVO vo) {
 		super(e);
 		this.parent = frame;
 		this.initButtons(e.element(CompomentType.BUTTONS.name()));
@@ -68,7 +68,7 @@ public class InitalPanel extends MyPanel {
 //		AccountType type = vo.type;
 		
 		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
-//		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
+		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
 //		switch (type) {
 //		case Adminstrator:
 //			

@@ -16,11 +16,10 @@ public class testPanelforymc extends MyFrame{
 	public testPanelforymc(Element e) {
 		super(e);
 		
-		InitalPanel initalPanel = new InitalPanel(e.element("initialpanel") , this , null);
+		InitalPanel initalPanel = new InitalPanel(e.element("initialpanel3") , this , null);
 
 		
 
-		initalPanel.add(new ConstSetPanel(e.element("initialpanel").element("ConstSetPanel")));
 		this.setContentPane(initalPanel);
 		this.setVisible(true);
 	}
