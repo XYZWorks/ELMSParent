@@ -62,11 +62,15 @@ public abstract class PanelController {
 	
 	public abstract void  setAllButtonUnClicked();
 	
+	public abstract void setAllButtonVisable(boolean state);
+	
+	
 	/**
 	 * 跳回主界面
 	 */
 	public  void  jumpBackToMainWindow() {
 		panelManager.show(changePanel, StaticMessage.MAIN_WINDOW);
+		setAllButtonVisable(false);
 	}
 	
 	

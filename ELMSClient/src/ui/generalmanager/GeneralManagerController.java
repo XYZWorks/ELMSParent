@@ -122,4 +122,14 @@ public class GeneralManagerController extends PanelController {
 		peopleManageButton.setMyIcon(ButtonState.NORMAL);		
 	}
 
+	@Override
+	public void setAllButtonVisable(boolean state) {
+		constsetButton.setVisible(state);
+		instManageButton.setVisible(state);
+		approvalButton.setVisible(state);
+		statisticButton.setVisible(state);
+		salaryStrategySetButton.setVisible(state);
+		peopleManageButton.setVisible(state);
+	}
+
 }
