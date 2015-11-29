@@ -60,6 +60,8 @@ public abstract class PanelController {
 	 */
 	protected abstract void addListeners();
 	
+	public abstract void  setAllButtonUnClicked();
+	
 	/**
 	 * 跳回主界面
 	 */

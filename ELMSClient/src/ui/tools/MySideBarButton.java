@@ -23,6 +23,8 @@ public class MySideBarButton extends JLabel{
 	private static Icon entered;
 	private static Icon clicked;
 	
+	private boolean isClicked = false;
+	
 	//加载的4张图片始终相等 所以使用静态常量
 	static{
 		nowPanel = GraphicsUtils.getIcon("element//sidebar-now");
@@ -50,8 +52,11 @@ public class MySideBarButton extends JLabel{
 	public void setMyIcon(ButtonState state) {
 		if(state == null){
 			this.setIcon(nowPanel);
+			isClicked = true;
 			return;
 		}
+		
+		isClicked = false;
 		switch (state) {
 		case NORMAL:
 			this.setIcon(normal);
@@ -68,4 +73,10 @@ public class MySideBarButton extends JLabel{
 
 	}
 	
+//	public void setClicked(boolean isClicked){
+//		this.isClicked = isClicked;
+//	}
+	public boolean getClicked(){
+		return isClicked;
+	}
 }
