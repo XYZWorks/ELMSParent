@@ -1,16 +1,14 @@
 package ui.generalmanager;
 
-import java.awt.event.MouseEvent;
-
 import org.dom4j.Element;
 
-import config.StaticMessage;
 import ui.tools.MyPanel;
 import ui.tools.MySideBarButton;
 import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.MySideBarListener;
 import ui.util.PanelController;
+import config.StaticMessage;
 
 /**
  * 总经理界面跳转控制器
@@ -51,7 +49,8 @@ public class GeneralManagerController extends PanelController {
 		addPanels();
 		addListeners();
 		// panelManager.show(changePanel, "GMmainpanel");
-		this.setAllButtonVisable(true);
+//		this.setAllButtonVisable(true);
+		panelManager.show(changePanel, GMmainpanelStr);
 		changePanel.setVisible(true);
 	}
 
@@ -81,7 +80,7 @@ public class GeneralManagerController extends PanelController {
 
 	@Override
 	protected void initPanel(Element e) {
-		GMmainpanel = new GeneralManagerMain(e.element(GMmainpanelStr));
+		GMmainpanel = new GeneralManagerMain(e.element(GMmainpanelStr) , this);
 		approvalPanel = new ApprovalDocsPanel(e.element(approvalPanelStr));
 		constSetPanel = new ConstSetPanel(e.element(constSetPanelStr));
 		statisticPanel = new StatisticPanel(e.element(statisticPanelStr));

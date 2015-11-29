@@ -11,6 +11,7 @@ import ui.tools.MyPictureButton;
 import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
+import ui.util.PanelController;
 
 /**
  * 总经理主界面
@@ -28,9 +29,12 @@ public class GeneralManagerMain extends MyPanel {
 	private MyPictureButton statisticButton;
 	private MyPictureButton salaryStrategySetButton;
 	
+	private PanelController controller;
 	
-	public GeneralManagerMain(Element config) {
+	
+	public GeneralManagerMain(Element config , PanelController controller) {
 		super(config);
+		this.controller = controller;
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
@@ -91,6 +95,7 @@ public class GeneralManagerMain extends MyPanel {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
+			controller.jumpToWindow("ConsetPanel");
 			
 		}
 	
@@ -102,6 +107,7 @@ public class GeneralManagerMain extends MyPanel {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
+			controller.jumpToWindow("ConsetPanel");
 		}
 	}
 	class statisticListener extends MyPictureButtonListener{
@@ -111,6 +117,7 @@ public class GeneralManagerMain extends MyPanel {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
+			controller.jumpToWindow("ConsetPanel");
 			
 		}
 	}

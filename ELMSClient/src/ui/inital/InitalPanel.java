@@ -68,7 +68,7 @@ public class InitalPanel extends MyPanel {
 //		AccountType type = vo.type;
 		
 		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
-//		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
+		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
 //		switch (type) {
 //		case Adminstrator:
 //			

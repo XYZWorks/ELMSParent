@@ -64,6 +64,11 @@ public abstract class PanelController {
 	
 	public abstract void setAllButtonVisable(boolean state);
 	
+	public void jumpToWindow(String panelName) {
+		panelManager.show(changePanel, panelName);
+		setAllButtonVisable(true);
+	}
+	
 	
 	/**
 	 * 跳回主界面
