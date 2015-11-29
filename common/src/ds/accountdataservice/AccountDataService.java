@@ -3,7 +3,6 @@ package ds.accountdataservice;
 import java.rmi.RemoteException;
 
 import po.account.AccountPO;
-import util.AccountType;
 import util.ResultMessage;
 import ds.DataserviceParent;
 /**

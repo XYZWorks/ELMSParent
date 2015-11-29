@@ -21,7 +21,7 @@ import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
  * @author czq
  * @version 2015年10月31日 上午9:18:30
  */
-public class DataSuperClass extends UnicastRemoteObject {
+public abstract class DataSuperClass extends UnicastRemoteObject {
 	/**
 	 * 
 	 */
