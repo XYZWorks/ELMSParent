@@ -10,6 +10,7 @@ import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.util.ButtonState;
 import ui.util.CompomentType;
+import ui.util.MyPictureButtonListener;
 
 /**
  * 总经理主界面
@@ -75,112 +76,72 @@ public class GeneralManagerMain extends MyPanel {
 
 	@Override
 	protected void addListener() {
-		constsetButton.addMouseListener(new constsetListener());
-		instManageButton.addMouseListener(new instManageListener());
-		approvalButton.addMouseListener(new approvalListener());
-		statisticButton.addMouseListener(new statisticListener());
-		salaryStrategySetButton.addMouseListener(new salaryStrategyListener());
-		peopleManageButton.addMouseListener(new peopleManageListener());
+		constsetButton.addMouseListener(new constsetListener(constsetButton));
+		instManageButton.addMouseListener(new instManageListener(instManageButton));
+		approvalButton.addMouseListener(new approvalListener(approvalButton));
+		statisticButton.addMouseListener(new statisticListener(statisticButton));
+		salaryStrategySetButton.addMouseListener(new salaryStrategyListener(salaryStrategySetButton));
+		peopleManageButton.addMouseListener(new peopleManageListener(peopleManageButton));
 	}
 
-	class constsetListener extends MouseAdapter {
+	class constsetListener extends MyPictureButtonListener {
+		public constsetListener(MyPictureButton button) {
+			super(button);
+		}
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			constsetButton.setMyIcon(ButtonState.MOUSE_CLICKED);
-			
+			super.mouseClicked(e);
+		}
+	
+	}
+	class approvalListener extends MyPictureButtonListener{
+		public approvalListener(MyPictureButton button) {
+			super(button);
 		}
 		@Override
-		public void mouseEntered(MouseEvent e) {
-			constsetButton.setMyIcon(ButtonState.MOUSE_ENTERED);
-		}
-		@Override
-		public void mouseExited(MouseEvent e) {
-			constsetButton.setMyIcon(ButtonState.NORMAL);
-		}
-		
-		public void mouseMoved(MouseEvent e){
-			
-			
-			
+		public void mouseClicked(MouseEvent e) {
+			super.mouseClicked(e);
 		}
 	}
-	class approvalListener extends MouseAdapter{
+	class statisticListener extends MyPictureButtonListener{
+		public statisticListener(MyPictureButton button) {
+			super(button);
+		}
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			approvalButton.setMyIcon(ButtonState.MOUSE_CLICKED);
-			
-		}
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			approvalButton.setMyIcon(ButtonState.MOUSE_ENTERED);
-		}
-		@Override
-		public void mouseExited(MouseEvent e) {
-			approvalButton.setMyIcon(ButtonState.MOUSE_ENTERED);
+			super.mouseClicked(e);
 		}
 	}
-	class statisticListener extends MouseAdapter{
+	
+	class instManageListener extends MyPictureButtonListener{
+		public instManageListener(MyPictureButton button) {
+			super(button);
+		}
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			statisticButton.setMyIcon(ButtonState.MOUSE_CLICKED);
-			
-		}
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			statisticButton.setMyIcon(ButtonState.MOUSE_ENTERED);
-		}
-		@Override
-		public void mouseExited(MouseEvent e) {
-			statisticButton.setMyIcon(ButtonState.MOUSE_ENTERED);
+			super.mouseClicked(e);
 		}
 		
 	}
 	
-	class instManageListener extends MouseAdapter{
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			instManageButton.setMyIcon(ButtonState.MOUSE_CLICKED);
-			
-		}
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			instManageButton.setMyIcon(ButtonState.MOUSE_ENTERED);
-		}
-		@Override
-		public void mouseExited(MouseEvent e) {
-			instManageButton.setMyIcon(ButtonState.MOUSE_ENTERED);
-		}
-		
+class salaryStrategyListener extends MyPictureButtonListener{
+	public salaryStrategyListener(MyPictureButton button) {
+		super(button);
 	}
-	
-class salaryStrategyListener extends MouseAdapter{
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		salaryStrategySetButton.setMyIcon(ButtonState.MOUSE_CLICKED);
-		
-	}
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		salaryStrategySetButton.setMyIcon(ButtonState.MOUSE_ENTERED);
-	}
-	@Override
-	public void mouseExited(MouseEvent e) {
-		salaryStrategySetButton.setMyIcon(ButtonState.NORMAL);
+		super.mouseClicked(e);
 	}
 	}
 
-class peopleManageListener extends MouseAdapter{
+class peopleManageListener extends MyPictureButtonListener{
 	
+	public peopleManageListener(MyPictureButton button) {
+		super(button);
+	}
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		
-		
-	}
-	@Override
-	public void mouseEntered(MouseEvent e) {
-	}
-	@Override
-	public void mouseExited(MouseEvent e) {
+		super.mouseClicked(e);
 	}
 	
 }
