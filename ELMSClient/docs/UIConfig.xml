@@ -18,30 +18,24 @@
 	</loginframe>
 	<initialpanel x="0" y="0" width="1080" height="720">
 		<BUTTONS>
-			<exit text="" x="1027" y="0" width="53" height="53"
-				normal="element//close" enter="element//close-enter" clicked="element//close-clicked" />
-			<min text="" x="974" y="0" width="53" height="53"
-				normal="element//min" enter="element//min-enter" clicked="element//min-clicked" />
-			<drop text="" x="716" y="0" width="257" height="53"
-				normal="element//drop" enter="element//drop-enter" clicked="element//drop-clicked" />
-			<home text="" x="655" y="0" width="60" height="53"
-				normal="element//home" enter="element//home-enter" clicked="element//home-clicked" />
-			<career text="" x="773" y="16" width="26" height="22"  />
+			<exit text="" x="1027" y="0" width="53" height="53" normal="element//close"
+				enter="element//close-enter" clicked="element//close-clicked" />
+			<min text="" x="974" y="0" width="53" height="53" normal="element//min"
+				enter="element//min-enter" clicked="element//min-clicked" />
+			<drop text="" x="716" y="0" width="257" height="53" normal="element//drop"
+				enter="element//drop-enter" clicked="element//drop-clicked" />
+			<home text="" x="655" y="0" width="60" height="53" normal="element//home"
+				enter="element//home-enter" clicked="element//home-clicked" />
+			<career text="" x="773" y="16" width="26" height="22" />
 		</BUTTONS>
 		<GeneralManager x="232" y="54" width="1080" height="637">
 			<BUTTONS>
-				<GMApproval text="审批单据" x="0" y="227" 
-						  />
-					<Statistic text="查看报表" x="0" y="267" 
-						 />
-					<ConstSet text="制定常量" x="0" y="307" 
-						  />
-					<SalaryStrategySet text="制定薪水策略" x="0" y="347" 
-						 />
-					<PeopleManage text="人员管理" x="0" y="387"
-						 />
-					<InstManage text="机构管理" x="0" y="427"
-						  />
+				<GMApproval text="审批单据" x="0" y="227" />
+				<Statistic text="查看报表" x="0" y="267" />
+				<ConstSet text="制定常量" x="0" y="307" />
+				<SalaryStrategySet text="制定薪水策略" x="0" y="347" />
+				<PeopleManage text="人员管理" x="0" y="387" />
+				<InstManage text="机构管理" x="0" y="427" />
 
 			</BUTTONS>
 
@@ -67,51 +61,56 @@
 						clicked="GeneralManager//InstManage-clicked" />
 				</BUTTONS>
 			</GMmainpanel>
-			
+
 			<ApprovalPanel x="232" y="54" width="1080" height="637">
 				<BUTTONS>
 				</BUTTONS>
-			
-			
+				<LABELS>
+				</LABELS>
+				<TEXTFIELDS>
+				</TEXTFIELDS>
+
 			</ApprovalPanel>
-			
+
 			<ConstSetPanel x="232" y="54" width="1080" height="637">
-			<BUTTONS>
+				<BUTTONS>
 				</BUTTONS>
-			
-			
-			
-			
+
+
+
+
 			</ConstSetPanel>
-			
-			
+
+
 			<StatisticPanel x="232" y="54" width="1080" height="637">
-			<BUTTONS>
+				<BUTTONS>
 				</BUTTONS>
-			
-			
+
+
 			</StatisticPanel>
-			
+
 			<InstManagePanel x="232" y="54" width="1080" height="637">
-			<BUTTONS>
+				<BUTTONS>
 				</BUTTONS>
-			
+
 			</InstManagePanel>
-			
-			<PeopleManagePanel x="232" y="54" width="1080" height="637">
-			<BUTTONS>
+
+			<PeopleManagePanel x="232" y="54" width="1080"
+				height="637">
+				<BUTTONS>
 				</BUTTONS>
-			
-			
+
+
 			</PeopleManagePanel>
-			
-			<SalaryStrategySetPanel x="232" y="54" width="1080" height="637">
-			<BUTTONS>
+
+			<SalaryStrategySetPanel x="232" y="54" width="1080"
+				height="637">
+				<BUTTONS>
 				</BUTTONS>
-			
-			
+
+
 			</SalaryStrategySetPanel>
-			
+
 		</GeneralManager>
 	</initialpanel>
 
