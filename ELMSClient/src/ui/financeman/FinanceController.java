@@ -57,6 +57,12 @@ public class FinanceController extends PanelController {
 		
 	}
 
+	@Override
+	public void setAllButtonVisable(boolean state) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 
 	

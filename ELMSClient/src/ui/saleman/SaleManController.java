@@ -57,5 +57,11 @@ public class SaleManController extends PanelController {
 		
 	}
 
+	@Override
+	public void setAllButtonVisable(boolean state) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }
