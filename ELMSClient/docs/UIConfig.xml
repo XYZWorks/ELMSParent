@@ -129,8 +129,7 @@
 
 			</PeopleManagePanel>
 
-			<SalaryStrategySetPanel x="232" y="54" width="1080"
-				height="637">
+			<SalaryStrategySetPanel x="232" y="54" width="1080" height="637">
 				<BUTTONS>
 				</BUTTONS>
 

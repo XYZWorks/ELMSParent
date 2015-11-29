@@ -1,6 +1,8 @@
 package ui.util;
 
 import java.awt.CardLayout;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.JPanel;
 
@@ -8,6 +10,7 @@ import org.dom4j.Element;
 
 import config.StaticMessage;
 import ui.tools.MyPanel;
+import ui.tools.MySideBarButton;
  /** 
  * 界面跳转控制器父类
  * @author czq 
@@ -30,6 +33,11 @@ public abstract class PanelController {
 	 * 布局管理器
 	 */
 	protected CardLayout panelManager;
+	
+	/**
+	 * 存储字符串与左边钮的对应关系
+	 */
+	protected Map<String, MySideBarButton> buttonMap ;
 	
 	public PanelController(MyPanel initialPanel , Element root) {
 		super();
@@ -63,20 +71,47 @@ public abstract class PanelController {
 	public abstract void  setAllButtonUnClicked();
 	
 	public abstract void setAllButtonVisable(boolean state);
-	
+	/**
+	 * 
+	 * @param panelName
+	 */
 	public void jumpToWindow(String panelName) {
 		panelManager.show(changePanel, panelName);
 		setAllButtonVisable(true);
+		setTheRelatedButton(panelName);
 	}
 	
-	
+	/**
+	 * 使得与该界面对应的按钮亮起
+	 */
+	public void setTheRelatedButton(String panelName){
+		if(panelName.length() <= 6){
+			return;
+		}
+		try {
+			buttonMap.get(panelName).setMyIcon(null);
+		} catch (Exception e) {
+			//出现异常也无所谓，无伤大雅
+			System.err.println("-------------ERROR: ");
+			e.printStackTrace();
+		}
+		
+		
+	}
 	/**
 	 * 跳回主界面
 	 */
 	public  void  jumpBackToMainWindow() {
 		panelManager.show(changePanel, StaticMessage.MAIN_WINDOW);
 		setAllButtonVisable(false);
+		setAllButtonUnClicked();
 	}
+	
+	/**
+	 * 将按钮与panel的标示符String关联起来
+	 */
+	protected abstract void addToMap();
+	
 	
 	
 	/**
@@ -86,6 +121,8 @@ public abstract class PanelController {
 	private void initial(Element e){
 		panelManager = new CardLayout();
 		this.changePanel = new JPanel(panelManager);
+		buttonMap = new HashMap<>(6);
+		
 		if(e==null){
 			System.err.println("-----------配置文件出错");
 		}

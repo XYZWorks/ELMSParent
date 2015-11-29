@@ -24,6 +24,7 @@ public class GeneralManagerController extends PanelController {
 	private InstManagePanel instManagePanel;
 	private PeopleManagePanel peopleManagePanel;
 	private StatisticPanel statisticPanel;
+	private SalaryStrategySetPanel salaryStrategySetPanel;
 
 	private MySideBarButton constsetButton;
 	private MySideBarButton approvalButton;
@@ -31,15 +32,14 @@ public class GeneralManagerController extends PanelController {
 	private MySideBarButton peopleManageButton;
 	private MySideBarButton statisticButton;
 	private MySideBarButton salaryStrategySetButton;
-
-
+	
 	private final String GMmainpanelStr = StaticMessage.MAIN_WINDOW;
 	private final String constSetPanelStr = "ConstSetPanel";
 	private final String approvalPanelStr = "ApprovalPanel";
 	private final String instManagePanelStr = "InstManagePanel";
 	private final String peopleManagePanelStr = "PeopleManagePanel";
 	private final String statisticPanelStr = "StatisticPanel";
-	private final String salaryStrategySetnStr = "SalaryStrategySetPanel";
+	private final String salaryStrategySetStr = "SalaryStrategySetPanel";
 
 	public GeneralManagerController(MyPanel initialPanel, Element e) {
 		super(initialPanel, e);
@@ -48,8 +48,9 @@ public class GeneralManagerController extends PanelController {
 		addButtons();
 		addPanels();
 		addListeners();
+		addToMap();
 		// panelManager.show(changePanel, "GMmainpanel");
-//		this.setAllButtonVisable(true);
+		this.setAllButtonVisable(false);
 		panelManager.show(changePanel, GMmainpanelStr);
 		changePanel.setVisible(true);
 	}
@@ -87,6 +88,7 @@ public class GeneralManagerController extends PanelController {
 		instManagePanel = new InstManagePanel(e.element(instManagePanelStr));
 		peopleManagePanel = new PeopleManagePanel(
 				e.element(peopleManagePanelStr));
+		salaryStrategySetPanel = new SalaryStrategySetPanel(e.element(salaryStrategySetStr));
 	}
 
 	@Override
@@ -97,7 +99,7 @@ public class GeneralManagerController extends PanelController {
 		changePanel.add(statisticPanel, statisticPanelStr);
 		changePanel.add(instManagePanel, instManagePanelStr);
 		changePanel.add(peopleManagePanel, peopleManagePanelStr);
-
+		changePanel.add(salaryStrategySetPanel , salaryStrategySetStr);
 	}
 
 	@Override
@@ -106,7 +108,7 @@ public class GeneralManagerController extends PanelController {
 		instManageButton.addMouseListener(new MySideBarListener(instManageButton, this , instManagePanelStr));
 		approvalButton.addMouseListener(new MySideBarListener(approvalButton, this , approvalPanelStr));
 		statisticButton.addMouseListener(new MySideBarListener(statisticButton, this , statisticPanelStr));
-		salaryStrategySetButton.addMouseListener(new MySideBarListener(salaryStrategySetButton, this , salaryStrategySetnStr));
+		salaryStrategySetButton.addMouseListener(new MySideBarListener(salaryStrategySetButton, this , salaryStrategySetStr));
 		peopleManageButton.addMouseListener(new MySideBarListener(peopleManageButton, this , peopleManagePanelStr));
 
 	}
@@ -130,6 +132,17 @@ public class GeneralManagerController extends PanelController {
 		statisticButton.setVisible(state);
 		salaryStrategySetButton.setVisible(state);
 		peopleManageButton.setVisible(state);
+	}
+
+	@Override
+	protected void addToMap() {
+		buttonMap.put(approvalPanelStr, approvalButton);
+		buttonMap.put(constSetPanelStr, constsetButton);
+		buttonMap.put(instManagePanelStr, instManageButton);
+		buttonMap.put(salaryStrategySetStr, salaryStrategySetButton);
+		buttonMap.put(peopleManagePanelStr, peopleManageButton);
+		buttonMap.put(statisticPanelStr, statisticButton);
+		
 	}
 
 }

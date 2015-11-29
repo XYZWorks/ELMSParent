@@ -29,6 +29,13 @@ public class MySideBarListener extends MouseAdapter{
 		this.panelManager = controller.panelManager;
 		this.itsPanel = itsPanel;
 	}
+	public MySideBarListener(MySideBarButton button , PanelController controller) {
+		this.button = button;
+		this.controller = controller;
+		this.panelManager = controller.panelManager;
+	}
+	
+	
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {

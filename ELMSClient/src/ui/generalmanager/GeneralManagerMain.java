@@ -10,6 +10,7 @@ import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.util.ButtonState;
 import ui.util.CompomentType;
+import ui.util.MyMainPanelButtonListener;
 import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
 
@@ -40,6 +41,7 @@ public class GeneralManagerMain extends MyPanel {
 		initOtherCompoment(config);
 		initLables(config.element(CompomentType.LABLES.name()));
 		addCompoment();
+		addListener();
 		setVisible(true);
 	}
 
@@ -49,8 +51,7 @@ public class GeneralManagerMain extends MyPanel {
 		instManageButton = new MyPictureButton(e.element("InstManage"));
 		approvalButton = new MyPictureButton(e.element("GMApproval"));
 		statisticButton = new MyPictureButton(e.element("Statistic"));
-		salaryStrategySetButton = new MyPictureButton(
-				e.element("SalaryStrategySet"));
+		salaryStrategySetButton = new MyPictureButton(e.element("SalaryStrategySet"));
 		peopleManageButton = new MyPictureButton(e.element("PeopleManage"));
 
 	}
@@ -80,78 +81,13 @@ public class GeneralManagerMain extends MyPanel {
 
 	@Override
 	protected void addListener() {
-		constsetButton.addMouseListener(new constsetListener(constsetButton));
-		instManageButton.addMouseListener(new instManageListener(instManageButton));
-		approvalButton.addMouseListener(new approvalListener(approvalButton));
-		statisticButton.addMouseListener(new statisticListener(statisticButton));
-		salaryStrategySetButton.addMouseListener(new salaryStrategyListener(salaryStrategySetButton));
-		peopleManageButton.addMouseListener(new peopleManageListener(peopleManageButton));
+		constsetButton.addMouseListener(new MyMainPanelButtonListener(constsetButton, "ConstSetPanel", controller));
+		instManageButton.addMouseListener(new MyMainPanelButtonListener(instManageButton, "InstManagePanel", controller));
+		approvalButton.addMouseListener(new MyMainPanelButtonListener(approvalButton, "ApprovalPanel", controller));
+		statisticButton.addMouseListener(new MyMainPanelButtonListener(statisticButton, "StatisticPanel", controller));
+		salaryStrategySetButton.addMouseListener(new MyMainPanelButtonListener(salaryStrategySetButton, "SalaryStrategySetPanel", controller));
+		peopleManageButton.addMouseListener(new MyMainPanelButtonListener(peopleManageButton, "PeopleManagePanel", controller));
 	}
 
-	class constsetListener extends MyPictureButtonListener {
-		public constsetListener(MyPictureButton button) {
-			super(button);
-		}
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
-			controller.jumpToWindow("ConsetPanel");
-			
-		}
 	
-	}
-	class approvalListener extends MyPictureButtonListener{
-		public approvalListener(MyPictureButton button) {
-			super(button);
-		}
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
-			controller.jumpToWindow("ConsetPanel");
-		}
-	}
-	class statisticListener extends MyPictureButtonListener{
-		public statisticListener(MyPictureButton button) {
-			super(button);
-		}
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
-			controller.jumpToWindow("ConsetPanel");
-			
-		}
-	}
-	
-	class instManageListener extends MyPictureButtonListener{
-		public instManageListener(MyPictureButton button) {
-			super(button);
-		}
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
-		}
-		
-	}
-	
-class salaryStrategyListener extends MyPictureButtonListener{
-	public salaryStrategyListener(MyPictureButton button) {
-		super(button);
-	}
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		super.mouseClicked(e);
-	}
-	}
-
-class peopleManageListener extends MyPictureButtonListener{
-	
-	public peopleManageListener(MyPictureButton button) {
-		super(button);
-	}
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		super.mouseClicked(e);
-	}
-	
-}
 }
