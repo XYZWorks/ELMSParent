@@ -94,7 +94,7 @@ public class DataTool {
 	public static ArrayList<? extends DocVO> getDocList(DocType tpye) {
 
 		ArrayList<DocVO> al = new ArrayList<DocVO>();
-		
+		 
 		switch (tpye) {
 		case arriveYYDoc:
 			al.add(new ArriveYYDocVO("JSD1511110000001", d1, "0250", City.BEIJING, GoodsState.Complete,orderID));
