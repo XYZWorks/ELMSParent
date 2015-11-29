@@ -74,24 +74,37 @@
 
 			<ConstSetPanel x="232" y="54" width="1080" height="637">
 				<BUTTONS>
-
-				
-					
+					<confirm x="670" y="545" width="45" height="45"/>
+					<cancel x="760" y="545" width="45" height="45"/>
 				</BUTTONS>
-				
 				<LABLES>
+					<transportWay x="45" y="300" width="200" height="45" text="交通方式运费"/>
+					<plane x="150" y="350" width="120" height="45" text="飞机"/>
+					<truck x="150" y="400" width="120" height="45" text="汽车"/>
+					<train x="150" y="450" width="120" height="45" text="火车"/>
+					
+					<instanceInCity  x="45" y="100" width="200" height="50" text="城市间的距离"/>
+		
+					<packageCost x="545" y="300" width="200" height="50" text="包装费"/>
+					<paper x="600" y="350" width="120" height="45" text="纸箱"/>
+					<wood x="600" y="400" width="120" height="45" text="木箱"/>
+					<plastic x="600" y="450" width="120" height="45" text="快递袋"/>
+		
+					<ratios x="45" y="530" width="200" height="45" text="价格比"/>
 				</LABLES>
 				<TEXTFIELDS>
-					<userName x="179" y="185" width="174" height="31" />
+				
+					<instance x="45" y="300" width="200" height="45"/>
+					<planeCost x="45" y="300" width="200" height="45"/>
+					<trainCost x="45" y="300" width="200" height="45"/>
+					<truckCost x="45" y="300" width="200" height="45"/>
+					<paperCost x="45" y="300" width="200" height="45"/>
+					<woodCost x="45" y="300" width="200" height="45"/>
+					<plasticCost x="45" y="300" width="200" height="45"/>	
 				</TEXTFIELDS>
 			
 			
-
-
-
-
-
-
+			
 			</ConstSetPanel>
 
 
