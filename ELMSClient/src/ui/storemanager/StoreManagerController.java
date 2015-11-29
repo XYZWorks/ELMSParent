@@ -51,6 +51,12 @@ public class StoreManagerController extends PanelController {
 		
 	}
 
+	@Override
+	public void setAllButtonUnClicked() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 	
 
