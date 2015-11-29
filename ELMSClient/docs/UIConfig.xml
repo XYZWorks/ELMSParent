@@ -39,7 +39,7 @@
 
 			</BUTTONS>
 
-			<GMmainpanel x="232" y="54" width="1080" height="637">
+			<mainWindow x="232" y="54" width="1080" height="637">
 				<BUTTONS>
 					<GMApproval text="" x="48" y="160" width="137" height="152"
 						normal="GeneralManager//GMApproval" enter="GeneralManager//GMApproval-enter"
@@ -60,7 +60,7 @@
 						normal="GeneralManager//InstManage" enter="GeneralManager//InstManage-enter"
 						clicked="GeneralManager//InstManage-clicked" />
 				</BUTTONS>
-			</GMmainpanel>
+			</mainWindow>
 
 			<ApprovalPanel x="232" y="54" width="1080" height="637">
 				<BUTTONS>

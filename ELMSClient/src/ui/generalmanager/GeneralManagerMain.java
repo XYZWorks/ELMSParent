@@ -28,7 +28,7 @@ public class GeneralManagerMain extends MyPanel {
 	private MyPictureButton statisticButton;
 	private MyPictureButton salaryStrategySetButton;
 	
-
+	
 	public GeneralManagerMain(Element config) {
 		super(config);
 		initButtons(config.element(CompomentType.BUTTONS.name()));
@@ -91,6 +91,7 @@ public class GeneralManagerMain extends MyPanel {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
+			
 		}
 	
 	}
@@ -110,6 +111,7 @@ public class GeneralManagerMain extends MyPanel {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
+			
 		}
 	}
 	

@@ -4,6 +4,7 @@ import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
 
+import config.StaticMessage;
 import ui.tools.MyPanel;
 import ui.tools.MySideBarButton;
 import ui.util.ButtonState;
@@ -34,7 +35,7 @@ public class GeneralManagerController extends PanelController {
 	private MySideBarButton salaryStrategySetButton;
 
 
-	private final String GMmainpanelStr = "GMmainpanel";
+	private final String GMmainpanelStr = StaticMessage.MAIN_WINDOW;
 	private final String constSetPanelStr = "ConstSetPanel";
 	private final String approvalPanelStr = "ApprovalPanel";
 	private final String instManagePanelStr = "InstManagePanel";
@@ -101,93 +102,15 @@ public class GeneralManagerController extends PanelController {
 
 	@Override
 	protected void addListeners() {
-		constsetButton.addMouseListener(new constsetListener(constsetButton , this));
-		instManageButton.addMouseListener(new instManageListener(instManageButton, this));
-		approvalButton.addMouseListener(new approvalListener(approvalButton, this));
-		statisticButton.addMouseListener(new statisticListener(statisticButton, this));
-		salaryStrategySetButton.addMouseListener(new salaryStrategyListener(salaryStrategySetButton, this));
-		peopleManageButton.addMouseListener(new peopleManageListener(peopleManageButton, this));
+		constsetButton.addMouseListener(new MySideBarListener(constsetButton, this, constSetPanelStr));
+		instManageButton.addMouseListener(new MySideBarListener(instManageButton, this , instManagePanelStr));
+		approvalButton.addMouseListener(new MySideBarListener(approvalButton, this , approvalPanelStr));
+		statisticButton.addMouseListener(new MySideBarListener(statisticButton, this , statisticPanelStr));
+		salaryStrategySetButton.addMouseListener(new MySideBarListener(salaryStrategySetButton, this , salaryStrategySetnStr));
+		peopleManageButton.addMouseListener(new MySideBarListener(peopleManageButton, this , peopleManagePanelStr));
 
 	}
 
-	class constsetListener extends MySideBarListener {
-		public constsetListener(MySideBarButton button , PanelController controller) {
-			super(button, controller);
-		}
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
-
-		}
-		
-	}
-
-	class approvalListener extends MySideBarListener {
-		public approvalListener(MySideBarButton button , PanelController controller) {
-			super(button, controller);
-		}
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
-
-		}
-		
-	}
-
-	class statisticListener extends MySideBarListener {
-		public statisticListener(MySideBarButton button , PanelController controller) {
-			super(button, controller);
-		}
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
-		}
-
-		
-
-	}
-
-	class instManageListener extends MySideBarListener {
-		public instManageListener(MySideBarButton button , PanelController controller) {
-			super(button, controller);
-		}
-
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
-		}
-	}
-
-	class salaryStrategyListener extends MySideBarListener {
-		public salaryStrategyListener(MySideBarButton button , PanelController controller) {
-			super(button, controller);
-		}
-
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
-
-		}
-
-	}
-	class peopleManageListener extends MySideBarListener {
-
-		
-		public peopleManageListener(MySideBarButton button,
-				PanelController controller) {
-			super(button, controller);
-		}
-
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
-		}
-	}
-	
-
-		
-
-	
 
 	@Override
 	public void setAllButtonUnClicked() {

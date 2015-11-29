@@ -87,4 +87,8 @@ public abstract class PanelController {
 				Integer.parseInt(e.attributeValue("height")));
 		this.mainPanel.add(changePanel);
 	}
+	
+	public CardLayout getPanelManager() {
+		return panelManager;
+	}
 }
