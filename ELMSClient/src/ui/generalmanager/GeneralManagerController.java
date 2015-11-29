@@ -51,6 +51,7 @@ public class GeneralManagerController extends PanelController {
 		addPanels();
 		addListeners();
 		// panelManager.show(changePanel, "GMmainpanel");
+		this.setAllButtonVisable(true);
 		changePanel.setVisible(true);
 	}
 
