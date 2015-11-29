@@ -7,7 +7,11 @@ import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
-
+/**
+ * 制定常量界面
+ * @author czq
+ *
+ */
 @SuppressWarnings("serial")
 public class ConstSetPanel extends MyPanel{
 	

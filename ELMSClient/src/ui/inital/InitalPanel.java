@@ -97,7 +97,7 @@ public class InitalPanel extends MyPanel {
 	@Override
 	 public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(GraphicsUtils.getImage("bg//main-bg-1"), 0, 0, null);
+		g.drawImage(GraphicsUtils.getImage("bg//bg"), 0, 0, null);
 		//TODO 待修改，改成图片是预读进来的
 		
 		

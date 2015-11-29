@@ -51,7 +51,6 @@ public class GeneralManagerController extends PanelController {
 		addToMap();
 		// panelManager.show(changePanel, "GMmainpanel");
 		this.setAllButtonVisable(false);
-		panelManager.show(changePanel, GMmainpanelStr);
 		changePanel.setVisible(true);
 	}
 

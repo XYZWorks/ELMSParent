@@ -67,10 +67,23 @@ public abstract class PanelController {
 	 * 增加监听，将按钮与panel联系起来
 	 */
 	protected abstract void addListeners();
-	
+	/**
+	 * 使所有按钮回归未被点击状态
+	 */
 	public abstract void  setAllButtonUnClicked();
-	
+	/**
+	 * 批量处理按钮状态
+	 * @param state
+	 */
 	public abstract void setAllButtonVisable(boolean state);
+	
+	/**
+	 * 将按钮与panel的标示符String关联起来
+	 */
+	protected abstract void addToMap();
+	
+	
+	
 	/**
 	 * 
 	 * @param panelName
@@ -84,7 +97,7 @@ public abstract class PanelController {
 	/**
 	 * 使得与该界面对应的按钮亮起
 	 */
-	public void setTheRelatedButton(String panelName){
+	private void setTheRelatedButton(String panelName){
 		if(panelName.length() <= 6){
 			return;
 		}
@@ -107,10 +120,7 @@ public abstract class PanelController {
 		setAllButtonUnClicked();
 	}
 	
-	/**
-	 * 将按钮与panel的标示符String关联起来
-	 */
-	protected abstract void addToMap();
+	
 	
 	
 	
@@ -133,8 +143,5 @@ public abstract class PanelController {
 				Integer.parseInt(e.attributeValue("height")));
 		this.mainPanel.add(changePanel);
 	}
-	
-	public CardLayout getPanelManager() {
-		return panelManager;
-	}
+
 }

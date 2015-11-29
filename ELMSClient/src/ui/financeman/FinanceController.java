@@ -18,6 +18,7 @@ public class FinanceController extends PanelController {
 		initPanel(e);
 		addButtons();
 		addPanels();
+		addToMap();
 		addListeners();
 	}
 
@@ -59,6 +60,12 @@ public class FinanceController extends PanelController {
 
 	@Override
 	public void setAllButtonVisable(boolean state) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void addToMap() {
 		// TODO Auto-generated method stub
 		
 	}
