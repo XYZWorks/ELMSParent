@@ -5,14 +5,14 @@ import org.dom4j.Element;
 import ui.tools.MyPanel;
 
 /**
-*财务人员主界面
-*@author:xingcheng
-*@version 2015年11月26日
-*/
+ * 财务人员的交易审核界面
+ * @author xingcheng
+ *
+ */
 @SuppressWarnings("serial")
-public class FinanceMain extends MyPanel{
+public class FinanceApprovalPanel extends MyPanel{
 
-	public FinanceMain(Element config) {
+	public FinanceApprovalPanel(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}

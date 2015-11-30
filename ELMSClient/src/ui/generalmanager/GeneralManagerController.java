@@ -18,13 +18,13 @@ import config.StaticMessage;
  */
 public class GeneralManagerController extends PanelController {
 
-	private GeneralManagerMain GMmainpanel;
-	private ConstSetPanel constSetPanel;
-	private ApprovalDocsPanel approvalPanel;
-	private InstManagePanel instManagePanel;
-	private PeopleManagePanel peopleManagePanel;
-	private StatisticPanel statisticPanel;
-	private SalaryStrategySetPanel salaryStrategySetPanel;
+	private MyPanel GMmainpanel;
+	private MyPanel constSetPanel;
+	private MyPanel approvalPanel;
+	private MyPanel instManagePanel;
+	private MyPanel peopleManagePanel;
+	private MyPanel statisticPanel;
+	private MyPanel salaryStrategySetPanel;
 
 	private MySideBarButton constsetButton;
 	private MySideBarButton approvalButton;

@@ -5,14 +5,14 @@ import org.dom4j.Element;
 import ui.tools.MyPanel;
 
 /**
-*财务人员主界面
-*@author:xingcheng
-*@version 2015年11月26日
-*/
+ * 增加成本收益表、经营状况表界面
+ * @author xingcheng
+ *
+ */
 @SuppressWarnings("serial")
-public class FinanceMain extends MyPanel{
+public class BulidStateFormPanel extends MyPanel{
 
-	public FinanceMain(Element config) {
+	public BulidStateFormPanel(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}

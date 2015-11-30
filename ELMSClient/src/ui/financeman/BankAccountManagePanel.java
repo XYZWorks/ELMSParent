@@ -5,14 +5,14 @@ import org.dom4j.Element;
 import ui.tools.MyPanel;
 
 /**
-*财务人员主界面
-*@author:xingcheng
-*@version 2015年11月26日
-*/
+ * 银行账户管理
+ * @author xingcheng
+ *
+ */
 @SuppressWarnings("serial")
-public class FinanceMain extends MyPanel{
+public class BankAccountManagePanel extends MyPanel{
 
-	public FinanceMain(Element config) {
+	public BankAccountManagePanel(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}
