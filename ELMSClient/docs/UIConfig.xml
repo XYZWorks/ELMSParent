@@ -31,7 +31,7 @@
 		<GeneralManager x="232" y="54" width="1080" height="637">
 			<BUTTONS>
 				<GMApproval text="审批单据" x="0" y="227" />
-				<Statistic text="查看报表" x="0" y="267" />
+				<Statistic text="统计分析" x="0" y="267" />
 				<ConstSet text="制定常量" x="0" y="307" />
 				<SalaryStrategySet text="制定薪水策略" x="0" y="347" />
 				<PeopleManage text="人员管理" x="0" y="387" />
@@ -74,9 +74,9 @@
 
 			<ConstSetPanel x="232" y="54" width="1080" height="637">
 				<BUTTONS>
-					<modify x="400" y="560" width="115" height="40" text="修改" type = "1" />
+					<modify x="625" y="560" width="115" height="40" text="修改" type = "1" />
 					<confirm x="550" y="560" width="115" height="40" text = "确认" type = "1" />
-					<cancel x="700" y="560" width="115" height="40"  text = "删除" type = "1"
+					<cancel x="700" y="560" width="115" height="40"  text = "取消" type = "1"
 						/>
 				</BUTTONS>
 				<LABLES>
