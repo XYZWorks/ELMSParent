@@ -5,6 +5,8 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 import org.dom4j.Element;
+
+import ui.util.CompomentType;
  /** 
  * panel 父类
  * @author czq 
@@ -15,9 +17,14 @@ public abstract class MyPanel extends JPanel{
 	
 	public MyPanel(Element config) {
 		this.setLayout(null);
-		
-		
 		this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));
+//		initLables(config.element(CompomentType.LABLES.name()));
+//		initButtons(config.element(CompomentType.BUTTONS.name()));
+//		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
+//		initOtherCompoment(config);
+//		addCompoment();
+//		addListener();
+	
 	}
 	
 	@Override

@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 
 import org.dom4j.Element;
 
+import ui.config.ButtonOrLabelPicture;
 import ui.config.GraphicsUtils;
 import ui.util.ButtonState;
 
@@ -24,10 +25,19 @@ public class MyPictureButton extends JLabel {
 	private Icon clicked;
 
 	public MyPictureButton(Element e) {
-
-		normal = GraphicsUtils.getIcon(e.attributeValue("normal"));
-		entered = GraphicsUtils.getIcon(e.attributeValue("enter"));
-		clicked = GraphicsUtils.getIcon(e.attributeValue("clicked"));
+		if(e.attributeValue("type")!= null){
+			ButtonOrLabelPicture pics = GraphicsUtils.getButtonLabelPic(Integer.parseInt(e.attributeValue("type")));
+			normal = pics.getNormal();
+			clicked = pics.getClicked();
+			entered = pics.getEnter();
+			
+		}else{
+			normal = GraphicsUtils.getIcon(e.attributeValue("normal"));
+			entered = GraphicsUtils.getIcon(e.attributeValue("enter"));
+			clicked = GraphicsUtils.getIcon(e.attributeValue("clicked"));
+		}
+		
+		
 
 		this.setIcon(normal);
 		this.setBounds(Integer.parseInt(e.attributeValue("x")),
@@ -36,8 +46,12 @@ public class MyPictureButton extends JLabel {
 				Integer.parseInt(e.attributeValue("height")));
 
 		this.setFont(GraphicsUtils.getFont(e));
-
-		this.setText(e.attributeValue("text"));
+		if(e.attributeValue("text") != null){
+			this.setText(e.attributeValue("text"));
+			this.setHorizontalTextPosition(JLabel.CENTER);
+			this.setVerticalTextPosition(JLabel.CENTER);
+		}
+		
 		this.repaint();
 		this.setVisible(true);
 	}

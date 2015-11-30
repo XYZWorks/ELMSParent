@@ -74,24 +74,25 @@
 
 			<ConstSetPanel x="232" y="54" width="1080" height="637">
 				<BUTTONS>
-					<modify x="530" y="560" width="45" height="45" text="修改"/>
-					<confirm x="600" y="560" width="45" height="45" text = "确认"/>
-					<cancel x="660" y="560" width="45" height="45"  text = "删除"/>
+					<modify x="400" y="560" width="115" height="40" text="修改" type = "1" />
+					<confirm x="550" y="560" width="115" height="40" text = "确认" type = "1" />
+					<cancel x="700" y="560" width="115" height="40"  text = "删除" type = "1"
+						/>
 				</BUTTONS>
 				<LABLES>
-					<transportWay x="45" y="200" width="200" height="45" text="交通方式运费"/>
-					<plane x="45" y="260" width="120" height="45" text="飞机"/>
-					<truck x="45" y="320" width="120" height="45" text="汽车"/>
-					<train x="45" y="380" width="120" height="45" text="火车"/>
+					<transportWay x="45" y="200" width="200" height="45" text="交通方式运费" type ="1"/>
+					<plane x="45" y="260" width="120" height="45" text="飞机" type ="1"/>
+					<truck x="45" y="320" width="120" height="45" text="汽车" type ="1"/>
+					<train x="45" y="380" width="120" height="45" text="火车" type ="1"/>
 					
-					<instanceInCity  x="45" y="45" width="200" height="50" text="城市间的距离"/>
+					<instanceInCity  x="45" y="45" width="200" height="50" text="城市间的距离" type ="1"/>
 		
-					<packageCost x="500" y="200" width="200" height="45" text="包装费"/>
-					<paper x="500" y="260" width="120" height="45" text="纸箱"/>
-					<wood x="500" y="320" width="120" height="45" text="木箱"/>
-					<plastic x="500" y="380" width="120" height="45" text="快递袋"/>
+					<packageCost x="500" y="200" width="200" height="45" text="包装费" type ="1"/>
+					<paper x="500" y="260" width="120" height="45" text="纸箱" type ="1"/>
+					<wood x="500" y="320" width="120" height="45" text="木箱" type ="1"/>
+					<plastic x="500" y="380" width="120" height="45" text="快递袋" type ="1"/>
 		
-					<ratios x="45" y="530" width="200" height="45" text="价格比"/>
+					<ratios x="45" y="530" width="200" height="45" text="价格比" type ="1"/>
 				</LABLES>
 				<TEXTFIELDS>
 				
@@ -105,7 +106,7 @@
 				</TEXTFIELDS>
 				<startCity x="45" y="100" width="240" height="30" strings = "南京 北京 广州 上海"/>
 				<arriveCity x="300" y="100" width="240" height="30" strings = "南京 北京 广州 上海"/>
-			
+				
 			
 			</ConstSetPanel>
 

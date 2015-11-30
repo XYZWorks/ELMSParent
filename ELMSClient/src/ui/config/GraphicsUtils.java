@@ -6,6 +6,8 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
@@ -20,8 +22,29 @@ import config.StaticMessage;
  * @version 2015年11月23日 上午10:52:51 
  */
 public class GraphicsUtils {
+	/**
+	 * 用来存储一组按钮的图片，这组图片可以被反复使用，只需要在xml文件中注明类型即可
+	 */
+	private static Map<Integer, ButtonOrLabelPicture> labelPictureMap = new HashMap<Integer, ButtonOrLabelPicture>(30);
 	
+	
+	static{
+		labelPictureMap.put(1, new ButtonOrLabelPicture("element//rectangle", "element//rectangle-enter", "element//rectangle-clicked"));
 		
+		
+		
+	}
+	
+	public static final ButtonOrLabelPicture getButtonLabelPic(int type){
+		ButtonOrLabelPicture pics  = labelPictureMap.get(type);
+		if(pics == null){
+			return labelPictureMap.get(1);
+		}
+		return pics;
+		
+	}
+	
+	
 		public static final Font getFont(Element config){
 			Font font;
 			if(config == null){
