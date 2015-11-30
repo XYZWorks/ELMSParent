@@ -3,8 +3,10 @@ package ui.generalmanager;
 import org.dom4j.Element;
 
 import ui.tools.MyButton;
+import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
+import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
 /**
@@ -37,8 +39,12 @@ public class ConstSetPanel extends MyPanel{
 	private MyTextField woodCost;
 	private MyTextField plasticCost;
 	
-	private MyButton confirm;
-	private MyButton cancel;
+	private MyButton modifyButton;
+	private MyButton confirmButton;
+	private MyButton cancelButton;
+	
+	private MyComboBox startCity;
+	private MyComboBox arriveCity;
 	
  
 	public ConstSetPanel(Element config) {
@@ -46,16 +52,16 @@ public class ConstSetPanel extends MyPanel{
 		initLables(config.element(CompomentType.LABLES.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
+		initOtherCompoment(config);
 		addCompoment();
 		addListener();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected void initButtons(Element e) {
-		confirm = new MyButton(e.element("confirm"));
-		cancel = new MyButton(e.element("cancel"));
-		// TODO Auto-generated method stub
+		modifyButton = new MyButton(e.element("modify"));
+		confirmButton = new MyButton(e.element("confirm"));
+		cancelButton = new MyButton(e.element("cancel"));
 		
 	}
 
@@ -68,7 +74,6 @@ public class ConstSetPanel extends MyPanel{
 		paperCost = new MyTextField(e.element("paperCost"));
 		woodCost = new MyTextField(e.element("woodCost"));
 		plasticCost = new MyTextField(e.element("plasticCost"));		
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -87,13 +92,13 @@ public class ConstSetPanel extends MyPanel{
 		plastic = new MyLabel(e.element("plastic"));
 		
 		ratios = new MyLabel(e.element("ratios"));
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		// TODO Auto-generated method stub
+		startCity = new MyComboBox(e.element("startCity"));
+		arriveCity = new MyComboBox(e.element("arriveCity"));
 		
 	}
 
@@ -121,8 +126,12 @@ public class ConstSetPanel extends MyPanel{
 		this.add(woodCost);
 		this.add(plasticCost);
 		
-		this.add( confirm);
-		this.add( cancel);		
+		this.add( confirmButton);
+		this.add( cancelButton);
+		this.add(modifyButton);
+		
+		this.add(startCity);
+		this.add(arriveCity);
 	}
 
 	@Override
