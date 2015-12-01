@@ -23,6 +23,9 @@ public class MyLabel extends JLabel{
 				Integer.parseInt(config.attributeValue("height")));
 		this.setFont(GraphicsUtils.getFont(config));
 		this.setText(config.attributeValue("text"));
+		if(config.attributeValue("text")!= null){
+			this.setText(config.attributeValue("text"));
+		}
 		if(config.attributeValue("fontName")!= null){
 			this.setFont(GraphicsUtils.getFont(config));
 		}

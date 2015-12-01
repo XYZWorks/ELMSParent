@@ -1,17 +1,13 @@
 package ui.generalmanager;
 
-import java.awt.CardLayout;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
 import org.dom4j.Element;
 
+import ui.tools.DateChooser;
+import ui.tools.MyDatePicker;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
-import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.MyMainPanelButtonListener;
-import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
 
 /**
@@ -32,6 +28,9 @@ public class GeneralManagerMain extends MyPanel {
 	
 	private PanelController controller;
 	
+	private MyDatePicker datePicker;
+	private DateChooser date;
+	
 	
 	public GeneralManagerMain(Element config , PanelController controller) {
 		super(config);
@@ -42,6 +41,7 @@ public class GeneralManagerMain extends MyPanel {
 		initLables(config.element(CompomentType.LABLES.name()));
 		addCompoment();
 		addListener();
+		repaint();
 		setVisible(true);
 	}
 
@@ -53,7 +53,7 @@ public class GeneralManagerMain extends MyPanel {
 		statisticButton = new MyPictureButton(e.element("Statistic"));
 		salaryStrategySetButton = new MyPictureButton(e.element("SalaryStrategySet"));
 		peopleManageButton = new MyPictureButton(e.element("PeopleManage"));
-
+		
 	}
 
 	@Override
@@ -66,6 +66,8 @@ public class GeneralManagerMain extends MyPanel {
 
 	@Override
 	protected void initOtherCompoment(Element e) {
+		date = new DateChooser(this);
+		datePicker = new MyDatePicker(e.element("DatePicker"));
 	}
 
 	@Override
@@ -76,7 +78,11 @@ public class GeneralManagerMain extends MyPanel {
 		this.add(statisticButton);
 		this.add(salaryStrategySetButton);
 		this.add(peopleManageButton);
-
+		
+		this.add(datePicker);
+		this.add(date);
+		date.setLocation(500, 300);
+		date.setVisible(true);
 	}
 
 	@Override

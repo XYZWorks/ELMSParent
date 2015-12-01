@@ -25,17 +25,20 @@ public class GraphicsUtils {
 	/**
 	 * 用来存储一组按钮的图片，这组图片可以被反复使用，只需要在xml文件中注明类型即可
 	 */
-	private static Map<Integer, ButtonOrLabelPicture> labelPictureMap = new HashMap<Integer, ButtonOrLabelPicture>(30);
+	private static Map<String, ButtonOrLabelPicture> labelPictureMap = new HashMap<String, ButtonOrLabelPicture>(30);
 	
 	
 	static{
-		labelPictureMap.put(1, new ButtonOrLabelPicture("element//rectangle", "element//rectangle-enter", "element//rectangle-clicked"));
-		
+		labelPictureMap.put("rectangle", new ButtonOrLabelPicture("element//rectangle", "element//rectangle-enter", "element//rectangle-clicked"));
+		/**
+		 * 日历图
+		 */
+//		labelPictureMap.put("datePicker", new ButtonOrLabelPicture("element//rectangle", "element//rectangle-enter", "element//rectangle-clicked"));
 		
 		
 	}
 	
-	public static final ButtonOrLabelPicture getButtonLabelPic(int type){
+	public static final ButtonOrLabelPicture getButtonLabelPic(String type){
 		ButtonOrLabelPicture pics  = labelPictureMap.get(type);
 		if(pics == null){
 			return labelPictureMap.get(1);

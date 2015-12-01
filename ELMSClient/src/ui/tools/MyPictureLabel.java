@@ -21,7 +21,7 @@ public class MyPictureLabel extends MyLabel{
 	public MyPictureLabel(Element config) {
 		super(config);
 		if(config.attributeValue("type")!= null){
-			ButtonOrLabelPicture pics = GraphicsUtils.getButtonLabelPic(Integer.parseInt(config.attributeValue("type")));
+			ButtonOrLabelPicture pics = GraphicsUtils.getButtonLabelPic(config.attributeValue("type"));
 			normal = pics.getNormal();
 			
 			this.setIcon(normal);

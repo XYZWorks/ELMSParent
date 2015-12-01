@@ -67,6 +67,13 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 		addListener();
 		checkConstPanel();
 	}
+	
+	
+	private void name() {
+		
+	}
+	
+	
 	/**
 	 * 进入查看常量界面
 	 */

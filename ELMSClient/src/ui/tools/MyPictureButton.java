@@ -1,5 +1,7 @@
 package ui.tools;
 
+import java.awt.Cursor;
+
 import javax.swing.Icon;
 import javax.swing.JLabel;
 
@@ -26,7 +28,7 @@ public class MyPictureButton extends JLabel {
 
 	public MyPictureButton(Element e) {
 		if(e.attributeValue("type")!= null){
-			ButtonOrLabelPicture pics = GraphicsUtils.getButtonLabelPic(Integer.parseInt(e.attributeValue("type")));
+			ButtonOrLabelPicture pics = GraphicsUtils.getButtonLabelPic(e.attributeValue("type"));
 			normal = pics.getNormal();
 			clicked = pics.getClicked();
 			entered = pics.getEnter();
@@ -38,7 +40,7 @@ public class MyPictureButton extends JLabel {
 		}
 		
 		
-
+		this.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		this.setIcon(normal);
 		this.setBounds(Integer.parseInt(e.attributeValue("x")),
 				Integer.parseInt(e.attributeValue("y")),
