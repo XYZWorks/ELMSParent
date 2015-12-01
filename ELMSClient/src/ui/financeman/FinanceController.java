@@ -57,7 +57,7 @@ public class FinanceController extends PanelController {
 
 	@Override
 	protected void initPanel(Element e) {
-		financeMain = new FinanceMain(e.element(financeMainStr));
+		financeMain = new FinanceMain(e.element(financeMainStr) , this);
 		financeApprovalPanel = new FinanceApprovalPanel(e.element(finaceApprovalStr));
 		bulidBillPanel = new BulidBillPanel(e.element(bulidBillStr));
 		bankAccountManagePanel = new BankAccountManagePanel(e.element(bankAccountStr));
@@ -68,11 +68,11 @@ public class FinanceController extends PanelController {
 
 	@Override
 	protected void initButtons(Element e) {
-		financeApprovalButton = new MySideBarButton(e.element("Approval"));
+		financeApprovalButton = new MySideBarButton(e.element("FinanceApproval"));
 		bulidBillButton = new MySideBarButton(e.element("BulidBill"));
 		bankAccountManageButton = new MySideBarButton(e.element("BankAccountManage"));
 		costManageButton = new MySideBarButton(e.element("CostManage"));
-		bulidStateFormButton = new MySideBarButton(e.element("BulidStateFrom"));
+		bulidStateFormButton = new MySideBarButton(e.element("BulidStateForm"));
 		bulidPayButton = new MySideBarButton(e.element("BulidPay"));
 		
 	}

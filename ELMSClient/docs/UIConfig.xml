@@ -74,40 +74,49 @@
 
 			<ConstSetPanel x="232" y="54" width="1080" height="637">
 				<BUTTONS>
-					<modify x="625" y="560" width="115" height="40" text="修改" type = "1" />
-					<confirm x="550" y="560" width="115" height="40" text = "确认" type = "1" />
-					<cancel x="700" y="560" width="115" height="40"  text = "取消" type = "1"
-						/>
+					<modify x="625" y="560" width="115" height="40" text="修改"
+						type="1" />
+					<confirm x="550" y="560" width="115" height="40" text="确认"
+						type="1" />
+					<cancel x="700" y="560" width="115" height="40" text="取消"
+						type="1" />
 				</BUTTONS>
 				<LABLES>
-					<transportWay x="45" y="200" width="200" height="45" text="交通方式运费" type ="1"/>
-					<plane x="45" y="260" width="120" height="45" text="飞机" type ="1"/>
-					<truck x="45" y="320" width="120" height="45" text="汽车" type ="1"/>
-					<train x="45" y="380" width="120" height="45" text="火车" type ="1"/>
-					
-					<instanceInCity  x="45" y="45" width="200" height="50" text="城市间的距离" type ="1"/>
-		
-					<packageCost x="500" y="200" width="200" height="45" text="包装费" type ="1"/>
-					<paper x="500" y="260" width="120" height="45" text="纸箱" type ="1"/>
-					<wood x="500" y="320" width="120" height="45" text="木箱" type ="1"/>
-					<plastic x="500" y="380" width="120" height="45" text="快递袋" type ="1"/>
-		
-					<ratios x="45" y="530" width="200" height="45" text="价格比" type ="1"/>
+					<transportWay x="45" y="200" width="200" height="45"
+						text="交通方式运费" type="1" />
+					<plane x="45" y="260" width="120" height="45" text="飞机" type="1" />
+					<truck x="45" y="320" width="120" height="45" text="汽车" type="1" />
+					<train x="45" y="380" width="120" height="45" text="火车" type="1" />
+
+					<instanceInCity x="45" y="45" width="200" height="50"
+						text="城市间的距离" type="1" />
+
+					<packageCost x="500" y="200" width="200" height="45"
+						text="包装费" type="1" />
+					<paper x="500" y="260" width="120" height="45" text="纸箱"
+						type="1" />
+					<wood x="500" y="320" width="120" height="45" text="木箱" type="1" />
+					<plastic x="500" y="380" width="120" height="45" text="快递袋"
+						type="1" />
+
+					<ratios x="45" y="530" width="200" height="45" text="价格比"
+						type="1" />
 				</LABLES>
 				<TEXTFIELDS>
-				
-					<instance x="600" y="100" width="150" height="45"/>
-					<planeCost x="200" y="260" width="150" height="45"/>
-					<trainCost x="200" y="320" width="150" height="45"/>
-					<truckCost x="200" y="380" width="150" height="45"/>
-					<paperCost x="650" y="260" width="150" height="45"/>
-					<woodCost x="650" y="320" width="150" height="45"/>
-					<plasticCost x="650" y="380" width="150" height="45"/>	
+
+					<instance x="600" y="100" width="150" height="45" />
+					<planeCost x="200" y="260" width="150" height="45" />
+					<trainCost x="200" y="320" width="150" height="45" />
+					<truckCost x="200" y="380" width="150" height="45" />
+					<paperCost x="650" y="260" width="150" height="45" />
+					<woodCost x="650" y="320" width="150" height="45" />
+					<plasticCost x="650" y="380" width="150" height="45" />
 				</TEXTFIELDS>
-				<startCity x="45" y="100" width="240" height="30" strings = "南京 北京 广州 上海"/>
-				<arriveCity x="300" y="100" width="240" height="30" strings = "南京 北京 广州 上海"/>
-				
-			
+				<startCity x="45" y="100" width="240" height="30" strings="南京 北京 广州 上海" />
+				<arriveCity x="300" y="100" width="240" height="30"
+					strings="南京 北京 广州 上海" />
+
+
 			</ConstSetPanel>
 
 
@@ -132,7 +141,8 @@
 
 			</PeopleManagePanel>
 
-			<SalaryStrategySetPanel x="232" y="54" width="1080" height="637">
+			<SalaryStrategySetPanel x="232" y="54" width="1080"
+				height="637">
 				<BUTTONS>
 				</BUTTONS>
 
@@ -140,6 +150,57 @@
 			</SalaryStrategySetPanel>
 
 		</GeneralManager>
+
+		<Financeman x="232" y="54" width="1080" height="637">
+			<BUTTONS>
+				<BankAccountManage text="银行账户管理" x="0" y="227" />
+				<BulidBill text="期初建账" x="0" y="267" />
+				<BulidPay text="付款单" x="0" y="307" />
+				<BulidStateForm text="经营状况分析" x="0" y="347" />
+				<CostManage text="成本管理" x="0" y="387" />
+				<FinanceApproval text="交易审核" x="0" y="427" />
+			</BUTTONS>
+
+			<mainWindow x="232" y="54" width="1080" height="637">
+				<BUTTONS>
+					
+					<BankAccountManage text="" x="661" y="368" width="140"
+						height="165" normal="financeman//BankAccountManage" enter="financeman//BankAccountManage-enter"
+						clicked="financeman//BankAccountManage-clicked" />
+					<BulidBill text="" x="48" y="368" width="140" height="165"
+						normal="financeman//BuildBill" enter="financeman//BuildBill-enter"
+						clicked="financeman//BuildBill-clicked" />
+					<BulidPay text="" x="352" y="160" width="140" height="165"
+						normal="financeman//BuildPay" enter="financeman//BuildPay-enter"
+						clicked="financeman//BuildPay-clicked" />
+					<BulidStateForm text="" x="352" y="368" width="140"
+						height="165" normal="financeman//BuildStateForm" enter="financeman//BuildStateForm-enter"
+						clicked="financeman//BuildStateForm-clicked" />
+					<CostManage text="" x="661" y="160" width="140" height="165"
+						normal="financeman//CostManage" enter="financeman//CostManage-enter"
+						clicked="financeman//CostManage-clicked" />
+					<FinanceApproval text="" x="48" y="160" width="140"
+						height="165" normal="financeman//FinanceApproval" enter="financeman//FinanceApproval-enter"
+						clicked="financeman//FinanceApproval-clicked" />
+				</BUTTONS>
+			</mainWindow>
+
+			<FinanceApprovalPanel x="232" y="54" width="1080" height="637">
+			</FinanceApprovalPanel>
+			<BulidBillPanel x="232" y="54" width="1080" height="637">
+			</BulidBillPanel>
+			<BankAccountManagePanel x="232" y="54" width="1080" height="637">
+			</BankAccountManagePanel>
+			<CostManagePanel x="232" y="54" width="1080" height="637">
+			</CostManagePanel>
+			<BulidStateFromPanel x="232" y="54" width="1080" height="637">
+			</BulidStateFromPanel>
+			<BulidPayPanel x="232" y="54" width="1080" height="637">
+			</BulidPayPanel>
+
+
+		</Financeman>
+
 	</initialpanel>
 
 
