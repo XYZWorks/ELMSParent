@@ -33,7 +33,7 @@ public class GraphicsUtils {
 		/**
 		 * 日历图
 		 */
-//		labelPictureMap.put("datePicker", new ButtonOrLabelPicture("element//rectangle", "element//rectangle-enter", "element//rectangle-clicked"));
+		labelPictureMap.put("calendar", new ButtonOrLabelPicture("element//calendar", "element//calendar-enter", "element//calendar-clicked"));
 		
 		
 	}

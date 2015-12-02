@@ -1,24 +1,31 @@
-package ui.generalmanager;
+package ui.user;
 
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
+import ui.tools.MySideBarButton;
+import ui.util.PanelController;
 
 /**
- * 审批单据
- * @author xingcheng
+ * 管理员主界面
+ * @author czq
  *
  */
 @SuppressWarnings("serial")
-public class ApprovalDocsPanel extends MyPanel{
+public class UserManageMain extends MyPanel{
 	
 	
 	
+	PanelController controller;
 	
-	public ApprovalDocsPanel(Element config) {
+	
+	
+	public UserManageMain(Element config , PanelController controller) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}
+
+	
 
 	@Override
 	protected void initButtons(Element e) {

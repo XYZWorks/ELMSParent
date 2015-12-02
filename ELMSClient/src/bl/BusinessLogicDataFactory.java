@@ -3,11 +3,13 @@ package bl;
 import bl.DTManagebl.DTManageController;
 import bl.accountbl.AccountController;
 import bl.approvalbl.ApprovalController;
+import bl.strategybl.StrategyController;
 import bl.userbl.UserController;
 import bl.userbl.UserMes;
 import blservice.DTManageblservice.DTManageblservice;
 import blservice.accountblservice.Accountblservice;
 import blservice.approvalblservice.Approvalblservice;
+import blservice.strategyblservice.StrategyblService;
 import blservice.usermesblservice.UserMesblservice;
 /** 
  * 逻辑层工厂类
@@ -47,7 +49,9 @@ public class BusinessLogicDataFactory {
 		
 	}
 	
-	
+	public StrategyblService getStrategyBusinessLogic(){
+		return new StrategyController();
+	}
 	
 	
 }

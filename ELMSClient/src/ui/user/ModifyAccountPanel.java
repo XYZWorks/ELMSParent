@@ -1,21 +1,17 @@
-package ui.generalmanager;
+package ui.user;
 
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
-
-/**
- * 审批单据
- * @author xingcheng
- *
+ /** 
+ * 查找、修改、删除界面
+ * @author czq 
+ * @version 2015年12月2日 下午7:12:08 
  */
 @SuppressWarnings("serial")
-public class ApprovalDocsPanel extends MyPanel{
-	
-	
-	
-	
-	public ApprovalDocsPanel(Element config) {
+public class ModifyAccountPanel extends MyPanel{
+
+	public ModifyAccountPanel(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}
