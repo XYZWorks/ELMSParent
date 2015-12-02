@@ -96,6 +96,20 @@
 						normal="financeman//FinanceApproval" enter="financeman//FinanceApproval-enter" clicked="financeman//FinanceApproval-clicked" />
 				</BUTTONS>
 		</financeman>
+		<storeman x="232" y="54" width="1080" height="637">
+		<BUTTONS>
+					<ArriveZZ text="" x="421" y="317" width="162" height="150"
+						normal="storeman//ArriveZZ" enter="storeman//ArriveZZ-enter" clicked="storeman//ArriveZZ-clicked" />
+					<StoreShow text="" x="718" y="314" width="107" height="155"
+						normal="storeman//StoreShow" enter="storeman//StoreShow-enter"
+						clicked="storeman//StoreShow-clicked" />
+					<TransferDoc text="" x="119" y="313" width="119"
+						height="158" normal="storeman//TransferDoc" enter="storeman//TransferDoc-enter"
+						clicked="storeman//TransferDoc-clicked" />
+				</BUTTONS>
+		
+		
+		</storeman>
 	</initialpanel>
 </ELMS>
 
