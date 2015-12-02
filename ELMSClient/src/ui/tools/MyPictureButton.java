@@ -39,7 +39,7 @@ public class MyPictureButton extends JLabel {
 			clicked = GraphicsUtils.getIcon(e.attributeValue("clicked"));
 		}
 		
-		
+		//设置光标？？？？？
 		this.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		this.setIcon(normal);
 		this.setBounds(Integer.parseInt(e.attributeValue("x")),

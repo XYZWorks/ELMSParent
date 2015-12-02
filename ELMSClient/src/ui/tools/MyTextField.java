@@ -19,7 +19,6 @@ public class MyTextField extends JTextField {
 		this.setOpaque(true);
 		this.setForeground(Color.BLACK);
 		
-		
 		this.setVisible(true);
 		
 	}

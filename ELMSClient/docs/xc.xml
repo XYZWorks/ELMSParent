@@ -17,14 +17,14 @@
 
 	<initialpanel x="0" y="0" width="1080" height="720">
 		<BUTTONS>
-			<exit text="" x="1027" y="0" width="53" height="53"
-				normal="element//close" enter="element//close-enter" clicked="element//close-clicked" />
-			<min text="" x="974" y="0" width="53" height="53"
-				normal="element//min" enter="element//min-enter" clicked="element//min-clicked" />
-			<drop text="" x="716" y="0" width="257" height="53"
-				normal="element//drop" enter="element//drop-enter" clicked="element//drop-clicked" />
-			<home text="" x="655" y="0" width="60" height="53"
-				normal="element//home" enter="element//home-enter" clicked="element//home-clicked" />
+			<exit text="" x="1027" y="0" width="53" height="53" normal="element//close"
+				enter="element//close-enter" clicked="element//close-clicked" />
+			<min text="" x="974" y="0" width="53" height="53" normal="element//min"
+				enter="element//min-enter" clicked="element//min-clicked" />
+			<drop text="" x="716" y="0" width="257" height="53" normal="element//drop"
+				enter="element//drop-enter" clicked="element//drop-clicked" />
+			<home text="" x="655" y="0" width="60" height="53" normal="element//home"
+				enter="element//home-enter" clicked="element//home-clicked" />
 		</BUTTONS>
 		<GeneralManager x="232" y="54" width="1080" height="637">
 			<BUTTONS>
@@ -32,7 +32,7 @@
 
 			</BUTTONS>
 
-			<GMmainpanel x="232" y="54" width="1080" height="637">
+			<mainWindow x="232" y="54" width="1080" height="637">
 				<BUTTONS>
 					<GMApproval text="" x="280" y="213" width="137" height="152"
 						normal="GeneralManager//GMApproval" enter="GeneralManager//GMApproval-enter"
@@ -52,25 +52,23 @@
 					<InstManage text="" x="880" y="402" width="138" height="170"
 						normal="GeneralManager//InstManage" enter="GeneralManager//InstManage-enter"
 						clicked="GeneralManager//InstManage-clicked" />
-
-
-
 				</BUTTONS>
-
-			</GMmainpanel>
-		</GeneralManager>
-
+			</mainWindow>
+			</GeneralManager>
+			
+			
 		<CourierManager x="232" y="54" width="1080" height="637">
 			<BUTTONS>
-
-
-
+				<addOrder text="增加订单" x="0" y="267" />
+				<findFullInfo text="查询订单" x="0" y="317" />
+				<inputReceiveInfo text="收件信息录入" x="0" y="367" />
 			</BUTTONS>
 
-			<CourierMain x="232" y="54" width="1080" height="637">
+			<mainWindow x="232" y="54" width="1080" height="637">
 				<BUTTONS>
 					<AddOrder text="" x="58" y="237" width="115" height="159"
-						normal="courier//AddOrder" enter="courier//AddOrder-enter" clicked="courier//AddOrder-clicked" />
+						normal="courier//AddOrder" enter="courier//AddOrder-enter"
+						clicked="courier//AddOrder-clicked" />
 					<CheckOrder text="" x="359" y="239" width="119" height="155"
 						normal="courier//CheckOrder" enter="courier//CheckOrder-enter"
 						clicked="courier//CheckOrder-clicked" />
@@ -78,7 +76,33 @@
 						height="157" normal="courier//InputReceive" enter="courier//InputReceive-enter"
 						clicked="courier//InputReceive-clicked" />
 				</BUTTONS>
-			</CourierMain>
+			</mainWindow>
+			<addOrderPanel x="232" y="54" width="1080" height="637">
+				<BUTTONS>
+				</BUTTONS>
+				<LABELS>
+				</LABELS>
+				<TEXTFIELDS>
+				</TEXTFIELDS>
+			</addOrderPanel>
+
+			<findFullInfoPanel x="232" y="54" width="1080" height="637">
+				<BUTTONS>
+				</BUTTONS>
+				<LABELS>
+				</LABELS>
+				<TEXTFIELDS>
+				</TEXTFIELDS>
+			</findFullInfoPanel>
+			<inputReceiveInfoPanel x="232" y="54" width="1080" height="637">
+				<BUTTONS>
+				</BUTTONS>
+				<LABELS>
+				</LABELS>
+				<TEXTFIELDS>
+				</TEXTFIELDS>
+			</inputReceiveInfoPanel>
+		
 		</CourierManager>
 	</initialpanel>
 </ELMS>
