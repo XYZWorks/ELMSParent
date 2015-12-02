@@ -16,7 +16,7 @@ public class testPanelforymc extends MyFrame{
 	public testPanelforymc(Element e) {
 		super(e);
 		
-		InitalPanel initalPanel = new InitalPanel(e.element("initialpanel3") , this , null);
+		initialPanel3 initalPanel = new initialPanel3(e.element("initialpanel3") , this );
 
 		
 
