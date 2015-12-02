@@ -2,6 +2,7 @@ package ui.user;
 
 import org.dom4j.Element;
 
+import blservice.accountblservice.Accountblservice;
 import ui.tools.MyPanel;
  /** 
  * 查找、修改、删除界面
@@ -10,8 +11,10 @@ import ui.tools.MyPanel;
  */
 @SuppressWarnings("serial")
 public class ModifyAccountPanel extends MyPanel{
-
-	public ModifyAccountPanel(Element config) {
+	
+	Accountblservice bl;
+	
+	public ModifyAccountPanel(Element config , Accountblservice bl) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}

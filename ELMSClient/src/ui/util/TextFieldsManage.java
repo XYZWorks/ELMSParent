@@ -8,4 +8,6 @@ public interface TextFieldsManage {
 	
 	public void allowTextFieldToModify(boolean flag);
 	
+
+	
 }

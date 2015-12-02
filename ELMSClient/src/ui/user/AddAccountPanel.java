@@ -1,8 +1,18 @@
 package ui.user;
 
+import java.awt.event.MouseEvent;
+
 import org.dom4j.Element;
 
+import blservice.accountblservice.Accountblservice;
+import ui.config.UserfulMethod;
+import ui.tools.MyComboBox;
+import ui.tools.MyLabel;
 import ui.tools.MyPanel;
+import ui.tools.MyPictureButton;
+import ui.tools.MyTextField;
+import ui.util.ButtonState;
+import ui.util.MyPictureButtonListener;
  /** 
  * 增加账户界面
  * @author czq 
@@ -10,21 +20,40 @@ import ui.tools.MyPanel;
  */
 @SuppressWarnings("serial")
 public class AddAccountPanel extends MyPanel{
-
-	public AddAccountPanel(Element config) {
+	
+	private MyLabel accountID;
+	private MyLabel name;
+	private MyLabel staffTypeLabel;
+	private MyLabel passwordLabel;
+	
+	private MyTextField accountIDField;
+	private MyTextField nameField;
+	private MyTextField passwordField;
+	
+	private MyComboBox staffTypeBox;
+	
+	private MyPictureButton addAccount;
+	
+	private Accountblservice bl;
+	
+	
+	public AddAccountPanel(Element config , Accountblservice bl) {
 		super(config);
-		// TODO Auto-generated constructor stub
+		this.bl = bl;
 	}
 
 	@Override
 	protected void initButtons(Element e) {
-		// TODO Auto-generated method stub
+		addAccount = new MyPictureButton(e.element("addAccount"));
 		
 	}
 
 	@Override
 	protected void initTextFields(Element e) {
-		// TODO Auto-generated method stub
+		accountIDField = new MyTextField(e.element("accountID"));
+		nameField = new MyTextField(e.element("name"));
+		passwordField = new MyTextField(e.element("password"));
+		
 		
 	}
 
@@ -42,14 +71,42 @@ public class AddAccountPanel extends MyPanel{
 
 	@Override
 	protected void addCompoment() {
-		// TODO Auto-generated method stub
+		add(accountID);
+		add(accountIDField);
+		add(addAccount);
+		add(name);
+		add(nameField);
+		add(passwordField);
+		add(passwordLabel);
 		
+		add(staffTypeBox);
+		add(staffTypeLabel);
 	}
 
 	@Override
 	protected void addListener() {
-		// TODO Auto-generated method stub
+		addAccount.addMouseListener(new MyAddAccountListener(addAccount));
 		
 	}
+	
+	
+	class MyAddAccountListener extends MyPictureButtonListener{
 
+		public MyAddAccountListener(MyPictureButton button) {
+			super(button);
+		}
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			super.mouseClicked(e);
+			
+			UserfulMethod.checkID(accountID.getText());
+			
+		}
+		
+		
+		
+		
+		
+	}
+	
 }

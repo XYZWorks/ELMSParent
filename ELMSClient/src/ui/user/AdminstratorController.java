@@ -2,6 +2,8 @@ package ui.user;
 
 import org.dom4j.Element;
 
+import bl.BusinessLogicDataFactory;
+import blservice.accountblservice.Accountblservice;
 import config.StaticMessage;
 import ui.tools.MyPanel;
 import ui.tools.MySideBarButton;
@@ -27,6 +29,8 @@ public class AdminstratorController extends PanelController{
 	private final static String addAccountPanelStr = "AddAccountPanel";
 	private final static String modifyAccountPanelStr = "ModifyAccountPanel";
 	
+	private Accountblservice bl = BusinessLogicDataFactory.getFactory().getAccountBusinessLogic();
+	
 	public AdminstratorController(MyPanel initialPanel, Element e) {
 		super(initialPanel , e);
 		initButtons(e.element(CompomentType.BUTTONS.name()));
@@ -39,8 +43,8 @@ public class AdminstratorController extends PanelController{
 	@Override
 	protected void initPanel(Element e) {
 		AdminMainPanel = new UserManageMain(e.element(adminPanelStr), this);
-		addAccountPanel = new AddAccountPanel(e.element(addAccountPanelStr));
-		modifyAccountPanel = new ModifyAccountPanel(e.element(modifyAccountPanelStr));
+		addAccountPanel = new AddAccountPanel(e.element(addAccountPanelStr) , bl);
+		modifyAccountPanel = new ModifyAccountPanel(e.element(modifyAccountPanelStr) , bl);
 		
 	}
 

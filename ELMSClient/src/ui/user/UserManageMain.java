@@ -3,7 +3,9 @@ package ui.user;
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
-import ui.tools.MySideBarButton;
+import ui.tools.MyPictureButton;
+import ui.util.CompomentType;
+import ui.util.MyMainPanelButtonListener;
 import ui.util.PanelController;
 
 /**
@@ -14,53 +16,56 @@ import ui.util.PanelController;
 @SuppressWarnings("serial")
 public class UserManageMain extends MyPanel{
 	
+	private MyPictureButton addAccountButton;
+	private MyPictureButton modifyAccountButton;
 	
-	
-	PanelController controller;
+	private PanelController controller;
 	
 	
 	
 	public UserManageMain(Element config , PanelController controller) {
 		super(config);
-		// TODO Auto-generated constructor stub
+		this.controller = controller;
+		initButtons(config.element(CompomentType.BUTTONS.name()));
+		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
+		initOtherCompoment(config);
+		initLables(config.element(CompomentType.LABLES.name()));
+		addCompoment();
+		addListener();
+		repaint();
+		setVisible(true);
 	}
 
 	
 
 	@Override
 	protected void initButtons(Element e) {
-		// TODO Auto-generated method stub
-		
+		addAccountButton = new MyPictureButton(e.element("AddAccount"));
+		modifyAccountButton = new MyPictureButton(e.element("ModifyAccount"));
 	}
 
 	@Override
 	protected void initTextFields(Element e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	protected void initLables(Element e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	protected void addCompoment() {
-		// TODO Auto-generated method stub
-		
+		this.add(addAccountButton);
+		this.add(modifyAccountButton);
 	}
 
 	@Override
 	protected void addListener() {
-		// TODO Auto-generated method stub
-		
+		addAccountButton.addMouseListener(new MyMainPanelButtonListener(addAccountButton, "AddAccountPanel", controller));
+		modifyAccountButton.addMouseListener(new MyMainPanelButtonListener(modifyAccountButton, "ModifyAccountPanel", controller));
 	}
 
 }
