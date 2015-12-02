@@ -180,99 +180,67 @@ public class AddOrderPanel extends MyPanel{
 	@Override
 	protected void addCompoment() {
 		this.add(senderInfo);
-		this.add();
-		this.add();
-		this.add();
-		this.add();
-		this.add();
-		this.add();
-		this.add();
-		this.add();
-		this.add();
+		this.add(senderPhoneLabel);
+		this.add(senderNameLabel);
+		this.add(senderAddressLabel);
+		this.add(senderUnitLabel);
 		
-		this.add();
-		this.add();
-		this.add();
-		this.add();
-		this.add();
+		this.add(receiverInfo);
+		this.add(receiverNameLabel);
+		this.add(receiverPhoneLabel);
+		this.add(receiverAddressLabel);
+		this.add(receiverUnitLabel);
+		
+		this.add(goodsInfo);
+		this.add(goodNameLabel);
+		this.add(goodWeightLabel);
+		this.add(goodNumLabel);
+		this.add(goodVolumLabel);
+		this.add(orderForm);
+		
+		this.add(estimateTime);
+		this.add(estimateTimeLabel);
+		this.add(cost);
+		this.add(costLabel);
 		
 		
-		
-		
-		private MyPictureLabel ;
-		private MyLabel senderNameLabel;
-		private MyLabel senderPhoneLabel;
-		private MyLabel senderAddressLabel;
-		private MyLabel senderUnitLabel;
+		this.add(senderNameText);
+		this.add(senderPhoneText);
+		this.add(senderAddressText);
+		this.add(senderUnitText);
 
-		//收件人信息
-		private MyPictureLabel receiverInfo;
-		private MyLabel receiverNameLabel;
-		private MyLabel receiverPhoneLabel;
-		private MyLabel receiverAddressLabel;
-		private MyLabel receiverUnitLabel;
+		this.add(receiverNameText);
+		this.add(receiverPhoneText);
+		this.add(receiverAddressText);
+		this.add(receiverUnitText);
 		
-		//货物信息
-		private MyPictureLabel goodsInfo;
-		private MyLabel goodNameLabel;
-		private MyLabel goodWeightLabel;
-		private MyLabel goodNumLabel;
-		private MyLabel goodVolumLabel;// 体积
-		private MyLabel orderForm;
+		this.add(goodNameText);
+		this.add(goodWeightText);
+		this.add(goodLongText);
+		this.add(goodWidthText);
+		this.add(goodHeightText);
 		
-		//预计送达时间
-		private MyPictureLabel estimateTime;
-		private MyLabel estimateTimeLabel;
+		this.add(bag);
+		this.add(carton);
+		this.add(woodCase);
 		
-		//费用总计
-		private MyPictureLabel cost;
-		private MyLabel costLabel;
+		this.add(commonOrder);
+		this.add(quickOrder);
+		this.add(economicOrder);
+
+		this.add(senderCity);
+		this.add(senderArea);
+		this.add(receiverCity);
+		this.add(receiverArea);
 		
+		this.add(confirm);
+		this.add(cancel);
 		
-		//textField
-		private MyTextField senderNameText;
-		private MyTextField senderPhoneText;
-		private MyTextField senderAddressText;
-		private MyTextField senderUnitText;
-		
-		private MyTextField receiverNameText;
-		private MyTextField receiverPhoneText;
-		private MyTextField receiverAddressText;
-		private MyTextField receiverUnitText;
-		
-		private MyTextField goodNameText;
-		private MyTextField goodWeightText;
-		private MyTextField goodLongText;
-		private MyTextField goodWidthText;
-		private MyTextField goodHeightText;
-		
-		/*
-		 * 单选框
-		 */
-		//包装形式
-		private MyRadioButton bag;//快递袋
-		private MyRadioButton carton;//纸箱
-		private MyRadioButton woodCase;//木箱
-		
-		//快递形式
-		private MyRadioButton commonOrder;
-		private MyRadioButton quickOrder;
-		private MyRadioButton economicOrder;
-		
-		//下拉框
-		private MyComboBox senderCity;
-		private MyComboBox senderArea;
-		private MyComboBox receiverCity;
-		private MyComboBox receiverArea;
-		
-		//button
-		private MyPictureButton confirm;
-		private MyPictureButton cancel;
 	}
 
 	@Override
 	protected void addListener() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
