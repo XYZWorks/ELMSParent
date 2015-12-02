@@ -1,32 +1,41 @@
 package ui.tools;
 
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.table.AbstractTableModel;
  /** 
- * 所有表格的实现父类
+ * 
  * @author czq 
- * @version 2015年11月22日 下午11:25:15 
+ * @version 2015年12月2日 下午11:11:18 
  */
-@SuppressWarnings("serial")
-public class MyTable extends JTable {
-	/**
-	 * 
-	 */
-	DefaultTableModel tm = new DefaultTableModel();
-	
-	
-	
-	
-	
-	
-	
-	
-	/**
-	 * 不允许修改表格内容
-	 */
+public class MyTable extends JTable{
+
+}
+
+
+
+class myTableModel extends AbstractTableModel{
+
 	@Override
-	public boolean isCellEditable(int row, int column) {
-		return false;
+	public int getRowCount() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
+
+	@Override
+	public int getColumnCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Object getValueAt(int rowIndex, int columnIndex) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+	
+	
 	
 }
