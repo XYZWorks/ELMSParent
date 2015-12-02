@@ -63,6 +63,12 @@ public class StoreManController extends PanelController{
 		
 	}
 
+	@Override
+	protected void addToMap() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 	
 
