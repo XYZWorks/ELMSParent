@@ -4,7 +4,7 @@ import javax.swing.JCheckBox;
 
 import org.dom4j.Element;
  /** 
- * 复写复选框
+ * 复写复选框 //TODO 重写
  * @author czq 
  * @version 2015年11月22日 下午11:25:50 
  */

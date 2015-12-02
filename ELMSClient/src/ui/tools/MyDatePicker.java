@@ -121,14 +121,14 @@ public class MyDatePicker extends MyLabel {
 					Integer.parseInt(config.attributeValue("y")),
 					Integer.parseInt(config.attributeValue("width")),
 					Integer.parseInt(config.attributeValue("height")));
-			dateField.setBounds(Integer.parseInt(config.attributeValue("fx")),
-					Integer.parseInt(config.attributeValue("fy")),
-					Integer.parseInt(config.attributeValue("fwidth")),
-					Integer.parseInt(config.attributeValue("fheight")));
-			button.setBounds(Integer.parseInt(config.attributeValue("bx")),
-					Integer.parseInt(config.attributeValue("by")),
-					Integer.parseInt(config.attributeValue("bwidth")),
-					Integer.parseInt(config.attributeValue("bheight")));
+			dateField.setBounds(Integer.parseInt(config.attributeValue("fieldx")),
+					Integer.parseInt(config.attributeValue("fieldy")),
+					Integer.parseInt(config.attributeValue("fieldwidth")),
+					Integer.parseInt(config.attributeValue("fieldheight")));
+			button.setBounds(Integer.parseInt(config.attributeValue("buttonx")),
+					Integer.parseInt(config.attributeValue("buttony")),
+					Integer.parseInt(config.attributeValue("buttonwidth")),
+					Integer.parseInt(config.attributeValue("buttonheight")));
 		} catch (Exception e) {
 			
 		}
