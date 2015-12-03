@@ -34,6 +34,20 @@
 				<arriveZZ text="到达单" x="0" y="227"/>
 				<store text="库存查看" x="0" y="227"/>
 			</BUTTONS>
+			
+			<TransportPanel>
+			
+			</TransportPanel>		
+			
+			<ArriveZZPanel>
+			
+			</ArriveZZPanel>
+			
+			<StorePanel>
+			
+			</StorePanel>
+		
+		
 		</StoreMan>
 		<GeneralManager x="232" y="54" width="1080" height="637">
 			<BUTTONS>

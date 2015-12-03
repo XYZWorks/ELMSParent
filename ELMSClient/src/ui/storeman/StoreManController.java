@@ -3,6 +3,7 @@ package ui.storeman;
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
+import ui.tools.MySideBarButton;
 import ui.util.CompomentType;
 import ui.util.PanelController;
  /** 
@@ -12,6 +13,16 @@ import ui.util.PanelController;
  */
 public class StoreManController extends PanelController{
 
+	private MyPanel GMmainpanel;
+
+	private MyPanel TransportPanel;
+	private MyPanel ArriveZZPanel;
+	private MyPanel StorePanel;
+	
+	private MySideBarButton transportButton;
+	private MySideBarButton arriveZZButton;
+	private MySideBarButton StoreButton;
+	
 	public StoreManController(MyPanel initialPanel, Element e) {
 		super(initialPanel , e);
 		initButtons(e.element(CompomentType.BUTTONS.name()));
