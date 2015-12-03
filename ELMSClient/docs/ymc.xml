@@ -29,21 +29,33 @@
 			<career text="" x="773" y="16" width="26" height="22"  />
 		</BUTTONS>
 		<StoreMan x="232" y="54" width="1080" height="637">
-			<BUTTONS>
-				<transport text="中转单" x="0" y="227"/>
-				<arriveZZ text="到达单" x="0" y="227"/>
-				<store text="库存查看" x="0" y="227"/>
-			</BUTTONS>
+			<mainWindow x="232" y="54" width="1080" height="637">
+				<BUTTONS>
+						<arriveZZ text="" x="421" y="317" width="162" height="150"
+							normal="storeman//ArriveZZ" enter="storeman//ArriveZZ-enter" clicked="storeman//ArriveZZ-clicked" />
+						<store text="" x="722" y="316" width="119" height="162"
+							normal="storeman//StoreShow" enter="storeman//StoreShow-enter"
+							clicked="storeman//StoreShow-clicked" />
+						<transport text="" x="119" y="313" width="119"
+							height="158" normal="storeman//TransferDoc" enter="storeman//TransferDoc-enter"
+							clicked="storeman//TransferDoc-clicked" />
+				</BUTTONS>
+				<DatePicker x="0" y="0" width="400" height="50">
+						<field   x="0" y="0" width="350" height="50"      />
+						<button     x="350" y="0" width="50" height="50"  type = "rectangle" />
+					
+				</DatePicker>
+			</mainWindow>
 			
-			<TransportPanel>
+			<TransportPanel x="232" y="54" width="1080" height="637">
 			
 			</TransportPanel>		
 			
-			<ArriveZZPanel>
-			
+			<ArriveZZPanel x="232" y="54" width="1080" height="637">
+			 
 			</ArriveZZPanel>
 			
-			<StorePanel>
+			<StorePanel x="232" y="54" width="1080" height="637">
 			
 			</StorePanel>
 		
