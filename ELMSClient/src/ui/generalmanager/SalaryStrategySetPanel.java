@@ -137,8 +137,8 @@ public class SalaryStrategySetPanel  extends MyPanel implements TextFieldsManage
 		modify.addMouseListener(new MyModifyButtonListener(modify));
 		showInTable.addMouseListener(new MyShowInTableButtonListener(showInTable));
 	}
-
-	@Override
+	
+	
 	public void allowTextFieldToModify(boolean flag) {
 		basicMoneyField.setEditable(flag);
 		moreMoneyField.setEditable(flag);

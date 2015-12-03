@@ -150,9 +150,35 @@
 			<SalaryStrategySetPanel x="232" y="54" width="1080"
 				height="637">
 				<BUTTONS>
+				<ShowInTable x="500" y="560" width="115" height="40" text="列表显示"
+						type="rectangle"/>
+				<Modify x="650" y="560" width="115" height="40" text="修改"
+						type="rectangle"/>
+				<Confirm x="500" y="560" width="115" height="40" text="确认"
+						type="rectangle"/>
+				<Cancel x="650" y="560" width="115" height="40" text="取消"
+						type="rectangle"/>
 				</BUTTONS>
-
-
+				<LABLES>
+				<StaffTypeLabel  x="45" y="100" width="100" height="45"
+						text="职员类型" type="rectangle"/>
+				<WageStrategyLabel  x="45" y="180" width="100" height="45"
+						text="薪水策略" type="rectangle"/>
+				<BasicMoneyLabel  x="45" y="300" width="100" height="45"
+						text="工资" type="rectangle"/>
+				<MoreMoneyLabel  x="400" y="300" width="200" height="45"
+						text="提成" type="rectangle"/>
+				
+				</LABLES>
+				<TEXTFIELDS>
+				<BasicMoneyField x="200" y="300" width="200" height="45"/>
+				<MoreMoneyField x="605" y="300" width="200" height="45"/>
+				
+				</TEXTFIELDS>
+				<StaffTypeBox x="300" y="100" width="240" height="30"
+					strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理人员 司机"/>
+				<WageStrategyBox x="300" y="180" width="240" height="30"
+					strings="按月计费 按次计费 提成制"/>
 			</SalaryStrategySetPanel>
 
 		</GeneralManager>
