@@ -84,9 +84,9 @@ public class GeneralManagerController extends PanelController {
 		approvalPanel = new ApprovalDocsPanel(e.element(approvalPanelStr));
 		constSetPanel = new ConstSetPanel(e.element(constSetPanelStr));
 		statisticPanel = new StatisticPanel(e.element(statisticPanelStr));
-		instManagePanel = new InstManagePanel(e.element(instManagePanelStr));
+		instManagePanel = new InstManagePanel(e.element(instManagePanelStr) , panelManager);
 		peopleManagePanel = new PeopleManagePanel(
-				e.element(peopleManagePanelStr));
+				e.element(peopleManagePanelStr) , panelManager);
 		salaryStrategySetPanel = new SalaryStrategySetPanel(e.element(salaryStrategySetStr));
 	}
 

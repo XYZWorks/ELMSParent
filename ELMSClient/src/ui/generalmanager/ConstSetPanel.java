@@ -4,18 +4,15 @@ import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
 
-import blservice.strategyblservice.StrategyblService;
-import ui.tools.MyButton;
 import ui.tools.MyComboBox;
-import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
-import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
 import ui.util.TextFieldsManage;
+import blservice.strategyblservice.StrategyblService;
 /**
  * 制定常量界面
  * @author czq
@@ -69,9 +66,6 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 	}
 	
 	
-	private void name() {
-		
-	}
 	
 	
 	/**

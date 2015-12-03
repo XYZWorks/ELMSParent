@@ -5,20 +5,19 @@ import java.awt.CardLayout;
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
-
-/**
- * 人员管理，主要进入人员查看界面
- * @author xingcheng
- *
+ /** 
+ * 增加机构界面
+ * @author czq 
+ * @version 2015年12月3日 上午9:06:13 
  */
 @SuppressWarnings("serial")
-public class PeopleManagePanel extends MyPanel{
-	CardLayout panelManager;
+public class AddInstPanel extends MyPanel {
 	
-	public PeopleManagePanel(Element config , CardLayout panelManager) {
+	private CardLayout panelManager;
+	
+	public AddInstPanel(Element config , CardLayout panelManager) {
 		super(config);
 		this.panelManager = panelManager;
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

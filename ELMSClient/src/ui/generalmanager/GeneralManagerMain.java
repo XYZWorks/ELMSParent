@@ -78,7 +78,6 @@ public class GeneralManagerMain extends MyPanel {
 		
 		this.add(date);
 //		date.setLocation(500, 300);
-		date.setVisible(true);
 	}
 
 	@Override

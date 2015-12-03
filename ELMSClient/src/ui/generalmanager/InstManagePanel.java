@@ -1,5 +1,7 @@
 package ui.generalmanager;
 
+import java.awt.CardLayout;
+
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
@@ -11,9 +13,12 @@ import ui.tools.MyPanel;
  */
 @SuppressWarnings("serial")
 public class InstManagePanel extends MyPanel{
-
-	public InstManagePanel(Element config) {
+	
+	CardLayout panelManager;
+	
+	public InstManagePanel(Element config , CardLayout panelManager) {
 		super(config);
+		this.panelManager = panelManager;
 		// TODO Auto-generated constructor stub
 	}
 

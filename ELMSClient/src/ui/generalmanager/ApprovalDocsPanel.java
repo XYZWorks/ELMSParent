@@ -2,7 +2,12 @@ package ui.generalmanager;
 
 import org.dom4j.Element;
 
+import blservice.approvalblservice.Approvalblservice;
+import ui.tools.MyComboBox;
 import ui.tools.MyPanel;
+import ui.tools.MyPictureButton;
+import ui.tools.MyPictureLabel;
+import ui.tools.MyTable;
 
 /**
  * 审批单据
@@ -12,10 +17,21 @@ import ui.tools.MyPanel;
 @SuppressWarnings("serial")
 public class ApprovalDocsPanel extends MyPanel{
 	
+	private MyPictureLabel chooseDocType;
+	private MyComboBox DocTypeChooseBox;
 	
+	private MyTable docTable;
 	
+	private MyPictureButton approvalMany;
+	private MyPictureButton approvalOne;
+	/**
+	 * 查看详细信息
+	 */
+	private MyPictureButton checkForMoreInfo;
 	
-	public ApprovalDocsPanel(Element config) {
+	private Approvalblservice bl;
+	
+	public ApprovalDocsPanel(Element config ) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}
