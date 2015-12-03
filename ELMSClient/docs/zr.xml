@@ -110,6 +110,17 @@
 		
 		
 		</storeman>
+		<Administrator x="232" y="54" width="1080" height="637">
+		<BUTTONS>
+					<AddAccount text="" x="260" y="316" width="119" height="162"
+						normal="Administrator//AddAccount" enter="Administrator//AddAccount-enter"
+						clicked="Administrator//AddAccount-clicked" />
+					<ModifyAccount text="" x="568" y="315" width="123"
+						height="160" normal="Administrator//ModifyAccount" enter="Administrator//ModifyAccount-enter"
+						clicked="Administrator//ModifyAccount-clicked" />
+				</BUTTONS>
+		
+		</Administrator>
 	</initialpanel>
 </ELMS>
 
