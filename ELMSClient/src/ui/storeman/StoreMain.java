@@ -69,6 +69,7 @@ public class StoreMain extends MyPanel{
 		this.add(arriveZZButton);
 		this.add(storeButton);
 		
+		this.add(date);
 	}
 
 
