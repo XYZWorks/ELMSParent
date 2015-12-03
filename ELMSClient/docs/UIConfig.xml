@@ -302,17 +302,30 @@
 					<staffType text="职员类型" x="500" y="50" width="100" height="50" />
 				
 				</LABELS>
-				<staffBox text="" x="700" y="50" width="119" height="52" strings = "courier financeman"/>
+				<staffBox text="" x="700" y="50" width="119" height="52" strings = "快递员 财务人员"/>
 			</AddAccountPanel>
 			<ModifyAccountPanel x="232" y="54" width="1080"
 				height="637">
 				<BUTTONS>
-					<modify text="" x="600" y="600" width="119" height="162"
+					<modify text="修改" x="600" y="500" width="119" height="162"
 						type="rectangle" />
-					<delete text="" x="750" y="600" width="123" height="162"
+					<delete text="删除" x="750" y="500" width="123" height="162"
 						type="rectangle" />
 				</BUTTONS>
-				<table x="100" y="100" width="600" height="600" columnName="ID 姓名 账户类型 密码" />
+				<LABELS>
+					<name text="姓名" x="50" y="500" width="100" height="50" />
+					<password text="密码" x="300" y="500" width="100" height="50" />
+					<type text="职员类型" x="500" y="500" width="100" height="50" />
+				
+				</LABELS>
+				<TEXTFIELDS>
+					<name text="姓名" x="50" y="470" width="80" height="30" />
+					<password text="密码" x="300" y="470" width="80" height="30" />
+					
+				
+				</TEXTFIELDS>
+				<type text="职员类型" x="500" y="470" width="80" height="30" strings = "财务人员 总经理 管理员 营业厅业务员 快递员 中转中心业务人员 中转中心管理员"/>
+				<table x="50" y="50" width="600" height="400" columnName="ID 姓名 账户类型 密码" />
 			</ModifyAccountPanel>
 
 

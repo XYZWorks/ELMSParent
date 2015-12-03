@@ -4,18 +4,17 @@ import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
 
-import blservice.accountblservice.Accountblservice;
-import ui.config.UserfulMethod;
 import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
-import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
 import util.AccountType;
+import util.ResultMessage;
 import vo.account.AccountVO;
+import blservice.accountblservice.Accountblservice;
  /** 
  * 增加账户界面
  * @author czq 
@@ -112,12 +111,16 @@ public class AddAccountPanel extends MyPanel{
 			super.mouseClicked(e);
 			
 //			UserfulMethod.checkID(accountID.getText());
-
-			bl.add(new AccountVO(
+			ResultMessage mes;
+			mes = bl.add(new AccountVO(
 					accountIDField.getText(),
 					nameField.getText(),
-					AccountType.valueOf((String) staffTypeBox.getSelectedItem()),
+					AccountType.getType(((String) staffTypeBox.getSelectedItem())),
 					passwordField.getText()));
+			System.out.println(AccountType.manager.name());
+//			if(mes == ResultMessage.SUCCESS){
+//				new MyOptionPane(parent, message)
+//			}
 			
 		}
 		

@@ -22,8 +22,8 @@ public class AccountController implements Accountblservice{
 		return account.add(vo);
 	}
 
-	public ResultMessage delete(AccountVO vo) {
-		return account.delete(vo);
+	public ResultMessage delete(String ID ){
+		return account.delete(ID);
 	}
 
 	public AccountVO find(String ID) {

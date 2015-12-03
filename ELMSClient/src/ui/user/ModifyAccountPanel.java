@@ -4,13 +4,14 @@ import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
 
-import bl.BusinessLogicDataFactory;
-import blservice.accountblservice.Accountblservice;
-import ui.config.UserfulMethod;
+import ui.tools.MyComboBox;
+import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
+import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
+import blservice.accountblservice.Accountblservice;
  /** 
  * 查找、修改、删除界面
  * @author czq 
@@ -28,7 +29,15 @@ public class ModifyAccountPanel extends MyPanel{
 	private MyPictureButton modifyButton;
 	private MyPictureButton deleteButton;
 	
+	private MyLabel newName;
+	private MyLabel newPassword;
+	private MyLabel newType;
 	
+	private MyTextField newNameT;
+	private MyTextField newPassT;
+	private MyComboBox newTypeC;
+	
+	private boolean isModify = false;
 	
 	public ModifyAccountPanel(Element config , Accountblservice bl) {
 		super(config);
@@ -40,9 +49,20 @@ public class ModifyAccountPanel extends MyPanel{
 		addCompoment();
 		addListener();
 		
-		
+		setModifyCompVisiable(false);
 	}
-
+	
+	private void setModifyCompVisiable(boolean flag){
+		isModify = flag;
+		newName.setVisible(flag);
+		newNameT.setVisible(flag);
+		newPassT.setVisible(flag);
+		newPassword.setVisible(flag);
+		newType.setVisible(flag);
+		newTypeC.setVisible(flag);
+	}
+	
+	
 	@Override
 	protected void initButtons(Element e) {
 		modifyButton = new MyPictureButton(e.element("modify"));
@@ -51,20 +71,24 @@ public class ModifyAccountPanel extends MyPanel{
 
 	@Override
 	protected void initTextFields(Element e) {
-		// TODO Auto-generated method stub
+		newNameT = new MyTextField(e.element("name"));
+		newPassT = new MyTextField(e.element("password")); 
+		
 		
 	}
 
 	@Override
 	protected void initLables(Element e) {
-		// TODO Auto-generated method stub
+		newName = new MyLabel(e.element("name"));
+		newPassword = new MyLabel(e.element("password"));
+		newType = new MyLabel(e.element("type"));
 		
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
 		table = new AccountMesTablePanel(e.element("table"), bl);
-		
+		newTypeC = new MyComboBox(e.element("type"));
 	}
 
 	@Override
@@ -72,6 +96,12 @@ public class ModifyAccountPanel extends MyPanel{
 		add(deleteButton);
 		add(modifyButton);
 		add(table);
+		add(newName);
+		add(newNameT);
+		add(newPassT);
+		add(newPassword);
+		add(newType);
+		add(newTypeC);
 	}
 
 	@Override
@@ -85,10 +115,24 @@ public class ModifyAccountPanel extends MyPanel{
 
 		public MyModifyAccountListener(MyPictureButton button) {
 			super(button);
+			
 		}
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
+			if(isModify){
+				
+			}else{
+				int row = table.getSelectedRow();
+				if(row == -1){
+//					new MyOptionPane(parent, message)
+					return;
+				}
+				setModifyCompVisiable(true);
+				modifyButton.setText("确认");
+			}
+			
+			
 		}
 	}
 	
@@ -96,10 +140,21 @@ public class ModifyAccountPanel extends MyPanel{
 
 		public MyDeleteAccountListener(MyPictureButton button) {
 			super(button);
+			
+			
+			
 		}
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
+			int row = table.getTable().getSelectedRow();
+			 
+			if(row != -1){
+				bl.delete((String)table.getTable().getValueAt(row, 0));
+				table.removeRow(row);
+			}else{
+				
+			}
 		}
 	}
 	

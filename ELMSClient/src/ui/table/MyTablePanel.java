@@ -26,7 +26,7 @@ public abstract class MyTablePanel extends JPanel{
 	public MyTablePanel(Element config) {
 		
 		
-		this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));
+	this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));
 		
 		
 		
@@ -44,7 +44,7 @@ public abstract class MyTablePanel extends JPanel{
 		rollpane = new MyScrollerPane(table);
 	}
 	
-	protected Object getValueAt(int row , int col) {
+	public Object getValueAt(int row , int col) {
 		return table.getValueAt(row, col);
 	}
 	
@@ -53,7 +53,7 @@ public abstract class MyTablePanel extends JPanel{
 	 * 获得选中的行，如果没有，返回-1
 	 * @return
 	 */
-	protected int getSelectedRow() {
+	public int getSelectedRow() {
 		return table.getSelectedRow();
 	}
 	
@@ -61,21 +61,24 @@ public abstract class MyTablePanel extends JPanel{
 	 * 移除某一行，若无效，直接返回
 	 * @param row
 	 */
-	protected void removeRows(int row) {
+	public void removeRow(int row) {
 		try {
 			dtm.removeRow(row);
 		} catch (ArrayIndexOutOfBoundsException e) {
 		}
 	}
 	
+	public void setRowEdit(boolean flag , int row) {
+		table.setRowEditable(flag, row);
+	}
 	
 	/**
 	 * 设置某一列可修改
 	 * @param flag
 	 * @param column
 	 */
-	protected void setColumnEdit(boolean flag , int column) {
-		table.setEditable(flag, column);
+	public void setColumnEdit(boolean flag , int column) {
+		table.setColEditable(flag, column);
 	}
 		
 		

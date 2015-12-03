@@ -46,10 +46,10 @@ public class Account {
 		return result;
 	}
 
-	public ResultMessage delete(AccountVO vo) {
+	public ResultMessage delete(String ID ) {
 		ResultMessage result = null;
 		try {
-			result = accountData.delete(vo.ID);
+			result = accountData.delete(ID);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

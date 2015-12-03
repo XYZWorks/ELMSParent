@@ -22,7 +22,7 @@ public interface Accountblservice {
 	 * @param vo 该账户信息
 	 * @return 是否删除成功
 	 */
-	public ResultMessage delete(AccountVO vo);
+	public ResultMessage delete(String ID);
 	/**
 	 * 根据ID查找账户
 	 * @param ID 用户ID

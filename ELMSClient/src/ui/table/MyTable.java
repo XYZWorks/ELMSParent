@@ -32,9 +32,15 @@ public class MyTable extends JTable{
 	}
 	
 	
-	public void setEditable(boolean flag ,int column){
+	public void setColEditable(boolean flag ,int column){
 		model.setCellInColumEdit(flag, column);
+		revalidate();
 	}
+	public void setRowEditable(boolean flag ,int row){
+		model.setCellInRowEdit(flag, row);
+		revalidate();
+	}
+	
 	
 	public MyTableModel getModel() {
 		return model;
@@ -94,7 +100,12 @@ class MyTableModel extends DefaultTableModel{
 		}
 		
 	}
-	
+	public void setCellInRowEdit(boolean flag , int row){
+		for (int i = 0; i < isCellEditable[0].length; i++) {
+			isCellEditable[row][i] = flag;
+		}
+		
+	}
 	
 	
 	

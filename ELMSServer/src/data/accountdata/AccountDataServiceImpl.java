@@ -29,7 +29,7 @@ public class AccountDataServiceImpl extends DataSuperClass implements
 
 	public ResultMessage add(AccountPO po) throws RemoteException {
 		return addToSQL( tableName, po.getID(), po.getName(), po.getType()
-				.getName(), po.getPassword(), "", "");
+				.name(), po.getPassword(), "", "");
 	}
 	
 	public void initial() throws RemoteException {
@@ -54,7 +54,7 @@ public class AccountDataServiceImpl extends DataSuperClass implements
 
 	public ResultMessage modify(AccountPO po) throws RemoteException {
 		return modifyFromSQL(tableName, po.getID(), po.getName(), po.getType()
-				.getName(), po.getPassword(), po.getPhoneNum(), po.getMail());
+				.name(), po.getPassword(), po.getPhoneNum(), po.getMail());
 	}
 
 	public AccountPO check(String ID, String password)
@@ -80,7 +80,7 @@ public class AccountDataServiceImpl extends DataSuperClass implements
 		if(findMes==null){
 			return null;
 		}else{
-			return new AccountPO(findMes.get(0), findMes.get(1), AccountType.getType(findMes.get(2)), findMes.get(3), findMes.get(4), findMes.get(5));
+			return new AccountPO(findMes.get(0), findMes.get(1), AccountType.valueOf(findMes.get(2)), findMes.get(3), findMes.get(4), findMes.get(5));
 		}
 	}
 	
