@@ -38,7 +38,7 @@ public class StoreManController extends PanelController{
 	
 	public StoreManController(MyPanel initialPanel, Element e) {
 		super(initialPanel , e);
-		initButtons(e.element(SMmainpanelStr).element(CompomentType.BUTTONS.name()));
+		initButtons(e.element(CompomentType.BUTTONS.name()));
 		initPanel(e);
 		addButtons();
 		addPanels();
