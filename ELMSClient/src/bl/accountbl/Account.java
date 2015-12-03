@@ -1,6 +1,7 @@
 package bl.accountbl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import po.account.AccountPO;
 import test.java.other.VOPOchange;
@@ -21,13 +22,13 @@ public class Account {
 
 
 	public Account() {
-		accountData = (AccountDataService) new RMIManage().getDataService(DataServiceType.AccountDataService);
-		try {
-			accountData.initial();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		accountData = (AccountDataService) RMIManage.getDataService(DataServiceType.AccountDataService);
+//		try {
+//			accountData.initial();
+//		} catch (RemoteException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 
 	public ResultMessage add(AccountVO vo) {
@@ -82,5 +83,25 @@ public class Account {
 		}
 		return result;
 	}
-
+	
+	public ArrayList<AccountVO> show(){
+		ArrayList<AccountVO> vos = null;
+		try {
+			ArrayList<AccountPO> pos = accountData.show();
+			vos = new ArrayList<AccountVO>(pos.size());
+			for (AccountPO accountPO : pos) {
+				vos.add( (AccountVO)VOPOchange.POtoVO(accountPO));
+			}
+			
+			
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		
+		return vos;
+		
+		
+	}
+	
+	
 }

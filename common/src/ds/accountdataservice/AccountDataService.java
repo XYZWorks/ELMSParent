@@ -1,6 +1,7 @@
 package ds.accountdataservice;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import po.account.AccountPO;
 import util.ResultMessage;
@@ -49,6 +50,13 @@ public interface AccountDataService extends DataserviceParent{
 	 * @return
 	 */
 	public AccountPO getMes(String ID) throws RemoteException;
+	
+	/**
+	 * 返回所有账户信息
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<AccountPO> show() throws RemoteException;
 	
 	
 

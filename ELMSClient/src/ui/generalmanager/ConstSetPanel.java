@@ -56,7 +56,7 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 	
 	public ConstSetPanel(Element config) {
 		super(config);
-		initLables(config.element(CompomentType.LABLES.name()));
+		initLables(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
@@ -128,7 +128,6 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 		}
 	}
 	
-	@Override
 	public void allowTextFieldToModify(boolean flag) {
 		instance.setEditable(flag);
 		planeCost.setEditable(flag);

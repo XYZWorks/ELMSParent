@@ -41,7 +41,7 @@ public class AddPeople extends MyPanel{
 	public AddPeople(Element config ,CardLayout panelManager) {
 		super(config);
 		this.panelManager = panelManager;
-		initLables(config.element(CompomentType.LABLES.name()));
+		initLables(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);

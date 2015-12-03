@@ -34,10 +34,8 @@ public class AccountController implements Accountblservice{
 		return account.modify(vo);
 	}
 
-	@Override
 	public ArrayList<AccountVO> show() {
-		// TODO Auto-generated method stub
-		return null;
+		return account.show();
 	}
 
 }

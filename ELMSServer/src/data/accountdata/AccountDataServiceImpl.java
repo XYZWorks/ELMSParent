@@ -2,6 +2,7 @@
 
 import java.rmi.RemoteException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import po.account.AccountPO;
 import util.AccountType;
@@ -82,7 +83,29 @@ public class AccountDataServiceImpl extends DataSuperClass implements
 			return new AccountPO(findMes.get(0), findMes.get(1), AccountType.getType(findMes.get(2)), findMes.get(3), findMes.get(4), findMes.get(5));
 		}
 	}
+	
+	public ArrayList<AccountPO> show() throws RemoteException {
+		ArrayList<AccountPO> pos = new ArrayList<AccountPO>(30);
+		try {
+			sql = "SELECT * FROM " + tableName ;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while (result.next()) {
+				pos.add(new AccountPO(result.getString(1), result.getString(2), AccountType.valueOf(result.getString(3)), result.getString(4)));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		return pos.size()==0?null:pos;
+		
+		
+		
+	}
 
+	
+	
 	/**
 	 * 仅供测试
 	 * 
@@ -110,4 +133,5 @@ public class AccountDataServiceImpl extends DataSuperClass implements
 		System.exit(0);
 	}
 
+	
 }

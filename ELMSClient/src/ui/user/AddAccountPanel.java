@@ -12,7 +12,10 @@ import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
 import ui.util.ButtonState;
+import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
+import util.AccountType;
+import vo.account.AccountVO;
  /** 
  * 增加账户界面
  * @author czq 
@@ -40,6 +43,12 @@ public class AddAccountPanel extends MyPanel{
 	public AddAccountPanel(Element config , Accountblservice bl) {
 		super(config);
 		this.bl = bl;
+		initLables(config.element(CompomentType.LABELS.name()));
+		initButtons(config.element(CompomentType.BUTTONS.name()));
+		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
+		initOtherCompoment(config);
+		addCompoment();
+		addListener();
 	}
 
 	@Override
@@ -59,13 +68,16 @@ public class AddAccountPanel extends MyPanel{
 
 	@Override
 	protected void initLables(Element e) {
-		// TODO Auto-generated method stub
+		accountID = new MyLabel(e.element("accountID"));
+		name = new MyLabel(e.element("name"));
+		passwordLabel = new MyLabel(e.element("password"));
+		staffTypeLabel = new MyLabel(e.element("staffType"));
 		
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		// TODO Auto-generated method stub
+		staffTypeBox = new MyComboBox(e.element("staffBox"));
 		
 	}
 
@@ -99,7 +111,13 @@ public class AddAccountPanel extends MyPanel{
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
 			
-			UserfulMethod.checkID(accountID.getText());
+//			UserfulMethod.checkID(accountID.getText());
+
+			bl.add(new AccountVO(
+					accountIDField.getText(),
+					nameField.getText(),
+					AccountType.valueOf((String) staffTypeBox.getSelectedItem()),
+					passwordField.getText()));
 			
 		}
 		
