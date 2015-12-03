@@ -2,9 +2,16 @@ package ui.storeman;
 
 import org.dom4j.Element;
 
+import config.StaticMessage;
+import ui.generalmanager.ApprovalDocsPanel;
+import ui.generalmanager.ConstSetPanel;
+import ui.generalmanager.GeneralManagerMain;
+import ui.generalmanager.StatisticPanel;
 import ui.tools.MyPanel;
 import ui.tools.MySideBarButton;
+import ui.util.ButtonState;
 import ui.util.CompomentType;
+import ui.util.MySideBarListener;
 import ui.util.PanelController;
  /** 
  * 
@@ -13,7 +20,7 @@ import ui.util.PanelController;
  */
 public class StoreManController extends PanelController{
 
-	private MyPanel GMmainpanel;
+	private MyPanel SMmainpanel;
 
 	private MyPanel TransportPanel;
 	private MyPanel ArriveZZPanel;
@@ -23,6 +30,12 @@ public class StoreManController extends PanelController{
 	private MySideBarButton arriveZZButton;
 	private MySideBarButton StoreButton;
 	
+	
+	private final String SMmainpanelStr = StaticMessage.MAIN_WINDOW;
+	private final String TransportPanelStr = "TransportPanel";
+	private final String ArriveZZPanelStr = "ArriveZZPanel";
+	private final String StorePanelStr = "StorePanel";
+	
 	public StoreManController(MyPanel initialPanel, Element e) {
 		super(initialPanel , e);
 		initButtons(e.element(CompomentType.BUTTONS.name()));
@@ -30,54 +43,72 @@ public class StoreManController extends PanelController{
 		addButtons();
 		addPanels();
 		addListeners();
+		addToMap();
+		setAllButtonVisable(false);
+		changePanel.setVisible(true);
 	}
 
 	@Override
 	protected void initPanel(Element e) {
-		// TODO Auto-generated method stub
-		
+		SMmainpanel = new StoreMain(e.element(SMmainpanelStr) , this);
+		TransportPanel = new TransportPanel(e.element(TransportPanelStr));
+		ArriveZZPanel = new ArriveZZPanel(e.element(ArriveZZPanelStr));
+		StorePanel = new StoreShowPanel(e.element(StorePanelStr));
 	}
 
 	@Override
 	protected void initButtons(Element e) {
-		// TODO Auto-generated method stub
-		
+		transportButton = new MySideBarButton(e.element("transport"));
+		arriveZZButton = new MySideBarButton(e.element("arriveZZ"));
+		StoreButton = new MySideBarButton(e.element("store"));
 	}
 
 	@Override
 	protected void addButtons() {
-		// TODO Auto-generated method stub
+		mainPanel.add(transportButton);
+		mainPanel.add(arriveZZButton);
+		mainPanel.add(StoreButton);
 		
 	}
 
 	@Override
 	protected void addPanels() {
-		// TODO Auto-generated method stub
+		changePanel.add(SMmainpanel,SMmainpanelStr);
+		changePanel.add(TransportPanel,TransportPanelStr);
+		changePanel.add(ArriveZZPanel, ArriveZZPanelStr);
+		changePanel.add(StorePanel, StorePanelStr);
 		
 	}
 
 	@Override
 	protected void addListeners() {
-		// TODO Auto-generated method stub
-		
+		transportButton.addMouseListener(new MySideBarListener(transportButton, this, TransportPanelStr));
+		arriveZZButton.addMouseListener(new MySideBarListener(arriveZZButton, this, ArriveZZPanelStr));
+		StoreButton.addMouseListener(new MySideBarListener(StoreButton, this, StorePanelStr));
 	}
 
 	@Override
 	public void setAllButtonUnClicked() {
-		// TODO Auto-generated method stub
+		transportButton.setMyIcon(ButtonState.NORMAL);
+		arriveZZButton.setMyIcon(ButtonState.NORMAL);
+		StoreButton.setMyIcon(ButtonState.NORMAL);
+
 		
 	}
 
 	@Override
 	public void setAllButtonVisable(boolean state) {
-		// TODO Auto-generated method stub
-		
+		transportButton.setVisible(state);	
+		arriveZZButton.setVisible(state);
+		StoreButton.setVisible(state);
 	}
 
 	@Override
 	protected void addToMap() {
-		// TODO Auto-generated method stub
-		
+
+		buttonMap.put(TransportPanelStr, transportButton);
+		buttonMap.put(ArriveZZPanelStr, arriveZZButton);
+		buttonMap.put(StorePanelStr, StoreButton);
 	}
 
 
