@@ -123,17 +123,17 @@
 		</Administrator>
 		<storemanager x="232" y="54" width="1080" height="637">
 		<BUTTONS>
-					<AlarmValueRecover text="" x="718" y="230" width="140" height="165"
+					<alarmRecover text="" x="718" y="230" width="140" height="165"
 						normal="storemanager//AlarmValueRecover" enter="storemanager//AlarmValueRecover-enter" clicked="storemanager//AlarmValueRecover-clicked" />
-					<AlarmValueSet text="" x="718" y="439" width="140" height="165"
+					<alarmSet text="" x="718" y="439" width="140" height="165"
 						normal="storemanager//AlarmValueSet" enter="storemanager//AlarmValueSet-enter" clicked="storemanager//AlarmValueSet-clicked" />
-					<InStoreDoc text="" x="114" y="230" width="140" height="165" 
+					<inStore text="" x="114" y="230" width="140" height="165" 
 						normal="storemanager//InStoreDoc" enter="storemanager//InStoreDoc-enter" clicked="storemanager//InStoreDoc-clicked" />
-					<OutStoreDoc text="" x="114" y="434" width="140" height="165"
+					<outStore text="" x="114" y="434" width="140" height="165"
 						normal="storemanager//OutStoreDoc" enter="storemanager//OutStoreDoc-enter" clicked="storemanager//OutStoreDoc-clicked" />
-					<StoreCheck text="" x="415" y="230" width="140" height="165"
+					<storeCheck text="" x="415" y="230" width="140" height="165"
 						normal="storemanager//StoreCheck" enter="storemanager//StoreCheck-enter" clicked="storemanager//StoreCheck-clicked" />
-					<StoreShow text="" x="415" y="434" enter="storemanager//StoreShow-enter" clicked="storemanager//StoreShow-clicked" />
+					<storeShow text="" x="415" y="434" enter="storemanager//StoreShow-enter" clicked="storemanager//StoreShow-clicked" />
 				</BUTTONS>
 		
 		

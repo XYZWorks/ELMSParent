@@ -24,7 +24,7 @@ public class StoreMain extends MyPanel{
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
-		initLables(config.element(CompomentType.LABLES.name()));
+		initLables(config.element(CompomentType.LABELS.name()));
 		addCompoment();
 		addListener();
 		repaint();

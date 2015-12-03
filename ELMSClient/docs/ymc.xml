@@ -71,6 +71,68 @@
 		
 		
 		</StoreMan>
+		<StoreManager x="232" y="54" width="1080" height="637">
+			<BUTTONS>
+							
+				<inStore text="入库单" x="0" y="227" />
+				<outStore text="出库单" x="0" y="267" />
+				<storeShow text="库存查看" x="0" y="307" />
+				<storeCheck text="库存盘点" x="0" y="347" />
+				<alarmRecover text="报警恢复" x="0" y="387" />
+				<alarmSet text="设置报警值" x="0" y="427" />
+				
+			</BUTTONS>
+			
+			<mainWindow x="232" y="54" width="1080" height="637">
+				<BUTTONS>
+						<alarmRecover text="" x="678" y="190" width="140" height="165"
+						normal="storemanager//AlarmValueRecover-enter" enter="storemanager//AlarmValueRecover" clicked="storemanager//AlarmValueRecover-clicked" />
+					<alarmSet text="" x="678" y="399" width="140" height="165"
+						normal="storemanager//AlarmValueSet-enter" enter="storemanager//AlarmValueSet" clicked="storemanager//AlarmValueSet-clicked" />
+					<inStore text="" x="74" y="190" width="140" height="165" 
+						normal="storemanager//InStoreDoc-enter" enter="storemanager//InStoreDoc" clicked="storemanager//InStoreDoc-clicked" />
+					<outStore text="" x="74" y="394" width="140" height="165"
+						normal="storemanager//OutStoreDoc-enter" enter="storemanager//OutStoreDoc" clicked="storemanager//OutStoreDoc-clicked" />
+					<storeCheck text="" x="375" y="190" width="140" height="165"
+						normal="storemanager//StoreCheck-enter" enter="storemanager//StoreCheck" clicked="storemanager//StoreCheck-clicked" />
+					<storeShow text="" x="375" y="394" width="140" height="165" enter="storemanager//StoreShow"  normal="storemanager//StoreShow-enter" clicked="storemanager//StoreShow-clicked" />
+				</BUTTONS>
+				<DatePicker x="0" y="0" width="400" height="50">
+						<field   x="0" y="0" width="350" height="50"      />
+						<button     x="350" y="0" width="50" height="50"  type = "rectangle" />
+					
+				</DatePicker>
+			</mainWindow>
+			
+			
+			<InStorePanel x="232" y="54" width="1080" height="637">
+			
+			</InStorePanel>
+			
+			<OutStorePanel x="232" y="54" width="1080" height="637">
+			
+			</OutStorePanel>
+			
+			<StoreShowPanel x="232" y="54" width="1080" height="637">
+			
+			</StoreShowPanel>
+			
+			<StoreCheckPanel x="232" y="54" width="1080" height="637">
+			
+			</StoreCheckPanel>
+			
+			<AlarmSetPanel x="232" y="54" width="1080" height="637">
+			
+			</AlarmSetPanel>
+			
+			<AlarmRecoverPanel x="232" y="54" width="1080" height="637">
+			
+			</AlarmRecoverPanel>
+			
+		</StoreManager>
+		
+		
+		
 		<GeneralManager x="232" y="54" width="1080" height="637">
 			<BUTTONS>
 				<GMApproval text="审批单据" x="0" y="227" 

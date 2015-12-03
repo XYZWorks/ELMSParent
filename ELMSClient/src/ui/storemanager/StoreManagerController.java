@@ -61,9 +61,9 @@ public class StoreManagerController extends PanelController {
 
 	@Override
 	protected void initPanel(Element e) {
-		SMmainpanel = new StoreMain(e.element(SMmainpanelStr) , this);
-		inStorePanel = new TransportPanel(e.element(inStorePanelStr));
-		outStorePanel = new ArriveZZPanel(e.element(outStorePanelStr));
+		SMmainpanel = new StoreManageMain(e.element(SMmainpanelStr) , this);
+		inStorePanel = new InStorePanel(e.element(inStorePanelStr));
+		outStorePanel = new OutStorePanel(e.element(outStorePanelStr));
 		storeCheckPanel = new StoreCheckPanel(e.element(storeCheckPanelStr));
 		storeShowPanel = new StoreShowmPanel(e.element(storeShowPanelStr));
 		alarmRecoverPanel = new AlarmRecoverPanel(e.element(alarmRecoverPanelStr));
