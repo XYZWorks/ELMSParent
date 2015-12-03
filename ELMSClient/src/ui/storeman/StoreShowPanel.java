@@ -12,7 +12,8 @@ import ui.tools.MyPictureButton;
  *
  */
 public class StoreShowPanel extends MyPanel{
-
+	
+	
 	public StoreShowPanel(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
