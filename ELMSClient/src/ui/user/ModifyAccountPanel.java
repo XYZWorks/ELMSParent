@@ -14,9 +14,15 @@ public class ModifyAccountPanel extends MyPanel{
 	
 	Accountblservice bl;
 	
+	AccountMesTablePanel table;
+	
+	private MyPic
+	
 	public ModifyAccountPanel(Element config , Accountblservice bl) {
 		super(config);
-		// TODO Auto-generated constructor stub
+		
+		
+		
 	}
 
 	@Override

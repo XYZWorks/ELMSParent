@@ -73,10 +73,10 @@ public class CourierController extends PanelController{
 
 	@Override
 	protected void addPanels() {
-		changePanel.add(courierMainPanel);
-		changePanel.add(addOrderPanel);
-		changePanel.add(findFullInfoPanel);
-		changePanel.add(inputReceiveInfoPanel);
+		changePanel.add(courierMainPanel , courierMainPanelStr);
+		changePanel.add(addOrderPanel , addOrderPanelStr);
+		changePanel.add(findFullInfoPanel , findFullInfoPanelStr);
+		changePanel.add(inputReceiveInfoPanel , inputReceiveInfoPanelStr);
 		
 	}
 

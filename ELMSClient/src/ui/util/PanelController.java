@@ -89,8 +89,6 @@ public abstract class PanelController {
 	 * @param panelName
 	 */
 	public void jumpToWindow(String panelName) {
-		System.out.println("jumptowindow"+panelName);
-		
 		panelManager.show(changePanel, panelName);
 		setAllButtonVisable(true);
 		setTheRelatedButton(panelName);
@@ -104,7 +102,7 @@ public abstract class PanelController {
 			return;
 		}
 		try {
-			buttonMap.get(panelName).setMyIcon(null);
+			 buttonMap.get(panelName).setMyIcon(null);;
 		} catch (Exception e) {
 			//出现异常也无所谓，无伤大雅
 			System.err.println("-------------ERROR: ");
