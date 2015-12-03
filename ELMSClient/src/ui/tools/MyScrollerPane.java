@@ -1,6 +1,8 @@
 package ui.tools;
 
 import javax.swing.JScrollPane;
+
+import ui.table.MyTable;
  /** 
  * 
  * @author czq 
@@ -8,5 +10,8 @@ import javax.swing.JScrollPane;
  */
 @SuppressWarnings("serial")
 public class MyScrollerPane extends JScrollPane {
-
+	
+	public MyScrollerPane(MyTable table) {
+		super(table);
+	}
 }

@@ -42,6 +42,8 @@ public class UserfulMethod {
 
 	}
 	
+	
+	
 	public static final FormatMes checkTexts(String texts){
 		for (int i = 0; i < texts.length(); i++) {
 //			if(texts.charAt(i))

@@ -3,11 +3,11 @@ package ui.generalmanager;
 import org.dom4j.Element;
 
 import blservice.approvalblservice.Approvalblservice;
+import ui.table.MyTable;
 import ui.tools.MyComboBox;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
-import ui.tools.MyTable;
 
 /**
  * 审批单据

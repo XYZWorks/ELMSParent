@@ -5,6 +5,8 @@
  */
 package blservice.accountblservice;
 
+import java.util.ArrayList;
+
 import util.ResultMessage;
 import vo.account.AccountVO;
 
@@ -34,5 +36,6 @@ public interface Accountblservice {
 	 */
 	public ResultMessage modify(AccountVO vo);
 	
+	public ArrayList<AccountVO> show();
 	
 }

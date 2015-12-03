@@ -13,7 +13,10 @@ import ui.tools.MyPanel;
  */
 @SuppressWarnings("serial")
 public class PeopleManagePanel extends MyPanel{
-	CardLayout panelManager;
+	
+	private CardLayout panelManager;
+	
+//	private 
 	
 	public PeopleManagePanel(Element config , CardLayout panelManager) {
 		super(config);

@@ -1,5 +1,7 @@
 package bl.accountbl;
 
+import java.util.ArrayList;
+
 import util.ResultMessage;
 import vo.account.AccountVO;
 import blservice.accountblservice.Accountblservice;
@@ -30,6 +32,12 @@ public class AccountController implements Accountblservice{
 
 	public ResultMessage modify(AccountVO vo) {
 		return account.modify(vo);
+	}
+
+	@Override
+	public ArrayList<AccountVO> show() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

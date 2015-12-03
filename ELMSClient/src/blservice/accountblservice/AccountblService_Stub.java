@@ -1,5 +1,7 @@
 package blservice.accountblservice;
 
+import java.util.ArrayList;
+
 import util.AccountType;
 import util.ResultMessage;
 import vo.account.AccountVO;
@@ -21,6 +23,12 @@ public class AccountblService_Stub implements Accountblservice{
 	public ResultMessage modify(AccountVO vo) {
 		
 		return ResultMessage.SUCCESS;
+	}
+
+	@Override
+	public ArrayList<AccountVO> show() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	
