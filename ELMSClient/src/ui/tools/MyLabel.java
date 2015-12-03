@@ -22,7 +22,7 @@ public class MyLabel extends JLabel{
 				Integer.parseInt(config.attributeValue("width")),
 				Integer.parseInt(config.attributeValue("height")));
 		this.setFont(GraphicsUtils.getFont(config));
-		this.setText(config.attributeValue("text"));
+		
 		if(config.attributeValue("text")!= null){
 			
 			//System.out.println("enter"+config.attributeValue("text"));

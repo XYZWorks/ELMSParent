@@ -79,18 +79,115 @@
 			</mainWindow>
 			<addOrderPanel x="232" y="54" width="1080" height="637">
 				<BUTTONS>
+					<confirm text="确认" x="300" y="200" width="120" height="50"
+						type="rectangle" />
+					<cancel text="取消" x="300" y="200" width="120" height="50"
+						type="rectangle" />
 				</BUTTONS>
+
+
 				<LABELS>
-					<senderInfo text="寄件人信息" x="359" y="240" width="120" height="50" type="rectangle" />
-					<senderNameLabel text="姓名" x="370" y="300" width="120" height="50" type="rectangle" />
-					<senderPhoneLabel text="手机" x="370" y="360" width="120" height="50" type="rectangle" />
-					<senderAddressLabel text="地址" x="370" y="420" width="120" height="50" type="rectangle" />
-					<senderUnitLabel text="单位" x="370" y="480" width="120" height="50" type="rectangle" />
+					<orderBarCode text="订单号" x="300" y="200" width="120"
+						height="50" type="rectangle" />
+					<orderBarCodeLabel text="" x="300" y="200" width="120"
+						height="50" type="rectangle" />
+
+					<senderInfo text="寄件人信息" x="300" y="350" width="120"
+						height="50" type="rectangle" />
+					<senderNameLabel text="姓名" x="370" y="300" width="120"
+						height="50" />
+					<senderPhoneLabel text="手机" x="370" y="360" width="120"
+						height="50" />
+					<senderAddressLabel text="地址" x="370" y="420"
+						width="120" height="50" />
+					<senderUnitLabel text="单位" x="370" y="480" width="120"
+						height="50" />
+
+					<receiverInfo text="收件人信息" x="300" y="400" width="120"
+						height="50" type="rectangle" />
+					<receiverNameLabel text="姓名" x="370" y="300"
+						width="120" height="50" />
+					<receiverPhoneLabel text="手机" x="370" y="360"
+						width="120" height="50" />
+					<receiverAddressLabel text="地址" x="370" y="420"
+						width="120" height="50" />
+					<receiverUnitLabel text="单位" x="370" y="480"
+						width="120" height="50" />
+
+					<goodsInfo text="货物信息" x="300" y="500" width="120"
+						height="50" type="rectangle" />
+					<goodNameLabel text="商品名称" x="370" y="300" width="120"
+						height="50" />
+					<goodWeightLabel text="重量" x="370" y="360" width="120"
+						height="50" />
+					<goodNumLabel text="件数" x="370" y="420" width="120"
+						height="50" />
+					<goodVolumLabel text="体积" x="370" y="480" width="120"
+						height="50" />
+					<goodPackLabel text="包装费用" x="370" y="480" width="120"
+						height="50" />
+					<orderFormLabel text="快递形式" x="370" y="480" width="120"
+						height="50" />
+
+					<estimateTime text="预计到达时间" x="300" y="550" width="120"
+						height="50" type="rectangle"/>
+					<estimateTimeLabel text="" x="370" y="480" width="120"
+						height="50" />
+
+					<cost text="费用总计" x="370" y="480" width="120" height="50" />
+					<costLabel text="" x="370" y="480" width="120" height="50" />
 				</LABELS>
+
+
 				<TEXTFIELDS>
+					<senderNameText x="600" y="100" width="150" height="45" />
+					<senderPhoneText x="600" y="100" width="150"
+						height="45" />
+					<senderAddressText x="600" y="100" width="150"
+						height="45" />
+					<senderUnitText x="600" y="100" width="150" height="45" />
+
+					<receiverNameText x="600" y="100" width="150"
+						height="45" />
+					<receiverPhoneText x="600" y="100" width="150"
+						height="45" />
+					<receiverAddressText x="600" y="100" width="150"
+						height="45" />
+					<receiverUnitText x="600" y="100" width="150"
+						height="45" />
+
+					<goodNameText x="600" y="100" width="150" height="45" />
+					<goodWeightText x="600" y="100" width="150" height="45" />
+					<goodLongText x="600" y="100" width="150" height="45" />
+					<goodWidthText x="600" y="100" width="150" height="45" />
+					<goodHeightText x="600" y="100" width="150" height="45" />
 				</TEXTFIELDS>
+
+				<DatePicker x="0" y="0" width="400" height="50">
+					<field x="0" y="0" width="350" height="50" />
+					<button x="350" y="0" width="50" height="50" type="rectangle" />
+				</DatePicker>
+
+				<bag x="600" y="100" width="150" height="45" />
+				<carton x="600" y="100" width="150" height="45" />
+				<woodCase x="600" y="100" width="150" height="45" />
+
+				<commonOrder x="600" y="100" width="150" height="45" />
+				<quickOrder x="600" y="100" width="150" height="45" />
+				<economicOrder x="600" y="100" width="150" height="45" />
+
+				<senderCity x="600" y="100" width="150" height="45"
+					strings="南京 北京 广州 上海" />
+				<senderArea x="600" y="100" width="150" height="45"
+					strings="静安区" />
+				<receiverCity x="600" y="100" width="150" height="45"
+					strings="南京 北京 广州 上海" />
+				<receiverArea x="600" y="100" width="150" height="45"
+					strings="静安区" />
+
 			</addOrderPanel>
-			<findFullInfoPanel x="232" y="54" width="1080" height="637">
+			<findFullInfoPanel x="232" y="54" width="1080"
+				height="637">
 				<BUTTONS>
 				</BUTTONS>
 				<LABELS>
@@ -98,7 +195,8 @@
 				<TEXTFIELDS>
 				</TEXTFIELDS>
 			</findFullInfoPanel>
-			<inputReceiveInfoPanel x="232" y="54" width="1080" height="637">
+			<inputReceiveInfoPanel x="232" y="54" width="1080"
+				height="637">
 				<BUTTONS>
 				</BUTTONS>
 				<LABELS>
