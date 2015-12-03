@@ -100,7 +100,7 @@
 		<BUTTONS>
 					<ArriveZZ text="" x="421" y="317" width="162" height="150"
 						normal="storeman//ArriveZZ" enter="storeman//ArriveZZ-enter" clicked="storeman//ArriveZZ-clicked" />
-					<StoreShow text="" x="718" y="314" width="107" height="155"
+					<StoreShow text="" x="722" y="316" width="119" height="162"
 						normal="storeman//StoreShow" enter="storeman//StoreShow-enter"
 						clicked="storeman//StoreShow-clicked" />
 					<TransferDoc text="" x="119" y="313" width="119"
