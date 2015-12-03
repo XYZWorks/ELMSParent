@@ -31,8 +31,8 @@
 		<StoreMan x="232" y="54" width="1080" height="637">
 			<BUTTONS>
 				<transport text="中转单" x="0" y="227"/>
-				<arriveZZ text="中转单" x="0" y="227"/>
-				<store text="中转单" x="0" y="227"/>
+				<arriveZZ text="到达单" x="0" y="227"/>
+				<store text="库存查看" x="0" y="227"/>
 			</BUTTONS>
 		</StoreMan>
 		<GeneralManager x="232" y="54" width="1080" height="637">
