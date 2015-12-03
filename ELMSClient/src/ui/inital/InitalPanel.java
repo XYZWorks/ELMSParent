@@ -15,6 +15,7 @@ import ui.tools.MyFrame;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
+import ui.user.AdminstratorController;
 import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.PanelController;
@@ -69,8 +70,9 @@ public class InitalPanel extends MyPanel {
 //		AccountType type = vo.type;
 		
 		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
-		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
+//		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
 //		controller = new FinanceController(this, e.element("Financeman"));
+		controller = new AdminstratorController(this, e.element("Adminstrator"));
 //		switch (type) {
 //		case Adminstrator:
 //			

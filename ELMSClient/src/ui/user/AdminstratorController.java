@@ -38,6 +38,9 @@ public class AdminstratorController extends PanelController{
 		addButtons();
 		addPanels();
 		addListeners();
+		addToMap();
+		this.setAllButtonVisable(false);
+		changePanel.setVisible(true);
 	}
 
 	@Override
@@ -63,9 +66,10 @@ public class AdminstratorController extends PanelController{
 
 	@Override
 	protected void addPanels() {
+		changePanel.add(AdminMainPanel,adminPanelStr);
 		changePanel.add(addAccountPanel, addAccountPanelStr);
 		changePanel.add(modifyAccountPanel, modifyAccountPanelStr);
-		changePanel.add(AdminMainPanel,adminPanelStr);
+		
 	}
 
 	@Override

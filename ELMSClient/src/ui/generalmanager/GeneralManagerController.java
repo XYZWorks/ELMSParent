@@ -49,7 +49,7 @@ public class GeneralManagerController extends PanelController {
 		addPanels();
 		addListeners();
 		addToMap();
-		// panelManager.show(changePanel, "GMmainpanel");
+//		 panelManager.show(changePanel, "GMmainpanel");
 		this.setAllButtonVisable(false);
 		changePanel.setVisible(true);
 	}

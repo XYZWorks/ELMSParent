@@ -41,6 +41,7 @@ public class GeneralManagerMain extends MyPanel {
 		addListener();
 		repaint();
 		setVisible(true);
+		
 	}
 
 	@Override

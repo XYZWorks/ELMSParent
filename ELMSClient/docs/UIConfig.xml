@@ -267,9 +267,31 @@
 
 		</Financeman>
 
+	<Adminstrator x="232" y="54" width="1080" height="637">
+		<BUTTONS>
+			<AddAccount text="增加账户" x="0" y="227" />
+			<ModifyAccount text="修改账户" x="0" y="267" />
+		</BUTTONS>
+		<mainWindow x="232" y="54" width="1080" height="637">
+			<BUTTONS>
+				<AddAccount text="" x="260" y="316" width="119" height="162"
+					normal="Adminstrator//AddAccount" enter="Adminstrator//AddAccount-enter"
+					clicked="Adminstrator//AddAccount-clicked" />
+				<ModifyAccount text="" x="568" y="315" width="123"
+					height="160" normal="Adminstrator//ModifyAccount" enter="Adminstrator//ModifyAccount-enter"
+					clicked="Adminstrator//ModifyAccount-clicked" />
+			</BUTTONS>
+		</mainWindow>
+		<AddAccountPanel x="232" y="54" width="1080" height="637">
+		</AddAccountPanel>
+		<ModifyAccountPanel x="232" y="54" width="1080" height="637">
+		</ModifyAccountPanel >
+		
+		
+	</Adminstrator>
 	</initialpanel>
 
-
+	
 
 	<courier width="1080" height="720">
 		<buttons>
