@@ -61,7 +61,7 @@
 						normal="GeneralManager//InstManage" enter="GeneralManager//InstManage-enter"
 						clicked="GeneralManager//InstManage-clicked" />
 				</BUTTONS>
-				<DatePicker x="0" y="0" width="400" height="400">
+				<DatePicker x="0" y="0" width="400" height="50">
 						<field   x="0" y="0" width="350" height="50"      />
 						<button     x="350" y="0" width="50" height="50"  type = "rectangle" />
 					
