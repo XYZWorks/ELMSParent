@@ -24,6 +24,8 @@ public class MyLabel extends JLabel{
 		this.setFont(GraphicsUtils.getFont(config));
 		this.setText(config.attributeValue("text"));
 		if(config.attributeValue("text")!= null){
+			
+			//System.out.println("enter"+config.attributeValue("text"));
 			this.setText(config.attributeValue("text"));
 		}
 		if(config.attributeValue("fontName")!= null){

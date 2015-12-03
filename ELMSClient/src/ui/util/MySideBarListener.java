@@ -39,10 +39,13 @@ public class MySideBarListener extends MouseAdapter{
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		System.out.println("mysidebar mouseclicked");
 		controller.setAllButtonUnClicked(); 
 		controller.setAllButtonVisable(true);
 		button.setMyIcon(null);
+		System.out.println("");
 		panelManager.show(controller.changePanel, itsPanel);
+		System.out.println("itspanel");
 	}
 	
 	@Override

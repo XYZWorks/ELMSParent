@@ -6,6 +6,6 @@ package ui.util;
  */
 public enum CompomentType {
 	
-	BUTTONS,TEXTFIELDS,LABLES,TABLES
+	BUTTONS,TEXTFIELDS,LABELS,TABLES
 	
 }

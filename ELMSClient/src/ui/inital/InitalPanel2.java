@@ -45,7 +45,7 @@ public class InitalPanel2 extends MyPanel {
 		super(e);
 		this.parent = frame;
 		this.initButtons(e.element(CompomentType.BUTTONS.name()));
-		this.initLables(e.element(CompomentType.LABLES.name()));
+		this.initLables(e.element(CompomentType.LABELS.name()));
 		this.initTextFields(e.element(CompomentType.TEXTFIELDS.name()));
 		this.initOtherCompoment(e);
 		this.addCompoment();
@@ -191,18 +191,9 @@ public class InitalPanel2 extends MyPanel {
 	class HomeListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			home.setMyIcon(ButtonState.MOUSE_CLICKED);
-			//切换到主页
-		}
-
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			home.setMyIcon(ButtonState.MOUSE_ENTERED);
-		}
-
-		@Override
-		public void mouseExited(MouseEvent e) {
-			home.setMyIcon(ButtonState.NORMAL);
+			//切换到主界面
+			controller.jumpBackToMainWindow();
+			
 		}
 	}
 	

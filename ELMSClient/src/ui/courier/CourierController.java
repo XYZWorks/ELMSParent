@@ -41,7 +41,7 @@ public class CourierController extends PanelController{
 		addListeners();	
 		addToMap();
 		//panelManager.show(changePanel, "courierMainPanel");
-		this.setAllButtonVisable(true);
+		this.setAllButtonVisable(false);
 		changePanel.setVisible(true);
 	
 	
@@ -49,10 +49,10 @@ public class CourierController extends PanelController{
 	
 	@Override
 	protected void initPanel(Element e) {
-		courierMainPanel=new CourierMainPanel(e.element(courierMainPanelStr));
-		//addOrderPanel=new AddOrderPanel(e.element(addOrderPanelStr));
-	//	findFullInfoPanel=new FindFullOrderInfoPanel(e.element(findFullInfoPanelStr));
-		//inputReceiveInfoPanel=new InputReceiveInfoPanel(e.element(inputReceiveInfoPanelStr));
+		courierMainPanel=new CourierMainPanel(e.element(courierMainPanelStr),this);
+		addOrderPanel=new AddOrderPanel(e.element(addOrderPanelStr),this);
+		findFullInfoPanel=new FindFullOrderInfoPanel(e.element(findFullInfoPanelStr));
+		inputReceiveInfoPanel=new InputReceiveInfoPanel(e.element(inputReceiveInfoPanelStr));
 	}
 
 	@Override
@@ -74,9 +74,9 @@ public class CourierController extends PanelController{
 	@Override
 	protected void addPanels() {
 		changePanel.add(courierMainPanel);
-		//changePanel.add(addOrderPanel);
-//		changePanel.add(findFullInfoPanel);
-//		changePanel.add(inputReceiveInfoPanel);
+		changePanel.add(addOrderPanel);
+		changePanel.add(findFullInfoPanel);
+		changePanel.add(inputReceiveInfoPanel);
 		
 	}
 

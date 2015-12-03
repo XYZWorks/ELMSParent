@@ -48,7 +48,7 @@ public class initialPanel3 extends MyPanel {
 		super(e);
 		this.parent = frame;
 		this.initButtons(e.element(CompomentType.BUTTONS.name()));
-		this.initLables(e.element(CompomentType.LABLES.name()));
+		this.initLables(e.element(CompomentType.LABELS.name()));
 		this.initTextFields(e.element(CompomentType.TEXTFIELDS.name()));
 		this.initOtherCompoment(e);
 		this.addCompoment();

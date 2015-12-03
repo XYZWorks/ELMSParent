@@ -89,6 +89,8 @@ public abstract class PanelController {
 	 * @param panelName
 	 */
 	public void jumpToWindow(String panelName) {
+		System.out.println("jumptowindow"+panelName);
+		
 		panelManager.show(changePanel, panelName);
 		setAllButtonVisable(true);
 		setTheRelatedButton(panelName);

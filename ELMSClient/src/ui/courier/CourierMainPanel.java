@@ -8,6 +8,8 @@ import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.util.ButtonState;
 import ui.util.CompomentType;
+import ui.util.MyMainPanelButtonListener;
+import ui.util.PanelController;
 
 /**
  * 快递员主界面
@@ -20,13 +22,16 @@ public class CourierMainPanel extends MyPanel {
 	private MyPictureButton addOrderButton;
 	private MyPictureButton findFullInfoButton;
 	private MyPictureButton inputReceiveButton;
-
-	public CourierMainPanel(Element config) {
+	private PanelController controller;
+	
+	public CourierMainPanel(Element config,PanelController controller) {
 		super(config);
+		this.controller=controller;
+		
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
-		initLables(config.element(CompomentType.LABLES.name()));
+		initLables(config.element(CompomentType.LABELS.name()));
 		addCompoment();
 		addListener();
 		setVisible(true);
@@ -70,64 +75,11 @@ public class CourierMainPanel extends MyPanel {
 
 	@Override
 	protected void addListener() {
-		addOrderButton.addMouseListener(new AddOrderListener());
-		findFullInfoButton.addMouseListener(new findFullInfoListener());
-		inputReceiveButton.addMouseListener(new inputReceiveListener());
-		//System.out.println("addlistener");
+		addOrderButton.addMouseListener(new MyMainPanelButtonListener(addOrderButton, "addOrderPanel",controller));
+		findFullInfoButton.addMouseListener(new MyMainPanelButtonListener(findFullInfoButton, "findFullInfoPanel",controller));
+		inputReceiveButton.addMouseListener(new MyMainPanelButtonListener(inputReceiveButton, "inputReceiveInfoPanel",controller));
+		
 	}
 
-	class AddOrderListener extends MouseAdapter {
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			addOrderButton.setMyIcon(ButtonState.MOUSE_CLICKED);
-			//切换到主页
-		}
-
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			addOrderButton.setMyIcon(ButtonState.MOUSE_ENTERED);
-		}
-
-		@Override
-		public void mouseExited(MouseEvent e) {
-			addOrderButton.setMyIcon(ButtonState.NORMAL);
-		}
-	}
-
-	class findFullInfoListener extends MouseAdapter {
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			findFullInfoButton.setMyIcon(ButtonState.MOUSE_CLICKED);
-			//切换到主页
-		}
-
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			findFullInfoButton.setMyIcon(ButtonState.MOUSE_ENTERED);
-		}
-
-		@Override
-		public void mouseExited(MouseEvent e) {
-			findFullInfoButton.setMyIcon(ButtonState.NORMAL);
-		}
-	}
-
-	class inputReceiveListener extends MouseAdapter {
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			inputReceiveButton.setMyIcon(ButtonState.MOUSE_CLICKED);
-			//切换到主页
-		}
-
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			inputReceiveButton.setMyIcon(ButtonState.MOUSE_ENTERED);
-		}
-
-		@Override
-		public void mouseExited(MouseEvent e) {
-			inputReceiveButton.setMyIcon(ButtonState.NORMAL);
-		}
-	}
-
+	
 }

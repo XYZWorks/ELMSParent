@@ -54,9 +54,9 @@
 						clicked="GeneralManager//InstManage-clicked" />
 				</BUTTONS>
 			</mainWindow>
-			</GeneralManager>
-			
-			
+		</GeneralManager>
+
+
 		<CourierManager x="232" y="54" width="1080" height="637">
 			<BUTTONS>
 				<addOrder text="增加订单" x="0" y="267" />
@@ -81,11 +81,15 @@
 				<BUTTONS>
 				</BUTTONS>
 				<LABELS>
+					<senderInfo text="寄件人信息" x="359" y="240" width="120" height="50" type="rectangle" />
+					<senderNameLabel text="姓名" x="370" y="300" width="120" height="50" type="rectangle" />
+					<senderPhoneLabel text="手机" x="370" y="360" width="120" height="50" type="rectangle" />
+					<senderAddressLabel text="地址" x="370" y="420" width="120" height="50" type="rectangle" />
+					<senderUnitLabel text="单位" x="370" y="480" width="120" height="50" type="rectangle" />
 				</LABELS>
 				<TEXTFIELDS>
 				</TEXTFIELDS>
 			</addOrderPanel>
-
 			<findFullInfoPanel x="232" y="54" width="1080" height="637">
 				<BUTTONS>
 				</BUTTONS>
@@ -102,7 +106,7 @@
 				<TEXTFIELDS>
 				</TEXTFIELDS>
 			</inputReceiveInfoPanel>
-		
+
 		</CourierManager>
 	</initialpanel>
 </ELMS>
