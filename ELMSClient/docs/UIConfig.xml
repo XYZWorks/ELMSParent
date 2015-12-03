@@ -127,9 +127,10 @@
 
 
 			<StatisticPanel x="232" y="54" width="1080" height="637">
-				<BUTTONS>
+				<BUTTONS >
+				
 				</BUTTONS>
-
+	
 
 			</StatisticPanel>
 
@@ -142,9 +143,42 @@
 			<PeopleManagePanel x="232" y="54" width="1080"
 				height="637">
 				<BUTTONS>
+						
 				</BUTTONS>
 
-
+				<AddPeople>
+				<BUTTONS>
+					<Confirm x="45" y="45" width="200" height="50"
+						text="确认" type="rectangle" />
+					<Cancel x="45" y="45" width="200" height="50"
+						text="取消" type="rectangle" />
+				</BUTTONS>
+					<LABLES>
+						<InstID x="45" y="45" width="200" height="50"
+						text="确认" type="rectangle" />
+						<ID x="45" y="45" width="200" height="50"
+						text="确认" type="rectangle" />
+						<Name x="45" y="45" width="200" height="50"
+						text="确认" type="rectangle" />
+						<Phone x="45" y="45" width="200" height="50"
+						text="确认" type="rectangle" />
+						<Type x="45" y="45" width="200" height="50"
+						text="确认" type="rectangle" />
+					
+					</LABLES>
+					<TEXTFIELDS>
+						<InstID x="45" y="45" width="200" height="50"
+						text="确认" type="rectangle" />
+						<ID x="45" y="45" width="200" height="50"
+						text="确认" type="rectangle" />
+						<Name x="45" y="45" width="200" height="50"
+						text="确认" type="rectangle" />
+						<Phone x="45" y="45" width="200" height="50"
+						text="确认" type="rectangle" />
+					</TEXTFIELDS>
+					<Type x="45" y="45" width="200" height="50"
+						text="确认" strings = "财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理人员 司机"/>
+				</AddPeople>
 			</PeopleManagePanel>
 
 			<SalaryStrategySetPanel x="232" y="54" width="1080"

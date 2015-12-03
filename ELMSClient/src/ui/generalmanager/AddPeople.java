@@ -67,7 +67,7 @@ public class AddPeople extends MyPanel{
 	protected void initLables(Element e) {
 		instIDL = new MyLabel(e.element("InstID"));
 		IDL = new MyLabel(e.element("ID"));
-		nameL = new MyLabel(e.element("name"));
+		nameL = new MyLabel(e.element("Name"));
 		phoneL = new MyLabel(e.element("Phone"));
 		typeL = new MyLabel(e.element("Type"));
 	}
@@ -90,8 +90,8 @@ public class AddPeople extends MyPanel{
 		add(typeL);
 		add(phone);
 		add(phoneL);
-		add(instID);
-		add(instIDL);
+		add(name);
+		add(nameL);
 	}
 
 	@Override
