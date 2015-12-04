@@ -1,12 +1,9 @@
 package ui.courier;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
-import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.MyMainPanelButtonListener;
 import ui.util.PanelController;
@@ -17,6 +14,7 @@ import ui.util.PanelController;
  * @author:xingcheng
  * @version 2015年11月26日
  */
+@SuppressWarnings("serial")
 public class CourierMainPanel extends MyPanel {
 
 	private MyPictureButton addOrderButton;
@@ -78,6 +76,12 @@ public class CourierMainPanel extends MyPanel {
 		addOrderButton.addMouseListener(new MyMainPanelButtonListener(addOrderButton, "addOrderPanel",controller));
 		findFullInfoButton.addMouseListener(new MyMainPanelButtonListener(findFullInfoButton, "findFullInfoPanel",controller));
 		inputReceiveButton.addMouseListener(new MyMainPanelButtonListener(inputReceiveButton, "inputReceiveInfoPanel",controller));
+		
+	}
+
+	@Override
+	protected void initWhitePanels(Element e) {
+		// TODO Auto-generated method stub
 		
 	}
 

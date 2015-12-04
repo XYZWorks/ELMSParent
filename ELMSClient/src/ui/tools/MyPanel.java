@@ -32,6 +32,11 @@ public abstract class MyPanel extends JPanel{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 	}
+
+	/**
+	 * 初始化 若干 白色矩形panel
+	 */
+	protected abstract void initWhitePanels(Element e);
 	
 	/**
 	 * 初始化按钮
@@ -58,5 +63,6 @@ public abstract class MyPanel extends JPanel{
 	 * 增加监听（内部类机制）
 	 */
 	protected abstract void addListener();
-
+	
+	
 }

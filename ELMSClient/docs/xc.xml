@@ -130,7 +130,7 @@
 						height="50" />
 
 					<estimateTime text="预计到达时间" x="300" y="550" width="120"
-						height="50" type="rectangle"/>
+						height="50" type="rectangle" />
 					<estimateTimeLabel text="" x="370" y="480" width="120"
 						height="50" />
 
@@ -188,6 +188,9 @@
 			</addOrderPanel>
 			<findFullInfoPanel x="232" y="54" width="1080"
 				height="637">
+				<WHITEPANELS>
+					<whitePanel x="232" y="54" width="100" height="50" />
+				</WHITEPANELS>
 				<BUTTONS>
 				</BUTTONS>
 				<LABELS>
