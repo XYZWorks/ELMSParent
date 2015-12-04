@@ -4,6 +4,7 @@ import java.awt.CardLayout;
 
 import org.dom4j.Element;
 
+import blservice.personnelblservice.Personnelblservice;
 import ui.tools.MyPanel;
 
 /**
@@ -16,8 +17,11 @@ public class InstManagePanel extends MyPanel{
 	
 	CardLayout panelManager;
 	
-	public InstManagePanel(Element config , CardLayout panelManager) {
+	Personnelblservice bl;
+	
+	public InstManagePanel(Element config , CardLayout panelManager , Personnelblservice bl) {
 		super(config);
+		this.bl = bl;
 		this.panelManager = panelManager;
 		// TODO Auto-generated constructor stub
 	}

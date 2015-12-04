@@ -44,13 +44,13 @@ public class UserfulMethod {
 	
 	
 	
-	public static final FormatMes checkTexts(String texts){
-		for (int i = 0; i < texts.length(); i++) {
-//			if(texts.charAt(i))
-		}
-		
-		
-	}
+//	public static final FormatMes checkTexts(String texts){
+//		for (int i = 0; i < texts.length(); i++) {
+////			if(texts.charAt(i))
+//		}
+//		
+//		
+//	}
 	
 	
 //	private static final boolean is_HANZI_OrAlaOrNum(){

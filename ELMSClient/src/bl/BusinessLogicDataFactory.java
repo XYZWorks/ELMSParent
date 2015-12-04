@@ -3,12 +3,16 @@ package bl;
 import bl.DTManagebl.DTManageController;
 import bl.accountbl.AccountController;
 import bl.approvalbl.ApprovalController;
+import bl.personnelbl.PersonnelController;
+import bl.statisticbl.StatisticController;
 import bl.strategybl.StrategyController;
 import bl.userbl.UserController;
 import bl.userbl.UserMes;
 import blservice.DTManageblservice.DTManageblservice;
 import blservice.accountblservice.Accountblservice;
 import blservice.approvalblservice.Approvalblservice;
+import blservice.personnelblservice.Personnelblservice;
+import blservice.statisticblservice.Statisticblservice;
 import blservice.strategyblservice.StrategyblService;
 import blservice.usermesblservice.UserMesblservice;
 /** 
@@ -53,5 +57,11 @@ public class BusinessLogicDataFactory {
 		return new StrategyController();
 	}
 	
+	public Personnelblservice getPersonnelBusinessLogic(){
+		return new PersonnelController();
+	}
 	
+	public Statisticblservice getStatisticBusinessLogic(){
+		return new StatisticController();
+	}
 }

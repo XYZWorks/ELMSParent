@@ -31,8 +31,9 @@ public class ApprovalDocsPanel extends MyPanel{
 	
 	private Approvalblservice bl;
 	
-	public ApprovalDocsPanel(Element config ) {
+	public ApprovalDocsPanel(Element config  , Approvalblservice bl) {
 		super(config);
+		this.bl = bl;
 		// TODO Auto-generated constructor stub
 	}
 

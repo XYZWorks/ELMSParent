@@ -29,10 +29,11 @@ public class AdminstratorController extends PanelController{
 	private final static String addAccountPanelStr = "AddAccountPanel";
 	private final static String modifyAccountPanelStr = "ModifyAccountPanel";
 	
-	private Accountblservice bl = BusinessLogicDataFactory.getFactory().getAccountBusinessLogic();
+	private Accountblservice bl ;
 	
 	public AdminstratorController(MyPanel initialPanel, Element e) {
 		super(initialPanel , e);
+		initialBL();
 		initButtons(e.element(CompomentType.BUTTONS.name()));
 		initPanel(e);
 		addButtons();
@@ -42,7 +43,12 @@ public class AdminstratorController extends PanelController{
 		this.setAllButtonVisable(false);
 		changePanel.setVisible(true);
 	}
-
+	
+	@Override
+	protected void initialBL() {
+		bl = BusinessLogicDataFactory.getFactory().getAccountBusinessLogic();
+	}
+	
 	@Override
 	protected void initPanel(Element e) {
 		AdminMainPanel = new UserManageMain(e.element(adminPanelStr), this);
@@ -97,6 +103,8 @@ public class AdminstratorController extends PanelController{
 		buttonMap.put(modifyAccountPanelStr, modifyAccountButton);
 		
 	}
+
+	
 
 	
 

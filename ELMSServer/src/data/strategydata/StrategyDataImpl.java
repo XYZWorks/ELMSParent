@@ -22,7 +22,7 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 	/**
 	 * 工资计算方式表 表名
 	 */
-	private final String salaryTable = "salary";
+	private static final String salaryTable = "salary";
 	
 	
 
@@ -45,7 +45,7 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 	}
 
 	public ResultMessage setConst(ConstPO po) throws RemoteException {
-		if(helper.writeToSerFile(po, "const")){
+		if(helper.writeToSerFile(po, "const" , false)){
 			return ResultMessage.SUCCESS;
 		}else{
 			return ResultMessage.FAIL;

@@ -48,6 +48,11 @@ public abstract class PanelController {
 	}
 	
 	/**
+	 * 初始化业务逻辑,别忘了在controller的初始化里面加上这一句话
+	 */
+	protected abstract void initialBL();
+	
+	/**
 	 * 初始化panel
 	 */
 	protected abstract void initPanel(Element e);

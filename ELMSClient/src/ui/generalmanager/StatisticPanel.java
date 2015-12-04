@@ -2,6 +2,7 @@ package ui.generalmanager;
 
 import org.dom4j.Element;
 
+import blservice.statisticblservice.Statisticblservice;
 import ui.tools.MyPanel;
 
 /**
@@ -11,9 +12,12 @@ import ui.tools.MyPanel;
  */
 @SuppressWarnings("serial")
 public class StatisticPanel extends MyPanel{
-
-	public StatisticPanel(Element config) {
+	
+	private Statisticblservice bl;
+	
+	public StatisticPanel(Element config , Statisticblservice bl) {
 		super(config);
+		this.bl = bl;
 		// TODO Auto-generated constructor stub
 	}
 

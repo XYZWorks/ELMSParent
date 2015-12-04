@@ -49,8 +49,9 @@ public class SalaryStrategySetPanel  extends MyPanel implements TextFieldsManage
 	
 	private StrategyblService bl;
 	
-	public SalaryStrategySetPanel(Element config) {
+	public SalaryStrategySetPanel(Element config , StrategyblService bl) {
 		super(config);
+		this.bl = bl;
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);

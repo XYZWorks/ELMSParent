@@ -2,6 +2,11 @@ package ui.generalmanager;
 
 import org.dom4j.Element;
 
+import bl.BusinessLogicDataFactory;
+import blservice.approvalblservice.Approvalblservice;
+import blservice.personnelblservice.Personnelblservice;
+import blservice.statisticblservice.Statisticblservice;
+import blservice.strategyblservice.StrategyblService;
 import ui.tools.MyPanel;
 import ui.tools.MySideBarButton;
 import ui.util.ButtonState;
@@ -33,27 +38,41 @@ public class GeneralManagerController extends PanelController {
 	private MySideBarButton statisticButton;
 	private MySideBarButton salaryStrategySetButton;
 	
-	private final String GMmainpanelStr = StaticMessage.MAIN_WINDOW;
-	private final String constSetPanelStr = "ConstSetPanel";
-	private final String approvalPanelStr = "ApprovalPanel";
-	private final String instManagePanelStr = "InstManagePanel";
-	private final String peopleManagePanelStr = "PeopleManagePanel";
-	private final String statisticPanelStr = "StatisticPanel";
-	private final String salaryStrategySetStr = "SalaryStrategySetPanel";
+	private static final String GMmainpanelStr = StaticMessage.MAIN_WINDOW;
+	private static final String constSetPanelStr = "ConstSetPanel";
+	private static final String approvalPanelStr = "ApprovalPanel";
+	private static final String instManagePanelStr = "InstManagePanel";
+	private static final String peopleManagePanelStr = "PeopleManagePanel";
+	private static final String statisticPanelStr = "StatisticPanel";
+	private static final String salaryStrategySetStr = "SalaryStrategySetPanel";
+	
+	private Approvalblservice approvalBL;
+	private StrategyblService strategyblService;
+	private Statisticblservice statisticblservice;
+	private Personnelblservice personnelblservice;
+	
 
 	public GeneralManagerController(MyPanel initialPanel, Element e) {
 		super(initialPanel, e);
+		initialBL();
 		initButtons(e.element(CompomentType.BUTTONS.name()));
 		initPanel(e);
 		addButtons();
 		addPanels();
 		addListeners();
 		addToMap();
-//		 panelManager.show(changePanel, "GMmainpanel");
 		this.setAllButtonVisable(false);
 		changePanel.setVisible(true);
 	}
-
+	
+	@Override
+	protected void initialBL() {
+		approvalBL = BusinessLogicDataFactory.getFactory().getApprovalBusinessLogic();
+		strategyblService = BusinessLogicDataFactory.getFactory().getStrategyBusinessLogic();
+		statisticblservice = BusinessLogicDataFactory.getFactory().getStatisticBusinessLogic();
+		personnelblservice = BusinessLogicDataFactory.getFactory().getPersonnelBusinessLogic();
+	}
+	
 	@Override
 	protected void initButtons(Element e) {
 		constsetButton = new MySideBarButton(e.element("ConstSet"));
@@ -81,13 +100,13 @@ public class GeneralManagerController extends PanelController {
 	@Override
 	protected void initPanel(Element e) {
 		GMmainpanel = new GeneralManagerMain(e.element(GMmainpanelStr) , this);
-		approvalPanel = new ApprovalDocsPanel(e.element(approvalPanelStr));
-		constSetPanel = new ConstSetPanel(e.element(constSetPanelStr));
-		statisticPanel = new StatisticPanel(e.element(statisticPanelStr));
-		instManagePanel = new InstManagePanel(e.element(instManagePanelStr) , panelManager);
+		approvalPanel = new ApprovalDocsPanel(e.element(approvalPanelStr) , approvalBL);
+		constSetPanel = new ConstSetPanel(e.element(constSetPanelStr) , strategyblService);
+		statisticPanel = new StatisticPanel(e.element(statisticPanelStr) , statisticblservice);
+		instManagePanel = new InstManagePanel(e.element(instManagePanelStr) , panelManager , personnelblservice);
 		peopleManagePanel = new PeopleManagePanel(
-				e.element(peopleManagePanelStr) , panelManager);
-		salaryStrategySetPanel = new SalaryStrategySetPanel(e.element(salaryStrategySetStr));
+				e.element(peopleManagePanelStr) , panelManager , personnelblservice);
+		salaryStrategySetPanel = new SalaryStrategySetPanel(e.element(salaryStrategySetStr), strategyblService);
 	}
 
 	@Override
@@ -143,5 +162,7 @@ public class GeneralManagerController extends PanelController {
 		buttonMap.put(statisticPanelStr, statisticButton);
 		
 	}
+
+	
 
 }

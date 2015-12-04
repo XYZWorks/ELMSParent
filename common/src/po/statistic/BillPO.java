@@ -34,7 +34,7 @@ public class BillPO implements Serializable{
 	private MyDate date;
 	
 	
-	/**
+	 /**
 	 * 机构列表
 	 */
 	 private ArrayList<InstPO> instituations;

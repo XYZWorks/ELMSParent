@@ -4,11 +4,8 @@ import org.dom4j.Element;
 
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
-import ui.tools.MySideBarButton;
 import ui.util.CompomentType;
 import ui.util.MyMainPanelButtonListener;
-import ui.util.MyPictureButtonListener;
-import ui.util.MySideBarListener;
 import ui.util.PanelController;
 
 /**
@@ -34,7 +31,7 @@ public class FinanceMain extends MyPanel{
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
-		initLables(config.element(CompomentType.LABLES.name()));
+		initLables(config.element(CompomentType.LABELS.name()));
 		addCompoment();
 		addListener();
 		setVisible(true);

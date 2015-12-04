@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+
+import org.omg.CORBA.StringHolder;
  /** 
  * 
  * @author czq 
@@ -143,11 +145,11 @@ public class DataServiceHelper {
 	 * @param name
 	 * @return
 	 */
-	public boolean writeToSerFile(Object object , String name){
+	public boolean writeToSerFile(Object object , String name , boolean append){
 		String pres = "data\\";
 		ObjectOutputStream out;
 		try {
-			out = new ObjectOutputStream(new FileOutputStream(pres + name));
+			out = new ObjectOutputStream(new FileOutputStream(pres + name , append));
 			out.writeObject(object);
 			out.close();
 			return true;
@@ -170,7 +172,7 @@ public class DataServiceHelper {
 	 * @param name
 	 * @return
 	 */
-	public Object readFromSerFile(String name){
+	public final Object readFromSerFile(String name){
 		String pres = "data\\";
 		Object result;
 		ObjectInputStream input;
@@ -186,6 +188,52 @@ public class DataServiceHelper {
 		}
 		return null;
 	}
+	
+	public final ArrayList<Object> readManyFromSerFile(String name){
+		String pres = "data\\";
+		ArrayList<Object> result = new ArrayList<>();
+		ObjectInputStream input = null;
+		Object temp;
+		
+		try {
+			input = new ObjectInputStream(new FileInputStream(pres + name));
+		} catch (FileNotFoundException e1) {
+			System.err.println("序列化文件丢失------------------");
+			e1.printStackTrace();
+			
+		} catch (IOException e1) {
+			
+			e1.printStackTrace();
+			return null;
+		}
+		
+		while(true){
+			try {
+				temp = input.readObject();
+				
+				if(temp != null){
+					result.add(temp);
+				}else{
+					break;
+				}
+				
+			} catch (ClassNotFoundException | IOException e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
+		
+		try {
+			input.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return result.isEmpty()?null:result;
+		
+		
+	}
+	
 	
 	
 }
