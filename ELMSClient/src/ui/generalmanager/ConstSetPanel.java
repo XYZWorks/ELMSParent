@@ -38,6 +38,14 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 	
 	private MyPictureLabel ratios;
 	
+	private MyPictureLabel ecnomic;
+	private MyPictureLabel normal;
+	private MyPictureLabel fast;
+	
+	private MyTextField ecnomicT;
+	private MyTextField normalT;
+	private MyTextField fastT;
+	
 	private MyTextField instance;
 	private MyTextField planeCost;
 	private MyTextField trainCost;
@@ -84,7 +92,9 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 			plasticCost.setText(String.valueOf(consts.plasticBag));
 			paperCost.setText(String.valueOf(consts.paperBox));
 			woodCost.setText(String.valueOf(consts.woodBox));
-			
+			ecnomicT.setText(String.valueOf(consts.ratios[0]));
+			normalT.setText(String.valueOf(consts.ratios[1]));
+			fastT.setText(String.valueOf(consts.ratios[2]));
 		}
 	}
 	
@@ -131,11 +141,7 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
-			//TODO 将数据保存起来
-//			bl.setConst(new ConstVO(200, 200,123, 123, 123, 123, 
-//					Double.parseDouble(plane.getText()), Double.parseDouble(train.getText()), Double.parseDouble(truck.getText()), Integer.parseInt(paper.getText()), Integer.parseInt(wood.getText()), Integer.parseInt(plasticCost.getText()),  new int[]));
-			
-			
+			checkAndSaveMes();
 			checkConstPanel();
 		}
 	}
@@ -149,8 +155,14 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
 			checkConstPanel();
+			initConst();
 		}
 	}
+	
+	private void checkAndSaveMes(){
+		//TODO
+	}
+	
 	
 	public void allowTextFieldToModify(boolean flag) {
 		instance.setEditable(flag);
@@ -160,11 +172,29 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 		paperCost.setEditable(flag);
 		woodCost.setEditable(flag);
 		plasticCost.setEditable(flag);
+		fastT.setEditable(flag);
+		ecnomicT.setEditable(flag);
+		normalT.setEditable(flag);
+		
 		
 	}
 	
 	
 	
+	class MyCityListener implements ItemListener{
+
+		@Override
+		public void itemStateChanged(ItemEvent e) {
+			if( ((String)startCity.getSelectedItem() ).equals((String)arriveCity.getSelectedItem())){
+				instance.setText("0");
+				return;
+			}
+			
+			instance.setText(String.valueOf(instanceBetweenCity( ( String)startCity.getSelectedItem(), ( String)arriveCity.getSelectedItem())));
+			
+		}
+		
+	}
 	
 	
 	//下面为一些初始化代码
@@ -189,7 +219,9 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 		paperCost = new MyTextField(e.element("paperCost"));
 		woodCost = new MyTextField(e.element("woodCost"));
 		plasticCost = new MyTextField(e.element("plasticCost"));		
-		
+		fastT = new MyTextField(e.element("fast"));
+		normalT = new MyTextField(e.element("normal"));
+		ecnomicT = new MyTextField(e.element("ecnomic"));
 	}
 
 	@Override
@@ -207,7 +239,9 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 		plastic = new MyPictureLabel(e.element("plastic"));
 		
 		ratios = new MyPictureLabel(e.element("ratios"));
-		
+		fast = new MyPictureLabel(e.element("fast"));
+		normal = new MyPictureLabel(e.element("normal"));
+		ecnomic = new MyPictureLabel(e.element("ecnomic"));
 	}
 
 	@Override
@@ -247,6 +281,13 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 		
 		this.add(startCity);
 		this.add(arriveCity);
+		
+		this.add(fast);
+		add(fastT);
+		add(ecnomic);
+		add(ecnomicT);
+		add(normal);
+		add(normalT);
 	}
 
 	@Override
@@ -258,21 +299,7 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 		startCity.addItemListener(aListener);
 		arriveCity.addItemListener(aListener);
 	}
-	
-	class MyCityListener implements ItemListener{
 
-		@Override
-		public void itemStateChanged(ItemEvent e) {
-			if( ((String)startCity.getSelectedItem() ).equals((String)arriveCity.getSelectedItem())){
-				instance.setText("0");
-				return;
-			}
-			
-			instance.setText(String.valueOf(instanceBetweenCity( ( String)startCity.getSelectedItem(), ( String)arriveCity.getSelectedItem())));
-			
-		}
-		
-	}
 	
 	private int instanceBetweenCity(String start , String end){
 		

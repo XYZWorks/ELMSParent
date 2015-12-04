@@ -61,9 +61,8 @@ public class ConstVO {
 	 * 经济快递、标准快递、次晨特快价格比
 	 */
 	public int[] ratios;
-	public ConstVO() {
-		// TODO Auto-generated constructor stub
-	}
+	
+	public ConstVO() {}
 	public ConstVO( int mileInBN, int mileInBS, int mileInBG,
 			int mileInNS, int mileInNG, int mileINSG, double plane,
 			double train, double truck, int paperBox, int woodBox,
