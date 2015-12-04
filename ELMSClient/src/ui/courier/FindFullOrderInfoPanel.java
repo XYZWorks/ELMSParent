@@ -6,10 +6,10 @@ import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
-import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyRadioButton;
 import ui.tools.MyTextField;
+import ui.tools.MyLabel;
 import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
 import ui.util.PanelController;
@@ -17,9 +17,17 @@ import ui.util.PanelController;
 @SuppressWarnings("serial")
 public class FindFullOrderInfoPanel extends MyPanel{
 	//白色矩形panel
-	private MyWhitePanel whitePanel;
+	private MyWhitePanel senderInfoPanel;
+	private MyWhitePanel receiverInfoPanel;
+	private MyWhitePanel goodInfoPanel;
+	private MyWhitePanel estimateTimePanel;
+	private MyWhitePanel costPanel;
+	//显示 物流信息面板
+	private MyWhitePanel transferInfoPanel;
+	
 	
 	private PanelController controller;
+	
 	//订单号
 	private MyPictureLabel orderBarCode;
 	private MyLabel orderBarCodeLabel;
@@ -33,6 +41,11 @@ public class FindFullOrderInfoPanel extends MyPanel{
 	private MyLabel senderPhoneLabel;
 	private MyLabel senderAddressLabel;
 	private MyLabel senderUnitLabel;
+	
+	private MyLabel senderNameText;
+	private MyLabel senderPhoneText;
+	private MyLabel senderAddressText;
+	private MyLabel senderUnitText;
 
 	//收件人信息
 	private MyPictureLabel receiverInfo;
@@ -40,6 +53,12 @@ public class FindFullOrderInfoPanel extends MyPanel{
 	private MyLabel receiverPhoneLabel;
 	private MyLabel receiverAddressLabel;
 	private MyLabel receiverUnitLabel;
+	
+	private MyLabel receiverNameText;
+	private MyLabel receiverPhoneText;
+	private MyLabel receiverAddressText;
+	private MyLabel receiverUnitText;
+	
 	
 	//货物信息
 	private MyPictureLabel goodsInfo;
@@ -50,6 +69,12 @@ public class FindFullOrderInfoPanel extends MyPanel{
 	private MyLabel goodPackLabel;//包装形式
 	private MyLabel orderFormLabel;//快递形式
 	
+	private MyLabel goodNameText;
+	private MyLabel goodWeightText;
+	private MyLabel goodLongText;
+	private MyLabel goodWidthText;
+	private MyLabel goodHeightText;
+	
 	//预计送达时间
 	private MyPictureLabel estimateTime;
 	private MyLabel estimateTimeLabel;
@@ -58,45 +83,12 @@ public class FindFullOrderInfoPanel extends MyPanel{
 	private MyPictureLabel cost;
 	private MyLabel costLabel;
 	
-	
-	//textField
-	private MyTextField senderNameText;
-	private MyTextField senderPhoneText;
-	private MyTextField senderAddressText;
-	private MyTextField senderUnitText;
-	
-	private MyTextField receiverNameText;
-	private MyTextField receiverPhoneText;
-	private MyTextField receiverAddressText;
-	private MyTextField receiverUnitText;
-	
-	private MyTextField goodNameText;
-	private MyTextField goodWeightText;
-	private MyTextField goodLongText;
-	private MyTextField goodWidthText;
-	private MyTextField goodHeightText;
-	
-	/*
-	 * 单选框
-	 */
-	//包装形式
-	private MyRadioButton bag;//快递袋
-	private MyRadioButton carton;//纸箱
-	private MyRadioButton woodCase;//木箱
-	
-	//快递形式
-	private MyRadioButton commonOrder;
-	private MyRadioButton quickOrder;
-	private MyRadioButton economicOrder;
-	
-	//下拉框
-	private MyComboBox senderCity;
-	private MyComboBox senderArea;
-	private MyComboBox receiverCity;
-	private MyComboBox receiverArea;
-	
 
-	
+	//包装形式
+	private MyLabel goodPack;
+	//快递形式
+	private MyLabel orderForm;
+
 	public FindFullOrderInfoPanel(Element config) {
 		super(config);
 		initButtons(config.element(CompomentType.BUTTONS.name()));
@@ -118,23 +110,6 @@ public class FindFullOrderInfoPanel extends MyPanel{
 
 	@Override
 	protected void initTextFields(Element e) {
-		senderNameText=new MyTextField(e.element("senderNameText"));
-		senderPhoneText=new MyTextField(e.element("senderPhoneText"));
-		senderAddressText=new MyTextField(e.element("senderAddressText"));
-		senderUnitText=new MyTextField(e.element("senderUnitText"));
-		
-		receiverNameText=new MyTextField(e.element("receiverNameText"));
-		receiverPhoneText=new MyTextField(e.element("receiverPhoneText"));
-		receiverAddressText=new MyTextField(e.element("receiverAddressText"));
-		receiverUnitText=new MyTextField(e.element("receiverUnitText"));
-		
-		goodNameText=new MyTextField(e.element("goodNameText"));
-		goodWeightText=new MyTextField(e.element("goodWeightText"));
-		goodLongText=new MyTextField(e.element("goodLongText"));
-		goodWidthText=new MyTextField(e.element("goodWidthText"));
-		goodHeightText=new MyTextField(e.element("goodHeightText"));
-		
-		
 	}
 
 	@Override
@@ -148,12 +123,24 @@ public class FindFullOrderInfoPanel extends MyPanel{
 		senderAddressLabel=new MyLabel(e.element("senderAddressLabel"));
 		senderUnitLabel=new MyLabel(e.element("senderUnitLabel"));
 		senderPhoneLabel=new MyLabel(e.element("senderPhoneLabel"));
+		
+		senderNameText=new MyLabel(e.element("senderNameText"));
+		senderPhoneText=new MyLabel(e.element("senderPhoneText"));
+		senderAddressText=new MyLabel(e.element("senderAddressText"));
+		senderUnitText=new MyLabel(e.element("senderUnitText"));
+		
 		//收件人信息
 		receiverInfo=new MyPictureLabel(e.element("receiverInfo"));
 		receiverNameLabel=new MyLabel(e.element("receiverNameLabel"));
 		receiverPhoneLabel=new MyLabel(e.element("receiverPhoneLabel"));
 		receiverAddressLabel=new MyLabel(e.element("receiverAddressLabel"));
 		receiverUnitLabel=new MyLabel(e.element("receiverUnitLabel"));
+		
+		receiverNameText=new MyLabel(e.element("receiverNameText"));
+		receiverPhoneText=new MyLabel(e.element("receiverPhoneText"));
+		receiverAddressText=new MyLabel(e.element("receiverAddressText"));
+		receiverUnitText=new MyLabel(e.element("receiverUnitText"));
+		
 		
 		//货物信息
 		goodsInfo=new MyPictureLabel(e.element("goodsInfo"));
@@ -163,103 +150,95 @@ public class FindFullOrderInfoPanel extends MyPanel{
 		goodVolumLabel=new MyLabel(e.element("goodVolumLabel"));
 		goodPackLabel=new MyLabel(e.element("goodPackLabel"));
 		orderFormLabel=new MyLabel(e.element("orderFormLabel"));
+		
+		goodNameText=new MyLabel(e.element("goodNameText"));
+		goodWeightText=new MyLabel(e.element("goodWeightText"));
+		goodLongText=new MyLabel(e.element("goodLongText"));
+		goodWidthText=new MyLabel(e.element("goodWidthText"));
+		goodHeightText=new MyLabel(e.element("goodHeightText"));
 
+		//预计时间
 		estimateTime=new MyPictureLabel(e.element("estimateTime"));
 		estimateTimeLabel=new MyLabel(e.element("estimateTimeLabel"));
 		
+		//费用
 		cost=new MyPictureLabel(e.element("cost"));
 		costLabel=new MyLabel(e.element("costLabel"));
 	}
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		whitePanel=new MyWhitePanel(e.element("whitePanel"));
-		
+		senderInfoPanel=new MyWhitePanel(e.element("senderInfoPanel"));
+		receiverInfoPanel=new MyWhitePanel(e.element("receiverInfoPanel"));
+		goodInfoPanel=new MyWhitePanel(e.element("goodInfoPanel"));
+		estimateTimePanel=new MyWhitePanel(e.element("estimateTimePanel"));
+		costPanel=new MyWhitePanel(e.element("costPanel"));
+		transferInfoPanel=new MyWhitePanel(e.element("transferInfoPanel"));
 		
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-DatePicker=new MyDatePicker(e.element("DatePicker"));
-		
-		bag=new MyRadioButton(e.element("bag"));
-		carton=new MyRadioButton(e.element("carton"));
-		woodCase=new MyRadioButton(e.element("woodCase"));
-		
-		commonOrder=new MyRadioButton(e.element("commonOrder"));
-		quickOrder=new MyRadioButton(e.element("quickOrder"));
-		economicOrder=new MyRadioButton(e.element("economicOrder"));
-		
-		senderCity=new MyComboBox(e.element("senderCity"));
-		senderArea=new MyComboBox(e.element("senderArea"));
-		
-		receiverCity=new MyComboBox(e.element("receiverCity"));
-		receiverArea=new MyComboBox(e.element("receiverArea"));
+		DatePicker=new MyDatePicker(e.element("DatePicker"));
+	
 	}
 
 	@Override
 	protected void addCompoment() {
-		this.add(whitePanel);
+		this.add(senderInfoPanel);
+		this.add(receiverInfoPanel);
+		this.add(goodInfoPanel);
+		this.add(estimateTimePanel);
+		this.add(costPanel);
+		this.add(transferInfoPanel);
+	
+		
 		this.add(orderBarCode);
 		this.add(orderBarCodeLabel);
 		
 		this.add(DatePicker);
 		
-		this.add(senderInfo);
-		this.add(senderPhoneLabel);
-		this.add(senderNameLabel);
-		this.add(senderAddressLabel);
-		this.add(senderUnitLabel);
+		senderInfoPanel.add(senderInfo);
+		senderInfoPanel.add(senderPhoneLabel);
+		senderInfoPanel.add(senderNameLabel);
+		senderInfoPanel.add(senderAddressLabel);
+		senderInfoPanel.add(senderUnitLabel);
+		senderInfoPanel.add(senderNameText);
+		senderInfoPanel.add(senderPhoneText);
+		senderInfoPanel.add(senderAddressText);
+		senderInfoPanel.add(senderUnitText);
 		
-		this.add(receiverInfo);
-		this.add(receiverNameLabel);
-		this.add(receiverPhoneLabel);
-		this.add(receiverAddressLabel);
-		this.add(receiverUnitLabel);
+		receiverInfoPanel.add(receiverInfo);
+		receiverInfoPanel.add(receiverNameLabel);
+		receiverInfoPanel.add(receiverPhoneLabel);
+		receiverInfoPanel.add(receiverAddressLabel);
+		receiverInfoPanel.add(receiverUnitLabel);
 		
-		this.add(goodsInfo);
-		this.add(goodNameLabel);
-		this.add(goodWeightLabel);
-		this.add(goodNumLabel);
-		this.add(goodVolumLabel);
-		this.add(goodPackLabel);
-		this.add(orderFormLabel);
+		receiverInfoPanel.add(receiverNameText);
+		receiverInfoPanel.add(receiverPhoneText);
+		receiverInfoPanel.add(receiverAddressText);
+		receiverInfoPanel.add(receiverUnitText);
 		
-		this.add(estimateTime);
-		this.add(estimateTimeLabel);
-		this.add(cost);
-		this.add(costLabel);
+		goodInfoPanel.add(goodsInfo);
+		goodInfoPanel.add(goodNameLabel);
+		goodInfoPanel.add(goodWeightLabel);
+		goodInfoPanel.add(goodNumLabel);
+		goodInfoPanel.add(goodVolumLabel);
+		goodInfoPanel.add(goodPackLabel);
+		goodInfoPanel.add(orderFormLabel);
 		
+		goodInfoPanel.add(goodNameText);
+		goodInfoPanel.add(goodWeightText);
+		goodInfoPanel.add(goodLongText);
+		goodInfoPanel.add(goodWidthText);
+		goodInfoPanel.add(goodHeightText);
 		
-		this.add(senderNameText);
-		this.add(senderPhoneText);
-		this.add(senderAddressText);
-		this.add(senderUnitText);
-
-		this.add(receiverNameText);
-		this.add(receiverPhoneText);
-		this.add(receiverAddressText);
-		this.add(receiverUnitText);
+		estimateTimePanel.add(estimateTime);
+		estimateTimePanel.add(estimateTimeLabel);
 		
-		this.add(goodNameText);
-		this.add(goodWeightText);
-		this.add(goodLongText);
-		this.add(goodWidthText);
-		this.add(goodHeightText);
+		costPanel.add(cost);
+		costPanel.add(costLabel);
 		
-		this.add(bag);
-		this.add(carton);
-		this.add(woodCase);
-		
-		this.add(commonOrder);
-		this.add(quickOrder);
-		this.add(economicOrder);
-
-		this.add(senderCity);
-		this.add(senderArea);
-		this.add(receiverCity);
-		this.add(receiverArea);
-
 		
 	}
 
