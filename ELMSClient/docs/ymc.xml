@@ -42,12 +42,12 @@
 			<mainWindow x="232" y="54" width="1080" height="637">
 				<BUTTONS>
 						<arriveZZ text="" x="391" y="267" width="162" height="150"
-							normal="storeman//ArriveZZ" enter="storeman//ArriveZZ-enter" clicked="storeman//ArriveZZ-clicked" />
+							normal="storeman//ArriveZZ-enter" enter="storeman//ArriveZZ" clicked="storeman//ArriveZZ-clicked" />
 						<store text="" x="692" y="266" width="119" height="162"
-							normal="storeman//StoreShow" enter="storeman//StoreShow-enter"
+							normal="storeman//StoreShow-enter" enter="storeman//StoreShow"
 							clicked="storeman//StoreShow-clicked" />
 						<transport text="" x="89" y="263" width="119" height="158"
-				 			normal="storeman//TransferDoc" enter="storeman//TransferDoc-enter"
+				 			normal="storeman//TransferDoc-enter" enter="storeman//TransferDoc"
 							clicked="storeman//TransferDoc-clicked" />
 				</BUTTONS>
 				<DatePicker x="0" y="0" width="400" height="50">
@@ -86,16 +86,16 @@
 			<mainWindow x="232" y="54" width="1080" height="637">
 				<BUTTONS>
 						<alarmRecover text="" x="678" y="190" width="140" height="165"
-						normal="storemanager//AlarmValueRecover-enter" enter="storemanager//AlarmValueRecover" clicked="storemanager//AlarmValueRecover-clicked" />
+						normal="storemanager//AlarmValueRecover" enter="storemanager//AlarmValueRecover-enter" clicked="storemanager//AlarmValueRecover-clicked" />
 					<alarmSet text="" x="678" y="399" width="140" height="165"
-						normal="storemanager//AlarmValueSet-enter" enter="storemanager//AlarmValueSet" clicked="storemanager//AlarmValueSet-clicked" />
+						normal="storemanager//AlarmValueSet" enter="storemanager//AlarmValueSet-enter" clicked="storemanager//AlarmValueSet-clicked" />
 					<inStore text="" x="74" y="190" width="140" height="165" 
-						normal="storemanager//InStoreDoc-enter" enter="storemanager//InStoreDoc" clicked="storemanager//InStoreDoc-clicked" />
+						normal="storemanager//InStoreDoc" enter="storemanager//InStoreDoc-enter" clicked="storemanager//InStoreDoc-clicked" />
 					<outStore text="" x="74" y="394" width="140" height="165"
-						normal="storemanager//OutStoreDoc-enter" enter="storemanager//OutStoreDoc" clicked="storemanager//OutStoreDoc-clicked" />
-					<storeCheck text="" x="375" y="190" width="140" height="165"
-						normal="storemanager//StoreCheck-enter" enter="storemanager//StoreCheck" clicked="storemanager//StoreCheck-clicked" />
-					<storeShow text="" x="375" y="394" width="140" height="165" enter="storemanager//StoreShow"  normal="storemanager//StoreShow-enter" clicked="storemanager//StoreShow-clicked" />
+						normal="storemanager//OutStoreDoc" enter="storemanager//OutStoreDoc-enter" clicked="storemanager//OutStoreDoc-clicked" />
+					<storeCheck text="" x="375" y="394" width="140" height="165"
+						normal="storemanager//StoreCheck" enter="storemanager//StoreCheck-enter" clicked="storemanager//StoreCheck-clicked" />
+					<storeShow text="" x="375" y="190" width="140" height="165" enter="storemanager//StoreShow-enter"  normal="storemanager//StoreShow" clicked="storemanager//StoreShow-clicked" />
 				</BUTTONS>
 				<DatePicker x="0" y="0" width="400" height="50">
 						<field   x="0" y="0" width="350" height="50"      />

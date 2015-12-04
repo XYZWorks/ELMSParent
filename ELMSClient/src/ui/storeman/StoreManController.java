@@ -111,6 +111,12 @@ public class StoreManController extends PanelController{
 		buttonMap.put(StorePanelStr, StoreButton);
 	}
 
+	@Override
+	protected void initialBL() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 	
 
