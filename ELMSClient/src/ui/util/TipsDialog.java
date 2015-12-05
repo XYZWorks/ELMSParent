@@ -115,7 +115,14 @@ public class TipsDialog extends JDialog{
 		
 	}
 	
+	/**
+	 * 初始化提示框父指针
+	 * @param parent
+	 */
 	public static void setFrame(JFrame parent){
+		if(TipsDialog.parent != null){
+			return;
+		}
 		TipsDialog.parent = parent;
 	}
 

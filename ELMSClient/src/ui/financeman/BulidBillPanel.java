@@ -53,4 +53,10 @@ public class BulidBillPanel extends MyPanel{
 		
 	}
 
+	@Override
+	protected void initWhitePanels(Element e) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

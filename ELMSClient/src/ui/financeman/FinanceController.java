@@ -143,6 +143,12 @@ public class FinanceController extends PanelController {
 		
 	}
 
+	@Override
+	protected void initialBL() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 
 	

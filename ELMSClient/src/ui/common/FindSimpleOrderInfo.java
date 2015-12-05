@@ -52,4 +52,10 @@ public class FindSimpleOrderInfo extends MyPanel {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	protected void initWhitePanels(Element e) {
+		// TODO Auto-generated method stub
+		
+	}
 }
