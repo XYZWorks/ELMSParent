@@ -38,6 +38,13 @@ public MyPictureLabel(String str) {
 		
 		
 		super(config);
+		
+		//一个label－>一张图片的加载
+		if(config.attributeValue("one")!= null){
+			this.setIcon(GraphicsUtils.getIcon(config.attributeValue("one")));
+		}
+		
+		//一个label->三张图片的加载
 		if(config.attributeValue("type")!= null){
 			
 			

@@ -105,15 +105,15 @@
 						height="16" />
 						
 						
-					<senderInfo text="收件人" x="414" y="125" width="48"
+					<receiverInfo text="收件人" x="414" y="125" width="48"
 						height="16" type="rectangle" />
-					<senderNameLabel text="姓名" x="405" y="177" width="36"
+					<receiverNameLabel text="姓名" x="405" y="177" width="36"
 						height="16" />
-					<senderPhoneLabel text="手机" x="405" y="208" width="36"
+					<receiverPhoneLabel text="手机" x="405" y="208" width="36"
 						height="16" />
-					<senderAddressLabel text="地址" x="405" y="239"
+					<receiverAddressLabel text="地址" x="405" y="239"
 						width="36" height="16" />
-					<senderUnitLabel text="单位" x="405" y="308" width="36"
+					<receiverUnitLabel text="单位" x="405" y="308" width="36"
 						height="16" />
 
 

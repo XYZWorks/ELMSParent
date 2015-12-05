@@ -35,6 +35,10 @@ public class GraphicsUtils {
 		 */
 		labelPictureMap.put("calendar", new ButtonOrLabelPicture("element//calendar", "element//calendar-enter", "element//calendar-clicked"));
 		
+		labelPictureMap.put("confirm", new ButtonOrLabelPicture("element//confirm", "element//confirm-enter", "element//confirm-clicked"));
+		
+		labelPictureMap.put("cancel", new ButtonOrLabelPicture("element//cancel", "element//cancel-enter", "element//cancel-clicked"));
+
 		
 	}
 	
@@ -99,6 +103,18 @@ public class GraphicsUtils {
 			g2d.setComposite(alphacomposite);
 		}
 
+		/**
+		 * 检测长度是否合格
+		 * @param s
+		 * @return
+		 */
+		public static final boolean isLengthValid(String s){
+		
+			
+			
+		return true;
+		
+		}
 	
 
 	
