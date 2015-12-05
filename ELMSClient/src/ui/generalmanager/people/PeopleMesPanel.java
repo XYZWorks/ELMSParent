@@ -4,7 +4,11 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
+import blservice.personnelblservice.Personnelblservice;
+import po.personnel.PersonPO;
+import ui.table.MyTable;
 import ui.table.MyTablePanel;
+import vo.personnel.PersonVO;
  /** 
  * 
  * @author czq 
@@ -15,14 +19,26 @@ public class PeopleMesPanel extends MyTablePanel{
 	
 	private static final int COLUMN_NUMS = 5;
 	
-	private ArrayList<E>
+	private ArrayList<PersonVO> vos;
 	
+	private Personnelblservice bl;
 	
-	public PeopleMesPanel(Element config) {
+	public PeopleMesPanel(Element config , Personnelblservice bl) {
 		super(config);
-		// TODO Auto-generated constructor stub
+		this.bl = bl;
+		initialTitleAndColumn(config);
+		initTable();
+		initScrollerPane();
+		this.add(rollpane);
+		
+		int[] columnLen = {100,100,100,100 , 200};
+		setRowAndColumnLen(30, columnLen);
+//		vos = bl.
 	}
-
+	
+	
+	
+	
 	@Override
 	protected void initialTitleAndColumn(Element config) {
 		columnNames = new String[COLUMN_NUMS];
@@ -35,11 +51,30 @@ public class PeopleMesPanel extends MyTablePanel{
 		
 		
 	}
-
+	
+	
+	
+	
 	@Override
 	protected void initTable() {
+		table = new MyTable(columnNames, data);
+		int[] columnLen = { 30 , 30,  30 , 30 };
+		setRowAndColumnLen(30, columnLen);
+	}
+
+	
+	
+	
+	@Override
+	public void updateTableMes() {
+		
+		
 		
 		
 	}
+
+	
+
+	
 
 }

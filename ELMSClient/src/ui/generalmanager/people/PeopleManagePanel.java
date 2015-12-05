@@ -6,7 +6,12 @@ import org.dom4j.Element;
 
 import blservice.personnelblservice.Personnelblservice;
 import ui.table.MyTable;
+import ui.tools.MyComboBox;
 import ui.tools.MyPanel;
+import ui.tools.MyPictureButton;
+import ui.tools.MyPictureLabel;
+import ui.tools.MyTextField;
+import ui.util.CompomentType;
 
 /**
  * 人员管理，主要进入人员查看界面
@@ -16,11 +21,16 @@ import ui.tools.MyPanel;
 @SuppressWarnings("serial")
 public class PeopleManagePanel extends MyPanel{
 	
+	
+	private MyPictureButton search;
+	private MyTextField searchT;
+	private MyComboBox searchway;
+	
 	private CardLayout panelManager;
 	
 	private Personnelblservice bl;
 	
-	private MyTable peopleMesTable;
+	private PeopleMesPanel peopleMesTable;
 	/**
 	 * 增加人员界面
 	 */
@@ -30,18 +40,29 @@ public class PeopleManagePanel extends MyPanel{
 		super(config);
 		this.bl = bl;
 		this.panelManager = panelManager;
+		initButtons(config.element(CompomentType.BUTTONS.name()));
+		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
+		initOtherCompoment(config);
+		initLables(config.element(CompomentType.LABELS.name()));
+		addCompoment();
+		addListener();
+		repaint();
+		
+		addpeople.setVisible(false);
+		
+		setVisible(true);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected void initButtons(Element e) {
-		// TODO Auto-generated method stub
+		search = new MyPictureButton(e.element("search"));
 		
 	}
 
 	@Override
 	protected void initTextFields(Element e) {
-		// TODO Auto-generated method stub
+		searchT = new MyTextField(e.element("search"));
 		
 	}
 
@@ -53,8 +74,9 @@ public class PeopleManagePanel extends MyPanel{
 
 	@Override
 	protected void initOtherCompoment(Element e) {
+		searchway = new MyComboBox(e.element("search"));
 		addpeople = new AddPeoplePanel(e.element("addPeople"), panelManager);
-		
+		peopleMesTable = new PeopleMesPanel(e.element("peopleMes"), bl);
 	}
 	
 //	private void initTable(){
@@ -67,8 +89,12 @@ public class PeopleManagePanel extends MyPanel{
 
 	@Override
 	protected void addCompoment() {
-		// TODO Auto-generated method stub
+		add(addpeople);
+		add(peopleMesTable);
 		
+		add(search);
+		add(searchT);
+		add(searchway);
 	}
 
 	@Override

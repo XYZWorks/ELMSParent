@@ -1,4 +1,4 @@
-package ui.user;
+package ui.table;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -19,6 +19,9 @@ public class MyTableModel extends DefaultTableModel {
 	public MyTableModel(Object[] headers, Object[][] data) {
 		super(data, headers);
 
+		if(data == null){
+			return;
+		}
 		isCellEditable = new boolean[data.length][data[0].length];
 		for (int i = 0; i < isCellEditable.length; i++) {
 			for (int j = 0; j < isCellEditable[0].length; j++) {
@@ -30,7 +33,7 @@ public class MyTableModel extends DefaultTableModel {
 	}
 
 	public Class<?> getColumnClass(int c) {
-		return getValueAt(0, c).getClass();
+		return getValueAt(1, c).getClass();
 	}
 
 	/**
