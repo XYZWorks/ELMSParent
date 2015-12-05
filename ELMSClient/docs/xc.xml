@@ -134,11 +134,11 @@
 						height="50" />
 
 					<estimateTime text="预计到达时间" x="49" y="668" width="189"
-						height="65" type="estimateTime" />
+						height="65" one="element//estimateTime" />
 					<estimateTimeLabel text="" x="145" y="668" width="56"
 						height="65" />
 
-					<cost text="费用总计" x="300" y="668" width="189" height="65" type="cost" />
+					<cost text="费用总计" x="300" y="668" width="189" height="65" one="element//cost" />
 					<costLabel text="" x="377" y="668" width="91" height="64" />
 				</LABELS>
 
