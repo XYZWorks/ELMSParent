@@ -109,10 +109,12 @@ public class AddOrderPanel extends MyPanel {
 	public AddOrderPanel(Element config, CourierController controller) {
 		super(config);
 		this.controller = controller;
+		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
-		initOtherCompoment(config);
 		initLables(config.element(CompomentType.LABELS.name()));
+		initOtherCompoment(config);
+		
 		addCompoment();
 		addListener();
 		setVisible(true);

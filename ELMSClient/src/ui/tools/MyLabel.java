@@ -30,6 +30,7 @@ public class MyLabel extends JLabel{
 		}
 		if(config.attributeValue("fontName")!= null){
 			this.setFont(GraphicsUtils.getFont(config));
+			
 		}
 		
 		

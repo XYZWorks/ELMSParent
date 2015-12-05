@@ -51,7 +51,7 @@ public class CourierController extends PanelController{
 	protected void initPanel(Element e) {
 		courierMainPanel=new CourierMainPanel(e.element(courierMainPanelStr),this);
 		addOrderPanel=new AddOrderPanel(e.element(addOrderPanelStr),this);
-		findFullInfoPanel=new FindFullOrderInfoPanel(e.element(findFullInfoPanelStr));
+		//findFullInfoPanel=new FindFullOrderInfoPanel(e.element(findFullInfoPanelStr));
 		inputReceiveInfoPanel=new InputReceiveInfoPanel(e.element(inputReceiveInfoPanelStr));
 	}
 
@@ -75,7 +75,7 @@ public class CourierController extends PanelController{
 	protected void addPanels() {
 		changePanel.add(courierMainPanel , courierMainPanelStr);
 		changePanel.add(addOrderPanel , addOrderPanelStr);
-		changePanel.add(findFullInfoPanel , findFullInfoPanelStr);
+		//changePanel.add(findFullInfoPanel , findFullInfoPanelStr);
 		changePanel.add(inputReceiveInfoPanel , inputReceiveInfoPanelStr);
 		
 	}

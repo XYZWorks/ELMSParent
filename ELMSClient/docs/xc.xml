@@ -80,7 +80,8 @@
 			<addOrderPanel x="232" y="52" width="848" height="752">
 				<WHITEPANELS>
 					<senderInfoPanel x="49" y="114" width="365" height="295" />
-					<receiverInfoPanel x="434" y="114" width="365" height="295" />
+					<receiverInfoPanel x="434" y="114" width="365"
+						height="295" />
 					<goodInfoPanel x="49" y="433" width="748" height="220" />
 				</WHITEPANELS>
 
@@ -198,17 +199,101 @@
 					strings="静安区" />
 
 			</addOrderPanel>
+
+
 			<findFullInfoPanel x="232" y="54" width="1080"
 				height="637">
 				<WHITEPANELS>
-					<whitePanel x="232" y="54" width="100" height="50" />
+					<senderInfoPanel x="49" y="114" width="365" height="295" />
+					<receiverInfoPanel x="434" y="114" width="365"
+						height="295" />
+					<goodInfoPanel x="49" y="433" width="748" height="220" />
 				</WHITEPANELS>
 				<BUTTONS>
 				</BUTTONS>
 				<LABELS>
+					<orderBarCode text="订单号" x="48" y="36" width="90"
+						height="28" />
+					<orderBarCodeLabel text="" x="48" y="76" width="137"
+						height="19" />
+
+					<senderInfo text="寄件人" x="78" y="125" width="48" height="16"
+						type="rectangle" />
+					<senderNameLabel text="姓名" x="69" y="177" width="36"
+						height="16" />
+					<senderPhoneLabel text="手机" x="69" y="224" width="36"
+						height="16" />
+					<senderAddressLabel text="地址" x="69" y="255"
+						width="36" height="16" />
+					<senderUnitLabel text="单位" x="69" y="324" width="36"
+						height="16" />
+
+					<senderNameText x="112" y="171" width="276" height="29" />
+					<senderPhoneText x="112" y="217" width="276"
+						height="29" />
+					<senderAddressText x="112" y="309" width="276"
+						height="29" />
+					<senderUnitText x="112" y="355" width="276" height="29" />
+
+
+					<receiverInfo text="收件人" x="414" y="125" width="48"
+						height="16" type="rectangle" />
+					<receiverNameLabel text="姓名" x="405" y="177"
+						width="36" height="16" />
+					<receiverPhoneLabel text="手机" x="405" y="224"
+						width="36" height="16" />
+					<receiverAddressLabel text="地址" x="405" y="255"
+						width="36" height="16" />
+					<receiverUnitLabel text="单位" x="405" y="324"
+						width="36" height="16" />
+
+					<receiverNameText x="497" y="171" width="276"
+						height="29" />
+					<receiverPhoneText x="497" y="217" width="276"
+						height="29" />
+					<receiverAddressText x="497" y="309" width="276"
+						height="29" />
+					<receiverUnitText x="497" y="355" width="276"
+						height="29" />
+
+
+					<goodsInfo text="货物信息" x="84" y="447" width="65" height="16"
+						type="rectangle" />
+					<goodNameLabel text="商品名称" x="69" y="493" width="65"
+						height="16" />
+					<goodWeightLabel text="实际重量" x="442" y="538" width="65"
+						height="16" />
+					<goodNumLabel text="件数" x="442" y="493" width="36"
+						height="16" />
+					<goodVolumLabel text="体积" x="69" y="538" width="36"
+						height="16" />
+					<goodPackLabel text="包装费用" x="69" y="583" width="65"
+						height="50" />
+					<orderFormLabel text="快递形式" x="69" y="615" width="65"
+						height="50" />
+
+					<goodNameText x="141" y="487" width="254" height="29" />
+					<goodWeightText x="515" y="533" width="85" height="29" />
+					<goodLongText x="141" y="533" width="85" height="29" />
+					<goodWidthText x="229" y="533" width="85" height="29" />
+					<goodHeightText x="319" y="533" width="85" height="29" />
+
+					<estimateTime text="" x="49" y="668" width="189"
+						height="65" one="element//estimateTime" />
+					<estimateTimeLabel text="" x="145" y="668" width="56"
+						height="65" />
+
+					<cost text="费用总计" x="300" y="668" width="189" height="65"
+						one="element//cost" />
+					<costLabel text="" x="377" y="668" width="91" height="64" />
+
 				</LABELS>
 				<TEXTFIELDS>
 				</TEXTFIELDS>
+				<DatePicker x="0" y="0" width="400" height="50">
+					<field x="0" y="0" width="350" height="50" />
+					<button x="350" y="0" width="50" height="50" type="rectangle" />
+				</DatePicker>
 			</findFullInfoPanel>
 			<inputReceiveInfoPanel x="232" y="54" width="1080"
 				height="637">

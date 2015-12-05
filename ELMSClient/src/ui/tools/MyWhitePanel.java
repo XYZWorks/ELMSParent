@@ -27,7 +27,9 @@ public class MyWhitePanel extends JPanel {
 			alpha = Double.parseDouble(config.attributeValue("alpha"));
 		}
 		
-//		this.setBackground(Color.WHITE);
+		this.setLayout(null);
+		
+    //	this.setBackground(Color.WHITE);
 	}
 	@Override
 	public void paintComponent(Graphics g){
