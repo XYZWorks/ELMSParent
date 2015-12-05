@@ -28,7 +28,7 @@ public class showMessageFrame extends javax.swing.JFrame {
     private void initGUI() {
         try {
             setUndecorated(true);
-            setLocationRelativeTo(null);
+//            setLocationRelativeTo(null);
             setVisible(true);
             setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             {

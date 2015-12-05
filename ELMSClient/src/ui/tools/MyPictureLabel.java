@@ -18,6 +18,22 @@ public class MyPictureLabel extends MyLabel{
 	private Icon normal;
 	
 	
+public MyPictureLabel(String str) {
+		
+		
+		super();
+			
+			
+			ButtonOrLabelPicture pics = GraphicsUtils.getButtonLabelPic("rectangle");
+			normal = pics.getNormal();
+			this.setText(str);
+			this.setIcon(normal);
+			this.setHorizontalTextPosition(JLabel.CENTER);
+			this.setVerticalTextPosition(JLabel.CENTER);
+		
+	}
+	
+	
 	public MyPictureLabel(Element config) {
 		
 		

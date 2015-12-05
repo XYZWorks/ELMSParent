@@ -45,5 +45,10 @@ public class MyLabel extends JLabel{
 		this.setText(text);
 		this.setVisible(true);
 	}
-
+	
+	public MyLabel(){
+		this.setVisible(true);
+	}
+	
+	
 }
