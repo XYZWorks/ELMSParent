@@ -81,18 +81,20 @@
 			 		
 			 		<LABELS>
 	
-			 			<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="35"
-						text="到达单" type="rectangle"/>
+						<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="35"
+						text="中转单" type="rectangle"/>
 			 			<ID  x="420" y="150" width="200" height="100"  
-						text="到达单编号" type="rectangle"/>
+						text="中转单编号" type="rectangle"/>
 						<date  x="420" y="0" width="200" height="100"  
 						text="生成时间" type="rectangle"/>
-						<center  x="50" y="150" width="200" height="100"  
-						text="中转中心编号" type="rectangle"/>
+						<number  x="50" y="150" width="200" height="100"  
+						text="航班号/车次/车牌号" type="rectangle"/>
 						<sendCity  x="50" y="300" width="200" height="100"  
-						text="到达地" type="rectangle"/>
-						<goodState  x="420" y="300" width="200" height="100"  
-						text="货物状态" type="rectangle"/>
+						text="出发地" type="rectangle"/>
+						<container  x="420" y="300" width="200" height="100"  
+						text="货柜号" type="rectangle"/>
+						<LoadManName x="420" y="300" width="200" height="100"  
+						text="监装员" type="rectangle"/>
 						<orders  x="50" y="450" width="200" height="100"  
 						text="所含订单编号" type="rectangle"/>
 						<tip  x="100" y="500" width="500" height="100" name="华文细黑" size="15"
@@ -103,8 +105,9 @@
 			 		
 			 		<TEXTFIELDS>
 			 			<ID x="550" y="180" width="200" height="45"/>
-			 			
-			 			<center x="200" y="180" width="200" height="45"/>
+			 			<container x="550" y="180" width="200" height="45"/>
+			 			<number x="200" y="180" width="200" height="45"/>
+			 			<LoadManName x="200" y="180" width="200" height="45"/>
 			 			<orders x="200" y="480" width="600" height="45"/>
 			 		
 			 		</TEXTFIELDS>
@@ -112,8 +115,7 @@
 			 		<sendCityC x="170" y="335" width="240" height="30"
 					strings="南京 广州 上海 北京" />
 					
-					<goodStateC x="550" y="335" width="240" height="30"
-					strings="完整 损坏 丢失" />
+					
 			 		
 			 		<DatePicker x="300" y="100" width="400" height="50">
 						<field   x="100" y="0" width="350" height="50"      />
@@ -148,23 +150,23 @@
 			 		</BUTTONS>
 			 		
 			 		<LABELS>
-	
-			 			<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="35"
+						<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="35"
 						text="到达单" type="rectangle"/>
 			 			<ID  x="420" y="150" width="200" height="100"  
 						text="到达单编号" type="rectangle"/>
 						<date  x="420" y="0" width="200" height="100"  
 						text="生成时间" type="rectangle"/>
-						<number  x="50" y="150" width="200" height="100"  
+						<center  x="50" y="150" width="200" height="100"  
 						text="中转中心编号" type="rectangle"/>
 						<sendCity  x="50" y="300" width="200" height="100"  
 						text="到达地" type="rectangle"/>
-						<container  x="420" y="300" width="200" height="100"  
+						<goodState  x="420" y="300" width="200" height="100"  
 						text="货物状态" type="rectangle"/>
 						<orders  x="50" y="450" width="200" height="100"  
 						text="所含订单编号" type="rectangle"/>
 						<tip  x="100" y="500" width="500" height="100" name="华文细黑" size="15"
 						text="多个订单号以逗号隔开" type="rectangle"/>
+			 			
 						
 			 		</LABELS>
 	

@@ -35,5 +35,6 @@ public class MyJumpListener extends MyPictureButtonListener{
 			controller.setAllButtonVisable(false);
 			controller.setAllButtonUnClicked();
 //		}
+//		System.out.println("jump to "+ toPanel);
 	}
 }

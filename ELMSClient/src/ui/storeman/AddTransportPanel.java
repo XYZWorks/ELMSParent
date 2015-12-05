@@ -78,9 +78,9 @@ public class AddTransportPanel extends MyPanel {
 	@Override
 	protected void initTextFields(Element e) {
 		IDT = new MyTextField(e.element("ID"));
-		
+		containerT = new MyTextField(e.element("container"));
 		numberT = new MyTextField(e.element("number"));
-
+		LoadManNameT = new MyTextField(e.element("LoadManName"));
 		ordersT = new MyTextField(e.element("orders"));
 
 	}
@@ -95,6 +95,7 @@ public class AddTransportPanel extends MyPanel {
 		containerL = new MyLabel(e.element("container"));
 		ordersL = new MyLabel(e.element("orders"));
 		tip = new MyLabel(e.element("tip"));
+		LoadManNameL = new MyLabel(e.element("LoadManName"));
 	}
 
 	@Override
@@ -116,7 +117,8 @@ public class AddTransportPanel extends MyPanel {
 		add(numberL);
 		add(numberT);
 		add(dateL);
-		
+		add(LoadManNameL);
+		add(LoadManNameT);
 		add(containerT);
 		add(containerL);
 		add(sendCityC);

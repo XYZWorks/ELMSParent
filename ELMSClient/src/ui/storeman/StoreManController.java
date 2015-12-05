@@ -92,6 +92,7 @@ public class StoreManController extends PanelController{
 		changePanel.add(ArriveZZPanel, ArriveZZPanelStr);
 		changePanel.add(StorePanel, StorePanelStr);
 		changePanel.add(AddArriveZZPanel, AddArriveZZPanelStr);
+		changePanel.add(AddTransportPanel, AddTransportPanelStr);
 		
 	}
 
