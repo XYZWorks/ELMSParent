@@ -67,6 +67,10 @@ public class AccountMesTablePanel extends MyTablePanel{
 	@Override
 	public void updateTableMes() {
 		vos = bl.show();
+		if(vos == null){
+			return;
+		}
+		
 		
 		table.getModel().setRowCount(vos.size());
 		

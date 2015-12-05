@@ -6,11 +6,22 @@ import ui.tools.MyPictureButton;
  * @author czq 
  * @version 2015年12月5日 下午7:15:22 
  */
-public class ConfirmListener extends MyPictureButtonListener{
+public abstract class ConfirmListener extends MyPictureButtonListener{
 
 	public ConfirmListener(MyPictureButton button) {
 		super(button);
-		// TODO Auto-generated constructor stub
+		if(checkDataValid()){
+			saveToSQL();
+		}
 	}
+	/**
+	 * 检查数据是否有效
+	 */
+	protected abstract boolean checkDataValid();
+	
+	/**
+	 * 若数据有效，则保存至数据库
+	 */
+	protected abstract void saveToSQL();
 
 }

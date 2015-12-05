@@ -89,7 +89,6 @@ public class TipsDialog extends JDialog{
 			try {
 				Thread.sleep(20);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			label.repaint();
@@ -106,11 +105,8 @@ public class TipsDialog extends JDialog{
 			try {
 				Thread.sleep(20);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
 			label.repaint();
 			
 		}

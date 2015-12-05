@@ -64,6 +64,7 @@ public class GeneralManagerController extends PanelController {
 		addListeners();
 		addToMap();
 		this.setAllButtonVisable(false);
+		panelManager.show(changePanel, GMmainpanelStr);
 		changePanel.setVisible(true);
 	}
 	
@@ -105,7 +106,7 @@ public class GeneralManagerController extends PanelController {
 		approvalPanel = new ApprovalDocsPanel(e.element(approvalPanelStr) , approvalBL);
 		constSetPanel = new ConstSetPanel(e.element(constSetPanelStr) , strategyblService);
 		statisticPanel = new StatisticPanel(e.element(statisticPanelStr) , statisticblservice);
-		instManagePanel = new InstManagePanel(e.element(instManagePanelStr) , panelManager , personnelblservice);
+		instManagePanel = new InstManagePanel(e.element(instManagePanelStr), changePanel , personnelblservice);
 		peopleManagePanel = new PeopleManagePanel(
 				e.element(peopleManagePanelStr) , panelManager , personnelblservice);
 		salaryStrategySetPanel = new SalaryStrategySetPanel(e.element(salaryStrategySetStr), strategyblService);

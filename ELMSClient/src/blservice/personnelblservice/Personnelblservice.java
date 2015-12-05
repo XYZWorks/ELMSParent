@@ -56,7 +56,7 @@ public interface Personnelblservice {
 	public ResultMessage delInst(String ID);
 	/**
 	 * 获得所有机构信息
-	 * @return
+	 * @return 如果没有，返回空指针
 	 */
 	public ArrayList<InstVO> getInst();
 	

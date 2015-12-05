@@ -6,11 +6,12 @@ import ui.tools.MyPictureButton;
  * @author czq 
  * @version 2015年12月5日 下午7:16:10 
  */
-public class CancelListener extends MyPictureButtonListener{
+public abstract class CancelListener extends MyPictureButtonListener{
 
 	public CancelListener(MyPictureButton button) {
 		super(button);
-		// TODO Auto-generated constructor stub
 	}
+	
+	public abstract void resetMes();
 
 }

@@ -3,6 +3,8 @@ package ui.generalmanager.institution;
 import java.awt.CardLayout;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JPanel;
+
 import org.dom4j.Element;
 
 import ui.tools.MyComboBox;
@@ -10,6 +12,8 @@ import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
+import ui.util.CompomentType;
+import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
  /** 
  * 增加机构界面
@@ -19,7 +23,7 @@ import ui.util.MyPictureButtonListener;
 @SuppressWarnings("serial")
 public class AddInstPanel extends MyPanel {
 	
-	private CardLayout panelManager;
+	private JPanel changePanel;
 	
 	
 	private MyLabel instid;
@@ -32,9 +36,16 @@ public class AddInstPanel extends MyPanel {
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
 	
-	public AddInstPanel(Element config , CardLayout panelManager) {
+	public AddInstPanel(Element config , JPanel changePanel) {
 		super(config);
-		this.panelManager = panelManager;
+		this.changePanel = changePanel;
+		initLables(config.element(CompomentType.LABELS.name()));
+		initButtons(config.element(CompomentType.BUTTONS.name()));
+		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
+		initOtherCompoment(config);
+		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
+		addCompoment();
+		addListener();
 	}
 
 	@Override
@@ -85,7 +96,7 @@ public class AddInstPanel extends MyPanel {
 	@Override
 	protected void initWhitePanels(Element e) {}
 	
-	class MyConfirmButtonListner extends MyPictureButtonListener{
+	class MyConfirmButtonListner extends ConfirmListener{
 
 		public MyConfirmButtonListner(MyPictureButton button) {
 			super(button);
@@ -96,7 +107,19 @@ public class AddInstPanel extends MyPanel {
 			super.mouseClicked(e);
 			//TODO 检查数据合法性、保存至数据库
 			//无错误时跳转至查看界面
-			
+//			panelManager.show(c, name);
+			((CardLayout)changePanel.getLayout() ).show(changePanel, "InstManagePanel");
+		}
+
+		@Override
+		protected boolean checkDataValid() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		@Override
+		protected void saveToSQL() {
+			// TODO Auto-generated method stub
 			
 		}
 
@@ -112,6 +135,8 @@ public class AddInstPanel extends MyPanel {
 			super.mouseClicked(e);
 			//TODO 清空数据
 			
+			
+			((CardLayout)changePanel.getLayout() ).show(changePanel, "InstManagePanel");
 		}
 	}
 	

@@ -13,6 +13,7 @@ import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
 import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
+import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
 import ui.util.TextFieldsManage;
 import ui.util.TipsDialog;
@@ -135,13 +136,11 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
-//			modifyConstPanel();
-			
-			new TipsDialog("Hello World");
+			modifyConstPanel();
 		}
 	}
 	
-	class MyConfirmButtonListner extends MyPictureButtonListener{
+	class MyConfirmButtonListner extends ConfirmListener{
 
 		public MyConfirmButtonListner(MyPictureButton button) {
 			super(button);
@@ -149,8 +148,18 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
-			checkAndSaveMes();
-			checkConstPanel();
+		}
+		@Override
+		protected boolean checkDataValid() {
+			boolean isValid = true;
+			
+			
+			
+			
+			return false;
+		}
+		@Override
+		protected void saveToSQL() {
 			
 		}
 	}
@@ -168,9 +177,7 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 		}
 	}
 	
-	private void checkAndSaveMes(){
-		//TODO
-	}
+	
 	
 	
 	public void allowTextFieldToModify(boolean flag) {

@@ -147,32 +147,57 @@
 
 
 			<StatisticPanel x="232" y="54" width="1080" height="637">
-				<BUTTONS>
-
-				</BUTTONS>
-
 
 			</StatisticPanel>
 
 			<InstManagePanel x="232" y="54" width="1080" height="637">
 				<BUTTONS>
+					<addInst x="550" y="600" width="50" height="40" text="增加" type = "rectangle"/>
+					<modify x="650" y="600" width="50" height="40" text="修改" type = "rectangle"/>
+					<delete x="750" y="600" width="50" height="40" text="删除" type = "rectangle"/>
+					<confirm x="550" y="600" width="50" height="40" text="确认" type = "confirm"/>
+					<cancel x="45650" y="600" width="50" height="40" text="取消" type = "cancel"/>
 				</BUTTONS>
+				<LABELS>
+					<type x="45" y="500" width="50" height="40" text="职员类型" />
+					<location x="300" y="500" width="50" height="40" text="城市" />
+				</LABELS>
+				<type x="45" y="580" width="100" height="40" strings="中转中心 营业厅 总部" />
+				<location x="300" y="580" width="100" height="40" strings="南京 北京 上海 广州" />
+				<addInstPanel x="232" y="54" width="1080" height="637">
+					<BUTTONS>
+						<confirm x="550" y="600" width="50" height="40" text="确认" type = "confirm"/>
+						<cancel x="45650" y="600" width="50" height="40" text="取消" type = "cancel"/>
+					</BUTTONS>
+					<TEXTFIELDS>
+						<instid x="550" y="600" width="50" height="40" />
+					</TEXTFIELDS>
+					<LABELS>
+						<instid x="45" y="500" width="50" height="40" text="职员ID" />
+						<type x="45" y="500" width="50" height="40" text="职员类型" />
+						<location x="300" y="500" width="50" height="40" text="城市" />
+					</LABELS>
+					<location x="300" y="580" width="100" height="40" strings="南京 北京 上海 广州" />
+					<type x="45" y="580" width="100" height="40" strings="中转中心 营业厅 总部" />
 
+				</addInstPanel>
+				<table x="45" y="45" width="400" height="400" column = "ID 机构类型 所在地"/>
 			</InstManagePanel>
 
 			<PeopleManagePanel x="232" y="54" width="1080"
 				height="637">
 				<BUTTONS>
-					<add x="600" y="100" width="200" height="50" text = "增加" type = "rectangle" />
-					<search x="600" y="45" width="200" height="50" text = "查询" type = "rectangle"/>
+					<add x="600" y="100" width="200" height="50" text="增加" type="rectangle" />
+					<search x="600" y="45" width="200" height="50" text="查询"
+						type="rectangle" />
 				</BUTTONS>
 				<TEXTFIELDS>
 					<search x="350" y="45" width="200" height="50" />
 				</TEXTFIELDS>
-				
-				<search x="45" y="45" width="200" height="50" strings = "按姓名查找 按ID查找 按机构查找"/>
+
+				<search x="45" y="45" width="200" height="50" strings="按姓名查找 按ID查找 按机构查找" />
 				<peopleMes x="45" y="150" width="600" height="600" />
-			
+
 				<addPeople x="0" y="0" width="1080" height="637">
 					<BUTTONS>
 						<Confirm x="625" y="500" width="115" height="40" text="确认"
@@ -200,8 +225,8 @@
 					<Type x="600" y="125" width="200" height="50" text="确认"
 						strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理人员 司机" />
 				</addPeople>
-			
-			
+
+
 			</PeopleManagePanel>
 
 			<SalaryStrategySetPanel x="232" y="54" width="1080"

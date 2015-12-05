@@ -65,7 +65,7 @@ public class PeopleMesPanel extends MyTablePanel{
 
 	
 	/**
-	 * 更新信息
+	 * 搜索结果
 	 * @param vo
 	 */
 	public void  changeMes(ArrayList<PersonVO> vo) {
@@ -89,6 +89,10 @@ public class PeopleMesPanel extends MyTablePanel{
 		
 		
 	}
+	/**
+	 * 搜索结果
+	 * @param personVO
+	 */
 	public void  changeMes(PersonVO personVO) {
 		if(personVO == null){
 			return;

@@ -1,5 +1,6 @@
 package vo.personnel;
 
+import util.City;
 import util.InstType;
 /**
  * 机构VO类
@@ -14,7 +15,7 @@ public class InstVO {
 	/**
 	 * 机构所在城市
 	 */
-	public String location;
+	public City location;
 	/**
 	 * 机构类型  营业厅、中转中心、总部
 	 */
@@ -22,7 +23,7 @@ public class InstVO {
 	public InstVO() {
 		// TODO Auto-generated constructor stub
 	}
-	public InstVO(String iD, String location, InstType type) {
+	public InstVO(String iD, City location, InstType type) {
 		super();
 		ID = iD;
 		this.location = location;

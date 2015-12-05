@@ -1,6 +1,5 @@
 package ui.generalmanager.people;
 
-import java.awt.CardLayout;
 import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
