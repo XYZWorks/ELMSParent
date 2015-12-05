@@ -150,23 +150,23 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 			switch (type) {
 			case loadDoc:
 				while(result.next())
-					pos.add(new LoadDocPO(result.getString(0), DocType.valueOf(result.getString(1)), MyDate.getDate(result.getString(2)), DocState.valueOf(result.getString(3)), result.getString(4), result.getString(5),  City.valueOf(result.getString(6)),result.getString(7) , result.getString(8), result.getString(9) , helper.tranFromStringToArrayList(result.getString(10)))  );
+					pos.add(new LoadDocPO(result.getString(1), DocType.valueOf(result.getString(2)), MyDate.getDate(result.getString(2)), DocState.valueOf(result.getString(4)), result.getString(5), result.getString(6),  City.valueOf(result.getString(6)),result.getString(7) , result.getString(8), result.getString(9) , helper.tranFromStringToArrayList(result.getString(10)))  );
 				break;
 			case arriveYYDoc:
 				while(result.next())
-					pos.add(new ArriveYYDocPO(result.getString(0), DocType.valueOf(result.getString(1)), MyDate.getDate(result.getString(2)), DocState.valueOf(result.getString(3)), result.getString(4), City.valueOf(result.getString(5)) , GoodsState.valueOf(result.getString(6)) , helper.tranFromStringToArrayList(result.getString(7))  ) );
+					pos.add(new ArriveYYDocPO(result.getString(1), DocType.valueOf(result.getString(2)), MyDate.getDate(result.getString(2)), DocState.valueOf(result.getString(4)), result.getString(5), City.valueOf(result.getString(6)) , GoodsState.valueOf(result.getString(7 )) , helper.tranFromStringToArrayList(result.getString(8))  ) );
 				break;
 			case arriveZZDoc:
 				while(result.next())
-					pos.add(new ArriveZZDocPO(result.getString(0), DocType.valueOf(result.getString(1)), MyDate.getDate(result.getString(2)), DocState.valueOf(result.getString(3)), result.getString(4), City.valueOf(result.getString(5)) , GoodsState.valueOf(result.getString(6)) , helper.tranFromStringToArrayList(result.getString(7))  ) );
+					pos.add(new ArriveZZDocPO(result.getString(1), DocType.valueOf(result.getString(2)), MyDate.getDate(result.getString(3)), DocState.valueOf(result.getString(4)), result.getString(5), City.valueOf(result.getString(6)) , GoodsState.valueOf(result.getString(7)) , helper.tranFromStringToArrayList(result.getString(8))  ) );
 				break;
 			case transferDoc:
 				while(result.next())
-					pos.add(new TransferDocPO(result.getString(0), DocType.valueOf(result.getString(1)), MyDate.getDate(result.getString(2)), DocState.valueOf(result.getString(3)), result.getString(4), City.valueOf(result.getString(5)) ,  Integer.parseInt(result.getString(6)) , result.getString(7) , helper.tranFromStringToArray(result.getString(8))) );
+					pos.add(new TransferDocPO(result.getString(1), DocType.valueOf(result.getString(2)), MyDate.getDate(result.getString(3)), DocState.valueOf(result.getString(4)), result.getString(5), City.valueOf(result.getString(6)) ,  Integer.parseInt(result.getString(7)) , result.getString(8) , helper.tranFromStringToArray(result.getString(9))) );
 				break;
 			case sendGoodDoc:
 				while(result.next())
-					pos.add(new SendGoodDocPO(result.getString(0), DocType.valueOf(result.getString(1)), MyDate.getDate(result.getString(2)), DocState.valueOf(result.getString(3)), result.getString(4), result.getString(5)  ,City.valueOf(result.getString(6))) );
+					pos.add(new SendGoodDocPO(result.getString(1), DocType.valueOf(result.getString(2)), MyDate.getDate(result.getString(3)), DocState.valueOf(result.getString(4)), result.getString(5), result.getString(6)  ,City.valueOf(result.getString(7))) );
 					
 				break;
 			default:

@@ -6,6 +6,8 @@ import java.awt.Toolkit;
 import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 
+import ui.tools.MyPictureLabel;
+
 @SuppressWarnings("serial")
 public class showMessageFrame extends javax.swing.JFrame {
     private JLabel text;
@@ -26,27 +28,15 @@ public class showMessageFrame extends javax.swing.JFrame {
     }
 
     private void initGUI() {
-        try {
-            setUndecorated(true);
-//            setLocationRelativeTo(null);
-            setVisible(true);
-            setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-            {
-                text = new JLabel("<html>" + str + "</html>", JLabel.CENTER);
-                getContentPane().add(text, BorderLayout.CENTER);
-                text.setBackground(new java.awt.Color(255, 251, 240));
-            }
-            pack();
-            setBounds(width / 2 - 180, height - 150, 360, 100);
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e1) {
-                e1.printStackTrace();
-            }
-            dispose();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+           setUndecorated(true);
+           
+           setLocationRelativeTo(null);
+           
+           MyPictureLabel tips = new MyPictureLabel(str);
+           
+           
+           
+           
     }
     
     
