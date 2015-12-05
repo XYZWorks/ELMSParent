@@ -152,7 +152,7 @@
 					<senderNameText x="63" y="57" width="276" height="29" />
 					<senderPhoneText x="63" y="103" width="276"
 						height="29" />
-					<senderAddressText x="63" y="149" width="276"
+					<senderAddressText x="63" y="195" width="276"
 						height="29" />
 					<senderUnitText x="63" y="241" width="276" height="29" />
 
@@ -160,7 +160,7 @@
 						height="29" />
 					<receiverPhoneText x="63" y="103" width="276"
 						height="29" />
-					<receiverAddressText x="63" y="149" width="276"
+					<receiverAddressText x="63" y="195" width="276"
 						height="29" />
 					<receiverUnitText x="63" y="241" width="276"
 						height="29" />
