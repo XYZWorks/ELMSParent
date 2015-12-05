@@ -232,10 +232,15 @@ public class Transport {
 			e.printStackTrace();
 		}		
 		
-		for(TransferDocPO po: pos){
-			if(po.getDate().equals(date)){
-				vos.add((TransferDocVO)VOPOchange.POtoVO(po));
+		try{
+			for(TransferDocPO po: pos){
+				if(po.getDate().equals(date)){
+					vos.add((TransferDocVO)VOPOchange.POtoVO(po));
+				}
 			}
+		}
+		catch(NullPointerException e){
+			vos = (ArrayList<TransferDocVO>)DataTool.getDocList(DocType.transferDoc);
 		}
 		
 		return vos;

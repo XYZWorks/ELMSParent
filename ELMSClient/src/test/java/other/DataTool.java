@@ -132,7 +132,7 @@ public class DataTool {
 			al.add(new SendGoodDocVO("PSD1511150000001", d5, "dahuang","3225890830",City.GUANGZHOU));
 			break;
 		case transferDoc:
-			String[] orderID={"3228709728","2297304730","9983018392","2182966170"};
+			
 			al.add(new TransferDocVO("ZZD1511130000001", d3, "K155",City.SHANGHAI,3,"cee",orderID));
 			al.add(new TransferDocVO("ZZD1511150000001", d5, "苏A18729",City.NANJING,8,"yio",orderID));
 			break;

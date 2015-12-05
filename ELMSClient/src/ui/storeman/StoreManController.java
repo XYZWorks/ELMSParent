@@ -29,6 +29,7 @@ public class StoreManController extends PanelController{
 	private MyPanel ArriveZZPanel;
 	private MyPanel StorePanel;
 	private MyPanel AddArriveZZPanel;
+	private MyPanel AddTransportPanel;
 	
 	private MySideBarButton transportButton;
 	private MySideBarButton arriveZZButton;
@@ -40,6 +41,7 @@ public class StoreManController extends PanelController{
 	private final String ArriveZZPanelStr = "ArriveZZPanel";
 	private final String StorePanelStr = "StorePanel";
 	private final String AddArriveZZPanelStr = "AddArriveZZPanel";
+	private final String AddTransportPanelStr = "AddTransportPanel";
 	
 	private Transportblservice bl;
 	
@@ -61,10 +63,11 @@ public class StoreManController extends PanelController{
 	@Override
 	protected void initPanel(Element e) {
 		SMmainpanel = new StoreMain(e.element(SMmainpanelStr) , this);
-		TransportPanel = new TransportPanel(e.element(TransportPanelStr));
+		TransportPanel = new TransportPanel(e.element(TransportPanelStr),bl,this);
 		ArriveZZPanel = new ArriveZZPanel(e.element(ArriveZZPanelStr),bl,this);
 		StorePanel = new StoreShowPanel(e.element(StorePanelStr));
 		AddArriveZZPanel = new ArriveZZDocAdd(e.element(ArriveZZPanelStr).element(AddArriveZZPanelStr),bl,this);
+		AddTransportPanel = new AddTransportPanel(e.element(TransportPanelStr).element(AddTransportPanelStr),bl,this);
 	}
 
 	@Override

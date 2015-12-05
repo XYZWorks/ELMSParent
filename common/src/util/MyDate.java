@@ -1,6 +1,8 @@
 package util;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * 日期类
@@ -75,6 +77,17 @@ public class MyDate implements Serializable{
 			return false;
 		return true;
 		
+	}
+	public static MyDate getNowTime() {
+		MyDate date = null;
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
+		String[] d = df.format(new Date()).split("-");// new Date()为获取当前系统时间
+		try {
+			date = new MyDate(Integer.parseInt(d[0]), Integer.parseInt(d[1]), Integer.parseInt(d[2]));
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.err.println("得到当前时间出错");
+		}
+		return date;
 	}
 	
 }
