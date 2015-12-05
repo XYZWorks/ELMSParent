@@ -7,7 +7,6 @@ import org.dom4j.Element;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import vo.strategy.SalaryWayVO;
-import blservice.strategyblservice.StrategyblService;
  /** 
  * 薪水策略信息显示面板
  * @author czq 
@@ -60,6 +59,13 @@ public class SalaryStrategyMesTablePanel extends MyTablePanel{
 	@Override
 	protected void initTable() {
 		table = new MyTable(columnNames, data);
+		int columnLen[] = { 200 , 100 , 100 , 100 };
+		setRowAndColumnLen(40, columnLen);
+	}
+
+	@Override
+	public void updateTableMes() {
+		
 		
 	}
 

@@ -36,11 +36,11 @@ public class AddPeoplePanel extends MyPanel{
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
 	
-	private CardLayout panelManager;
+	private PeopleManagePanel managePanel;
 	
-	public AddPeoplePanel(Element config ,CardLayout panelManager) {
+	public AddPeoplePanel(Element config ,PeopleManagePanel managePanel) {
 		super(config);
-		this.panelManager = panelManager;
+		this.managePanel = managePanel;
 		initLables(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
@@ -97,7 +97,7 @@ public class AddPeoplePanel extends MyPanel{
 	@Override
 	protected void addListener() {
 		confirm.addMouseListener(new MyCancelButtonListener(confirm));
-		cancel.addMouseListener(new MyCancelButtonListener(cancel));
+		cancel.addMouseListener(new MyConfirmButtonListner(cancel));
 		
 	}
 	
@@ -112,6 +112,9 @@ public class AddPeoplePanel extends MyPanel{
 			super.mouseClicked(e);
 			//TODO 检查数据合法性、保存至数据库
 			//无错误时跳转至查看界面
+			
+			
+			managePanel.changeADDPanel(false);
 		}
 
 	}

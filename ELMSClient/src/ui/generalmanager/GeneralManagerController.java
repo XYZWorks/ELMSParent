@@ -7,6 +7,7 @@ import blservice.approvalblservice.Approvalblservice;
 import blservice.personnelblservice.Personnelblservice;
 import blservice.statisticblservice.Statisticblservice;
 import blservice.strategyblservice.StrategyblService;
+import ui.generalmanager.institution.InstManagePanel;
 import ui.generalmanager.people.PeopleManagePanel;
 import ui.tools.MyPanel;
 import ui.tools.MySideBarButton;

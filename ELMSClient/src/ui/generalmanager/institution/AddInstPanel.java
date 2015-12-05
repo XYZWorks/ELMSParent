@@ -1,4 +1,4 @@
-package ui.generalmanager;
+package ui.generalmanager.institution;
 
 import java.awt.CardLayout;
 

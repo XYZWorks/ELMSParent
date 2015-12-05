@@ -3,6 +3,7 @@ package bl.personnelbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.exception.DataNotExistExcetpion;
 import ds.personneldataservice.PersonnelDataService;
 import net.RMIManage;
 import po.personnel.InstPO;
@@ -33,7 +34,7 @@ public class Personnel {
 			e.printStackTrace();
 		}
 	}
-	public ArrayList<PersonVO> getPeopleByInst(String ID) {
+	public ArrayList<PersonVO> getPeopleByInst(String ID)  {
 		
 		ArrayList<PersonVO> vos = new ArrayList<PersonVO>();
 		ArrayList<PersonPO> pos = new ArrayList<PersonPO>();
@@ -44,6 +45,12 @@ public class Personnel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		if(pos == null){
+			return null;
+		}
+		
+		
 		
 		for(PersonPO po: pos){
 			vos.add((PersonVO)VOPOchange.POtoVO(po));
@@ -63,6 +70,11 @@ public class Personnel {
 			e.printStackTrace();
 		}
 		
+		if(po == null){
+			return null;
+		}
+		
+		
 		vo = (PersonVO) VOPOchange.POtoVO(po);
 		return vo;
 	}
@@ -79,6 +91,11 @@ public class Personnel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		if(pos == null){
+			return null;
+		}
+		
 		
 		for(PersonPO po: pos){
 			vos.add((PersonVO)VOPOchange.POtoVO(po));

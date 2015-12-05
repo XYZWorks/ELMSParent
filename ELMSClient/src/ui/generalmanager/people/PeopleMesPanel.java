@@ -1,6 +1,7 @@
 package ui.generalmanager.people;
 
 import java.util.ArrayList;
+import java.util.Vector;
 
 import org.dom4j.Element;
 
@@ -62,6 +63,51 @@ public class PeopleMesPanel extends MyTablePanel{
 		setRowAndColumnLen(30, columnLen);
 	}
 
+	
+	/**
+	 * 更新信息
+	 * @param vo
+	 */
+	public void  changeMes(ArrayList<PersonVO> vo) {
+		if(vo == null){
+			return;
+		}
+		
+		Object[] mes= new Object[5];
+		for (PersonVO personVO : vo) {
+			mes[0] = personVO.ID ;
+			mes [1] = personVO.instID;
+			mes [2] = personVO.name;
+			mes [3] = personVO.type.name();
+			mes [4] = personVO.phoneNum;
+			table.getModel().addRow(mes);
+		}
+		
+		
+		
+		
+		
+		
+	}
+	public void  changeMes(PersonVO personVO) {
+		if(personVO == null){
+			return;
+		}
+		
+			Object[] mes= new Object[5];
+			mes[0] = personVO.ID ;
+			mes [1] = personVO.instID;
+			mes [2] = personVO.name;
+			mes [3] = personVO.type.name();
+			mes [4] = personVO.phoneNum;
+			table.getModel().addRow(mes);
+		
+		
+		
+		
+		
+		
+	}
 	
 	
 	
