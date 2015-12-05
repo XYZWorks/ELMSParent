@@ -1,6 +1,7 @@
 package ui.storeman;
 
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import org.dom4j.Element;
 
@@ -19,35 +20,39 @@ import ui.util.PanelController;
 import util.City;
 import util.GoodsState;
 import util.MyDate;
+import util.ResultMessage;
+import vo.transport.ArriveYYDocVO;
 
 /**
- *   到达单
+ * 到达单
+ * 
  * @author xingcheng
  *
  */
-public class ArriveZZDocAdd extends MyPanel{
-	
+public class ArriveZZDocAdd extends MyPanel {
+
 	private MyPictureButton confirmButton;
 	private MyPictureButton returnButton;
-	
+
 	private MyLabel IDL;
 	private MyLabel dateL;
-	private MyLabel centerL;	
+	private MyLabel centerL;
 	private MyLabel sendCityL;
 	private MyLabel goodStateL;
 	private MyLabel ordersL;
 	private MyLabel tip;
-	
+
 	private MyTextField IDT;
 	private MyTextField dateT;
 	private MyTextField centerT;
 	private MyComboBox sendCityC;
 	private MyComboBox goodStateC;
 	private MyTextField ordersT;
-	
+
 	PanelController controller;
 	Transportblservice bl;
-	public ArriveZZDocAdd(Element config,Transportblservice bl,PanelController controller) {
+
+	public ArriveZZDocAdd(Element config, Transportblservice bl, PanelController controller) {
 		super(config);
 		this.bl = bl;
 		this.controller = controller;
@@ -63,14 +68,14 @@ public class ArriveZZDocAdd extends MyPanel{
 	@Override
 	protected void initWhitePanels(Element e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	protected void initButtons(Element e) {
 		confirmButton = new MyPictureButton(e.element("confirm"));
 		returnButton = new MyPictureButton(e.element("return"));
-		
+
 	}
 
 	@Override
@@ -78,10 +83,9 @@ public class ArriveZZDocAdd extends MyPanel{
 		IDT = new MyTextField(e.element("ID"));
 		dateT = new MyTextField(e.element("date"));
 		centerT = new MyTextField(e.element("center"));
-		
+
 		ordersT = new MyTextField(e.element("orders"));
 
-		
 	}
 
 	@Override
@@ -118,30 +122,45 @@ public class ArriveZZDocAdd extends MyPanel{
 		add(tip);
 		add(ordersL);
 		add(ordersT);
-		
-		
+
 	}
 
 	@Override
 	protected void addListener() {
 		confirmButton.addMouseListener(new MyAddListener(confirmButton, bl));
 		returnButton.addMouseListener(new MyJumpListener(returnButton, "ArriveZZPanel", controller));
-		
-	}
-	class MyAddListener extends MyPictureButtonListener{
 
-		public MyAddListener(MyPictureButton button,Transportblservice bl) {
+	}
+
+	class MyAddListener extends MyPictureButtonListener {
+
+		public MyAddListener(MyPictureButton button, Transportblservice bl) {
 			super(button);
 		}
-		
+
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
-			
+
 			String ID = IDT.getText();
+			String zzID = centerT.getText();
 			MyDate myDate = MyDate.getDate(dateT.getText());
 			City sendCity = City.toCity(sendCityC.getSelectedItem().toString());
 			GoodsState goodsState = GoodsState.toGoodState(goodStateC.getSelectedItem().toString());
+			
+			ArrayList<String> orders = new ArrayList<>();
+			String[] spl = ordersT.getText().split(",");
+			for (int i = 0; i < spl.length; i++) {
+				orders.add(spl[i]);
+			}
+			
+			ResultMessage result = bl.add(new ArriveYYDocVO(ID, myDate, zzID, sendCity, goodsState, orders));
+			
+			if(result==ResultMessage.SUCCESS)
+				showSuccess();
+		}
+
+		private void showSuccess() {
 			
 		}
 	}
