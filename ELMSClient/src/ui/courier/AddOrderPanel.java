@@ -26,8 +26,6 @@ public class AddOrderPanel extends MyPanel {
 	private MyWhitePanel senderInfoPanel;
 	private MyWhitePanel receiverInfoPanel;
 	private MyWhitePanel goodInfoPanel;
-	private MyWhitePanel estimateTimePanel;
-	private MyWhitePanel costPanel;
 
 	private PanelController controller;
 	// 订单号
@@ -204,7 +202,9 @@ public class AddOrderPanel extends MyPanel {
 
 	@Override
 	protected void addCompoment() {
-		
+		this.add(senderInfoPanel);
+		this.add(receiverInfoPanel);
+		this.add(goodInfoPanel);
 		
 		this.add(orderBarCode);
 		this.add(orderBarCodeLabel);
@@ -259,21 +259,10 @@ public class AddOrderPanel extends MyPanel {
 		goodInfoPanel.add(quickOrder);
 		goodInfoPanel.add(economicOrder);
 		
-		estimateTimePanel.add(estimateTime);
-		estimateTimePanel.add(estimateTimeLabel);
-		
-		costPanel.add(cost);
-		costPanel.add(costLabel);
-		
 		this.add(confirm);
 		this.add(cancel);
 
-		
-		this.add(senderInfoPanel);
-		this.add(receiverInfoPanel);
-		this.add(goodInfoPanel);
-		this.add(estimateTimePanel);
-		this.add(costPanel);
+
 	}
 
 	@Override
@@ -285,8 +274,6 @@ public class AddOrderPanel extends MyPanel {
 		senderInfoPanel=new MyWhitePanel(e.element("senderInfoPanel"));
 		receiverInfoPanel=new MyWhitePanel(e.element("receiverInfoPanel"));
 		goodInfoPanel=new MyWhitePanel(e.element("goodInfoPanel"));
-		estimateTimePanel=new MyWhitePanel(e.element("estimateTimePanel"));
-		costPanel=new MyWhitePanel(e.element("costPanel"));
 
 	}
 
