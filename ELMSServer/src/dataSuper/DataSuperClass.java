@@ -164,7 +164,6 @@ public abstract class DataSuperClass extends UnicastRemoteObject {
 		
 		try {
 			preState = conn.prepareStatement(SQLmap.get(tableName).get(3) + "\""+ ID + "\"");
-			System.out.println(SQLmap.get(tableName).get(3) + ID);
 			result = preState.executeQuery();
 			if(result.next()) {
 				// 如果查找到对应的ID

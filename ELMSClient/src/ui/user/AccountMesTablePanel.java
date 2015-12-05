@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.dom4j.Element;
 
 import blservice.accountblservice.Accountblservice;
+import ui.config.GraphicsUtils;
 import ui.config.UserfulMethod;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
@@ -51,8 +52,13 @@ public class AccountMesTablePanel extends MyTablePanel{
 	@Override
 	protected void initTable() {
 		table = new MyTable(columnNames, data);
+		
+		table.setFont(GraphicsUtils.getFont(null));
+		
 	}
 
+	
+	
 	
 
 

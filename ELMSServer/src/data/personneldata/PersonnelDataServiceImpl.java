@@ -46,7 +46,7 @@ public class PersonnelDataServiceImpl extends DataSuperClass implements
 			while (result.next()) {
 				personPOs.add(new PersonPO(result.getString(1), result
 						.getString(2), result.getString(3), StaffType
-						.getType(result.getString(4)), result.getString(5)));
+						.valueOf(result.getString(4)), result.getString(5)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -65,7 +65,7 @@ public class PersonnelDataServiceImpl extends DataSuperClass implements
 			return null;
 		}else{
 			//instid 在 id前
-			return new PersonPO(findMes.get(1),findMes.get(0), findMes.get(2), StaffType.getType(findMes.get(3)), findMes.get(4));
+			return new PersonPO(findMes.get(1),findMes.get(0), findMes.get(2), StaffType.valueOf(findMes.get(3)), findMes.get(4));
 		}
 	}
 
@@ -81,7 +81,7 @@ public class PersonnelDataServiceImpl extends DataSuperClass implements
 				//instid 在 id前
 				persons.add(new PersonPO(result.getString(2), result
 						.getString(1), result.getString(3), StaffType
-						.getType(result.getString(4)), result.getString(5)));
+						.valueOf(result.getString(4)), result.getString(5)));
 
 			}
 			return persons.isEmpty()?null:persons;

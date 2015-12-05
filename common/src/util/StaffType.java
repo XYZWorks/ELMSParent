@@ -41,15 +41,65 @@ public enum StaffType {
 	private StaffType(String name) {
 		this.stafftypeName = name;
 	}
+	
+	public final static StaffType getType(String chineseName){
+		switch (chineseName) {
+		case "快递员":
 
-	public String getName() {
-		return stafftypeName;
+			return courier;
+		case "司机":
+
+			return driver;
+		case "财务人员":
+
+			return financeman;
+		case "营业厅业务员":
+
+			return saleman;
+		case "中转中心业务人员":
+
+			return storeman;
+		case "中转中心管理员":
+
+			return storemanager;
+
+		default:
+			return null;
+		}
+		
+		
+	}
+	
+	
+	public final static String getName(StaffType type) {
+		
+		
+		switch (type) {
+		case courier:
+
+			return "快递员";
+		case driver:
+
+			return "司机";
+		case financeman:
+
+			return "财务人员";
+		case saleman:
+
+			return "营业厅业务员";
+		case storeman:
+
+			return "中转中心业务员";
+		case storemanager:
+
+			return "中转中心管理人员";
+
+		default:
+			System.err.println("--------------非法人员输入");
+			return "";
+		}
+
 	}
 
-	public static StaffType getType(String str) {
-
-		return Enum.valueOf(StaffType.class, str);
-
-	}
 
 }

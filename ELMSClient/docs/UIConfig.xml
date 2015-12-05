@@ -216,9 +216,10 @@
 
 				</TEXTFIELDS>
 				<StaffTypeBox x="300" y="100" width="240" height="30"
-					strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理人员 司机" />
+					strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理员 司机" />
 				<WageStrategyBox x="300" y="180" width="240" height="30"
 					strings="按月计费 按次计费 提成制" />
+				<table x="100" y="100" width="400" height="400" />
 			</SalaryStrategySetPanel>
 
 		</GeneralManager>

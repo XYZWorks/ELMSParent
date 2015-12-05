@@ -93,21 +93,21 @@ public class AccountDataServiceImplTest {
 		
 	}
 
-	@Test
-	public void testCheck() throws RemoteException {
-		test.initial();
-		test.add(new AccountPO("123456", "陈自强", AccountType.manager, "123566"));
-		if(test.check("123456", "123500") == ResultMessage.SUCCESS){
-			fail();
-		};
-		if(test.check("123400", "123566") == ResultMessage.SUCCESS){
-			fail();
-		};
-		if(test.check("123456", "123566") == ResultMessage.FAIL){
-			fail();
-		};
-		
-	}
+//	@Test
+//	public void testCheck() throws RemoteException {
+//		test.initial();
+//		test.add(new AccountPO("123456", "陈自强", AccountType.manager, "123566"));
+//		if(test.check("123456", "123500") == ResultMessage.SUCCESS){
+//			fail();
+//		};
+//		if(test.check("123400", "123566") == ResultMessage.SUCCESS){
+//			fail();
+//		};
+//		if(test.check("123456", "123566") == ResultMessage.FAIL){
+//			fail();
+//		};
+//		
+//	}
 
 	@Test
 	public void testGetMes() {

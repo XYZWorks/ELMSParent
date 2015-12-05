@@ -26,13 +26,15 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private final String instoreDocTable = "InStoreDoc";
+	private static final String instoreDocTable = "InStoreDoc";
 	
-	private final String outstoreDocTable = "OutStoreDoc";
+	private static final String outstoreDocTable = "OutStoreDoc";
 	
-	private final String storeCheckTable = "StoreCheck";
+	private static final String storeCheckTable = "StoreCheck";
 	
-	private final String alarmTable = "alarm";
+	private static final String storeMessage = "StoreMessage";
+	
+	private static final String alarmTable = "alarm";
 	
 
 	public StoreDataImpl() throws RemoteException {}
@@ -52,7 +54,7 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService{
 	}
  
 	public StoreMessagePO getStoreMessage() throws RemoteException {
-		Object ob = helper.readFromSerFile("StoreMessagePO");
+		Object ob = helper.readFromSerFile(storeMessage);
 		if(ob == null){
 			return null;
 		}else{
@@ -100,7 +102,7 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService{
 	}
 
 	public ResultMessage update(StoreMessagePO po) {
-		if(helper.writeToSerFile(po, "StoreMessagePO")){
+		if(helper.writeToSerFile(po, storeMessage , true)){
 			return ResultMessage.SUCCESS;
 		}else{
 			return ResultMessage.FAIL;

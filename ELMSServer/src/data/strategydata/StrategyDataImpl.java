@@ -60,8 +60,7 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while(result.next()){
-				System.out.println("-----------------");
-				pos.add(new SalaryWayPO(StaffType.getType(result.getString(1)), Integer.parseInt(result.getString(2)), Integer.parseInt(result.getString(3)), WageStrategy.valueOf(result.getString(4))));
+				pos.add(new SalaryWayPO(StaffType.valueOf(result.getString(1)), Integer.parseInt(result.getString(2)), Integer.parseInt(result.getString(3)), WageStrategy.valueOf(result.getString(4))));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -77,11 +76,11 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 
 	public ResultMessage setSalaryWay(SalaryWayPO po) throws RemoteException {
 		
-		return modifyFromSQL(salaryTable, po.getType().getName() , String.valueOf(po.getBasicSalary()) , String.valueOf(po.getMoreMoney()) , po.getWay().name());
+		return modifyFromSQL(salaryTable, po.getType().name() , String.valueOf(po.getBasicSalary()) , String.valueOf(po.getMoreMoney()) , po.getWay().name());
 	}
 
 	public SalaryWayPO getOneSalary(StaffType type) throws RemoteException {
-		findMes = findFromSQL(salaryTable, type.getName());
+		findMes = findFromSQL(salaryTable, type.name());
 		if(findMes == null){
 			return null;
 		}else{

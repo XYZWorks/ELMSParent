@@ -4,6 +4,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import ui.tools.MyPictureButton;
+import util.ResultMessage;
 
 /**
  * 按钮监听抽象父类
@@ -13,7 +14,9 @@ import ui.tools.MyPictureButton;
  */
 public class MyPictureButtonListener extends MouseAdapter {
 	private MyPictureButton button;
-
+	
+	protected ResultMessage result;
+	
 	public MyPictureButtonListener(MyPictureButton button) {
 		this.button = button;
 	}

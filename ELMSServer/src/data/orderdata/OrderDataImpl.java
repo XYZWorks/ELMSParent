@@ -80,7 +80,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	}
 
 	public ResultMessage add(OrderPO po) throws RemoteException {
-		return addToSQL(orderTable, po.getID(), DocType.getName(po.getType()),
+		return addToSQL(orderTable, po.getID(), po.getType().name(),
 				MyDate.toString(po.getDate()), po.getState().name(), po
 						.getSender().getName(), po.getSender().getPhone(), po
 						.getSender().getCompany(), po.getSender().getAddress(),

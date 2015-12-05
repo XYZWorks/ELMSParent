@@ -27,12 +27,12 @@ public class Strategy {
 	public Strategy() {
 		strategyData = (StrategyDataService) RMIManage.getDataService(DataServiceType.StrategyDataService);
 	
-		try {
-			strategyData.initial();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			strategyData.initial();
+//		} catch (RemoteException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 	public ConstVO getConst() {
 		ConstPO po = null;
@@ -85,7 +85,6 @@ public class Strategy {
 		SalaryWayVO vo = null;
 		try {
 			po = strategyData.getOneSalary(type);
-			System.out.println(po==null);
 			if(po!=null)
 				vo = (SalaryWayVO) VOPOchange.POtoVO(po);
 		} catch (RemoteException e) {

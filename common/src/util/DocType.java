@@ -48,10 +48,10 @@ public enum DocType {
 	private DocType(String name){
 		this.name = name;
 	}
-	
-	public static String getName(DocType type){
-		return type.name;
-	}
+//	
+//	public static String getName(DocType type){
+//		return type.name;
+//	}
 	
 	
 	
