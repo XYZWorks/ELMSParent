@@ -79,9 +79,9 @@
 			</mainWindow>
 			<addOrderPanel x="232" y="52" width="848" height="752">
 				<WHITEPANELS>
-					<senderInfoPanel x="232" y="54" width="100" height="50" />
-					<receiverInfoPanel x="232" y="54" width="100" height="50" />
-					<goodInfoPanel x="232" y="54" width="100" height="50" />
+					<senderInfoPanel x="49" y="114" width="365" height="295" />
+					<receiverInfoPanel x="434" y="114" width="365" height="295" />
+					<goodInfoPanel x="49" y="433" width="748" height="220" />
 				</WHITEPANELS>
 
 				<BUTTONS>
