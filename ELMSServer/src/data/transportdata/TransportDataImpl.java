@@ -82,7 +82,7 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 		if(findMes==null){
 			return null;
 		}else{
-			return new TransferDocPO(findMes.get(0), DocType.valueOf(findMes.get(1)), MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes.get(3)), findMes.get(4), City.valueOf(findMes.get(5) ),  Integer.parseInt(findMes.get(6)) , findMes.get(7) , helper.tranFromStringToArray(findMes.get(8)));
+			return new TransferDocPO(findMes.get(0), DocType.valueOf(findMes.get(1)), MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes.get(3)), findMes.get(4), City.valueOf(findMes.get(5) ),  Integer.parseInt(findMes.get(6)) , findMes.get(7) , helper.tranFromStringToArrayList(findMes.get(8)));
 		}
 	}
 
@@ -162,7 +162,7 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 				break;
 			case transferDoc:
 				while(result.next())
-					pos.add(new TransferDocPO(result.getString(1), DocType.valueOf(result.getString(2)), MyDate.getDate(result.getString(3)), DocState.valueOf(result.getString(4)), result.getString(5), City.valueOf(result.getString(6)) ,  Integer.parseInt(result.getString(7)) , result.getString(8) , helper.tranFromStringToArray(result.getString(9))) );
+					pos.add(new TransferDocPO(result.getString(1), DocType.valueOf(result.getString(2)), MyDate.getDate(result.getString(3)), DocState.valueOf(result.getString(4)), result.getString(5), City.valueOf(result.getString(6)) ,  Integer.parseInt(result.getString(7)) , result.getString(8) , helper.tranFromStringToArrayList(result.getString(9)) ));
 				break;
 			case sendGoodDoc:
 				while(result.next())

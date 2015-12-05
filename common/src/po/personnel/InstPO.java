@@ -2,6 +2,7 @@ package po.personnel;
 
 import java.io.Serializable;
 
+import util.City;
 import util.InstType;
 
 /**
@@ -12,9 +13,7 @@ import util.InstType;
 public class InstPO implements Serializable{
 	
 	
-	public InstPO() {
-		// TODO Auto-generated constructor stub
-	}
+	public InstPO() {}
 	/**
 	 * 
 	 */
@@ -26,7 +25,7 @@ public class InstPO implements Serializable{
 	/**
 	 * 机构所在城市
 	 */
-	private String location;
+	private City location;
 	/**
 	 * 机构类型  营业厅、中转中心、总部
 	 */
@@ -35,7 +34,7 @@ public class InstPO implements Serializable{
 	
 	
 	
-	public InstPO(String iD, String location, InstType type) {
+	public InstPO(String iD, City location, InstType type) {
 		super();
 		ID = iD;
 		this.location = location;
@@ -47,10 +46,10 @@ public class InstPO implements Serializable{
 	public void setID(String iD) {
 		ID = iD;
 	}
-	public String getLocation() {
+	public City getLocation() {
 		return location;
 	}
-	public void setLocation(String location) {
+	public void setLocation(City location) {
 		this.location = location;
 	}
 	public InstType getType() {

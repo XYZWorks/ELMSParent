@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import po.personnel.InstPO;
 import po.personnel.PersonPO;
+import util.City;
 import util.InstType;
 import util.ResultMessage;
 import util.StaffType;
@@ -102,7 +103,7 @@ public class PersonnelDataServiceImpl extends DataSuperClass implements
 	}
 
 	public ResultMessage addInst(InstPO po) throws RemoteException {
-		return addToSQL(instTable, po.getID() , po.getLocation() , po.getType().name());
+		return addToSQL(instTable, po.getID() , po.getLocation().name() , po.getType().name());
 	}
 
 	public ResultMessage delInst(String ID) throws RemoteException {
@@ -117,7 +118,7 @@ public class PersonnelDataServiceImpl extends DataSuperClass implements
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while(result.next()){
-				po = new InstPO(result.getString(1), result.getString(2), InstType.valueOf(result.getString(3)));
+				po = new InstPO(result.getString(1), City.valueOf(result.getString(2)), InstType.valueOf(result.getString(3)));
 				institutions.add(po);
 			}
 			
