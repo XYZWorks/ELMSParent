@@ -3,14 +3,9 @@ package ui.storeman;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-
 import org.dom4j.Element;
 
 import blservice.transportblservice.Transportblservice;
-import blservice.transportblservice.transportblservice_Driver;
-import config.StaticMessage;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyJumpListener;
@@ -25,13 +20,12 @@ import util.City;
 import util.GoodsState;
 import util.MyDate;
 import util.ResultMessage;
-import vo.transport.ArriveYYDocVO;
 import vo.transport.ArriveZZDocVO;
 
 /**
  * 到达单
  * 
- * @author xingcheng
+ * @author 
  *
  */
 public class ArriveZZDocAdd extends MyPanel {

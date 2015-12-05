@@ -1,5 +1,7 @@
 package vo.transport;
 
+import java.util.ArrayList;
+
 import util.City;
 import util.DocState;
 import util.DocType;
@@ -36,7 +38,7 @@ public class TransferDocVO extends DocVO{
 	/**
 	 *所有托运单号
 	 */
-	public String[] orderBarCode;
+	public ArrayList<String> orderBarCode;
 	public TransferDocVO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -44,7 +46,7 @@ public class TransferDocVO extends DocVO{
 	public TransferDocVO(String iD, util.MyDate date,
 			String transferWayID,
 			City sendCity, int containerNum, String loadManName,
-			String[] orderBarCode) {
+			ArrayList<String> orderBarCode) {
 		super(iD, DocType.transferDoc, date, DocState.wait);
 		
 		TransferWayID = transferWayID;

@@ -1,5 +1,7 @@
 package po.transport;
 
+import java.util.ArrayList;
+
 import po.DocPO;
 import util.City;
 import util.DocState;
@@ -42,14 +44,14 @@ public class TransferDocPO extends DocPO {
 	/**
 	 * 所有托运单号
 	 */
-	private  String[] orderBarCode;
+	private  ArrayList<String> orderBarCode;
 
 	public TransferDocPO() {}
 
 	public TransferDocPO(String iD, util.MyDate date,
 			 String transferWayID,
 			City sendCity, int containerNum, String loadManName,
-			String[] orderBarCode) {
+			ArrayList<String> orderBarCode) {
 		super(iD,DocType.transferDoc, date, DocState.wait);
 		this.transferWayID = transferWayID;
 		this.sendCity = sendCity;
@@ -60,7 +62,7 @@ public class TransferDocPO extends DocPO {
 
 	public TransferDocPO(String iD, DocType type, MyDate date, DocState state,
 			String transferWayID, City sendCity, int containerNum,
-			String loadManName, String[] orderBarCode) {
+			String loadManName, ArrayList<String> orderBarCode) {
 		super(iD, type, date, state);
 		this.transferWayID = transferWayID;
 		this.sendCity = sendCity;
@@ -113,11 +115,11 @@ public class TransferDocPO extends DocPO {
 		this.loadManName = loadManName;
 	}
 
-	public String[] getOrderBarCode() {
+	public ArrayList<String> getOrderBarCode() {
 		return orderBarCode;
 	}
 
-	public void setOrderBarCode(String[] orderBarCode) {
+	public void setOrderBarCode(ArrayList<String> orderBarCode) {
 		this.orderBarCode = orderBarCode;
 	}
 
