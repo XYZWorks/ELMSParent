@@ -2,6 +2,9 @@ package ui.storeman;
 
 import org.dom4j.Element;
 
+import bl.transportbl.TransportController;
+import blservice.transportblservice.Transportblservice;
+import blservice.transportblservice.transportblservice_Driver;
 import config.StaticMessage;
 import ui.generalmanager.ApprovalDocsPanel;
 import ui.generalmanager.ConstSetPanel;
@@ -25,6 +28,7 @@ public class StoreManController extends PanelController{
 	private MyPanel TransportPanel;
 	private MyPanel ArriveZZPanel;
 	private MyPanel StorePanel;
+	private MyPanel AddArriveZZPanel;
 	
 	private MySideBarButton transportButton;
 	private MySideBarButton arriveZZButton;
@@ -35,9 +39,15 @@ public class StoreManController extends PanelController{
 	private final String TransportPanelStr = "TransportPanel";
 	private final String ArriveZZPanelStr = "ArriveZZPanel";
 	private final String StorePanelStr = "StorePanel";
+	private final String AddArriveZZPanelStr = "AddArriveZZPanel";
+	
+	private Transportblservice bl;
+	
+	
 	
 	public StoreManController(MyPanel initialPanel, Element e) {
 		super(initialPanel , e);
+		initialBL();
 		initButtons(e.element(CompomentType.BUTTONS.name()));
 		initPanel(e);
 		addButtons();
@@ -52,8 +62,9 @@ public class StoreManController extends PanelController{
 	protected void initPanel(Element e) {
 		SMmainpanel = new StoreMain(e.element(SMmainpanelStr) , this);
 		TransportPanel = new TransportPanel(e.element(TransportPanelStr));
-		ArriveZZPanel = new ArriveZZPanel(e.element(ArriveZZPanelStr));
+		ArriveZZPanel = new ArriveZZPanel(e.element(ArriveZZPanelStr),bl,this);
 		StorePanel = new StoreShowPanel(e.element(StorePanelStr));
+		AddArriveZZPanel = new ArriveZZDocAdd(e.element(ArriveZZPanelStr).element(AddArriveZZPanelStr));
 	}
 
 	@Override
@@ -77,6 +88,7 @@ public class StoreManController extends PanelController{
 		changePanel.add(TransportPanel,TransportPanelStr);
 		changePanel.add(ArriveZZPanel, ArriveZZPanelStr);
 		changePanel.add(StorePanel, StorePanelStr);
+		changePanel.add(AddArriveZZPanel, AddArriveZZPanelStr);
 		
 	}
 
@@ -113,8 +125,7 @@ public class StoreManController extends PanelController{
 
 	@Override
 	protected void initialBL() {
-		// TODO Auto-generated method stub
-		
+		bl = new TransportController();
 	}
 
 

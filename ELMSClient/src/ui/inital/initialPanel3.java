@@ -229,4 +229,10 @@ public class initialPanel3 extends MyPanel {
 			rectangle.setMyIcon(ButtonState.NORMAL);
 		}
 	}
+
+	@Override
+	protected void initWhitePanels(Element e) {
+		// TODO Auto-generated method stub
+		
+	}
 }

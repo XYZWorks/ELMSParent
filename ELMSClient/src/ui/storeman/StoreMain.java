@@ -87,6 +87,11 @@ public class StoreMain extends MyPanel{
 	
 	private PanelController controller;
 	private MyDatePicker date;
+	@Override
+	protected void initWhitePanels(Element e) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }

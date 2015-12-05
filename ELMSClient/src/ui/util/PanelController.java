@@ -87,8 +87,21 @@ public abstract class PanelController {
 	 */
 	protected abstract void addToMap();
 	
+	/**
+	 * 返回布局管理器
+	 * @return
+	 */
+	public CardLayout getCardLayout() {
+		return this.panelManager;
+	}
 	
-	
+	/**
+	 * 
+	 * @return
+	 */
+	public JPanel getChangePanel() {
+		return this.changePanel;
+	}
 	/**
 	 * 
 	 * @param panelName

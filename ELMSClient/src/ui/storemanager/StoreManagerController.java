@@ -157,6 +157,12 @@ public class StoreManagerController extends PanelController {
 		
 	}
 
+	@Override
+	protected void initialBL() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 	
 
