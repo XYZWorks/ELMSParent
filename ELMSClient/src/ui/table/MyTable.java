@@ -31,11 +31,14 @@ public class MyTable extends JTable{
 		r.setHorizontalAlignment(JLabel.CENTER);   
 		setDefaultRenderer(Object.class,   r);
 //		setPreferredScrollableViewportSize(new Dimension(400, 200));//TODO
+<<<<<<< HEAD
 		
 		
 		//不允许修改列宽
 		getTableHeader().setResizingAllowed(false);
 		getTableHeader().setReorderingAllowed(false);
+=======
+>>>>>>> origin/master
 		
 		
 	}

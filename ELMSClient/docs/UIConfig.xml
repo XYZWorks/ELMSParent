@@ -352,7 +352,12 @@
 				</TEXTFIELDS>
 				<type text="职员类型" x="500" y="470" width="80" height="30"
 					strings="财务人员 总经理 管理员 营业厅业务员 快递员 中转中心业务人员 中转中心管理员" />
+<<<<<<< HEAD
 				<table x="50" y="50" width="600" height="400" columnName="ID 姓名 职员类型 密码" />
+=======
+				<table x="100" y="100" width="800" height="550" columnName="ID 姓名 账户类型 密码" />
+				
+>>>>>>> origin/master
 			</ModifyAccountPanel>
 
 
