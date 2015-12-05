@@ -78,4 +78,10 @@ public class ArriveZZTablePanel extends MyTablePanel {
 
 	}
 
+	@Override
+	public void updateTableMes() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
