@@ -10,6 +10,7 @@ import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
 import ui.generalmanager.GeneralManagerController;
+import ui.saleman.SaleManController;
 import ui.tools.MyFrame;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -33,7 +34,7 @@ public class InitalPanel4 extends MyPanel{
 	private MyPictureButton exit;
 	private MyPictureButton min;
 	private MyPictureButton home;
-	private MyPictureButton rectangle;
+	private MyPictureButton drop;
 	private MyLabel career;
 	/**
 	 * 控制器
@@ -58,6 +59,7 @@ public class InitalPanel4 extends MyPanel{
 		this.repaint();
 		
 		this.setVisible(true);
+		addOtherPanel(e);
 	}
 	
 	/**
@@ -68,8 +70,8 @@ public class InitalPanel4 extends MyPanel{
 //		AccountType type = vo.type;
 		
 		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
-		controller =  new GeneralManagerController(this, e.element("saleman")) ;
-//		controller = new FinanceController(this, e.element("Financeman"));
+		controller = new SaleManController(this, e.element("saleman"));
+		System.out.println("---------------");
 //		controller = new AdminstratorController(this, e.element("Adminstrator"));
 //		switch (type) {
 //		case Adminstrator:
@@ -111,7 +113,7 @@ public class InitalPanel4 extends MyPanel{
 		min = new MyPictureButton(e.element("min"));
 		home = new MyPictureButton(e.element("home"));
 		exit = new MyPictureButton(e.element("exit"));
-		rectangle = new MyPictureButton(e.element("drop"));
+		drop = new MyPictureButton(e.element("drop"));
 	}
 
 	@Override
@@ -138,7 +140,7 @@ public class InitalPanel4 extends MyPanel{
 		this.add(min);
 		this.add(home);
 		
-		this.add(rectangle);
+		this.add(drop);
 //		this.add(career);
 	}
 
@@ -147,7 +149,7 @@ public class InitalPanel4 extends MyPanel{
 		exit.addMouseListener(new ExitListener());
 		min.addMouseListener(new MinListener());
 		home.addMouseListener(new HomeListener());
-		rectangle.addMouseListener(new RectangleListener());
+		drop.addMouseListener(new RectangleListener());
 
 	}
 	
@@ -214,18 +216,18 @@ public class InitalPanel4 extends MyPanel{
 	class RectangleListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			rectangle.setMyIcon(ButtonState.MOUSE_CLICKED);
+			drop.setMyIcon(ButtonState.MOUSE_CLICKED);
 			//下拉窗口 选择“设置账户信息”“登出账户”
 		}
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
-			rectangle.setMyIcon(ButtonState.MOUSE_ENTERED);
+			drop.setMyIcon(ButtonState.MOUSE_ENTERED);
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
-			rectangle.setMyIcon(ButtonState.NORMAL);
+			drop.setMyIcon(ButtonState.NORMAL);
 		}
 	}
 

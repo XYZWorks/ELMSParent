@@ -1,5 +1,7 @@
 package ui.saleman;
 
+import java.awt.event.MouseEvent;
+
 import org.dom4j.Element;
 
 import config.StaticMessage;
@@ -9,6 +11,7 @@ import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.MySideBarListener;
 import ui.util.PanelController;
+import ui.util.TipsDialog;
  /** 
  * 营业厅业务员界面跳转控制器
  * @author czq 
@@ -47,7 +50,7 @@ public class SaleManController extends PanelController {
 		addPanels();
 		addListeners();
 		addToMap();
-		this.setAllButtonVisable(false);
+		this.setAllButtonVisable(true);
 		changePanel.setVisible(true);
 	}
 
@@ -66,7 +69,7 @@ public class SaleManController extends PanelController {
 	@Override
 	protected void initButtons(Element e) {
 		arriveYYDocButton = new MySideBarButton(e.element("arriveYYDoc"));
-		driverInfoManageButton = new MySideBarButton(e.element("ariverInfoManage"));
+		driverInfoManageButton = new MySideBarButton(e.element("driverInfoManage"));
 		loadDocButton = new MySideBarButton(e.element("loadDoc"));
 		payDocButton = new MySideBarButton(e.element("payDoc"));
 		sendGoodDocButton = new MySideBarButton(e.element("sendGoodDoc"));
@@ -110,6 +113,22 @@ public class SaleManController extends PanelController {
 		
 	}
 
+	
+//	class MyTestListener extends MySideBarListener{
+//
+//		public MyTestListener(MySideBarButton button, PanelController controller, String itsPanel) {
+//			super(button, controller, itsPanel);
+//			// TODO Auto-generated constructor stub
+//		}
+//		
+//		public void mouseClicked(MouseEvent e){
+//			super.mouseClicked(e);
+//			
+//			new TipsDialog("hello world!");
+//		}
+//		
+//	}
+	
 	@Override
 	public void setAllButtonUnClicked() {
 		arriveYYDocButton.setMyIcon(ButtonState.NORMAL);

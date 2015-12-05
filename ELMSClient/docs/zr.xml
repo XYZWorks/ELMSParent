@@ -140,32 +140,37 @@
 		</storemanager>
 		<saleman x="232" y="54" width="1080" height="637">
 			<BUTTONS>
-				<LoadDoc text="装车单" x="0" y="267" />
-				<ArriveYYDoc text="接收单" x="0" y="307" />
-				<SendGoodDoc text="派送单" x="0" y="347" />
-				<PayDoc text="收款单" x="0" y="387" />
-				<DriverInfoManage text="司机信息管理" x="0" y="427" />
-				<TruckInfoManage text="车辆信息管理" x="0" y="467" />
+				<loadDoc text="装车单" x="0" y="267" />
+				<arriveYYDoc text="接收单" x="0" y="307" />
+				<sendGoodDoc text="派送单" x="0" y="347" />
+				<payDoc text="收款单" x="0" y="387" />
+				<driverInfoManage text="司机信息管理" x="0" y="427" />
+				<truckInfoManage text="车辆信息管理" x="0" y="467" />
 			</BUTTONS>
 			
 		<mainWindow x="232" y="54" width="1080" height="637">
 		<BUTTONS>
-					<TruckInfoManage text="" x="718" y="230" width="140" height="165"
+					<truckInfoManage text="" x="648" y="146" width="140" height="165"
 						normal="saleman//TruckInfoManage" enter="saleman//TruckInfoManage-enter" clicked="saleman//TruckInfoManage-clicked" />
-					<DriverInfoManage text="" x="718" y="439" width="140" height="165"
+					<driverInfoManage text="" x="648" y="350" width="140" height="165"
 						normal="saleman//DriverInfoManage" enter="saleman//DriverInfoManage-enter" clicked="saleman//DriverInfoManage-clicked" />
-					<LoadDoc text="" x="114" y="230" width="140" height="165" 
-						normal="saleman//LoadDocDoc" enter="saleman//LoadDocDoc-enter" clicked="saleman//LoadDocDoc-clicked" />
-					<ArriveYYDoc text="" x="114" y="434" width="140" height="165"
-						normal="saleman//ArriveYYDocDoc" enter="saleman//ArriveYYDocDoc-enter" clicked="saleman//ArriveYYDocDoc-clicked" />
-					<SendGoodDoc text="" x="415" y="230" width="140" height="165"
+					<loadDoc text="" x="44" y="146" width="140" height="165" 
+						normal="saleman//LoadDoc" enter="saleman//LoadDoc-enter" clicked="saleman//LoadDoc-clicked" />
+					<arriveYYDoc text="" x="44" y="350" width="140" height="165"
+						normal="saleman//ArriveYYDoc" enter="saleman//ArriveYYDoc-enter" clicked="saleman//ArriveYYDoc-clicked" />
+					<sendGoodDoc text="" x="345" y="146" width="140" height="165"
 						normal="saleman//SendGoodDoc" enter="saleman//SendGoodDoc-enter" clicked="saleman//SendGoodDoc-clicked" />
-					<PayDoc text="" x="415" y="434" width="140" height="165"
+					<payDoc text="" x="345" y="350" width="140" height="165"
 						normal="saleman//PayDoc" enter="saleman//PayDoc-enter" clicked="saleman//PayDoc-clicked" />
 				</BUTTONS>
-		</mainWindow>
-				
-		</saleman>
+		</mainWindow >
+			<loadDocShowpanel x="232" y="54" width="1080" height="637"></loadDocShowpanel>
+			<arriveYYDocShowPanel x="232" y="54" width="1080" height="637"></arriveYYDocShowPanel>
+			<sendGoodDocShowPanel x="232" y="54" width="1080" height="637"></sendGoodDocShowPanel>
+			<payDocShowPanel x="232" y="54" width="1080" height="637"></payDocShowPanel>
+			<driverInfoManagePanel x="232" y="54" width="1080" height="637"></driverInfoManagePanel>
+			<truckInfoManagePanel x="232" y="54" width="1080" height="637"></truckInfoManagePanel>
+		</saleman >
 		
 	</initialpanel>
 </ELMS>

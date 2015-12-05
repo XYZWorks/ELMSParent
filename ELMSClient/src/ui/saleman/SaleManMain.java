@@ -49,12 +49,12 @@ public class SaleManMain extends MyPanel{
 
 	@Override
 	protected void initButtons(Element e) {
-		arriveYYDocButton = new MyPictureButton(e.element("ArriveYYDoc"));
-		driverInfoManageButton = new MyPictureButton(e.element("DriverInfoManage"));
-		loadDocButton = new MyPictureButton(e.element("LoadDoc"));
-		payDocButton = new MyPictureButton(e.element("PayDoc"));
-		sendGoodDocButton = new MyPictureButton(e.element("SendGoodDoc"));
-		truckInfoManageButton = new MyPictureButton(e.element("TruckInfoManage"));
+		arriveYYDocButton = new MyPictureButton(e.element("arriveYYDoc"));
+		driverInfoManageButton = new MyPictureButton(e.element("driverInfoManage"));
+		loadDocButton = new MyPictureButton(e.element("loadDoc"));
+		payDocButton = new MyPictureButton(e.element("payDoc"));
+		sendGoodDocButton = new MyPictureButton(e.element("sendGoodDoc"));
+		truckInfoManageButton = new MyPictureButton(e.element("truckInfoManage"));
 	}
 
 	@Override
