@@ -1,11 +1,7 @@
 package ui.saleman;
 
 import org.dom4j.Element;
-/**
- * @author JerryZhang
- * 营业厅业务员界面跳转控制器
- *
- */
+
 import config.StaticMessage;
 import ui.tools.MyPanel;
 import ui.tools.MySideBarButton;
@@ -14,7 +10,7 @@ import ui.util.CompomentType;
 import ui.util.MySideBarListener;
 import ui.util.PanelController;
  /** 
- * 
+ * 营业厅业务员界面跳转控制器
  * @author czq 
  * @version 2015年11月26日 下午3:40:59 
  */
@@ -57,7 +53,7 @@ public class SaleManController extends PanelController {
 
 	@Override
 	protected void initPanel(Element e) {
-		saleManMainPanel = new SaleManMain(e.element(saleManMainStr));
+		saleManMainPanel = new SaleManMain(e.element(saleManMainStr),this);
 		arriveYYDocShowPanel = new ArriveYYDocShowPanel(e.element(arriveYYDocShowPanelStr));
 		driverInfoManagePanel = new DriverInfoManagePanel(e.element(driverInfoManagePanelStr));
 		loadDocShowPanel = new LoadDocShowPanel(e.element(loadDocShowpanelStr));

@@ -9,7 +9,11 @@ import javax.swing.JFrame;
 import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
-import ui.courier.CourierController;
+import ui.generalmanager.GeneralManagerController;
+import ui.inital.InitalPanel.ExitListener;
+import ui.inital.InitalPanel.HomeListener;
+import ui.inital.InitalPanel.MinListener;
+import ui.inital.InitalPanel.RectangleListener;
 import ui.tools.MyFrame;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -19,14 +23,14 @@ import ui.util.CompomentType;
 import ui.util.PanelController;
 import vo.account.AccountVO;
 
-/**
- * 主面板界面，不动的界面
- * 
- * @author xingcheng
- *
- */
-@SuppressWarnings("serial")
-public class InitalPanel2 extends MyPanel {
+/** * @author zr 
+* @date 创建时间：2015年12月5日 下午7:23:31 
+* @version 1.0 
+* @parameter  
+* @since  
+* @return  
+*/
+public class InitalPanel4 extends MyPanel{
 
 //	private ShowCareer career;
 	private MyPictureButton exit;
@@ -41,7 +45,8 @@ public class InitalPanel2 extends MyPanel {
 	private MyFrame parent;
 
 
-	public InitalPanel2(Element e , MyFrame frame ,AccountVO vo) {
+
+	public InitalPanel4(Element e , MyFrame frame) {
 		super(e);
 		this.parent = frame;
 		this.initButtons(e.element(CompomentType.BUTTONS.name()));
@@ -51,9 +56,10 @@ public class InitalPanel2 extends MyPanel {
 		this.addCompoment();
 		this.addListener();
 		//界面跳转方法
-		this.addOtherPanel(vo ,e); 
+		//this.addOtherPanel(e); 
 		
 		this.repaint();
+		
 		this.setVisible(true);
 	}
 	
@@ -61,13 +67,13 @@ public class InitalPanel2 extends MyPanel {
 	 * 根据账户类型跳转至不同的界面
 	 * @param vo
 	 */
-	private void addOtherPanel(AccountVO vo  ,Element e) {
+	private void addOtherPanel(Element e) {
 //		AccountType type = vo.type;
 		
 		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
-		controller =  new CourierController(this, e.element("CourierManager")) ;
-		//controller =  new CourierController(this, e.element("CourierManager")) ;
-		
+		controller =  new GeneralManagerController(this, e.element("saleman")) ;
+//		controller = new FinanceController(this, e.element("Financeman"));
+//		controller = new AdminstratorController(this, e.element("Adminstrator"));
 //		switch (type) {
 //		case Adminstrator:
 //			
@@ -119,7 +125,7 @@ public class InitalPanel2 extends MyPanel {
 
 	@Override
 	protected void initLables(Element e) {
-	
+//		career = new MyLabel(e.element("career") , vo.type.name() + "," + vo.name);
 
 	}
 
@@ -156,6 +162,7 @@ public class InitalPanel2 extends MyPanel {
 			
 			System.exit(0);
 			
+			
 		}
 
 		@Override
@@ -191,11 +198,11 @@ public class InitalPanel2 extends MyPanel {
 	class HomeListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			//切换到主界面
+			home.setMyIcon(ButtonState.MOUSE_CLICKED);
+			//切换到主页
 			controller.jumpBackToMainWindow();
-			
 		}
-		
+
 		@Override
 		public void mouseEntered(MouseEvent e) {
 			home.setMyIcon(ButtonState.MOUSE_ENTERED);
@@ -230,4 +237,5 @@ public class InitalPanel2 extends MyPanel {
 		// TODO Auto-generated method stub
 		
 	}
+
 }

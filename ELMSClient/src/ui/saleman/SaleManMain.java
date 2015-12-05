@@ -2,7 +2,12 @@ package ui.saleman;
 
 import org.dom4j.Element;
 
+import ui.tools.MyDatePicker;
 import ui.tools.MyPanel;
+import ui.tools.MyPictureButton;
+import ui.util.CompomentType;
+import ui.util.MyMainPanelButtonListener;
+import ui.util.PanelController;
 
 /**
 *营业厅业务员 主界面
@@ -10,22 +15,46 @@ import ui.tools.MyPanel;
 *@version 2015年11月26日
 */
 public class SaleManMain extends MyPanel{
+	
+	private MyPictureButton arriveYYDocButton;
+	private MyPictureButton driverInfoManageButton;
+	private MyPictureButton loadDocButton;
+	private MyPictureButton payDocButton;
+	private MyPictureButton sendGoodDocButton;
+	private MyPictureButton truckInfoManageButton;
+	
+	private PanelController controller;
+	
 
-	public SaleManMain(Element config) {
+	public SaleManMain(Element config,PanelController controller) {
 		super(config);
-		// TODO Auto-generated constructor stub
+		this.controller = controller;
+		initButtons(config.element(CompomentType.BUTTONS.name()));
+		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
+		initOtherCompoment(config);
+		initLables(config.element(CompomentType.LABELS.name()));
+		addCompoment();
+		addListener();
+		repaint();
+		setVisible(true);
+		
 	}
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
+		
+		
 		
 	}
 
 	@Override
 	protected void initButtons(Element e) {
-		// TODO Auto-generated method stub
-		
+		arriveYYDocButton = new MyPictureButton(e.element("ArriveYYDoc"));
+		driverInfoManageButton = new MyPictureButton(e.element("DriverInfoManage"));
+		loadDocButton = new MyPictureButton(e.element("LoadDoc"));
+		payDocButton = new MyPictureButton(e.element("PayDoc"));
+		sendGoodDocButton = new MyPictureButton(e.element("SendGoodDoc"));
+		truckInfoManageButton = new MyPictureButton(e.element("TruckInfoManage"));
 	}
 
 	@Override
@@ -42,20 +71,30 @@ public class SaleManMain extends MyPanel{
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	protected void addCompoment() {
-		// TODO Auto-generated method stub
+		this.add(arriveYYDocButton);
+		this.add(loadDocButton);
+		this.add(driverInfoManageButton);
+		this.add(payDocButton);
+		this.add(sendGoodDocButton);
+		this.add(truckInfoManageButton);
+		
 		
 	}
 
 	@Override
 	protected void addListener() {
-		// TODO Auto-generated method stub
-		
+		arriveYYDocButton.addMouseListener(new MyMainPanelButtonListener(arriveYYDocButton, "arriveYYDocShowPanel", controller));
+		driverInfoManageButton.addMouseListener(new MyMainPanelButtonListener(driverInfoManageButton, "driverInfoManagePanel", controller));
+		loadDocButton.addMouseListener(new MyMainPanelButtonListener(loadDocButton, "loadDocShowpanel", controller));
+		payDocButton.addMouseListener(new MyMainPanelButtonListener(payDocButton, "payDocShowPanel", controller));
+		sendGoodDocButton.addMouseListener(new MyMainPanelButtonListener(sendGoodDocButton, "sendGoodDocShowPanel", controller));
+		truckInfoManageButton.addMouseListener(new MyMainPanelButtonListener(truckInfoManageButton, "truckInfoManagePanel", controller));
 	}
 
 }
