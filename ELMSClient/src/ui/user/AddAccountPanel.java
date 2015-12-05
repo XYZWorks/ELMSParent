@@ -117,6 +117,7 @@ public class AddAccountPanel extends MyPanel{
 					nameField.getText(),
 					AccountType.getType(((String) staffTypeBox.getSelectedItem())),
 					passwordField.getText()));
+			
 			System.out.println(AccountType.manager.name());
 //			if(mes == ResultMessage.SUCCESS){
 //				new MyOptionPane(parent, message)

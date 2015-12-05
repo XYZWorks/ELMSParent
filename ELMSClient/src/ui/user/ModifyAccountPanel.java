@@ -11,6 +11,9 @@ import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
+import util.AccountType;
+import util.ResultMessage;
+import vo.account.AccountVO;
 import blservice.accountblservice.Accountblservice;
  /** 
  * 查找、修改、删除界面
@@ -60,6 +63,8 @@ public class ModifyAccountPanel extends MyPanel{
 		newPassword.setVisible(flag);
 		newType.setVisible(flag);
 		newTypeC.setVisible(flag);
+		
+		table.setEnabled(!flag);
 	}
 	
 	
@@ -121,6 +126,23 @@ public class ModifyAccountPanel extends MyPanel{
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
 			if(isModify){
+				result = bl.modify(new AccountVO(
+						(String) table.getValueAt(table.getSelectedRow(), 0),
+						newNameT.getText(),
+						AccountType.getType((String) newTypeC.getSelectedItem()),
+						newPassT.getText()));
+				
+				if(result == ResultMessage.SUCCESS){
+					System.out.println("修改成功");
+				}else{
+					
+				}
+				
+				
+				setModifyCompVisiable(false);
+				modifyButton.setText("修改");
+				updateTableData();
+				
 				
 			}else{
 				int row = table.getSelectedRow();
@@ -150,7 +172,14 @@ public class ModifyAccountPanel extends MyPanel{
 			int row = table.getTable().getSelectedRow();
 			 
 			if(row != -1){
-				bl.delete((String)table.getTable().getValueAt(row, 0));
+				result = bl.delete((String)table.getTable().getValueAt(row, 0));
+				if(result == ResultMessage.SUCCESS){
+					System.out.println("删除成功   177行");
+				}else{
+					
+				}
+				
+				
 				table.removeRow(row);
 			}else{
 				
@@ -160,8 +189,8 @@ public class ModifyAccountPanel extends MyPanel{
 	
 	
 	
-	public void setTableData() {
-		table.reinitial();
+	public void updateTableData() {
+		table.updateTableMes();;
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package ui.inital;
 
+import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -22,7 +23,7 @@ public class testframeforczq extends MyFrame{
 	public testframeforczq(Element e) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
 		super(e);
 		
-		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		/**
 		 * 整个过程中不动的界面，底色
 		 */
