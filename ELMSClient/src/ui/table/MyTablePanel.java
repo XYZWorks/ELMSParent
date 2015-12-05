@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import org.dom4j.Element;
 
 import ui.tools.MyScrollerPane;
+import ui.user.MyTableModel;
  /** 
  * 
  * @author czq 

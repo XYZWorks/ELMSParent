@@ -76,7 +76,9 @@ public class AccountMesTablePanel extends MyTablePanel{
 	@Override
 	public void updateTableMes() {
 		vos = bl.show();
-		data = new String[vos.size()][COLUMN_NUM];
+		
+		table.getModel().setRowCount(vos.size());
+		
 		AccountVO vo;
 		for (int i = 0; i < vos.size(); i++) {
 			vo = vos.get(i);
