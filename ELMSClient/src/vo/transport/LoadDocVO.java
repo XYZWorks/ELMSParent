@@ -5,7 +5,7 @@ import vo.DocVO;
 
 import java.util.ArrayList;
 
-import ui.saleman.LoadDocShow;
+import ui.saleman.LoadDocShowPanel;
 import util.City;
 import util.DocState;
 import util.DocType;

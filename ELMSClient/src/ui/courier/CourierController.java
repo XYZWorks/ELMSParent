@@ -109,6 +109,12 @@ public class CourierController extends PanelController{
 		buttonMap.put(inputReceiveInfoPanelStr, inputReceiveInfoButton);
 		
 	}
+
+	@Override
+	protected void initialBL() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	
