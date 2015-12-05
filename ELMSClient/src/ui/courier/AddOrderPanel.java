@@ -204,11 +204,7 @@ public class AddOrderPanel extends MyPanel {
 
 	@Override
 	protected void addCompoment() {
-		this.add(senderInfoPanel);
-		this.add(receiverInfoPanel);
-		this.add(goodInfoPanel);
-		this.add(estimateTimePanel);
-		this.add(costPanel);
+		
 		
 		this.add(orderBarCode);
 		this.add(orderBarCodeLabel);
@@ -272,6 +268,12 @@ public class AddOrderPanel extends MyPanel {
 		this.add(confirm);
 		this.add(cancel);
 
+		
+		this.add(senderInfoPanel);
+		this.add(receiverInfoPanel);
+		this.add(goodInfoPanel);
+		this.add(estimateTimePanel);
+		this.add(costPanel);
 	}
 
 	@Override

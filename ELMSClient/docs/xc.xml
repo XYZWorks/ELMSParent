@@ -97,11 +97,11 @@
 						height="16" type="rectangle" />
 					<senderNameLabel text="姓名" x="69" y="177" width="36"
 						height="16" />
-					<senderPhoneLabel text="手机" x="69" y="208" width="36"
+					<senderPhoneLabel text="手机" x="69" y="224" width="36"
 						height="16" />
-					<senderAddressLabel text="地址" x="69" y="239"
+					<senderAddressLabel text="地址" x="69" y="255"
 						width="36" height="16" />
-					<senderUnitLabel text="单位" x="69" y="308" width="36"
+					<senderUnitLabel text="单位" x="69" y="324" width="36"
 						height="16" />
 						
 						
@@ -109,11 +109,11 @@
 						height="16" type="rectangle" />
 					<receiverNameLabel text="姓名" x="405" y="177" width="36"
 						height="16" />
-					<receiverPhoneLabel text="手机" x="405" y="208" width="36"
+					<receiverPhoneLabel text="手机" x="405" y="224" width="36"
 						height="16" />
-					<receiverAddressLabel text="地址" x="405" y="239"
+					<receiverAddressLabel text="地址" x="405" y="255"
 						width="36" height="16" />
-					<receiverUnitLabel text="单位" x="405" y="308" width="36"
+					<receiverUnitLabel text="单位" x="405" y="324" width="36"
 						height="16" />
 
 
@@ -122,42 +122,42 @@
 						height="16" type="rectangle" />
 					<goodNameLabel text="商品名称" x="69" y="493" width="65"
 						height="16" />
-					<goodWeightLabel text="实际重量" x="442" y="465" width="65"
+					<goodWeightLabel text="实际重量" x="442" y="538" width="65"
 						height="16" />
-					<goodNumLabel text="件数" x="442" y="495" width="36"
+					<goodNumLabel text="件数" x="442" y="493" width="36"
 						height="16" />
-					<goodVolumLabel text="体积" x="69" y="523" width="36"
+					<goodVolumLabel text="体积" x="69" y="538" width="36"
 						height="16" />
-					<goodPackLabel text="包装费用" x="69" y="480" width="65"
+					<goodPackLabel text="包装费用" x="69" y="583" width="65"
 						height="50" />
-					<orderFormLabel text="快递形式" x="69" y="496" width="65"
+					<orderFormLabel text="快递形式" x="69" y="615" width="65"
 						height="50" />
 
-					<estimateTime text="预计到达时间" x="49" y="668" width="189"
-						height="65" type="estimateTime" />
+					<estimateTime text="" x="49" y="668" width="189"
+						height="65" one="element//estimateTime" />
 					<estimateTimeLabel text="" x="145" y="668" width="56"
 						height="65" />
 
-					<cost text="费用总计" x="300" y="668" width="189" height="65" type="cost" />
+					<cost text="费用总计" x="300" y="668" width="189" height="65" one="element//cost" />
 					<costLabel text="" x="377" y="668" width="91" height="64" />
 				</LABELS>
 
 
 				<TEXTFIELDS>
 					<senderNameText x="112" y="171" width="276" height="29" />
-					<senderPhoneText x="112" y="188" width="276"
+					<senderPhoneText x="112" y="217" width="276"
 						height="29" />
-					<senderAddressText x="112" y="251" width="276"
+					<senderAddressText x="112" y="309" width="276"
 						height="29" />
-					<senderUnitText x="112" y="268" width="276" height="29" />
+					<senderUnitText x="112" y="355" width="276" height="29" />
 
 					<receiverNameText x="497" y="171" width="276"
 						height="29" />
-					<receiverPhoneText x="497" y="188" width="276"
+					<receiverPhoneText x="497" y="217" width="276"
 						height="29" />
-					<receiverAddressText x="497" y="251" width="276"
+					<receiverAddressText x="497" y="309" width="276"
 						height="29" />
-					<receiverUnitText x="497" y="268" width="276"
+					<receiverUnitText x="497" y="355" width="276"
 						height="29" />
 
 					<goodNameText x="141" y="487" width="254" height="29" />
@@ -172,21 +172,21 @@
 					<button x="350" y="0" width="50" height="50" type="rectangle" />
 				</DatePicker>
 
-				<bag x="600" y="100" width="150" height="45" />
-				<carton x="600" y="100" width="150" height="45" />
-				<woodCase x="600" y="100" width="150" height="45" />
-
-				<commonOrder x="600" y="100" width="150" height="45" />
-				<quickOrder x="600" y="100" width="150" height="45" />
-				<economicOrder x="600" y="100" width="150" height="45" />
-
-				<senderCity x="600" y="100" width="150" height="45"
+				<bag text="快递袋" x="160" y="585" width="58" height="13"  />
+				<carton text="纸箱" x="346" y="585" width="43" height="13" />
+				<woodCase text="木箱" x="525" y="585" width="43" height="13" />
+				
+				<economicOrder text="经济快递" x="160" y="617" width="74" height="13" />
+				<commonOrder text="普通快递" x="346" y="617" width="74" height="13" />
+				<quickOrder text="特快快递" x="525" y="617" width="74" height="13" />
+				
+				<senderCity x="112" y="263" width="120" height="29"
 					strings="南京 北京 广州 上海" />
-				<senderArea x="600" y="100" width="150" height="45"
+				<senderArea x="261" y="263" width="120" height="29"
 					strings="静安区" />
-				<receiverCity x="600" y="100" width="150" height="45"
+				<receiverCity x="497" y="263" width="120" height="29"
 					strings="南京 北京 广州 上海" />
-				<receiverArea x="600" y="100" width="150" height="45"
+				<receiverArea x="646" y="263" width="120" height="29"
 					strings="静安区" />
 
 			</addOrderPanel>
