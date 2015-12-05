@@ -9,8 +9,6 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import org.dom4j.Element;
-
-import ui.user.MyTableModel;
  /** 
  * 表格类
  * @author czq 
@@ -32,7 +30,14 @@ public class MyTable extends JTable{
 		DefaultTableCellRenderer   r   =   new   DefaultTableCellRenderer();   
 		r.setHorizontalAlignment(JLabel.CENTER);   
 		setDefaultRenderer(Object.class,   r);
-		setPreferredScrollableViewportSize(new Dimension(400, 200));//TODO
+//		setPreferredScrollableViewportSize(new Dimension(400, 200));//TODO
+
+		
+		
+		//不允许修改列宽
+		getTableHeader().setResizingAllowed(false);
+		getTableHeader().setReorderingAllowed(false);
+
 		
 		
 	}

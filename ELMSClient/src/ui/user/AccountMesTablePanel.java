@@ -31,22 +31,12 @@ public class AccountMesTablePanel extends MyTablePanel{
 		initTable();
 		initScrollerPane();
 		this.add(rollpane);
+		
+		int[] columnLen = {40,40,100,100};
+		setRowAndColumnLen(30, columnLen);
 	}
 	
-//	void reinitial(){
-//		
-//		vos = bl.show();
-//		data = new String[vos.size()][COLUMN_NUM];
-//		AccountVO vo;
-//		for (int i = 0; i < vos.size(); i++) {
-//			vo = vos.get(i);
-//			table.setValueAt(vo.ID, i, 0);
-//			table.setValueAt(vo.name, i, 1);
-//			table.setValueAt(vo.type.name(), i, 2);
-//			table.setValueAt(vo.password, i, 3);
-//			
-//		}
-//	}
+
 	
 	
 	@Override
@@ -63,6 +53,7 @@ public class AccountMesTablePanel extends MyTablePanel{
 			data[i][2] = vo.type.name();
 			data[i][3] = vo.password;
 		}
+		
 	}
 
 	@Override

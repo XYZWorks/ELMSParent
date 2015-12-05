@@ -185,7 +185,7 @@ public class Transport {
 	public ArrayList<ArriveZZDocVO> getDayArriveZZDocs(MyDate date) {
 		ArrayList<ArriveZZDocPO> pos = new ArrayList<ArriveZZDocPO>();
 		ArrayList<ArriveZZDocVO> vos = new ArrayList<ArriveZZDocVO>();
-		System.out.println(add((ArriveZZDocVO)DataTool.getDocList(DocType.arriveZZDoc).get(0)).name());
+//		System.out.println(add((ArriveZZDocVO)DataTool.getDocList(DocType.arriveZZDoc).get(0)).name());
 		
 		
 		try {
@@ -199,11 +199,11 @@ public class Transport {
 		System.out.println(pos.size());
 		
 		for(ArriveZZDocPO po: pos){
-			if(po.getDate().equals(date)){
+//			if(po.getDate().equals(date)){
 				vos.add((ArriveZZDocVO)VOPOchange.POtoVO(po));
-			}
+//			}
 		}
-		
+		System.out.println(vos.size());
 		return vos;
 	}
 

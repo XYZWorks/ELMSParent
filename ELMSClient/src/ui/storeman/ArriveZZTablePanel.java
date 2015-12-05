@@ -46,10 +46,10 @@ public class ArriveZZTablePanel extends MyTablePanel {
 		for (int i = 0; i < vos.size(); i++) {
 			vo = vos.get(i);
 			data[i][0] = vo.type.name();
-			data[i][1] =  vo.ID;
-			data[i][2] = vo.date.toString();
+			data[i][1] = vo.ID;
+			data[i][2] = MyDate.toString(vo.date);
 			data[i][3] = vo.zZID;
-			data[i][4] = vo.sendCity;
+			data[i][4] = vo.sendCity.name();
 			data[i][5] = vo.goodState.name();
 			data[i][6] = getOrderString(vo.orderBarCodes);
 		}
@@ -67,7 +67,7 @@ public class ArriveZZTablePanel extends MyTablePanel {
 	@Override
 	protected void initTable() {
 		table = new MyTable(columnNames, data);
-		
+		table.setBounds(0, 0, 500,700);
 		table.setFont(GraphicsUtils.getFont(null));
 
 	}

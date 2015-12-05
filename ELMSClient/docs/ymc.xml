@@ -70,14 +70,19 @@
 				</BUTTONS>
 				
 				<LABELS>
-					<nowDoc  x="50" y="50" width="200" height="100"  
+					<nowDoc  x="20" y="0" width="200" height="100"  
 					text="当日生成到达单" type="rectangle"/>
 				</LABELS>
 				
 			 	<AddArriveZZPanel x="232" y="54" width="1080" height="637">
-			 		
+			 		<BUTTONS>
+			 			<confirm x="500" y="500" width="150" height="100" text="确认"
+						type="rectangle"/>
+						<return x="700" y="500" width="150" height="100" text="返回"
+						type="rectangle"/>
+			 		</BUTTONS>
 			 	</AddArriveZZPanel>
-			 	<table x="100" y="100" width="800" height="550" columnName="ID 姓名 账户类型 密码" />
+			 	<table x="100" y="50" width="600" height="400" columnName="单据类型 ID 日期 中转中心编号 到达地 货物状态 订单号集合" />
 			</ArriveZZPanel>
 			
 			<StorePanel x="232" y="54" width="1080" height="637">

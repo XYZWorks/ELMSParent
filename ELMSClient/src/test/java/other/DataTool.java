@@ -44,7 +44,7 @@ public class DataTool {
 	static MyDate d1 = new MyDate(2015, 11, 11);
 	static MyDate d2 = new MyDate(2015, 11, 12);
 	static MyDate d3 = new MyDate(2015, 11, 13);
-	static MyDate d4 = new MyDate(2015, 12, 5);
+	static MyDate d4 = new MyDate(2015, 12, 05);
 	static MyDate d5 = new MyDate(2015, 11, 15);
 	
 	static String instid1 = "000000";

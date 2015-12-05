@@ -37,4 +37,5 @@ public class MyPictureButtonListener extends MouseAdapter {
 		button.setMyIcon(ButtonState.NORMAL);
 	}
 
+
 }

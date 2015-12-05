@@ -6,7 +6,6 @@ import org.dom4j.Element;
 
 import ui.tools.MyScrollerPane;
 import util.MyDate;
-import ui.user.MyTableModel;
  /** 
  * 
  * @author czq 
@@ -27,8 +26,12 @@ public abstract class MyTablePanel extends JPanel{
 	
 	public MyTablePanel(Element config) {
 		
+
 		
+
+
 	this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));
+
 		
 		
 		
@@ -52,9 +55,27 @@ public abstract class MyTablePanel extends JPanel{
 	 */
 	protected abstract void initTable();
 	
+	/**
+	 * 设置行宽,列宽
+	 */
+	protected  void setRowAndColumnLen(int rowLen , int[] columnLen){
+		table.setRowHeight(rowLen);
+		try {
+			for (int i = 0; i < columnLen.length; i++) {
+				table.getColumnModel().getColumn(i).setPreferredWidth(columnLen[i]);
+			}
+		} catch (Exception e) {
+			System.err.println("输入的表宽有误");
+		}
+		
+		
+		
+	}
+	
 	protected void initScrollerPane() {
 		dtm = table.getModel();
 		rollpane = new MyScrollerPane(table);
+//		this.add(table);
 	}
 	
 	/**
