@@ -150,27 +150,28 @@
 
 
 				<TEXTFIELDS>
-					<senderNameText x="63" y="57" width="276" height="29" />
+					<senderNameText x="63" y="57" width="276" height="32" />
 					<senderPhoneText x="63" y="103" width="276"
-						height="29" />
+						height="32" />
 					<senderAddressText x="63" y="195" width="276"
-						height="29" />
-					<senderUnitText x="63" y="241" width="276" height="29" />
+						height="32" />
+					<senderUnitText x="63" y="241" width="276" height="32" />
 
 					<receiverNameText x="63" y="57" width="276"
-						height="29" />
+						height="32" />
 					<receiverPhoneText x="63" y="103" width="276"
-						height="29" />
+						height="32" />
 					<receiverAddressText x="63" y="195" width="276"
-						height="29" />
+						height="32" />
 					<receiverUnitText x="63" y="241" width="276"
-						height="29" />
+						height="32" />
 
-					<goodNameText x="94" y="54" width="254" height="29" />
-					<goodWeightText x="468" y="100" width="85" height="29" />
-					<goodLongText x="94" y="100" width="85" height="29" />
-					<goodWidthText x="182" y="100" width="85" height="29" />
-					<goodHeightText x="272" y="100" width="85" height="29" />
+					<goodNameText x="94" y="54" width="263" height="32" />
+					<goodNumText  x="468" y="54" width="85" height="32" />
+					<goodWeightText x="468" y="100" width="85" height="32" />
+					<goodLongText x="94" y="100" width="85" height="32" />
+					<goodWidthText x="182" y="100" width="85" height="32" />
+					<goodHeightText x="272" y="100" width="85" height="32" />
 				</TEXTFIELDS>
 
 				<DatePicker x="0" y="0" width="400" height="50">

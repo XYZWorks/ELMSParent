@@ -78,6 +78,7 @@ public class AddOrderPanel extends MyPanel {
 	private MyTextField receiverUnitText;
 
 	private MyTextField goodNameText;
+	private MyTextField goodNumText;
 	private MyTextField goodWeightText;
 	private MyTextField goodLongText;
 	private MyTextField goodWidthText;
@@ -139,6 +140,7 @@ public class AddOrderPanel extends MyPanel {
 		receiverUnitText = new MyTextField(e.element("receiverUnitText"));
 
 		goodNameText = new MyTextField(e.element("goodNameText"));
+		goodNumText=new MyTextField(e.element("goodNumText"));
 		goodWeightText = new MyTextField(e.element("goodWeightText"));
 		goodLongText = new MyTextField(e.element("goodLongText"));
 		goodWidthText = new MyTextField(e.element("goodWidthText"));
@@ -248,6 +250,7 @@ public class AddOrderPanel extends MyPanel {
 		goodInfoPanel.add(orderFormLabel);
 		
 		goodInfoPanel.add(goodNameText);
+		goodInfoPanel.add(goodNumText);
 		goodInfoPanel.add(goodWeightText);
 		goodInfoPanel.add(goodLongText);
 		goodInfoPanel.add(goodWidthText);
