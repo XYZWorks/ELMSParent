@@ -131,7 +131,12 @@
 				<startCity x="45" y="100" width="240" height="30" strings="南京 北京 广州 上海" />
 				<arriveCity x="300" y="100" width="240" height="30"
 					strings="南京 北京 广州 上海" />
-
+				<WHITEPANELS>
+					<instance x="30" y="30" width="770" height="140" />
+					<transport x="38" y="200" width="380" height="270" />
+					<package x="483" y="194" width="370" height="300" />
+					<ratio x="40" y="474" width="582" height="174" />
+				</WHITEPANELS>
 
 			</ConstSetPanel>
 

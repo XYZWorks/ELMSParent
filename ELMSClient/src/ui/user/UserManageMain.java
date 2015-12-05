@@ -68,4 +68,12 @@ public class UserManageMain extends MyPanel{
 		modifyAccountButton.addMouseListener(new MyMainPanelButtonListener(modifyAccountButton, "ModifyAccountPanel", controller));
 	}
 
+
+
+	@Override
+	protected void initWhitePanels(Element e) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

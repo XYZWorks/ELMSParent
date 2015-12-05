@@ -2,7 +2,10 @@ package ui.tools;
 
 import org.dom4j.Element;
 
+import ui.config.GraphicsUtils;
+
 import java.awt.Color;
+import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
@@ -13,8 +16,27 @@ import javax.swing.JPanel;
 */
 @SuppressWarnings("serial")
 public class MyWhitePanel extends JPanel {
-	public MyWhitePanel(Element config){
+	private Color color;
+	private double alpha;
+	
+	
+	public MyWhitePanel(Element config ){
 		this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));
-		this.setBackground(Color.WHITE);
+		
+		if(config.attributeValue("alpha")!= null){
+			alpha = Double.parseDouble(config.attributeValue("alpha"));
+		}
+		
+//		this.setBackground(Color.WHITE);
 	}
+	@Override
+	public void paintComponent(Graphics g){
+		GraphicsUtils.setAlpha(g, 0.75);
+		g.setColor(Color.white);
+		g.fillRect(0, 0, getWidth(), getHeight());
+		
+		
+	}
+	
+	
 }

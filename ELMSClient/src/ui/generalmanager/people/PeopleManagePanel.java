@@ -1,10 +1,11 @@
-package ui.generalmanager;
+package ui.generalmanager.people;
 
 import java.awt.CardLayout;
 
 import org.dom4j.Element;
 
 import blservice.personnelblservice.Personnelblservice;
+import ui.table.MyTable;
 import ui.tools.MyPanel;
 
 /**
@@ -18,6 +19,12 @@ public class PeopleManagePanel extends MyPanel{
 	private CardLayout panelManager;
 	
 	private Personnelblservice bl;
+	
+	private MyTable peopleMesTable;
+	/**
+	 * 增加人员界面
+	 */
+	private AddPeoplePanel addpeople;
 	
 	public PeopleManagePanel(Element config , CardLayout panelManager ,Personnelblservice bl) {
 		super(config);
@@ -46,9 +53,17 @@ public class PeopleManagePanel extends MyPanel{
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		// TODO Auto-generated method stub
+		addpeople = new AddPeoplePanel(e.element("addPeople"), panelManager);
 		
 	}
+	
+//	private void initTable(){
+//		columnName
+//		
+//		
+//		
+//	}
+	
 
 	@Override
 	protected void addCompoment() {
@@ -58,6 +73,12 @@ public class PeopleManagePanel extends MyPanel{
 
 	@Override
 	protected void addListener() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void initWhitePanels(Element e) {
 		// TODO Auto-generated method stub
 		
 	}

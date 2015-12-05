@@ -22,7 +22,7 @@ public class Accountblservice_Driver {
 		System.out.println(vo.ID + " " + vo.name + " " + vo.mail);
 		
 		System.out.println("删除信息：");
-		result = account.delete(new AccountVO("111111", "wqe", AccountType.manager, "123456"));
+//		result = account.delete(new AccountVO("111111", "wqe", AccountType.manager, "123456"));
 		if(result == ResultMessage.SUCCESS){
 			System.out.println("账户删除成功");
 		}

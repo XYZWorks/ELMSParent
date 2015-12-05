@@ -33,6 +33,22 @@ public class AccountMesTablePanel extends MyTablePanel{
 		this.add(rollpane);
 	}
 	
+	void reinitial(){
+		
+		vos = bl.show();
+		data = new String[vos.size()][COLUMN_NUM];
+		AccountVO vo;
+		for (int i = 0; i < vos.size(); i++) {
+			vo = vos.get(i);
+			table.setValueAt(vo.ID, i, 0);
+			table.setValueAt(vo.name, i, 1);
+			table.setValueAt(vo.type.name(), i, 2);
+			table.setValueAt(vo.password, i, 3);
+			
+		}
+	}
+	
+	
 	@Override
 	protected void initialTitleAndColumn(Element config) {
 		columnNames = getColumnName(config.attributeValue("columnName"));

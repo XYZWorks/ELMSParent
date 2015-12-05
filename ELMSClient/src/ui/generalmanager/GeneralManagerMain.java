@@ -91,5 +91,8 @@ public class GeneralManagerMain extends MyPanel {
 		peopleManageButton.addMouseListener(new MyMainPanelButtonListener(peopleManageButton, "PeopleManagePanel", controller));
 	}
 
+	@Override
+	protected void initWhitePanels(Element e) {}
+
 	
 }

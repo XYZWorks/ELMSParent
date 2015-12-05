@@ -1,4 +1,4 @@
-package ui.generalmanager;
+package ui.generalmanager.people;
 
 import java.awt.CardLayout;
 import java.awt.event.MouseEvent;
@@ -18,7 +18,7 @@ import ui.util.MyPictureButtonListener;
  * @version 2015年12月3日 上午9:07:46 
  */
 @SuppressWarnings("serial")
-public class AddPeople extends MyPanel{
+public class AddPeoplePanel extends MyPanel{
 	
 	private MyLabel instIDL;
 	private MyLabel IDL;
@@ -38,7 +38,7 @@ public class AddPeople extends MyPanel{
 	
 	private CardLayout panelManager;
 	
-	public AddPeople(Element config ,CardLayout panelManager) {
+	public AddPeoplePanel(Element config ,CardLayout panelManager) {
 		super(config);
 		this.panelManager = panelManager;
 		initLables(config.element(CompomentType.LABELS.name()));
@@ -127,6 +127,12 @@ public class AddPeople extends MyPanel{
 			//TODO 清空数据
 			
 		}
+	}
+
+	@Override
+	protected void initWhitePanels(Element e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

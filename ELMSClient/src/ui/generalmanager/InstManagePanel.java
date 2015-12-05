@@ -62,4 +62,10 @@ public class InstManagePanel extends MyPanel{
 		
 	}
 
+	@Override
+	protected void initWhitePanels(Element e) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

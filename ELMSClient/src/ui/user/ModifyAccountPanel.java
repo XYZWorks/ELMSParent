@@ -158,4 +158,16 @@ public class ModifyAccountPanel extends MyPanel{
 		}
 	}
 	
+	
+	
+	public void setTableData() {
+		table.reinitial();
+	}
+
+	@Override
+	protected void initWhitePanels(Element e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

@@ -31,6 +31,12 @@ public class AccountblService_Stub implements Accountblservice{
 		return null;
 	}
 
+	@Override
+	public ResultMessage delete(String ID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 }

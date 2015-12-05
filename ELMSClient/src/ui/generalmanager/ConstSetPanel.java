@@ -11,6 +11,7 @@ import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
+import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
 import ui.util.TextFieldsManage;
@@ -66,7 +67,10 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 	
 	private ConstVO consts;
 	
-	
+	private MyWhitePanel instanceP;
+	private MyWhitePanel transportP;
+	private MyWhitePanel packageP;
+	private MyWhitePanel ratioP;
 	
 	
 	public ConstSetPanel(Element config , StrategyblService bl) {
@@ -76,6 +80,7 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
+		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		addCompoment();
 		addListener();
 		initConst();
@@ -253,6 +258,8 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 
 	@Override
 	protected void addCompoment() {
+		
+		
 		this.add(transportWay);
 		this.add(plane);
 		this.add(train);
@@ -288,6 +295,13 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 		add(ecnomicT);
 		add(normal);
 		add(normalT);
+		
+		add(instanceP);
+		add(transportP);
+		add(ratioP);
+		add(packageP);
+		
+		
 	}
 
 	@Override
@@ -360,6 +374,14 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 			return 0;
 		}
 		
+	}
+
+	@Override
+	protected void initWhitePanels(Element e) {
+		instanceP = new MyWhitePanel(e.element("instance"));
+		packageP = new MyWhitePanel(e.element("package"));
+		transportP = new MyWhitePanel(e.element("transport"));
+		ratioP = new MyWhitePanel(e.element("ratio"));
 	}
 	
 	
