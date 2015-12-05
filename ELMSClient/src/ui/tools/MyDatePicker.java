@@ -78,26 +78,44 @@ public class MyDatePicker extends MyLabel {
 		
 		button.addMouseListener(new MyDateButtonListener(button));
 		
-		try {
+		 {
 			datePicker.setBounds(Integer.parseInt(config.attributeValue("x")),
 					Integer.parseInt(config.attributeValue("y")),
 					Integer.parseInt(config.attributeValue("width")),
 					Integer.parseInt(config.attributeValue("height")));
-			dateField.setBounds(Integer.parseInt(config.attributeValue("fieldx")),
-					Integer.parseInt(config.attributeValue("fieldy")),
-					Integer.parseInt(config.attributeValue("fieldwidth")),
-					Integer.parseInt(config.attributeValue("fieldheight")));
-			button.setBounds(Integer.parseInt(config.attributeValue("buttonx")),
-					Integer.parseInt(config.attributeValue("buttony")),
-					Integer.parseInt(config.attributeValue("buttonwidth")),
-					Integer.parseInt(config.attributeValue("buttonheight")));
-		} catch (Exception e) {
-			
+//			dateField.setBounds(Integer.parseInt(config.element("field").attributeValue("x")),
+//					Integer.parseInt(config.element("field").attributeValue("y")),
+//					Integer.parseInt(config.element("field").attributeValue("width")),
+//					Integer.parseInt(config.element("field").attributeValue("height")));
+			dateField.setSize(Integer.parseInt(config.element("field").attributeValue("width")),
+					Integer.parseInt(config.element("field").attributeValue("height")));
+			button.setBounds(Integer.parseInt(config.element("button").attributeValue("x")),
+					Integer.parseInt(config.element("button").attributeValue("y")),
+					Integer.parseInt(config.element("button").attributeValue("width")),
+					Integer.parseInt(config.element("button").attributeValue("height")));
 		}
-		
 
 		this.add(datePicker);
+		setVisible(true);
 	}
+	public MyDatePicker(int x , int  y , int width , int he) {
+		super();
+
+		datePicker = new DatePicker(date, DefaultFormat, null, null);// 自定义参数值
+
+		button = datePicker.getInnerButton();
+		dateField = datePicker.getInnerTextField();
+		dateField.setFont(font);
+		dateField.setEditable(false);
+		
+		button.addMouseListener(new MyDateButtonListener(button));
+		
+			datePicker.setBounds(x , y , width ,he);
+
+		this.add(datePicker);
+		setVisible(true);
+	}
+	
 	/**
 	 * 是否带有时钟面板  此时具体到秒
 	 * @param config

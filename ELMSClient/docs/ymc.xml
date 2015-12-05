@@ -42,12 +42,12 @@
 			<mainWindow x="232" y="54" width="1080" height="637">
 				<BUTTONS>
 						<arriveZZ text="" x="391" y="267" width="162" height="150"
-							normal="storeman//ArriveZZ-enter" enter="storeman//ArriveZZ" clicked="storeman//ArriveZZ-clicked" />
+							normal="storeman//ArriveZZ" enter="storeman//ArriveZZ-enter" clicked="storeman//ArriveZZ-clicked" />
 						<store text="" x="692" y="266" width="119" height="162"
-							normal="storeman//StoreShow-enter" enter="storeman//StoreShow"
+							normal="storeman//StoreShow" enter="storeman//StoreShow-enter"
 							clicked="storeman//StoreShow-clicked" />
 						<transport text="" x="89" y="263" width="119" height="158"
-				 			normal="storeman//TransferDoc-enter" enter="storeman//TransferDoc"
+				 			normal="storeman//TransferDoc" enter="storeman//TransferDoc-enter"
 							clicked="storeman//TransferDoc-clicked" />
 				</BUTTONS>
 				<DatePicker x="0" y="0" width="400" height="50">
@@ -75,12 +75,55 @@
 				</LABELS>
 				
 			 	<AddArriveZZPanel x="232" y="54" width="1080" height="637">
+			 	
 			 		<BUTTONS>
 			 			<confirm x="500" y="500" width="150" height="100" text="确认"
 						type="rectangle"/>
 						<return x="700" y="500" width="150" height="100" text="返回"
 						type="rectangle"/>
 			 		</BUTTONS>
+			 		
+			 		<LABELS>
+	
+			 			<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="35"
+						text="到达单" type="rectangle"/>
+			 			<ID  x="420" y="150" width="200" height="100"  
+						text="到达单编号" type="rectangle"/>
+						<date  x="420" y="0" width="200" height="100"  
+						text="生成时间" type="rectangle"/>
+						<center  x="50" y="150" width="200" height="100"  
+						text="中转中心编号" type="rectangle"/>
+						<sendCity  x="50" y="300" width="200" height="100"  
+						text="到达地" type="rectangle"/>
+						<goodState  x="420" y="300" width="200" height="100"  
+						text="货物状态" type="rectangle"/>
+						<orders  x="50" y="450" width="200" height="100"  
+						text="所含订单编号" type="rectangle"/>
+						<tip  x="100" y="500" width="500" height="100" name="华文细黑" size="15"
+						text="多个订单号以逗号隔开" type="rectangle"/>
+						
+			 		</LABELS>
+	
+			 		
+			 		<TEXTFIELDS>
+			 			<ID x="550" y="180" width="200" height="45"/>
+			 			
+			 			<center x="200" y="180" width="200" height="45"/>
+			 			<orders x="200" y="480" width="600" height="45"/>
+			 		
+			 		</TEXTFIELDS>
+			 		
+			 		<sendCityC x="170" y="335" width="240" height="30"
+					strings="南京 广州 上海 北京" />
+					
+					<goodStateC x="550" y="335" width="240" height="30"
+					strings="完整 损坏 丢失" />
+			 		
+			 		<DatePicker x="300" y="100" width="400" height="50">
+						<field   x="100" y="0" width="350" height="50"      />
+						<button    x="350" y="0" width="50" height="50"  />
+					
+					</DatePicker>
 			 	</AddArriveZZPanel>
 			 	<table x="100" y="50" width="600" height="400" columnName="单据类型 ID 日期 中转中心编号 到达地 货物状态 订单号集合" />
 			</ArriveZZPanel>

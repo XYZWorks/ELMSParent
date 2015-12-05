@@ -58,8 +58,13 @@ public class ArriveZZTablePanel extends MyTablePanel {
 
 	private String getOrderString(ArrayList<String> orderBarCodes) {
 		String result = "";
-		for(int i = 0;i<orderBarCodes.size();i++){
-			result = result+"订单号"+(i+1)+":"+orderBarCodes.get(i)+" ";
+		try{
+			for(int i = 0;i<orderBarCodes.size();i++){
+				result = result+"订单号"+(i+1)+":"+orderBarCodes.get(i)+" ";
+			}
+		}
+		catch(NullPointerException e){
+			return null;
 		}
 		return result;
 	}
@@ -68,6 +73,7 @@ public class ArriveZZTablePanel extends MyTablePanel {
 	protected void initTable() {
 		table = new MyTable(columnNames, data);
 		table.setBounds(0, 0, 500,700);
+//		setRowAndColumnLen(rowLen, columnLen);
 		table.setFont(GraphicsUtils.getFont(null));
 
 	}

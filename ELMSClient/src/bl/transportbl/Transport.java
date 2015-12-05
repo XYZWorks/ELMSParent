@@ -196,14 +196,14 @@ public class Transport {
 		}	catch(NullPointerException e){
 			return null;
 		}
-		System.out.println(pos.size());
+//		System.out.println(pos.size());
 		
 		for(ArriveZZDocPO po: pos){
 //			if(po.getDate().equals(date)){
 				vos.add((ArriveZZDocVO)VOPOchange.POtoVO(po));
 //			}
 		}
-		System.out.println(vos.size());
+//		System.out.println(vos.size());
 		return vos;
 	}
 

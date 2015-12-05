@@ -3,12 +3,16 @@ package ui.storeman;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 import org.dom4j.Element;
 
 import blservice.transportblservice.Transportblservice;
 import blservice.transportblservice.transportblservice_Driver;
 import config.StaticMessage;
 import ui.tools.MyComboBox;
+import ui.tools.MyDatePicker;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -22,6 +26,7 @@ import util.GoodsState;
 import util.MyDate;
 import util.ResultMessage;
 import vo.transport.ArriveYYDocVO;
+import vo.transport.ArriveZZDocVO;
 
 /**
  * 到达单
@@ -31,9 +36,11 @@ import vo.transport.ArriveYYDocVO;
  */
 public class ArriveZZDocAdd extends MyPanel {
 
+	
 	private MyPictureButton confirmButton;
 	private MyPictureButton returnButton;
 
+	private MyLabel title;
 	private MyLabel IDL;
 	private MyLabel dateL;
 	private MyLabel centerL;
@@ -43,17 +50,19 @@ public class ArriveZZDocAdd extends MyPanel {
 	private MyLabel tip;
 
 	private MyTextField IDT;
-	private MyTextField dateT;
+	
 	private MyTextField centerT;
 	private MyComboBox sendCityC;
 	private MyComboBox goodStateC;
 	private MyTextField ordersT;
 
+	private MyDatePicker picker;
 	PanelController controller;
 	Transportblservice bl;
 
 	public ArriveZZDocAdd(Element config, Transportblservice bl, PanelController controller) {
 		super(config);
+
 		this.bl = bl;
 		this.controller = controller;
 		initLables(config.element(CompomentType.LABELS.name()));
@@ -81,7 +90,7 @@ public class ArriveZZDocAdd extends MyPanel {
 	@Override
 	protected void initTextFields(Element e) {
 		IDT = new MyTextField(e.element("ID"));
-		dateT = new MyTextField(e.element("date"));
+		
 		centerT = new MyTextField(e.element("center"));
 
 		ordersT = new MyTextField(e.element("orders"));
@@ -90,6 +99,7 @@ public class ArriveZZDocAdd extends MyPanel {
 
 	@Override
 	protected void initLables(Element e) {
+		title = new MyLabel(e.element("title"));
 		IDL = new MyLabel(e.element("ID"));
 		dateL = new MyLabel(e.element("date"));
 		centerL = new MyLabel(e.element("center"));
@@ -101,12 +111,16 @@ public class ArriveZZDocAdd extends MyPanel {
 
 	@Override
 	protected void initOtherCompoment(Element e) {
+		picker = new MyDatePicker(e.element("DatePicker"));
+//		picker = new MyDatePicker(100 ,200 ,400 , 400);
+		picker.setVisible(true);
 		sendCityC = new MyComboBox(e.element("sendCityC"));
 		goodStateC = new MyComboBox(e.element("goodStateC"));
 	}
 
 	@Override
 	protected void addCompoment() {
+		add(picker);
 		add(confirmButton);
 		add(returnButton);
 		add(IDL);
@@ -114,14 +128,16 @@ public class ArriveZZDocAdd extends MyPanel {
 		add(centerL);
 		add(centerT);
 		add(dateL);
-		add(dateT);
+		
 		add(goodStateC);
 		add(goodStateL);
 		add(sendCityC);
 		add(sendCityL);
 		add(tip);
+		add(title);
 		add(ordersL);
 		add(ordersT);
+		
 
 	}
 
@@ -144,7 +160,7 @@ public class ArriveZZDocAdd extends MyPanel {
 
 			String ID = IDT.getText();
 			String zzID = centerT.getText();
-			MyDate myDate = MyDate.getDate(dateT.getText());
+			MyDate myDate = picker.getMyDate();
 			City sendCity = City.toCity(sendCityC.getSelectedItem().toString());
 			GoodsState goodsState = GoodsState.toGoodState(goodStateC.getSelectedItem().toString());
 			
@@ -154,14 +170,14 @@ public class ArriveZZDocAdd extends MyPanel {
 				orders.add(spl[i]);
 			}
 			
-			ResultMessage result = bl.add(new ArriveYYDocVO(ID, myDate, zzID, sendCity, goodsState, orders));
+			ResultMessage result = bl.add(new ArriveZZDocVO(ID, myDate, zzID, sendCity, goodsState, orders));
 			
 			if(result==ResultMessage.SUCCESS)
 				showSuccess();
 		}
 
 		private void showSuccess() {
-			
+			System.out.println("add suc"); 
 		}
 	}
 }
