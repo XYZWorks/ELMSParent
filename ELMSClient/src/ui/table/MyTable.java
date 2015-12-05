@@ -32,7 +32,7 @@ public class MyTable extends JTable{
 		DefaultTableCellRenderer   r   =   new   DefaultTableCellRenderer();   
 		r.setHorizontalAlignment(JLabel.CENTER);   
 		setDefaultRenderer(Object.class,   r);
-		setPreferredScrollableViewportSize(new Dimension(400, 200));//TODO
+//		setPreferredScrollableViewportSize(new Dimension(400, 200));//TODO
 		
 		
 	}

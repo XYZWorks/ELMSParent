@@ -2,7 +2,15 @@ package ui.storeman;
 
 import org.dom4j.Element;
 
+import blservice.transportblservice.Transportblservice;
+import blservice.transportblservice.transportblservice_Driver;
+import config.StaticMessage;
+import ui.tools.MyAddListener;
+import ui.tools.MyJumpListener;
 import ui.tools.MyPanel;
+import ui.tools.MyPictureButton;
+import ui.util.CompomentType;
+import ui.util.PanelController;
 
 /**
  *   到达单
@@ -10,10 +18,23 @@ import ui.tools.MyPanel;
  *
  */
 public class ArriveZZDocAdd extends MyPanel{
-
-	public ArriveZZDocAdd(Element config) {
+	
+	private MyPictureButton confirmButton;
+	private MyPictureButton returnButton;
+	
+	PanelController controller;
+	Transportblservice bl;
+	public ArriveZZDocAdd(Element config,Transportblservice bl,PanelController controller) {
 		super(config);
-		// TODO Auto-generated constructor stub
+		this.bl = bl;
+		this.controller = controller;
+		initLables(config.element(CompomentType.LABELS.name()));
+		initButtons(config.element(CompomentType.BUTTONS.name()));
+		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
+
+		initOtherCompoment(config);
+		addCompoment();
+		addListener();
 	}
 
 	@Override
@@ -24,7 +45,8 @@ public class ArriveZZDocAdd extends MyPanel{
 
 	@Override
 	protected void initButtons(Element e) {
-		// TODO Auto-generated method stub
+		confirmButton = new MyPictureButton(e.element("confirm"));
+		returnButton = new MyPictureButton(e.element("return"));
 		
 	}
 
@@ -54,7 +76,8 @@ public class ArriveZZDocAdd extends MyPanel{
 
 	@Override
 	protected void addListener() {
-		// TODO Auto-generated method stub
+		confirmButton.addMouseListener(new MyAddListener(confirmButton, bl));
+		returnButton.addMouseListener(new MyJumpListener(returnButton, "ArriveZZPanel", controller));
 		
 	}
 

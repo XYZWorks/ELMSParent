@@ -27,7 +27,7 @@ public abstract class MyTablePanel extends JPanel{
 	
 	public MyTablePanel(Element config) {
 		
-		
+//	this.setLayout(null);
 	this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));
 		
 		
@@ -55,6 +55,7 @@ public abstract class MyTablePanel extends JPanel{
 	protected void initScrollerPane() {
 		dtm = table.getModel();
 		rollpane = new MyScrollerPane(table);
+//		this.add(table);
 	}
 	
 	/**
