@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import org.dom4j.Element;
 
 import ui.tools.MyScrollerPane;
+import util.MyDate;
  /** 
  * 
  * @author czq 
@@ -93,6 +94,10 @@ public abstract class MyTablePanel extends JPanel{
 	
 	public final static String[] getColumnName(String text){
 		return text.split(" ");
+	}
+
+	protected void initialTitleAndColumn(Element config, MyDate date) {
+		
 	}
 	
 	

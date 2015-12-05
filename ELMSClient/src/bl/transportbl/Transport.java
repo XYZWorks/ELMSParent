@@ -16,6 +16,7 @@ import po.transport.ArriveZZDocPO;
 import po.transport.LoadDocPO;
 import po.transport.SendGoodDocPO;
 import po.transport.TransferDocPO;
+import test.java.other.DataTool;
 import test.java.other.VOPOchange;
 import util.DataServiceType;
 import util.DocType;
@@ -46,11 +47,11 @@ public class Transport {
 		
 		transportData = (Transportdataservice) RMIManage.getDataService(DataServiceType.TransportDataService);
 
-		try {
-			transportData.initial();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			transportData.initial();
+//		} catch (RemoteException e) {
+//			e.printStackTrace();
+//		}
 		
 		strategybl = new StrategyController();
 		orderbl = new OrderController();
@@ -184,13 +185,18 @@ public class Transport {
 	public ArrayList<ArriveZZDocVO> getDayArriveZZDocs(MyDate date) {
 		ArrayList<ArriveZZDocPO> pos = new ArrayList<ArriveZZDocPO>();
 		ArrayList<ArriveZZDocVO> vos = new ArrayList<ArriveZZDocVO>();
+		System.out.println(add((ArriveZZDocVO)DataTool.getDocList(DocType.arriveZZDoc).get(0)).name());
+		
 		
 		try {
 			pos = (ArrayList<ArriveZZDocPO>) transportData.getDocLists(DocType.arriveZZDoc);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}	catch(NullPointerException e){
+			return null;
+		}
+		System.out.println(pos.size());
 		
 		for(ArriveZZDocPO po: pos){
 			if(po.getDate().equals(date)){

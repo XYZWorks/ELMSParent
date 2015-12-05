@@ -126,7 +126,7 @@ public abstract class DataSuperClass extends UnicastRemoteObject {
 			return ResultMessage.FAIL;
 		}
 		
-		
+		System.out.println(affectRows);
 		return ResultMessage.SUCCESS;
 	}
 	

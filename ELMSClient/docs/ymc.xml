@@ -6,8 +6,8 @@
 			<login text="" x="3" y="358" width="489" height="53" />
 			<checkOrder text="" x="213" y="316" width="72" height="17" />
 		</BUTTONS>
-		<LABLES>
-		</LABLES>
+		<LABELS>
+		</LABELS>
 		<TEXTFIELDS>
 			<userName x="179" y="185" width="174" height="31" />
 		</TEXTFIELDS>
@@ -62,7 +62,22 @@
 			</TransportPanel>		
 			
 			<ArriveZZPanel x="232" y="54" width="1080" height="637">
-			 
+				<BUTTONS>
+					<add x="500" y="500" width="150" height="100" text="增加"
+						type="rectangle"/>
+					<return x="700" y="500" width="150" height="100" text="返回"
+						type="rectangle"/>
+				</BUTTONS>
+				
+				<LABELS>
+					<nowDoc  x="50" y="50" width="200" height="100"  
+					text="当日生成到达单" type="rectangle"/>
+				</LABELS>
+				
+			 	<AddArriveZZPanel x="232" y="54" width="1080" height="637">
+			 		
+			 	</AddArriveZZPanel>
+			 	<table x="100" y="100" width="800" height="550" columnName="ID 姓名 账户类型 密码" />
 			</ArriveZZPanel>
 			
 			<StorePanel x="232" y="54" width="1080" height="637">

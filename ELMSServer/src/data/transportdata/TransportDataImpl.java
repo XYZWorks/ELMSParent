@@ -143,7 +143,6 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 			return null;
 		}
 		
-		
 		try {
 			sql = "SELECT * FROM  `" + temptable + "` WHERE state = \"wait\" " ;
 			preState = conn.prepareStatement(sql);
