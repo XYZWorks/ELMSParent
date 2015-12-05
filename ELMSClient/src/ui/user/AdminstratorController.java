@@ -117,7 +117,7 @@ public class AdminstratorController extends PanelController{
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
 			
-			modifyAccountPanel.setTableData();
+			modifyAccountPanel.updateTableData();
 			
 		}
 		

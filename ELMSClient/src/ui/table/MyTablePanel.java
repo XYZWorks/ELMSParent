@@ -32,10 +32,21 @@ public abstract class MyTablePanel extends JPanel{
 		
 	}
 	
+	/**
+	 * 更新表格信息
+	 */
+	public abstract void updateTableMes();
+	
+	
+	
+	/**
+	 * 初始化列标题、 内容信息
+	 * @param config
+	 */
 	protected abstract void initialTitleAndColumn(Element config);
 	
 	/**
-	 * 初始化表格，提供列标题（String【】）、内容信息（Object【】【】）
+	 * 初始化表格
 	 */
 	protected abstract void initTable();
 	
@@ -44,6 +55,12 @@ public abstract class MyTablePanel extends JPanel{
 		rollpane = new MyScrollerPane(table);
 	}
 	
+	/**
+	 * 注意！列数从0计
+	 * @param row
+	 * @param col
+	 * @return
+	 */
 	public Object getValueAt(int row , int col) {
 		return table.getValueAt(row, col);
 	}
