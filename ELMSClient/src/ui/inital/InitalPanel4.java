@@ -10,10 +10,6 @@ import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
 import ui.generalmanager.GeneralManagerController;
-import ui.inital.InitalPanel.ExitListener;
-import ui.inital.InitalPanel.HomeListener;
-import ui.inital.InitalPanel.MinListener;
-import ui.inital.InitalPanel.RectangleListener;
 import ui.tools.MyFrame;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -30,6 +26,7 @@ import vo.account.AccountVO;
 * @since  
 * @return  
 */
+
 public class InitalPanel4 extends MyPanel{
 
 //	private ShowCareer career;
@@ -46,7 +43,7 @@ public class InitalPanel4 extends MyPanel{
 
 
 
-	public InitalPanel4(Element e , MyFrame frame) {
+	public InitalPanel4(Element e , MyFrame frame,AccountVO vo) {
 		super(e);
 		this.parent = frame;
 		this.initButtons(e.element(CompomentType.BUTTONS.name()));

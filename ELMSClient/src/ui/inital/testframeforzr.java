@@ -25,7 +25,7 @@ public class testframeforzr extends MyFrame{
 	public testframeforzr(Element e , AccountType type) {
 		super(e);
 		
-		InitalPanel4 initialPanel = new InitalPanel4(e.element("initialpanel"), this);
+		InitalPanel4 initialPanel = new InitalPanel4(e.element("initialpanel"), this ,null);
 		
 		this.setContentPane(initialPanel);
 		

@@ -65,12 +65,12 @@ public class SaleManController extends PanelController {
 
 	@Override
 	protected void initButtons(Element e) {
-		arriveYYDocButton = new MySideBarButton(e.element("ArriveYYDoc"));
-		driverInfoManageButton = new MySideBarButton(e.element("DriverInfoManage"));
-		loadDocButton = new MySideBarButton(e.element("LoadDoc"));
-		payDocButton = new MySideBarButton(e.element("PayDoc"));
-		sendGoodDocButton = new MySideBarButton(e.element("SendGoodDoc"));
-		truckInfoManageButton = new MySideBarButton(e.element("TruckInfoManage"));
+		arriveYYDocButton = new MySideBarButton(e.element("arriveYYDoc"));
+		driverInfoManageButton = new MySideBarButton(e.element("ariverInfoManage"));
+		loadDocButton = new MySideBarButton(e.element("loadDoc"));
+		payDocButton = new MySideBarButton(e.element("payDoc"));
+		sendGoodDocButton = new MySideBarButton(e.element("sendGoodDoc"));
+		truckInfoManageButton = new MySideBarButton(e.element("truckInfoManage"));
 				
 		
 	}
@@ -88,13 +88,13 @@ public class SaleManController extends PanelController {
 
 	@Override
 	protected void addPanels() {
-		changePanel.add(saleManMainStr, saleManMainPanel);
-		changePanel.add(arriveYYDocShowPanelStr, arriveYYDocShowPanel);
-		changePanel.add(driverInfoManagePanelStr, driverInfoManagePanel);
-		changePanel.add(loadDocShowpanelStr, loadDocShowPanel);
-		changePanel.add(payDocShowPanelStr, payDocShowPanel);
-		changePanel.add(sendGoodDocShowPanelStr, sendGoodDocShowPanel);
-		changePanel.add(truckInfoManagePanelStr, truckInfoManagePanel);
+		changePanel.add(saleManMainPanel,saleManMainStr);
+		changePanel.add(arriveYYDocShowPanel,arriveYYDocShowPanelStr);
+		changePanel.add(driverInfoManagePanel,driverInfoManagePanelStr);
+		changePanel.add(loadDocShowPanel,loadDocShowpanelStr);
+		changePanel.add(payDocShowPanel,payDocShowPanelStr);
+		changePanel.add(sendGoodDocShowPanel,sendGoodDocShowPanelStr);
+		changePanel.add(truckInfoManagePanel,truckInfoManagePanelStr);
 		
 	}
 
