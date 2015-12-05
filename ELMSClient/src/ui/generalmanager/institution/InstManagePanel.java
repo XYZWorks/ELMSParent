@@ -15,9 +15,13 @@ import ui.tools.MyPanel;
 @SuppressWarnings("serial")
 public class InstManagePanel extends MyPanel{
 	
-	CardLayout panelManager;
+	private InstTablePanel table;
 	
-	Personnelblservice bl;
+	private CardLayout panelManager;
+	
+	private Personnelblservice bl;
+	
+	private final static String AddInstStr = "ADD_INST";
 	
 	public InstManagePanel(Element config , CardLayout panelManager , Personnelblservice bl) {
 		super(config);

@@ -19,6 +19,7 @@ import ui.user.AdminstratorController;
 import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.PanelController;
+import ui.util.TipsDialog;
 import vo.account.AccountVO;
 
 /**
@@ -48,6 +49,9 @@ public class InitalPanel extends MyPanel {
 	public InitalPanel(Element e , MyFrame frame ,AccountVO vo) {
 		super(e);
 		this.parent = frame;
+		
+		TipsDialog.setFrame(frame);
+		
 		this.initButtons(e.element(CompomentType.BUTTONS.name()));
 		this.initLables(e.element(CompomentType.LABELS.name()));
 		this.initTextFields(e.element(CompomentType.TEXTFIELDS.name()));

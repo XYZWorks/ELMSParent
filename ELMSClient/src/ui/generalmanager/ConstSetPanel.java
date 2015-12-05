@@ -15,6 +15,7 @@ import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
 import ui.util.TextFieldsManage;
+import ui.util.TipsDialog;
 import vo.strategy.ConstVO;
 import blservice.strategyblservice.StrategyblService;
 /**
@@ -134,7 +135,9 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
-			modifyConstPanel();
+//			modifyConstPanel();
+			
+			new TipsDialog("Hello World");
 		}
 	}
 	
@@ -148,6 +151,7 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 			super.mouseClicked(e);
 			checkAndSaveMes();
 			checkConstPanel();
+			
 		}
 	}
 	
