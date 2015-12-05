@@ -16,7 +16,23 @@ public enum GoodsState {
 	/**
 	 * 丢失
 	 */
-	Lost
+	Lost;
+
+	public static GoodsState toGoodState(String state) {
+		switch (state) {
+		case "损坏":
+			
+			return Damage;
+		case "完整":
+			return Complete;
+		case "丢失":
+			return Lost;
+		default:
+			System.err.println("goodState not exist");
+			return null;
+		}
+		
+	}
 	
 	
 }
