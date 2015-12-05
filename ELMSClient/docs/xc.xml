@@ -98,45 +98,45 @@
 					<orderBarCodeLabel text="" x="48" y="76" width="137"
 						height="19" />
 
-					<senderInfo text="寄件人" x="29" y="11" width="48" height="16"
+					<senderInfo text="寄件人" x="29" y="11" width="114" height="38"
 						type="rectangle" />
 					<senderNameLabel text="姓名" x="20" y="63" width="36"
-						height="16" />
+						height="20" />
 					<senderPhoneLabel text="手机" x="20" y="110" width="36"
-						height="16" />
+						height="20" />
 					<senderAddressLabel text="地址" x="20" y="156"
-						width="36" height="16" />
+						width="36" height="20" />
 					<senderUnitLabel text="单位" x="20" y="249" width="36"
-						height="16" />
+						height="20" />
 
 
-					<receiverInfo text="收件人" x="29" y="11" width="48"
-						height="16" type="rectangle" />
+					<receiverInfo text="收件人" x="29" y="11" width="114"
+						height="38" type="rectangle" />
 					<receiverNameLabel text="姓名" x="20" y="63"
-						width="36" height="16" />
+						width="36" height="20" />
 					<receiverPhoneLabel text="手机" x="20" y="110"
-						width="36" height="16" />
+						width="36" height="20" />
 					<receiverAddressLabel text="地址" x="20" y="156"
-						width="36" height="16" />
+						width="36" height="20" />
 					<receiverUnitLabel text="单位" x="20" y="249"
-						width="36" height="16" />
+						width="36" height="20" />
 
 
 
-					<goodsInfo text="货物信息" x="40" y="14" width="65" height="16"
+					<goodsInfo text="货物信息" x="40" y="14" width="114" height="38"
 						type="rectangle" />
 					<goodNameLabel text="商品名称" x="22" y="60" width="65"
-						height="16" />
+						height="20" />
 					<goodWeightLabel text="实际重量" x="395" y="105" width="65"
-						height="16" />
+						height="20" />
 					<goodNumLabel text="件数" x="395" y="60" width="36"
-						height="16" />
+						height="20" />
 					<goodVolumLabel text="体积" x="22" y="105" width="36"
-						height="16" />
-					<goodPackLabel text="包装费用" x="22" y="150" width="65"
-						height="50" />
-					<orderFormLabel text="快递形式" x="22" y="182" width="65"
-						height="50" />
+						height="20" />
+					<goodPackLabel text="包装费用" x="22" y="145" width="65"
+						height="20" />
+					<orderFormLabel text="快递形式" x="22" y="178" width="65"
+						height="20" />
 
 					<estimateTime text="" x="49" y="668" width="189"
 						height="65" one="element//estimateTime" />
