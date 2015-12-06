@@ -75,8 +75,8 @@ public class InitalPanel extends MyPanel {
 		
 		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
 //		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
-		controller = new FinanceController(this, e.element("Financeman"));
-//		controller = new AdminstratorController(this, e.element("Adminstrator"));
+//		controller = new FinanceController(this, e.element("Financeman"));
+		controller = new AdminstratorController(this, e.element("Adminstrator"));
 //		switch (type) {
 //		case Adminstrator:
 //			
