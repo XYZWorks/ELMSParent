@@ -33,20 +33,20 @@
 		
 			<BUTTONS>
 							
-				<transport text="中转单" x="0" y="307" />
-				<arriveZZ text="到达单" x="0" y="227" />
-				<store text="库存查看" x="0" y="267" />
+				<transport text="中转单" x="0" y="227" />
+				<arriveZZ text="到达单" x="0" y="267" />
+				<store text="库存查看" x="0" y="307" />
 				
 			</BUTTONS>
 			
 			<mainWindow x="232" y="54" width="1080" height="637">
 				<BUTTONS>
-						<arriveZZ text="" x="391" y="267" width="162" height="150"
+						<arriveZZ text="" x="355" y="270" width="162" height="150"
 							normal="storeman//ArriveZZ" enter="storeman//ArriveZZ-enter" clicked="storeman//ArriveZZ-clicked" />
-						<store text="" x="692" y="266" width="119" height="162"
+						<store text="" x="670" y="260" width="119" height="162"
 							normal="storeman//StoreShow" enter="storeman//StoreShow-enter"
 							clicked="storeman//StoreShow-clicked" />
-						<transport text="" x="89" y="263" width="119" height="158"
+						<transport text="" x="75" y="263" width="119" height="158"
 				 			normal="storeman//TransferDoc" enter="storeman//TransferDoc-enter"
 							clicked="storeman//TransferDoc-clicked" />
 				</BUTTONS>
@@ -214,9 +214,9 @@
 			
 			<mainWindow x="232" y="54" width="1080" height="637">
 				<BUTTONS>
-						<alarmRecover text="" x="661" y="160" width="140" height="165"
+					<alarmRecover text="" x="661" y="163" width="140" height="165"
 						normal="storemanager//AlarmValueRecover" enter="storemanager//AlarmValueRecover-enter" clicked="storemanager//AlarmValueRecover-clicked" />
-					<alarmSet text="" x="661" y="368" width="140" height="165"
+					<alarmSet text="" x="661" y="371" width="140" height="165"
 						normal="storemanager//AlarmValueSet" enter="storemanager//AlarmValueSet-enter" clicked="storemanager//AlarmValueSet-clicked" />
 					<inStore text="" x="48" y="160" width="140" height="165" 
 						normal="storemanager//InStoreDoc" enter="storemanager//InStoreDoc-enter" clicked="storemanager//InStoreDoc-clicked" />

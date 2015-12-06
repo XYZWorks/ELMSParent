@@ -1,5 +1,7 @@
 package ui.storemanager;
 
+import java.awt.Color;
+
 import org.dom4j.Element;
 
 import ui.tools.MyDatePicker;
@@ -37,6 +39,7 @@ public class StoreManageMain extends MyPanel{
 		addCompoment();
 		addListener();
 		repaint();
+		setBackground(new Color(241, 241, 241));
 		setVisible(true);
 	}
 
