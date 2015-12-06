@@ -2,14 +2,13 @@ package ui.tools;
 
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Graphics;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import org.dom4j.Element;
  /** 
- * 
+ * 带有滚动条的面板
  * @author czq 
  * @version 2015年12月6日 下午1:49:57 
  */

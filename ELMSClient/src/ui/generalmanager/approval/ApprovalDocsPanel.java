@@ -29,6 +29,10 @@ public class ApprovalDocsPanel extends MyPanel{
 	 */
 	private MyPictureButton checkForMoreInfo;
 	
+	//持有其他单据查看界面的引用，这些界面可用于传入参数进行显示
+	
+	
+	
 	private Approvalblservice bl;
 	
 	public ApprovalDocsPanel(Element config  , Approvalblservice bl) {
@@ -39,7 +43,9 @@ public class ApprovalDocsPanel extends MyPanel{
 
 	@Override
 	protected void initButtons(Element e) {
-		// TODO Auto-generated method stub
+		approvalMany = new MyPictureButton(e.element("approveMany"));
+		approvalOne = new MyPictureButton(e.element("approveOne"));
+		checkForMoreInfo = new MyPictureButton(e.element("checkForMoreInfo"));
 		
 	}
 

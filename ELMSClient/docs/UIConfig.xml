@@ -147,7 +147,14 @@
 
 
 			<StatisticPanel x="232" y="54" width="1080" height="637">
-
+				<BUTTONS>
+					<detail x="30" y="30" width="770" height="140" type = "rectangle" text = "更多信息"/>
+					<back x="30" y="30" width="770" height="140" type = "cancel" text = "返回"/>
+				</BUTTONS>
+				<stateFormPanel x="30" y="30" width="770" height="140" column = "序号 开始时间 结束时间"/>
+				<costFormPanel x="30" y="30" width="770" height="140" column = "开始时间 结束时间 总收入 总支出"/>
+				<type x="30" y="30" width="770" height="140" strings = "经营状况表 成本收益表"  />
+				<detailPanel x="30" y="30" width="770" height="140" strings = "经营状况表 成本收益表"  />
 			</StatisticPanel>
 
 			<InstManagePanel x="232" y="54" width="1080" height="637">

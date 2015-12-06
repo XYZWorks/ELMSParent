@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.dom4j.Element;
 
 import blservice.statisticblservice.Statisticblservice;
+import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import util.MyDate;
 import vo.statistic.StateFormVO;
@@ -20,7 +21,7 @@ public class StateFormPanel extends MyTablePanel{
 	
 	private ArrayList<StateFormVO> vos;
 	
-	private final static int COLUMN_NUM = 4;
+	private final static int COLUMN_NUM = 3;
 	
 	public StateFormPanel(Element config , Statisticblservice bl) {
 		super(config);
@@ -44,10 +45,10 @@ public class StateFormPanel extends MyTablePanel{
 			
 			for (int i = 0; i < vos.size(); i++) {
 				vo = vos.get(i);
+				data[i][0] = String.valueOf(i);
+				data[i][1] = MyDate.toString(vo.startDate);
+				data[i][2] = MyDate.toString(vo.endDate);
 				
-				data[i][0] = MyDate.toString(vo.startDate);
-				data[i][1] = MyDate.toString(vo.endDate);
-				data[i][2] = vo.pays;
 				
 			}
 			
@@ -59,7 +60,7 @@ public class StateFormPanel extends MyTablePanel{
 
 	@Override
 	protected void initTable() {
-		// TODO Auto-generated method stub
+		table = new MyTable(columnNames, data);
 		
 	}
 

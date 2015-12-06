@@ -34,7 +34,9 @@ public class CostFormPanel extends MyTablePanel{
 
 	@Override
 	protected void initialTitleAndColumn(Element config) {
-		// TODO Auto-generated method stub
+		columnNames = config.attributeValue("column").split(" ");
+		
+		
 		
 	}
 

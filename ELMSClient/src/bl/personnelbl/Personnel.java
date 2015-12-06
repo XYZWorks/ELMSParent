@@ -171,6 +171,12 @@ public class Personnel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(pos == null){
+			
+			return null;
+		}
+		
+		
 		
 		for(InstPO po:pos){
 			vos.add((InstVO)VOPOchange.POtoVO(po));
