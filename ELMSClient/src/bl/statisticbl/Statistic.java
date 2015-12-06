@@ -87,6 +87,11 @@ public class Statistic {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(pos == null){
+			return null;
+		}
+		
+		
 		
 		for(StateFormPO po : pos ){
 			vos.add((StateFormVO)VOPOchange.POtoVO(po));

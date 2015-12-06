@@ -6,7 +6,9 @@ import org.dom4j.Element;
 
 import po.statistic.CostIncomePO;
 import blservice.statisticblservice.Statisticblservice;
+import ui.table.MyTable;
 import ui.table.MyTablePanel;
+import util.MyDate;
 import vo.statistic.CostIncomeVO;
  /** 
  * 成本收益表
@@ -23,7 +25,10 @@ public class CostFormPanel extends MyTablePanel{
 	public CostFormPanel(Element config , Statisticblservice bl) {
 		super(config);
 		this.bl = bl;
-		// TODO Auto-generated constructor stub
+		initialTitleAndColumn(config);
+		initTable();
+		initScrollerPane();
+		this.add(rollpane);
 	}
 
 	@Override
@@ -36,13 +41,27 @@ public class CostFormPanel extends MyTablePanel{
 	protected void initialTitleAndColumn(Element config) {
 		columnNames = config.attributeValue("column").split(" ");
 		
+		vos = bl.getIncomeForm();
+		if(vos != null){
+			
+			for (int i = 0; i < vos.size(); i++) {
+				
+				data[i][0] = MyDate.toString(vos.get(i).startDate);
+				data[i][1] = MyDate.toString(vos.get(i).endDate);
+				data[i][2] = String.valueOf(vos.get(i).income);
+				data[i][3] = String.valueOf(vos.get(i).expense);
+			}
+			
+			
+		}
+		
 		
 		
 	}
 
 	@Override
 	protected void initTable() {
-		// TODO Auto-generated method stub
+		table = new MyTable(columnNames, data);
 		
 	}
 

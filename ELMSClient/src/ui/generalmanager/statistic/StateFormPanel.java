@@ -26,6 +26,10 @@ public class StateFormPanel extends MyTablePanel{
 	public StateFormPanel(Element config , Statisticblservice bl) {
 		super(config);
 		this.bl = bl;
+		initialTitleAndColumn(config);
+		initTable();
+		initScrollerPane();
+		this.add(rollpane);
 	}
 
 	@Override

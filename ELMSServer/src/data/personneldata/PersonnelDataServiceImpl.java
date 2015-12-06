@@ -114,7 +114,7 @@ public class PersonnelDataServiceImpl extends DataSuperClass implements
 		ArrayList<InstPO> institutions = new ArrayList<InstPO>();
 		InstPO po;
 		try {
-			sql = "SELECT　* FROM " + instTable ;
+			sql = "SELECT * FROM " + instTable ;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while(result.next()){

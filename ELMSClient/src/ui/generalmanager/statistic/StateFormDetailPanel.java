@@ -23,7 +23,7 @@ public class StateFormDetailPanel extends MyTablePanel {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	@Override
 	public void updateTableMes() {
 		// TODO Auto-generated method stub

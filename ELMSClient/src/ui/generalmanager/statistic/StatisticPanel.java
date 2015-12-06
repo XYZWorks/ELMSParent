@@ -46,6 +46,10 @@ public class StatisticPanel extends MyPanel{
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		addCompoment();
 		addListener();
+		
+		back.setVisible(false);
+		costFormPanel.setVisible(false);
+		detailPanel.setVisible(false);
 	}
 
 	@Override
@@ -85,6 +89,22 @@ public class StatisticPanel extends MyPanel{
 		chooseType.addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
+				if( ((String)chooseType.getSelectedItem()).equals("经营状况表")){
+					stateFormPanel.setVisible(true);
+					detailPanel.setVisible(false);
+					costFormPanel.setVisible(false);
+					
+					detail.setVisible(true);
+				}else{
+					stateFormPanel.setVisible(false);
+					detailPanel.setVisible(false);
+					costFormPanel.setVisible(true);
+					
+					detail.setVisible(false);
+					
+					
+				}
+				
 				
 			}
 		});
