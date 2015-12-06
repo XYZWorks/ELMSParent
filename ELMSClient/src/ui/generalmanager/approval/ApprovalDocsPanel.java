@@ -1,21 +1,37 @@
-package ui.generalmanager;
+package ui.generalmanager.approval;
 
 import org.dom4j.Element;
 
-import blservice.statisticblservice.Statisticblservice;
+import blservice.approvalblservice.Approvalblservice;
+import ui.table.MyTable;
+import ui.tools.MyComboBox;
 import ui.tools.MyPanel;
+import ui.tools.MyPictureButton;
+import ui.tools.MyPictureLabel;
 
 /**
- * 统计分析
+ * 审批单据
  * @author xingcheng
  *
  */
 @SuppressWarnings("serial")
-public class StatisticPanel extends MyPanel{
+public class ApprovalDocsPanel extends MyPanel{
 	
-	private Statisticblservice bl;
+	private MyPictureLabel chooseDocType;
+	private MyComboBox DocTypeChooseBox;
 	
-	public StatisticPanel(Element config , Statisticblservice bl) {
+	private MyTable docTable;
+	
+	private MyPictureButton approvalMany;
+	private MyPictureButton approvalOne;
+	/**
+	 * 查看详细信息
+	 */
+	private MyPictureButton checkForMoreInfo;
+	
+	private Approvalblservice bl;
+	
+	public ApprovalDocsPanel(Element config  , Approvalblservice bl) {
 		super(config);
 		this.bl = bl;
 		// TODO Auto-generated constructor stub
