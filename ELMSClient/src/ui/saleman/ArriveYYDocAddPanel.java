@@ -1,7 +1,9 @@
 package ui.saleman;
 
 import org.dom4j.Element;
-
+/**
+ * 接收单界面
+ */
 import ui.table.MyTable;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
@@ -13,17 +15,20 @@ public class ArriveYYDocAddPanel extends MyPanel{
 	private PanelController controller;
 	
 	//接收单号
-	private MyPictureLabel arriveYYDocNum;
-	private MyLabel Num;
+	private MyPictureLabel arriveYYDocID;
+	private MyLabel ID;
 	
 	//日历
 	private MyDatePicker datePicker;
 	
 	//属性
-	private MyLabel instNum;
-	private MyLabel 
+	private MyLabel instID;
+	private MyLabel arriveDate;
+	private MyLabel transferDocID;
+	private MyLabel sendCIty;
+	private MyLabel goodState;
 
-	public ArriveYYDocAddPanel(Element config) {
+	public  ArriveYYDocAddPanel(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}

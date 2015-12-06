@@ -78,6 +78,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	private MyPictureLabel cost;
 	private MyLabel costLabel;
 
+	
 	// textField
 	private MyTextField senderNameText;
 	private MyTextField senderPhoneText;
