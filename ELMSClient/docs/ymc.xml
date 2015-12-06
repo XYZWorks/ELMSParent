@@ -29,7 +29,7 @@
 			<career text="" x="773" y="16" width="26" height="22"  />
 		</BUTTONS>
 		
-		<StoreMan x="232" y="54" width="1080" height="637">
+		<StoreMan x="232" y="54" width="848" height="637">
 		
 			<BUTTONS>
 							
@@ -39,7 +39,7 @@
 				
 			</BUTTONS>
 			
-			<mainWindow x="232" y="54" width="1080" height="637">
+			<mainWindow x="232" y="54" width="848" height="637">
 				<BUTTONS>
 						<arriveZZ text="" x="355" y="270" width="162" height="150"
 							normal="storeman//ArriveZZ" enter="storeman//ArriveZZ-enter" clicked="storeman//ArriveZZ-clicked" />
@@ -57,7 +57,7 @@
 				</DatePicker>
 			</mainWindow>
 			
-			<TransportPanel x="232" y="54" width="1080" height="637">
+			<TransportPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
 					<add x="500" y="500" width="150" height="100" text="增加"
 						type="rectangle"/>
@@ -70,7 +70,7 @@
 					text="当日生成中转单" type="rectangle"/>
 				</LABELS>
 				
-			 	<AddTransportPanel x="232" y="54" width="1080" height="637">
+			 	<AddTransportPanel x="232" y="54" width="848" height="637">
 			 	
 			 		<BUTTONS>
 			 			<confirm x="500" y="500" width="150" height="100" text="确认"
@@ -123,11 +123,11 @@
 					
 					</DatePicker>
 			 	</AddTransportPanel>
-			 	<table x="100" y="50" width="600" height="400" columnName="单据类型 ID 日期 航班号/车次/车牌号 出发 货柜号 监装员 订单号集合" />
+			 	<table x="50" y="75" width="750" height="430"  columnName="单据类型 ID 日期 航班号/车次/车牌号 出发 货柜号 监装员 订单号集合" />
 			
 			</TransportPanel>		
 			
-			<ArriveZZPanel x="232" y="54" width="1080" height="637">
+			<ArriveZZPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
 					<add x="500" y="500" width="150" height="100" text="增加"
 						type="rectangle"/>
@@ -140,7 +140,7 @@
 					text="当日生成到达单" type="rectangle"/>
 				</LABELS>
 				
-			 	<AddArriveZZPanel x="232" y="54" width="1080" height="637">
+			 	<AddArriveZZPanel x="232" y="54" width="848" height="637">
 			 	
 			 		<BUTTONS>
 			 			<confirm x="500" y="500" width="150" height="100" text="确认"
@@ -191,7 +191,7 @@
 					
 					</DatePicker>
 			 	</AddArriveZZPanel>
-			 	<table x="100" y="50" width="600" height="400" columnName="单据类型 ID 日期 中转中心编号 到达地 货物状态 订单号集合" />
+			 	<table x="50" y="75" width="750" height="430"  columnName="单据类型 ID 日期 中转中心编号 到达地 货物状态 订单号集合" />
 			</ArriveZZPanel>
 			
 			<StorePanel x="232" y="54" width="1080" height="637">
@@ -200,7 +200,7 @@
 		
 		
 		</StoreMan>
-		<StoreManager x="232" y="54" width="1080" height="637">
+		<StoreManager x="232" y="54" width="848" height="637">
 			<BUTTONS>
 							
 				<inStore text="入库单" x="0" y="227" />
@@ -212,7 +212,7 @@
 				
 			</BUTTONS>
 			
-			<mainWindow x="232" y="54" width="1080" height="637">
+			<mainWindow x="232" y="54" width="848" height="637">
 				<BUTTONS>
 					<alarmRecover text="" x="661" y="163" width="140" height="165"
 						normal="storemanager//AlarmValueRecover" enter="storemanager//AlarmValueRecover-enter" clicked="storemanager//AlarmValueRecover-clicked" />
@@ -234,27 +234,98 @@
 			</mainWindow>
 			
 			
-			<InStorePanel x="232" y="54" width="1080" height="637">
-			
+			<InStorePanel x="232" y="54" width="848" height="637">
+				
+				<table x="50" y="75" width="750" height="430" columnName="单据类型 ID 日期 目的地 订单号集合" />
+				
+				<BUTTONS>
+					<full x="400" y="500" width="130" height="100" text="查看"
+						type="rectangle"/>
+					<add x="560" y="500" width="130" height="100" text="增加"
+						type="rectangle"/>
+					<return x="720" y="500" width="130" height="100" text="返回"
+						type="rectangle"/>
+				</BUTTONS>
+				
+				<LABELS>
+					<nowDoc  x="20" y="0" width="200" height="100"  
+					text="已生成入库单" type="rectangle"/>
+				</LABELS>
+				
+				<FullInPanel x="232" y="54" width="848" height="637">
+				
+				</FullInPanel>
+				
+			 	<AddInStorePanel x="232" y="54" width="848" height="637">
+			 	
+			 		<BUTTONS>
+			 			<confirm x="500" y="500" width="150" height="100" text="确认"
+						type="rectangle"/>
+						<return x="700" y="500" width="150" height="100" text="返回"
+						type="rectangle"/>
+			 		</BUTTONS>
+			 		
+			 		<LABELS>
+						<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="35"
+						text="到达单" type="rectangle"/>
+			 			<ID  x="420" y="150" width="200" height="100"  
+						text="到达单编号" type="rectangle"/>
+						<date  x="420" y="0" width="200" height="100"  
+						text="生成时间" type="rectangle"/>
+						<center  x="50" y="150" width="200" height="100"  
+						text="中转中心编号" type="rectangle"/>
+						<sendCity  x="50" y="300" width="200" height="100"  
+						text="到达地" type="rectangle"/>
+						<goodState  x="420" y="300" width="200" height="100"  
+						text="货物状态" type="rectangle"/>
+						<orders  x="50" y="450" width="200" height="100"  
+						text="所含订单编号" type="rectangle"/>
+						<tip  x="100" y="500" width="500" height="100" name="华文细黑" size="15"
+						text="多个订单号以逗号隔开" type="rectangle"/>
+			 			
+						
+			 		</LABELS>
+	
+			 		
+			 		<TEXTFIELDS>
+			 			<ID x="550" y="180" width="200" height="45"/>
+			 			
+			 			<center x="200" y="180" width="200" height="45"/>
+			 			<orders x="200" y="480" width="600" height="45"/>
+			 		
+			 		</TEXTFIELDS>
+			 		
+			 		<sendCityC x="170" y="335" width="240" height="30"
+					strings="南京 广州 上海 北京" />
+					
+					<goodStateC x="550" y="335" width="240" height="30"
+					strings="完整 损坏 丢失" />
+			 		
+			 		<DatePicker x="300" y="100" width="400" height="50">
+						<field   x="100" y="0" width="350" height="50"      />
+						<button    x="350" y="0" width="50" height="50"  />
+					
+					</DatePicker>
+			 	</AddInStorePanel>
 			</InStorePanel>
 			
-			<OutStorePanel x="232" y="54" width="1080" height="637">
+			<OutStorePanel x="232" y="54" width="848" height="637">
 			
 			</OutStorePanel>
 			
-			<StoreShowPanel x="232" y="54" width="1080" height="637">
+			<StoreShowPanel x="232" y="54" width="848" height="637">
 			
 			</StoreShowPanel>
 			
-			<StoreCheckPanel x="232" y="54" width="1080" height="637">
+			<StoreCheckPanel x="232" y="54" width="848" height="637">
 			
 			</StoreCheckPanel>
 			
-			<AlarmSetPanel x="232" y="54" width="1080" height="637">
+			<AlarmSetPanel x="232" y="54" width="848" height="637">
 			
 			</AlarmSetPanel>
 			
-			<AlarmRecoverPanel x="232" y="54" width="1080" height="637">
+			<AlarmRecoverPanel x="232" y="54" width="848" height="637">
 			
 			</AlarmRecoverPanel>
 			

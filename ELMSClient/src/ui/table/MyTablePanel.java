@@ -27,7 +27,7 @@ public abstract class MyTablePanel extends JPanel {
 	protected JScrollPane rollpane;
 
 	public MyTablePanel(Element config) {
-
+		this.setLayout(null);
 		this.setBounds(Integer.parseInt(config.attributeValue("x")),
 				Integer.parseInt(config.attributeValue("y")),
 				Integer.parseInt(config.attributeValue("width")),

@@ -2,12 +2,15 @@ package ui.storeman.arrivezz;
 
 import java.util.ArrayList;
 
+import javax.jws.soap.SOAPBinding.Use;
+
 import org.dom4j.Element;
 
 import blservice.accountblservice.Accountblservice;
 import blservice.transportblservice.Transportblservice;
 import blservice.transportblservice.transportblservice_Driver;
 import ui.config.GraphicsUtils;
+import ui.config.UserfulMethod;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import util.MyDate;
@@ -51,24 +54,12 @@ public class ArriveZZTablePanel extends MyTablePanel {
 			data[i][3] = vo.zZID;
 			data[i][4] = vo.sendCity.name();
 			data[i][5] = vo.goodState.name();
-			data[i][6] = getOrderString(vo.orderBarCodes);
+			data[i][6] = UserfulMethod.orderArrayToString(vo.orderBarCodes);
 		}
 
 	}
 
-	private String getOrderString(ArrayList<String> orderBarCodes) {
-		String result = "";
-		try{
-			for(int i = 0;i<orderBarCodes.size();i++){
-				result = result+"订单号"+(i+1)+":"+orderBarCodes.get(i)+" ";
-			}
-		}
-		catch(NullPointerException e){
-			return null;
-		}
-		return result;
-	}
-
+	
 	@Override
 	protected void initTable() {
 		table = new MyTable(columnNames, data);

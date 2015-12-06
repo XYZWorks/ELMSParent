@@ -53,7 +53,18 @@ public class UserfulMethod {
 		return orders;
 	}
 	
-	
+	public static String orderArrayToString(ArrayList<String> array) {
+		String result = "";
+		
+		try{
+			for(int i = 0;i<array.size();i++){
+				result = result+"订单号"+(i+1)+":"+array.get(i)+" ";
+			}
+		}
+		catch(NullPointerException e){
+		}
+		return result;
+	}
 //	public static final FormatMes checkTexts(String texts){
 //		for (int i = 0; i < texts.length(); i++) {
 ////			if(texts.charAt(i))

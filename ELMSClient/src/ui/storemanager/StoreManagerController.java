@@ -4,6 +4,8 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
 
 import org.dom4j.Element;
 
+import bl.storebl.StoreController;
+import blservice.storeblservice.StoreblService;
 import config.StaticMessage;
 import ui.storeman.StoreMain;
 import ui.storeman.arrivezz.ArriveZZPanel;
@@ -11,6 +13,7 @@ import ui.storeman.storeshow.StoreShowPanel;
 import ui.storeman.transport.TransportPanel;
 import ui.storemanager.alarm.AlarmRecoverPanel;
 import ui.storemanager.alarm.AlarmSetPanel;
+import ui.storemanager.instore.AddInStorePanel;
 import ui.storemanager.instore.InStorePanel;
 import ui.storemanager.outstore.OutStorePanel;
 import ui.storemanager.storecheck.StoreCheckPanel;
@@ -28,6 +31,8 @@ import ui.util.PanelController;
  */
 public class StoreManagerController extends PanelController {
 	
+	StoreController bl;
+	
 	private MyPanel SMmainpanel;
 	private MyPanel inStorePanel;
 	private MyPanel outStorePanel;
@@ -35,7 +40,7 @@ public class StoreManagerController extends PanelController {
 	private MyPanel storeCheckPanel;
 	private MyPanel alarmSetPanel;
 	private MyPanel alarmRecoverPanel;
-
+	
 
 	private MySideBarButton inStoreButton;
 	private MySideBarButton outStoreButton;
@@ -52,8 +57,12 @@ public class StoreManagerController extends PanelController {
 	private final String alarmSetPanelStr = "AlarmSetPanel";
 	private final String alarmRecoverPanelStr = "AlarmRecoverPanel";
 	
+	private MyPanel addInStorePanel;
+	private final String addInStorePanelStr = "AddInStorePanel";
+	
 	public StoreManagerController(MyPanel initialPanel, Element e) {
 		super(initialPanel , e);
+		initialBL();
 		initButtons(e.element(CompomentType.BUTTONS.name()));
 		initPanel(e);
 		addButtons();
@@ -67,13 +76,13 @@ public class StoreManagerController extends PanelController {
 	@Override
 	protected void initPanel(Element e) {
 		SMmainpanel = new StoreManageMain(e.element(SMmainpanelStr) , this);
-		inStorePanel = new InStorePanel(e.element(inStorePanelStr));
+		inStorePanel = new InStorePanel(e.element(inStorePanelStr),bl,this);
 		outStorePanel = new OutStorePanel(e.element(outStorePanelStr));
 		storeCheckPanel = new StoreCheckPanel(e.element(storeCheckPanelStr));
 		storeShowPanel = new StoreShowPanel(e.element(storeShowPanelStr));
 		alarmRecoverPanel = new AlarmRecoverPanel(e.element(alarmRecoverPanelStr));
 		alarmSetPanel = new AlarmSetPanel(e.element(alarmSetPanelStr));
-
+		addInStorePanel = new AddInStorePanel(e.element(inStorePanelStr).element(addInStorePanelStr),bl,this);
 
 		
 	}
@@ -110,7 +119,7 @@ public class StoreManagerController extends PanelController {
 		changePanel.add(storeCheckPanel, storeCheckPanelStr);
 		changePanel.add(alarmRecoverPanel, alarmRecoverPanelStr);
 		changePanel.add(alarmSetPanel, alarmSetPanelStr);
-
+		changePanel.add(addInStorePanel, addInStorePanelStr);
 		
 		
 	}
@@ -164,11 +173,11 @@ public class StoreManagerController extends PanelController {
 
 	@Override
 	protected void initialBL() {
-		// TODO Auto-generated method stub
+		bl = new StoreController();
 		
 	}
 
-
+	
 	
 
 }
