@@ -10,7 +10,7 @@ import javax.print.attribute.standard.RequestingUserName;
  * @version 2015年11月24日 上午12:41:39 
  */
 public enum City {
-	NANJING,BEIJING,SHANGHAI,GUANGZHOU;
+	 NANJING,BEIJING,SHANGHAI,GUANGZHOU;
 	public static City toCity(String city) {
 		switch (city) {
 		case "南京":

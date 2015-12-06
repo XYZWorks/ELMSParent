@@ -53,10 +53,10 @@ public class TransportTablePanel extends MyTablePanel {
 			data[i][0] = vo.type.name();
 			data[i][1] = vo.ID;
 			data[i][2] = MyDate.toString(vo.date);
-			data[i][3] = vo.TransferWayID;
-			data[i][4] = vo.SendCity.name();
+			data[i][3] = vo.transferWayID;
+			data[i][4] = vo.sendCity.name();
 			data[i][5] = String.valueOf(vo.containerNum);
-			data[i][6] = vo.LoadManName;
+			data[i][6] = vo.loadManName;
 			data[i][7] = getOrderString(vo.orderBarCode);
 		}
 

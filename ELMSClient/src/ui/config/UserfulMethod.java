@@ -1,5 +1,7 @@
 package ui.config;
 
+import java.util.ArrayList;
+
 import util.FormatMes;
 import util.ResultMessage;
 /**
@@ -42,6 +44,14 @@ public class UserfulMethod {
 
 	}
 	
+	public static ArrayList<String>  stringToArray(String total) {
+		ArrayList<String> orders = new ArrayList<>();
+		String[] spl = total.split(",");
+		for (int i = 0; i < spl.length; i++) {
+			orders.add(spl[i]);
+		}
+		return orders;
+	}
 	
 	
 //	public static final FormatMes checkTexts(String texts){

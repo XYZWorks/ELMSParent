@@ -8,6 +8,7 @@ import javax.management.relation.RelationNotification;
 import org.dom4j.Element;
 
 import blservice.transportblservice.Transportblservice;
+import ui.config.UserfulMethod;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyJumpListener;
@@ -182,11 +183,8 @@ public class ArriveZZDocAdd extends MyPanel {
 			City sendCity = City.toCity(sendCityC.getSelectedItem().toString());
 			GoodsState goodsState = GoodsState.toGoodState(goodStateC.getSelectedItem().toString());
 			
-			ArrayList<String> orders = new ArrayList<>();
-			String[] spl = ordersT.getText().split(",");
-			for (int i = 0; i < spl.length; i++) {
-				orders.add(spl[i]);
-			}
+			ArrayList<String> orders = UserfulMethod.stringToArray(ordersT.getText());
+		
 			
 			ResultMessage result = bl.add(new ArriveZZDocVO(ID, myDate, zzID, sendCity, goodsState, orders));
 			if(result ==ResultMessage.SUCCESS)

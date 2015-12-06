@@ -1,10 +1,16 @@
 package ui.storeman;
 
 import java.awt.event.MouseEvent;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import org.dom4j.Element;
+import org.omg.PortableInterceptor.SUCCESSFUL;
+
+import com.eltima.components.ui.r;
 
 import blservice.transportblservice.Transportblservice;
+import ui.config.UserfulMethod;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyJumpListener;
@@ -16,6 +22,11 @@ import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
+import ui.util.TipsDialog;
+import util.City;
+import util.MyDate;
+import util.ResultMessage;
+import vo.transport.TransferDocVO;
 
 /** 
  * @author ymc 
@@ -153,18 +164,30 @@ public class AddTransportPanel extends MyPanel {
 		@Override
 		protected void saveToSQL() {
 			String ID = IDT.getText();
-			String container = containerT.getText();
+			int container = Integer.parseInt(containerT.getText());
 			String number = numberT.getText();
 			String loadManName = LoadManNameT.getText();
 			
+			MyDate myDate = picker.getMyDate();
+		
+			City sendCity = City.toCity(sendCityC.getSelectedItem().toString());
 			
+			ArrayList<String> orders = UserfulMethod.stringToArray(ordersT.getText());
+			
+			ResultMessage r = bl.add(new TransferDocVO(ID,myDate,number,sendCity,container,loadManName,orders));
+			
+			if(r ==ResultMessage.SUCCESS)
+				new TipsDialog("生成中转单成功");
 		}
 
 
 		@Override
 		protected void reInitial() {
-			// TODO Auto-generated method stub
-			
+			IDT.setText("");
+			containerT.setText("");
+			numberT.setText("");
+			LoadManNameT.setText("");
+			ordersT.setText("");
 		}
 	}
 

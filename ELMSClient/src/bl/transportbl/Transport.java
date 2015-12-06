@@ -207,7 +207,10 @@ public class Transport {
 	}
 
 	public ResultMessage add(TransferDocVO vo) {
-		TransferDocPO po = (TransferDocPO) VOPOchange.VOtoPO(vo);
+		
+
+		 TransferDocPO po = (TransferDocPO) VOPOchange.VOtoPO(vo);
+		
 		ResultMessage result = null;
 
 		try {

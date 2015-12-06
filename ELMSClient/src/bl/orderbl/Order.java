@@ -141,7 +141,7 @@ public class Order {
 				break;
 			case "ZZD":
 				TransferDocVO vot = (TransferDocVO) transportController.getByID(poString);
-				place = vot.SendCity.toString();
+				place = vot.sendCity.toString();
 				time = vot.date.toString();
 				break;
 			case "PSD":
