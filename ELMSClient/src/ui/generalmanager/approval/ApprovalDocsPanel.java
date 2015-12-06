@@ -1,4 +1,4 @@
-package ui.generalmanager;
+package ui.generalmanager.approval;
 
 import org.dom4j.Element;
 

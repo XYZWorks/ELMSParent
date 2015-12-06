@@ -69,6 +69,7 @@ public abstract class MyTablePanel extends JPanel {
 	protected void initScrollerPane() {
 		dtm = table.getModel();
 		rollpane = new MyScrollerPane(table);
+		rollpane.setBounds(0, 0, getWidth(), getHeight());
 		// this.add(table);
 	}
 
