@@ -5,7 +5,7 @@ import javax.swing.JScrollPane;
 
 import org.dom4j.Element;
 
-import ui.tools.MyScrollerPane;
+
 import util.MyDate;
 
 /**
