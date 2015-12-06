@@ -20,9 +20,10 @@ public class MyTableModel extends DefaultTableModel {
 	public MyTableModel(Object[] headers, Object[][] data) {
 		super(data, headers);
 
-		if(data == null){
+		if(data == null||data.length==0){
 			return;
 		}
+//		System.out.println(data.length);
 		isCellEditable = new boolean[data.length][data[0].length];
 		for (int i = 0; i < isCellEditable.length; i++) {
 			for (int j = 0; j < isCellEditable[0].length; j++) {

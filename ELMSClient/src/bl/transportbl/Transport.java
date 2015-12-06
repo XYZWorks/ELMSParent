@@ -190,11 +190,12 @@ public class Transport {
 		
 		try {
 			pos = (ArrayList<ArriveZZDocPO>) transportData.getDocLists(DocType.arriveZZDoc);
+			pos.size();
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	catch(NullPointerException e){
-			return null;
+			return (ArrayList<ArriveZZDocVO>)DataTool.getDocList(DocType.arriveZZDoc);
 		}
 //		System.out.println(pos.size());
 		
@@ -240,7 +241,7 @@ public class Transport {
 			}
 		}
 		catch(NullPointerException e){
-			vos = (ArrayList<TransferDocVO>)DataTool.getDocList(DocType.transferDoc);
+			return null;
 		}
 		
 		return vos;

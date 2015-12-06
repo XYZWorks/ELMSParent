@@ -40,6 +40,12 @@ public class TransportTablePanel extends MyTablePanel {
 		columnNames = getColumnName(config.attributeValue("columnName"));
 		
 		vos = bl.getDayTransferDocs(date);
+		try{
+			vos.size();
+		}
+		catch(NullPointerException e){
+			return;
+		}
 		data = new String[vos.size()][COLUMN_NUM];
 		TransferDocVO vo;
 		for (int i = 0; i < vos.size(); i++) {
@@ -64,7 +70,7 @@ public class TransportTablePanel extends MyTablePanel {
 			}
 		}
 		catch(NullPointerException e){
-			return null;
+
 		}
 		return result;
 	}

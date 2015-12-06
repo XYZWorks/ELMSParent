@@ -201,8 +201,8 @@ public class DataTool {
 
 	public static ArrayList<InstVO> getInsts(){
 		ArrayList<InstVO> insts = new ArrayList<InstVO>();
-		insts.add(new InstVO(instid1, "南京", InstType.businessHall));
-		insts.add(new InstVO(instid3, "广州", InstType.headOffice));
+		insts.add(new InstVO(instid1, City.NANJING, InstType.businessHall));
+		insts.add(new InstVO(instid3, City.GUANGZHOU, InstType.headOffice));
 		return insts;
 		
 	}
