@@ -2,9 +2,26 @@ package ui.saleman;
 
 import org.dom4j.Element;
 
+import ui.table.MyTable;
+import ui.tools.MyDatePicker;
+import ui.tools.MyLabel;
 import ui.tools.MyPanel;
+import ui.tools.MyPictureLabel;
+import ui.util.PanelController;
 
 public class ArriveYYDocAddPanel extends MyPanel{
+	private PanelController controller;
+	
+	//接收单号
+	private MyPictureLabel arriveYYDocNum;
+	private MyLabel Num;
+	
+	//日历
+	private MyDatePicker datePicker;
+	
+	//属性
+	private MyLabel instNum;
+	private MyLabel 
 
 	public ArriveYYDocAddPanel(Element config) {
 		super(config);

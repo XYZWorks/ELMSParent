@@ -90,6 +90,7 @@
 						type="confirm" />
 					<cancel text="取消" x="599" y="695" width="89" height="37"
 						type="cancel" />
+				
 				</BUTTONS>
 
 				<LABELS>
@@ -98,8 +99,8 @@
 					<orderBarCodeLabel text="" x="48" y="76" width="137"
 						height="19" />
 
-					<senderInfo text="寄件人" x="29" y="11" width="114" height="38"
-						type="rectangle" />
+					<senderInfo text="寄件人" x="0" y="0" width="114" height="40"
+					type="rectangle" />	
 					<senderNameLabel text="姓名" x="20" y="63" width="36"
 						height="20" />
 					<senderPhoneLabel text="手机" x="20" y="110" width="36"
@@ -109,9 +110,8 @@
 					<senderUnitLabel text="单位" x="20" y="249" width="36"
 						height="20" />
 
-
-					<receiverInfo text="收件人" x="29" y="11" width="114"
-						height="38" type="rectangle" />
+					<receiverInfo text="收件人" x="0" y="0" width="114"
+						height="40" type="rectangle" />
 					<receiverNameLabel text="姓名" x="20" y="63"
 						width="36" height="20" />
 					<receiverPhoneLabel text="手机" x="20" y="110"
@@ -123,7 +123,7 @@
 
 
 
-					<goodsInfo text="货物信息" x="40" y="14" width="114" height="38"
+					<goodsInfo text="货物信息" x="0" y="0" width="114" height="40"
 						type="rectangle" />
 					<goodNameLabel text="商品名称" x="22" y="60" width="65"
 						height="20" />
@@ -291,9 +291,9 @@
 				</LABELS>
 				<TEXTFIELDS>
 				</TEXTFIELDS>
-				<DatePicker x="0" y="0" width="400" height="50">
-					<field x="0" y="0" width="350" height="50" />
-					<button x="350" y="0" width="50" height="50" type="rectangle" />
+				<DatePicker x="0" y="0" width="400" height="40">
+					<field x="0" y="0" width="350" height="40" />
+					<button x="200" y="0" width="40" height="40" type="rectangle" />
 				</DatePicker>
 			</findFullInfoPanel>
 			<inputReceiveInfoPanel x="232" y="54" width="1080"

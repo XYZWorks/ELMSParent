@@ -18,11 +18,10 @@ import ui.tools.MyScrollerPane;
 import ui.tools.MyTextField;
 import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
-<<<<<<< Updated upstream
+
 import ui.util.MyPictureButtonListener;
-=======
 import ui.util.ConfirmListener;
->>>>>>> Stashed changes
+
 import ui.util.PanelController;
 
 /**
@@ -32,13 +31,9 @@ import ui.util.PanelController;
  *
  */
 @SuppressWarnings("serial")
-<<<<<<< HEAD
+
 public class AddOrderPanel extends MyPanelWithScroller {
-=======
-public class AddOrderPanel extends MyPanel {
-	private MyScrollerPane myScrollerPane;
-	
->>>>>>> origin/master
+
 	// 白色矩形panel
 	private MyWhitePanel senderInfoPanel;
 	private MyWhitePanel receiverInfoPanel;
@@ -53,21 +48,21 @@ public class AddOrderPanel extends MyPanel {
 	private MyDatePicker DatePicker;
 
 	// 寄件人信息
-	private MyPictureButton senderInfo;
+	private MyPictureLabel senderInfo;
 	private MyLabel senderNameLabel;
 	private MyLabel senderPhoneLabel;
 	private MyLabel senderAddressLabel;
 	private MyLabel senderUnitLabel;
 
 	// 收件人信息
-	private MyPictureButton receiverInfo;
+	private MyPictureLabel receiverInfo;
 	private MyLabel receiverNameLabel;
 	private MyLabel receiverPhoneLabel;
 	private MyLabel receiverAddressLabel;
 	private MyLabel receiverUnitLabel;
 
 	// 货物信息
-	private MyPictureButton goodsInfo;
+	private MyPictureLabel goodsInfo;
 	private MyLabel goodNameLabel;
 	private MyLabel goodWeightLabel;
 	private MyLabel goodNumLabel;
@@ -132,7 +127,6 @@ public class AddOrderPanel extends MyPanel {
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initLables(config.element(CompomentType.LABELS.name()));
 		initOtherCompoment(config);
-		initMyScrollPane();
 		
 		addCompoment();
 		addListener();
@@ -141,16 +135,10 @@ public class AddOrderPanel extends MyPanel {
 		
 	}
 
-	protected void initMyScrollPane(){
-		myScrollerPane=new MyScrollerPane(this);
-		myScrollerPane.setPreferredSize(Dimension(,));
-	}
 	
 	@Override
 	protected void initButtons(Element e) {
-		goodsInfo = new MyPictureButton(e.element("goodsInfo"));
-		receiverInfo = new MyPictureButton(e.element("receiverInfo"));
-		senderInfo = new MyPictureButton(e.element("senderInfo"));
+
 		confirm = new MyPictureButton(e.element("confirm"));
 		cancel = new MyPictureButton(e.element("cancel"));
 	}
@@ -184,19 +172,21 @@ public class AddOrderPanel extends MyPanel {
 
 		// 寄件人信息
 		
+		senderInfo = new MyPictureLabel(e.element("senderInfo"));
 		senderNameLabel = new MyLabel(e.element("senderNameLabel"));
 		senderAddressLabel = new MyLabel(e.element("senderAddressLabel"));
 		senderUnitLabel = new MyLabel(e.element("senderUnitLabel"));
 		senderPhoneLabel = new MyLabel(e.element("senderPhoneLabel"));
 		// 收件人信息
-		
+	
+		receiverInfo = new MyPictureLabel(e.element("receiverInfo"));
 		receiverNameLabel = new MyLabel(e.element("receiverNameLabel"));
 		receiverPhoneLabel = new MyLabel(e.element("receiverPhoneLabel"));
 		receiverAddressLabel = new MyLabel(e.element("receiverAddressLabel"));
 		receiverUnitLabel = new MyLabel(e.element("receiverUnitLabel"));
 
 		// 货物信息
-		
+		goodsInfo = new MyPictureLabel(e.element("goodsInfo"));
 		goodNameLabel = new MyLabel(e.element("goodNameLabel"));
 		goodWeightLabel = new MyLabel(e.element("goodWeightLabel"));
 		goodNumLabel = new MyLabel(e.element("goodNumLabel"));
@@ -241,7 +231,7 @@ public class AddOrderPanel extends MyPanel {
 
 		this.add(DatePicker);
 	
-		this.add(senderInfo);
+		senderInfoPanel.add(senderInfo);
 		senderInfoPanel.add(senderPhoneLabel);
 		senderInfoPanel.add(senderNameLabel);
 		senderInfoPanel.add(senderAddressLabel);
@@ -256,7 +246,7 @@ public class AddOrderPanel extends MyPanel {
 		receiverInfoPanel.add(receiverCity);
 		receiverInfoPanel.add(receiverArea);
 		
-		this.add(receiverInfo);
+		receiverInfoPanel.add(receiverInfo);
 		receiverInfoPanel.add(receiverNameLabel);
 		receiverInfoPanel.add(receiverPhoneLabel);
 		receiverInfoPanel.add(receiverAddressLabel);
@@ -267,7 +257,7 @@ public class AddOrderPanel extends MyPanel {
 		receiverInfoPanel.add(receiverAddressText);
 		receiverInfoPanel.add(receiverUnitText);
 		
-		this.add(goodsInfo);
+		goodInfoPanel.add(goodsInfo);
 		goodInfoPanel.add(goodNameLabel);
 		goodInfoPanel.add(goodWeightLabel);
 		goodInfoPanel.add(goodNumLabel);
@@ -293,27 +283,19 @@ public class AddOrderPanel extends MyPanel {
 		this.add(confirm);
 		this.add(cancel);
 		
-<<<<<<< Updated upstream
 		this.add(senderInfoPanel);
 		this.add(receiverInfoPanel);
 		this.add(goodInfoPanel);
-=======
-		changePanel.add(myScrollerPane);
 		
->>>>>>> Stashed changes
 
 
 	}
 
 	@Override
 	protected void addListener() {
-<<<<<<< Updated upstream
-		senderInfo.addMouseListener(new MyPictureButtonListener(senderInfo));
-		receiverInfo.addMouseListener(new MyPictureButtonListener(receiverInfo));
-		goodsInfo.addMouseListener(new MyPictureButtonListener(goodsInfo));
+		
 		confirm.addMouseListener(new MyPictureButtonListener(confirm));
 		cancel.addMouseListener(new MyPictureButtonListener(cancel));
-=======
 		confirm.addMouseListener(new ConfirmListener(confirm) {
 			
 			@Override
@@ -327,10 +309,15 @@ public class AddOrderPanel extends MyPanel {
 				// TODO Auto-generated method stub
 				return false;
 			}
+
+			@Override
+			protected void reInitial() {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 		
 		
->>>>>>> Stashed changes
 	}
 
 	@Override
