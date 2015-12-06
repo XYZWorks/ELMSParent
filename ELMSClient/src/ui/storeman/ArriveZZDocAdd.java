@@ -3,6 +3,8 @@ package ui.storeman;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import javax.management.relation.RelationNotification;
+
 import org.dom4j.Element;
 
 import blservice.transportblservice.Transportblservice;
@@ -14,6 +16,7 @@ import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
+import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
@@ -143,16 +146,36 @@ public class ArriveZZDocAdd extends MyPanel {
 
 	}
 
-	class MyAddListener extends MyPictureButtonListener {
+	class MyAddListener extends ConfirmListener {
 
 		public MyAddListener(MyPictureButton button, Transportblservice bl) {
 			super(button);
 		}
 
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
 
+		@Override
+		protected void reInitial() {
+			IDT.setText("");
+			centerT.setText("");
+			ordersT.setText("");
+	
+			
+		}
+
+		private void showSuccess() {
+//			System.out.println("add suc"); 
+			new TipsDialog("生成到达单成功");
+			
+		}
+
+		@Override
+		protected boolean checkDataValid() {
+			
+			return true;
+		}
+
+		@Override
+		protected void saveToSQL() {
 			String ID = IDT.getText();
 			String zzID = centerT.getText();
 			MyDate myDate = picker.getMyDate();
@@ -166,15 +189,8 @@ public class ArriveZZDocAdd extends MyPanel {
 			}
 			
 			ResultMessage result = bl.add(new ArriveZZDocVO(ID, myDate, zzID, sendCity, goodsState, orders));
-			
-			if(result==ResultMessage.SUCCESS)
+			if(result ==ResultMessage.SUCCESS)
 				showSuccess();
-		}
-
-		private void showSuccess() {
-			System.out.println("add suc"); 
-			 new TipsDialog("生成到达单成功");
-			
 		}
 	}
 }

@@ -83,17 +83,17 @@
 	
 						<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="35"
 						text="中转单" type="rectangle"/>
-			 			<ID  x="420" y="150" width="200" height="100"  
+			 			<ID  x="50" y="150" width="200" height="100"  
 						text="中转单编号" type="rectangle"/>
 						<date  x="420" y="0" width="200" height="100"  
 						text="生成时间" type="rectangle"/>
-						<number  x="50" y="150" width="200" height="100"  
+						<number  x="420" y="150" width="200" height="100"  
 						text="航班号/车次/车牌号" type="rectangle"/>
 						<sendCity  x="50" y="300" width="200" height="100"  
 						text="出发地" type="rectangle"/>
-						<container  x="420" y="300" width="200" height="100"  
+						<container  x="450" y="250" width="200" height="100"  
 						text="货柜号" type="rectangle"/>
-						<LoadManName x="420" y="300" width="200" height="100"  
+						<LoadManName x="450" y="350" width="200" height="100"  
 						text="监装员" type="rectangle"/>
 						<orders  x="50" y="450" width="200" height="100"  
 						text="所含订单编号" type="rectangle"/>
@@ -104,10 +104,10 @@
 	
 			 		
 			 		<TEXTFIELDS>
-			 			<ID x="550" y="180" width="200" height="45"/>
-			 			<container x="550" y="180" width="200" height="45"/>
-			 			<number x="200" y="180" width="200" height="45"/>
-			 			<LoadManName x="200" y="180" width="200" height="45"/>
+			 			<ID x="180" y="180" width="200" height="45"/>
+			 			<container x="580" y="280" width="200" height="45"/>
+			 			<number x="580" y="180" width="200" height="45"/>
+			 			<LoadManName x="580" y="380" width="200" height="45"/>
 			 			<orders x="200" y="480" width="600" height="45"/>
 			 		
 			 		</TEXTFIELDS>
@@ -262,117 +262,6 @@
 		
 		
 		
-		<GeneralManager x="232" y="54" width="1080" height="637">
-			<BUTTONS>
-				<GMApproval text="审批单据" x="0" y="227" 
-						  />
-					<Statistic text="查看报表" x="0" y="267" 
-						 />
-					<ConstSet text="制定常量" x="0" y="307" 
-						  />
-					<SalaryStrategySet text="制定薪水策略" x="0" y="347" 
-						 />
-					<PeopleManage text="人员管理" x="0" y="387"
-						 />
-					<InstManage text="机构管理" x="0" y="427"
-						  />
-
-			</BUTTONS>
-
-			<GMmainpanel x="232" y="54" width="1080" height="637">
-				<BUTTONS>
-					<GMApproval text="" x="48" y="160" width="137" height="152"
-						normal="GeneralManager//GMApproval" enter="GeneralManager//GMApproval-enter"
-						clicked="GeneralManager//GMApproval-clicked" />
-					<Statistic text="" x="352" y="153" width="131" height="160"
-						normal="GeneralManager//Statistic" enter="GeneralManager//Statistic-enter"
-						clicked="GeneralManager//Statistic-clicked" />
-					<ConstSet text="" x="661" y="153" width="111" height="160"
-						normal="GeneralManager//ConstSet" enter="GeneralManager//ConstSet-enter"
-						clicked="GeneralManager//ConstSet-clicked" />
-					<SalaryStrategySet text="" x="48" y="368" width="131"
-						height="151" normal="GeneralManager//SalaryStrategySet" enter="GeneralManager//SalaryStrategySet-enter"
-						clicked="GeneralManager//SalaryStrategySet-clicked" />
-					<PeopleManage text="" x="352" y="354" width="131"
-						height="165" normal="GeneralManager//PeopleManage" enter="GeneralManager//PeopleManage-enter"
-						clicked="GeneralManager//PeopleManage-clicked" />
-					<InstManage text="" x="661" y="350" width="138" height="170"
-						normal="GeneralManager//InstManage" enter="GeneralManager//InstManage-enter"
-						clicked="GeneralManager//InstManage-clicked" />
-				</BUTTONS>
-			</GMmainpanel>
-			
-			<ApprovalPanel x="232" y="54" width="1080" height="637">
-				<BUTTONS>
-				</BUTTONS>
-			
-			
-			</ApprovalPanel>
-			
-			<ConstSetPanel x="232" y="54" width="1080" height="637">
-				<BUTTONS>
-					<confirm x="670" y="545" width="45" height="45"/>
-					<cancel x="760" y="545" width="45" height="45"/>
-				</BUTTONS>
-				<LABLES>
-					<transportWay x="45" y="300" width="200" height="45" text="交通方式运费"/>
-					<plane x="150" y="350" width="120" height="45" text="飞机"/>
-					<truck x="150" y="400" width="120" height="45" text="汽车"/>
-					<train x="150" y="450" width="120" height="45" text="火车"/>
-					
-					<instanceInCity  x="45" y="100" width="200" height="50" text="城市间的距离"/>
-		
-					<packageCost x="545" y="300" width="200" height="50" text="包装费"/>
-					<paper x="600" y="350" width="120" height="45" text="纸箱"/>
-					<wood x="600" y="400" width="120" height="45" text="木箱"/>
-					<plastic x="600" y="450" width="120" height="45" text="快递袋"/>
-		
-					<ratios x="45" y="530" width="200" height="45" text="价格比"/>
-				</LABLES>
-				<TEXTFIELDS>
-				
-					<instance x="45" y="300" width="200" height="45"/>
-					<planeCost x="45" y="300" width="200" height="45"/>
-					<trainCost x="45" y="300" width="200" height="45"/>
-					<truckCost x="45" y="300" width="200" height="45"/>
-					<paperCost x="45" y="300" width="200" height="45"/>
-					<woodCost x="45" y="300" width="200" height="45"/>
-					<plasticCost x="45" y="300" width="200" height="45"/>	
-				</TEXTFIELDS>
-			
-			
-			
-			</ConstSetPanel>
-			
-			
-			<StatisticPanel x="232" y="54" width="1080" height="637">
-			<BUTTONS>
-				</BUTTONS>
-			
-			
-			</StatisticPanel>
-			
-			<InstManagePanel x="232" y="54" width="1080" height="637">
-			<BUTTONS>
-				</BUTTONS>
-			
-			</InstManagePanel>
-			
-			<PeopleManagePanel x="232" y="54" width="1080" height="637">
-			<BUTTONS>
-				</BUTTONS>
-			
-			
-			</PeopleManagePanel>
-			
-			<SalaryStrategySetPanel x="232" y="54" width="1080" height="637">
-			<BUTTONS>
-				</BUTTONS>
-			
-			
-			</SalaryStrategySetPanel>
-			
-		</GeneralManager>
 	</initialpanel3>
 
 

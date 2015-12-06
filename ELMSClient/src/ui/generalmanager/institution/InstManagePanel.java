@@ -126,6 +126,12 @@ public class InstManagePanel extends MyPanel{
 			protected boolean checkDataValid() {
 				return false;
 			}
+
+			@Override
+			protected void reInitial() {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {
 			

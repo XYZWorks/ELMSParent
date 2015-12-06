@@ -13,6 +13,7 @@ import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
+import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
 
@@ -102,7 +103,7 @@ public class AddTransportPanel extends MyPanel {
 	protected void initOtherCompoment(Element e) {
 		picker = new MyDatePicker(e.element("DatePicker"));
 //		picker = new MyDatePicker(100 ,200 ,400 , 400);
-		picker.setVisible(true);
+//		picker.setVisible(true);
 		sendCityC = new MyComboBox(e.element("sendCityC"));
 		
 	}
@@ -133,25 +134,37 @@ public class AddTransportPanel extends MyPanel {
 
 	@Override
 	protected void addListener() {
-		confirmButton.addMouseListener(new MyAddListener(confirmButton, bl));
+		confirmButton.addMouseListener(new MyAddListener(confirmButton));
 		returnButton.addMouseListener(new MyJumpListener(returnButton, "ArriveZZPanel", controller));
 
 	}
 
-	class MyAddListener extends MyPictureButtonListener {
+	class MyAddListener extends ConfirmListener {
 
-		public MyAddListener(MyPictureButton button, Transportblservice bl) {
+		public MyAddListener(MyPictureButton button) {
 			super(button);
+		}
+		
+		@Override
+		protected boolean checkDataValid() {
+			return true;
 		}
 
 		@Override
-		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
-
+		protected void saveToSQL() {
+			String ID = IDT.getText();
+			String container = containerT.getText();
+			String number = numberT.getText();
+			String loadManName = LoadManNameT.getText();
+			
+			
 		}
 
-		private void showSuccess() {
-			System.out.println("add suc"); 
+
+		@Override
+		protected void reInitial() {
+			// TODO Auto-generated method stub
+			
 		}
 	}
 

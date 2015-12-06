@@ -162,6 +162,11 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 		protected void saveToSQL() {
 			
 		}
+		@Override
+		protected void reInitial() {
+			
+			
+		}
 	}
 	
 	class MyCancelButtonListner extends MyPictureButtonListener{
