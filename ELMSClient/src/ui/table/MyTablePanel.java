@@ -1,6 +1,7 @@
 package ui.table;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import org.dom4j.Element;
 
@@ -23,7 +24,7 @@ public abstract class MyTablePanel extends JPanel {
 
 	protected MyTable table;
 
-	protected MyScrollerPane rollpane;
+	protected JScrollPane rollpane;
 
 	public MyTablePanel(Element config) {
 
@@ -68,7 +69,7 @@ public abstract class MyTablePanel extends JPanel {
 
 	protected void initScrollerPane() {
 		dtm = table.getModel();
-		rollpane = new MyScrollerPane(table);
+		rollpane = new JScrollPane(table);
 		rollpane.setBounds(0, 0, getWidth(), getHeight());
 		// this.add(table);
 	}
