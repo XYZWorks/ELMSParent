@@ -6,6 +6,8 @@ import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
+import ui.tools.MyPanelWithScroller;
+import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyRadioButton;
 import ui.tools.MyTextField;
@@ -15,7 +17,10 @@ import ui.util.CompomentType;
 import ui.util.PanelController;
 
 @SuppressWarnings("serial")
-public class FindFullOrderInfoPanel extends MyPanel{
+public class FindFullOrderInfoPanel extends MyPanelWithScroller{
+	//private MyPictureButton returnToPrevious;
+	
+	
 	//白色矩形panel
 	private MyWhitePanel senderInfoPanel;
 	private MyWhitePanel receiverInfoPanel;
@@ -24,10 +29,7 @@ public class FindFullOrderInfoPanel extends MyPanel{
 	private MyWhitePanel costPanel;
 	//显示 物流信息面板
 	private MyWhitePanel transferInfoPanel;
-	
-	
-	private PanelController controller;
-	
+
 	//订单号
 	private MyPictureLabel orderBarCode;
 	private MyLabel orderBarCodeLabel;
@@ -88,6 +90,9 @@ public class FindFullOrderInfoPanel extends MyPanel{
 	private MyLabel goodPack;
 	//快递形式
 	private MyLabel orderForm;
+	
+	
+	
 
 	public FindFullOrderInfoPanel(Element config) {
 		super(config);

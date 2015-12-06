@@ -54,7 +54,7 @@ public class CourierController extends PanelController{
 	@Override
 	protected void initPanel(Element e) {
 		courierMainPanel=new CourierMainPanel(e.element(courierMainPanelStr),this);
-		addOrderPanel=new AddOrderPanel(e.element(addOrderPanelStr),this.changePanel);
+		addOrderPanel=new AddOrderPanel(e.element(addOrderPanelStr));
 		//findFullInfoPanel=new FindFullOrderInfoPanel(e.element(findFullInfoPanelStr));
 		inputReceiveInfoPanel=new InputReceiveInfoPanel(e.element(inputReceiveInfoPanelStr));
 //		pane = new JScrollPane();
