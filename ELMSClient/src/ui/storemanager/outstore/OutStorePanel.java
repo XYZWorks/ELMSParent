@@ -1,4 +1,4 @@
-package ui.storemanager;
+package ui.storemanager.outstore;
 
 import org.dom4j.Element;
 
@@ -6,12 +6,12 @@ import ui.tools.MyPanel;
 
 /** 
  * @author ymc 
- * @version 创建时间：2015年12月3日 下午11:36:57 
+ * @version 创建时间：2015年12月3日 下午11:36:37 
  *
  */
-public class InStorePanel extends MyPanel {
+public class OutStorePanel extends MyPanel {
 
-	public InStorePanel(Element config) {
+	public OutStorePanel(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}

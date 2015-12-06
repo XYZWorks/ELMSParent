@@ -1,33 +1,32 @@
-package ui.storeman;
+package ui.storeman.transport;
 
 import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import blservice.accountblservice.Accountblservice;
 import blservice.transportblservice.Transportblservice;
-import blservice.transportblservice.transportblservice_Driver;
+import po.order.TransferDocs;
 import ui.config.GraphicsUtils;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import util.MyDate;
-import vo.account.AccountVO;
 import vo.transport.ArriveZZDocVO;
+import vo.transport.TransferDocVO;
 
-/**
- * @author ymc
- * @version 创建时间：2015年12月5日 上午9:20:32
+/** 
+ * @author ymc 
+ * @version 创建时间：2015年12月5日 下午4:48:31 
  *
  */
-public class ArriveZZTablePanel extends MyTablePanel {
+public class TransportTablePanel extends MyTablePanel {
 
-	private static final int COLUMN_NUM = 7;
+	private static final int COLUMN_NUM = 8;
 
 	private Transportblservice bl;
 
-	private ArrayList<ArriveZZDocVO> vos;
+	private ArrayList<TransferDocVO> vos;
 
-	public ArriveZZTablePanel(Element config, Transportblservice bl, MyDate date) {
+	public TransportTablePanel(Element config, Transportblservice bl, MyDate date) {
 		super(config);
 		this.bl = bl;
 		initialTitleAndColumn(config, date);
@@ -40,18 +39,25 @@ public class ArriveZZTablePanel extends MyTablePanel {
 	protected void initialTitleAndColumn(Element config,MyDate date) {
 		columnNames = getColumnName(config.attributeValue("columnName"));
 		
-		vos = bl.getDayArriveZZDocs(date);
+		vos = bl.getDayTransferDocs(date);
+		try{
+			vos.size();
+		}
+		catch(NullPointerException e){
+			return;
+		}
 		data = new String[vos.size()][COLUMN_NUM];
-		ArriveZZDocVO vo;
+		TransferDocVO vo;
 		for (int i = 0; i < vos.size(); i++) {
 			vo = vos.get(i);
 			data[i][0] = vo.type.name();
 			data[i][1] = vo.ID;
 			data[i][2] = MyDate.toString(vo.date);
-			data[i][3] = vo.zZID;
+			data[i][3] = vo.transferWayID;
 			data[i][4] = vo.sendCity.name();
-			data[i][5] = vo.goodState.name();
-			data[i][6] = getOrderString(vo.orderBarCodes);
+			data[i][5] = String.valueOf(vo.containerNum);
+			data[i][6] = vo.loadManName;
+			data[i][7] = getOrderString(vo.orderBarCode);
 		}
 
 	}
@@ -64,7 +70,7 @@ public class ArriveZZTablePanel extends MyTablePanel {
 			}
 		}
 		catch(NullPointerException e){
-			return null;
+
 		}
 		return result;
 	}
@@ -79,13 +85,13 @@ public class ArriveZZTablePanel extends MyTablePanel {
 	}
 
 	@Override
-	protected void initialTitleAndColumn(Element config) {
+	public void updateTableMes() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void updateTableMes() {
+	protected void initialTitleAndColumn(Element config) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -1,17 +1,13 @@
-package ui.storemanager;
+package ui.storeman.storeshow;
 
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
 
-/** 
- * @author ymc 
- * @version 创建时间：2015年12月3日 上午11:48:28 
- *
- */
-public class AlarmRecoverPanel extends MyPanel {
-
-	public AlarmRecoverPanel(Element config) {
+public class StoreShowPanel extends MyPanel{
+	
+	
+	public StoreShowPanel(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}
@@ -19,37 +15,37 @@ public class AlarmRecoverPanel extends MyPanel {
 	@Override
 	protected void initButtons(Element e) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	protected void initTextFields(Element e) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	protected void initLables(Element e) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	protected void addCompoment() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	protected void addListener() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override

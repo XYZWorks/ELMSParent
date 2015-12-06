@@ -1,12 +1,14 @@
-package ui.storeman;
+package ui.storeman.arrivezz;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.dom4j.Element;
+import org.junit.experimental.theories.Theories;
 
 import blservice.transportblservice.Transportblservice;
 import config.StaticMessage;
+import ui.inital.mainFrame;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -15,24 +17,23 @@ import ui.util.CompomentType;
 import ui.util.PanelController;
 import util.MyDate;
 
-/** 
- * @author ymc 
- * @version 创建时间：2015年12月3日 上午10:19:41 
+/**
+ * @author ymc
+ * @version 创建时间：2015年12月3日 上午10:21:14
  *
  */
-public class TransportPanel extends MyPanel {
-
+public class ArriveZZPanel extends MyPanel {
 	Transportblservice bl;
 
 	private MyPictureButton addButton;
 	private MyPictureButton returnButton;
 	private MyLabel nowDoc;
 
-	private TransportTablePanel table;
+	private ArriveZZTablePanel arriveZZTablePanel;
 
 	private PanelController controller;
 
-	public TransportPanel(Element config, Transportblservice bl, PanelController controller) {
+	public ArriveZZPanel(Element config, Transportblservice bl, PanelController controller) {
 		super(config);
 		this.bl = bl;
 		this.controller = controller;
@@ -68,7 +69,7 @@ public class TransportPanel extends MyPanel {
 	@Override
 	protected void initOtherCompoment(Element e) {
 		MyDate date = MyDate.getNowTime();
-		table = new TransportTablePanel(e.element("table"), bl, date);
+		arriveZZTablePanel = new ArriveZZTablePanel(e.element("table"), bl, date);
 
 	}
 
@@ -79,12 +80,12 @@ public class TransportPanel extends MyPanel {
 		this.add(addButton);
 		this.add(returnButton);
 		this.add(nowDoc);
-		this.add(table);
+		this.add(arriveZZTablePanel);
 	}
 
 	@Override
 	protected void addListener() {
-		addButton.addMouseListener(new MyJumpListener(addButton, "AddTransportPanel", controller));
+		addButton.addMouseListener(new MyJumpListener(addButton, "AddArriveZZPanel", controller));
 		returnButton.addMouseListener(new MyJumpListener(returnButton, StaticMessage.MAIN_WINDOW, controller));
 	}
 

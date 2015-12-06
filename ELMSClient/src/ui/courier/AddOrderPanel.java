@@ -14,6 +14,7 @@ import ui.tools.MyScrollerPane;
 import ui.tools.MyTextField;
 import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
+import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
 
 /**
@@ -38,21 +39,21 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	private MyDatePicker DatePicker;
 
 	// 寄件人信息
-	private MyPictureLabel senderInfo;
+	private MyPictureButton senderInfo;
 	private MyLabel senderNameLabel;
 	private MyLabel senderPhoneLabel;
 	private MyLabel senderAddressLabel;
 	private MyLabel senderUnitLabel;
 
 	// 收件人信息
-	private MyPictureLabel receiverInfo;
+	private MyPictureButton receiverInfo;
 	private MyLabel receiverNameLabel;
 	private MyLabel receiverPhoneLabel;
 	private MyLabel receiverAddressLabel;
 	private MyLabel receiverUnitLabel;
 
 	// 货物信息
-	private MyPictureLabel goodsInfo;
+	private MyPictureButton goodsInfo;
 	private MyLabel goodNameLabel;
 	private MyLabel goodWeightLabel;
 	private MyLabel goodNumLabel;
@@ -125,6 +126,9 @@ public class AddOrderPanel extends MyPanelWithScroller {
 
 	@Override
 	protected void initButtons(Element e) {
+		goodsInfo = new MyPictureButton(e.element("goodsInfo"));
+		receiverInfo = new MyPictureButton(e.element("receiverInfo"));
+		senderInfo = new MyPictureButton(e.element("senderInfo"));
 		confirm = new MyPictureButton(e.element("confirm"));
 		cancel = new MyPictureButton(e.element("cancel"));
 	}
@@ -157,20 +161,20 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		orderBarCodeLabel = new MyLabel(e.element("orderBarCodeLabel"));
 
 		// 寄件人信息
-		senderInfo = new MyPictureLabel(e.element("senderInfo"));
+		
 		senderNameLabel = new MyLabel(e.element("senderNameLabel"));
 		senderAddressLabel = new MyLabel(e.element("senderAddressLabel"));
 		senderUnitLabel = new MyLabel(e.element("senderUnitLabel"));
 		senderPhoneLabel = new MyLabel(e.element("senderPhoneLabel"));
 		// 收件人信息
-		receiverInfo = new MyPictureLabel(e.element("receiverInfo"));
+		
 		receiverNameLabel = new MyLabel(e.element("receiverNameLabel"));
 		receiverPhoneLabel = new MyLabel(e.element("receiverPhoneLabel"));
 		receiverAddressLabel = new MyLabel(e.element("receiverAddressLabel"));
 		receiverUnitLabel = new MyLabel(e.element("receiverUnitLabel"));
 
 		// 货物信息
-		goodsInfo = new MyPictureLabel(e.element("goodsInfo"));
+		
 		goodNameLabel = new MyLabel(e.element("goodNameLabel"));
 		goodWeightLabel = new MyLabel(e.element("goodWeightLabel"));
 		goodNumLabel = new MyLabel(e.element("goodNumLabel"));
@@ -208,16 +212,14 @@ public class AddOrderPanel extends MyPanelWithScroller {
 
 	@Override
 	protected void addCompoment() {
-		this.add(senderInfoPanel);
-		this.add(receiverInfoPanel);
-		this.add(goodInfoPanel);
+		
 		
 		this.add(orderBarCode);
 		this.add(orderBarCodeLabel);
 
 		this.add(DatePicker);
 	
-		senderInfoPanel.add(senderInfo);
+		this.add(senderInfo);
 		senderInfoPanel.add(senderPhoneLabel);
 		senderInfoPanel.add(senderNameLabel);
 		senderInfoPanel.add(senderAddressLabel);
@@ -232,7 +234,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		receiverInfoPanel.add(receiverCity);
 		receiverInfoPanel.add(receiverArea);
 		
-		receiverInfoPanel.add(receiverInfo);
+		this.add(receiverInfo);
 		receiverInfoPanel.add(receiverNameLabel);
 		receiverInfoPanel.add(receiverPhoneLabel);
 		receiverInfoPanel.add(receiverAddressLabel);
@@ -243,7 +245,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		receiverInfoPanel.add(receiverAddressText);
 		receiverInfoPanel.add(receiverUnitText);
 		
-		goodInfoPanel.add(goodsInfo);
+		this.add(goodsInfo);
 		goodInfoPanel.add(goodNameLabel);
 		goodInfoPanel.add(goodWeightLabel);
 		goodInfoPanel.add(goodNumLabel);
@@ -268,12 +270,21 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		
 		this.add(confirm);
 		this.add(cancel);
+		
+		this.add(senderInfoPanel);
+		this.add(receiverInfoPanel);
+		this.add(goodInfoPanel);
 
 
 	}
 
 	@Override
 	protected void addListener() {
+		senderInfo.addMouseListener(new MyPictureButtonListener(senderInfo));
+		receiverInfo.addMouseListener(new MyPictureButtonListener(receiverInfo));
+		goodsInfo.addMouseListener(new MyPictureButtonListener(goodsInfo));
+		confirm.addMouseListener(new MyPictureButtonListener(confirm));
+		cancel.addMouseListener(new MyPictureButtonListener(cancel));
 	}
 
 	@Override

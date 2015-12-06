@@ -1,55 +1,60 @@
-package ui.storemanager;
+package ui.generalmanager;
 
 import org.dom4j.Element;
 
+import blservice.statisticblservice.Statisticblservice;
 import ui.tools.MyPanel;
 
-/** 
- * @author ymc 
- * @version 创建时间：2015年12月3日 上午11:48:39 
+/**
+ * 统计分析
+ * @author xingcheng
  *
  */
-public class AlarmSetPanel extends MyPanel {
-
-	public AlarmSetPanel(Element config) {
+@SuppressWarnings("serial")
+public class StatisticPanel extends MyPanel{
+	
+	private Statisticblservice bl;
+	
+	public StatisticPanel(Element config , Statisticblservice bl) {
 		super(config);
+		this.bl = bl;
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	protected void initButtons(Element e) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	protected void initTextFields(Element e) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	protected void initLables(Element e) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	protected void addCompoment() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	protected void addListener() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override

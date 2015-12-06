@@ -1,4 +1,4 @@
-package ui.storemanager;
+package ui.storemanager.alarm;
 
 import org.dom4j.Element;
 
@@ -6,12 +6,12 @@ import ui.tools.MyPanel;
 
 /** 
  * @author ymc 
- * @version 创建时间：2015年12月3日 下午11:36:37 
+ * @version 创建时间：2015年12月3日 上午11:48:28 
  *
  */
-public class OutStorePanel extends MyPanel {
+public class AlarmRecoverPanel extends MyPanel {
 
-	public OutStorePanel(Element config) {
+	public AlarmRecoverPanel(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}

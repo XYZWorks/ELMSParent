@@ -24,7 +24,7 @@ public MyPictureLabel(String str) {
 		super();
 			
 			
-			ButtonOrLabelPicture pics = GraphicsUtils.getButtonLabelPic("rectangle");
+			ButtonOrLabelPicture pics = GraphicsUtils.getButtonLabelPic("titleBar");
 			normal = pics.getNormal();
 			this.setText(str);
 			this.setIcon(normal);

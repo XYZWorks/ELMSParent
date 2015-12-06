@@ -26,7 +26,6 @@ public class MyTable extends JTable{
 	public MyTable(String[] columnNames ,Object[][] data) {
 		this.model = new MyTableModel(columnNames, data);
 		
-		
 		this.setModel(model);
 		DefaultTableCellRenderer   r   =   new   DefaultTableCellRenderer();   
 		r.setHorizontalAlignment(JLabel.CENTER);   
