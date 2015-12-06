@@ -29,9 +29,7 @@ public class CostVO {
 	 */
 	public CostType costType;
 	
-	public CostVO() {
-		// TODO Auto-generated constructor stub
-	}
+	public CostVO() {}
 	
 
 	public CostVO(String ID ,MyDate startDate, MyDate endDate, int money, 

@@ -52,22 +52,13 @@ public class FinanceMain extends MyPanel{
 	}
 
 	@Override
-	protected void initTextFields(Element e) {
-		// TODO Auto-generated method stub
-		
-	}
+	protected void initTextFields(Element e) {}
 
 	@Override
-	protected void initLables(Element e) {
-		// TODO Auto-generated method stub
-		
-	}
+	protected void initLables(Element e) {}
 
 	@Override
-	protected void initOtherCompoment(Element e) {
-		// TODO Auto-generated method stub
-		
-	}
+	protected void initOtherCompoment(Element e) {}
 
 	@Override
 	protected void addCompoment() {
@@ -92,9 +83,6 @@ public class FinanceMain extends MyPanel{
 	}
 
 	@Override
-	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
-		
-	}
+	protected void initWhitePanels(Element e) {}
 
 }

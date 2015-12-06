@@ -3,6 +3,7 @@ package bl;
 import bl.DTManagebl.DTManageController;
 import bl.accountbl.AccountController;
 import bl.approvalbl.ApprovalController;
+import bl.financebl.FinanceController;
 import bl.personnelbl.PersonnelController;
 import bl.statisticbl.StatisticController;
 import bl.strategybl.StrategyController;
@@ -11,6 +12,11 @@ import bl.userbl.UserMes;
 import blservice.DTManageblservice.DTManageblservice;
 import blservice.accountblservice.Accountblservice;
 import blservice.approvalblservice.Approvalblservice;
+import blservice.financeblservice.BankAccountBusinessService;
+import blservice.financeblservice.CostService;
+import blservice.financeblservice.DepositService;
+import blservice.financeblservice.PayService;
+import blservice.financeblservice.ProfitService;
 import blservice.personnelblservice.Personnelblservice;
 import blservice.statisticblservice.Statisticblservice;
 import blservice.strategyblservice.StrategyblService;
@@ -27,12 +33,30 @@ public class BusinessLogicDataFactory {
 	
 	private BusinessLogicDataFactory() {}
 	
+	private FinanceController financeController = new FinanceController();
+	
 	public static BusinessLogicDataFactory getFactory(){
 		if(factory == null){
 			factory = new BusinessLogicDataFactory();
 		}
 		
 		return factory;
+	}
+	
+	public BankAccountBusinessService getBankAccountService(){
+		return financeController;
+	}
+	public CostService getCostService() {
+		return financeController;
+	}
+	public DepositService getDepositService() {
+		return financeController;
+	}
+	public PayService getPayService(){
+		return financeController;
+	}
+	public ProfitService getProfitService(){
+		return financeController;
 	}
 	
 	public Accountblservice getAccountBusinessLogic(){

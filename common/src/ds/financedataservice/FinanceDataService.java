@@ -3,6 +3,7 @@ package ds.financedataservice;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import po.finance.BankAccountPO;
 import po.finance.CostPO;
 import po.finance.DepositPO;
 import po.finance.PayPO;
@@ -14,6 +15,31 @@ import ds.DataserviceParent;
  * @author ymc
  */
 public interface FinanceDataService extends DataserviceParent{
+	/**
+	 * 获得所有银行账户
+	 * @return
+	 */
+	public ArrayList<BankAccountPO> getAccounts();
+	/**
+	 * 修改银行账户信息
+	 * @param vo
+	 * @return
+	 */
+	public ResultMessage modifyAccount(BankAccountPO vo);
+	/**
+	 * 删除一个银行账户
+	 * @param ID
+	 * @return
+	 */
+	public ResultMessage deleteAccount(String ID);
+	/**
+	 * 修改一个银行账户
+	 * @param vo
+	 * @return
+	 */
+	public ResultMessage addAccount(BankAccountPO vo);
+	
+	
 	/**
 	 * 收款信息PO
 	 * @return

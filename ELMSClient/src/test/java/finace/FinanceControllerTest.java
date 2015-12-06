@@ -14,7 +14,7 @@ import vo.finance.CostVO;
 import vo.finance.DepositVO;
 import vo.finance.ProfitVO;
 import bl.financebl.FinanceController;
-import blservice.financeblservice.BankAccountService;
+import blservice.financeblservice.BankAccountBusinessService;
 import blservice.financeblservice.CostService;
 import blservice.financeblservice.DepositService;
 import blservice.financeblservice.PayService;
@@ -26,7 +26,7 @@ import blservice.financeblservice.ProfitService;
  */
 public class FinanceControllerTest {
 	
-	BankAccountService bankbl;
+	BankAccountBusinessService bankbl;
 	CostService costbl;
 	DepositService depositbl;
 	PayService paybl;

@@ -2,6 +2,14 @@ package ui.financeman;
 
 import org.dom4j.Element;
 
+import bl.BusinessLogicDataFactory;
+import blservice.financeblservice.BankAccountBusinessService;
+import blservice.financeblservice.CostService;
+import blservice.financeblservice.DepositService;
+import blservice.financeblservice.PayService;
+import blservice.financeblservice.ProfitService;
+import blservice.statisticblservice.Statisticblservice;
+import ui.financeman.bankAccount.BankAccountManagePanel;
 import ui.tools.MyPanel;
 import ui.tools.MySideBarButton;
 import ui.util.ButtonState;
@@ -40,7 +48,12 @@ public class FinanceController extends PanelController {
 	private final String bulidStateFormStr = "BulidStateFromPanel";
 	private final String bulidPayStr = "BulidPayPanel";
 	
-	
+	private BankAccountBusinessService bankAccountService;
+	private CostService costService;
+	private DepositService depositService;
+	private ProfitService profitService;
+	private PayService payService;
+	private Statisticblservice statisticblservice;
 	
 	
 	public FinanceController(MyPanel initialPanel, Element e) {
@@ -54,16 +67,26 @@ public class FinanceController extends PanelController {
 		setAllButtonVisable(false);
 		changePanel.setVisible(true);
 	}
+	
+	@Override
+	protected void initialBL() {
+		bankAccountService = BusinessLogicDataFactory.getFactory().getBankAccountService();
+		costService = BusinessLogicDataFactory.getFactory().getCostService();
+		depositService = BusinessLogicDataFactory.getFactory().getDepositService();
+		payService = BusinessLogicDataFactory.getFactory().getPayService();
+		profitService = BusinessLogicDataFactory.getFactory().getProfitService();
+	}
 
+	
 	@Override
 	protected void initPanel(Element e) {
 		financeMain = new FinanceMain(e.element(financeMainStr) , this);
 		financeApprovalPanel = new FinanceApprovalPanel(e.element(finaceApprovalStr));
-		bulidBillPanel = new BulidBillPanel(e.element(bulidBillStr));
-		bankAccountManagePanel = new BankAccountManagePanel(e.element(bankAccountStr));
-		costManagePanel = new CostManagePanel(e.element(costManageStr));
-		bulidStateFromPanel = new BulidStateFormPanel(e.element(bulidStateFormStr));
-		bulidPayPanel = new BulidPayPanel(e.element(bulidPayStr));
+		bulidBillPanel = new BulidBillPanel(e.element(bulidBillStr) , statisticblservice);
+		bankAccountManagePanel = new BankAccountManagePanel(e.element(bankAccountStr) , bankAccountService);
+		costManagePanel = new CostManagePanel(e.element(costManageStr) , costService);
+		bulidStateFromPanel = new BulidStateFormPanel(e.element(bulidStateFormStr) , statisticblservice);
+		bulidPayPanel = new BulidPayPanel(e.element(bulidPayStr) , payService);
 	}
 
 	@Override
@@ -143,12 +166,7 @@ public class FinanceController extends PanelController {
 		
 	}
 
-	@Override
-	protected void initialBL() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	
 
 	

@@ -1,8 +1,10 @@
-package ui.financeman;
+package ui.financeman.bankAccount;
+
+import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
 
-import ui.tools.MyDatePicker;
+import blservice.financeblservice.BankAccountBusinessService;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
@@ -11,30 +13,35 @@ import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
+import ui.util.MyPictureButtonListener;
 
 /**
- * 财务人员的交易审核界面
+ * 银行账户管理
+ * 
  * @author xingcheng
  *
  */
 @SuppressWarnings("serial")
-public class FinanceApprovalPanel extends MyPanel{
-	
+public class BankAccountManagePanel extends MyPanel {
+
+	private BankAccountBusinessService bl;
+
+	private BankAccountTable table;
+
 	private MyPictureButton confirm;
+	private MyPictureButton delete;
 	private MyPictureButton cancel;
-	
-	private MyPictureLabel time;
-	private MyPictureLabel person;
-	private MyPictureLabel money;
-	private MyPictureLabel company;
-	
-	private MyDatePicker datePicker;
-	private MyTextField name;
+	private MyPictureButton modify;
+
+	private MyLabel newPassword;
+	private MyLabel newMoney;
+
 	private MyTextField moneyT;
-	private MyTextField companyT;
-	
-	public FinanceApprovalPanel(Element config) {
+	private MyTextField passT;
+
+	public BankAccountManagePanel(Element config, BankAccountBusinessService bl) {
 		super(config);
+		this.bl = bl;
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
@@ -47,61 +54,58 @@ public class FinanceApprovalPanel extends MyPanel{
 	protected void initButtons(Element e) {
 		confirm = new MyPictureButton(e.element("confirm"));
 		cancel = new MyPictureButton(e.element("cancel"));
-		
+		delete = new MyPictureButton(e.element("delete"));
+		modify = new MyPictureButton(e.element("modify"));
 	}
 
 	@Override
 	protected void initTextFields(Element e) {
-		name = new MyTextField(e.element("name"));
+		passT = new MyTextField(e.element("passT"));
 		moneyT = new MyTextField(e.element("money"));
-		companyT = new MyTextField(e.element("company"));
-		
 	}
 
 	@Override
 	protected void initLables(Element e) {
-		time = new MyPictureLabel(e.element("time"));
-		person = new MyPictureLabel(e.element("person"));
-		money = new MyPictureLabel(e.element("money"));
-		company = new MyPictureLabel(e.element("company"));
+		newMoney = new MyPictureLabel(e.element("money"));
+		newPassword = new MyPictureLabel(e.element("password"));
+
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		datePicker = new MyDatePicker(e.element("date"));
-		
+		table = new BankAccountTable(e.element("table"));
+
 	}
 
 	@Override
 	protected void addCompoment() {
-		add(time);
-		add(datePicker);
-		add(companyT);
-		add(company);
 		add(cancel);
 		add(confirm);
-		add(person);
-		add(name);
-		add(money);
+		add(delete);
+		add(modify);
 		add(moneyT);
+		add(newMoney);
+		add(newPassword);
+		add(passT);
+		add(table);
 	}
 
 	@Override
 	protected void addListener() {
 		confirm.addMouseListener(new ConfirmListener(confirm) {
-			
+
 			@Override
 			protected void saveToSQL() {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			protected void reInitial() {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			protected boolean checkDataValid() {
 				// TODO Auto-generated method stub
@@ -109,16 +113,33 @@ public class FinanceApprovalPanel extends MyPanel{
 			}
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {
-			
+
 			@Override
 			public void resetMes() {
 				// TODO Auto-generated method stub
-				
+
 			}
+		});
+		modify.addMouseListener(new MyPictureButtonListener(modify) {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+			}
+
+		});
+		delete.addMouseListener(new MyPictureButtonListener(delete) {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+			}
+
 		});
 	}
 
 	@Override
-	protected void initWhitePanels(Element e) {}
+	protected void initWhitePanels(Element e) {
+		// TODO Auto-generated method stub
+
+	}
 
 }

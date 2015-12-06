@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import po.finance.BankAccountPO;
 import po.finance.CostPO;
 import po.finance.DepositPO;
 import po.finance.FreightPO;
@@ -38,6 +39,8 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	private static final String rentTable = "rent";
 	
 	private static final String salaryTable = "salarycost";
+	
+	private static final String bankAccountTable = "BankAccount";
 
 	public FinanceDataImpl() throws RemoteException {}
 	
@@ -197,6 +200,40 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 		default:
 			return ResultMessage.FAIL;
 		}
+	}
+
+	@Override
+	public ArrayList<BankAccountPO> getAccounts() {
+		ArrayList<BankAccountPO> pos = new ArrayList<>();
+		
+		sql = "SELECT * FROM " + salaryTable;
+
+		
+		try {
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while (result.next()) {
+				pos.add(new BankAccountPO(result.getString(1), result.getString(2), result.getString(3)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return pos.isEmpty()?null:pos;
+	}
+
+	@Override
+	public ResultMessage modifyAccount(BankAccountPO vo) {
+		return modifyFromSQL(bankAccountTable, vo.getID() , vo.getPassword() , vo.getMoney());
+	}
+
+	@Override
+	public ResultMessage deleteAccount(String ID) {
+		return delFromSQL(bankAccountTable, ID);
+	}
+
+	@Override
+	public ResultMessage addAccount(BankAccountPO vo) {
+		return addToSQL(bankAccountTable, vo.getID() , vo.getPassword() , vo.getMoney());
 	}
 
 	

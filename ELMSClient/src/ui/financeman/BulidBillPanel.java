@@ -2,6 +2,7 @@ package ui.financeman;
 
 import org.dom4j.Element;
 
+import blservice.statisticblservice.Statisticblservice;
 import ui.tools.MyPanel;
 
 /**
@@ -11,8 +12,10 @@ import ui.tools.MyPanel;
  */
 @SuppressWarnings("serial")
 public class BulidBillPanel extends MyPanel{
-
-	public BulidBillPanel(Element config) {
+	
+	Statisticblservice bl;
+	
+	public BulidBillPanel(Element config , Statisticblservice bl) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}

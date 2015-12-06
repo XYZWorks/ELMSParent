@@ -2,6 +2,7 @@ package ui.financeman;
 
 import org.dom4j.Element;
 
+import blservice.financeblservice.CostService;
 import ui.tools.MyPanel;
 
 /**
@@ -12,8 +13,10 @@ import ui.tools.MyPanel;
  */
 @SuppressWarnings("serial")
 public class CostManagePanel extends MyPanel{
-
-	public CostManagePanel(Element config) {
+	
+	CostService costService;
+	
+	public CostManagePanel(Element config , CostService costService) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}
