@@ -54,7 +54,7 @@ public class Transport {
 //		}
 		
 		strategybl = new StrategyController();
-		orderbl = new OrderController();
+//		orderbl = new OrderController();
 			
 	}
 	

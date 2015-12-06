@@ -130,6 +130,11 @@ public abstract class MyTablePanel extends JPanel {
 		return text.split(" ");
 	}
 
+	protected void initialTitleAndColumn(Element config, MyDate date) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 
 }

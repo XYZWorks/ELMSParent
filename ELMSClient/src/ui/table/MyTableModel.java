@@ -1,6 +1,7 @@
 package ui.table;
 
 import javax.swing.table.DefaultTableModel;
+import javax.xml.transform.Templates;
 
 @SuppressWarnings("serial")
 public class MyTableModel extends DefaultTableModel {
@@ -33,7 +34,15 @@ public class MyTableModel extends DefaultTableModel {
 	}
 
 	public Class<?> getColumnClass(int c) {
-		return getValueAt(1, c).getClass();
+		Class<?> temp = null; 
+		
+		try{
+			temp =  getValueAt(0, c).getClass();
+		}
+		catch(Exception e){
+			return String.class;
+		}
+		return temp;
 	}
 
 	/**

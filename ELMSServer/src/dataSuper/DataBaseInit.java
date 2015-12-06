@@ -45,7 +45,7 @@ public class DataBaseInit {
 		  try {
 			  //连接URL为'jdbc:mysql//服务器地址/数据库名 ' ，后面的2个参数分别是登陆用户名和密码
 			  conn = DriverManager.getConnection(
-					  "jdbc:mysql://localhost:3306/ELMSsql?useUnicode=true&characterEncoding=UTF-8","root","");
+					  "jdbc:mysql://localhost:3306/ELMSsql?useUnicode=true&characterEncoding=UTF-8","root","root");
 		  } catch (SQLException e) {
 			e.printStackTrace();
 		  }
