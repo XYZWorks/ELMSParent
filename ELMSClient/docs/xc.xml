@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <?xml version="1.0" encoding="UTF-8"?>
 <ELMS width="1080" height="720">
 	<loginframe width="497" height="411">
@@ -313,3 +314,317 @@
 	</initialpanel>
 </ELMS>
 
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<ELMS width="1080" height="720">
+	<loginframe width="497" height="411">
+		<BUTTONS>
+			<close text="" x="455" y="36" width="34" height="33" />
+			<login text="" x="3" y="358" width="489" height="53" />
+			<checkOrder text="" x="213" y="316" width="72" height="17" />
+		</BUTTONS>
+		<LABLES>
+		</LABLES>
+		<TEXTFIELDS>
+			<userName x="179" y="185" width="174" height="31" />
+		</TEXTFIELDS>
+		<rememberMe x="284" y="287" width="15" height="15" />
+		<password x="179" y="241" width="174" height="31" />
+	</loginframe>
+
+	<initialpanel x="0" y="0" width="1080" height="720">
+		<BUTTONS>
+			<exit text="" x="1027" y="0" width="53" height="53" normal="element//close"
+				enter="element//close-enter" clicked="element//close-clicked" />
+			<min text="" x="974" y="0" width="53" height="53" normal="element//min"
+				enter="element//min-enter" clicked="element//min-clicked" />
+			<drop text="" x="716" y="0" width="257" height="53" normal="element//drop"
+				enter="element//drop-enter" clicked="element//drop-clicked" />
+			<home text="" x="655" y="0" width="60" height="53" normal="element//home"
+				enter="element//home-enter" clicked="element//home-clicked" />
+		</BUTTONS>
+		<GeneralManager x="232" y="54" width="1080" height="637">
+			<BUTTONS>
+
+
+			</BUTTONS>
+
+			<mainWindow x="232" y="54" width="1080" height="637">
+				<BUTTONS>
+					<GMApproval text="" x="280" y="213" width="137" height="152"
+						normal="GeneralManager//GMApproval" enter="GeneralManager//GMApproval-enter"
+						clicked="GeneralManager//GMApproval-clicked" />
+					<Statistic text="" x="584" y="203" width="131" height="160"
+						normal="GeneralManager//Statistic" enter="GeneralManager//Statistic-enter"
+						clicked="GeneralManager//Statistic-clicked" />
+					<ConstSet text="" x="893" y="203" width="111" height="160"
+						normal="GeneralManager//ConstSet" enter="GeneralManager//ConstSet-enter"
+						clicked="GeneralManager//ConstSet-clicked" />
+					<SalaryStrategySet text="" x="285" y="421" width="131"
+						height="151" normal="GeneralManager//SalaryStrategySet" enter="GeneralManager//SalaryStrategySet-enter"
+						clicked="GeneralManager//SalaryStrategySet-clicked" />
+					<PeopleManage text="" x="584" y="407" width="131"
+						height="165" normal="GeneralManager//PeopleManage" enter="GeneralManager//PeopleManage-enter"
+						clicked="GeneralManager//PeopleManage-clicked" />
+					<InstManage text="" x="880" y="402" width="138" height="170"
+						normal="GeneralManager//InstManage" enter="GeneralManager//InstManage-enter"
+						clicked="GeneralManager//InstManage-clicked" />
+				</BUTTONS>
+			</mainWindow>
+		</GeneralManager>
+
+
+		<CourierManager x="232" y="54" width="1080－232" height="637">
+			<BUTTONS>
+				<addOrder text="增加订单" x="0" y="267" />
+				<findFullInfo text="查询订单" x="0" y="317" />
+				<inputReceiveInfo text="收件信息录入" x="0" y="367" />
+			</BUTTONS>
+
+			<mainWindow x="232" y="54" width="1080" height="637">
+				<BUTTONS>
+					<AddOrder text="" x="58" y="237" width="115" height="159"
+						normal="courier//AddOrder" enter="courier//AddOrder-enter"
+						clicked="courier//AddOrder-clicked" />
+					<CheckOrder text="" x="359" y="239" width="119" height="155"
+						normal="courier//CheckOrder" enter="courier//CheckOrder-enter"
+						clicked="courier//CheckOrder-clicked" />
+					<InputReceive text="" x="657" y="237" width="121"
+						height="157" normal="courier//InputReceive" enter="courier//InputReceive-enter"
+						clicked="courier//InputReceive-clicked" />
+				</BUTTONS>
+			</mainWindow>
+			<addOrderPanel x="232" y="52" width="848" height="752">
+				<WHITEPANELS>
+					<senderInfoPanel x="49" y="114" width="365" height="295" />
+					<receiverInfoPanel x="434" y="114" width="365"
+						height="295" />
+					<goodInfoPanel x="49" y="433" width="748" height="220" />
+				</WHITEPANELS>
+
+				<BUTTONS>
+					<confirm text="确认" x="707" y="695" width="89" height="37"
+						type="confirm" />
+					<cancel text="取消" x="599" y="695" width="89" height="37"
+						type="cancel" />
+				</BUTTONS>
+
+				<LABELS>
+					<orderBarCode text="订单号" x="48" y="36" width="90"
+						height="28" />
+					<orderBarCodeLabel text="" x="48" y="76" width="137"
+						height="19" />
+
+					<senderInfo text="寄件人" x="29" y="11" width="114" height="38"
+						type="rectangle" />
+					<senderNameLabel text="姓名" x="20" y="63" width="36"
+						height="20" />
+					<senderPhoneLabel text="手机" x="20" y="110" width="36"
+						height="20" />
+					<senderAddressLabel text="地址" x="20" y="156"
+						width="36" height="20" />
+					<senderUnitLabel text="单位" x="20" y="249" width="36"
+						height="20" />
+
+
+					<receiverInfo text="收件人" x="29" y="11" width="114"
+						height="38" type="rectangle" />
+					<receiverNameLabel text="姓名" x="20" y="63"
+						width="36" height="20" />
+					<receiverPhoneLabel text="手机" x="20" y="110"
+						width="36" height="20" />
+					<receiverAddressLabel text="地址" x="20" y="156"
+						width="36" height="20" />
+					<receiverUnitLabel text="单位" x="20" y="249"
+						width="36" height="20" />
+
+
+
+					<goodsInfo text="货物信息" x="40" y="14" width="114" height="38"
+						type="rectangle" />
+					<goodNameLabel text="商品名称" x="22" y="60" width="65"
+						height="20" />
+					<goodWeightLabel text="实际重量" x="395" y="105" width="65"
+						height="20" />
+					<goodNumLabel text="件数" x="395" y="60" width="36"
+						height="20" />
+					<goodVolumLabel text="体积" x="22" y="105" width="36"
+						height="20" />
+					<goodPackLabel text="包装费用" x="22" y="145" width="65"
+						height="20" />
+					<orderFormLabel text="快递形式" x="22" y="178" width="65"
+						height="20" />
+
+					<estimateTime text="" x="49" y="668" width="189"
+						height="65" one="element//estimateTime" />
+					<estimateTimeLabel text="" x="145" y="668" width="56"
+						height="65" />
+
+					<cost text="费用总计" x="300" y="668" width="189" height="65"
+						one="element//cost" />
+					<costLabel text="" x="377" y="668" width="91" height="64" />
+				</LABELS>
+
+
+				<TEXTFIELDS>
+					<senderNameText x="63" y="57" width="276" height="32" />
+					<senderPhoneText x="63" y="103" width="276"
+						height="32" />
+					<senderAddressText x="63" y="195" width="276"
+						height="32" />
+					<senderUnitText x="63" y="241" width="276" height="32" />
+
+					<receiverNameText x="63" y="57" width="276"
+						height="32" />
+					<receiverPhoneText x="63" y="103" width="276"
+						height="32" />
+					<receiverAddressText x="63" y="195" width="276"
+						height="32" />
+					<receiverUnitText x="63" y="241" width="276"
+						height="32" />
+
+					<goodNameText x="94" y="54" width="263" height="32" />
+					<goodNumText  x="468" y="54" width="85" height="32" />
+					<goodWeightText x="468" y="100" width="85" height="32" />
+					<goodLongText x="94" y="100" width="85" height="32" />
+					<goodWidthText x="182" y="100" width="85" height="32" />
+					<goodHeightText x="272" y="100" width="85" height="32" />
+				</TEXTFIELDS>
+
+				<DatePicker x="0" y="0" width="400" height="50">
+					<field x="0" y="0" width="350" height="50" />
+					<button x="350" y="0" width="50" height="50" type="rectangle" />
+				</DatePicker>
+
+				<bag text="快递袋" x="113" y="151" width="58" height="13" />
+				<carton text="纸箱" x="299" y="151" width="43" height="13" />
+				<woodCase text="木箱" x="406" y="151" width="43" height="13" />
+
+				<economicOrder text="经济快递" x="113" y="183" width="74"
+					height="13" />
+				<commonOrder text="普通快递" x="299" y="183" width="74"
+					height="13" />
+				<quickOrder text="特快快递" x="406" y="183" width="74"
+					height="13" />
+
+				<senderCity x="64" y="149" width="120" height="29"
+					strings="南京 北京 广州 上海" />
+				<senderArea x="213" y="149" width="120" height="29"
+					strings="静安区" />
+				<receiverCity x="64" y="149" width="120" height="29"
+					strings="南京 北京 广州 上海" />
+				<receiverArea x="213" y="149" width="120" height="29"
+					strings="静安区" />
+
+			</addOrderPanel>
+
+
+			<findFullInfoPanel x="232" y="54" width="1080"
+				height="637">
+				<WHITEPANELS>
+					<senderInfoPanel x="49" y="114" width="365" height="295" />
+					<receiverInfoPanel x="434" y="114" width="365"
+						height="295" />
+					<goodInfoPanel x="49" y="433" width="748" height="220" />
+				</WHITEPANELS>
+				<BUTTONS>
+				</BUTTONS>
+				<LABELS>
+					<orderBarCode text="订单号" x="48" y="36" width="90"
+						height="28" />
+					<orderBarCodeLabel text="" x="48" y="76" width="137"
+						height="19" />
+
+					<senderInfo text="寄件人" x="78" y="125" width="48" height="16"
+						type="rectangle" />
+					<senderNameLabel text="姓名" x="69" y="177" width="36"
+						height="16" />
+					<senderPhoneLabel text="手机" x="69" y="224" width="36"
+						height="16" />
+					<senderAddressLabel text="地址" x="69" y="255"
+						width="36" height="16" />
+					<senderUnitLabel text="单位" x="69" y="324" width="36"
+						height="16" />
+
+					<senderNameText x="112" y="171" width="276" height="29" />
+					<senderPhoneText x="112" y="217" width="276"
+						height="29" />
+					<senderAddressText x="112" y="309" width="276"
+						height="29" />
+					<senderUnitText x="112" y="355" width="276" height="29" />
+
+
+					<receiverInfo text="收件人" x="414" y="125" width="48"
+						height="16" type="rectangle" />
+					<receiverNameLabel text="姓名" x="405" y="177"
+						width="36" height="16" />
+					<receiverPhoneLabel text="手机" x="405" y="224"
+						width="36" height="16" />
+					<receiverAddressLabel text="地址" x="405" y="255"
+						width="36" height="16" />
+					<receiverUnitLabel text="单位" x="405" y="324"
+						width="36" height="16" />
+
+					<receiverNameText x="497" y="171" width="276"
+						height="29" />
+					<receiverPhoneText x="497" y="217" width="276"
+						height="29" />
+					<receiverAddressText x="497" y="309" width="276"
+						height="29" />
+					<receiverUnitText x="497" y="355" width="276"
+						height="29" />
+
+
+					<goodsInfo text="货物信息" x="84" y="447" width="65" height="16"
+						type="rectangle" />
+					<goodNameLabel text="商品名称" x="69" y="493" width="65"
+						height="16" />
+					<goodWeightLabel text="实际重量" x="442" y="538" width="65"
+						height="16" />
+					<goodNumLabel text="件数" x="442" y="493" width="36"
+						height="16" />
+					<goodVolumLabel text="体积" x="69" y="538" width="36"
+						height="16" />
+					<goodPackLabel text="包装费用" x="69" y="583" width="65"
+						height="50" />
+					<orderFormLabel text="快递形式" x="69" y="615" width="65"
+						height="50" />
+
+					<goodNameText x="141" y="487" width="254" height="29" />
+					<goodWeightText x="515" y="533" width="85" height="29" />
+					<goodLongText x="141" y="533" width="85" height="29" />
+					<goodWidthText x="229" y="533" width="85" height="29" />
+					<goodHeightText x="319" y="533" width="85" height="29" />
+
+					<estimateTime text="" x="49" y="668" width="189"
+						height="65" one="element//estimateTime" />
+					<estimateTimeLabel text="" x="145" y="668" width="56"
+						height="65" />
+
+					<cost text="费用总计" x="300" y="668" width="189" height="65"
+						one="element//cost" />
+					<costLabel text="" x="377" y="668" width="91" height="64" />
+
+				</LABELS>
+				<TEXTFIELDS>
+				</TEXTFIELDS>
+				<DatePicker x="0" y="0" width="400" height="50">
+					<field x="0" y="0" width="350" height="50" />
+					<button x="350" y="0" width="50" height="50" type="rectangle" />
+				</DatePicker>
+			</findFullInfoPanel>
+			<inputReceiveInfoPanel x="232" y="54" width="1080"
+				height="637">
+				<BUTTONS>
+				</BUTTONS>
+				<LABELS>
+				</LABELS>
+				<TEXTFIELDS>
+				</TEXTFIELDS>
+			</inputReceiveInfoPanel>
+
+		</CourierManager>
+	</initialpanel>
+</ELMS>
+
+>>>>>>> Stashed changes

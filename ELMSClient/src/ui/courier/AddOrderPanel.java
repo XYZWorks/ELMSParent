@@ -1,5 +1,9 @@
 package ui.courier;
 
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
+
 import org.dom4j.Element;
 
 import ui.tools.MyComboBox;
@@ -9,10 +13,15 @@ import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyRadioButton;
+import ui.tools.MyScrollerPane;
 import ui.tools.MyTextField;
 import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
+<<<<<<< Updated upstream
 import ui.util.MyPictureButtonListener;
+=======
+import ui.util.ConfirmListener;
+>>>>>>> Stashed changes
 import ui.util.PanelController;
 
 /**
@@ -23,12 +32,14 @@ import ui.util.PanelController;
  */
 @SuppressWarnings("serial")
 public class AddOrderPanel extends MyPanel {
+	private MyScrollerPane myScrollerPane;
+	
 	// 白色矩形panel
 	private MyWhitePanel senderInfoPanel;
 	private MyWhitePanel receiverInfoPanel;
 	private MyWhitePanel goodInfoPanel;
 
-	private PanelController controller;
+	private JPanel changePanel;
 	// 订单号
 	private MyPictureLabel orderBarCode;
 	private MyLabel orderBarCodeLabel;
@@ -108,20 +119,28 @@ public class AddOrderPanel extends MyPanel {
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
 
-	public AddOrderPanel(Element config, CourierController controller) {
+	public AddOrderPanel(Element config, JPanel changePanel) {
 		super(config);
-		this.controller = controller;
+		this.changePanel = changePanel;
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initLables(config.element(CompomentType.LABELS.name()));
 		initOtherCompoment(config);
+		initMyScrollPane();
 		
 		addCompoment();
 		addListener();
 		setVisible(true);
+		repaint();
+		
 	}
 
+	protected void initMyScrollPane(){
+		myScrollerPane=new MyScrollerPane(this);
+		myScrollerPane.setPreferredSize(Dimension(,));
+	}
+	
 	@Override
 	protected void initButtons(Element e) {
 		goodsInfo = new MyPictureButton(e.element("goodsInfo"));
@@ -269,20 +288,44 @@ public class AddOrderPanel extends MyPanel {
 		this.add(confirm);
 		this.add(cancel);
 		
+<<<<<<< Updated upstream
 		this.add(senderInfoPanel);
 		this.add(receiverInfoPanel);
 		this.add(goodInfoPanel);
+=======
+		changePanel.add(myScrollerPane);
+		
+>>>>>>> Stashed changes
 
 
 	}
 
 	@Override
 	protected void addListener() {
+<<<<<<< Updated upstream
 		senderInfo.addMouseListener(new MyPictureButtonListener(senderInfo));
 		receiverInfo.addMouseListener(new MyPictureButtonListener(receiverInfo));
 		goodsInfo.addMouseListener(new MyPictureButtonListener(goodsInfo));
 		confirm.addMouseListener(new MyPictureButtonListener(confirm));
 		cancel.addMouseListener(new MyPictureButtonListener(cancel));
+=======
+		confirm.addMouseListener(new ConfirmListener(confirm) {
+			
+			@Override
+			protected void saveToSQL() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			protected boolean checkDataValid() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+		});
+		
+		
+>>>>>>> Stashed changes
 	}
 
 	@Override
