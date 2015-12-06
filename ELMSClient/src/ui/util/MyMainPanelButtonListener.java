@@ -1,5 +1,6 @@
 package ui.util;
 
+import java.awt.Button;
 import java.awt.event.MouseEvent;
 
 import ui.tools.MyPictureButton;
@@ -24,6 +25,12 @@ public class MyMainPanelButtonListener extends MyPictureButtonListener{
 	public void mouseClicked(MouseEvent e) {
 		super.mouseClicked(e);
 		controller.jumpToWindow(panelName);
+		
+	}
+	
+	@Override
+	public void mousePressed(MouseEvent e) {
+		button.setMyIcon(ButtonState.MOUSE_CLICKED);
 		
 	}
 	

@@ -13,7 +13,7 @@ import util.ResultMessage;
  * @version 2015年11月29日 下午2:50:15
  */
 public class MyPictureButtonListener extends MouseAdapter {
-	private MyPictureButton button;
+	protected MyPictureButton button;
 	
 	protected ResultMessage result;
 	
@@ -36,6 +36,5 @@ public class MyPictureButtonListener extends MouseAdapter {
 	public void mouseExited(MouseEvent e) {
 		button.setMyIcon(ButtonState.NORMAL);
 	}
-
 
 }
