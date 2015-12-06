@@ -140,12 +140,12 @@
 		</storemanager>
 		<saleman x="232" y="54" width="1080" height="637">
 			<BUTTONS>
-				<loadDoc text="装车单" x="0" y="267" />
-				<arriveYYDoc text="接收单" x="0" y="307" />
-				<sendGoodDoc text="派送单" x="0" y="347" />
-				<payDoc text="收款单" x="0" y="387" />
-				<driverInfoManage text="司机信息管理" x="0" y="427" />
-				<truckInfoManage text="车辆信息管理" x="0" y="467" />
+				<loadDoc text="装车单" x="0" y="227" />
+				<arriveYYDoc text="接收单" x="0" y="267" />
+				<sendGoodDoc text="派送单" x="0" y="307" />
+				<payDoc text="收款单" x="0" y="347" />
+				<driverInfoManage text="司机信息管理" x="0" y="387" />
+				<truckInfoManage text="车辆信息管理" x="0" y="427" />
 			</BUTTONS>
 			
 		<mainWindow x="232" y="54" width="1080" height="637">

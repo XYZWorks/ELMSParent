@@ -269,30 +269,30 @@
 
 		<Financeman x="232" y="54" width="1080" height="637">
 			<BUTTONS>
-				<BankAccountManage text="银行账户管理" x="0" y="227" />
+				<BankAccountManage text="银行账户管理" x="0" y="387" />
 				<BulidBill text="期初建账" x="0" y="267" />
-				<BulidPay text="付款单" x="0" y="307" />
-				<BulidStateForm text="经营状况分析" x="0" y="347" />
-				<CostManage text="成本管理" x="0" y="387" />
-				<FinanceApproval text="交易审核" x="0" y="427" />
+				<BulidPay text="付款单" x="0" y="347" />
+				<BulidStateForm text="经营状况分析" x="0" y="427" />
+				<CostManage text="成本管理" x="0" y="307" />
+				<FinanceApproval text="交易审核" x="0" y="227" />
 			</BUTTONS>
 
 			<mainWindow x="232" y="54" width="1080" height="637">
 				<BUTTONS>
 
-					<BankAccountManage text="" x="661" y="368" width="140"
+					<BankAccountManage text="" x="661" y="160" width="140"
 						height="165" normal="financeman//BankAccountManage" enter="financeman//BankAccountManage-enter"
 						clicked="financeman//BankAccountManage-clicked" />
-					<BulidBill text="" x="48" y="368" width="140" height="165"
+					<BulidBill text="" x="50" y="375" width="140" height="165"
 						normal="financeman//BuildBill" enter="financeman//BuildBill-enter"
 						clicked="financeman//BuildBill-clicked" />
-					<BulidPay text="" x="352" y="160" width="140" height="165"
+					<BulidPay text="" x="352" y="368" width="140" height="165"
 						normal="financeman//BuildPay" enter="financeman//BuildPay-enter"
 						clicked="financeman//BuildPay-clicked" />
-					<BulidStateForm text="" x="352" y="368" width="140"
+					<BulidStateForm text="" x="661" y="368" width="140"
 						height="165" normal="financeman//BuildStateForm" enter="financeman//BuildStateForm-enter"
 						clicked="financeman//BuildStateForm-clicked" />
-					<CostManage text="" x="661" y="160" width="140" height="165"
+					<CostManage text="" x="352" y="160" width="140" height="165"
 						normal="financeman//CostManage" enter="financeman//CostManage-enter"
 						clicked="financeman//CostManage-clicked" />
 					<FinanceApproval text="" x="48" y="160" width="140"
