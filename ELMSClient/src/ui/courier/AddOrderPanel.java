@@ -1,7 +1,5 @@
 package ui.courier;
 
-import java.awt.Dimension;
-
 import javax.swing.JPanel;
 
 import org.dom4j.Element;
@@ -9,20 +7,16 @@ import org.dom4j.Element;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
-import ui.tools.MyPanel;
 import ui.tools.MyPanelWithScroller;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyRadioButton;
-import ui.tools.MyScrollerPane;
 import ui.tools.MyTextField;
 import ui.tools.MyWhitePanel;
+import ui.util.CancelListener;
 import ui.util.CompomentType;
-
-import ui.util.MyPictureButtonListener;
 import ui.util.ConfirmListener;
-
-import ui.util.PanelController;
+import ui.util.MyPictureButtonListener;
 
 /**
  * 查询订单界面
@@ -39,7 +33,6 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	private MyWhitePanel receiverInfoPanel;
 	private MyWhitePanel goodInfoPanel;
 
-	private JPanel changePanel;
 	// 订单号
 	private MyPictureLabel orderBarCode;
 	private MyLabel orderBarCodeLabel;
@@ -120,9 +113,8 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
 
-	public AddOrderPanel(Element config, JPanel changePanel) {
+	public AddOrderPanel(Element config) {
 		super(config);
-		this.changePanel = changePanel;
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
@@ -136,6 +128,13 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		
 	}
 
+    @Override
+    protected void initWhitePanels(Element e) {
+        senderInfoPanel=new MyWhitePanel(e.element("senderInfoPanel"));
+        receiverInfoPanel=new MyWhitePanel(e.element("receiverInfoPanel"));
+        goodInfoPanel=new MyWhitePanel(e.element("goodInfoPanel"));
+        
+    }
 	
 	@Override
 	protected void initButtons(Element e) {
@@ -307,26 +306,48 @@ public class AddOrderPanel extends MyPanelWithScroller {
 			
 			@Override
 			protected boolean checkDataValid() {
-				// TODO Auto-generated method stub
-				return false;
+                // TODO 检查必填项目是否正确
+                
+                return true;
 			}
 
 			@Override
 			protected void reInitial() {
-				// TODO Auto-generated method stub
-				
+				setAllTextFieldEmpty();
 			}
 		});
 		
+
+		cancel.addMouseListener(new CancelListener(cancel){
+			
+			@Override
+			public void resetMes() {
+				 setAllTextFieldEmpty();
+			}
+		});
 		
 	}
+    
+    public void setAllTextFieldEmpty(){
+        senderNameText.setText("");
+        senderPhoneText.setText("");
+        senderAddressText.setText("");
+        senderUnitText.setText("");
+        
+        receiverNameText.setText("");
+        receiverPhoneText.setText("");
+        receiverAddressText.setText("");
+        receiverUnitText.setText("");
+        
+        goodNameText.setText("");
+        goodNumText.setText("");
+        goodWeightText.setText("");
+        goodLongText.setText("");
+        goodWidthText.setText("");
+        goodHeightText.setText("");
+    }
+    
 
-	@Override
-	protected void initWhitePanels(Element e) {
-		senderInfoPanel=new MyWhitePanel(e.element("senderInfoPanel"));
-		receiverInfoPanel=new MyWhitePanel(e.element("receiverInfoPanel"));
-		goodInfoPanel=new MyWhitePanel(e.element("goodInfoPanel"));
-
-	}
+	
 
 }
