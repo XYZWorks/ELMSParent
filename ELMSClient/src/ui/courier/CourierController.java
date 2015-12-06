@@ -1,6 +1,9 @@
 package ui.courier;
 
 import java.awt.Component;
+import java.awt.Dimension;
+
+import javax.swing.JScrollPane;
 
 import org.dom4j.Element;
 
@@ -22,6 +25,7 @@ public class CourierController extends PanelController{
 	private AddOrderPanel addOrderPanel;
 	private FindFullOrderInfoPanel findFullInfoPanel;
 	private InputReceiveInfoPanel inputReceiveInfoPanel;
+	
 	
 	private MySideBarButton addOrderButton;
 	private MySideBarButton findFullInfoButton;
@@ -53,6 +57,13 @@ public class CourierController extends PanelController{
 		addOrderPanel=new AddOrderPanel(e.element(addOrderPanelStr),this);
 		//findFullInfoPanel=new FindFullOrderInfoPanel(e.element(findFullInfoPanelStr));
 		inputReceiveInfoPanel=new InputReceiveInfoPanel(e.element(inputReceiveInfoPanelStr));
+//		pane = new JScrollPane();
+////		pane.setLayout(null);
+//		pane.getViewport().add(addOrderPanel);
+//		addOrderPanel.setPreferredSize(new Dimension(848, 1200));
+////		pane.add(addOrderPanel);
+////		pane.setPreferredSize(new Dimension(848, 637));
+//		pane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 	}
 
 	@Override
@@ -85,6 +96,7 @@ public class CourierController extends PanelController{
 		addOrderButton.addMouseListener(new MySideBarListener(addOrderButton, this, addOrderPanelStr));
 		findFullInfoButton.addMouseListener(new MySideBarListener(findFullInfoButton, this, findFullInfoPanelStr));
 		inputReceiveInfoButton.addMouseListener(new MySideBarListener(inputReceiveInfoButton, this, inputReceiveInfoPanelStr));
+		
 		
 	}
 

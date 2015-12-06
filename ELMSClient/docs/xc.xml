@@ -32,7 +32,7 @@
 
 			</BUTTONS>
 
-			<mainWindow x="232" y="54" width="1080" height="637">
+			<mainWindow x="232" y="54" width="848" height="637">
 				<BUTTONS>
 					<GMApproval text="" x="280" y="213" width="137" height="152"
 						normal="GeneralManager//GMApproval" enter="GeneralManager//GMApproval-enter"
@@ -57,14 +57,14 @@
 		</GeneralManager>
 
 
-		<CourierManager x="232" y="54" width="1080" height="637">
+		<CourierManager x="232" y="54" width="848" height="637">
 			<BUTTONS>
 				<addOrder text="增加订单" x="0" y="267" />
 				<findFullInfo text="查询订单" x="0" y="317" />
 				<inputReceiveInfo text="收件信息录入" x="0" y="367" />
 			</BUTTONS>
 
-			<mainWindow x="232" y="54" width="1080" height="637">
+			<mainWindow x="232" y="54" width="848" height="637">
 				<BUTTONS>
 					<AddOrder text="" x="58" y="237" width="115" height="159"
 						normal="courier//AddOrder" enter="courier//AddOrder-enter"
@@ -77,7 +77,7 @@
 						clicked="courier//InputReceive-clicked" />
 				</BUTTONS>
 			</mainWindow>
-			<addOrderPanel x="232" y="52" width="848" height="752">
+			<addOrderPanel x="0" y="0" width="848" height="900">
 				<WHITEPANELS>
 					<senderInfoPanel x="49" y="114" width="365" height="295" />
 					<receiverInfoPanel x="434" y="114" width="365"

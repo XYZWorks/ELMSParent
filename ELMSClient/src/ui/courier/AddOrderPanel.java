@@ -6,9 +6,11 @@ import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
+import ui.tools.MyPanelWithScroller;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyRadioButton;
+import ui.tools.MyScrollerPane;
 import ui.tools.MyTextField;
 import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
@@ -21,7 +23,7 @@ import ui.util.PanelController;
  *
  */
 @SuppressWarnings("serial")
-public class AddOrderPanel extends MyPanel {
+public class AddOrderPanel extends MyPanelWithScroller {
 	// 白色矩形panel
 	private MyWhitePanel senderInfoPanel;
 	private MyWhitePanel receiverInfoPanel;
