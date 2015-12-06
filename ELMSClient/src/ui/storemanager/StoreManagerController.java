@@ -5,10 +5,15 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
 import org.dom4j.Element;
 
 import config.StaticMessage;
-import ui.storeman.ArriveZZPanel;
 import ui.storeman.StoreMain;
-import ui.storeman.StoreShowPanel;
-import ui.storeman.TransportPanel;
+import ui.storeman.arrivezz.ArriveZZPanel;
+import ui.storeman.storeshow.StoreShowPanel;
+import ui.storeman.transport.TransportPanel;
+import ui.storemanager.alarm.AlarmRecoverPanel;
+import ui.storemanager.alarm.AlarmSetPanel;
+import ui.storemanager.instore.InStorePanel;
+import ui.storemanager.outstore.OutStorePanel;
+import ui.storemanager.storecheck.StoreCheckPanel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MySideBarButton;
@@ -65,7 +70,7 @@ public class StoreManagerController extends PanelController {
 		inStorePanel = new InStorePanel(e.element(inStorePanelStr));
 		outStorePanel = new OutStorePanel(e.element(outStorePanelStr));
 		storeCheckPanel = new StoreCheckPanel(e.element(storeCheckPanelStr));
-		storeShowPanel = new StoreShowmPanel(e.element(storeShowPanelStr));
+		storeShowPanel = new StoreShowPanel(e.element(storeShowPanelStr));
 		alarmRecoverPanel = new AlarmRecoverPanel(e.element(alarmRecoverPanelStr));
 		alarmSetPanel = new AlarmSetPanel(e.element(alarmSetPanelStr));
 
