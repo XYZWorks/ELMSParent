@@ -39,7 +39,7 @@ public class GraphicsUtils {
 		
 		labelPictureMap.put("cancel", new ButtonOrLabelPicture("element//cancel", "element//cancel-enter", "element//cancel-clicked"));
 
-		
+		labelPictureMap.put("titleBar", new ButtonOrLabelPicture("element//titleBar","element//titleBar-enter","element//titleBar-clicked"));
 	}
 	
 	public static final ButtonOrLabelPicture getButtonLabelPic(String type){
