@@ -16,6 +16,7 @@ import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
+import ui.util.TipsDialog;
 import util.City;
 import util.GoodsState;
 import util.MyDate;
@@ -172,6 +173,8 @@ public class ArriveZZDocAdd extends MyPanel {
 
 		private void showSuccess() {
 			System.out.println("add suc"); 
+			 new TipsDialog("生成到达单成功");
+			
 		}
 	}
 }
