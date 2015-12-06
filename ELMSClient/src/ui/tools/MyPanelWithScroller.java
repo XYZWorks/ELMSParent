@@ -14,7 +14,7 @@ import org.dom4j.Element;
  */
 @SuppressWarnings("serial")
 public abstract class MyPanelWithScroller extends JScrollPane {
-	
+	//在有需要的时候 直接将scrollerpane和panel绑定在一起
 	private JPanel panel;
 	
 	public MyPanelWithScroller(Element config) {

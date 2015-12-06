@@ -7,6 +7,7 @@ import org.dom4j.Element;
 import blservice.transportblservice.Transportblservice;
 import po.order.TransferDocs;
 import ui.config.GraphicsUtils;
+import ui.config.UserfulMethod;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import util.MyDate;
@@ -57,23 +58,12 @@ public class TransportTablePanel extends MyTablePanel {
 			data[i][4] = vo.sendCity.name();
 			data[i][5] = String.valueOf(vo.containerNum);
 			data[i][6] = vo.loadManName;
-			data[i][7] = getOrderString(vo.orderBarCode);
+			data[i][7] = UserfulMethod.orderArrayToString(vo.orderBarCode);
 		}
 
 	}
 
-	private String getOrderString(ArrayList<String> orderBarCodes) {
-		String result = "";
-		try{
-			for(int i = 0;i<orderBarCodes.size();i++){
-				result = result+"订单号"+(i+1)+":"+orderBarCodes.get(i)+" ";
-			}
-		}
-		catch(NullPointerException e){
-
-		}
-		return result;
-	}
+	
 
 	@Override
 	protected void initTable() {

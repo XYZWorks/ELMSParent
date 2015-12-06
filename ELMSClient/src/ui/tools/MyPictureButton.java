@@ -57,7 +57,10 @@ public class MyPictureButton extends JLabel {
 		this.repaint();
 		this.setVisible(true);
 	}
-
+	
+	
+	
+	
 	public void setMyIcon(ButtonState state) {
 		switch (state) {
 		case NORMAL:

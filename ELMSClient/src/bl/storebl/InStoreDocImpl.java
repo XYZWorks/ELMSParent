@@ -36,9 +36,12 @@ public class InStoreDocImpl  {
 		ArrayList<InStoreDocPO> pos = new ArrayList<InStoreDocPO>();
 		try {
 			pos = storeData.getIn();
+			pos.size();
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}catch (NullPointerException e) {
+			return null;
 		}
 		ArrayList<InStoreDocVO> vos = new ArrayList<InStoreDocVO>(pos.size());
 		
