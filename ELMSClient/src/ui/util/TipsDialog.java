@@ -32,7 +32,7 @@ public class TipsDialog extends JDialog{
 	
 	private int nowTime = 1;
 	
-	private final static Rectangle bounds = new Rectangle(900, 600, 200, 100);
+	private final static Rectangle bounds = new Rectangle(990, 600, 90, 90);
 	
 	
 	private final  MyLabel label = new MyLabel() {

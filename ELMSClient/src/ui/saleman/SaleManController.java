@@ -1,5 +1,6 @@
 package ui.saleman;
 
+import java.awt.Font;
 import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
@@ -50,7 +51,7 @@ public class SaleManController extends PanelController {
 		addPanels();
 		addListeners();
 		addToMap();
-		this.setAllButtonVisable(true);
+		this.setAllButtonVisable(false);
 		changePanel.setVisible(true);
 	}
 
@@ -103,7 +104,7 @@ public class SaleManController extends PanelController {
 
 	@Override
 	protected void addListeners() {
-		arriveYYDocButton.addMouseListener(new MySideBarListener(arriveYYDocButton, this, arriveYYDocShowPanelStr));
+		arriveYYDocButton.addMouseListener(new MyTestListener(arriveYYDocButton, this, arriveYYDocShowPanelStr));
 		driverInfoManageButton.addMouseListener(new MySideBarListener(driverInfoManageButton, this, driverInfoManagePanelStr));
 		loadDocButton.addMouseListener(new MySideBarListener(loadDocButton, this, loadDocShowpanelStr));
 		payDocButton.addMouseListener(new MySideBarListener(payDocButton, this, payDocShowPanelStr));
@@ -114,20 +115,20 @@ public class SaleManController extends PanelController {
 	}
 
 	
-//	class MyTestListener extends MySideBarListener{
-//
-//		public MyTestListener(MySideBarButton button, PanelController controller, String itsPanel) {
-//			super(button, controller, itsPanel);
-//			// TODO Auto-generated constructor stub
-//		}
-//		
-//		public void mouseClicked(MouseEvent e){
-//			super.mouseClicked(e);
-//			
-//			new TipsDialog("hello world!");
-//		}
-//		
-//	}
+	class MyTestListener extends MySideBarListener{
+
+		public MyTestListener(MySideBarButton button, PanelController controller, String itsPanel) {
+			super(button, controller, itsPanel);
+			// TODO Auto-generated constructor stub
+		}
+		
+		public void mouseClicked(MouseEvent e){
+			super.mouseClicked(e);
+			
+			new TipsDialog("hello world!");
+		}
+		
+	}
 	
 	@Override
 	public void setAllButtonUnClicked() {

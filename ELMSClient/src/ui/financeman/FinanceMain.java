@@ -1,5 +1,7 @@
 package ui.financeman;
 
+import java.awt.Color;
+
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
@@ -34,6 +36,7 @@ public class FinanceMain extends MyPanel{
 		initLables(config.element(CompomentType.LABELS.name()));
 		addCompoment();
 		addListener();
+		setBackground(new Color(241, 241, 241));
 		setVisible(true);
 	}
 
