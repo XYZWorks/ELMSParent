@@ -30,7 +30,7 @@ public class InStorePanel extends MyPanel {
 	
 	private MyLabel nowDoc;
 	
-	private MyPanel fullInPanel;
+
 	
 
 	private InStoreTablePanel table;
@@ -47,7 +47,7 @@ public class InStorePanel extends MyPanel {
 		initOtherCompoment(config);
 		addCompoment();
 		addListener();
-
+		
 	}
 
 	@Override
@@ -74,7 +74,7 @@ public class InStorePanel extends MyPanel {
 	protected void initOtherCompoment(Element e) {
 		MyDate date = MyDate.getNowTime();
 		table = new InStoreTablePanel(e.element("table"), bl, date);
-		fullInPanel = new FullInPanel(e.element("FullInPanel"),bl);
+		
 
 	}
 
@@ -87,7 +87,7 @@ public class InStorePanel extends MyPanel {
 		this.add(returnButton);
 		this.add(nowDoc);
 		this.add(table);
-		controller.getChangePanel().add(fullInPanel,"FullInPanel");
+		
 	}
 
 	@Override

@@ -3,6 +3,7 @@ package ui.storemanager.instore;
 import org.dom4j.Element;
 
 import bl.storebl.StoreController;
+import ui.storemanager.StoreManagerController;
 import ui.tools.MyPanel;
 
 /** 
@@ -12,7 +13,7 @@ import ui.tools.MyPanel;
  */
 public class FullInPanel extends MyPanel {
 
-	public FullInPanel(Element config, StoreController bl) {
+	public FullInPanel(Element config, StoreController bl, StoreManagerController storeManagerController) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}

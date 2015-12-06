@@ -14,6 +14,7 @@ import ui.storeman.transport.TransportPanel;
 import ui.storemanager.alarm.AlarmRecoverPanel;
 import ui.storemanager.alarm.AlarmSetPanel;
 import ui.storemanager.instore.AddInStorePanel;
+import ui.storemanager.instore.FullInPanel;
 import ui.storemanager.instore.InStorePanel;
 import ui.storemanager.outstore.OutStorePanel;
 import ui.storemanager.storecheck.StoreCheckPanel;
@@ -59,6 +60,8 @@ public class StoreManagerController extends PanelController {
 	
 	private MyPanel addInStorePanel;
 	private final String addInStorePanelStr = "AddInStorePanel";
+	private MyPanel fullInPanel;
+	private final String fullInPanelStr = "FullInPanel";
 	
 	public StoreManagerController(MyPanel initialPanel, Element e) {
 		super(initialPanel , e);
@@ -83,7 +86,7 @@ public class StoreManagerController extends PanelController {
 		alarmRecoverPanel = new AlarmRecoverPanel(e.element(alarmRecoverPanelStr));
 		alarmSetPanel = new AlarmSetPanel(e.element(alarmSetPanelStr));
 		addInStorePanel = new AddInStorePanel(e.element(inStorePanelStr).element(addInStorePanelStr),bl,this);
-
+		fullInPanel = new FullInPanel(e.element(inStorePanelStr).element(fullInPanelStr),bl,this);
 		
 	}
 
@@ -120,7 +123,7 @@ public class StoreManagerController extends PanelController {
 		changePanel.add(alarmRecoverPanel, alarmRecoverPanelStr);
 		changePanel.add(alarmSetPanel, alarmSetPanelStr);
 		changePanel.add(addInStorePanel, addInStorePanelStr);
-		
+		changePanel.add(fullInPanel, fullInPanelStr);
 		
 	}
 
