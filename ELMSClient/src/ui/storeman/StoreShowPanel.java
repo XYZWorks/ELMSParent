@@ -3,14 +3,7 @@ package ui.storeman;
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
-import ui.tools.MyPictureButton;
 
-/**
- * 库存查看
- * storeman+storemanager均可操作
- * @author xingcheng
- *
- */
 public class StoreShowPanel extends MyPanel{
 	
 	
