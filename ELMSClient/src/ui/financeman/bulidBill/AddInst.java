@@ -1,23 +1,25 @@
-package ui.financeman;
+package ui.financeman.bulidBill;
 
 import org.dom4j.Element;
 
-import blservice.financeblservice.PayService;
 import ui.tools.MyPanel;
-
-/**
- * 新建付款单
- * @author xingcheng
- *
+ /** 
+ * 增加机构主界面
+ * @author czq 
+ * @version 2015年12月7日 下午9:06:06 
  */
 @SuppressWarnings("serial")
-public class BulidPayPanel extends MyPanel{
-	
-	PayService payService;
-	
-	public BulidPayPanel(Element config  , PayService payService) {
+public class AddInst extends MyPanel{
+
+	public AddInst(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	protected void initWhitePanels(Element e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -52,12 +54,6 @@ public class BulidPayPanel extends MyPanel{
 
 	@Override
 	protected void addListener() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	protected void initWhitePanels(Element e) {
 		// TODO Auto-generated method stub
 		
 	}

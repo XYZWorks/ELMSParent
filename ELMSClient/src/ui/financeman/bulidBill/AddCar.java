@@ -1,23 +1,25 @@
-package ui.financeman;
+package ui.financeman.bulidBill;
 
 import org.dom4j.Element;
 
-import blservice.statisticblservice.Statisticblservice;
 import ui.tools.MyPanel;
-
-/**
- * 期初建账
- * @author xingcheng
- *
+ /** 
+ * 增加车辆主界面
+ * @author czq 
+ * @version 2015年12月7日 下午9:07:18 
  */
 @SuppressWarnings("serial")
-public class BulidBillPanel extends MyPanel{
-	
-	Statisticblservice bl;
-	
-	public BulidBillPanel(Element config , Statisticblservice bl) {
+public class AddCar extends MyPanel{
+
+	public AddCar(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	protected void initWhitePanels(Element e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -52,12 +54,6 @@ public class BulidBillPanel extends MyPanel{
 
 	@Override
 	protected void addListener() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	protected void initWhitePanels(Element e) {
 		// TODO Auto-generated method stub
 		
 	}

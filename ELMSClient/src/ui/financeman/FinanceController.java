@@ -10,6 +10,8 @@ import blservice.financeblservice.PayService;
 import blservice.financeblservice.ProfitService;
 import blservice.statisticblservice.Statisticblservice;
 import ui.financeman.bankAccount.BankAccountManagePanel;
+import ui.financeman.bulidBill.BulidBillPanel;
+import ui.financeman.bulidPay.BulidPayPanel;
 import ui.financeman.bulidStateForm.BulidStateFormPanel;
 import ui.tools.MyPanel;
 import ui.tools.MySideBarButton;

@@ -39,7 +39,5 @@ public class BillVO {
 	  */
 	public ArrayList<CarVO> cars;
 	
-	public BillVO() {
-		// TODO Auto-generated constructor stub
-	}
+	public BillVO() {}
 }
