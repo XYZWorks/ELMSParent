@@ -18,7 +18,9 @@ public class BankAccountPO implements Serializable{
 	private String password;
 	
 	private String money;
-
+	
+	public BankAccountPO() {}
+	
 	public BankAccountPO(String iD, String password, String money) {
 		super();
 		ID = iD;

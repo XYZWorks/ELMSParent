@@ -10,6 +10,7 @@ import blservice.financeblservice.PayService;
 import blservice.financeblservice.ProfitService;
 import blservice.statisticblservice.Statisticblservice;
 import ui.financeman.bankAccount.BankAccountManagePanel;
+import ui.financeman.bulidStateForm.BulidStateFormPanel;
 import ui.tools.MyPanel;
 import ui.tools.MySideBarButton;
 import ui.util.ButtonState;
@@ -58,6 +59,7 @@ public class FinanceController extends PanelController {
 	
 	public FinanceController(MyPanel initialPanel, Element e) {
 		super(initialPanel , e);
+		initialBL();
 		initButtons(e.element(CompomentType.BUTTONS.name()));
 		initPanel(e);
 		addButtons();
@@ -65,6 +67,7 @@ public class FinanceController extends PanelController {
 		addToMap();
 		addListeners();
 		setAllButtonVisable(false);
+		panelManager.show(changePanel, financeMainStr);
 		changePanel.setVisible(true);
 	}
 	
@@ -83,7 +86,7 @@ public class FinanceController extends PanelController {
 		financeMain = new FinanceMain(e.element(financeMainStr) , this);
 		financeApprovalPanel = new FinanceApprovalPanel(e.element(finaceApprovalStr));
 		bulidBillPanel = new BulidBillPanel(e.element(bulidBillStr) , statisticblservice);
-		bankAccountManagePanel = new BankAccountManagePanel(e.element(bankAccountStr) , bankAccountService);
+		bankAccountManagePanel = new BankAccountManagePanel(e.element(bankAccountStr) , bankAccountService , changePanel);
 		costManagePanel = new CostManagePanel(e.element(costManageStr) , costService);
 		bulidStateFromPanel = new BulidStateFormPanel(e.element(bulidStateFormStr) , statisticblservice);
 		bulidPayPanel = new BulidPayPanel(e.element(bulidPayStr) , payService);

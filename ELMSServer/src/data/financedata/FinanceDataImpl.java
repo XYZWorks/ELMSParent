@@ -206,7 +206,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	public ArrayList<BankAccountPO> getAccounts() throws RemoteException{
 		ArrayList<BankAccountPO> pos = new ArrayList<>();
 		
-		sql = "SELECT * FROM " + salaryTable;
+		sql = "SELECT * FROM " + bankAccountTable;
 
 		
 		try {

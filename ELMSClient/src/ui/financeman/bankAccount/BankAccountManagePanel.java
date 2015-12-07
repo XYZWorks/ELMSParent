@@ -1,6 +1,9 @@
 package ui.financeman.bankAccount;
 
+import java.awt.CardLayout;
 import java.awt.event.MouseEvent;
+
+import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
@@ -32,22 +35,33 @@ public class BankAccountManagePanel extends MyPanel {
 	private MyPictureButton delete;
 	private MyPictureButton cancel;
 	private MyPictureButton modify;
+	private MyPictureButton add;
 
 	private MyLabel newPassword;
 	private MyLabel newMoney;
 
 	private MyTextField moneyT;
 	private MyTextField passT;
+	
+	private AddBankAccountPanel addPanel;
+	private final static String addPanelStr = "addPanel";
+	
+	private JPanel changePanel;
+	private CardLayout layout;
 
-	public BankAccountManagePanel(Element config, BankAccountBusinessService bl) {
+	public BankAccountManagePanel(Element config, BankAccountBusinessService bl , JPanel changePanel) {
 		super(config);
 		this.bl = bl;
+		this.changePanel =changePanel;
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
 		initLabels(config.element(CompomentType.LABELS.name()));
 		addCompoment();
 		addListener();
+		
+		changePanel.add(addPanel, addPanelStr);
+		layout = (CardLayout) changePanel.getLayout();
 	}
 
 	@Override
@@ -56,6 +70,7 @@ public class BankAccountManagePanel extends MyPanel {
 		cancel = new MyPictureButton(e.element("cancel"));
 		delete = new MyPictureButton(e.element("delete"));
 		modify = new MyPictureButton(e.element("modify"));
+		add = new MyPictureButton(e.element("add"));
 	}
 
 	@Override
@@ -74,7 +89,7 @@ public class BankAccountManagePanel extends MyPanel {
 	@Override
 	protected void initOtherCompoment(Element e) {
 		table = new BankAccountTable(e.element("table") , bl);
-
+		addPanel = new AddBankAccountPanel(e.element("addPanel"), bl, changePanel);
 	}
 
 	@Override
@@ -88,10 +103,19 @@ public class BankAccountManagePanel extends MyPanel {
 		add(newPassword);
 		add(passT);
 		add(table);
+		add(add);
+		add(addPanel);
 	}
 
 	@Override
 	protected void addListener() {
+		add.addMouseListener(new MyPictureButtonListener(add){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				layout.show(changePanel, addPanelStr);
+			}
+		});
+		
 		confirm.addMouseListener(new ConfirmListener(confirm) {
 
 			@Override

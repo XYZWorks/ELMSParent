@@ -1,8 +1,12 @@
-package ui.financeman;
+package ui.financeman.bankAccount;
+
+import java.awt.CardLayout;
+
+import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import ui.tools.MyDatePicker;
+import blservice.financeblservice.BankAccountBusinessService;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
@@ -11,36 +15,49 @@ import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
-
-/**
- * 财务人员的交易审核界面
- * @author xingcheng
- *
+ /** 
+ * 增加银行账户
+ * @author czq 
+ * @version 2015年12月7日 上午11:11:59 
  */
 @SuppressWarnings("serial")
-public class FinanceApprovalPanel extends MyPanel{
+public class AddBankAccountPanel extends MyPanel{
+	
+	private MyLabel id;
+	private MyLabel password;
+	private MyLabel money;
+	
+	private MyTextField idT;
+	private MyTextField passwordT;
+	private MyTextField moneyT;
 	
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
 	
-	private MyPictureLabel time;
-	private MyPictureLabel person;
-	private MyPictureLabel money;
-	private MyPictureLabel company;
+	private BankAccountBusinessService bl;
 	
-	private MyDatePicker datePicker;
-	private MyTextField name;
-	private MyTextField moneyT;
-	private MyTextField companyT;
+	private JPanel changePanel;
+	private CardLayout layout;
+	private final String bankAccountStr = "BankAccountManagePanel";
 	
-	public FinanceApprovalPanel(Element config) {
+	public AddBankAccountPanel(Element config , BankAccountBusinessService bl ,JPanel changePanel) {
 		super(config);
+		this.bl = bl;
+		this.changePanel = changePanel;
+		this.layout = (CardLayout) changePanel.getLayout();
+		
+		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
-		initLabels(config.element(CompomentType.LABELS.name()));
+		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		addCompoment();
 		addListener();
+	}
+
+	@Override
+	protected void initWhitePanels(Element e) {
+		// TODO Auto-generated method stub
 		
 	}
 
@@ -53,36 +70,34 @@ public class FinanceApprovalPanel extends MyPanel{
 
 	@Override
 	protected void initTextFields(Element e) {
-		name = new MyTextField(e.element("name"));
+		idT = new MyTextField(e.element("idT"));
+		passwordT = new MyTextField(e.element("passT"));
 		moneyT = new MyTextField(e.element("money"));
-		companyT = new MyTextField(e.element("company"));
 		
 	}
 
 	@Override
 	protected void initLabels(Element e) {
-		time = new MyPictureLabel(e.element("time"));
-		person = new MyPictureLabel(e.element("person"));
 		money = new MyPictureLabel(e.element("money"));
-		company = new MyPictureLabel(e.element("company"));
+		password = new MyPictureLabel(e.element("password"));
+		id = new MyPictureLabel(e.element("id"));
+		
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		datePicker = new MyDatePicker(e.element("date"));
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	protected void addCompoment() {
-		add(time);
-		add(datePicker);
-		add(companyT);
-		add(company);
+		add(id);
 		add(cancel);
 		add(confirm);
-		add(person);
-		add(name);
+		add(idT);
+		add(password);
+		add(passwordT);
 		add(money);
 		add(moneyT);
 	}
@@ -90,36 +105,35 @@ public class FinanceApprovalPanel extends MyPanel{
 	@Override
 	protected void addListener() {
 		confirm.addMouseListener(new ConfirmListener(confirm) {
-			
+
 			@Override
 			protected void saveToSQL() {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			protected void reInitial() {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			protected boolean checkDataValid() {
-				// TODO Auto-generated method stub
 				return false;
 			}
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {
-			
+
 			@Override
 			public void resetMes() {
-				// TODO Auto-generated method stub
-				
+				idT.setText("");
+				passwordT.setText("");
+				moneyT.setText("");
+				layout.show(changePanel, bankAccountStr);
 			}
 		});
+		
 	}
-
-	@Override
-	protected void initWhitePanels(Element e) {}
 
 }

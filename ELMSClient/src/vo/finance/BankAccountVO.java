@@ -11,7 +11,9 @@ public class BankAccountVO {
 	public String password;
 
 	public String money;
-
+	
+	public BankAccountVO() {}
+	
 	public BankAccountVO(String iD, String password, String money) {
 		super();
 		ID = iD;

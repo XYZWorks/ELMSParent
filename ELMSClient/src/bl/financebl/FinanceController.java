@@ -19,7 +19,9 @@ import blservice.financeblservice.ProfitService;
  * @version 2015年11月15日 上午9:17:23 
  */
 public class FinanceController implements BankAccountBusinessService, CostService, PayService , ProfitService,DepositService{
-
+	
+	private BankAccount bankAccount = new BankAccount();
+	
 	public ProfitVO getMessage() {
 		// TODO Auto-generated method stub
 		return null;
@@ -68,8 +70,8 @@ public class FinanceController implements BankAccountBusinessService, CostServic
 
 	@Override
 	public ArrayList<BankAccountVO> getAccounts() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return bankAccount.getAccounts();
 	}
 
 	@Override

@@ -10,6 +10,7 @@ import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 
 import org.dom4j.Element;
 
@@ -26,7 +27,7 @@ import com.eltima.components.ui.DatePicker;
  *
  */
 @SuppressWarnings("serial")
-public class MyDatePicker extends MyLabel {
+public class MyDatePicker extends JLabel {
 	//两个获取日期的方法
 	@SuppressWarnings("deprecation")
 	public  MyDate getMyDate(){
@@ -67,7 +68,6 @@ public class MyDatePicker extends MyLabel {
 	 * @param config
 	 */
 	public MyDatePicker(Element config) {
-		super(config);
 
 		datePicker = new DatePicker(date, DefaultFormat, null, null);// 自定义参数值
 
@@ -122,7 +122,6 @@ public class MyDatePicker extends MyLabel {
 	 * @param withClock
 	 */
 	public MyDatePicker(Element config , boolean withClock) {
-		super(config);
 		DefaultFormat = "yyyy-MM-dd HH:mm:ss";
 		datePicker = new DatePicker(date, DefaultFormat, null, null);// 自定义参数值
 		datePicker.setTimePanleVisible(withClock);
