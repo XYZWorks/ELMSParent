@@ -7,6 +7,13 @@
 
 
 	
+	
+
+	<parent>
+		<groupId>AXIS</groupId>
+		<artifactId>ELMSParent</artifactId>
+		<version>0.0.1</version>
+	</parent>
 	<dependencies>
 		<dependency>
 			<groupId>AXIS</groupId>
@@ -14,12 +21,6 @@
 			<version>0.0.1</version>
 		</dependency>
 	</dependencies>
-
-	<parent>
-		<groupId>AXIS</groupId>
-		<artifactId>ELMSParent</artifactId>
-		<version>0.0.1</version>
-	</parent>
 </project>
 
 
