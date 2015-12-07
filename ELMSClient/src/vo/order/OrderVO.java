@@ -1,7 +1,5 @@
 package vo.order;
 
-import java.util.ArrayList;
-
 import po.order.GoodMes;
 import po.order.OtherOrderMes;
 import po.order.PeopleMes;

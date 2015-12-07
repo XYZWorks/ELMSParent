@@ -4,7 +4,7 @@ import org.dom4j.Element;
 
 import ui.table.MyTablePanel;
  /** 
- * 
+ * 人员信息面板
  * @author czq 
  * @version 2015年12月7日 下午9:07:07 
  */

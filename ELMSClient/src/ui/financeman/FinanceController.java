@@ -87,7 +87,7 @@ public class FinanceController extends PanelController {
 	protected void initPanel(Element e) {
 		financeMain = new FinanceMain(e.element(financeMainStr) , this);
 		financeApprovalPanel = new FinanceApprovalPanel(e.element(finaceApprovalStr));
-		bulidBillPanel = new BulidBillPanel(e.element(bulidBillStr) , statisticblservice);
+		bulidBillPanel = new BulidBillPanel(e.element(bulidBillStr) , statisticblservice , changePanel);
 		bankAccountManagePanel = new BankAccountManagePanel(e.element(bankAccountStr) , bankAccountService , changePanel);
 		costManagePanel = new CostManagePanel(e.element(costManageStr) , costService);
 		bulidStateFromPanel = new BulidStateFormPanel(e.element(bulidStateFormStr) , statisticblservice);

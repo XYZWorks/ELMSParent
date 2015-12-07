@@ -1,8 +1,20 @@
 package ui.financeman.bulidBill;
 
+import java.awt.CardLayout;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JPanel;
+
 import org.dom4j.Element;
 
+import ui.tools.MyComboBox;
+import ui.tools.MyLabel;
 import ui.tools.MyPanel;
+import ui.tools.MyPictureButton;
+import ui.tools.MyTextField;
+import ui.util.CompomentType;
+import ui.util.ConfirmListener;
+import ui.util.MyPictureButtonListener;
  /** 
  * 增加机构主界面
  * @author czq 
@@ -10,52 +22,131 @@ import ui.tools.MyPanel;
  */
 @SuppressWarnings("serial")
 public class AddInst extends MyPanel{
-
-	public AddInst(Element config) {
+	
+	
+	
+	private MyLabel instid;
+	private MyLabel location;
+	private MyLabel type;
+	private MyTextField instidT;
+	private MyComboBox locationB;
+	private MyComboBox typeB;
+	
+	private MyPictureButton confirm;
+	private MyPictureButton cancel;
+	
+	private CardLayout panelManager;
+	private JPanel changePanel;
+	private BulidBillPanel mainPanel;
+	
+	public AddInst(Element config , BulidBillPanel mainPanel) {
 		super(config);
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
-		
+		this.mainPanel = mainPanel;
+		this.changePanel = mainPanel.changePanel;
+		this.panelManager = mainPanel.panelManager;
+		initLabels(config.element(CompomentType.LABELS.name()));
+		initButtons(config.element(CompomentType.BUTTONS.name()));
+		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
+		initOtherCompoment(config);
+		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
+		addCompoment();
+		addListener();
 	}
 
 	@Override
 	protected void initButtons(Element e) {
-		// TODO Auto-generated method stub
+		confirm = new MyPictureButton(e.element("confirm"));
+		cancel = new MyPictureButton(e.element("cancel"));
 		
 	}
 
 	@Override
 	protected void initTextFields(Element e) {
-		// TODO Auto-generated method stub
-		
+		instidT = new MyTextField(e.element("instid"));
 	}
 
 	@Override
 	protected void initLabels(Element e) {
-		// TODO Auto-generated method stub
-		
+		instid = new MyLabel(e.element("instid"));
+		location = new MyLabel(e.element("location"));
+		type = new MyLabel(e.element("type"));
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		// TODO Auto-generated method stub
+		locationB = new MyComboBox(e.element("location"));
+		typeB = new MyComboBox(e.element("type"));
 		
 	}
 
 	@Override
 	protected void addCompoment() {
-		// TODO Auto-generated method stub
-		
+		add(cancel);
+		add(confirm);
+		add(instid);
+		add(instidT);
+		add(location);
+		add(locationB);
+		add(type);
+		add(typeB);
 	}
 
 	@Override
 	protected void addListener() {
-		// TODO Auto-generated method stub
+		confirm.addMouseListener(new MyCancelButtonListener(confirm));
+		cancel.addMouseListener(new MyConfirmButtonListner(cancel));
 		
 	}
+
+	@Override
+	protected void initWhitePanels(Element e) {}
+	
+	class MyConfirmButtonListner extends ConfirmListener{
+
+		public MyConfirmButtonListner(MyPictureButton button) {
+			super(button);
+		}
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			super.mouseClicked(e);
+			panelManager.show(cancel, BulidBillPanel.addPeopleStr);
+		}
+
+		@Override
+		protected boolean checkDataValid() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		@Override
+		protected void saveToSQL() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		protected void reInitial() {
+			// TODO Auto-generated method stub
+			
+		}
+
+	}
+	
+	class MyCancelButtonListener extends MyPictureButtonListener{
+		public MyCancelButtonListener(MyPictureButton button) {
+			super(button);
+		}
+		
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			super.mouseClicked(e);
+			//TODO 清空数据
+			
+			
+			panelManager.show(changePanel, BulidBillPanel.bulidBillStr);
+		}
+	}
+	
 
 }

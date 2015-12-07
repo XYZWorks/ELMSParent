@@ -3,6 +3,7 @@ package ui.financeman.bulidBill;
 import org.dom4j.Element;
 
 import ui.table.MyTablePanel;
+import vo.statistic.BillVO;
  /** 
  * 期初建账主界面信息表格
  * @author czq 
@@ -10,11 +11,18 @@ import ui.table.MyTablePanel;
  */
 @SuppressWarnings("serial")
 public class MainTable extends MyTablePanel{
-
-	public MainTable(Element config) {
+	
+	private static final int COLUMN_NUMS = 5;
+	
+	private BulidBillPanel mainPanel;
+	
+	public MainTable(Element config ,BulidBillPanel mainPanel) {
 		super(config);
-		// TODO Auto-generated constructor stub
+		this.mainPanel = mainPanel;
+		
 	}
+
+	
 
 	@Override
 	public void updateTableMes() {
@@ -24,13 +32,18 @@ public class MainTable extends MyTablePanel{
 
 	@Override
 	protected void initialTitleAndColumn(Element config) {
-		// TODO Auto-generated method stub
+		columnNames = MyTablePanel.getColumnName(config.attributeValue("column"));
+		
+		
+		
+		
+		
+		
 		
 	}
 
 	@Override
 	protected void initTable() {
-		// TODO Auto-generated method stub
 		
 	}
 

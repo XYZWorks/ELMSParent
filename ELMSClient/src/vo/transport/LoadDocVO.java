@@ -1,14 +1,12 @@
 package vo.transport;
 
-import util.MyDate;
-import vo.DocVO;
-
 import java.util.ArrayList;
 
-import ui.saleman.LoadDocShowPanel;
 import util.City;
 import util.DocState;
 import util.DocType;
+import util.MyDate;
+import vo.DocVO;
 
 
 

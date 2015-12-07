@@ -10,8 +10,8 @@ import ui.tools.MyPanel;
  */
 @SuppressWarnings("serial")
 public class AddCar extends MyPanel{
-
-	public AddCar(Element config) {
+	
+	public AddCar(Element config, BulidBillPanel mainPanel) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}

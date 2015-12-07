@@ -1,6 +1,7 @@
 package ui.financeman.bulidBill;
 
 import java.awt.CardLayout;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
@@ -15,7 +16,9 @@ import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
 import ui.util.CancelListener;
+import ui.util.CompomentType;
 import ui.util.ConfirmListener;
+import ui.util.MyPictureButtonListener;
 import vo.DTManage.CarVO;
 import vo.personnel.InstVO;
 import vo.personnel.PersonVO;
@@ -36,7 +39,7 @@ public class BulidBillPanel extends MyPanel {
 	/**
 	 * 账单 = =
 	 */
-	BillVO newBill;
+	BillVO bill;
 	ArrayList<InstVO> instVOs = new ArrayList<>();;
 	ArrayList<CarVO> carVOs = new ArrayList<>();
 	ArrayList<PersonVO> personVOs = new ArrayList<>();
@@ -69,7 +72,14 @@ public class BulidBillPanel extends MyPanel {
 		this.changePanel = changePanel;
 		this.panelManager = (CardLayout) changePanel.getLayout();
 		this.bl = bl;
-
+		initLabels(config.element(CompomentType.LABELS.name()));
+		initButtons(config.element(CompomentType.BUTTONS.name()));
+		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
+		initOtherCompoment(config);
+		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
+		addCompoment();
+		addListener();
+		panelManager.show(changePanel, bulidBillStr);
 	}
 
 	@Override
@@ -96,10 +106,10 @@ public class BulidBillPanel extends MyPanel {
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		mainTable = new MainTable(e.element("table"));
-		addCar = new AddCar(e.element("addCar"));
-		addPeople = new AddPeople(e.element("addPeople"));
-		addInst = new AddInst(e.element("addInst"));
+		mainTable = new MainTable(e.element("table") , this);
+		addCar = new AddCar(e.element("addCar"), this);
+		addPeople = new AddPeople(e.element("addPeople") , this);
+		addInst = new AddInst(e.element("addInst"), this);
 
 	}
 
@@ -150,7 +160,13 @@ public class BulidBillPanel extends MyPanel {
 
 			}
 		});
-
+		newInst.addMouseListener(new MyPictureButtonListener(newInst){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				
+			}
+		});
 	}
 
 	@Override
