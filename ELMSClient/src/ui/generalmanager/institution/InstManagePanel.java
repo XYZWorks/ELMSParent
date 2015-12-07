@@ -49,7 +49,7 @@ public class InstManagePanel extends MyPanel{
 		super(config);
 		this.bl = bl;
 		this.changePanel = changePanel;
-		initLables(config.element(CompomentType.LABELS.name()));
+		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
@@ -71,7 +71,7 @@ public class InstManagePanel extends MyPanel{
 	protected void initTextFields(Element e) {}
 
 	@Override
-	protected void initLables(Element e) {
+	protected void initLabels(Element e) {
 		newType = new MyLabel(e.element("type"));
 		newLoc = new MyLabel(e.element("location"));
 	}

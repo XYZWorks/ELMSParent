@@ -40,7 +40,7 @@ public class InStorePanel extends MyPanel {
 		super(config);
 		this.bl = bl;
 		this.controller = controller;
-		initLables(config.element(CompomentType.LABELS.name()));
+		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 
@@ -65,7 +65,7 @@ public class InStorePanel extends MyPanel {
 	}
 
 	@Override
-	protected void initLables(Element e) {
+	protected void initLabels(Element e) {
 		nowDoc = new MyLabel(e.element("nowDoc"));
 
 	}

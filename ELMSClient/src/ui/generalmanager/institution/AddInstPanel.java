@@ -39,7 +39,7 @@ public class AddInstPanel extends MyPanel {
 	public AddInstPanel(Element config , JPanel changePanel) {
 		super(config);
 		this.changePanel = changePanel;
-		initLables(config.element(CompomentType.LABELS.name()));
+		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
@@ -61,7 +61,7 @@ public class AddInstPanel extends MyPanel {
 	}
 
 	@Override
-	protected void initLables(Element e) {
+	protected void initLabels(Element e) {
 		instid = new MyLabel(e.element("instid"));
 		location = new MyLabel(e.element("location"));
 		type = new MyLabel(e.element("type"));

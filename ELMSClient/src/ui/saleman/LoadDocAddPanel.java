@@ -30,7 +30,7 @@ public class LoadDocAddPanel extends MyPanel{
 	}
 
 	@Override
-	protected void initLables(Element e) {
+	protected void initLabels(Element e) {
 		// TODO Auto-generated method stub
 		
 	}

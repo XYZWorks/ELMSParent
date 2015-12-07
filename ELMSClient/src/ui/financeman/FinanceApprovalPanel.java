@@ -38,7 +38,7 @@ public class FinanceApprovalPanel extends MyPanel{
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
-		initLables(config.element(CompomentType.LABELS.name()));
+		initLabels(config.element(CompomentType.LABELS.name()));
 		addCompoment();
 		addListener();
 	}
@@ -59,7 +59,7 @@ public class FinanceApprovalPanel extends MyPanel{
 	}
 
 	@Override
-	protected void initLables(Element e) {
+	protected void initLabels(Element e) {
 		time = new MyPictureLabel(e.element("time"));
 		person = new MyPictureLabel(e.element("person"));
 		money = new MyPictureLabel(e.element("money"));

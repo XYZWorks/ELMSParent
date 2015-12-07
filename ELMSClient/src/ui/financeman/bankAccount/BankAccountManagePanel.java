@@ -45,7 +45,7 @@ public class BankAccountManagePanel extends MyPanel {
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
-		initLables(config.element(CompomentType.LABELS.name()));
+		initLabels(config.element(CompomentType.LABELS.name()));
 		addCompoment();
 		addListener();
 	}
@@ -65,7 +65,7 @@ public class BankAccountManagePanel extends MyPanel {
 	}
 
 	@Override
-	protected void initLables(Element e) {
+	protected void initLabels(Element e) {
 		newMoney = new MyPictureLabel(e.element("money"));
 		newPassword = new MyPictureLabel(e.element("password"));
 
@@ -73,7 +73,7 @@ public class BankAccountManagePanel extends MyPanel {
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		table = new BankAccountTable(e.element("table"));
+		table = new BankAccountTable(e.element("table") , bl);
 
 	}
 

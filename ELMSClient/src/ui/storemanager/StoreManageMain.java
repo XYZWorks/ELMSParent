@@ -35,7 +35,7 @@ public class StoreManageMain extends MyPanel{
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
-		initLables(config.element(CompomentType.LABELS.name()));
+		initLabels(config.element(CompomentType.LABELS.name()));
 		addCompoment();
 		addListener();
 		repaint();
@@ -63,7 +63,7 @@ public class StoreManageMain extends MyPanel{
 	}
 
 	@Override
-	protected void initLables(Element e) {
+	protected void initLabels(Element e) {
 		// TODO Auto-generated method stub
 		
 	}

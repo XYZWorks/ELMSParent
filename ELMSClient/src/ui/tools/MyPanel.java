@@ -49,7 +49,7 @@ public abstract class MyPanel extends JPanel{
 	/**
 	 * 初始化标签
 	 */
-	protected abstract void initLables(Element e);
+	protected abstract void initLabels(Element e);
 	/**
 	 * 初始化其他组件
 	 */

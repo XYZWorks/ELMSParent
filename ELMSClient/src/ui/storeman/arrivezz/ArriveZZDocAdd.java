@@ -64,7 +64,7 @@ public class ArriveZZDocAdd extends MyPanel {
 
 		this.bl = bl;
 		this.controller = controller;
-		initLables(config.element(CompomentType.LABELS.name()));
+		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 
@@ -97,7 +97,7 @@ public class ArriveZZDocAdd extends MyPanel {
 	}
 
 	@Override
-	protected void initLables(Element e) {
+	protected void initLabels(Element e) {
 		title = new MyLabel(e.element("title"));
 		IDL = new MyLabel(e.element("ID"));
 		dateL = new MyLabel(e.element("date"));

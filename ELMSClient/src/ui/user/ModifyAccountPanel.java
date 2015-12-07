@@ -45,7 +45,7 @@ public class ModifyAccountPanel extends MyPanel{
 	public ModifyAccountPanel(Element config , Accountblservice bl) {
 		super(config);
 		this.bl = bl;
-		initLables(config.element(CompomentType.LABELS.name()));
+		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
@@ -83,7 +83,7 @@ public class ModifyAccountPanel extends MyPanel{
 	}
 
 	@Override
-	protected void initLables(Element e) {
+	protected void initLabels(Element e) {
 		newName = new MyLabel(e.element("name"));
 		newPassword = new MyLabel(e.element("password"));
 		newType = new MyLabel(e.element("type"));

@@ -78,7 +78,7 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 	public ConstSetPanel(Element config , StrategyblService bl) {
 		super(config);
 		this.bl = bl;
-		initLables(config.element(CompomentType.LABELS.name()));
+		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
@@ -246,7 +246,7 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 	}
 
 	@Override
-	protected void initLables(Element e) {
+	protected void initLabels(Element e) {
 		transportWay = new MyPictureLabel(e.element("transportWay"));
 		plane = new MyPictureLabel(e.element("plane"));
 		train = new MyPictureLabel(e.element("train"));

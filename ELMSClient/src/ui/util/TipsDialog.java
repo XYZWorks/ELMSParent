@@ -7,6 +7,7 @@ import java.awt.Rectangle;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 import ui.config.GraphicsUtils;
 import ui.tools.MyLabel;
@@ -24,7 +25,6 @@ public class TipsDialog extends JDialog{
 	private static JFrame parent;
 	
 	
-	private final String message;
 	
 	private final int MAX_TIMES = 100;
 	
@@ -59,10 +59,27 @@ public class TipsDialog extends JDialog{
     }
 	
 	public TipsDialog(String message , Color color , Font font) {
+		this(message, color, font, false);
+       
+    }
+	/**
+	 * 
+	 * @param message
+	 * @param color
+	 * @param font
+	 * @param isCenter 消息是否放在图片中间（叠在图上面）
+	 */
+	public TipsDialog(String message , Color color , Font font , boolean isCenter) {
 		super(parent);
 		label.setIcon(GraphicsUtils.getIcon("element\\close"));
-        this.message = message;
+		label.setFont(font);
         label.setText(message);
+        if(isCenter){
+        	label.setHorizontalTextPosition(JLabel.CENTER);
+        	label.setVerticalTextPosition(JLabel.CENTER);
+        }
+        
+        
         new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -71,8 +88,9 @@ public class TipsDialog extends JDialog{
 			}
 		}).start();
        
+        
+        
     }
-	
 	
 	
 	

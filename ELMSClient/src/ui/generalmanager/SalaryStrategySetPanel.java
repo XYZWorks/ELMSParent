@@ -68,7 +68,7 @@ public class SalaryStrategySetPanel extends MyPanel implements TextFieldsManage 
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
-		initLables(config.element(CompomentType.LABELS.name()));
+		initLabels(config.element(CompomentType.LABELS.name()));
 		addCompoment();
 		addListener();
 
@@ -122,7 +122,7 @@ public class SalaryStrategySetPanel extends MyPanel implements TextFieldsManage 
 	}
 
 	@Override
-	protected void initLables(Element e) {
+	protected void initLabels(Element e) {
 		staffTypeLabel = new MyPictureLabel(e.element("StaffTypeLabel"));
 		wageStrategyLabel = new MyPictureLabel(e.element("WageStrategyLabel"));
 		basicMoneyLabel = new MyPictureLabel(e.element("BasicMoneyLabel"));

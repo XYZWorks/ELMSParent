@@ -47,7 +47,7 @@ public class ApprovalDocsPanel extends MyPanel{
 	public ApprovalDocsPanel(Element config  , Approvalblservice bl) {
 		super(config);
 		this.bl = bl;
-		initLables(config.element(CompomentType.LABELS.name()));
+		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
@@ -69,7 +69,7 @@ public class ApprovalDocsPanel extends MyPanel{
 	}
 
 	@Override
-	protected void initLables(Element e) {
+	protected void initLabels(Element e) {
 		chooseDocType = new MyPictureLabel(e.element("choose"));
 	}
 

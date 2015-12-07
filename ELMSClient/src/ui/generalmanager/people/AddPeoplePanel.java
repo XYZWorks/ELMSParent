@@ -40,7 +40,7 @@ public class AddPeoplePanel extends MyPanel{
 	public AddPeoplePanel(Element config ,PeopleManagePanel managePanel) {
 		super(config);
 		this.managePanel = managePanel;
-		initLables(config.element(CompomentType.LABELS.name()));
+		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
@@ -63,7 +63,7 @@ public class AddPeoplePanel extends MyPanel{
 	}
 
 	@Override
-	protected void initLables(Element e) {
+	protected void initLabels(Element e) {
 		instIDL = new MyLabel(e.element("InstID"));
 		IDL = new MyLabel(e.element("ID"));
 		nameL = new MyLabel(e.element("Name"));

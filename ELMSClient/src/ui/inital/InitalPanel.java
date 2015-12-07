@@ -53,7 +53,7 @@ public class InitalPanel extends MyPanel {
 		TipsDialog.setFrame(frame);
 		
 		this.initButtons(e.element(CompomentType.BUTTONS.name()));
-		this.initLables(e.element(CompomentType.LABELS.name()));
+		this.initLabels(e.element(CompomentType.LABELS.name()));
 		this.initTextFields(e.element(CompomentType.TEXTFIELDS.name()));
 		this.initOtherCompoment(e);
 		this.addCompoment();
@@ -127,7 +127,7 @@ public class InitalPanel extends MyPanel {
 	}
 
 	@Override
-	protected void initLables(Element e) {
+	protected void initLabels(Element e) {
 //		career = new MyLabel(e.element("career") , vo.type.name() + "," + vo.name);
 
 	}
