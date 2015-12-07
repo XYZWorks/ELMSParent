@@ -18,6 +18,7 @@ public class MyRadioButton extends JRadioButton{
 	}
 	public MyRadioButton(Element config) {
 		this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));
+		this.setText(config.attributeValue("text"));
 		this.setVisible(true);
 	}
 }

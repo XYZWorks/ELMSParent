@@ -90,7 +90,7 @@
 						type="confirm" />
 					<cancel text="取消" x="599" y="695" width="89" height="37"
 						type="cancel" />
-				
+
 				</BUTTONS>
 
 				<LABELS>
@@ -100,7 +100,7 @@
 						height="19" />
 
 					<senderInfo text="寄件人" x="0" y="0" width="114" height="40"
-					type="rectangle" />	
+						type="rectangle" />
 					<senderNameLabel text="姓名" x="20" y="63" width="36"
 						height="20" />
 					<senderPhoneLabel text="手机" x="20" y="110" width="36"
@@ -112,8 +112,8 @@
 
 					<receiverInfo text="收件人" x="0" y="0" width="114"
 						height="40" type="rectangle" />
-					<receiverNameLabel text="姓名" x="20" y="63"
-						width="36" height="20" />
+					<receiverNameLabel text="姓名" x="20" y="63" width="36"
+						height="20" />
 					<receiverPhoneLabel text="手机" x="20" y="110"
 						width="36" height="20" />
 					<receiverAddressLabel text="地址" x="20" y="156"
@@ -151,8 +151,7 @@
 
 				<TEXTFIELDS>
 					<senderNameText x="63" y="57" width="276" height="32" />
-					<senderPhoneText x="63" y="103" width="276"
-						height="32" />
+					<senderPhoneText x="63" y="103" width="276" height="32" />
 					<senderAddressText x="63" y="195" width="276"
 						height="32" />
 					<senderUnitText x="63" y="241" width="276" height="32" />
@@ -167,7 +166,7 @@
 						height="32" />
 
 					<goodNameText x="94" y="54" width="263" height="32" />
-					<goodNumText  x="468" y="54" width="85" height="32" />
+					<goodNumText x="468" y="54" width="85" height="32" />
 					<goodWeightText x="468" y="100" width="85" height="32" />
 					<goodLongText x="94" y="100" width="85" height="32" />
 					<goodWidthText x="182" y="100" width="85" height="32" />
@@ -179,26 +178,40 @@
 					<button x="350" y="0" width="50" height="50" type="rectangle" />
 				</DatePicker>
 
-				<bag text="快递袋" x="113" y="151" width="58" height="13" />
-				<carton text="纸箱" x="299" y="151" width="43" height="13" />
-				<woodCase text="木箱" x="406" y="151" width="43" height="13" />
+				<bag text="快递袋" x="113" y="149" width="85" height="18" />
+				<carton text="纸箱" x="250" y="149" width="85" height="18" />
+				<woodCase text="木箱" x="406" y="149" width="85" height="18" />
 
-				<economicOrder text="经济快递" x="113" y="183" width="74"
-					height="13" />
-				<commonOrder text="普通快递" x="299" y="183" width="74"
-					height="13" />
-				<quickOrder text="特快快递" x="406" y="183" width="74"
-					height="13" />
+				<economicOrder text="经济快递" x="113" y="183" width="100"
+					height="18" />
+				<commonOrder text="普通快递" x="250" y="183" width="100"
+					height="18" />
+				<quickOrder text="特快快递" x="406" y="183" width="100"
+					height="18" />
 
 				<senderCity x="64" y="149" width="120" height="29"
-					strings="南京 北京 广州 上海" />
+					strings="请选择城市 南京 北京 广州 上海" />
 				<senderArea x="213" y="149" width="120" height="29"
-					strings="静安区" />
+					strings="请选择地区"
+					stringNanJing="玄武区 白下区 秦淮区 建邺区 鼓楼区 下关区 浦口区 栖霞区 雨花台区 江宁区 六合区 溧水县 高淳县 其他区
+					"
+					stringShangHai="黄浦区 卢湾区 徐汇区 长宁区 静安区 普陀区 闸北区 虹口区 杨浦区 闵行区 宝山区 嘉定区 浦东新区  金山区 松江区 青浦区 南汇区 奉贤区 川沙区 崇明县 其他区
+					"
+					stringGuangZhou="荔湾区 越秀区 海珠区 天河区 白云区 黄埔区 番禺区 花都区 萝岗区 南沙区 萝岗区 增城市 从化市 东山区 其他区
+					"
+					stringBeiJing="东城区 西城区 崇文区 宣武区 朝阳区 丰台区 石景山区 海淀区 门头沟区 房山区 通州区 顺义区 昌平区 大兴区 怀柔区 平谷区 密云县 延庆县 其他区" />
 				<receiverCity x="64" y="149" width="120" height="29"
-					strings="南京 北京 广州 上海" />
+					strings="请选择城市 南京 北京 广州 上海" />
 				<receiverArea x="213" y="149" width="120" height="29"
-					strings="静安区" />
-
+					strings="请选择地区"
+					stringNanJing="玄武区 白下区 秦淮区 建邺区 鼓楼区 下关区 浦口区 栖霞区 雨花台区 江宁区 六合区 溧水县 高淳县 其他区
+					"
+					stringShangHai="黄浦区 卢湾区 徐汇区 长宁区 静安区 普陀区 闸北区 虹口区 杨浦区 闵行区 宝山区 嘉定区 浦东新区  金山区 松江区 青浦区 南汇区 奉贤区 川沙区 崇明县 其他区
+					"
+					stringGuangZhou="荔湾区 越秀区 海珠区 天河区 白云区 黄埔区 番禺区 花都区 萝岗区 南沙区 萝岗区 增城市 从化市 东山区 其他区
+					"
+					stringBeiJing="东城区 西城区 崇文区 宣武区 朝阳区 丰台区 石景山区 海淀区 门头沟区 房山区 通州区 顺义区 昌平区 大兴区 怀柔区 平谷区 密云县 延庆县 其他区" />
+					
 			</addOrderPanel>
 
 
