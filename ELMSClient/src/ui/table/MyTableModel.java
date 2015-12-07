@@ -65,7 +65,11 @@ public class MyTableModel extends DefaultTableModel {
 		}
 
 	}
-
+	
+	public void setCellEdit(boolean flag ,int row , int col){
+		isCellEditable[row][col] = flag;
+	}
+	
 	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex) {
 		return isCellEditable[rowIndex][columnIndex];

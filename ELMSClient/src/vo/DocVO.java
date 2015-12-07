@@ -9,7 +9,7 @@ import util.DocType;
  * @author czq
  *
  */
-public abstract class DocVO {
+public class DocVO {
 	/**
 	 * 单据ID
 	 */
@@ -27,9 +27,7 @@ public abstract class DocVO {
 	 */
 	public DocState state;
 	
-	public DocVO() {
-		// TODO Auto-generated constructor stub
-	}
+	public DocVO() {}
 	public DocVO(String iD, DocType type, MyDate date, DocState state) {
 		super();
 		ID = iD;

@@ -1,8 +1,12 @@
 package ui.financeman.bankAccount;
 
+import java.util.ArrayList;
+
 import org.dom4j.Element;
 
+import blservice.financeblservice.BankAccountBusinessService;
 import ui.table.MyTablePanel;
+import vo.finance.BankAccountVO;
  /** 
  * 银行账户列表
  * @author czq 
@@ -10,9 +14,15 @@ import ui.table.MyTablePanel;
  */
 @SuppressWarnings("serial")
 public class BankAccountTable extends MyTablePanel{
-
-	public BankAccountTable(Element config) {
+	
+	BankAccountBusinessService blService;
+	
+	ArrayList<BankAccountVO> vos;
+	
+	
+	public BankAccountTable(Element config , BankAccountBusinessService blService) {
 		super(config);
+		this.blService = blService;
 		// TODO Auto-generated constructor stub
 	}
 

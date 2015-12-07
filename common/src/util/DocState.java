@@ -8,11 +8,21 @@ public enum DocState {
     /**
      * 未审批
      */
-	wait,
+	wait("未审批"),
 	/**
 	 * 
 	 * 审批通过
 	 */
-	pass,
+	pass("审批通过");
     //fail 暂时放弃
+	
+	private String name;
+	
+	private DocState(String name) {
+		this.name = name;
+	}
+	
+	public static String getName(DocState state){
+		return state.name;
+	}
 }

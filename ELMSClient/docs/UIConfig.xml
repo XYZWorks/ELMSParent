@@ -70,22 +70,29 @@
 
 			<ApprovalPanel x="232" y="54" width="1080" height="637">
 				<BUTTONS>
+					<approveMany x="550" y="560" width="115" height="40"
+						text="批量审批" type="rectangle" />
+					<approveOne x="700" y="560" width="115" height="40"
+						text="单个审批" type="cancel" />
+					<checkForMoreInfo x="625" y="560" width="115"
+						height="40" text="更多信息" type="confirm" />
 				</BUTTONS>
 				<LABELS>
+					<choose x="45" y="45" width="100" height="45"
+						text="选择单据类型" type="rectangle" />
 				</LABELS>
-				<TEXTFIELDS>
-				</TEXTFIELDS>
-
+				<table x="45" y="100" width="600" height="400" column = "选择 单据ID 单据类型 创建日期 单据状态"/>
+				<type x="205" y="45" width="200" height="45" strings = "订单 入库单 出库单 派送单 到达单 装车单 接收单 中转单" />
 			</ApprovalPanel>
 
 			<ConstSetPanel x="232" y="54" width="1080" height="637">
 				<BUTTONS>
 					<modify x="625" y="560" width="115" height="40" text="修改"
-						type="rectangle" />
+						type="confirm" />
 					<confirm x="550" y="560" width="115" height="40" text="确认"
 						type="rectangle" />
 					<cancel x="700" y="560" width="115" height="40" text="取消"
-						type="rectangle" />
+						type="cancel" />
 				</BUTTONS>
 				<LABELS>
 					<transportWay x="45" y="200" width="200" height="45"
@@ -148,22 +155,32 @@
 
 			<StatisticPanel x="232" y="54" width="1080" height="637">
 				<BUTTONS>
-					<detail x="625" y="560" width="100" height="40" type = "rectangle" text = "更多信息"/>
-					<back x="750" y="560" width="100" height="40" type = "cancel" text = "返回"/>
+					<detail x="625" y="560" width="100" height="40" type="rectangle"
+						text="更多信息" />
+					<back x="750" y="560" width="100" height="40" type="cancel"
+						text="返回" />
 				</BUTTONS>
-				<stateFormPanel x="100" y="100" width="770" height="400" column = "序号 开始时间 结束时间"/>
-				<costFormPanel x="100" y="100" width="770" height="400" column = "开始时间 结束时间 总收入 总支出"/>
-				<type x="30" y="30" width="100" height="40" strings = "经营状况表 成本收益表"  />
-				<detailPanel x="100" y="100" width="770" height="400" strings = "经营状况表 成本收益表"  />
+				<stateFormPanel x="100" y="100" width="770" height="400"
+					column="序号 开始时间 结束时间" />
+				<costFormPanel x="100" y="100" width="770" height="400"
+					column="开始时间 结束时间 总收入 总支出" />
+				<type x="30" y="30" width="100" height="40" strings="经营状况表 成本收益表" />
+				<detailPanel x="100" y="100" width="770" height="400"
+					strings="经营状况表 成本收益表" />
 			</StatisticPanel>
 
 			<InstManagePanel x="232" y="54" width="1080" height="637">
 				<BUTTONS>
-					<addInst x="550" y="600" width="50" height="40" text="增加" type = "rectangle"/>
-					<modify x="650" y="600" width="50" height="40" text="修改" type = "rectangle"/>
-					<delete x="750" y="600" width="50" height="40" text="删除" type = "rectangle"/>
-					<confirm x="550" y="600" width="50" height="40" text="确认" type = "confirm"/>
-					<cancel x="45650" y="600" width="50" height="40" text="取消" type = "cancel"/>
+					<addInst x="550" y="600" width="50" height="40" text="增加"
+						type="rectangle" />
+					<modify x="650" y="600" width="50" height="40" text="修改"
+						type="rectangle" />
+					<delete x="750" y="600" width="50" height="40" text="删除"
+						type="rectangle" />
+					<confirm x="550" y="600" width="50" height="40" text="确认"
+						type="confirm" />
+					<cancel x="45650" y="600" width="50" height="40" text="取消"
+						type="cancel" />
 				</BUTTONS>
 				<LABELS>
 					<type x="45" y="500" width="50" height="40" text="职员类型" />
@@ -173,8 +190,10 @@
 				<location x="300" y="580" width="100" height="40" strings="南京 北京 上海 广州" />
 				<addInstPanel x="232" y="54" width="1080" height="637">
 					<BUTTONS>
-						<confirm x="550" y="600" width="50" height="40" text="确认" type = "confirm"/>
-						<cancel x="45650" y="600" width="50" height="40" text="取消" type = "cancel"/>
+						<confirm x="550" y="600" width="50" height="40" text="确认"
+							type="confirm" />
+						<cancel x="45650" y="600" width="50" height="40" text="取消"
+							type="cancel" />
 					</BUTTONS>
 					<TEXTFIELDS>
 						<instid x="550" y="600" width="50" height="40" />
@@ -188,7 +207,7 @@
 					<type x="45" y="580" width="100" height="40" strings="中转中心 营业厅 总部" />
 
 				</addInstPanel>
-				<table x="45" y="45" width="400" height="400" column = "ID 机构类型 所在地"/>
+				<table x="45" y="45" width="400" height="400" column="ID 机构类型 所在地" />
 			</InstManagePanel>
 
 			<PeopleManagePanel x="232" y="54" width="1080"

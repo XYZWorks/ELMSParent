@@ -19,25 +19,25 @@ public interface FinanceDataService extends DataserviceParent{
 	 * 获得所有银行账户
 	 * @return
 	 */
-	public ArrayList<BankAccountPO> getAccounts();
+	public ArrayList<BankAccountPO> getAccounts() throws RemoteException;
 	/**
 	 * 修改银行账户信息
 	 * @param vo
 	 * @return
 	 */
-	public ResultMessage modifyAccount(BankAccountPO vo);
+	public ResultMessage modifyAccount(BankAccountPO vo) throws RemoteException;
 	/**
 	 * 删除一个银行账户
 	 * @param ID
 	 * @return
 	 */
-	public ResultMessage deleteAccount(String ID);
+	public ResultMessage deleteAccount(String ID) throws RemoteException;
 	/**
 	 * 修改一个银行账户
 	 * @param vo
 	 * @return
 	 */
-	public ResultMessage addAccount(BankAccountPO vo);
+	public ResultMessage addAccount(BankAccountPO vo) throws RemoteException;
 	
 	
 	/**

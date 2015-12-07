@@ -1,71 +1,82 @@
 package util;
 
-
 /**
  * 单据类型
+ * 
  * @author czq
  *
  */
 public enum DocType {
-	
-	
-	
+
 	/**
 	 * 订单
 	 */
-	order("order"),
+	order("订单"),
 	/**
 	 * 装车单
 	 */
-	loadDoc("loadDoc"),
+	loadDoc("装车单"),
 	/**
-	 * 装车单（营业厅和中转中心流转）
+	 * 到达单（营业厅和中转中心流转）
 	 */
-	arriveZZDoc("arriveZZDoc"),
+	arriveZZDoc("到达单"),
 	/**
-	 * 装车单
+	 * 中转单
 	 */
-	transferDoc("transferDoc"),
+	transferDoc("中转单"),
 	/**
-	 * 装车单
+	 * 接收单
 	 */
-	arriveYYDoc("arriveYYDoc"),
+	arriveYYDoc("接收单"),
 	/**
-	 * 装车单
+	 * 派送单
 	 */
-	sendGoodDoc("sendGoodDoc"),
+	sendGoodDoc("派送单"),
 	/**
 	 * 入库单
 	 */
-	inStoreDoc("inStoreDoc"),
+	inStoreDoc("入库单"),
 	/**
 	 * 入库单
 	 */
-	outStoreDoc("outStoreDoc");
-	
+	outStoreDoc("入库单");
+
 	private final String name;
-	
-	private DocType(String name){
+
+	private DocType(String name) {
 		this.name = name;
 	}
-//	
-//	public static String getName(DocType type){
-//		return type.name;
-//	}
+
 	
-	
-	
-//	public DocVO getVOInstance(DocType type){
-//		switch (type) {
-//		case order: return new OrderVO(iD, date, orderYYT, orderBarCode, senderName, senderPhone, senderCompany, senderAddress, receiverName, receiverPhone, receiverCompany, receiverAddress, goodNum, goodName, goodWeight, goodLong, goodWidth, goodHeight, goodPack, orderForm, orderEestiTime, orderCost, docList)
-//			
-//			break;
-//
-//		default:
-//			break;
-//		}
-//		
-//	}
-	
-	
+	 public static String getName(DocType type){
+		 return type.name;
+	 }
+
+	public final static DocType getDocType(String chinese) {
+
+		switch (chinese) {
+		case "订单":
+			return order;
+		case "入库单":
+			return inStoreDoc;
+		case "出库单":
+			return outStoreDoc;
+		case "派送单":
+			return sendGoodDoc;
+		case "到达单":
+			return arriveZZDoc;
+		case "装车单":
+			return loadDoc;
+		case "接收单":
+			return arriveYYDoc;
+		case "中转单":
+
+			return transferDoc;
+		default:
+			System.err.println("单据类型错误");
+			return null;
+		}
+
+	}
+
 }

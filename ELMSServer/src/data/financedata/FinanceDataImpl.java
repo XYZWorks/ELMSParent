@@ -203,7 +203,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	}
 
 	@Override
-	public ArrayList<BankAccountPO> getAccounts() {
+	public ArrayList<BankAccountPO> getAccounts() throws RemoteException{
 		ArrayList<BankAccountPO> pos = new ArrayList<>();
 		
 		sql = "SELECT * FROM " + salaryTable;
@@ -222,17 +222,17 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	}
 
 	@Override
-	public ResultMessage modifyAccount(BankAccountPO vo) {
+	public ResultMessage modifyAccount(BankAccountPO vo) throws RemoteException{
 		return modifyFromSQL(bankAccountTable, vo.getID() , vo.getPassword() , vo.getMoney());
 	}
 
 	@Override
-	public ResultMessage deleteAccount(String ID) {
+	public ResultMessage deleteAccount(String ID) throws RemoteException{
 		return delFromSQL(bankAccountTable, ID);
 	}
 
 	@Override
-	public ResultMessage addAccount(BankAccountPO vo) {
+	public ResultMessage addAccount(BankAccountPO vo) throws RemoteException{
 		return addToSQL(bankAccountTable, vo.getID() , vo.getPassword() , vo.getMoney());
 	}
 

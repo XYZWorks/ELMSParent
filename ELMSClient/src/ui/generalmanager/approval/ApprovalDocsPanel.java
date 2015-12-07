@@ -1,5 +1,9 @@
 package ui.generalmanager.approval;
 
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseEvent;
+
 import org.dom4j.Element;
 
 import blservice.approvalblservice.Approvalblservice;
@@ -8,6 +12,11 @@ import ui.tools.MyComboBox;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
+import ui.util.ButtonState;
+import ui.util.CompomentType;
+import ui.util.MyPictureButtonListener;
+import ui.util.TipsDialog;
+import util.DocType;
 
 /**
  * 审批单据
@@ -20,7 +29,7 @@ public class ApprovalDocsPanel extends MyPanel{
 	private MyPictureLabel chooseDocType;
 	private MyComboBox DocTypeChooseBox;
 	
-	private MyTable docTable;
+	private DocSimpleInfoTable table;
 	
 	private MyPictureButton approvalMany;
 	private MyPictureButton approvalOne;
@@ -38,7 +47,13 @@ public class ApprovalDocsPanel extends MyPanel{
 	public ApprovalDocsPanel(Element config  , Approvalblservice bl) {
 		super(config);
 		this.bl = bl;
-		// TODO Auto-generated constructor stub
+		initLables(config.element(CompomentType.LABELS.name()));
+		initButtons(config.element(CompomentType.BUTTONS.name()));
+		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
+		initOtherCompoment(config);
+		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
+		addCompoment();
+		addListener();
 	}
 
 	@Override
@@ -51,38 +66,77 @@ public class ApprovalDocsPanel extends MyPanel{
 
 	@Override
 	protected void initTextFields(Element e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	protected void initLables(Element e) {
-		// TODO Auto-generated method stub
-		
+		chooseDocType = new MyPictureLabel(e.element("choose"));
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		// TODO Auto-generated method stub
-		
+		table = new DocSimpleInfoTable(e.element("table"), bl , DocType.order);
+		DocTypeChooseBox = new MyComboBox(e.element("type"));
 	}
 
 	@Override
 	protected void addCompoment() {
-		// TODO Auto-generated method stub
+		add(DocTypeChooseBox);
+		add(approvalMany);
+		add(approvalOne);
+		add(table);
+		add(checkForMoreInfo);
+		add(chooseDocType);
 		
 	}
 
 	@Override
 	protected void addListener() {
-		// TODO Auto-generated method stub
+		DocTypeChooseBox.addItemListener(new ItemListener() {
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				DocType type = DocType.getDocType((String) DocTypeChooseBox.getSelectedItem());
+				if(type != null){
+					table.changeDocType(type);
+				}
+			}
+		});
+		approvalMany.addMouseListener(new MyPictureButtonListener(approvalMany){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				int Number;
+				if( ( Number = table.approveMany() ) > 0){
+					new TipsDialog("成功审批" + String.valueOf(Number) + "个单据");
+				}else{
+					new TipsDialog("您未选择任何单据！");
+				}
+			}
+			
+			
+		});
+		approvalOne.addMouseListener(new MyPictureButtonListener(approvalOne){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				if(table.approvaeOne()){
+					new TipsDialog("成功审批单据");
+				}else {
+					new TipsDialog("未成功审批单据");
+				}
+			}
+		});
+		checkForMoreInfo.addMouseListener(new MyPictureButtonListener(checkForMoreInfo){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				//跳转Panel
+			}
+		});
 		
 	}
 
 	@Override
-	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
-		
-	}
+	protected void initWhitePanels(Element e) {}
 
 }

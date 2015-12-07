@@ -4,6 +4,7 @@ import org.dom4j.Element;
 
 import bl.BusinessLogicDataFactory;
 import blservice.approvalblservice.Approvalblservice;
+import blservice.approvalblservice.Approvalblservice_Stub;
 import blservice.personnelblservice.Personnelblservice;
 import blservice.statisticblservice.Statisticblservice;
 import blservice.strategyblservice.StrategyblService;
@@ -72,7 +73,8 @@ public class GeneralManagerController extends PanelController {
 	
 	@Override
 	protected void initialBL() {
-		approvalBL = BusinessLogicDataFactory.getFactory().getApprovalBusinessLogic();
+//		approvalBL = BusinessLogicDataFactory.getFactory().getApprovalBusinessLogic();
+		approvalBL = new Approvalblservice_Stub();
 		strategyblService = BusinessLogicDataFactory.getFactory().getStrategyBusinessLogic();
 		statisticblservice = BusinessLogicDataFactory.getFactory().getStatisticBusinessLogic();
 		personnelblservice = BusinessLogicDataFactory.getFactory().getPersonnelBusinessLogic();
