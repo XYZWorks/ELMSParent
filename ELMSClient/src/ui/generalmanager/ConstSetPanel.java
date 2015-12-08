@@ -222,7 +222,9 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 	
 	
 	
-	
+	/*
+	 * @see ui.tools.MyPanel#initButtons(org.dom4j.Element)
+	 */
 	@Override
 	protected void initButtons(Element e) {
 		modifyButton = new MyPictureButton(e.element("modify"));
@@ -230,7 +232,9 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 		cancelButton = new MyPictureButton(e.element("cancel"));
 		
 	}
-
+	/*
+	 * @see ui.tools.MyPanel#initTextFields(org.dom4j.Element)
+	 */
 	@Override
 	protected void initTextFields(Element e) {
 		instance = new MyTextField(e.element("instance"));

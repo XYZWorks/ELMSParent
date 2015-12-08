@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2015-12-05 01:28:30
+-- Generation Time: 2015-12-06 14:16:13
 -- 服务器版本： 5.6.26
 -- PHP Version: 5.6.12
 
@@ -46,10 +46,11 @@ CREATE TABLE IF NOT EXISTS `account` (
 
 INSERT INTO `account` (`id`, `name`, `type`, `password`, `phone`, `email`) VALUES
 ('000000', 'Adminstrator', 'Adminstrator', '000000', '', ''),
-('124414', '陈自强你哈', 'manager', '111111', NULL, NULL),
-('124415', '斯顿', 'financeman', '111111', '', ''),
-('222', '23', 'courier', '213', '', ''),
-('2222', '231', 'courier', '21323', '', '');
+('111', '陈自强', 'courier', '123456', '', ''),
+('1231', '纯植物', 'saleman', '111111', NULL, NULL),
+('2222', '231', 'courier', '21323', '', ''),
+('23', '123', 'courier', '234', '', ''),
+('231111', '12323', 'courier', '23412', '', '');
 
 -- --------------------------------------------------------
 
@@ -103,6 +104,34 @@ CREATE TABLE IF NOT EXISTS `arrivezzdoc` (
   `sendcity` varchar(15) DEFAULT NULL,
   `goodstate` varchar(45) DEFAULT NULL,
   `orderBarCodes` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `arrivezzdoc`
+--
+
+INSERT INTO `arrivezzdoc` (`id`, `type`, `date`, `state`, `zzid`, `sendcity`, `goodstate`, `orderBarCodes`) VALUES
+('DDD1511140000001', 'arriveZZDoc', '2015-12-5', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,'),
+('DDD1511140000001', 'arriveZZDoc', '2015-12-5', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,'),
+('DDD1511140000001', 'arriveZZDoc', '2015-12-5', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,'),
+('DDD1511140000001', 'arriveZZDoc', '2015-12-5', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,'),
+('DDD1511140000001', 'arriveZZDoc', '2015-12-5', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,'),
+('DDD1511140000001', 'arriveZZDoc', '2015-12-5', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,'),
+('DDD1511140000001', 'arriveZZDoc', '2015-12-5', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `bankaccount`
+--
+-- 创建时间： 2015-12-06 13:15:09
+--
+
+DROP TABLE IF EXISTS `bankaccount`;
+CREATE TABLE IF NOT EXISTS `bankaccount` (
+  `id` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `money` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -532,6 +561,12 @@ CREATE TABLE IF NOT EXISTS `transferdoc` (
 -- Indexes for table `account`
 --
 ALTER TABLE `account`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `bankaccount`
+--
+ALTER TABLE `bankaccount`
   ADD PRIMARY KEY (`id`);
 
 --

@@ -5,6 +5,8 @@ import javax.swing.JPanel;
 import org.dom4j.Element;
 
 import ui.tools.CheckDocPanel;
+import ui.tools.MyDatePicker;
+import ui.tools.MyPictureButton;
 import ui.tools.MySerachBox;
 /**
  * 接收单查看界面
@@ -33,7 +35,7 @@ public class ArriveYYDocCheckPanel extends CheckDocPanel{
 
 	@Override
 	protected void initialAddDocPanel(Element e) {
-		// TODO Auto-generated method stub
+		addDocPanel = new ArriveYYDocAddPanel(e, changePanel);
 		
 	}
 
@@ -41,7 +43,8 @@ public class ArriveYYDocCheckPanel extends CheckDocPanel{
 	protected void initialOtherComp(Element e) {
 		messageTable = new ArriveYYDocMesTable(e.element("table"));
 		searchBox = new MySerachBox(e.element("search"));
-		
+		datePicker = new MyDatePicker(e.element("date"));
+		addDoc = new MyPictureButton(e.element("add"));
 		
 	}
 

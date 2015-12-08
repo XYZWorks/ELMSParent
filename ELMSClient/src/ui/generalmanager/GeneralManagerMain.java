@@ -66,11 +66,12 @@ public class GeneralManagerMain extends MyPanel {
 	@Override
 	protected void initOtherCompoment(Element e) {
 		date = new MyDatePicker(e.element("DatePicker"));
+		
 	}
 
 	@Override
 	protected void addCompoment() {
-		this.add(constsetButton);
+		this.add(constsetButton); 
 		this.add(instManageButton);
 		this.add(approvalButton);
 		this.add(statisticButton);

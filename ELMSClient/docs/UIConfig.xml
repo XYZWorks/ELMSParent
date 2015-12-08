@@ -64,7 +64,6 @@
 				<DatePicker x="0" y="0" width="400" height="50">
 					<field x="0" y="0" width="350" height="50" />
 					<button x="350" y="0" width="50" height="50" type="rectangle" />
-
 				</DatePicker>
 			</mainWindow>
 
@@ -486,12 +485,7 @@
 					<money x="500" y="560" width="115" height="40" />
 					<password x="500" y="560" width="115" height="40" />
 				</LABELS>
-<<<<<<< HEAD
 					<table x="50" y="75" width="750" height="430" column = "账户ID 密码 存款"/>
-=======
-				<table x="45" y="45" width="450" height="400" column="账户ID 密码 存款" />
->>>>>>> origin/master
-
 			</BankAccountManagePanel>
 			<CostManagePanel x="232" y="54" width="1080" height="637">
 			</CostManagePanel>
