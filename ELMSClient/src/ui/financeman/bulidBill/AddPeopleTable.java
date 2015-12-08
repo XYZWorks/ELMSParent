@@ -2,7 +2,9 @@ package ui.financeman.bulidBill;
 
 import org.dom4j.Element;
 
+import ui.table.MyTable;
 import ui.table.MyTablePanel;
+import vo.personnel.PersonVO;
  /** 
  * 人员信息面板
  * @author czq 
@@ -10,10 +12,16 @@ import ui.table.MyTablePanel;
  */
 @SuppressWarnings("serial")
 public class AddPeopleTable extends MyTablePanel{
-
+	
+	private static final int COLUMN_NUMS = 5;
+	
+	
 	public AddPeopleTable(Element config) {
 		super(config);
-		// TODO Auto-generated constructor stub
+		initialTitleAndColumn(config);
+		initTable();
+		initScrollerPane();
+		add(rollpane);
 	}
 
 	@Override
@@ -24,14 +32,29 @@ public class AddPeopleTable extends MyTablePanel{
 
 	@Override
 	protected void initialTitleAndColumn(Element config) {
-		// TODO Auto-generated method stub
+		columnNames = MyTablePanel.getColumnName(config.attributeValue("column"));
 		
 	}
 
 	@Override
 	protected void initTable() {
-		// TODO Auto-generated method stub
+		table = new MyTable(columnNames, data);
 		
 	}
-
+	
+	void addAPeople(PersonVO vo){
+		if(vo!= null){
+			Object[] temp = new Object[COLUMN_NUMS];
+			temp[0] = vo.ID;
+			temp[1] =vo.instID;
+			temp[2] = vo.name;
+			temp[3] = vo.type.name();
+			temp[4] = vo.phoneNum;
+			table.getModel().addRow(temp);
+		}
+		
+		
+		
+	}
+	
 }

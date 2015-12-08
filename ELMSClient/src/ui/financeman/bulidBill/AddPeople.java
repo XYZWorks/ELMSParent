@@ -47,6 +47,8 @@ public class AddPeople extends MyPanel{
 	private JPanel changePanel;
 	private BulidBillPanel mainPanel;
 	
+	private AddPeopleTable table;
+	
 	public AddPeople(Element config ,BulidBillPanel mainPanel) {
 		super(config);
 		this.mainPanel = mainPanel;
@@ -87,7 +89,7 @@ public class AddPeople extends MyPanel{
 	@Override
 	protected void initOtherCompoment(Element e) {
 		type = new MyComboBox(e.element("Type"));
-		
+		table = new AddPeopleTable(e.element("table"));
 	}
 
 	@Override

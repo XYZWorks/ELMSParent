@@ -2,7 +2,9 @@ package ui.financeman.bulidBill;
 
 import org.dom4j.Element;
 
+import ui.table.MyTable;
 import ui.table.MyTablePanel;
+import vo.DTManage.CarVO;
  /** 
  * 增加车辆信息表格
  * @author czq 
@@ -10,10 +12,14 @@ import ui.table.MyTablePanel;
  */
 @SuppressWarnings("serial")
 public class AddCarTable extends MyTablePanel{
+	private static final int COLUMN_NUMS = 3;
 
 	public AddCarTable(Element config) {
 		super(config);
-		// TODO Auto-generated constructor stub
+		initialTitleAndColumn(config);
+		initTable();
+		initScrollerPane();
+		add(rollpane);
 	}
 
 	@Override
@@ -24,14 +30,32 @@ public class AddCarTable extends MyTablePanel{
 
 	@Override
 	protected void initialTitleAndColumn(Element config) {
-		// TODO Auto-generated method stub
+		columnNames = MyTablePanel.getColumnName(config.attributeValue("column"));
+
 		
 	}
 
 	@Override
 	protected void initTable() {
-		// TODO Auto-generated method stub
+		table = new MyTable(columnNames, data);
+
 		
 	}
-
+	
+	void addCar(CarVO vo){
+		if(vo!=null){
+			Object[] temp = new Object[COLUMN_NUMS];
+			
+			temp[0] = vo.ID;
+			temp[1] = vo.plateNum;
+			temp[2] = String.valueOf(vo.useYear);
+			
+			
+			table.getModel().addRow(temp);
+		}
+		
+		
+		
+	}
+	
 }
