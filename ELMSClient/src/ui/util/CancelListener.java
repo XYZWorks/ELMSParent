@@ -22,8 +22,5 @@ public abstract class CancelListener extends MyPictureButtonListener{
 	public abstract void resetMes();
 
 	
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		resetMes();
-	}
+	
 }

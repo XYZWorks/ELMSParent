@@ -68,8 +68,8 @@ public class AddCar extends MyPanel{
 
 	@Override
 	protected void initButtons(Element e) {
-		confirm = new MyPictureButton(e.element("Confirm"));
-		cancel = new MyPictureButton(e.element("Cancel"));
+		confirm = new MyPictureButton(e.element("confirm"));
+		cancel = new MyPictureButton(e.element("cancel"));
 		back = new MyPictureButton(e.element("back"));
 		
 	}

@@ -87,7 +87,7 @@ public class BulidBillPanel extends MyPanel {
 		confirm = new MyPictureButton(e.element("confirm"));
 		cancel = new MyPictureButton(e.element("cancel"));
 		newInst = new MyPictureButton(e.element("newInst"));
-
+		 
 	}
 
 	@Override
@@ -101,11 +101,12 @@ public class BulidBillPanel extends MyPanel {
 		title = new MyPictureLabel(e.element("title"));
 		user = new MyPictureLabel(e.element("user"));
 		time = new MyPictureLabel(e.element("time"));
-
+		message = new MyPictureLabel(e.element("message"));
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
+		datePicker = new MyDatePicker(e.element("datePicker"));
 		mainTable = new MainTable(e.element("table") , this);
 		addCar = new AddCar(e.element("addCar"), this);
 		addPeople = new AddPeople(e.element("addPeople") , this);
@@ -164,7 +165,7 @@ public class BulidBillPanel extends MyPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
-				
+				panelManager.show(changePanel, addInstStr);
 			}
 		});
 	}
