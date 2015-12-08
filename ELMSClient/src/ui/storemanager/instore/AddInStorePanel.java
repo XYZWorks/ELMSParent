@@ -145,6 +145,8 @@ public class AddInStorePanel extends MyPanel {
 			vo.orders = locInfoTable.getOrders();
 			vo.location = locInfoTable.getLocations();
 			//TODO
+//			for(String s: vo.orders)
+//				System.out.println(s);
 			return true;
 		}
 

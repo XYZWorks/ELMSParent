@@ -60,7 +60,12 @@ public class AddLocTablePanel extends MyTablePanel {
 
 	@Override
 	protected void initTable() {
-		resetData();
+		data = new String[ROW_NUM][COLUMN_NUM];
+		for (int i = 0; i < ROW_NUM; i++) {
+			for (int j = 0; j < COLUMN_NUM; j++) {
+				data[i][j] = "";
+			}
+		}
 		
 
 		table = new MyTable(columnNames, data);
@@ -68,12 +73,12 @@ public class AddLocTablePanel extends MyTablePanel {
 	}
 	
 	public void resetData() {
-		data = new String[ROW_NUM][COLUMN_NUM];
 		for (int i = 0; i < ROW_NUM; i++) {
 			for (int j = 0; j < COLUMN_NUM; j++) {
-				data[i][j] = "";
+				table.setValueAt("", i, j);
 			}
 		}
+		
 	}
 
 	public ArrayList<String> getOrders() {
@@ -82,6 +87,7 @@ public class AddLocTablePanel extends MyTablePanel {
 		String tmp="";
 		while ((tmp = (String)getValueAt(i, 0)).length()>0){
 			orders.add(tmp);
+			i++;
 			
 		}
 		return orders;
@@ -92,8 +98,9 @@ public class AddLocTablePanel extends MyTablePanel {
 		int i = 0;
 		String tmp="";
 		while ((tmp = (String)getValueAt(i, 1)).length()>0){
-			orders.add(tmp+"区"+(String)getValueAt(i, 2)+"排"+(String)getValueAt(i, 3)+"架"+(String)getValueAt(i, 4)+"位");
-			
+
+			locations.add(tmp+"区"+(String)getValueAt(i, 2)+"排"+(String)getValueAt(i, 3)+"架"+(String)getValueAt(i, 4)+"位");
+			i++;
 		}
 		
 		return locations;
