@@ -11,6 +11,7 @@ import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.util.CompomentType;
 import ui.util.PanelController;
+import util.MyDate;
 import vo.store.InStoreDocVO;
 
 /** 
@@ -117,10 +118,11 @@ public class FullInPanel extends MyPanel {
 
 	private void initValue() {
 		IDshow.setText(vo.ID);
-		dateshow.setText(vo.date.toString());
-		sendCityshow.setText(vo.loc.name());
+		dateshow.setText(MyDate.toString(vo.date));
+		sendCityshow.setText(vo.loc.getName());
 		locInfoTable.orders = vo.orders;
 		locInfoTable.locs = vo.location;
+		locInfoTable.reset();
 		
 	}
 

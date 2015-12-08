@@ -39,7 +39,7 @@ public enum DocType {
 	/**
 	 * 入库单
 	 */
-	outStoreDoc("入库单");
+	outStoreDoc("出库单");
 
 	private final String name;
 

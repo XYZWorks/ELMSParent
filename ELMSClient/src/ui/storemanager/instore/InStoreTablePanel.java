@@ -9,6 +9,7 @@ import ui.config.GraphicsUtils;
 import ui.config.UserfulMethod;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
+import util.DocType;
 import util.MyDate;
 import vo.store.InStoreDocVO;
 
@@ -50,10 +51,10 @@ public class InStoreTablePanel extends MyTablePanel {
 		InStoreDocVO vo;
 		for (int i = 0; i < vos.size(); i++) {
 			vo = vos.get(i);
-			data[i][0] = vo.type.name();
+			data[i][0] = DocType.getName(vo.type);
 			data[i][1] = vo.ID;
 			data[i][2] = MyDate.toString(vo.date);
-			data[i][3] = vo.loc.name();
+			data[i][3] = vo.loc.getName();
 			data[i][4] = UserfulMethod.orderArrayToString(vo.orders);
 			
 		}

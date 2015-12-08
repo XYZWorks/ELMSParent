@@ -70,6 +70,7 @@ public class DataTool {
 		locs.add("航空区2排3架2位");
 		orders.add(new OrderVO());
 		locs.add("汽运区8排5架6位");
+		locs.add("汽运区5排2架1位");
 		
 		orderID.add("1234536433");
 		orderID.add("2069601212");

@@ -2,6 +2,8 @@ package ui.storemanager.instore;
 
 import java.util.ArrayList;
 
+import javax.swing.JScrollPane;
+
 import org.dom4j.Element;
 
 import ui.config.UserfulMethod;
@@ -21,7 +23,7 @@ public class ShowLocTablePanel extends MyTablePanel {
 	
 	private static final int COLUMN_NUM = 5;
 
-	private static final int ROW_NUM = 15;
+//	private static final int ROW_NUM = 15;
 	
 	ArrayList<String> orders;
 	
@@ -31,11 +33,10 @@ public class ShowLocTablePanel extends MyTablePanel {
 		
 		super(config);
 		initialTitleAndColumn(config);
-		initTable();
-		initScrollerPane();
-		this.add(rollpane);
-		int[] columnLen = { 330, 100, 100, 100, 100 };
-		this.setRowAndColumnLen(30, columnLen);
+//		initTable();
+//		initScrollerPane();
+//		this.add(rollpane);
+	
 	}
 
 	@Override
@@ -48,22 +49,7 @@ public class ShowLocTablePanel extends MyTablePanel {
 	protected void initialTitleAndColumn(Element config) {
 		columnNames = getColumnName(config.attributeValue("columnName"));
 		
-//		vos = bl.showInstoreDocs();
-		
-//		if(vos==null){
-//			return;
-//		}
-//		
-//		data = new String[vos.size()][COLUMN_NUM];
-//		InStoreDocVO vo;
-//		for (int i = 0; i < vos.size(); i++) {
-//			vo = vos.get(i);
-//			data[i][0] = vo.type.name();
-//			data[i][1] = vo.ID;
-//			data[i][2] = MyDate.toString(vo.date);
-//			data[i][3] = vo.loc.name();
-//			data[i][4] = UserfulMethod.orderArrayToString(vo.orders);
-//		}
+
 
 	}
 
@@ -72,6 +58,26 @@ public class ShowLocTablePanel extends MyTablePanel {
 		// TODO Auto-generated method stub
 		table = new MyTable(columnNames, data);
 
+	}
+
+	public void reset() {
+		data = new String[orders.size()][COLUMN_NUM];
+		for(int i = 0;i<orders.size();i++){
+			data[i][0] = orders.get(i);
+			String[] sp1 = locs.get(i).split("区");
+			data[i][1] = sp1[0]+"区";
+			String[] sp2 = sp1[1].split("排");
+			data[i][2] = sp2[0]+"排";
+			String[] sp3 = sp2[1].split("架");	
+			data[i][3] = sp3[0]+"架";
+			data[i][4] = sp3[1];
+		}
+		
+		initTable();
+		initScrollerPane();
+		this.add(rollpane);
+		int[] columnLen = { 330, 100, 100, 100, 100 };
+		this.setRowAndColumnLen(30, columnLen);
 	}
 
 }

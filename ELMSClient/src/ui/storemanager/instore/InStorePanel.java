@@ -97,31 +97,34 @@ public class InStorePanel extends MyPanel {
 	protected void addListener() {
 		addButton.addMouseListener(new MyJumpListener(addButton, "AddInStorePanel", controller));
 		returnButton.addMouseListener(new MyJumpListener(returnButton, StaticMessage.MAIN_WINDOW, controller));
-		fullButton.addMouseListener(new MyJumpListener(fullButton, "FullInPanel", controller));
-//		fullButton.addMouseListener(new MyFullListener (fullButton,  controller));
+		fullButton.addMouseListener(new MyFullListener(fullButton, "FullInPanel", controller));
 	}
 	class MyFullListener extends MyJumpListener{
 		
-		
+		int index;
 		public MyFullListener(MyPictureButton button, String toPanel, PanelController controller) {
 			super(button, toPanel, controller);
 			
 		}
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
+			index = table.getSelectedRow();
+			if(index>=0){
+				super.mouseClicked(e);
 			
-			FullInPanel  refer = (FullInPanel) controller.getPanelMap().get(toPanel);
-			InStoreDocVO vo = getVO();
-			refer.setInStoreVO(vo);
+				FullInPanel  refer = (FullInPanel) controller.getPanelMap().get(toPanel);
+				InStoreDocVO vo = getVO();
+				refer.setInStoreVO(vo);
+			}
 			
 			
 		}
+		
 		private InStoreDocVO getVO() {
-			int index = table.getSelectedRow();
-			if(index>=0)
-				return table.getInStoreVO(index);
-			return null;
+		
+			return table.getInStoreVO(index);
+			
+		
 		}
 		
 	}
