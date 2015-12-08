@@ -60,7 +60,7 @@ public class DocSimpleInfoTable extends MyTablePanel{
 			return 0;
 		}else{
 			for (Integer nowint : selectedNum) {
-				if(bl.approveOne(new DocVO( (String) getValueAt(nowint, 1)  , type , null , DocState.pass) ) == ResultMessage.SUCCESS){
+				if(bl.approveOne(new DocVO( (String) getValueAt(nowint - successCount, 1)  , type , null , DocState.pass) ) == ResultMessage.SUCCESS){
 					//删除一行会出现行数-1的问题，所以要减去偏移值
 					removeRow(nowint - successCount);
 					successCount++;

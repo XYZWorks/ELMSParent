@@ -40,8 +40,8 @@ public abstract class CheckDocPanel extends JPanel{
 	 */
 	protected AddDocPanel addDocPanel;
 	
-	private final JPanel changePanel;
-	private final CardLayout panelManager;
+	protected final JPanel changePanel;
+	protected final CardLayout panelManager;
 	
 	public CheckDocPanel(Element config , JPanel changePanel) {
 		super();

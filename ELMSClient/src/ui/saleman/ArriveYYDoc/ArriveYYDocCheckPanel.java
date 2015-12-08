@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import org.dom4j.Element;
 
 import ui.tools.CheckDocPanel;
+import ui.tools.MySerachBox;
 /**
  * 接收单查看界面
  * @author czq
@@ -38,7 +39,9 @@ public class ArriveYYDocCheckPanel extends CheckDocPanel{
 
 	@Override
 	protected void initialOtherComp(Element e) {
-		// TODO Auto-generated method stub
+		messageTable = new ArriveYYDocMesTable(e.element("table"));
+		searchBox = new MySerachBox(e.element("search"));
+		
 		
 	}
 
