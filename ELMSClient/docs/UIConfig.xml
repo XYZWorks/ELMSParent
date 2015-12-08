@@ -396,7 +396,7 @@
 					<money x="500" y="560" width="115" height="40"/>
 					<password x="500" y="560" width="115" height="40"/>
 				</LABELS>
-					<table x="45" y="45" width="450" height="400" column = "账户ID 密码 存款"/>
+					<table x="50" y="75" width="750" height="430" column = "账户ID 密码 存款"/>
 
 			</BankAccountManagePanel>
 			<CostManagePanel x="232" y="54" width="1080" height="637">
