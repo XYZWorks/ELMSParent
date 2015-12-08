@@ -555,7 +555,7 @@
 
 				</LABELS>
 				<staffBox text="" x="700" y="50" width="119" height="52"
-					strings="快递员 财务人员" />
+					strings="快递员 财务人员 总经理 营业厅业务员 中转中心业务人员 中转中心管理员 管理员" />
 			</AddAccountPanel>
 			<ModifyAccountPanel x="232" y="54" width="1080"
 				height="637">

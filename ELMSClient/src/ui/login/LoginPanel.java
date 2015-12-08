@@ -1,5 +1,6 @@
 package ui.login;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 
@@ -12,6 +13,7 @@ import ui.tools.MyPanel;
  * @author czq 
  * @version 2015年11月25日 下午8:28:55 
  */
+@SuppressWarnings("serial")
 public class LoginPanel extends JPanel {
 	
 	private Image nowbg;
@@ -48,10 +50,10 @@ public class LoginPanel extends JPanel {
 	public void paintComponent(Graphics g)  
 	{  
 //		super.paintComponent(g);
-		
+//		g.setColor(Color.WHITE);
+//		g.fillRect(0, 0, getWidth(), getHeight());
 	    g.drawImage(nowbg, 0,0, null);
 	    
-//	    g.drawim
 	   
 	} 
 	

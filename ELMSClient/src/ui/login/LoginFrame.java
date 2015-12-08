@@ -17,6 +17,7 @@ import ui.tools.MyFrame;
 import ui.tools.MyOptionPane;
 import ui.tools.MyPasswordField;
 import ui.tools.MyTextField;
+import ui.util.CompomentType;
 import util.FormatMes;
 import vo.account.AccountVO;
 import bl.BusinessLogicDataFactory;
@@ -38,7 +39,7 @@ public class LoginFrame extends MyFrame{
 	
 	private MyButton checkOrder;
 	
-	private MyCheckBox rememberMe;
+//	private MyCheckBox rememberMe;
 	
 	private MyTextField userName;
 	
@@ -57,8 +58,8 @@ public class LoginFrame extends MyFrame{
 		mainpanel = new LoginPanel();
 		this.setBackground(new Color(0, 0, 0, 0));
 
-		initButtons(config.element("buttons"));
-		initTextField(config.element("textfields"));
+		initButtons(config.element(CompomentType.BUTTONS.name()));
+		initTextField(config.element(CompomentType.TEXTFIELDS.name()));
 		
 		initOtherCom(config);
 		config.attributeValue("width");
@@ -88,7 +89,7 @@ public class LoginFrame extends MyFrame{
 	
 	private void initOtherCom(Element config){
 		
-		rememberMe = new MyCheckBox(config.element("rememberMe"));
+//		rememberMe = new MyCheckBox(config.element("rememberMe"));
 		password = new MyPasswordField(config.element("password"));
 	}
 	
@@ -100,7 +101,7 @@ public class LoginFrame extends MyFrame{
 		mainpanel.add(checkOrder);
 		mainpanel.add(login);
 		mainpanel.add(closeButton);
-		mainpanel.add(rememberMe);
+//		mainpanel.add(rememberMe);
 
 		
 		

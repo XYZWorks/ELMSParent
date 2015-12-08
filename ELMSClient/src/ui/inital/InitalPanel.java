@@ -1,6 +1,7 @@
  package ui.inital;
 
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -9,8 +10,11 @@ import javax.swing.JFrame;
 import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
+import ui.courier.CourierController;
 import ui.financeman.FinanceController;
 import ui.generalmanager.GeneralManagerController;
+import ui.saleman.SaleManController;
+import ui.storeman.StoreManController;
 import ui.tools.MyFrame;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -20,6 +24,7 @@ import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
+import util.AccountType;
 import vo.account.AccountVO;
 
 /**
@@ -44,12 +49,14 @@ public class InitalPanel extends MyPanel {
 	private PanelController controller;
 	private MyFrame parent;
 	private  AccountVO vo;
+	
+	private final static Image bg = GraphicsUtils.getImage("bg//bg");
 
 
 	public InitalPanel(Element e , MyFrame frame ,AccountVO vo) {
 		super(e);
 		this.parent = frame;
-		
+		this.vo = vo;
 		TipsDialog.setFrame(frame);
 		
 		this.initButtons(e.element(CompomentType.BUTTONS.name()));
@@ -71,42 +78,44 @@ public class InitalPanel extends MyPanel {
 	 * @param vo
 	 */
 	private void addOtherPanel(Element e) {
-//		AccountType type = vo.type;
+		AccountType type = vo.type;
 		
 		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
-		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
+//		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
 //		controller = new FinanceController(this, e.element("Financeman"));
 //		controller = new AdminstratorController(this, e.element("Adminstrator"));
-//		switch (type) {
-//		case Adminstrator:
-//			
-//			break;
-//		case courier:
-//
-//			break;
-//		case financeman:
-//
-//			break;
-//		case manager:
-////			new GeneralManagerController(this, )
-//			break;
-//		case saleman:
-//
-//			break;
-//		case storeman:
-//
-//			break;
-//		default:
-//			break;
-//		}
+		switch (type) {
+		case Adminstrator:
+			controller = new AdminstratorController(this, e.element("Adminstrator"));
+			break;
+		case courier:
+			controller = new CourierController(this, e.element("Courier"));
+			break;
+		case financeman:
+			controller = new FinanceController(this, e.element("Financeman"));
+			break;
+		case manager:
+			controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
+			break;
+		case saleman:
+			controller = new SaleManController(this, e.element("Salesman"));
+			break;
+		case storeman:
+			controller = new StoreManController(this, e.element("Storeman"));
+			break;
+		case storemanager:
+			controller = new StoreManController(this, e.element("Storemanager"));
+			break;
+		default:
+			break;
+		}
 
 	}
 
 	@Override
 	 public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(GraphicsUtils.getImage("bg//bg"), 0, 0, null);
-		//TODO 待修改，改成图片是预读进来的
+		g.drawImage(bg, 0, 0, null);
 		
 		
 	};                                                        
