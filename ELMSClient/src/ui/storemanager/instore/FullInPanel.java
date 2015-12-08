@@ -1,22 +1,17 @@
 package ui.storemanager.instore;
 
-import java.awt.Button;
-
 import org.dom4j.Element;
 
 import bl.storebl.StoreController;
 import ui.storemanager.StoreManagerController;
 import ui.table.MyTablePanel;
-import ui.tools.MyButton;
-import ui.tools.MyComboBox;
-import ui.tools.MyDatePicker;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
-import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.PanelController;
+import vo.store.InStoreDocVO;
 
 /** 
  * @author ymc 
@@ -37,15 +32,17 @@ public class FullInPanel extends MyPanel {
 	MyLabel dateshow;
 	MyLabel sendCityshow;
 	
-	MyTablePanel locInfoTable;
+	ShowLocTablePanel locInfoTable;
 	
 	StoreController bl;
 	PanelController controller;
+	InStoreDocVO vo = null;
 	
 	public FullInPanel(Element config, StoreController bl, StoreManagerController controller) {
 		super(config);
 		this.bl = bl;
 		this.controller = controller;
+
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
@@ -87,6 +84,7 @@ public class FullInPanel extends MyPanel {
 		
 	}
 
+	
 	@Override
 	protected void initOtherCompoment(Element e) {
 		locInfoTable = new ShowLocTablePanel(e.element("table"));
@@ -110,6 +108,20 @@ public class FullInPanel extends MyPanel {
 	@Override
 	protected void addListener() {
 		returnButton.addMouseListener(new MyJumpListener(returnButton, "InStorePanel", controller));
+	}
+
+	public void setInStoreVO(InStoreDocVO vo) {
+		this.vo = vo;
+		initValue();
+	}
+
+	private void initValue() {
+		IDshow.setText(vo.ID);
+		dateshow.setText(vo.date.toString());
+		sendCityshow.setText(vo.loc.name());
+		locInfoTable.orders = vo.orders;
+		locInfoTable.locs = vo.location;
+		
 	}
 
 }

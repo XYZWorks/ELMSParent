@@ -4,10 +4,7 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import bl.storebl.InStoreDocImpl;
 import bl.storebl.StoreController;
-import blservice.storeblservice.InStoreDocService;
-import blservice.storeblservice.StoreblService;
 import ui.config.GraphicsUtils;
 import ui.config.UserfulMethod;
 import ui.table.MyTable;
@@ -35,8 +32,8 @@ public class InStoreTablePanel extends MyTablePanel {
 		initTable();
 		initScrollerPane();
 		this.add(rollpane);
-//		int[] columnLen = { 330, 100, 100, 100, 100 };
-//		this.setRowAndColumnLen(30, columnLen);
+		int[] columnLen = { 100, 180, 100, 100, 270 };
+		this.setRowAndColumnLen(30, columnLen);
 	}
 
 	@Override
@@ -63,7 +60,9 @@ public class InStoreTablePanel extends MyTablePanel {
 
 	}
 
-	
+	public InStoreDocVO getInStoreVO(int index) {
+		return vos.get(index);
+	}
 
 	@Override
 	protected void initTable() {

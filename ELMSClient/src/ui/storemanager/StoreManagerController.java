@@ -58,9 +58,9 @@ public class StoreManagerController extends PanelController {
 	private final String alarmSetPanelStr = "AlarmSetPanel";
 	private final String alarmRecoverPanelStr = "AlarmRecoverPanel";
 	
-	private MyPanel addInStorePanel;
+	private AddInStorePanel addInStorePanel;
 	private final String addInStorePanelStr = "AddInStorePanel";
-	private MyPanel fullInPanel;
+	private FullInPanel fullInPanel;
 	private final String fullInPanelStr = "FullInPanel";
 	
 	public StoreManagerController(MyPanel initialPanel, Element e) {
@@ -170,6 +170,10 @@ public class StoreManagerController extends PanelController {
 		buttonMap.put(storeShowPanelStr, storeShowButton);
 		buttonMap.put(alarmRecoverPanelStr, alarmRecoverButton);
 		buttonMap.put(alarmSetPanelStr, alarmSetButton);
+		
+	
+		panelMap.put(addInStorePanelStr, addInStorePanel);		
+		panelMap.put(fullInPanelStr, fullInPanel);
 		
 		
 	}

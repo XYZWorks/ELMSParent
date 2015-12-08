@@ -151,6 +151,7 @@ public class DataTool {
 		case inStoreDoc:
 			al.add(new InStoreDocVO("RKD1511120000001", d2, orderID, City.NANJING, locs));
 			al.add(new InStoreDocVO("RKD1511150000001", d5, orderID, City.GUANGZHOU, locs));
+			al.add(new InStoreDocVO("RKD1511140000321", d4, orderID, City.BEIJING, locs));
 			break;
 		case order:
 			for (int i = 0; i < orders.size(); i++) {

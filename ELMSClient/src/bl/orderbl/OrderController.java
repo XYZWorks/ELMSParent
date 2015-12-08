@@ -3,6 +3,7 @@ package bl.orderbl;
 import java.util.ArrayList;
 import java.util.Date;
 
+import bl.transportbl.TransportController;
 import util.DocState;
 import util.DocType;
 import util.MyDate;
@@ -10,6 +11,7 @@ import util.ResultMessage;
 import vo.DocVO;
 import vo.order.OrderSimpleInfoVO;
 import vo.order.OrderVO;
+import vo.order.PreReceiveVO;
 import vo.order.ReceiveVO;
 import blservice.orderblservice.Orderblservice;
  /** 
@@ -19,9 +21,12 @@ import blservice.orderblservice.Orderblservice;
  */
 public class OrderController implements Orderblservice{
 
+	TransportController transportController;
 	Order order ;
 	public OrderController() {
 		order = new Order();
+		
+		transportController = new TransportController();
 	}
 	public ResultMessage add(OrderVO vo) {
 		return order.add(vo);
@@ -74,6 +79,12 @@ public class OrderController implements Orderblservice{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public ArrayList<PreReceiveVO> getPreReceive() {
+		return order.getPreReceive(transportController.getDaySendDocs(MyDate.getNowTime()));
+	}
+	
+
 	
 
 }

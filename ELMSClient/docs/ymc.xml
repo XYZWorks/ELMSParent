@@ -85,7 +85,7 @@
 						text="中转单" type="rectangle"/>
 			 			<ID  x="50" y="150" width="200" height="100"  
 						text="中转单编号" type="rectangle"/>
-						<date  x="420" y="0" width="200" height="100"  
+						<date  x="420" y="20" width="200" height="100"  
 						text="生成时间" type="rectangle"/>
 						<number  x="420" y="150" width="200" height="100"  
 						text="航班号/车次/车牌号" type="rectangle"/>
@@ -117,7 +117,7 @@
 					
 					
 			 		
-			 		<DatePicker x="300" y="100" width="400" height="50">
+			 		<DatePicker x="580" y="50" width="200" height="50">
 						<field   x="100" y="0" width="350" height="50"      />
 						<button    x="350" y="0" width="50" height="50"  />
 					
@@ -154,7 +154,7 @@
 						text="到达单" type="rectangle"/>
 			 			<ID  x="420" y="150" width="200" height="100"  
 						text="到达单编号" type="rectangle"/>
-						<date  x="420" y="0" width="200" height="100"  
+						<date  x="420" y="20" width="200" height="100"  
 						text="生成时间" type="rectangle"/>
 						<center  x="50" y="150" width="200" height="100"  
 						text="中转中心编号" type="rectangle"/>
@@ -185,7 +185,7 @@
 					<goodStateC x="550" y="335" width="240" height="30"
 					strings="完整 损坏 丢失" />
 			 		
-			 		<DatePicker x="300" y="100" width="400" height="50">
+			 		<DatePicker x="550" y="50" width="200" height="50">
 						<field   x="100" y="0" width="350" height="50"      />
 						<button    x="350" y="0" width="50" height="50"  />
 					
@@ -274,12 +274,12 @@
 						text="订单及其位置" type="rectangle"/>
 						
 						<IDshow  x="550" y="120" width="200" height="100"  
-						text="入库单编号" type="rectangle"/>
+						text="---------" type="rectangle"/>
 						<dateshow  x="550" y="30" width="200" height="100"  
-						text="生成时间" type="rectangle"/>
+						text="---------" type="rectangle"/>
 						
 						<sendCityshow  x="180" y="120" width="200" height="100"  
-						text="目的地" type="rectangle"/>	
+						text="---------" type="rectangle"/>	
 						
 								
 			 		</LABELS>
@@ -301,7 +301,7 @@
 						text="入库单" type="rectangle"/>
 			 			<ID  x="420" y="150" width="200" height="100"  
 						text="入库单编号" type="rectangle"/>
-						<date  x="420" y="0" width="200" height="100"  
+						<date  x="420" y="20" width="200" height="100"  
 						text="生成时间" type="rectangle"/>
 						
 						<sendCity  x="50" y="150" width="200" height="100"  
@@ -326,7 +326,7 @@
 					
 					
 			 		
-			 		<DatePicker x="300" y="100" width="400" height="50">
+			 		<DatePicker x="550" y="50" width="200" height="50">
 						<field   x="100" y="0" width="350" height="50"      />
 						<button    x="350" y="0" width="50" height="50"  />
 					

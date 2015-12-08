@@ -6,6 +6,7 @@ import util.ResultMessage;
 import vo.DocVO;
 import vo.order.OrderSimpleInfoVO;
 import vo.order.OrderVO;
+import vo.order.PreReceiveVO;
 import vo.order.ReceiveVO;
 import blservice.DocApprovalService;
 
@@ -64,6 +65,12 @@ public interface Orderblservice extends DocApprovalService{
 	 * @return
 	 */
 	public ResultMessage addDocToList (DocVO vo,ArrayList<String> orderBarCodes);
+	/**
+	 * 得到接受准备信息
+	 * @return
+	 */
+	public ArrayList<PreReceiveVO> getPreReceive() ;
+		
 	
 	
 	

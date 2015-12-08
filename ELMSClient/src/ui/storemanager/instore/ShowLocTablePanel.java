@@ -23,7 +23,9 @@ public class ShowLocTablePanel extends MyTablePanel {
 
 	private static final int ROW_NUM = 15;
 	
+	ArrayList<String> orders;
 	
+	ArrayList<String> locs;
 	
 	public ShowLocTablePanel(Element config) {
 		

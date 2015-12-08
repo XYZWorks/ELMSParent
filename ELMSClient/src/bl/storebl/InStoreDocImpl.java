@@ -36,7 +36,9 @@ public class InStoreDocImpl  {
 	public ArrayList<InStoreDocVO> show() {
 		ArrayList<InStoreDocPO> pos = new ArrayList<InStoreDocPO>();
 		
-//		generate((InStoreDocVO)DataTool.getDocList(DocType.inStoreDoc).get(0));
+		generate((InStoreDocVO)DataTool.getDocList(DocType.inStoreDoc).get(0));
+		generate((InStoreDocVO)DataTool.getDocList(DocType.inStoreDoc).get(1));
+		generate((InStoreDocVO)DataTool.getDocList(DocType.inStoreDoc).get(2));
 		try {
 			pos = storeData.getIn();
 			pos.size();
@@ -44,6 +46,7 @@ public class InStoreDocImpl  {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}catch (NullPointerException e) {
+			System.err.println("pos is null");
 			return null;
 		}
 		ArrayList<InStoreDocVO> vos = new ArrayList<InStoreDocVO>(pos.size());

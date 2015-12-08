@@ -1,5 +1,7 @@
 package ui.storemanager.instore;
 
+import java.awt.event.MouseEvent;
+
 import org.dom4j.Element;
 
 import bl.storebl.StoreController;
@@ -14,6 +16,7 @@ import ui.tools.MyPictureButton;
 import ui.util.CompomentType;
 import ui.util.PanelController;
 import util.MyDate;
+import vo.store.InStoreDocVO;
 
 /** 
  * @author ymc 
@@ -95,8 +98,33 @@ public class InStorePanel extends MyPanel {
 		addButton.addMouseListener(new MyJumpListener(addButton, "AddInStorePanel", controller));
 		returnButton.addMouseListener(new MyJumpListener(returnButton, StaticMessage.MAIN_WINDOW, controller));
 		fullButton.addMouseListener(new MyJumpListener(fullButton, "FullInPanel", controller));
+//		fullButton.addMouseListener(new MyFullListener (fullButton,  controller));
 	}
-
+	class MyFullListener extends MyJumpListener{
+		
+		
+		public MyFullListener(MyPictureButton button, String toPanel, PanelController controller) {
+			super(button, toPanel, controller);
+			
+		}
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			super.mouseClicked(e);
+			
+			FullInPanel  refer = (FullInPanel) controller.getPanelMap().get(toPanel);
+			InStoreDocVO vo = getVO();
+			refer.setInStoreVO(vo);
+			
+			
+		}
+		private InStoreDocVO getVO() {
+			int index = table.getSelectedRow();
+			if(index>=0)
+				return table.getInStoreVO(index);
+			return null;
+		}
+		
+	}
 	@Override
 	protected void initWhitePanels(Element e) {
 		// TODO Auto-generated method stub
