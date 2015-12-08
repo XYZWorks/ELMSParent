@@ -62,7 +62,7 @@ public class BulidPayPanel extends MyPanel {
 		confirm = new MyPictureButton(e.element("confirm"));
 		cancel = new MyPictureButton(e.element("cancel"));
 		addPay = new MyPictureButton(e.element("add"));
-
+		back = new MyPictureButton(e.element("back"));
 	}
 
 	@Override

@@ -1,17 +1,28 @@
-package ui.saleman;
+package ui.saleman.ArriveYYDoc;
+
+import javax.swing.JPanel;
 
 import org.dom4j.Element;
+
+
+
 /**
  * 接收单界面
  */
 import ui.table.MyTable;
+import ui.tools.AddDocPanel;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureLabel;
 import ui.util.PanelController;
-
-public class ArriveYYDocAddPanel extends MyPanel{
+/**
+ * 接收单增加界面
+ * @author czq
+ *
+ */
+@SuppressWarnings("serial")
+public class ArriveYYDocAddPanel extends AddDocPanel{
 	private PanelController controller;
 	
 	//接收单号
@@ -28,8 +39,8 @@ public class ArriveYYDocAddPanel extends MyPanel{
 	private MyLabel sendCIty;
 	private MyLabel goodState;
 
-	public  ArriveYYDocAddPanel(Element config) {
-		super(config);
+	public  ArriveYYDocAddPanel(Element config , JPanel changePanel) {
+		super(config , changePanel);
 		// TODO Auto-generated constructor stub
 	}
 

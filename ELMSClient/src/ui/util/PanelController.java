@@ -39,6 +39,17 @@ public abstract class PanelController {
 	 */
 	protected Map<String, MySideBarButton> buttonMap ;
 	
+	/**
+	 * 存储字符串与界面的对应关系
+	 */
+	protected Map<String, MyPanel> panelMap = new HashMap<>(9);
+	
+	/**
+	 * 
+	 * @param initialPanel
+	 * @param root
+	 */
+	
 	public PanelController(MyPanel initialPanel , Element root) {
 		super();
 		this.mainPanel = initialPanel;
@@ -81,6 +92,10 @@ public abstract class PanelController {
 	 * @param state
 	 */
 	public abstract void setAllButtonVisable(boolean state);
+	
+	public Map<String, MyPanel> getPanelMap() {
+		return panelMap;
+	}
 	
 	/**
 	 * 将按钮与panel的标示符String关联起来

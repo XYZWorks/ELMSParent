@@ -13,11 +13,11 @@ import ui.util.PanelController;
  *
  */
 public class MyJumpListener extends MyPictureButtonListener{
-	private PanelController controller;
+	protected PanelController controller;
 	
-	private CardLayout layout;
+	protected CardLayout layout;
 	
-	private String toPanel;
+	protected String toPanel;
 	public MyJumpListener(MyPictureButton button, String toPanel, PanelController controller) {
 		super(button);
 		this.toPanel = toPanel;

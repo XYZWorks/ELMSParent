@@ -21,4 +21,6 @@ public abstract class CancelListener extends MyPictureButtonListener{
 	}
 	public abstract void resetMes();
 
+	
+	
 }

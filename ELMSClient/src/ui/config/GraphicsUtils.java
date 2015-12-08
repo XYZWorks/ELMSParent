@@ -58,7 +58,7 @@ public class GraphicsUtils {
 				return new Font("华文细黑", Font.PLAIN, 16);
 			}
 			try {
-				font = new Font(config.attributeValue("name"), Font.PLAIN, Integer.parseInt(config.attributeValue("size")));
+				font = new Font(config.attributeValue("fontName"), Font.PLAIN, Integer.parseInt(config.attributeValue("size")));
 				return font;
 			} catch (Exception e) {
 				return new Font("华文细黑", Font.PLAIN, 16);

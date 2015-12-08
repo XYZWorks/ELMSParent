@@ -18,6 +18,7 @@ import util.ResultMessage;
 import vo.DocVO;
 import vo.order.OrderSimpleInfoVO;
 import vo.order.OrderVO;
+import vo.order.PreReceiveVO;
 import vo.order.ReceiveVO;
 import vo.store.InStoreDocVO;
 import vo.store.OutStoreDocVO;
@@ -209,6 +210,25 @@ public class Order {
 			e.printStackTrace();
 		}
 		return ResultMessage.FAIL;
+	}
+
+	public ArrayList<PreReceiveVO> getPreReceive(ArrayList<SendGoodDocVO> daySendDocs) {
+		ArrayList<String> barCodes = null;
+		ArrayList<PreReceiveVO> pres = null;
+		
+		if(daySendDocs!= null){
+			barCodes = new ArrayList<>(daySendDocs.size());
+			pres = new ArrayList<>(daySendDocs.size());
+		}
+		
+		if(barCodes!=null){
+			OrderVO tmp = null;
+			for(int i = 0;i<barCodes.size();i++){
+				tmp = getFullInfo(barCodes.get(i));
+				PreReceiveVO vo = new PreReceiveVO(tmp.ID, tmp.receiver.getAddress(), tmp.receiver.getName());
+			}
+		}
+		return pres;
 	}
 
 }

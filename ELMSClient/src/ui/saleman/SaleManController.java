@@ -1,18 +1,21 @@
 package ui.saleman;
 
-import java.awt.Font;
-import java.awt.event.MouseEvent;
-
 import org.dom4j.Element;
 
-import config.StaticMessage;
+import ui.saleman.ArriveYYDoc.ArriveYYDocCheckPanel;
+import ui.saleman.CarManage.CarManageCheckPanel;
+import ui.saleman.DriverManage.DriverManageCheckPanel;
+import ui.saleman.LoadDoc.LoadDocCheckPanel;
+import ui.saleman.PayDoc.PayDocCheckPanel;
+import ui.saleman.SendGoodDoc.SendGoodDocCheckPanel;
+import ui.tools.CheckDocPanel;
 import ui.tools.MyPanel;
 import ui.tools.MySideBarButton;
 import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.MySideBarListener;
 import ui.util.PanelController;
-import ui.util.TipsDialog;
+import config.StaticMessage;
  /** 
  * 营业厅业务员界面跳转控制器
  * @author czq 
@@ -20,12 +23,12 @@ import ui.util.TipsDialog;
  */
 public class SaleManController extends PanelController {
 	private MyPanel saleManMainPanel;
-	private MyPanel loadDocShowPanel;
-	private MyPanel arriveYYDocShowPanel;
-	private MyPanel sendGoodDocShowPanel;
-	private MyPanel payDocShowPanel;
-	private MyPanel driverInfoManagePanel;
-	private MyPanel truckInfoManagePanel;
+	private CheckDocPanel loadDocShowPanel;
+	private CheckDocPanel arriveYYDocShowPanel;
+	private CheckDocPanel sendGoodDocShowPanel;
+	private CheckDocPanel payDocShowPanel;
+	private CheckDocPanel driverInfoManagePanel;
+	private CheckDocPanel truckInfoManagePanel;
 
 
 	private MySideBarButton loadDocButton;
@@ -51,19 +54,27 @@ public class SaleManController extends PanelController {
 		addPanels();
 		addListeners();
 		addToMap();
+		initialBL();
 		this.setAllButtonVisable(false);
 		changePanel.setVisible(true);
 	}
-
+	
+	@Override
+	protected void initialBL() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 	@Override
 	protected void initPanel(Element e) {
 		saleManMainPanel = new SaleManMain(e.element(saleManMainStr),this);
-		arriveYYDocShowPanel = new ArriveYYDocShowPanel(e.element(arriveYYDocShowPanelStr));
-		driverInfoManagePanel = new DriverInfoManagePanel(e.element(driverInfoManagePanelStr));
-		loadDocShowPanel = new LoadDocShowPanel(e.element(loadDocShowpanelStr));
-		payDocShowPanel = new PayDocShowPanel(e.element(payDocShowPanelStr));
-		sendGoodDocShowPanel = new SendGoodDocShowPanel(e.element(sendGoodDocShowPanelStr));
-		truckInfoManagePanel = new TruckInfoManagePanel(e.element(truckInfoManagePanelStr));
+		arriveYYDocShowPanel = new ArriveYYDocCheckPanel(e.element(arriveYYDocShowPanelStr) , changePanel);
+		driverInfoManagePanel = new DriverManageCheckPanel(e.element(driverInfoManagePanelStr), changePanel);
+		loadDocShowPanel = new LoadDocCheckPanel(e.element(loadDocShowpanelStr), changePanel);
+		payDocShowPanel = new PayDocCheckPanel(e.element(payDocShowPanelStr), changePanel);
+		sendGoodDocShowPanel = new SendGoodDocCheckPanel(e.element(sendGoodDocShowPanelStr), changePanel);
+		truckInfoManagePanel = new CarManageCheckPanel(e.element(truckInfoManagePanelStr), changePanel);
 		
 	}
 
@@ -104,7 +115,7 @@ public class SaleManController extends PanelController {
 
 	@Override
 	protected void addListeners() {
-		arriveYYDocButton.addMouseListener(new MyTestListener(arriveYYDocButton, this, arriveYYDocShowPanelStr));
+		arriveYYDocButton.addMouseListener(new MySideBarListener(arriveYYDocButton, this, arriveYYDocShowPanelStr));
 		driverInfoManageButton.addMouseListener(new MySideBarListener(driverInfoManageButton, this, driverInfoManagePanelStr));
 		loadDocButton.addMouseListener(new MySideBarListener(loadDocButton, this, loadDocShowpanelStr));
 		payDocButton.addMouseListener(new MySideBarListener(payDocButton, this, payDocShowPanelStr));
@@ -115,20 +126,7 @@ public class SaleManController extends PanelController {
 	}
 
 	
-	class MyTestListener extends MySideBarListener{
-
-		public MyTestListener(MySideBarButton button, PanelController controller, String itsPanel) {
-			super(button, controller, itsPanel);
-			// TODO Auto-generated constructor stub
-		}
-		
-		public void mouseClicked(MouseEvent e){
-			super.mouseClicked(e);
-			
-			new TipsDialog("hello world!");
-		}
-		
-	}
+	
 	
 	@Override
 	public void setAllButtonUnClicked() {
@@ -165,11 +163,7 @@ public class SaleManController extends PanelController {
 		
 	}
 
-	@Override
-	protected void initialBL() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	
 }

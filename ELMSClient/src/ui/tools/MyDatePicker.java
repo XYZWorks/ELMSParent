@@ -1,5 +1,7 @@
 package ui.tools;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -28,25 +30,6 @@ import com.eltima.components.ui.DatePicker;
  */
 @SuppressWarnings("serial")
 public class MyDatePicker extends JLabel {
-	//两个获取日期的方法
-	@SuppressWarnings("deprecation")
-	public  MyDate getMyDate(){
-		
-		SimpleDateFormat format = new SimpleDateFormat(DefaultFormat);
-			Date date;
-			try {
-				date = format.parse(dateField.getText());
-				return new MyDate(date.getYear(), date.getMonth(), date.getDay());
-			} catch (ParseException e) {
-				return new MyDate(2015, 3, 3);
-			}
-			
-		
-	}
-	
-	public String getDateString() {
-		return dateField.getText();
-	}
 	
 
 	private JFormattedTextField dateField;
@@ -68,53 +51,25 @@ public class MyDatePicker extends JLabel {
 	 * @param config
 	 */
 	public MyDatePicker(Element config) {
-
-		datePicker = new DatePicker(date, DefaultFormat, null, null);// 自定义参数值
-
-		button = datePicker.getInnerButton();
-		dateField = datePicker.getInnerTextField();
-		dateField.setFont(font);
-		dateField.setEditable(false);
-		
-		button.addMouseListener(new MyDateButtonListener(button));
-		
-		 {
-			datePicker.setBounds(Integer.parseInt(config.attributeValue("x")),
+		super();
+		this.setLayout(null);
+		this.setBounds(Integer.parseInt(config.attributeValue("x")),
 					Integer.parseInt(config.attributeValue("y")),
 					Integer.parseInt(config.attributeValue("width")),
 					Integer.parseInt(config.attributeValue("height")));
-//			dateField.setBounds(Integer.parseInt(config.element("field").attributeValue("x")),
-//					Integer.parseInt(config.element("field").attributeValue("y")),
-//					Integer.parseInt(config.element("field").attributeValue("width")),
-//					Integer.parseInt(config.element("field").attributeValue("height")));
-			dateField.setSize(Integer.parseInt(config.element("field").attributeValue("width")),
-					Integer.parseInt(config.element("field").attributeValue("height")));
-			button.setBounds(Integer.parseInt(config.element("button").attributeValue("x")),
-					Integer.parseInt(config.element("button").attributeValue("y")),
-					Integer.parseInt(config.element("button").attributeValue("width")),
-					Integer.parseInt(config.element("button").attributeValue("height")));
-		}
-
-		this.add(datePicker);
-		setVisible(true);
-	}
-	public MyDatePicker(int x , int  y , int width , int he) {
-		super();
-
-		datePicker = new DatePicker(date, DefaultFormat, null, null);// 自定义参数值
-
+		datePicker = new DatePicker(date, DefaultFormat, font, new Dimension(200, 50));
+		
 		button = datePicker.getInnerButton();
 		dateField = datePicker.getInnerTextField();
 		dateField.setFont(font);
+		dateField.setBackground(Color.WHITE);
 		dateField.setEditable(false);
-		
 		button.addMouseListener(new MyDateButtonListener(button));
 		
-			datePicker.setBounds(x , y , width ,he);
-
-		this.add(datePicker);
-		setVisible(true);
+		datePicker.setBounds(0, 0, getWidth(), getHeight());
+		add(datePicker);
 	}
+
 	
 	/**
 	 * 是否带有时钟面板  此时具体到秒
@@ -193,5 +148,26 @@ public class MyDatePicker extends JLabel {
 		}
 
 	}
-
+	
+	//两个获取日期的方法
+		@SuppressWarnings("deprecation")
+		public  MyDate getMyDate(){
+			
+			SimpleDateFormat format = new SimpleDateFormat(DefaultFormat);
+				Date date;
+				try {
+					date = format.parse(dateField.getText());
+					return new MyDate(date.getYear(), date.getMonth(), date.getDay());
+				} catch (ParseException e) {
+					return new MyDate(2015, 3, 3);
+				}
+				
+			
+		}
+		
+		public String getDateString() {
+			return dateField.getText();
+		}
+		
+	
 }

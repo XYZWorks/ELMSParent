@@ -25,8 +25,8 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller{
 	private MyWhitePanel senderInfoPanel;
 	private MyWhitePanel receiverInfoPanel;
 	private MyWhitePanel goodInfoPanel;
-	private MyWhitePanel estimateTimePanel;
-	private MyWhitePanel costPanel;
+	//private MyWhitePanel estimateTimePanel;
+	//private MyWhitePanel costPanel;
 	//显示 物流信息面板
 	private MyWhitePanel transferInfoPanel;
 
@@ -77,15 +77,15 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller{
 	private MyLabel goodWidthText;
 	private MyLabel goodHeightText;
 	
+	//物流信息
+	private MyPictureLabel transferInfo;
+	
 	//预计送达时间
 	private MyPictureLabel estimateTime;
-	private MyLabel estimateTimeLabel;
 	
 	//费用总计
 	private MyPictureLabel cost;
-	private MyLabel costLabel;
 	
-
 	//包装形式
 	private MyLabel goodPack;
 	//快递形式
@@ -162,13 +162,16 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller{
 		goodWidthText=new MyLabel(e.element("goodWidthText"));
 		goodHeightText=new MyLabel(e.element("goodHeightText"));
 
+		//流转信息
+		transferInfo=new MyPictureLabel(e.element("transferInfo"));
+		
 		//预计时间
 		estimateTime=new MyPictureLabel(e.element("estimateTime"));
-		estimateTimeLabel=new MyLabel(e.element("estimateTimeLabel"));
+		
 		
 		//费用
 		cost=new MyPictureLabel(e.element("cost"));
-		costLabel=new MyLabel(e.element("costLabel"));
+		
 	}
 
 	@Override
@@ -176,8 +179,8 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller{
 		senderInfoPanel=new MyWhitePanel(e.element("senderInfoPanel"));
 		receiverInfoPanel=new MyWhitePanel(e.element("receiverInfoPanel"));
 		goodInfoPanel=new MyWhitePanel(e.element("goodInfoPanel"));
-		estimateTimePanel=new MyWhitePanel(e.element("estimateTimePanel"));
-		costPanel=new MyWhitePanel(e.element("costPanel"));
+//		estimateTimePanel=new MyWhitePanel(e.element("estimateTimePanel"));
+//		costPanel=new MyWhitePanel(e.element("costPanel"));
 		transferInfoPanel=new MyWhitePanel(e.element("transferInfoPanel"));
 		
 	}
@@ -193,8 +196,8 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller{
 		this.add(senderInfoPanel);
 		this.add(receiverInfoPanel);
 		this.add(goodInfoPanel);
-		this.add(estimateTimePanel);
-		this.add(costPanel);
+//		this.add(estimateTimePanel);
+//		this.add(costPanel);
 		this.add(transferInfoPanel);
 	
 		
@@ -238,11 +241,17 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller{
 		goodInfoPanel.add(goodWidthText);
 		goodInfoPanel.add(goodHeightText);
 		
-		estimateTimePanel.add(estimateTime);
-		estimateTimePanel.add(estimateTimeLabel);
+		transferInfoPanel.add(transferInfo);
 		
-		costPanel.add(cost);
-		costPanel.add(costLabel);
+		
+		this.add(estimateTime);
+		this.add(cost);
+		
+//		estimateTimePanel.add(estimateTime);
+//		estimateTimePanel.add(estimateTimeLabel);
+//		
+//		costPanel.add(cost);
+//		costPanel.add(costLabel);
 		
 		
 	}
