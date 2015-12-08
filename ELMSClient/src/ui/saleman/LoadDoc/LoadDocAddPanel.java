@@ -1,13 +1,20 @@
 package ui.saleman.LoadDoc;
 
+import javax.swing.JPanel;
+
 import org.dom4j.Element;
 
-import ui.tools.MyPanel;
+import ui.tools.AddDocPanel;
+ /** 
+ * 
+ * @author czq 
+ * @version 2015年12月8日 下午8:27:23 
+ */
+@SuppressWarnings("serial")
+public class LoadDocAddPanel extends AddDocPanel{
 
-public class LoadDocAddPanel extends MyPanel{
-
-	public LoadDocAddPanel(Element config) {
-		super(config);
+	public LoadDocAddPanel(Element config, JPanel changePanel) {
+		super(config, changePanel);
 		// TODO Auto-generated constructor stub
 	}
 

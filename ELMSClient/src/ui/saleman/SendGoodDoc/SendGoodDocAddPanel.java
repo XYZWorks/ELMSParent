@@ -1,13 +1,23 @@
 package ui.saleman.SendGoodDoc;
 
+import javax.swing.JPanel;
+
 import org.dom4j.Element;
 
+import ui.tools.AddDocPanel;
 import ui.tools.MyPanel;
 
-public class SendGoodDocAddPanel extends MyPanel{
+/**
+ * 
+ * @author czq
+ *
+ */
+@SuppressWarnings("serial")
+public class SendGoodDocAddPanel extends AddDocPanel{
 
-	public SendGoodDocAddPanel(Element config) {
-		super(config);
+	
+	public SendGoodDocAddPanel(Element config, JPanel changePanel) {
+		super(config, changePanel);
 		// TODO Auto-generated constructor stub
 	}
 

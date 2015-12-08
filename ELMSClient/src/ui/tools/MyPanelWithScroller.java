@@ -35,8 +35,7 @@ public abstract class MyPanelWithScroller extends JScrollPane {
 	 */
 	@Override
 	public Component add(Component component){
-		panel.add(component);
-		return component;
+		return panel.add(component);
 	}
 	
 
