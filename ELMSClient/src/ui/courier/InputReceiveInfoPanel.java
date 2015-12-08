@@ -3,11 +3,15 @@ package ui.courier;
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
+import ui.tools.MyPictureButton;
 import ui.util.CompomentType;
 
 @SuppressWarnings("serial")
 public class InputReceiveInfoPanel extends MyPanel{
-
+	private MyPictureButton modify;
+	private MyPictureButton cancel;
+	
+	
 	public InputReceiveInfoPanel(Element config) {
 		// TODO Auto-generated constructor stub
 		super(config);
@@ -23,7 +27,7 @@ public class InputReceiveInfoPanel extends MyPanel{
 
 	@Override
 	protected void initButtons(Element e) {
-		// TODO Auto-generated method stub
+		modify=new MyPictureButton(e.element("modify"));
 		
 	}
 

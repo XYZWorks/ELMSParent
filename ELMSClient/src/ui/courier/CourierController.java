@@ -56,7 +56,7 @@ public class CourierController extends PanelController{
 		courierMainPanel=new CourierMainPanel(e.element(courierMainPanelStr),this);
 		addOrderPanel=new AddOrderPanel(e.element(addOrderPanelStr));
 		findFullInfoPanel=new FindFullOrderInfoPanel(e.element(findFullInfoPanelStr));
-		inputReceiveInfoPanel=new InputReceiveInfoPanel(e.element(inputReceiveInfoPanelStr));
+		//inputReceiveInfoPanel=new InputReceiveInfoPanel(e.element(inputReceiveInfoPanelStr));
 //		pane = new JScrollPane();
 ////		pane.setLayout(null);
 //		pane.getViewport().add(addOrderPanel);
@@ -87,7 +87,7 @@ public class CourierController extends PanelController{
 		changePanel.add(courierMainPanel , courierMainPanelStr);
 		changePanel.add(addOrderPanel , addOrderPanelStr);
 		changePanel.add(findFullInfoPanel , findFullInfoPanelStr);
-		changePanel.add(inputReceiveInfoPanel , inputReceiveInfoPanelStr);
+		//changePanel.add(inputReceiveInfoPanel , inputReceiveInfoPanelStr);
 		
 	}
 

@@ -7,22 +7,30 @@ package vo.order;
 public class PreReceiveVO {
 	public String barCode;
 	
-	public String address;
+ 	public String address;
 	
 	public String name;
-	
+	//真实收件人
+	public String realReceiver;
+	//接收日期
+	public String receiveTime;
+
 	/**
 	 * 
 	 * @param barCode
 	 * @param address
 	 * @param name
+	 * @param realReceiver
+	 * @param receiveTime
 	 */
-	public PreReceiveVO(String barCode, String address, String name) {
+	public PreReceiveVO(String barCode, String address, String name, String realReceiver, String receiveTime) {
 		super();
 		this.barCode = barCode;
 		this.address = address;
 		this.name = name;
+		this.realReceiver = realReceiver;
+		this.receiveTime = receiveTime;
 	}
 	
-	
+
 }
