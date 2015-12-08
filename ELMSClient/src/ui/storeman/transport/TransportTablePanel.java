@@ -10,6 +10,7 @@ import ui.config.GraphicsUtils;
 import ui.config.UserfulMethod;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
+import util.DocType;
 import util.MyDate;
 import vo.transport.ArriveZZDocVO;
 import vo.transport.TransferDocVO;
@@ -34,6 +35,8 @@ public class TransportTablePanel extends MyTablePanel {
 		initTable();
 		initScrollerPane();
 		this.add(rollpane);
+		int[] columnLen = { 60, 140, 60, 130, 50,50,50,260};
+		this.setRowAndColumnLen(30, columnLen);
 	}
 
 	@Override
@@ -51,11 +54,11 @@ public class TransportTablePanel extends MyTablePanel {
 		TransferDocVO vo;
 		for (int i = 0; i < vos.size(); i++) {
 			vo = vos.get(i);
-			data[i][0] = vo.type.name();
+			data[i][0] = DocType.getName(vo.type);
 			data[i][1] = vo.ID;
 			data[i][2] = MyDate.toString(vo.date);
 			data[i][3] = vo.transferWayID;
-			data[i][4] = vo.sendCity.name();
+			data[i][4] = vo.sendCity.getName();
 			data[i][5] = String.valueOf(vo.containerNum);
 			data[i][6] = vo.loadManName;
 			data[i][7] = UserfulMethod.orderArrayToString(vo.orderBarCode);

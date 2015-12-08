@@ -8,16 +8,22 @@ public enum GoodsState {
 	/**
 	 * 损坏
 	 */
-	Damage,
+	Damage("损坏"),
 	/**
 	 * 完整
 	 */
-	Complete,
+	Complete("完整"),
 	/**
 	 * 丢失
 	 */
-	Lost;
+	Lost("丢失");
 
+	private final String name;
+	
+	private GoodsState(String name){
+		this.name = name;
+	}
+	
 	public static GoodsState toGoodState(String state) {
 		switch (state) {
 		case "损坏":
@@ -32,6 +38,11 @@ public enum GoodsState {
 			return null;
 		}
 		
+	}
+
+	public String getName() {
+		
+		return name;
 	}
 	
 	

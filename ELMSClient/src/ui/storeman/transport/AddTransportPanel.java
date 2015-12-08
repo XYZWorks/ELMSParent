@@ -146,7 +146,7 @@ public class AddTransportPanel extends MyPanel {
 	@Override
 	protected void addListener() {
 		confirmButton.addMouseListener(new MyAddListener(confirmButton));
-		returnButton.addMouseListener(new MyJumpListener(returnButton, "ArriveZZPanel", controller));
+		returnButton.addMouseListener(new MyJumpListener(returnButton, "TransportPanel", controller));
 
 	}
 

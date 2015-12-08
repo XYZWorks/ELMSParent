@@ -1,5 +1,7 @@
 package ui.storemanager.instore;
 
+import java.util.ArrayList;
+
 import org.dom4j.Element;
 
 import bl.storebl.StoreController;
@@ -15,6 +17,10 @@ import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.PanelController;
+import ui.util.TipsDialog;
+import util.City;
+import util.ResultMessage;
+import vo.store.InStoreDocVO;
 
 /**
  * @author ymc
@@ -36,7 +42,7 @@ public class AddInStorePanel extends MyPanel {
 	MyDatePicker picker;
 	MyComboBox sendCityC;
 	
-	MyTablePanel locInfoTable;
+	AddLocTablePanel locInfoTable;
 	
 	StoreController bl;
 	PanelController controller;
@@ -118,6 +124,7 @@ public class AddInStorePanel extends MyPanel {
 	
 	class AddInStoreListener extends ConfirmListener{
 
+		InStoreDocVO vo = new InStoreDocVO();
 		public AddInStoreListener(MyPictureButton button) {
 			super(button);
 			// TODO Auto-generated constructor stub
@@ -125,21 +132,37 @@ public class AddInStorePanel extends MyPanel {
 
 		@Override
 		protected void reInitial() {
-			// TODO Auto-generated method stub
+			IDT.setText("");
+			locInfoTable.resetData();
 			
 		}
 
 		@Override
 		protected boolean checkDataValid() {
-			// TODO Auto-generated method stub
-			return false;
+			vo.ID = IDT.getText();
+			vo.date = picker.getMyDate();
+			vo.loc = City.toCity((String)sendCityC.getSelectedItem());
+			vo.orders = locInfoTable.getOrders();
+			vo.location = locInfoTable.getLocations();
+			//TODO
+			return true;
 		}
 
 		@Override
 		protected void saveToSQL() {
-			// TODO Auto-generated method stub
+			
+			ResultMessage result = bl.generate(vo);
+			
+			if(result ==ResultMessage.SUCCESS){
+				reInitial();
+				new TipsDialog("生成入库单成功");
+			}
+				
+			
 			
 		}
+
+		
 		
 	}
 

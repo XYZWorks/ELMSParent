@@ -13,6 +13,7 @@ import ui.config.GraphicsUtils;
 import ui.config.UserfulMethod;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
+import util.DocType;
 import util.MyDate;
 import vo.account.AccountVO;
 import vo.transport.ArriveZZDocVO;
@@ -37,6 +38,8 @@ public class ArriveZZTablePanel extends MyTablePanel {
 		initTable();
 		initScrollerPane();
 		this.add(rollpane);
+		int[] columnLen = { 50, 140, 60, 40, 40,40,330};
+		this.setRowAndColumnLen(30, columnLen);
 	}
 
 	@Override
@@ -48,12 +51,12 @@ public class ArriveZZTablePanel extends MyTablePanel {
 		ArriveZZDocVO vo;
 		for (int i = 0; i < vos.size(); i++) {
 			vo = vos.get(i);
-			data[i][0] = vo.type.name();
+			data[i][0] = DocType.getName(vo.type);
 			data[i][1] = vo.ID;
 			data[i][2] = MyDate.toString(vo.date);
 			data[i][3] = vo.zZID;
-			data[i][4] = vo.sendCity.name();
-			data[i][5] = vo.goodState.name();
+			data[i][4] = vo.sendCity.getName();
+			data[i][5] = vo.goodState.getName();
 			data[i][6] = UserfulMethod.orderArrayToString(vo.orderBarCodes);
 		}
 

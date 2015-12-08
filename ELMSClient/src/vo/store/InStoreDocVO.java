@@ -32,7 +32,7 @@ public class InStoreDocVO extends DocVO {
 	
 	
 	public InStoreDocVO() {
-		// TODO Auto-generated constructor stub
+		super(null, DocType.inStoreDoc, null, DocState.wait);
 	}
 	public InStoreDocVO(String iD,  MyDate date,
 			ArrayList<String> orderVOs, City loc, ArrayList<String> location) {

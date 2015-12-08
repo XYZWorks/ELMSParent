@@ -60,16 +60,42 @@ public class AddLocTablePanel extends MyTablePanel {
 
 	@Override
 	protected void initTable() {
+		resetData();
+		
 
+		table = new MyTable(columnNames, data);
+
+	}
+	
+	public void resetData() {
 		data = new String[ROW_NUM][COLUMN_NUM];
 		for (int i = 0; i < ROW_NUM; i++) {
 			for (int j = 0; j < COLUMN_NUM; j++) {
 				data[i][j] = "";
 			}
 		}
-
-		table = new MyTable(columnNames, data);
-
 	}
 
+	public ArrayList<String> getOrders() {
+		ArrayList<String> orders = new ArrayList<>();
+		int i = 0;
+		String tmp="";
+		while ((tmp = (String)getValueAt(i, 0)).length()>0){
+			orders.add(tmp);
+			
+		}
+		return orders;
+	}
+
+	public ArrayList<String> getLocations() {
+		ArrayList<String> locations = new ArrayList<>();
+		int i = 0;
+		String tmp="";
+		while ((tmp = (String)getValueAt(i, 1)).length()>0){
+			orders.add(tmp+"区"+(String)getValueAt(i, 2)+"排"+(String)getValueAt(i, 3)+"架"+(String)getValueAt(i, 4)+"位");
+			
+		}
+		
+		return locations;
+	}
 }
