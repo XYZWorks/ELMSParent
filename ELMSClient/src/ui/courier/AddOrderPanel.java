@@ -19,7 +19,6 @@ import ui.tools.MyWhitePanel;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
-import util.City;
 
 /**
  * 查询订单界面
@@ -68,11 +67,8 @@ public class AddOrderPanel extends MyPanelWithScroller {
 
 	// 预计送达时间
 	private MyPictureLabel estimateTime;
-	private MyLabel estimateTimeLabel;
-
 	// 费用总计
 	private MyPictureLabel cost;
-	private MyLabel costLabel;
 
 	// textField
 	private MyTextField senderNameText;
@@ -210,10 +206,8 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		orderFormLabel = new MyLabel(e.element("orderFormLabel"));
 
 		estimateTime = new MyPictureLabel(e.element("estimateTime"));
-		estimateTimeLabel = new MyLabel(e.element("estimateTimeLabel"));
 
 		cost = new MyPictureLabel(e.element("cost"));
-		costLabel = new MyLabel(e.element("costLabel"));
 
 	}
 
@@ -276,15 +270,14 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		senderInfoPanel.add(senderGuangZhouArea);
 		senderInfoPanel.add(senderShangHaiArea);
 		
-		receiverInfoPanel.add(receiverNanJingArea);
-		receiverInfoPanel.add(receiverBeiJingArea);
-		receiverInfoPanel.add(receiverGuangZhouArea);
-		receiverInfoPanel.add(receiverShangHaiArea);
-		
 		
 		receiverInfoPanel.add(receiverCity);
 		receiverInfoPanel.add(receiverArea);
 		
+		receiverInfoPanel.add(receiverNanJingArea);
+		receiverInfoPanel.add(receiverBeiJingArea);
+		receiverInfoPanel.add(receiverGuangZhouArea);
+		receiverInfoPanel.add(receiverShangHaiArea);
 
 		receiverInfoPanel.add(receiverInfo);
 		receiverInfoPanel.add(receiverNameLabel);
@@ -330,6 +323,9 @@ public class AddOrderPanel extends MyPanelWithScroller {
 
 		this.add(confirm);
 		this.add(cancel);
+		
+		this.add(estimateTime);
+		this.add(cost);
 
 		this.add(senderInfoPanel);
 		this.add(receiverInfoPanel);

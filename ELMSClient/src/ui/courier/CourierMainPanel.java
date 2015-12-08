@@ -33,7 +33,7 @@ public class CourierMainPanel extends MyPanel {
 		addCompoment();
 		addListener();
 		setVisible(true);
-		//System.out.println("couriermainpanel has existed!!");
+	
 	}
 
 	@Override
@@ -41,7 +41,6 @@ public class CourierMainPanel extends MyPanel {
 		addOrderButton = new MyPictureButton(e.element("AddOrder"));
 		findFullInfoButton = new MyPictureButton(e.element("CheckOrder"));
 		inputReceiveButton = new MyPictureButton(e.element("InputReceive"));
-		//System.out.println("initbuttons!!");
 	}
 
 	@Override

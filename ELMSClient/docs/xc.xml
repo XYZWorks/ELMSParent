@@ -140,12 +140,9 @@
 
 					<estimateTime text="" x="49" y="668" width="189"
 						height="65" one="element//estimateTime" />
-					<estimateTimeLabel text="" x="145" y="668" width="56"
-						height="65" />
 
-					<cost text="费用总计" x="300" y="668" width="189" height="65"
+					<cost text="" x="300" y="668" width="189" height="65"
 						one="element//cost" />
-					<costLabel text="" x="377" y="668" width="91" height="64" />
 				</LABELS>
 
 
@@ -211,17 +208,20 @@
 					stringGuangZhou="荔湾区 越秀区 海珠区 天河区 白云区 黄埔区 番禺区 花都区 萝岗区 南沙区 萝岗区 增城市 从化市 东山区 其他区
 					"
 					stringBeiJing="东城区 西城区 崇文区 宣武区 朝阳区 丰台区 石景山区 海淀区 门头沟区 房山区 通州区 顺义区 昌平区 大兴区 怀柔区 平谷区 密云县 延庆县 其他区" />
-					
+
 			</addOrderPanel>
 
 
 			<findFullInfoPanel x="232" y="54" width="1080"
-				height="637">
+				height="1000">
+
 				<WHITEPANELS>
 					<senderInfoPanel x="49" y="114" width="365" height="295" />
 					<receiverInfoPanel x="434" y="114" width="365"
 						height="295" />
 					<goodInfoPanel x="49" y="433" width="748" height="220" />
+					<transferInfoPanel x="49" y="680" width="748"
+						height="220" />
 				</WHITEPANELS>
 				<BUTTONS>
 				</BUTTONS>
@@ -231,16 +231,16 @@
 					<orderBarCodeLabel text="" x="48" y="76" width="137"
 						height="19" />
 
-					<senderInfo text="寄件人" x="78" y="125" width="48" height="16"
+					<senderInfo text="寄件人" x="0" y="0" width="114" height="40"
 						type="rectangle" />
-					<senderNameLabel text="姓名" x="69" y="177" width="36"
-						height="16" />
-					<senderPhoneLabel text="手机" x="69" y="224" width="36"
-						height="16" />
-					<senderAddressLabel text="地址" x="69" y="255"
-						width="36" height="16" />
-					<senderUnitLabel text="单位" x="69" y="324" width="36"
-						height="16" />
+					<senderNameLabel text="姓名" x="20" y="63" width="36"
+						height="20" />
+					<senderPhoneLabel text="手机" x="20" y="110" width="36"
+						height="20" />
+					<senderAddressLabel text="地址" x="20" y="156"
+						width="36" height="20" />
+					<senderUnitLabel text="单位" x="20" y="249" width="36"
+						height="20" />
 
 					<senderNameText x="112" y="171" width="276" height="29" />
 					<senderPhoneText x="112" y="217" width="276"
@@ -250,16 +250,18 @@
 					<senderUnitText x="112" y="355" width="276" height="29" />
 
 
-					<receiverInfo text="收件人" x="414" y="125" width="48"
-						height="16" type="rectangle" />
-					<receiverNameLabel text="姓名" x="405" y="177"
-						width="36" height="16" />
-					<receiverPhoneLabel text="手机" x="405" y="224"
-						width="36" height="16" />
-					<receiverAddressLabel text="地址" x="405" y="255"
-						width="36" height="16" />
-					<receiverUnitLabel text="单位" x="405" y="324"
-						width="36" height="16" />
+
+					<receiverInfo text="收件人" x="0" y="0" width="114"
+						height="40" type="rectangle" />
+					<receiverNameLabel text="姓名" x="20" y="63" width="36"
+						height="20" />
+					<receiverPhoneLabel text="手机" x="20" y="110"
+						width="36" height="20" />
+					<receiverAddressLabel text="地址" x="20" y="156"
+						width="36" height="20" />
+					<receiverUnitLabel text="单位" x="20" y="249"
+						width="36" height="20" />
+
 
 					<receiverNameText x="497" y="171" width="276"
 						height="29" />
@@ -271,20 +273,22 @@
 						height="29" />
 
 
-					<goodsInfo text="货物信息" x="84" y="447" width="65" height="16"
+
+
+					<goodsInfo text="货物信息" x="0" y="0" width="114" height="40"
 						type="rectangle" />
-					<goodNameLabel text="商品名称" x="69" y="493" width="65"
-						height="16" />
-					<goodWeightLabel text="实际重量" x="442" y="538" width="65"
-						height="16" />
-					<goodNumLabel text="件数" x="442" y="493" width="36"
-						height="16" />
-					<goodVolumLabel text="体积" x="69" y="538" width="36"
-						height="16" />
-					<goodPackLabel text="包装费用" x="69" y="583" width="65"
-						height="50" />
-					<orderFormLabel text="快递形式" x="69" y="615" width="65"
-						height="50" />
+					<goodNameLabel text="商品名称" x="22" y="60" width="65"
+						height="20" />
+					<goodWeightLabel text="实际重量" x="395" y="105" width="65"
+						height="20" />
+					<goodNumLabel text="件数" x="395" y="60" width="36"
+						height="20" />
+					<goodVolumLabel text="体积" x="22" y="105" width="36"
+						height="20" />
+					<goodPackLabel text="包装费用" x="22" y="145" width="65"
+						height="20" />
+					<orderFormLabel text="快递形式" x="22" y="178" width="65"
+						height="20" />
 
 					<goodNameText x="141" y="487" width="254" height="29" />
 					<goodWeightText x="515" y="533" width="85" height="29" />
@@ -292,14 +296,13 @@
 					<goodWidthText x="229" y="533" width="85" height="29" />
 					<goodHeightText x="319" y="533" width="85" height="29" />
 
-					<estimateTime text="" x="49" y="668" width="189"
+					<transferInfo text="流转信息" x="0" y="0" width="114"
+						height="40" type="rectangle" />
+					<estimateTime text="" x="49" y="920" width="189"
 						height="65" one="element//estimateTime" />
-					<estimateTimeLabel text="" x="145" y="668" width="56"
-						height="65" />
 
-					<cost text="费用总计" x="300" y="668" width="189" height="65"
+					<cost text="" x="300" y="920" width="189" height="65"
 						one="element//cost" />
-					<costLabel text="" x="377" y="668" width="91" height="64" />
 
 				</LABELS>
 				<TEXTFIELDS>
