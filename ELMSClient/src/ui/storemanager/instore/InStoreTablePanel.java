@@ -35,13 +35,15 @@ public class InStoreTablePanel extends MyTablePanel {
 		initTable();
 		initScrollerPane();
 		this.add(rollpane);
+//		int[] columnLen = { 330, 100, 100, 100, 100 };
+//		this.setRowAndColumnLen(30, columnLen);
 	}
 
 	@Override
 	protected void initialTitleAndColumn(Element config) {
 		columnNames = getColumnName(config.attributeValue("columnName"));
 		
-//		vos = bl.showInstoreDocs();
+		vos = bl.showInstoreDocs();
 		
 		if(vos==null){
 			return;

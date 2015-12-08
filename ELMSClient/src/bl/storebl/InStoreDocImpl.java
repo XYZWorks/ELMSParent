@@ -9,6 +9,7 @@ import blservice.storeblservice.InStoreDocService;
 import ds.storedataservice.StoreDataService;
 import net.RMIManage;
 import po.store.InStoreDocPO;
+import test.java.other.DataTool;
 import test.java.other.VOPOchange;
 import util.DataServiceType;
 import util.DocState;
@@ -34,6 +35,8 @@ public class InStoreDocImpl  {
 	}
 	public ArrayList<InStoreDocVO> show() {
 		ArrayList<InStoreDocPO> pos = new ArrayList<InStoreDocPO>();
+		
+//		generate((InStoreDocVO)DataTool.getDocList(DocType.inStoreDoc).get(0));
 		try {
 			pos = storeData.getIn();
 			pos.size();

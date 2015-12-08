@@ -23,6 +23,9 @@ public class MyTable extends JTable{
 	 */
 	MyTableModel model;
 	
+
+
+	
 	public MyTable(String[] columnNames ,Object[][] data) {
 		this.model = new MyTableModel(columnNames, data);
 		
