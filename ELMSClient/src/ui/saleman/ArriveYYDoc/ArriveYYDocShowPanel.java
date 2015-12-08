@@ -1,12 +1,12 @@
-package ui.saleman;
+package ui.saleman.ArriveYYDoc;
 
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
 
-public class DriverInfoManagePanel extends MyPanel{
+public class ArriveYYDocShowPanel extends MyPanel{
 
-	public DriverInfoManagePanel(Element config) {
+	public ArriveYYDocShowPanel(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}

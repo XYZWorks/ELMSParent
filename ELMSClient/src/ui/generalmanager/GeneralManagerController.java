@@ -76,7 +76,7 @@ public class GeneralManagerController extends PanelController {
 //		approvalBL = BusinessLogicDataFactory.getFactory().getApprovalBusinessLogic();
 		approvalBL = new Approvalblservice_Stub();
 		strategyblService = BusinessLogicDataFactory.getFactory().getStrategyBusinessLogic();
-		statisticblservice = BusinessLogicDataFactory.getFactory().getStatisticBusinessLogic();
+//		statisticblservice = BusinessLogicDataFactory.getFactory().getStatisticBusinessLogic();
 		personnelblservice = BusinessLogicDataFactory.getFactory().getPersonnelBusinessLogic();
 	}
 	
@@ -109,7 +109,7 @@ public class GeneralManagerController extends PanelController {
 		GMmainpanel = new GeneralManagerMain(e.element(GMmainpanelStr) , this);
 		approvalPanel = new ApprovalDocsPanel(e.element(approvalPanelStr) , approvalBL);
 		constSetPanel = new ConstSetPanel(e.element(constSetPanelStr) , strategyblService);
-		statisticPanel = new StatisticPanel(e.element(statisticPanelStr) , statisticblservice);
+//		statisticPanel = new StatisticPanel(e.element(statisticPanelStr) , statisticblservice);
 		instManagePanel = new InstManagePanel(e.element(instManagePanelStr), changePanel , personnelblservice);
 		peopleManagePanel = new PeopleManagePanel(
 				e.element(peopleManagePanelStr) , panelManager , personnelblservice);
@@ -121,7 +121,7 @@ public class GeneralManagerController extends PanelController {
 		changePanel.add(GMmainpanel, GMmainpanelStr);
 		changePanel.add(approvalPanel, approvalPanelStr);
 		changePanel.add(constSetPanel, constSetPanelStr);
-		changePanel.add(statisticPanel, statisticPanelStr);
+//		changePanel.add(statisticPanel, statisticPanelStr);
 		changePanel.add(instManagePanel, instManagePanelStr);
 		changePanel.add(peopleManagePanel, peopleManagePanelStr);
 		changePanel.add(salaryStrategySetPanel , salaryStrategySetStr);

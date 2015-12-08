@@ -1,12 +1,12 @@
-package ui.saleman;
+package ui.saleman.CarManage;
 
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
 
-public class LoadDocAddPanel extends MyPanel{
+public class TruckInfoManagePanel extends MyPanel{
 
-	public LoadDocAddPanel(Element config) {
+	public TruckInfoManagePanel(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}

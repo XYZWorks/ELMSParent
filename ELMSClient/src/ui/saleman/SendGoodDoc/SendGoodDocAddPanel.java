@@ -1,4 +1,4 @@
-package ui.saleman;
+package ui.saleman.SendGoodDoc;
 
 import org.dom4j.Element;
 

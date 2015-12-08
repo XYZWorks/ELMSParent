@@ -339,7 +339,7 @@
 				</BUTTONS>
 				<TEXTFIELDS>
 					<name x="100" y="160" width="115" height="40" />
-					<money x="150" y="160" width="115" height="40" />
+					<money x="250" y="160" width="115" height="40" />
 					<company x="100" y="160" width="115" height="40" />
 				</TEXTFIELDS>
 				<LABELS>

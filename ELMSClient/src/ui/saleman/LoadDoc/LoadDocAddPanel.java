@@ -1,12 +1,12 @@
-package ui.saleman;
+package ui.saleman.LoadDoc;
 
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
 
-public class ArriveYYDocShowPanel extends MyPanel{
+public class LoadDocAddPanel extends MyPanel{
 
-	public ArriveYYDocShowPanel(Element config) {
+	public LoadDocAddPanel(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}

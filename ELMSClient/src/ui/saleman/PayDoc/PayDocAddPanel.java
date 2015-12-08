@@ -1,12 +1,12 @@
-package ui.saleman;
+package ui.saleman.PayDoc;
 
 import org.dom4j.Element;
 
 import ui.tools.MyPanel;
 
-public class SendGoodDocShowPanel extends MyPanel{
+public class PayDocAddPanel extends MyPanel{
 
-	public SendGoodDocShowPanel(Element config) {
+	public PayDocAddPanel(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}
