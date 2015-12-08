@@ -176,7 +176,7 @@ public class StoreManagerController extends PanelController {
 
 	@Override
 	protected void initialBL() {
-		bl = new StoreController();
+//		bl = new StoreController();
 		
 	}
 

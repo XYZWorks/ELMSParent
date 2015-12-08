@@ -41,7 +41,7 @@ public class InStoreTablePanel extends MyTablePanel {
 	protected void initialTitleAndColumn(Element config) {
 		columnNames = getColumnName(config.attributeValue("columnName"));
 		
-		vos = bl.showInstoreDocs();
+//		vos = bl.showInstoreDocs();
 		
 		if(vos==null){
 			return;
