@@ -6,6 +6,7 @@ import util.City;
 import util.DocState;
 import util.DocType;
 import util.MyDate;
+import util.TransferWay;
 import vo.DocVO;
 
 /**
@@ -35,7 +36,7 @@ public class OutStoreDocVO extends DocVO{
 	/**
 	 * 装运方式
 	 */
-	public String shipWay;
+	public TransferWay shipWay;
 	public OutStoreDocVO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -47,7 +48,7 @@ public class OutStoreDocVO extends DocVO{
 	 * @param transferDoc
 	 * @param shipWay
 	 */
-	public OutStoreDocVO(String ID,MyDate time, ArrayList<String> orderVOs, City loc, String transferDoc, String shipWay) {
+	public OutStoreDocVO(String ID,MyDate time, ArrayList<String> orderVOs, City loc, String transferDoc, TransferWay shipWay) {
 		//
 		super(ID, DocType.outStoreDoc, time, DocState.wait);
 		
