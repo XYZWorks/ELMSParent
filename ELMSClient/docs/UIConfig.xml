@@ -28,7 +28,7 @@
 				enter="element//home-enter" clicked="element//home-clicked" />
 			<career text="" x="773" y="16" width="26" height="22" />
 		</BUTTONS>
-		<GeneralManager x="232" y="54" width="1080" height="637">
+		<GeneralManager x="232" y="54" width="848" height="637">
 			<BUTTONS>
 				<GMApproval text="审批单据" x="0" y="227" />
 				<Statistic text="统计分析" x="0" y="267" />
@@ -39,7 +39,7 @@
 
 			</BUTTONS>
 
-			<mainWindow x="232" y="54" width="1080" height="637">
+			<mainWindow x="232" y="54" width="848" height="637">
 				<BUTTONS>
 
 					<GMApproval text="" x="48" y="160" width="137" height="152"
@@ -67,7 +67,7 @@
 				</DatePicker>
 			</mainWindow>
 
-			<ApprovalPanel x="232" y="54" width="1080" height="637">
+			<ApprovalPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
 					<approveMany x="550" y="560" width="115" height="40"
 						text="批量审批" type="rectangle" />
@@ -86,7 +86,7 @@
 					strings="订单 入库单 出库单 派送单 到达单 装车单 接收单 中转单" />
 			</ApprovalPanel>
 
-			<ConstSetPanel x="232" y="54" width="1080" height="637">
+			<ConstSetPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
 					<modify x="625" y="560" width="115" height="40" text="修改"
 						type="confirm" />
@@ -154,7 +154,7 @@
 			</ConstSetPanel>
 
 
-			<StatisticPanel x="232" y="54" width="1080" height="637">
+			<StatisticPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
 					<detail x="625" y="560" width="100" height="40" type="rectangle"
 						text="更多信息" />
@@ -170,7 +170,7 @@
 					strings="经营状况表 成本收益表" />
 			</StatisticPanel>
 
-			<InstManagePanel x="232" y="54" width="1080" height="637">
+			<InstManagePanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
 					<addInst x="550" y="600" width="50" height="40" text="增加"
 						type="rectangle" />
@@ -211,7 +211,7 @@
 				<table x="45" y="45" width="400" height="400" column="ID 机构类型 所在地" />
 			</InstManagePanel>
 
-			<PeopleManagePanel x="232" y="54" width="1080"
+			<PeopleManagePanel x="232" y="54" width="848"
 				height="637">
 				<BUTTONS>
 					<add x="600" y="100" width="200" height="50" text="增加" type="rectangle" />
@@ -256,7 +256,7 @@
 
 			</PeopleManagePanel>
 
-			<SalaryStrategySetPanel x="232" y="54" width="1080"
+			<SalaryStrategySetPanel x="232" y="54" width="848"
 				height="637">
 				<BUTTONS>
 					<ShowInTable x="500" y="560" width="115" height="40"
@@ -294,7 +294,7 @@
 
 		</GeneralManager>
 
-		<Financeman x="232" y="54" width="1080" height="637">
+		<Financeman x="232" y="54" width="848" height="637">
 			<BUTTONS>
 				<BankAccountManage text="银行账户管理" x="0" y="387" />
 				<BulidBill text="期初建账" x="0" y="267" />
@@ -304,7 +304,7 @@
 				<FinanceApproval text="交易审核" x="0" y="227" />
 			</BUTTONS>
 
-			<mainWindow x="232" y="54" width="1080" height="637">
+			<mainWindow x="232" y="54" width="848" height="637">
 				<BUTTONS>
 
 					<BankAccountManage text="" x="661" y="160" width="140"
@@ -328,7 +328,7 @@
 				</BUTTONS>
 			</mainWindow>
 
-			<FinanceApprovalPanel x="232" y="54" width="1080"
+			<FinanceApprovalPanel x="232" y="54" width="848"
 				height="637">
 				<BUTTONS>
 					<confirm x="599" y="560" width="89" height="37" text="确认"
@@ -352,7 +352,7 @@
 					<button x="756" y="0" width="40" height="40" type="rectangle" />
 				</date>
 			</FinanceApprovalPanel>
-			<BulidBillPanel x="232" y="54" width="1080" height="637">
+			<BulidBillPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
 					<confirm x="500" y="560" width="115" height="40" text="确认"
 						type="confirm" />
@@ -377,7 +377,7 @@
 				</datePicker>
 				<table x="100" y="350" width="600" height="250"
 					column="机构ID 所在城市 类型 人员数目 车辆数目" />
-				<addCar x="232" y="54" width="1080" height="637">
+				<addCar x="232" y="54" width="848" height="637">
 					<BUTTONS>
 						<confirm x="500" y="560" width="115" height="40" text="确认"
 							type="confirm" />
@@ -398,7 +398,7 @@
 					</TEXTFIELDS>
 					<table x="500" y="560" width="115" height="40" column="车辆ID 车牌号 使用年份" />
 				</addCar>
-				<addInst x="232" y="54" width="1080" height="637">
+				<addInst x="232" y="54" width="848" height="637">
 					<BUTTONS>
 						<confirm x="550" y="600" width="50" height="40" text="确认"
 							type="confirm" />
@@ -417,7 +417,7 @@
 					<type x="45" y="580" width="100" height="40" strings="中转中心 营业厅 总部" />
 
 				</addInst>
-				<addPeople x="232" y="54" width="1080" height="637">
+				<addPeople x="232" y="54" width="848" height="637">
 					<BUTTONS>
 						<confirm x="500" y="560" width="115" height="40" text="确认"
 							type="confirm" />
@@ -445,9 +445,9 @@
 						column="机构ID 职员类型 ID 姓名 手机号" />
 				</addPeople>
 			</BulidBillPanel>
-			<BankAccountManagePanel x="232" y="54" width="1080"
+			<BankAccountManagePanel x="232" y="54" width="848"
 				height="637">
-				<addPanel x="232" y="54" width="1080" height="637">
+				<addPanel x="232" y="54" width="848" height="637">
 					<BUTTONS>
 						<confirm x="500" y="560" width="115" height="40" text="确认"
 							type="confirm" />
@@ -488,12 +488,12 @@
 				</LABELS>
 				<table x="50" y="75" width="750" height="430" column="账户ID 密码 存款" />
 			</BankAccountManagePanel>
-			<CostManagePanel x="232" y="54" width="1080" height="637">
+			<CostManagePanel x="232" y="54" width="848" height="637">
 			</CostManagePanel>
 			<BulidStateFromPanel x="232" y="54" width="1080"
 				height="637">
 			</BulidStateFromPanel>
-			<BulidPayPanel x="232" y="54" width="1080" height="637">
+			<BulidPayPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
 					<confirm x="500" y="560" width="115" height="40" text="确认"
 						type="confirm" />
@@ -522,12 +522,12 @@
 
 		</Financeman>
 
-		<Adminstrator x="232" y="54" width="1080" height="637">
+		<Adminstrator x="232" y="54" width="848" height="637">
 			<BUTTONS>
 				<AddAccount text="增加账户" x="0" y="227" />
 				<ModifyAccount text="修改账户" x="0" y="267" />
 			</BUTTONS>
-			<mainWindow x="232" y="54" width="1080" height="637">
+			<mainWindow x="232" y="54" width="848" height="637">
 				<BUTTONS>
 					<AddAccount text="" x="260" y="316" width="119" height="162"
 						normal="Adminstrator//AddAccount" enter="Adminstrator//AddAccount-enter"
@@ -537,7 +537,7 @@
 						clicked="Adminstrator//ModifyAccount-clicked" />
 				</BUTTONS>
 			</mainWindow>
-			<AddAccountPanel x="232" y="54" width="1080" height="637">
+			<AddAccountPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
 					<addAccount text="确认增加" x="600" y="400" width="119"
 						height="162" type="rectangle" />
@@ -558,7 +558,7 @@
 				<staffBox text="" x="700" y="50" width="119" height="52"
 					strings="快递员 财务人员 总经理 营业厅业务员 中转中心业务人员 中转中心管理员 管理员" />
 			</AddAccountPanel>
-			<ModifyAccountPanel x="232" y="54" width="1080"
+			<ModifyAccountPanel x="232" y="54" width="848"
 				height="637">
 				<BUTTONS>
 					<modify text="修改" x="600" y="500" width="119" height="162"
@@ -585,7 +585,7 @@
 
 
 		</Adminstrator>
-		<Salesman x="232" y="54" width="1080" height="637">
+		<Salesman x="232" y="54" width="848" height="637">
 			<BUTTONS>
 				<loadDoc text="装车单" x="0" y="227" />
 				<arriveYYDoc text="接收单" x="0" y="267" />
@@ -595,7 +595,7 @@
 				<truckInfoManage text="车辆信息管理" x="0" y="427" />
 			</BUTTONS>
 
-			<mainWindow x="232" y="54" width="1080" height="637">
+			<mainWindow x="232" y="54" width="848" height="637">
 				<BUTTONS>
 					<truckInfoManage text="" x="648" y="146" width="140"
 						height="165" normal="saleman//TruckInfoManage" enter="saleman//TruckInfoManage-enter"
@@ -615,7 +615,7 @@
 						normal="saleman//PayDoc" enter="saleman//PayDoc-enter" clicked="saleman//PayDoc-clicked" />
 				</BUTTONS>
 			</mainWindow>
-			<loadDocShowpanel x="232" y="54" width="1080"
+			<loadDocShowpanel x="232" y="54" width="848"
 				height="637">
 				<loadDocShowpanelAddPanel x="232" y="54" width="1080" height="637">
 					<BUTTONS>
@@ -630,13 +630,13 @@
 				</loadDocShowpanelAddPanel>
 					<addDoc x="550" y="560" width="115" height="40"
 						text="增加" type="rectangle" />
-					<search x="600" y="100" />
-					<datepicker x="100" y="45" width="250" height="50" />
+					<search x="300" y="0" />
+					<datepicker x="0" y="0" width="250" height="50" />
 					<table x="200" y="100" width="550" height="400" />
 
 
 			</loadDocShowpanel>
-			<arriveYYDocShowPanel x="232" y="54" width="1080"
+			<arriveYYDocShowPanel x="232" y="54" width="848"
 				height="637">
 				<arriveYYDocShowPanelAddPanel x="232" y="54" width="1080" height="637">
 					<BUTTONS>
@@ -651,13 +651,13 @@
 				</arriveYYDocShowPanelAddPanel>
 					<addDoc x="550" y="560" width="115" height="40"
 						text="增加" type="rectangle" />
-					<search x="600" y="100" />
-					<datepicker x="100" y="45" width="250" height="50" />
+					<search x="300" y="0" />
+					<datepicker x="0" y="0" width="250" height="50" />
 					<table x="200" y="100" width="550" height="400" />
 				
 				
 				</arriveYYDocShowPanel>
-			<sendGoodDocShowPanel x="232" y="54" width="1080"
+			<sendGoodDocShowPanel x="232" y="54" width="848"
 				height="637">
 				<sendGoodDocShowPanelAddPanel x="232" y="54" width="1080" height="637">
 					<BUTTONS>
@@ -672,12 +672,12 @@
 				</sendGoodDocShowPanelAddPanel>
 					<addDoc x="550" y="560" width="115" height="40"
 						text="增加" type="rectangle" />
-					<search x="600" y="100" />
-					<datepicker x="100" y="45" width="250" height="50" />
+					<search x="300" y="0" />
+					<datepicker x="0" y="0" width="250" height="50" />
 					<table x="200" y="100" width="550" height="400" />
 
 			</sendGoodDocShowPanel>
-			<payDocShowPanel x="232" y="54" width="1080" height="637">
+			<payDocShowPanel x="232" y="54" width="848" height="637">
 				<payDocShowPanelAddPanel x="232" y="54" width="1080" height="637">
 					<BUTTONS>
 					<confirm x="550" y="560" width="115" height="40"
@@ -691,13 +691,13 @@
 				</payDocShowPanelAddPanel>
 					<addDoc x="550" y="560" width="115" height="40"
 						text="增加" type="rectangle" />
-					<search x="600" y="100" />
-					<datepicker x="100" y="45" width="250" height="50" />
+					<search x="300" y="0" />
+					<datepicker x="0" y="0" width="250" height="50" />
 					<table x="200" y="100" width="550" height="400" />
 
 
 			</payDocShowPanel>
-			<driverInfoManagePanel x="232" y="54" width="1080"
+			<driverInfoManagePanel x="232" y="54" width="848"
 				height="637">
 				<driverInfoManagePanelAddPanel x="232" y="54" width="1080" height="637">
 					<BUTTONS>
@@ -712,13 +712,13 @@
 				</driverInfoManagePanelAddPanel>
 					<addDoc x="550" y="560" width="115" height="40"
 						text="增加" type="rectangle" />
-					<search x="600" y="100" />
-					<datepicker x="100" y="45" width="250" height="50" />
+					<search x="300" y="0" />
+					<datepicker x="0" y="0" width="250" height="50" />
 					<table x="200" y="100" width="550" height="400" />
 
 
 			</driverInfoManagePanel>
-			<truckInfoManagePanel x="232" y="54" width="1080"
+			<truckInfoManagePanel x="232" y="54" width="848"
 				height="637">
 				<truckInfoManagePanelAddPanel x="232" y="54" width="1080" height="637">
 					<BUTTONS>
@@ -733,9 +733,9 @@
 				</truckInfoManagePanelAddPanel>
 					<addDoc x="550" y="560" width="115" height="40"
 						text="增加" type="rectangle" />
-					<search x="600" y="100" />
-					<datepicker x="100" y="45" width="250" height="50" />
-					<table x="200" y="100" width="550" height="400" />
+					<search x="300" y="0" />
+					<datepicker x="0" y="0" width="250" height="50" />
+					<table x="200" y="100" width="150" height="100" />
 
 
 			</truckInfoManagePanel>

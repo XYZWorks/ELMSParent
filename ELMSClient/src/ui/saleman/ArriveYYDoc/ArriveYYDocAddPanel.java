@@ -7,6 +7,7 @@ import org.dom4j.Element;
 
 
 
+
 /**
  * 接收单界面
  */
@@ -16,6 +17,7 @@ import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureLabel;
+import ui.tools.MyTextField;
 import ui.util.PanelController;
 /**
  * 接收单增加界面
@@ -38,6 +40,8 @@ public class ArriveYYDocAddPanel extends AddDocPanel{
 	private MyLabel transferDocID;
 	private MyLabel sendCIty;
 	private MyLabel goodState;
+	
+	private MyTextField instIDT;
 
 	public  ArriveYYDocAddPanel(Element config , JPanel changePanel, String checkDocPanelStr) {
 		super(config , changePanel , checkDocPanelStr);

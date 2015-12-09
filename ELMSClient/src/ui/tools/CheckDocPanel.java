@@ -53,6 +53,7 @@ public abstract class CheckDocPanel extends JPanel{
 	
 	public CheckDocPanel(Element config , JPanel changePanel , String checkDocName , String addDocName) {
 		super();
+		this.setLayout(null);
 		this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));;
 		this.changePanel = changePanel;
 		panelManager = (CardLayout) changePanel.getLayout();
@@ -99,8 +100,11 @@ public abstract class CheckDocPanel extends JPanel{
 	}
 	
 	private void addCommonComp(){
-		add(searchBox);add(datePicker);add(addDoc);
-		add(addDocPanel);add(messageTable);
+		add(searchBox);
+		add(datePicker);
+		add(addDoc);
+		add(addDocPanel);
+		add(messageTable);
 	}
 	
 	/**
