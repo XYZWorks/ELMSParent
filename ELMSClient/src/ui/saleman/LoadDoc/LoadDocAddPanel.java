@@ -7,7 +7,7 @@ import org.dom4j.Element;
 import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
  /** 
- * 
+ * 装车单增加界面
  * @author czq 
  * @version 2015年12月8日 下午8:27:23 
  */
