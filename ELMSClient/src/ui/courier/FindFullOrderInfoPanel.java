@@ -2,24 +2,21 @@ package ui.courier;
 
 import org.dom4j.Element;
 
-import ui.tools.MyComboBox;
+import blservice.orderblservice.Orderblservice;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
-import ui.tools.MyPanel;
-import ui.tools.MyPanelWithScroller;
-import ui.tools.MyPictureButton;
-import ui.tools.MyPictureLabel;
-import ui.tools.MyRadioButton;
-import ui.tools.MyTextField;
 import ui.tools.MyLabel;
+import ui.tools.MyPanelWithScroller;
+import ui.tools.MyPictureLabel;
 import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
-import ui.util.PanelController;
 
 @SuppressWarnings("serial")
 public class FindFullOrderInfoPanel extends MyPanelWithScroller{
 	//private MyPictureButton returnToPrevious;
 	
+	//bl
+	private Orderblservice orderblservice;
 	
 	//白色矩形panel
 	private MyWhitePanel senderInfoPanel;
@@ -94,8 +91,10 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller{
 	
 	
 
-	public FindFullOrderInfoPanel(Element config) {
+	public FindFullOrderInfoPanel(Element config,Orderblservice orderblservice) {
 		super(config);
+		this.orderblservice=orderblservice;
+		
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));

@@ -8,6 +8,7 @@ import util.City;
 import util.DocState;
 import util.DocType;
 import util.MyDate;
+import util.TransferWay;
 /**
  * 出库单
  * @author ymc
@@ -40,7 +41,7 @@ public class OutStoreDocPO extends DocPO implements Serializable{
 	/**
 	 * 装运方式
 	 */
-	private String shipWay;
+	private TransferWay shipWay;
 	
 	
 	
@@ -52,7 +53,7 @@ public class OutStoreDocPO extends DocPO implements Serializable{
 	
 	public OutStoreDocPO(String iD, DocType type, MyDate date, DocState state,
 			ArrayList<String> orderPOs, City loc, String transferDoc,
-			String shipWay) {
+			TransferWay shipWay) {
 		super(iD, type, date, state);
 		this.orders = orderPOs;
 		this.loc = loc;
@@ -79,10 +80,10 @@ public class OutStoreDocPO extends DocPO implements Serializable{
 	public void setTransferDoc(String transferDoc) {
 		this.transferDoc = transferDoc;
 	}
-	public String getShipWay() {
+	public TransferWay getShipWay() {
 		return shipWay;
 	}
-	public void setShipWay(String shipWay) {
+	public void setShipWay(TransferWay shipWay) {
 		this.shipWay = shipWay;
 	}
 }

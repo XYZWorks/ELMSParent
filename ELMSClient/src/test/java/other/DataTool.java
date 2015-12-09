@@ -10,6 +10,7 @@ import util.DocType;
 import util.GoodsState;
 import util.InstType;
 import util.StaffType;
+import util.TransferWay;
 import util.WageStrategy;
 import vo.DocVO;
 import vo.DTManage.CarVO;
@@ -160,9 +161,9 @@ public class DataTool {
 			}
 			break;
 		case outStoreDoc:
-			al.add(new OutStoreDocVO("CKD1511120000001", d2, orderID, City.BEIJING,"ZZD1511120000001","flight"));
-			al.add(new OutStoreDocVO("CKD1511120000002", d2, orderID, City.GUANGZHOU,"ZZD1511120000002","flight"));
-			al.add(new OutStoreDocVO("CKD1511140000001", d4, orderID, City.SHANGHAI,"ZZD1511140000001","train"));
+			al.add(new OutStoreDocVO("CKD1511120000001", d2, orderID, City.BEIJING,"ZZD1511120000001",TransferWay.plane));
+			al.add(new OutStoreDocVO("CKD1511120000002", d2, orderID, City.GUANGZHOU,"ZZD1511120000002",TransferWay.train));
+			al.add(new OutStoreDocVO("CKD1511140000001", d4, orderID, City.SHANGHAI,"ZZD1511140000001",TransferWay.car));
 			break;
 		case sendGoodDoc:
 			al.add(new SendGoodDocVO("PSD1511120000001", d2, "moxigan","3213640812",City.BEIJING));

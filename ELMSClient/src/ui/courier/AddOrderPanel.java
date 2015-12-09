@@ -7,6 +7,8 @@ import javax.swing.ButtonGroup;
 
 import org.dom4j.Element;
 
+import blservice.orderblservice.Orderblservice;
+import blservice.strategyblservice.StrategyblService;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
@@ -29,6 +31,9 @@ import ui.util.ConfirmListener;
 @SuppressWarnings("serial")
 
 public class AddOrderPanel extends MyPanelWithScroller {
+	//bl
+	private Orderblservice orderblservice;
+	private StrategyblService strategyblService;
 
 	// 白色矩形panel
 	private MyWhitePanel senderInfoPanel;
@@ -59,8 +64,11 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	// 货物信息
 	private MyPictureLabel goodsInfo;
 	private MyLabel goodNameLabel;
+	
 	private MyLabel goodWeightLabel;
+	
 	private MyLabel goodNumLabel;
+	
 	private MyLabel goodVolumLabel;// 体积
 	private MyLabel goodPackLabel;// 包装形式
 	private MyLabel orderFormLabel;// 快递形式
@@ -83,10 +91,17 @@ public class AddOrderPanel extends MyPanelWithScroller {
 
 	private MyTextField goodNameText;
 	private MyTextField goodNumText;
+	
 	private MyTextField goodWeightText;
+	private MyLabel KG;
+	
 	private MyTextField goodLongText;
 	private MyTextField goodWidthText;
 	private MyTextField goodHeightText;
+	
+	private MyLabel Long;
+	private MyLabel Width;
+	private MyLabel Height;
 
 	/*
 	 * 单选框
@@ -124,8 +139,11 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
 
-	public AddOrderPanel(Element config) {
+	public AddOrderPanel(Element config,Orderblservice orderblservice,StrategyblService strategyblService) {
 		super(config);
+		this.orderblservice=orderblservice;
+		this.strategyblService=strategyblService;
+		
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
@@ -199,7 +217,13 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		// 货物信息
 		goodsInfo = new MyPictureLabel(e.element("goodsInfo"));
 		goodNameLabel = new MyLabel(e.element("goodNameLabel"));
+		
 		goodWeightLabel = new MyLabel(e.element("goodWeightLabel"));
+		KG=new MyLabel(e.element("KG"));
+		Long=new MyLabel(e.element("Long"));
+		Width=new MyLabel(e.element("Width"));
+		Height=new MyLabel(e.element("Height"));
+		
 		goodNumLabel = new MyLabel(e.element("goodNumLabel"));
 		goodVolumLabel = new MyLabel(e.element("goodVolumLabel"));
 		goodPackLabel = new MyLabel(e.element("goodPackLabel"));
@@ -301,10 +325,15 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		goodInfoPanel.add(goodNameText);
 		goodInfoPanel.add(goodNumText);
 		goodInfoPanel.add(goodWeightText);
+		goodInfoPanel.add(KG);
 		goodInfoPanel.add(goodLongText);
 		goodInfoPanel.add(goodWidthText);
 		goodInfoPanel.add(goodHeightText);
-
+		goodInfoPanel.add(Long);
+		goodInfoPanel.add(Width);
+		goodInfoPanel.add(Height);
+		
+		
 		goodpackGroup.add(bag);
 		goodpackGroup.add(carton);
 		goodpackGroup.add(woodCase);
@@ -336,7 +365,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	
 	@Override
 	protected void addListener() {
-
+       //确认提交订单的监听
 		confirm.addMouseListener(new ConfirmListener(confirm) {
 
 			@Override
@@ -349,6 +378,13 @@ public class AddOrderPanel extends MyPanelWithScroller {
 			protected boolean checkDataValid() {
 				// TODO 检查必填项目是否正确
 
+				//confirm后可以显示 预计时间、报价
+				
+				
+				
+				//提交时 检查各项的名称
+				
+				
 				return true;
 			}
 
@@ -375,8 +411,14 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		
 		addSenderCityComboxListener(senderCity);
 		addReceiverCityComboxListener(receiverCity);
+		
+		
 	}
 
+	/**
+	 * 收件人的城市选择 combobox的监听 控制城市对应区域的跳转
+	 * @param city
+	 */
 	public void addSenderCityComboxListener(final MyComboBox city) {
 		city.addItemListener(new ItemListener() {
 			@Override
@@ -393,7 +435,6 @@ public class AddOrderPanel extends MyPanelWithScroller {
 						// 南京
 						case 1:
 							setChoseComboboxVisible(senderNanJingArea);
-							break;
 						// 北京
 						case 2:
 							setChoseComboboxVisible(senderBeiJingArea);
@@ -412,7 +453,10 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		});	
 	}
 
-	
+	/**
+	 * 寄件人的城市选择 combobox的监听 控制城市对应区域的跳转
+	 * @param city
+	 */
 	public void addReceiverCityComboxListener(final MyComboBox city) {
 		city.addItemListener(new ItemListener() {
 			@Override
@@ -450,7 +494,9 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	}
 
 
-
+	/**
+	 * 设置 收件人 所有不同城市区域的选择框不可见
+	 */
 	protected void setAllSenderComboboxUnvisible(){
 			senderArea.setVisible(false);
 			senderNanJingArea.setVisible(false);
@@ -458,6 +504,10 @@ public class AddOrderPanel extends MyPanelWithScroller {
 			senderGuangZhouArea.setVisible(false);
 			senderShangHaiArea.setVisible(false);
 	}
+	
+	/**
+	 * 设置 收件人 所有不同城市区域的选择框不可见
+	 */
 	protected void setAllReceiverComboboxUnvisible(){
 			receiverArea.setVisible(false);
 			receiverNanJingArea.setVisible(false);
@@ -466,12 +516,17 @@ public class AddOrderPanel extends MyPanelWithScroller {
 			receiverShangHaiArea.setVisible(false);
 	}
 
-	
+	/**
+	 * 设置 选择的选择框可见
+	 * @param area
+	 */
 	protected void setChoseComboboxVisible(MyComboBox area){
 		area.setVisible(true);
 	}
 	
-
+	/**
+	 * 清空文本框
+	 */
 	public void setAllTextFieldEmpty() {
 		senderNameText.setText("");
 		senderPhoneText.setText("");

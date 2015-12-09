@@ -57,6 +57,7 @@ public class OutStoreDocImpl implements OutStoreDocService {
 
 	public ResultMessage generate(OutStoreDocVO vo) {
 		OutStoreDocPO po = (OutStoreDocPO) VOPOchange.VOtoPO(vo);
+//		System.out.println(po.getID()+po.getShipWay().name());
 		try {
 			return storeData.addOut(po);
 		} catch (RemoteException e) {

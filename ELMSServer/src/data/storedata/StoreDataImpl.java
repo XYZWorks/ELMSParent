@@ -12,6 +12,7 @@ import util.DocState;
 import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
+import util.TransferWay;
 import dataSuper.DataSuperClass;
 import ds.storedataservice.StoreDataService;
  /** 
@@ -69,7 +70,7 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService{
 
 	public ResultMessage addOut(OutStoreDocPO po) throws RemoteException {
 		
-		return addToSQL(outstoreDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , helper.tranFromArrayToString(po.getOrderPOs()) , po.getLoc().name() , po.getTransferDoc() , po.getShipWay());
+		return addToSQL(outstoreDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , helper.tranFromArrayToString(po.getOrderPOs()) , po.getLoc().name() , po.getTransferDoc() , po.getShipWay().name());
 	}
 	public ArrayList<InStoreDocPO> getIn() throws RemoteException {
 		ArrayList<InStoreDocPO> pos = new ArrayList<InStoreDocPO>(40);
@@ -93,7 +94,7 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService{
 			preState =conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while(result.next()){
-				pos.add(new OutStoreDocPO(result.getString(1), DocType.valueOf(result.getString(2)) ,MyDate.getDate(result.getString(3)),DocState.valueOf(result.getString(4)), helper.tranFromStringToArrayList(result.getString(5)), City.valueOf(result.getString(6)), result.getString(7) ,result.getString(8)));
+				pos.add(new OutStoreDocPO(result.getString(1), DocType.valueOf(result.getString(2)) ,MyDate.getDate(result.getString(3)),DocState.valueOf(result.getString(4)), helper.tranFromStringToArrayList(result.getString(5)), City.valueOf(result.getString(6)), result.getString(7) ,TransferWay.valueOf(result.getString(8))));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -171,7 +172,7 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService{
 		for (int i = 0; i < outstores.length; i++) {
 			findMes = findFromSQL(outstoreDocTable, outstores[i]);
 			if(findMes!= null){
-				pos.add(new OutStoreDocPO(findMes.get(0), DocType.valueOf(findMes.get(1)) ,MyDate.getDate(findMes.get(2)),DocState.valueOf(findMes.get(3)), helper.tranFromStringToArrayList(findMes.get(4)), City.valueOf(findMes.get(5)), findMes.get(6) ,findMes.get(7)));
+				pos.add(new OutStoreDocPO(findMes.get(0), DocType.valueOf(findMes.get(1)) ,MyDate.getDate(findMes.get(2)),DocState.valueOf(findMes.get(3)), helper.tranFromStringToArrayList(findMes.get(4)), City.valueOf(findMes.get(5)), findMes.get(6) ,TransferWay.valueOf(findMes.get(7))));
 				
 			}
 		}
