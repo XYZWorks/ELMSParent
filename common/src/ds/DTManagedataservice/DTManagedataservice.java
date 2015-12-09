@@ -14,6 +14,19 @@ import ds.DataserviceParent;
  *
  */
 public interface DTManagedataservice extends DataserviceParent{
+	
+	/**
+	 * 获得所有车辆信息
+	 * @return
+	 */
+	public ArrayList<CarPO> getAllCars()  throws RemoteException;
+	/**
+	 * 获得所有司机信息
+	 * @return
+	 */
+	public ArrayList<DriverPO> getAllDrivers()  throws RemoteException;
+	
+	
 	/**
 	 * 得到司机信息PO
 	 * @param id

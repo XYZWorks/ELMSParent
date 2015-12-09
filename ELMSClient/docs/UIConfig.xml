@@ -633,7 +633,7 @@
 					<search x="300" y="0" />
 					<datepicker x="0" y="0" width="250" height="50" />
 					<table x="200" y="100" width="550" height="400" />
-
+<searchButton x="700" y="0" width="115" height="40" text="搜索" type="rectangle"/>
 
 			</loadDocShowpanel>
 			<arriveYYDocShowPanel x="232" y="54" width="848"
@@ -655,7 +655,7 @@
 					<datepicker x="0" y="0" width="250" height="50" />
 					<table x="200" y="100" width="550" height="400" />
 				
-				
+				<searchButton x="700" y="0" width="115" height="40" text="搜索" type="rectangle"/>
 				</arriveYYDocShowPanel>
 			<sendGoodDocShowPanel x="232" y="54" width="848"
 				height="637">
@@ -675,7 +675,7 @@
 					<search x="300" y="0" />
 					<datepicker x="0" y="0" width="250" height="50" />
 					<table x="200" y="100" width="550" height="400" />
-
+<searchButton x="700" y="0" width="115" height="40" text="搜索" type="rectangle"/>
 			</sendGoodDocShowPanel>
 			<payDocShowPanel x="232" y="54" width="848" height="637">
 				<payDocShowPanelAddPanel x="232" y="54" width="1080" height="637">
@@ -694,7 +694,7 @@
 					<search x="300" y="0" />
 					<datepicker x="0" y="0" width="250" height="50" />
 					<table x="200" y="100" width="550" height="400" />
-
+<searchButton x="700" y="0" width="115" height="40" text="搜索" type="rectangle"/>
 
 			</payDocShowPanel>
 			<driverInfoManagePanel x="232" y="54" width="848"
@@ -715,7 +715,7 @@
 					<search x="300" y="0" />
 					<datepicker x="0" y="0" width="250" height="50" />
 					<table x="200" y="100" width="550" height="400" />
-
+					<searchButton x="700" y="0" width="115" height="40" text="搜索" type="rectangle"/>
 
 			</driverInfoManagePanel>
 			<truckInfoManagePanel x="232" y="54" width="848"
@@ -729,15 +729,30 @@
 					<back x="625" y="560" width="115"
 						height="40" text="返回" type="confirm" />
 					</BUTTONS>
-				
+					<LABELS>
+					<id x="50" y="50" width="115" height="40"
+						text="ID" type="rectangle" />
+					<plateNum x="50" y="150" width="115" height="40"
+						text="ID" type="rectangle" />
+						<useYear x="50" y="250" width="115" height="40"
+						text="ID" type="rectangle" />
+					</LABELS>
+					<TEXTFIELDS>
+						<id x="250" y="50" width="115" height="40"
+						text="ID" type="rectangle" />
+						<plateNum x="250" y="150" width="115" height="40"
+						text="ID" type="rectangle" />
+						<useYear x="250" y="250" width="115" height="40"
+						text="ID" type="rectangle" />
+					</TEXTFIELDS>
 				</truckInfoManagePanelAddPanel>
 					<addDoc x="550" y="560" width="115" height="40"
 						text="增加" type="rectangle" />
 					<search x="300" y="0" />
 					<datepicker x="0" y="0" width="250" height="50" />
-					<table x="200" y="100" width="150" height="100" />
-
-
+					<table x="200" y="225" width="150" height="100" column = "ID 车牌号 使用年份"/>
+					<searchWay x="200" y="100" width="200" height="100" strings = "（查找方式） 按ID查找 按車牌號查找"/>
+					<searchButton x="700" y="0" width="115" height="40" text="搜索" type="rectangle"/>
 			</truckInfoManagePanel>
 		</Salesman>
 

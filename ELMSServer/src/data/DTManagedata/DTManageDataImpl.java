@@ -115,6 +115,43 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 		return delFromSQL(driverTable, po.getID());
 	}
 
+	@Override
+	public ArrayList<CarPO> getAllCars()  throws RemoteException{
+		ArrayList<CarPO> pos = new ArrayList<CarPO>(50);
+		try {
+			sql = "SELECT * FROM `" + driverTable ;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while (result.next()) {
+				pos.add(new CarPO(result.getString(1), result.getString(2), Integer.parseInt(result.getString(3))));
+			}
+			return (pos.isEmpty())?null:pos;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return null;
+	}
+
+	@Override
+	public ArrayList<DriverPO> getAllDrivers() throws RemoteException {
+		ArrayList<DriverPO> pos = new ArrayList<DriverPO>(50);
+		try {
+			sql = "SELECT * FROM `" + driverTable ;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while (result.next()) {
+				pos.add(new DriverPO(result.getString(1), result.getString(2), MyDate.getDate(result.getString(3)), result.getString(4),result.getString(5) , result.getString(6), helper.changeFromInt(result.getString(7)), Integer.parseInt(result.getString(8))));
+			}
+			return (pos.isEmpty())?null:pos;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return null;	}
+
 	
 
 }

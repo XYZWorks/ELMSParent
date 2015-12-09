@@ -1,8 +1,9 @@
 package blservice.DTManageblservice;
 
 import java.util.ArrayList;
-import util.MyDate;
 
+import test.java.other.DataTool;
+import util.MyDate;
 import util.CarList;
 import util.DriverList;
 import util.ResultMessage;
@@ -78,6 +79,18 @@ public class DTManageblservice_Stub implements DTManageblservice{
 	public ArrayList<String> getPlateNumber(String InstID) {
 		// TODO 自动生成的方法存根
 		return null;
+	}
+
+	@Override
+	public ArrayList<CarVO> getAllCars() {
+		
+		return DataTool.getcarlist();
+	}
+
+	@Override
+	public ArrayList<DriverVO> getAllDrivers() {
+		// TODO Auto-generated method stub
+		return DataTool.getDriverList();
 	}
 
 }

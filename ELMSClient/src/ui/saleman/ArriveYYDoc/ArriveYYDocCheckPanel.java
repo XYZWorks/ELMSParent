@@ -8,7 +8,7 @@ import blservice.transportblservice.Transportblservice;
 import ui.tools.CheckDocPanel;
 import ui.tools.MyDatePicker;
 import ui.tools.MyPictureButton;
-import ui.tools.MySerachBox;
+import ui.tools.MySearchBox;
 /**
  * 接收单查看界面
  * @author czq

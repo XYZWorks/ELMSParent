@@ -4,6 +4,7 @@ import org.dom4j.Element;
 
 import bl.BusinessLogicDataFactory;
 import blservice.DTManageblservice.DTManageblservice;
+import blservice.DTManageblservice.DTManageblservice_Stub;
 import blservice.transportblservice.Transportblservice;
 import ui.saleman.ArriveYYDoc.ArriveYYDocCheckPanel;
 import ui.saleman.CarManage.CarManageCheckPanel;
@@ -71,7 +72,8 @@ public class SaleManController extends PanelController {
 	@Override
 	protected void initialBL() {
 		transportblservice = BusinessLogicDataFactory.getFactory().getTransportblservice();
-		dtManageblservice = BusinessLogicDataFactory.getFactory().getDTManageBusinessLogic();
+//		dtManageblservice = BusinessLogicDataFactory.getFactory().getDTManageBusinessLogic();
+		dtManageblservice = new DTManageblservice_Stub();
 	}
 	
 	

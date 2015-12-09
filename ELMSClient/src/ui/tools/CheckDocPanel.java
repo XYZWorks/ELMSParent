@@ -21,7 +21,7 @@ public abstract class CheckDocPanel extends JPanel{
 	/**
 	 * 搜索框
 	 */
-	protected MySerachBox searchBox;
+	protected MySearchBox searchBox;
 	/**
 	 * 日期选择器
 	 */
@@ -34,6 +34,10 @@ public abstract class CheckDocPanel extends JPanel{
 	 * 信息表格
 	 */
 	protected MyTablePanel messageTable;
+	/**
+	 * 一键搜索
+	 */
+	protected MyPictureButton search;
 	
 	protected String checkDocPanelStr;
 	protected String addDocPanelStr;
@@ -41,7 +45,7 @@ public abstract class CheckDocPanel extends JPanel{
 	protected final static String tableStr = "table";
 	protected final static String datePickerStr = "datepicker";
 	protected final static String addDocButtonStr = "addDoc";
-	
+	protected final static String searchButtonStr = "searchButton";
 	
 	/**
 	 * 增加订单的界面
@@ -72,6 +76,14 @@ public abstract class CheckDocPanel extends JPanel{
 	}
 	
 	
+	/**
+	 * 由于表格放在父类初始化，内容需要BL，故获得BL后需要初始化表格内容
+	 */
+	protected void initTableContent(){
+		messageTable.myInit();
+	}
+	
+	
 	protected final void jumpToADD() {
 		panelManager.show(changePanel, addDocPanelStr);
 	}
@@ -92,10 +104,10 @@ public abstract class CheckDocPanel extends JPanel{
 	 * @param e
 	 */
 	private void initialCommonComp(Element e){
-		searchBox = new MySerachBox(e.element(searchBoxStr));
+		searchBox = new MySearchBox(e.element(searchBoxStr));
 		datePicker = new MyDatePicker(e.element(datePickerStr));
 		addDoc = new MyPictureButton(e.element(addDocButtonStr));
-		
+		search = new MyPictureButton(e.element(searchButtonStr));
 		
 	}
 	
@@ -104,7 +116,7 @@ public abstract class CheckDocPanel extends JPanel{
 		add(datePicker);
 		add(addDoc);
 		add(addDocPanel);
-		add(messageTable);
+		add(messageTable);add(search);
 	}
 	
 	/**

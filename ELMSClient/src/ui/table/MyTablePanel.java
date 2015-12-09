@@ -169,7 +169,7 @@ public abstract class MyTablePanel extends JPanel {
 	/**
 	 * 若不在构造器中初始化列、表数据，想要推迟初始化可以调用此方法
 	 */
-	protected void myInit() {
+	public void myInit() {
 		initialTitleAndColumn(config);
 		initTable();
 		initScrollerPane();
