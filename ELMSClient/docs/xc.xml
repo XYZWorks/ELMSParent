@@ -77,7 +77,7 @@
 						clicked="courier//InputReceive-clicked" />
 				</BUTTONS>
 			</mainWindow>
-			<addOrderPanel x="0" y="0" width="848" height="900">
+			<addOrderPanel x="0" y="0" width="820" height="820">
 				<WHITEPANELS>
 					<senderInfoPanel x="49" y="114" width="365" height="295" />
 					<receiverInfoPanel x="434" y="114" width="365"
@@ -170,9 +170,9 @@
 					<goodHeightText x="272" y="100" width="85" height="32" />
 				</TEXTFIELDS>
 
-				<DatePicker x="0" y="0" width="400" height="50">
-					<field x="0" y="0" width="350" height="50" />
-					<button x="350" y="0" width="50" height="50" type="rectangle" />
+				<DatePicker x="596" y="0" width="200" height="40">
+					<field x="596" y="0" width="150" height="40" />
+					<button x="746" y="0" width="50" height="40" type="rectangle" />
 				</DatePicker>
 
 				<bag text="快递袋" x="113" y="149" width="85" height="18" />

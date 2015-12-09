@@ -331,25 +331,25 @@
 			<FinanceApprovalPanel x="232" y="54" width="1080"
 				height="637">
 				<BUTTONS>
-					<confirm x="500" y="560" width="115" height="40" text="确认"
-						type="rectangle" />
-					<cancel x="650" y="560" width="115" height="40" text="取消"
-						type="rectangle" />
+					<confirm x="599" y="560" width="89" height="37" text="确认"
+						type="confirm" />
+					<cancel x="707" y="560" width="89" height="37" text="取消"
+						type="cancel" />
 				</BUTTONS>
 				<TEXTFIELDS>
-					<name x="100" y="160" width="115" height="40" />
-					<money x="250" y="160" width="115" height="40" />
-					<company x="100" y="160" width="115" height="40" />
+					<name x="200" y="177" width="276" height="40" />
+					<money x="200" y="269" width="276" height="40" />
+					<company x="200" y="223" width="276" height="40" />
 				</TEXTFIELDS>
 				<LABELS>
-					<money x="500" y="560" width="115" height="40" />
-					<company x="500" y="560" width="115" height="40" />
-					<time x="500" y="560" width="115" height="40" />
-					<person x="500" y="560" width="115" height="40" />
+					<money x="70" y="269" width="115" height="40" />
+					<company x="70" y="223" width="115" height="40" />
+					<time x="70" y="131" width="115" height="40" />
+					<person x="70" y="177" width="115" height="40" />
 				</LABELS>
-				<date x="100" y="100" width="200" height="50">
-					<field x="0" y="0" width="150" height="50" />
-					<button x="150" y="0" width="150" height="50" />
+				<date x="596" y="0" width="200" height="40">
+					<field x="606" y="0" width="150" height="40" />
+					<button x="756" y="0" width="40" height="40" type="rectangle" />
 				</date>
 			</FinanceApprovalPanel>
 			<BulidBillPanel x="232" y="54" width="1080" height="637">
@@ -371,9 +371,9 @@
 				<TEXTFIELDS>
 					<name x="100" y="160" width="115" height="40" />
 				</TEXTFIELDS>
-				<datePicker x="650" y="170" width="200" height="50">
-					<field x="0" y="0" width="150" height="50" />
-					<button x="250" y="0" width="50" height="50" />
+				<datePicker x="596" y="0" width="200" height="50">
+					<field x="596" y="0" width="150" height="50" />
+					<button x="746" y="0" width="50" height="50" type="rectangle" />
 				</datePicker>
 				<table x="100" y="350" width="600" height="250"
 					column="机构ID 所在城市 类型 人员数目 车辆数目" />
@@ -512,9 +512,9 @@
 				</LABELS>
 				<type x="500" y="560" width="115" height="40" strings="1 2" />
 				<table x="500" y="560" width="115" height="40" columm="1 2" />
-				<datepicker x="700" y="50" width="300" height="50">
-					<field x="0" y="0" width="250" height="50" />
-					<button x="250" y="0" width="50" height="50" />
+				<datepicker x="596" y="0" width="200" height="50">
+					<field x="596" y="0" width="150" height="50" />
+					<button x="746" y="0" width="50" height="50" type="rectangle" />
 				</datepicker>
 
 			</BulidPayPanel>
