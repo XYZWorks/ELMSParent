@@ -8,11 +8,13 @@ import javax.swing.JOptionPane;
 
 import org.dom4j.Element;
 
+import ui.common.CommonFrame;
 import ui.config.ParseXML;
 import ui.config.UserfulMethod;
 import ui.inital.mainFrame;
 import ui.tools.MyButton;
 import ui.tools.MyFrame;
+import ui.tools.MyLabel;
 import ui.tools.MyOptionPane;
 import ui.tools.MyPasswordField;
 import ui.tools.MyTextField;
@@ -50,6 +52,9 @@ public class LoginFrame extends MyFrame{
 	
 	private Element config;
 	
+	//普通用户查询订单
+	private MyLabel findOrderInfo;
+	
 	public LoginFrame(Element config) {
 		super(config);
 		this.config = config;
@@ -59,6 +64,7 @@ public class LoginFrame extends MyFrame{
 
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextField(config.element(CompomentType.TEXTFIELDS.name()));
+		initLabel(config.element(CompomentType.LABELS.name()));
 		
 		initOtherCom(config);
 		config.attributeValue("width");
@@ -73,6 +79,10 @@ public class LoginFrame extends MyFrame{
 		this.setVisible(true);
 	}
 	
+	private void initLabel(Element config) {
+		findOrderInfo=new MyLabel(config.element("findOrderInfo"));
+	}
+
 	private void initButtons(Element config){
 		login = new MyButton(config.element("login"));
 		checkOrder = new MyButton(config.element("checkOrder"));
@@ -101,7 +111,7 @@ public class LoginFrame extends MyFrame{
 		mainpanel.add(login);
 		mainpanel.add(closeButton);
 //		mainpanel.add(rememberMe);
-
+		mainpanel.add(findOrderInfo);
 		
 		
 	}
@@ -110,16 +120,16 @@ public class LoginFrame extends MyFrame{
 		login.addMouseListener(new MyLoginListener());		
 		closeButton.addMouseListener(new MyCloseListener());
 		checkOrder.addMouseListener(new MyCheckOrderListener());
-		
+		findOrderInfo.addMouseListener(new findOrderListener());
 	}
 
-	
-	
-	
-	
-	
-	
-	
+class findOrderListener extends MouseAdapter{
+	@Override
+	 public void mouseClicked(MouseEvent e) {
+	 //单独开启 普通查询人员的 frame
+		CommonFrame commonFrame=new CommonFrame(config.element("commonFrame"));
+	}
+}
 	
 	
 	

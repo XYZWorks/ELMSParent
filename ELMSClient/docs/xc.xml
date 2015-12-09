@@ -7,13 +7,29 @@
 			<checkOrder text="" x="213" y="316" width="72" height="17" />
 		</BUTTONS>
 		<LABLES>
+			<findOrderInfo text="" x="209" y="315" width="73"
+				height="18" />
 		</LABLES>
 		<TEXTFIELDS>
 			<userName x="179" y="185" width="174" height="31" />
 		</TEXTFIELDS>
 		<rememberMe x="284" y="287" width="15" height="15" />
 		<password x="179" y="241" width="174" height="31" />
+
+		<commonFrame x="0" y="0" width="1080" height="720" />
 	</loginframe>
+
+	<commonFrame x="0" y="0" width="1080" height="720">
+		<BUTTONS>
+			<exit text="" x="1027" y="0" width="53" height="53" normal="element//close"
+				enter="element//close-enter" clicked="element//close-clicked" />
+			<min text="" x="974" y="0" width="53" height="53" normal="element//min"
+				enter="element//min-enter" clicked="element//min-clicked" />
+		</BUTTONS>
+		<LABELS>
+		
+		</LABELS>
+	</commonFrame>
 
 	<initialpanel x="0" y="0" width="1080" height="720">
 		<BUTTONS>
@@ -326,15 +342,16 @@
 						type="confirm" />
 					<cancel text="取消" x="599" y="695" width="89" height="37"
 						type="cancel" />
-				
+
 				</BUTTONS>
 				<LABELS>
 				</LABELS>
 				<TEXTFIELDS>
 				</TEXTFIELDS>
-				<inputReceiveTable x="232" y="54" width="1080" height="637" column="订单号 收件地址 收件人 实际收件人 收件时间"/>
+				<inputReceiveTable x="232" y="54" width="1080"
+					height="637" column="订单号 收件地址 收件人 实际收件人 收件时间" />
 
-	</inputReceiveInfoPanel>
+			</inputReceiveInfoPanel>
 
 		</CourierManager>
 	</initialpanel>

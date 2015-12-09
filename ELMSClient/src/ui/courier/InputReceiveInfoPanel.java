@@ -96,6 +96,12 @@ public class InputReceiveInfoPanel extends MyPanel{
 			@Override
 			protected void reInitial() {
 			}
+
+			@Override
+			protected void updateMes() {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 
 	}

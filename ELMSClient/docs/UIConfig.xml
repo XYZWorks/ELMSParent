@@ -7,6 +7,8 @@
 			<checkOrder text="" x="213" y="316" width="72" height="17" />
 		</BUTTONS>
 		<LABELS>
+			<findOrderInfo text="" x="209" y="315" width="73"
+				height="18" />
 		</LABELS>
 		<TEXTFIELDS>
 			<userName x="179" y="185" width="174" height="31" />
@@ -14,8 +16,22 @@
 		<rememberMe x="284" y="287" width="15" height="15" />
 		<password x="179" y="241" width="174" height="31" />
 
-
+		<commonFrame x="0" y="0" width="1080" height="720" />
 	</loginframe>
+
+	<commonFrame x="0" y="0" width="1080" height="720">
+		<BUTTONS>
+
+			<exit text="" x="1027" y="0" width="53" height="53" normal="element//close"
+				enter="element//close-enter" clicked="element//close-clicked" />
+			<min text="" x="974" y="0" width="53" height="53" normal="element//min"
+				enter="element//min-enter" clicked="element//min-clicked" />
+		</BUTTONS>
+		<LABELS>
+		
+		</LABELS>
+	</commonFrame>
+
 	<initialpanel x="0" y="0" width="1080" height="720">
 		<BUTTONS>
 			<exit text="" x="1027" y="0" width="53" height="53" normal="element//close"
@@ -342,10 +358,14 @@
 					<company x="345" y="341" width="276" height="40" />
 				</TEXTFIELDS>
 				<LABELS>
-					<money x="200" y="201" width="115" height="40" text="收款金额" type="rectangle"/>
-					<company x="200" y="341" width="115" height="40" text="收款方" type="rectangle"/>
-					<time x="200" y="131" width="115" height="40" text="收款时间" type="rectangle"/>
-					<person x="200" y="271" width="115" height="40" text="收款人" type="rectangle"/>
+					<money x="200" y="201" width="115" height="40" text="收款金额"
+						type="rectangle" />
+					<company x="200" y="341" width="115" height="40" text="收款方"
+						type="rectangle" />
+					<time x="200" y="131" width="115" height="40" text="收款时间"
+						type="rectangle" />
+					<person x="200" y="271" width="115" height="40" text="收款人"
+						type="rectangle" />
 				</LABELS>
 				<date x="345" y="131" width="276" height="40">
 					<field x="345" y="131" width="236" height="40" />
@@ -615,144 +635,148 @@
 						normal="saleman//PayDoc" enter="saleman//PayDoc-enter" clicked="saleman//PayDoc-clicked" />
 				</BUTTONS>
 			</mainWindow>
-			<loadDocShowpanel x="232" y="54" width="848"
-				height="637">
-				<loadDocShowpanelAddPanel x="232" y="54" width="1080" height="637">
+			<loadDocShowpanel x="232" y="54" width="848" height="637">
+				<loadDocShowpanelAddPanel x="232" y="54"
+					width="1080" height="637">
 					<BUTTONS>
-					<confirm x="550" y="560" width="115" height="40"
-						text="确认" type="rectangle" />
-					<cancel x="700" y="560" width="115" height="40"
-						text="取消" type="cancel" />
-					<back x="625" y="560" width="115"
-						height="40" text="返回" type="confirm" />
+						<confirm x="550" y="560" width="115" height="40" text="确认"
+							type="rectangle" />
+						<cancel x="700" y="560" width="115" height="40" text="取消"
+							type="cancel" />
+						<back x="625" y="560" width="115" height="40" text="返回" type="confirm" />
 					</BUTTONS>
-				
+
 				</loadDocShowpanelAddPanel>
-					<addDoc x="550" y="560" width="115" height="40"
-						text="增加" type="rectangle" />
-					<search x="300" y="0" />
-					<datepicker x="0" y="0" width="250" height="50" />
-					<table x="200" y="100" width="550" height="400" />
-<searchButton x="700" y="0" width="115" height="40" text="搜索" type="rectangle"/>
+				<addDoc x="550" y="560" width="115" height="40" text="增加"
+					type="rectangle" />
+				<search x="300" y="0" />
+				<datepicker x="0" y="0" width="250" height="50" />
+				<table x="200" y="100" width="550" height="400" />
+				<searchButton x="700" y="0" width="115" height="40"
+					text="搜索" type="rectangle" />
 
 			</loadDocShowpanel>
 			<arriveYYDocShowPanel x="232" y="54" width="848"
 				height="637">
-				<arriveYYDocShowPanelAddPanel x="232" y="54" width="1080" height="637">
+				<arriveYYDocShowPanelAddPanel x="232"
+					y="54" width="1080" height="637">
 					<BUTTONS>
-					<confirm x="550" y="560" width="115" height="40"
-						text="确认" type="rectangle" />
-					<cancel x="700" y="560" width="115" height="40"
-						text="取消" type="cancel" />
-					<back x="625" y="560" width="115"
-						height="40" text="返回" type="confirm" />
+						<confirm x="550" y="560" width="115" height="40" text="确认"
+							type="rectangle" />
+						<cancel x="700" y="560" width="115" height="40" text="取消"
+							type="cancel" />
+						<back x="625" y="560" width="115" height="40" text="返回" type="confirm" />
 					</BUTTONS>
-				
+
 				</arriveYYDocShowPanelAddPanel>
-					<addDoc x="550" y="560" width="115" height="40"
-						text="增加" type="rectangle" />
-					<search x="300" y="0" />
-					<datepicker x="0" y="0" width="250" height="50" />
-					<table x="200" y="100" width="550" height="400" />
-				
-				<searchButton x="700" y="0" width="115" height="40" text="搜索" type="rectangle"/>
-				</arriveYYDocShowPanel>
+				<addDoc x="550" y="560" width="115" height="40" text="增加"
+					type="rectangle" />
+				<search x="300" y="0" />
+				<datepicker x="0" y="0" width="250" height="50" />
+				<table x="200" y="100" width="550" height="400" />
+
+				<searchButton x="700" y="0" width="115" height="40"
+					text="搜索" type="rectangle" />
+			</arriveYYDocShowPanel>
 			<sendGoodDocShowPanel x="232" y="54" width="848"
 				height="637">
-				<sendGoodDocShowPanelAddPanel x="232" y="54" width="1080" height="637">
+				<sendGoodDocShowPanelAddPanel x="232"
+					y="54" width="1080" height="637">
 					<BUTTONS>
-					<confirm x="550" y="560" width="115" height="40"
-						text="确认" type="rectangle" />
-					<cancel x="700" y="560" width="115" height="40"
-						text="取消" type="cancel" />
-					<back x="625" y="560" width="115"
-						height="40" text="返回" type="confirm" />
+						<confirm x="550" y="560" width="115" height="40" text="确认"
+							type="rectangle" />
+						<cancel x="700" y="560" width="115" height="40" text="取消"
+							type="cancel" />
+						<back x="625" y="560" width="115" height="40" text="返回" type="confirm" />
 					</BUTTONS>
-				
+
 				</sendGoodDocShowPanelAddPanel>
-					<addDoc x="550" y="560" width="115" height="40"
-						text="增加" type="rectangle" />
-					<search x="300" y="0" />
-					<datepicker x="0" y="0" width="250" height="50" />
-					<table x="200" y="100" width="550" height="400" />
-<searchButton x="700" y="0" width="115" height="40" text="搜索" type="rectangle"/>
+				<addDoc x="550" y="560" width="115" height="40" text="增加"
+					type="rectangle" />
+				<search x="300" y="0" />
+				<datepicker x="0" y="0" width="250" height="50" />
+				<table x="200" y="100" width="550" height="400" />
+				<searchButton x="700" y="0" width="115" height="40"
+					text="搜索" type="rectangle" />
 			</sendGoodDocShowPanel>
 			<payDocShowPanel x="232" y="54" width="848" height="637">
-				<payDocShowPanelAddPanel x="232" y="54" width="1080" height="637">
+				<payDocShowPanelAddPanel x="232" y="54"
+					width="1080" height="637">
 					<BUTTONS>
-					<confirm x="550" y="560" width="115" height="40"
-						text="确认" type="rectangle" />
-					<cancel x="700" y="560" width="115" height="40"
-						text="取消" type="cancel" />
-					<back x="625" y="560" width="115"
-						height="40" text="返回" type="confirm" />
+						<confirm x="550" y="560" width="115" height="40" text="确认"
+							type="rectangle" />
+						<cancel x="700" y="560" width="115" height="40" text="取消"
+							type="cancel" />
+						<back x="625" y="560" width="115" height="40" text="返回" type="confirm" />
 					</BUTTONS>
-				
+
 				</payDocShowPanelAddPanel>
-					<addDoc x="550" y="560" width="115" height="40"
-						text="增加" type="rectangle" />
-					<search x="300" y="0" />
-					<datepicker x="0" y="0" width="250" height="50" />
-					<table x="200" y="100" width="550" height="400" />
-<searchButton x="700" y="0" width="115" height="40" text="搜索" type="rectangle"/>
+				<addDoc x="550" y="560" width="115" height="40" text="增加"
+					type="rectangle" />
+				<search x="300" y="0" />
+				<datepicker x="0" y="0" width="250" height="50" />
+				<table x="200" y="100" width="550" height="400" />
+				<searchButton x="700" y="0" width="115" height="40"
+					text="搜索" type="rectangle" />
 
 			</payDocShowPanel>
 			<driverInfoManagePanel x="232" y="54" width="848"
 				height="637">
-				<driverInfoManagePanelAddPanel x="232" y="54" width="1080" height="637">
+				<driverInfoManagePanelAddPanel x="232"
+					y="54" width="1080" height="637">
 					<BUTTONS>
-					<confirm x="550" y="560" width="115" height="40"
-						text="确认" type="rectangle" />
-					<cancel x="700" y="560" width="115" height="40"
-						text="取消" type="cancel" />
-					<back x="625" y="560" width="115"
-						height="40" text="返回" type="confirm" />
+						<confirm x="550" y="560" width="115" height="40" text="确认"
+							type="rectangle" />
+						<cancel x="700" y="560" width="115" height="40" text="取消"
+							type="cancel" />
+						<back x="625" y="560" width="115" height="40" text="返回" type="confirm" />
 					</BUTTONS>
-				
+
 				</driverInfoManagePanelAddPanel>
-					<addDoc x="550" y="560" width="115" height="40"
-						text="增加" type="rectangle" />
-					<search x="300" y="0" />
-					<datepicker x="0" y="0" width="250" height="50" />
-					<table x="200" y="100" width="550" height="400" />
-					<searchButton x="700" y="0" width="115" height="40" text="搜索" type="rectangle"/>
+				<addDoc x="550" y="560" width="115" height="40" text="增加"
+					type="rectangle" />
+				<search x="300" y="0" />
+				<datepicker x="0" y="0" width="250" height="50" />
+				<table x="200" y="100" width="550" height="400" />
+				<searchButton x="700" y="0" width="115" height="40"
+					text="搜索" type="rectangle" />
 
 			</driverInfoManagePanel>
 			<truckInfoManagePanel x="232" y="54" width="848"
 				height="637">
-				<truckInfoManagePanelAddPanel x="232" y="54" width="1080" height="637">
+				<truckInfoManagePanelAddPanel x="232"
+					y="54" width="1080" height="637">
 					<BUTTONS>
-					<confirm x="550" y="560" width="115" height="40"
-						text="确认" type="rectangle" />
-					<cancel x="700" y="560" width="115" height="40"
-						text="取消" type="cancel" />
-					<back x="625" y="560" width="115"
-						height="40" text="返回" type="confirm" />
+						<confirm x="550" y="560" width="115" height="40" text="确认"
+							type="rectangle" />
+						<cancel x="700" y="560" width="115" height="40" text="取消"
+							type="cancel" />
+						<back x="625" y="560" width="115" height="40" text="返回" type="confirm" />
 					</BUTTONS>
 					<LABELS>
-					<id x="50" y="50" width="115" height="40"
-						text="ID" type="rectangle" />
-					<plateNum x="50" y="150" width="115" height="40"
-						text="ID" type="rectangle" />
-						<useYear x="50" y="250" width="115" height="40"
-						text="ID" type="rectangle" />
+						<id x="50" y="50" width="115" height="40" text="ID" type="rectangle" />
+						<plateNum x="50" y="150" width="115" height="40" text="ID"
+							type="rectangle" />
+						<useYear x="50" y="250" width="115" height="40" text="ID"
+							type="rectangle" />
 					</LABELS>
 					<TEXTFIELDS>
-						<id x="250" y="50" width="115" height="40"
-						text="ID" type="rectangle" />
-						<plateNum x="250" y="150" width="115" height="40"
-						text="ID" type="rectangle" />
-						<useYear x="250" y="250" width="115" height="40"
-						text="ID" type="rectangle" />
+						<id x="250" y="50" width="115" height="40" text="ID" type="rectangle" />
+						<plateNum x="250" y="150" width="115" height="40" text="ID"
+							type="rectangle" />
+						<useYear x="250" y="250" width="115" height="40" text="ID"
+							type="rectangle" />
 					</TEXTFIELDS>
 				</truckInfoManagePanelAddPanel>
-					<addDoc x="550" y="560" width="115" height="40"
-						text="增加" type="rectangle" />
-					<search x="300" y="0" />
-					<datepicker x="0" y="0" width="250" height="50" />
-					<table x="200" y="225" width="150" height="100" column = "ID 车牌号 使用年份"/>
-					<searchWay x="200" y="100" width="200" height="100" strings = "（查找方式） 按ID查找 按車牌號查找"/>
-					<searchButton x="700" y="0" width="115" height="40" text="搜索" type="rectangle"/>
+				<addDoc x="550" y="560" width="115" height="40" text="增加"
+					type="rectangle" />
+				<search x="300" y="0" />
+				<datepicker x="0" y="0" width="250" height="50" />
+				<table x="200" y="225" width="150" height="100" column="ID 车牌号 使用年份" />
+				<searchWay x="200" y="100" width="200" height="100"
+					strings="（查找方式） 按ID查找 按車牌號查找" />
+				<searchButton x="700" y="0" width="115" height="40"
+					text="搜索" type="rectangle" />
 			</truckInfoManagePanel>
 		</Salesman>
 
