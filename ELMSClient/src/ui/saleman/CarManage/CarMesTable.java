@@ -2,6 +2,8 @@ package ui.saleman.CarManage;
 
 import org.dom4j.Element;
 
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
+
 import ui.table.MyTablePanel;
  /** 
  * 
@@ -15,9 +17,11 @@ public class CarMesTable extends MyTablePanel{
 	
 	public CarMesTable(Element config) {
 		super(config);
-		// TODO Auto-generated constructor stub
 	}
-
+	
+	
+	
+	
 	@Override
 	public void updateTableMes() {
 		// TODO Auto-generated method stub

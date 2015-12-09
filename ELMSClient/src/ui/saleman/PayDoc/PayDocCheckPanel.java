@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import blservice.transportblservice.Transportblservice;
 import ui.tools.CheckDocPanel;
  /** 
  * 
@@ -13,7 +14,7 @@ import ui.tools.CheckDocPanel;
 @SuppressWarnings("serial")
 public class PayDocCheckPanel extends CheckDocPanel{
 
-	public PayDocCheckPanel(Element config, JPanel changePanel , String checkDocName , String addDocName) {
+	public PayDocCheckPanel(Element config, JPanel changePanel , String checkDocName , String addDocName, Transportblservice transportblservice) {
 		super(config, changePanel , checkDocName , addDocName);
 
 		// TODO Auto-generated constructor stub

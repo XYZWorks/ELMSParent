@@ -2,6 +2,9 @@ package ui.saleman;
 
 import org.dom4j.Element;
 
+import bl.BusinessLogicDataFactory;
+import blservice.DTManageblservice.DTManageblservice;
+import blservice.transportblservice.Transportblservice;
 import ui.saleman.ArriveYYDoc.ArriveYYDocCheckPanel;
 import ui.saleman.CarManage.CarManageCheckPanel;
 import ui.saleman.DriverManage.DriverManageCheckPanel;
@@ -48,15 +51,18 @@ public class SaleManController extends PanelController {
 	
 	private static final String postStr = "AddPanel";
 	
+	private Transportblservice transportblservice;
+	private DTManageblservice dtManageblservice;
+	
 	public SaleManController(MyPanel initialPanel, Element e) {
 		super(initialPanel , e);
+		initialBL();
 		initButtons(e.element(CompomentType.BUTTONS.name()));
 		initPanel(e);
 		addButtons();
 		addPanels();
 		addListeners();
 		addToMap();
-		initialBL();
 		this.setAllButtonVisable(false);
 		panelManager.show(changePanel, saleManMainStr);
 		changePanel.setVisible(true);
@@ -64,20 +70,20 @@ public class SaleManController extends PanelController {
 	
 	@Override
 	protected void initialBL() {
-		// TODO Auto-generated method stub
-		
+		transportblservice = BusinessLogicDataFactory.getFactory().getTransportblservice();
+		dtManageblservice = BusinessLogicDataFactory.getFactory().getDTManageBusinessLogic();
 	}
 	
 	
 	@Override
 	protected void initPanel(Element e) {
 		saleManMainPanel = new SaleManMain(e.element(saleManMainStr),this);
-		arriveYYDocShowPanel = new ArriveYYDocCheckPanel(e.element(arriveYYDocShowPanelStr) , changePanel , arriveYYDocShowPanelStr , arriveYYDocShowPanelStr + postStr);
-		driverInfoManagePanel = new DriverManageCheckPanel(e.element(driverInfoManagePanelStr), changePanel , driverInfoManagePanelStr , driverInfoManagePanelStr + postStr);
-		loadDocShowPanel = new LoadDocCheckPanel(e.element(loadDocShowpanelStr), changePanel , loadDocShowpanelStr , loadDocShowpanelStr + postStr);
-		payDocShowPanel = new PayDocCheckPanel(e.element(payDocShowPanelStr), changePanel , payDocShowPanelStr , payDocShowPanelStr +postStr);
-		sendGoodDocShowPanel = new SendGoodDocCheckPanel(e.element(sendGoodDocShowPanelStr), changePanel , sendGoodDocShowPanelStr , sendGoodDocShowPanelStr + postStr);
-		truckInfoManagePanel = new CarManageCheckPanel(e.element(truckInfoManagePanelStr), changePanel , truckInfoManagePanelStr , truckInfoManagePanelStr + postStr);
+		arriveYYDocShowPanel = new ArriveYYDocCheckPanel(e.element(arriveYYDocShowPanelStr) , changePanel , arriveYYDocShowPanelStr , arriveYYDocShowPanelStr + postStr , transportblservice);
+		driverInfoManagePanel = new DriverManageCheckPanel(e.element(driverInfoManagePanelStr), changePanel , driverInfoManagePanelStr , driverInfoManagePanelStr + postStr , dtManageblservice);
+		loadDocShowPanel = new LoadDocCheckPanel(e.element(loadDocShowpanelStr), changePanel , loadDocShowpanelStr , loadDocShowpanelStr + postStr , transportblservice);
+		payDocShowPanel = new PayDocCheckPanel(e.element(payDocShowPanelStr), changePanel , payDocShowPanelStr , payDocShowPanelStr +postStr  , transportblservice);
+		sendGoodDocShowPanel = new SendGoodDocCheckPanel(e.element(sendGoodDocShowPanelStr), changePanel , sendGoodDocShowPanelStr , sendGoodDocShowPanelStr + postStr , transportblservice);
+		truckInfoManagePanel = new CarManageCheckPanel(e.element(truckInfoManagePanelStr), changePanel , truckInfoManagePanelStr , truckInfoManagePanelStr + postStr ,dtManageblservice);
 		
 	}
 

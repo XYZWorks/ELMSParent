@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import blservice.transportblservice.Transportblservice;
 import ui.tools.CheckDocPanel;
 import ui.tools.MyDatePicker;
 import ui.tools.MyPictureButton;
@@ -18,7 +19,7 @@ public class ArriveYYDocCheckPanel extends CheckDocPanel{
 
 	
 
-	public ArriveYYDocCheckPanel(Element config, JPanel changePanel , String checkDocName , String addDocName) {
+	public ArriveYYDocCheckPanel(Element config, JPanel changePanel , String checkDocName , String addDocName, Transportblservice transportblservice) {
 		super(config, changePanel , checkDocName , addDocName);
 		// TODO Auto-generated constructor stub
 	}

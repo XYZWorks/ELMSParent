@@ -56,6 +56,7 @@ public enum DocType {
 
 		switch (chinese) {
 		case "订单":
+			
 			return order;
 		case "入库单":
 			return inStoreDoc;

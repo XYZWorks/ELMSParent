@@ -25,9 +25,12 @@ public abstract class MyTablePanel extends JPanel {
 
 	protected JScrollPane rollpane;
 	
+	private Element config;
+	
 	protected final static String columnStr = "column";
 
 	public MyTablePanel(Element config) {
+		this.config = config;
 		this.setLayout(null);
 		this.setBounds(Integer.parseInt(config.attributeValue("x")),
 				Integer.parseInt(config.attributeValue("y")),
@@ -162,5 +165,16 @@ public abstract class MyTablePanel extends JPanel {
 			removeRow(row);
 		}
 	}
+	
+	/**
+	 * 若不在构造器中初始化列、表数据，想要推迟初始化可以调用此方法
+	 */
+	protected void myInit() {
+		initialTitleAndColumn(config);
+		initTable();
+		initScrollerPane();
+		add(rollpane);
+	}
+	
 	
 }

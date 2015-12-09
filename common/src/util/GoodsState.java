@@ -27,7 +27,6 @@ public enum GoodsState {
 	public static GoodsState toGoodState(String state) {
 		switch (state) {
 		case "损坏":
-			
 			return Damage;
 		case "完整":
 			return Complete;

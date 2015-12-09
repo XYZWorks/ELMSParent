@@ -4,8 +4,8 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import blservice.DTManageblservice.DTManageblservice;
 import ui.tools.CheckDocPanel;
-import ui.tools.MySerachBox;
  /** 
  * 车辆信息管理查看界面
  * @author czq 
@@ -14,7 +14,7 @@ import ui.tools.MySerachBox;
 @SuppressWarnings("serial")
 public class CarManageCheckPanel extends CheckDocPanel{
 
-	public CarManageCheckPanel(Element config, JPanel changePanel, String checkDocName , String addDocName) {
+	public CarManageCheckPanel(Element config, JPanel changePanel, String checkDocName , String addDocName, DTManageblservice dtManageblservice) {
 		super(config, changePanel , checkDocName , addDocName);
 
 	}
