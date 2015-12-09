@@ -140,9 +140,9 @@
 
 					<KG text="kg" x="556" y="105" width="65" height="20" />
 
-					<Long text="cm" x="94" y="100" width="85" height="32" />
-					<Width text="cm" x="182" y="100" width="85" height="32" />
-					<Height text="cm" x="272" y="100" width="85" height="32" />
+					<Long text="cm" x="153" y="100" width="40" height="32" />
+					<Width text="cm" x="242" y="100" width="85" height="32" />
+					<Height text="cm" x="333" y="100" width="85" height="32" />
 
 
 					<estimateTime text="" x="49" y="668" width="189"
@@ -172,9 +172,9 @@
 					<goodNameText x="94" y="54" width="263" height="32" />
 					<goodNumText x="468" y="54" width="85" height="32" />
 					<goodWeightText x="468" y="100" width="85" height="32" />
-					<goodLongText x="94" y="100" width="85" height="32" />
-					<goodWidthText x="182" y="100" width="85" height="32" />
-					<goodHeightText x="272" y="100" width="85" height="32" />
+					<goodLongText x="94" y="100" width="60" height="32" />
+					<goodWidthText x="182" y="100" width="60" height="32" />
+					<goodHeightText x="272" y="100" width="60" height="32" />
 				</TEXTFIELDS>
 
 				<DatePicker x="0" y="0" width="400" height="50">

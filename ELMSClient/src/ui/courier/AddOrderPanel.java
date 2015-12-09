@@ -378,6 +378,13 @@ public class AddOrderPanel extends MyPanelWithScroller {
 			protected boolean checkDataValid() {
 				// TODO 检查必填项目是否正确
 
+				//confirm后可以显示 预计时间、报价
+				
+				
+				
+				//提交时 检查各项的名称
+				
+				
 				return true;
 			}
 
@@ -398,6 +405,8 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		
 		addSenderCityComboxListener(senderCity);
 		addReceiverCityComboxListener(receiverCity);
+		
+		
 	}
 
 	/**
@@ -420,7 +429,6 @@ public class AddOrderPanel extends MyPanelWithScroller {
 						// 南京
 						case 1:
 							setChoseComboboxVisible(senderNanJingArea);
-							break;
 						// 北京
 						case 2:
 							setChoseComboboxVisible(senderBeiJingArea);
