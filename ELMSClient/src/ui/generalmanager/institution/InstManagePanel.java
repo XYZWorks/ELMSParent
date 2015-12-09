@@ -132,6 +132,12 @@ public class InstManagePanel extends MyPanel{
 				// TODO Auto-generated method stub
 				
 			}
+
+			@Override
+			protected void updateMes() {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {
 			

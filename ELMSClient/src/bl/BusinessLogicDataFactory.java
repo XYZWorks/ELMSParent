@@ -8,6 +8,7 @@ import bl.orderbl.OrderController;
 import bl.personnelbl.PersonnelController;
 import bl.statisticbl.StatisticController;
 import bl.strategybl.StrategyController;
+import bl.transportbl.TransportController;
 import bl.userbl.UserController;
 import bl.userbl.UserMes;
 import blservice.DTManageblservice.DTManageblservice;
@@ -22,6 +23,7 @@ import blservice.orderblservice.Orderblservice;
 import blservice.personnelblservice.Personnelblservice;
 import blservice.statisticblservice.Statisticblservice;
 import blservice.strategyblservice.StrategyblService;
+import blservice.transportblservice.Transportblservice;
 import blservice.usermesblservice.UserMesblservice;
 /** 
  * 逻辑层工厂类
@@ -91,6 +93,7 @@ public class BusinessLogicDataFactory {
 		return new StatisticController();
 	}
 	
+<<<<<<< HEAD
 	public Orderblservice getOrderBussinessLogic(){
 		return new OrderController();
 	}
@@ -98,5 +101,13 @@ public class BusinessLogicDataFactory {
 	public StrategyblService getStrategyBussinessLogic(){
 		return new StrategyController();
 	}
+=======
+	public Transportblservice getTransportblservice(){
+		return new TransportController();
+	}
+	
+	
+	
+>>>>>>> origin/master
 	
 }

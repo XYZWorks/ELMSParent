@@ -24,8 +24,13 @@ public abstract class MyTablePanel extends JPanel {
 	protected MyTable table;
 
 	protected JScrollPane rollpane;
+	
+	private Element config;
+	
+	protected final static String columnStr = "column";
 
 	public MyTablePanel(Element config) {
+		this.config = config;
 		this.setLayout(null);
 		this.setBounds(Integer.parseInt(config.attributeValue("x")),
 				Integer.parseInt(config.attributeValue("y")),
@@ -135,7 +140,41 @@ public abstract class MyTablePanel extends JPanel {
 		// TODO Auto-generated method stub
 		
 	}
-
 	
-
+	/**
+	 * 增加一行数据
+	 * @param data
+	 */
+	public void addOneRow(Object[] data) {
+		table.getModel().addRow(data);
+	}
+	
+	/**
+	 * 删除某一行数据、其中ID必须位于第一列
+	 * @param ID
+	 */
+	public void deleteRow(String ID){
+		int row = -1;
+		for (int i = 0; i < table.getRowCount(); i++) {
+			if(  ( (String)table.getValueAt(i, 0)).equals(ID)){
+				row = i;
+				break;
+			}
+		}
+		if(row >= 0){
+			removeRow(row);
+		}
+	}
+	
+	/**
+	 * 若不在构造器中初始化列、表数据，想要推迟初始化可以调用此方法
+	 */
+	public void myInit() {
+		initialTitleAndColumn(config);
+		initTable();
+		initScrollerPane();
+		add(rollpane);
+	}
+	
+	
 }

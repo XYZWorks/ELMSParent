@@ -1,4 +1,4 @@
-package ui.storemanager.instore;
+package ui.storemanager.outstore;
 
 import java.util.ArrayList;
 
@@ -12,28 +12,29 @@ import ui.table.MyTablePanel;
 import util.DocType;
 import util.MyDate;
 import vo.store.InStoreDocVO;
+import vo.store.OutStoreDocVO;
 
 /** 
  * @author ymc 
- * @version 创建时间：2015年12月6日 下午2:20:45 
+ * @version 创建时间：2015年12月9日 下午7:57:29 
  *
  */
-public class InStoreTablePanel extends MyTablePanel {
+public class OutStoreTablePanel extends MyTablePanel {
 
-	private static final int COLUMN_NUM = 5;
+	private static final int COLUMN_NUM = 7;
 
 	private StoreController bl;
 
-	private ArrayList<InStoreDocVO> vos;
+	private ArrayList<OutStoreDocVO> vos;
 
-	public InStoreTablePanel(Element config, StoreController bl, MyDate date) {
+	public OutStoreTablePanel(Element config, StoreController bl, MyDate date) {
 		super(config);
 		this.bl = bl;
 		initialTitleAndColumn(config);
 		initTable();
 		initScrollerPane();
 		this.add(rollpane);
-		int[] columnLen = { 100, 180, 100, 100, 270 };
+		int[] columnLen = { 80, 190, 100, 40, 180,60,250 };
 		this.setRowAndColumnLen(30, columnLen);
 	}
 
@@ -49,26 +50,28 @@ public class InStoreTablePanel extends MyTablePanel {
 	
 
 	private void setDataValue() {
-		vos = bl.showInstoreDocs();
+		vos = bl.showOutStoreDocs();
 		
 		if(vos==null){
 			return;
 		}
 		data = new String[vos.size()][COLUMN_NUM];
-		InStoreDocVO vo;
+		OutStoreDocVO vo;
 		for (int i = 0; i < vos.size(); i++) {
 			vo = vos.get(i);
 			data[i][0] = DocType.getName(vo.type);
 			data[i][1] = vo.ID;
 			data[i][2] = MyDate.toString(vo.date);
 			data[i][3] = vo.loc.getName();
-			data[i][4] = UserfulMethod.orderArrayToString(vo.orders);
+			data[i][4] = vo.transferDoc;
+			data[i][5] = vo.shipWay;
+			data[i][6] = UserfulMethod.orderArrayToString(vo.orders);
 			
 		}
 		
 	}
 
-	public InStoreDocVO getInStoreVO(int index) {
+	public OutStoreDocVO getOutStoreVO(int index) {
 		return vos.get(index);
 	}
 
@@ -93,7 +96,7 @@ public class InStoreTablePanel extends MyTablePanel {
 		
 		setDataValue();
 		
-		Object[] tmp = {"","","","",""};
+		Object[] tmp = {"","","","","","",""};
 		
 		for(int i = table.getRowCount();i<vos.size();i++)
 			addOneRow(tmp);

@@ -22,7 +22,7 @@ import ui.config.GraphicsUtils;
  * @version 2015年12月8日 下午7:27:57 
  */
 @SuppressWarnings("serial")
-public class MySerachBox extends JLabel{
+public class MySearchBox extends JLabel{
 	
 	private static final Image inSerach = GraphicsUtils.getImage("element//search-enter");
 	
@@ -41,7 +41,7 @@ public class MySerachBox extends JLabel{
 	
 	private boolean isEditing = false;
 	
-	public MySerachBox(Element e) {
+	public MySearchBox(Element e) {
 		this.setLocation(Integer.parseInt(e.attributeValue("x")), Integer.parseInt(e.attributeValue("y")));
 		this.setSize(size);
 		field = new JTextField();

@@ -11,6 +11,19 @@ import vo.DTManage.DriverVO;
  * 
  */
 public interface DTManageblservice{
+	
+	
+	/**
+	 * 获得所有车辆信息
+	 * @return
+	 */
+	public ArrayList<CarVO> getAllCars() ;
+	/**
+	 * 获得所有司机信息
+	 * @return
+	 */
+	public ArrayList<DriverVO> getAllDrivers() ;
+	
 	/**
 	 * 增加司机信息
 	 * @param ID

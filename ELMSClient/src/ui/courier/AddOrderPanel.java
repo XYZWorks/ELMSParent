@@ -392,6 +392,12 @@ public class AddOrderPanel extends MyPanelWithScroller {
 			protected void reInitial() {
 				setAllTextFieldEmpty();
 			}
+
+			@Override
+			protected void updateMes() {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 
 		cancel.addMouseListener(new CancelListener(cancel) {

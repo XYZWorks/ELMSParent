@@ -135,6 +135,12 @@ public class BankAccountManagePanel extends MyPanel {
 				// TODO Auto-generated method stub
 				return false;
 			}
+
+			@Override
+			protected void updateMes() {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {
 

@@ -1,13 +1,10 @@
-package ui.storemanager.instore;
-
-import java.util.ArrayList;
+package ui.storemanager.outstore;
 
 import org.dom4j.Element;
 
 import bl.storebl.StoreController;
-import ui.inital.initialPanel3;
 import ui.storemanager.StoreManagerController;
-import ui.table.MyTablePanel;
+import ui.storemanager.instore.AddLocTablePanel;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyJumpListener;
@@ -18,17 +15,13 @@ import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.PanelController;
-import ui.util.TipsDialog;
-import util.City;
-import util.ResultMessage;
-import vo.store.InStoreDocVO;
 
-/**
- * @author ymc
- * @version 创建时间：2015年12月6日 下午2:27:17
+/** 
+ * @author ymc 
+ * @version 创建时间：2015年12月9日 下午8:00:05 
  *
  */
-public class AddInStorePanel extends MyPanel {
+public class AddOutStorePanel extends MyPanel {
 
 	MyPictureButton confirmButton;
 	MyPictureButton returnButton;
@@ -37,18 +30,20 @@ public class AddInStorePanel extends MyPanel {
 	MyLabel IDL;
 	MyLabel dateL;
 	MyLabel sendCityL;
-	MyLabel locInfoL;
-
+	MyLabel orderL;
+	MyLabel shipWayL;
+	MyLabel transferDocL;
+	
 	MyTextField IDT;
 	MyDatePicker picker;
 	MyComboBox sendCityC;
 
-	AddLocTablePanel locInfoTable;
+	MyTextField orderT;
 
 	StoreController bl;
 	PanelController controller;
 
-	public AddInStorePanel(Element config, StoreController bl, StoreManagerController controller) {
+	public AddOutStorePanel(Element config, StoreController bl, StoreManagerController controller) {
 
 		super(config);
 		this.bl = bl;
@@ -78,7 +73,7 @@ public class AddInStorePanel extends MyPanel {
 	@Override
 	protected void initTextFields(Element e) {
 		IDT = new MyTextField(e.element("ID"));
-
+		orderT = new MyTextField(e.element("order"));
 	}
 
 	@Override
@@ -87,7 +82,7 @@ public class AddInStorePanel extends MyPanel {
 		IDL = new MyLabel(e.element("ID"));
 		dateL = new MyLabel(e.element("date"));
 		sendCityL = new MyLabel(e.element("sendCity"));
-		locInfoL = new MyLabel(e.element("locInfo"));
+		orderL = new MyLabel(e.element("order"));
 
 	}
 
@@ -95,7 +90,7 @@ public class AddInStorePanel extends MyPanel {
 	protected void initOtherCompoment(Element e) {
 		picker = new MyDatePicker(e.element("DatePicker"));
 		sendCityC = new MyComboBox(e.element("sendCityC"));
-		locInfoTable = new AddLocTablePanel(e.element("table"));
+		
 
 	}
 
@@ -105,8 +100,8 @@ public class AddInStorePanel extends MyPanel {
 		add(IDT);
 		add(confirmButton);
 		add(dateL);
-		add(locInfoL);
-		add(locInfoTable);
+		add(orderL);
+		add(orderT);
 		add(picker);
 		add(returnButton);
 		add(sendCityC);
@@ -117,60 +112,40 @@ public class AddInStorePanel extends MyPanel {
 
 	@Override
 	protected void addListener() {
-		confirmButton.addMouseListener(new AddInStoreListener(confirmButton));
-		returnButton.addMouseListener(new MyJumpListener(returnButton, "InStorePanel", controller));
+		confirmButton.addMouseListener(new AddOutStoreListener(confirmButton));
+		returnButton.addMouseListener(new MyJumpListener(returnButton, "OutStorePanel", controller));
 
 	}
+	class AddOutStoreListener extends ConfirmListener{
 
-	class AddInStoreListener extends ConfirmListener {
-
-		InStoreDocVO vo = new InStoreDocVO();
-
-		public AddInStoreListener(MyPictureButton button) {
+		public AddOutStoreListener(MyPictureButton button) {
 			super(button);
 			// TODO Auto-generated constructor stub
 		}
 
 		@Override
 		protected void reInitial() {
-			IDT.setText("");
-			locInfoTable.resetData();
-
-		}
-
-		@Override
-		protected boolean checkDataValid() {
-			vo.ID = IDT.getText();
-			vo.date = picker.getMyDate();
-			vo.loc = City.toCity((String) sendCityC.getSelectedItem());
-			vo.orders = locInfoTable.getOrders();
-			vo.location = locInfoTable.getLocations();
-			// TODO
-			// for(String s: vo.orders)
-			// System.out.println(s);
-			return true;
-		}
-
-		@Override
-		protected void saveToSQL() {
-
-			ResultMessage result = bl.generate(vo);
-
-			if (result == ResultMessage.SUCCESS) {
-				reInitial();
-				new TipsDialog("生成入库单成功");
-
-			}
-
+			// TODO Auto-generated method stub
+			
 		}
 
 		@Override
 		protected void updateMes() {
-			InStorePanel inPanel = (InStorePanel) controller.getPanelMap().get("InStorePanel");
-			inPanel.table.updateTableMes();
-
+			// TODO Auto-generated method stub
+			
 		}
 
-	}
+		@Override
+		protected boolean checkDataValid() {
+			// TODO Auto-generated method stub
+			return false;
+		}
 
+		@Override
+		protected void saveToSQL() {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
 }

@@ -6,15 +6,20 @@ import org.dom4j.Element;
 
 
 
+
+
+
 /**
  * 接收单界面
  */
 import ui.table.MyTable;
+import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureLabel;
+import ui.tools.MyTextField;
 import ui.util.PanelController;
 /**
  * 接收单增加界面
@@ -23,7 +28,6 @@ import ui.util.PanelController;
  */
 @SuppressWarnings("serial")
 public class ArriveYYDocAddPanel extends AddDocPanel{
-	private PanelController controller;
 	
 	//接收单号
 	private MyPictureLabel arriveYYDocID;
@@ -38,9 +42,11 @@ public class ArriveYYDocAddPanel extends AddDocPanel{
 	private MyLabel transferDocID;
 	private MyLabel sendCIty;
 	private MyLabel goodState;
+	
+	private MyTextField instIDT;
 
-	public  ArriveYYDocAddPanel(Element config , JPanel changePanel) {
-		super(config , changePanel);
+	public  ArriveYYDocAddPanel(Element config , JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable) {
+		super(config , changePanel , checkDocPanelStr,  messageTable);
 		// TODO Auto-generated constructor stub
 	}
 

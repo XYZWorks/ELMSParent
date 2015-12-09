@@ -24,12 +24,12 @@ public class DTManage{
 	
 	public DTManage() {
 		manageData = (DTManagedataservice) RMIManage.getDataService(DataServiceType.DTManageDataService);
-		try {
-			manageData.initial();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			manageData.initial();
+//		} catch (RemoteException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 	public ResultMessage add(DriverVO vo) {
 		
@@ -161,5 +161,12 @@ public class DTManage{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	public ArrayList<CarVO> getAllCars() {
+		
+		return null;
+	}
+	public ArrayList<DriverVO> getAllDrivers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

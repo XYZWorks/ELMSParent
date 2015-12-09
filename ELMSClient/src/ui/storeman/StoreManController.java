@@ -125,6 +125,9 @@ public class StoreManController extends PanelController{
 		buttonMap.put(TransportPanelStr, transportButton);
 		buttonMap.put(ArriveZZPanelStr, arriveZZButton);
 		buttonMap.put(StorePanelStr, StoreButton);
+		
+		panelMap.put(ArriveZZPanelStr, AddArriveZZPanel);
+		panelMap.put(TransportPanelStr, TransportPanel);
 	}
 
 	@Override

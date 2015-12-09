@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import blservice.DTManageblservice.DTManageblservice;
 import ui.tools.CheckDocPanel;
  /** 
  * 
@@ -13,31 +14,33 @@ import ui.tools.CheckDocPanel;
 @SuppressWarnings("serial")
 public class DriverManageCheckPanel extends CheckDocPanel{
 
-	public DriverManageCheckPanel(Element config, JPanel changePanel) {
-		super(config, changePanel);
+	public DriverManageCheckPanel(Element config, JPanel changePanel , String checkDocName , String addDocName, DTManageblservice dtManageblservice) {
+		super(config, changePanel , checkDocName , addDocName);
+
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	protected void initialAddDocPanel(Element e) {
-		// TODO Auto-generated method stub
+	protected void initialAddDocPanelAndTable(Element e) {
+		messageTable = new DriverMesPanel(e.element(tableStr));
+		addDocPanel = new DriverManageAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable);
 		
 	}
 
 	@Override
-	protected void initialOtherComp(Element e) {
+	protected void initialDifferComp(Element e) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	protected void addComp() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	protected void addListener() {
+		super.addListener();		
+	}
+
+	@Override
+	protected void addDifferComp() {
 		// TODO Auto-generated method stub
 		
 	}

@@ -77,5 +77,15 @@ public class DTManageController implements DTManageblservice{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public ArrayList<CarVO> getAllCars() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public ArrayList<DriverVO> getAllDrivers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

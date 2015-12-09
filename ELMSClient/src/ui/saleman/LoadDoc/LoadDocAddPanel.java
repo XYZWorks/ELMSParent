@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
  /** 
  * 
@@ -13,8 +14,8 @@ import ui.tools.AddDocPanel;
 @SuppressWarnings("serial")
 public class LoadDocAddPanel extends AddDocPanel{
 
-	public LoadDocAddPanel(Element config, JPanel changePanel) {
-		super(config, changePanel);
+	public LoadDocAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable) {
+		super(config , changePanel , checkDocPanelStr,  messageTable);
 		// TODO Auto-generated constructor stub
 	}
 

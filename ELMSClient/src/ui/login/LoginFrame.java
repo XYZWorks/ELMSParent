@@ -12,7 +12,6 @@ import ui.config.ParseXML;
 import ui.config.UserfulMethod;
 import ui.inital.mainFrame;
 import ui.tools.MyButton;
-import ui.tools.MyCheckBox;
 import ui.tools.MyFrame;
 import ui.tools.MyOptionPane;
 import ui.tools.MyPasswordField;
