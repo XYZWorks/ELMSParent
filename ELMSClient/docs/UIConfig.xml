@@ -337,19 +337,19 @@
 						type="cancel" />
 				</BUTTONS>
 				<TEXTFIELDS>
-					<name x="200" y="177" width="276" height="40" />
-					<money x="200" y="269" width="276" height="40" />
-					<company x="200" y="223" width="276" height="40" />
+					<name x="345" y="271" width="276" height="40" />
+					<money x="345" y="201" width="276" height="40" />
+					<company x="345" y="341" width="276" height="40" />
 				</TEXTFIELDS>
 				<LABELS>
-					<money x="70" y="269" width="115" height="40" />
-					<company x="70" y="223" width="115" height="40" />
-					<time x="70" y="131" width="115" height="40" />
-					<person x="70" y="177" width="115" height="40" />
+					<money x="200" y="201" width="115" height="40" text="收款金额" type="rectangle"/>
+					<company x="200" y="341" width="115" height="40" text="收款方" type="rectangle"/>
+					<time x="200" y="131" width="115" height="40" text="收款时间" type="rectangle"/>
+					<person x="200" y="271" width="115" height="40" text="收款人" type="rectangle"/>
 				</LABELS>
-				<date x="596" y="0" width="200" height="40">
-					<field x="606" y="0" width="150" height="40" />
-					<button x="756" y="0" width="40" height="40" type="rectangle" />
+				<date x="345" y="131" width="276" height="40">
+					<field x="345" y="131" width="236" height="40" />
+					<button x="581" y="131" width="40" height="40" type="rectangle" />
 				</date>
 			</FinanceApprovalPanel>
 			<BulidBillPanel x="232" y="54" width="848" height="637">
