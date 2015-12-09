@@ -4,8 +4,9 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import blservice.DTManageblservice.DTManageblservice;
 import ui.tools.CheckDocPanel;
+import ui.tools.MyComboBox;
+import blservice.DTManageblservice.DTManageblservice;
  /** 
  * 
  * @author czq 
@@ -13,11 +14,21 @@ import ui.tools.CheckDocPanel;
  */
 @SuppressWarnings("serial")
 public class DriverManageCheckPanel extends CheckDocPanel{
-
+DTManageblservice bl;
+	
+	/**
+	 * 查找方式
+	 */
+	MyComboBox searchWay;
+	
+	DriverMesPanel myTable;
 	public DriverManageCheckPanel(Element config, JPanel changePanel , String checkDocName , String addDocName, DTManageblservice dtManageblservice) {
 		super(config, changePanel , checkDocName , addDocName);
-
-		// TODO Auto-generated constructor stub
+		this.bl = dtManageblservice;
+		myTable = (DriverMesPanel) messageTable;
+		//注意必须先传bl然后才能初始化table，否则将报空指针异常
+		myTable.bl = bl;
+		initTableContent();
 	}
 
 	@Override
@@ -29,7 +40,7 @@ public class DriverManageCheckPanel extends CheckDocPanel{
 
 	@Override
 	protected void initialDifferComp(Element e) {
-		// TODO Auto-generated method stub
+		searchWay = new MyComboBox(e.element("searchWay"));
 		
 	}
 
@@ -41,7 +52,7 @@ public class DriverManageCheckPanel extends CheckDocPanel{
 
 	@Override
 	protected void addDifferComp() {
-		// TODO Auto-generated method stub
+		add(searchWay);
 		
 	}
 
