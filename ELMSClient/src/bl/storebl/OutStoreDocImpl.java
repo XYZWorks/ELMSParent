@@ -1,10 +1,15 @@
 package bl.storebl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import blservice.orderblservice.Orderblservice;
 import blservice.storeblservice.OutStoreDocService;
 import ds.storedataservice.StoreDataService;
+import po.store.InStoreDocPO;
+import po.store.OutStoreDocPO;
+import test.java.other.DataTool;
+import test.java.other.VOPOchange;
 import util.DocState;
 import util.DocType;
 import util.ResultMessage;
@@ -27,12 +32,38 @@ public class OutStoreDocImpl implements OutStoreDocService {
 	}
 	
 	public ArrayList<OutStoreDocVO> show() {
-		return null;
+	ArrayList<OutStoreDocPO> pos = new ArrayList<OutStoreDocPO>();
+		
+		generate((OutStoreDocVO)DataTool.getDocList(DocType.outStoreDoc).get(0));
+		generate((OutStoreDocVO)DataTool.getDocList(DocType.outStoreDoc).get(1));
+		generate((OutStoreDocVO)DataTool.getDocList(DocType.outStoreDoc).get(2));
+		try {
+			pos = storeData.getOut();
+			pos.size();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}catch (NullPointerException e) {
+			System.err.println("pos is null");
+			return null;
+		}
+		ArrayList<OutStoreDocVO> vos = new ArrayList<OutStoreDocVO>(pos.size());
+		
+		for(OutStoreDocPO po : pos ){
+			vos .add((OutStoreDocVO)VOPOchange.POtoVO(po));
+		} 
+		return vos;
 	}
 
 	public ResultMessage generate(OutStoreDocVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		OutStoreDocPO po = (OutStoreDocPO) VOPOchange.VOtoPO(vo);
+		try {
+			return storeData.addOut(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
 	}
 
 	public ArrayList<DocVO> getDocLists(DocType type) {

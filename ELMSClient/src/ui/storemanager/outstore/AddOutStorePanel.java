@@ -1,0 +1,151 @@
+package ui.storemanager.outstore;
+
+import org.dom4j.Element;
+
+import bl.storebl.StoreController;
+import ui.storemanager.StoreManagerController;
+import ui.storemanager.instore.AddLocTablePanel;
+import ui.tools.MyComboBox;
+import ui.tools.MyDatePicker;
+import ui.tools.MyJumpListener;
+import ui.tools.MyLabel;
+import ui.tools.MyPanel;
+import ui.tools.MyPictureButton;
+import ui.tools.MyTextField;
+import ui.util.CompomentType;
+import ui.util.ConfirmListener;
+import ui.util.PanelController;
+
+/** 
+ * @author ymc 
+ * @version 创建时间：2015年12月9日 下午8:00:05 
+ *
+ */
+public class AddOutStorePanel extends MyPanel {
+
+	MyPictureButton confirmButton;
+	MyPictureButton returnButton;
+
+	MyLabel title;
+	MyLabel IDL;
+	MyLabel dateL;
+	MyLabel sendCityL;
+	MyLabel orderL;
+	MyLabel shipWayL;
+	MyLabel transferDocL;
+	
+	MyTextField IDT;
+	MyDatePicker picker;
+	MyComboBox sendCityC;
+
+	MyTextField orderT;
+
+	StoreController bl;
+	PanelController controller;
+
+	public AddOutStorePanel(Element config, StoreController bl, StoreManagerController controller) {
+
+		super(config);
+		this.bl = bl;
+		this.controller = controller;
+		initLabels(config.element(CompomentType.LABELS.name()));
+		initButtons(config.element(CompomentType.BUTTONS.name()));
+		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
+
+		initOtherCompoment(config);
+		addCompoment();
+		addListener();
+	}
+
+	@Override
+	protected void initWhitePanels(Element e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void initButtons(Element e) {
+		confirmButton = new MyPictureButton(e.element("confirm"));
+		returnButton = new MyPictureButton(e.element("return"));
+
+	}
+
+	@Override
+	protected void initTextFields(Element e) {
+		IDT = new MyTextField(e.element("ID"));
+		orderT = new MyTextField(e.element("order"));
+	}
+
+	@Override
+	protected void initLabels(Element e) {
+		title = new MyLabel(e.element("title"));
+		IDL = new MyLabel(e.element("ID"));
+		dateL = new MyLabel(e.element("date"));
+		sendCityL = new MyLabel(e.element("sendCity"));
+		orderL = new MyLabel(e.element("order"));
+
+	}
+
+	@Override
+	protected void initOtherCompoment(Element e) {
+		picker = new MyDatePicker(e.element("DatePicker"));
+		sendCityC = new MyComboBox(e.element("sendCityC"));
+		
+
+	}
+
+	@Override
+	protected void addCompoment() {
+		add(IDL);
+		add(IDT);
+		add(confirmButton);
+		add(dateL);
+		add(orderL);
+		add(orderT);
+		add(picker);
+		add(returnButton);
+		add(sendCityC);
+		add(sendCityL);
+		add(title);
+
+	}
+
+	@Override
+	protected void addListener() {
+		confirmButton.addMouseListener(new AddOutStoreListener(confirmButton));
+		returnButton.addMouseListener(new MyJumpListener(returnButton, "OutStorePanel", controller));
+
+	}
+	class AddOutStoreListener extends ConfirmListener{
+
+		public AddOutStoreListener(MyPictureButton button) {
+			super(button);
+			// TODO Auto-generated constructor stub
+		}
+
+		@Override
+		protected void reInitial() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		protected void updateMes() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		protected boolean checkDataValid() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		@Override
+		protected void saveToSQL() {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+}
