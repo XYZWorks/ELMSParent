@@ -16,8 +16,8 @@ import ui.tools.MyPanel;
 public class SendGoodDocAddPanel extends AddDocPanel{
 
 	
-	public SendGoodDocAddPanel(Element config, JPanel changePanel) {
-		super(config, changePanel);
+	public SendGoodDocAddPanel(Element config, JPanel changePanel, String checkDocPanelStr) {
+		super(config , changePanel , checkDocPanelStr);
 		// TODO Auto-generated constructor stub
 	}
 

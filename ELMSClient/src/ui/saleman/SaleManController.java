@@ -46,6 +46,8 @@ public class SaleManController extends PanelController {
 	private static final String driverInfoManagePanelStr = "driverInfoManagePanel";
 	private static final String truckInfoManagePanelStr = "truckInfoManagePanel";
 	
+	private static final String postStr = "AddPanel";
+	
 	public SaleManController(MyPanel initialPanel, Element e) {
 		super(initialPanel , e);
 		initButtons(e.element(CompomentType.BUTTONS.name()));
@@ -56,6 +58,7 @@ public class SaleManController extends PanelController {
 		addToMap();
 		initialBL();
 		this.setAllButtonVisable(false);
+		panelManager.show(changePanel, saleManMainStr);
 		changePanel.setVisible(true);
 	}
 	
@@ -69,12 +72,12 @@ public class SaleManController extends PanelController {
 	@Override
 	protected void initPanel(Element e) {
 		saleManMainPanel = new SaleManMain(e.element(saleManMainStr),this);
-		arriveYYDocShowPanel = new ArriveYYDocCheckPanel(e.element(arriveYYDocShowPanelStr) , changePanel);
-		driverInfoManagePanel = new DriverManageCheckPanel(e.element(driverInfoManagePanelStr), changePanel);
-		loadDocShowPanel = new LoadDocCheckPanel(e.element(loadDocShowpanelStr), changePanel);
-		payDocShowPanel = new PayDocCheckPanel(e.element(payDocShowPanelStr), changePanel);
-		sendGoodDocShowPanel = new SendGoodDocCheckPanel(e.element(sendGoodDocShowPanelStr), changePanel);
-		truckInfoManagePanel = new CarManageCheckPanel(e.element(truckInfoManagePanelStr), changePanel);
+		arriveYYDocShowPanel = new ArriveYYDocCheckPanel(e.element(arriveYYDocShowPanelStr) , changePanel , arriveYYDocShowPanelStr , arriveYYDocShowPanelStr + postStr);
+		driverInfoManagePanel = new DriverManageCheckPanel(e.element(driverInfoManagePanelStr), changePanel , driverInfoManagePanelStr , driverInfoManagePanelStr + postStr);
+		loadDocShowPanel = new LoadDocCheckPanel(e.element(loadDocShowpanelStr), changePanel , loadDocShowpanelStr , loadDocShowpanelStr + postStr);
+		payDocShowPanel = new PayDocCheckPanel(e.element(payDocShowPanelStr), changePanel , payDocShowPanelStr , payDocShowPanelStr +postStr);
+		sendGoodDocShowPanel = new SendGoodDocCheckPanel(e.element(sendGoodDocShowPanelStr), changePanel , sendGoodDocShowPanelStr , sendGoodDocShowPanelStr + postStr);
+		truckInfoManagePanel = new CarManageCheckPanel(e.element(truckInfoManagePanelStr), changePanel , truckInfoManagePanelStr , truckInfoManagePanelStr + postStr);
 		
 	}
 

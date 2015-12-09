@@ -9,9 +9,9 @@ import ui.table.MyTablePanel;
  * @version 2015年12月8日 下午8:25:55 
  */
 @SuppressWarnings("serial")
-public class DeiverMesTable extends MyTablePanel {
+public class DriverMesPanel extends MyTablePanel {
 
-	public DeiverMesTable(Element config) {
+	public DriverMesPanel(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}

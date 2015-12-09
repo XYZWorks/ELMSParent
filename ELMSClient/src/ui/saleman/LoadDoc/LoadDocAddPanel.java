@@ -13,8 +13,8 @@ import ui.tools.AddDocPanel;
 @SuppressWarnings("serial")
 public class LoadDocAddPanel extends AddDocPanel{
 
-	public LoadDocAddPanel(Element config, JPanel changePanel) {
-		super(config, changePanel);
+	public LoadDocAddPanel(Element config, JPanel changePanel, String checkDocPanelStr) {
+		super(config , changePanel , checkDocPanelStr);
 		// TODO Auto-generated constructor stub
 	}
 
