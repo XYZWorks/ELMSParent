@@ -46,7 +46,13 @@ public class InStoreTablePanel extends MyTablePanel {
 		if(vos==null){
 			return;
 		}
+		setDataValue();
 		
+
+	}
+	
+
+	private void setDataValue() {
 		data = new String[vos.size()][COLUMN_NUM];
 		InStoreDocVO vo;
 		for (int i = 0; i < vos.size(); i++) {
@@ -58,7 +64,7 @@ public class InStoreTablePanel extends MyTablePanel {
 			data[i][4] = UserfulMethod.orderArrayToString(vo.orders);
 			
 		}
-
+		
 	}
 
 	public InStoreDocVO getInStoreVO(int index) {
@@ -82,7 +88,17 @@ public class InStoreTablePanel extends MyTablePanel {
 
 	@Override
 	public void updateTableMes() {
-		// TODO Auto-generated method stub
+//		System.out.println("invoke inpanel table");
+		vos = bl.showInstoreDocs();
+		if(vos==null){
+			return;
+		}
+		setDataValue();
+		
+		for(int i = 0;i<vos.size();i++){
+			for(int j = 0;j<COLUMN_NUM;j++)
+				table.setValueAt(data[i][j], i, j);
+		}
 		
 	}
 

@@ -36,7 +36,7 @@ public class InStorePanel extends MyPanel {
 
 	
 
-	private InStoreTablePanel table;
+	 InStoreTablePanel table;
 
 	private PanelController controller;
 	public InStorePanel(Element config, StoreController bl, PanelController controller) {

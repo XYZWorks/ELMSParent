@@ -25,8 +25,14 @@ public abstract class ConfirmListener extends MyPictureButtonListener{
 		if(checkDataValid()){
 			saveToSQL();
 			reInitial();
+			updateMes();
 		}
 	}
+	/**
+	 * 同步信息
+	 */
+	protected abstract void updateMes();
+
 	/**
 	 * 检查数据是否有效
 	 */

@@ -36,9 +36,9 @@ public class InStoreDocImpl  {
 	public ArrayList<InStoreDocVO> show() {
 		ArrayList<InStoreDocPO> pos = new ArrayList<InStoreDocPO>();
 		
-//		generate((InStoreDocVO)DataTool.getDocList(DocType.inStoreDoc).get(0));
-//		generate((InStoreDocVO)DataTool.getDocList(DocType.inStoreDoc).get(1));
-//		generate((InStoreDocVO)DataTool.getDocList(DocType.inStoreDoc).get(2));
+		generate((InStoreDocVO)DataTool.getDocList(DocType.inStoreDoc).get(0));
+		generate((InStoreDocVO)DataTool.getDocList(DocType.inStoreDoc).get(1));
+		generate((InStoreDocVO)DataTool.getDocList(DocType.inStoreDoc).get(2));
 		try {
 			pos = storeData.getIn();
 			pos.size();

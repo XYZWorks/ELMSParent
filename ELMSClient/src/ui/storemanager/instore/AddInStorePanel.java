@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.dom4j.Element;
 
 import bl.storebl.StoreController;
+import ui.inital.initialPanel3;
 import ui.storemanager.StoreManagerController;
 import ui.table.MyTablePanel;
 import ui.tools.MyComboBox;
@@ -37,18 +38,18 @@ public class AddInStorePanel extends MyPanel {
 	MyLabel dateL;
 	MyLabel sendCityL;
 	MyLabel locInfoL;
-	
+
 	MyTextField IDT;
 	MyDatePicker picker;
 	MyComboBox sendCityC;
-	
+
 	AddLocTablePanel locInfoTable;
-	
+
 	StoreController bl;
 	PanelController controller;
 
 	public AddInStorePanel(Element config, StoreController bl, StoreManagerController controller) {
-		
+
 		super(config);
 		this.bl = bl;
 		this.controller = controller;
@@ -77,7 +78,7 @@ public class AddInStorePanel extends MyPanel {
 	@Override
 	protected void initTextFields(Element e) {
 		IDT = new MyTextField(e.element("ID"));
-		
+
 	}
 
 	@Override
@@ -119,12 +120,12 @@ public class AddInStorePanel extends MyPanel {
 		confirmButton.addMouseListener(new AddInStoreListener(confirmButton));
 		returnButton.addMouseListener(new MyJumpListener(returnButton, "InStorePanel", controller));
 
-
 	}
-	
-	class AddInStoreListener extends ConfirmListener{
+
+	class AddInStoreListener extends ConfirmListener {
 
 		InStoreDocVO vo = new InStoreDocVO();
+
 		public AddInStoreListener(MyPictureButton button) {
 			super(button);
 			// TODO Auto-generated constructor stub
@@ -134,38 +135,42 @@ public class AddInStorePanel extends MyPanel {
 		protected void reInitial() {
 			IDT.setText("");
 			locInfoTable.resetData();
-			
+
 		}
 
 		@Override
 		protected boolean checkDataValid() {
 			vo.ID = IDT.getText();
 			vo.date = picker.getMyDate();
-			vo.loc = City.toCity((String)sendCityC.getSelectedItem());
+			vo.loc = City.toCity((String) sendCityC.getSelectedItem());
 			vo.orders = locInfoTable.getOrders();
 			vo.location = locInfoTable.getLocations();
-			//TODO
-//			for(String s: vo.orders)
-//				System.out.println(s);
+			// TODO
+			// for(String s: vo.orders)
+			// System.out.println(s);
 			return true;
 		}
 
 		@Override
 		protected void saveToSQL() {
-			
+
 			ResultMessage result = bl.generate(vo);
-			
-			if(result ==ResultMessage.SUCCESS){
+
+			if (result == ResultMessage.SUCCESS) {
 				reInitial();
 				new TipsDialog("生成入库单成功");
+
 			}
-				
-			
-			
+
 		}
 
-		
-		
+		@Override
+		protected void updateMes() {
+			InStorePanel inPanel = (InStorePanel) controller.getPanelMap().get("InStorePanel");
+			inPanel.table.updateTableMes();
+
+		}
+
 	}
 
 }
