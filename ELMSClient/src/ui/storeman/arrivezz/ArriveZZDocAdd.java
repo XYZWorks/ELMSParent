@@ -190,5 +190,12 @@ public class ArriveZZDocAdd extends MyPanel {
 			if(result ==ResultMessage.SUCCESS)
 				showSuccess();
 		}
+
+
+		@Override
+		protected void updateMes() {
+			// TODO Auto-generated method stub
+			
+		}
 	}
 }
