@@ -131,6 +131,12 @@ public class AddInst extends MyPanel{
 			
 		}
 
+		@Override
+		protected void updateMes() {
+			// TODO Auto-generated method stub
+			
+		}
+
 	}
 	
 	class MyCancelButtonListener extends MyPictureButtonListener{

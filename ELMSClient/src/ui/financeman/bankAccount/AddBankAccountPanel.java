@@ -122,6 +122,12 @@ public class AddBankAccountPanel extends MyPanel{
 			protected boolean checkDataValid() {
 				return false;
 			}
+
+			@Override
+			protected void updateMes() {
+				// TODO Auto-generated method stub
+				
+			}
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {
 
