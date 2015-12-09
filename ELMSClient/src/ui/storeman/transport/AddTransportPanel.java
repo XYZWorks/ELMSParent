@@ -189,6 +189,12 @@ public class AddTransportPanel extends MyPanel {
 			LoadManNameT.setText("");
 			ordersT.setText("");
 		}
+
+		@Override
+		protected void updateMes() {
+			// TODO Auto-generated method stub
+			
+		}
 	}
 
 }

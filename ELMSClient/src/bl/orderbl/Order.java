@@ -225,7 +225,7 @@ public class Order {
 			OrderVO tmp = null;
 			for(int i = 0;i<barCodes.size();i++){
 				tmp = getFullInfo(barCodes.get(i));
-				PreReceiveVO vo = new PreReceiveVO(tmp.ID, tmp.receiver.getAddress(), tmp.receiver.getName());
+//				PreReceiveVO vo = new PreReceiveVO(tmp.ID, tmp.receiver.getAddress(), tmp.receiver.getName());
 			}
 		}
 		return pres;

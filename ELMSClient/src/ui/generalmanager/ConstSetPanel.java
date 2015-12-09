@@ -167,6 +167,11 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 			
 			
 		}
+		@Override
+		protected void updateMes() {
+			// TODO Auto-generated method stub
+			
+		}
 	}
 	
 	class MyCancelButtonListner extends MyPictureButtonListener{
