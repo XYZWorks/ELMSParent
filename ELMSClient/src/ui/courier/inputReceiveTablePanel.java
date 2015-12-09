@@ -16,6 +16,7 @@ import vo.personnel.InstVO;
 *@author:xingcheng
 *@version 2015年12月8日
 */
+@SuppressWarnings("serial")
 public class inputReceiveTablePanel extends MyTablePanel{
 	private Orderblservice bl;
 	private ArrayList<PreReceiveVO>pre;
@@ -28,6 +29,7 @@ public class inputReceiveTablePanel extends MyTablePanel{
 		initTable();
 		initScrollerPane();
 		this.add(rollpane);
+		
 	}
 
 	

@@ -4,6 +4,7 @@ import bl.DTManagebl.DTManageController;
 import bl.accountbl.AccountController;
 import bl.approvalbl.ApprovalController;
 import bl.financebl.FinanceController;
+import bl.orderbl.OrderController;
 import bl.personnelbl.PersonnelController;
 import bl.statisticbl.StatisticController;
 import bl.strategybl.StrategyController;
@@ -17,6 +18,7 @@ import blservice.financeblservice.CostService;
 import blservice.financeblservice.DepositService;
 import blservice.financeblservice.PayService;
 import blservice.financeblservice.ProfitService;
+import blservice.orderblservice.Orderblservice;
 import blservice.personnelblservice.Personnelblservice;
 import blservice.statisticblservice.Statisticblservice;
 import blservice.strategyblservice.StrategyblService;
@@ -88,4 +90,13 @@ public class BusinessLogicDataFactory {
 	public Statisticblservice getStatisticBusinessLogic(){
 		return new StatisticController();
 	}
+	
+	public Orderblservice getOrderBussinessLogic(){
+		return new OrderController();
+	}
+	
+	public StrategyblService getStrategyBussinessLogic(){
+		return new StrategyController();
+	}
+	
 }

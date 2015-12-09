@@ -7,6 +7,9 @@ import javax.swing.JScrollPane;
 
 import org.dom4j.Element;
 
+import bl.BusinessLogicDataFactory;
+import blservice.orderblservice.Orderblservice;
+import blservice.strategyblservice.StrategyblService;
 import config.StaticMessage;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
@@ -21,12 +24,17 @@ import ui.util.PanelController;
  * @version 2015年11月26日 下午3:43:30 
  */
 public class CourierController extends PanelController{
+	//初始化bl
+	private Orderblservice orderblservice;
+	private StrategyblService strategyblService;
+	
+	//初始化四个操作界面
 	private CourierMainPanel courierMainPanel;
 	private AddOrderPanel addOrderPanel;
 	private FindFullOrderInfoPanel findFullInfoPanel;
 	private InputReceiveInfoPanel inputReceiveInfoPanel;
 	
-	
+	//左侧栏
 	private MySideBarButton addOrderButton;
 	private MySideBarButton findFullInfoButton;
 	private MySideBarButton inputReceiveInfoButton;
@@ -54,16 +62,10 @@ public class CourierController extends PanelController{
 	@Override
 	protected void initPanel(Element e) {
 		courierMainPanel=new CourierMainPanel(e.element(courierMainPanelStr),this);
-		addOrderPanel=new AddOrderPanel(e.element(addOrderPanelStr));
-		findFullInfoPanel=new FindFullOrderInfoPanel(e.element(findFullInfoPanelStr));
-		//inputReceiveInfoPanel=new InputReceiveInfoPanel(e.element(inputReceiveInfoPanelStr));
-//		pane = new JScrollPane();
-////		pane.setLayout(null);
-//		pane.getViewport().add(addOrderPanel);
-//		addOrderPanel.setPreferredSize(new Dimension(848, 1200));
-////		pane.add(addOrderPanel);
-////		pane.setPreferredSize(new Dimension(848, 637));
-//		pane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		addOrderPanel=new AddOrderPanel(e.element(addOrderPanelStr),orderblservice,strategyblService);
+		findFullInfoPanel=new FindFullOrderInfoPanel(e.element(findFullInfoPanelStr),orderblservice);
+		inputReceiveInfoPanel=new InputReceiveInfoPanel(e.element(inputReceiveInfoPanelStr),orderblservice);
+
 	}
 
 	@Override
@@ -87,7 +89,7 @@ public class CourierController extends PanelController{
 		changePanel.add(courierMainPanel , courierMainPanelStr);
 		changePanel.add(addOrderPanel , addOrderPanelStr);
 		changePanel.add(findFullInfoPanel , findFullInfoPanelStr);
-		//changePanel.add(inputReceiveInfoPanel , inputReceiveInfoPanelStr);
+		changePanel.add(inputReceiveInfoPanel , inputReceiveInfoPanelStr);
 		
 	}
 
@@ -124,8 +126,8 @@ public class CourierController extends PanelController{
 
 	@Override
 	protected void initialBL() {
-		// TODO Auto-generated method stub
-		
+		orderblservice=BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
+		strategyblService=BusinessLogicDataFactory.getFactory().getStrategyBusinessLogic();
 	}
 	
 	

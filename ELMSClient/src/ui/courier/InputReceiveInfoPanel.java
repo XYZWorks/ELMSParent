@@ -1,20 +1,29 @@
 package ui.courier;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import org.dom4j.Element;
 
+import bl.orderbl.Order;
+import blservice.orderblservice.Orderblservice;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
+import ui.util.CancelListener;
 import ui.util.CompomentType;
+import ui.util.ConfirmListener;
 
 @SuppressWarnings("serial")
 public class InputReceiveInfoPanel extends MyPanel{
 	private MyPictureButton modify;
 	private MyPictureButton cancel;
+	private inputReceiveTablePanel table;
+	private Orderblservice bl;
 	
-	
-	public InputReceiveInfoPanel(Element config) {
+	public InputReceiveInfoPanel(Element config,Orderblservice bl) {
 		// TODO Auto-generated constructor stub
 		super(config);
+		this.bl=bl;
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
@@ -22,13 +31,13 @@ public class InputReceiveInfoPanel extends MyPanel{
 		addCompoment();
 		addListener();
 		setVisible(true);
-		//System.out.println("couriermainpanel has existed!!");
+
 	}
 
 	@Override
 	protected void initButtons(Element e) {
 		modify=new MyPictureButton(e.element("modify"));
-		
+		cancel=new MyPictureButton(e.element("cancel"));
 	}
 
 	@Override
@@ -45,20 +54,50 @@ public class InputReceiveInfoPanel extends MyPanel{
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		// TODO Auto-generated method stub
+		//initTabel
+		table=new inputReceiveTablePanel(e.element("inputReceiveTable"), bl);
 		
 	}
 
 	@Override
 	protected void addCompoment() {
-		// TODO Auto-generated method stub
+		this.add(cancel);
+		this.add(modify);
+		this.add(table);
+		this.add(table);
 		
 	}
 
 	@Override
 	protected void addListener() {
-		// TODO Auto-generated method stub
+		cancel.addMouseListener(new CancelListener(cancel) {
+
+			@Override
+			public void resetMes() {
+				//重新加载表格
+			}
+		});
 		
+		modify.addMouseListener(new ConfirmListener(modify) {
+
+			@Override
+			protected void saveToSQL() {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			protected boolean checkDataValid() {
+				// TODO 检查必填项目是否正确
+
+				return true;
+			}
+
+			@Override
+			protected void reInitial() {
+			}
+		});
+
 	}
 
 	@Override
@@ -66,5 +105,4 @@ public class InputReceiveInfoPanel extends MyPanel{
 		// TODO Auto-generated method stub
 		
 	}
-
 }
