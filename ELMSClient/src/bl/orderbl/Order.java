@@ -223,9 +223,14 @@ public class Order {
 		
 		if(barCodes!=null){
 			OrderVO tmp = null;
+			PreReceiveVO vo =null;
 			for(int i = 0;i<barCodes.size();i++){
 				tmp = getFullInfo(barCodes.get(i));
-				PreReceiveVO vo = new PreReceiveVO(tmp.ID, tmp.receiver.getAddress(), tmp.receiver.getName(),tmp.otherMes.getRealReceiver(),tmp.otherMes.getOrderReceiveDate());
+				if(tmp.otherMes.getRealReceiver()!=null&&tmp.otherMes.getOrderReceiveDate()!=null)
+					vo = new PreReceiveVO(tmp.ID, tmp.receiver.getAddress(), tmp.receiver.getName(),tmp.otherMes.getRealReceiver(),tmp.otherMes.getOrderReceiveDate());
+				else 
+					vo = new PreReceiveVO(tmp.ID, tmp.receiver.getAddress(), tmp.receiver.getName(),null,null);
+				pres.add(vo);
 			}
 		}
 		return pres;

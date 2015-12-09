@@ -373,8 +373,8 @@
 						
 						<sendCity  x="50" y="150" width="200" height="100"  
 						text="目的地" type="rectangle"/>	
-						<locInfo  x="50" y="240" width="200" height="100"  
-						text="订单及其位置" type="rectangle"/>
+						<order  x="50" y="240" width="200" height="100"  
+						text="订单编号" type="rectangle"/>
 						
 			 			
 						
