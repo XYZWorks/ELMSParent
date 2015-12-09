@@ -26,7 +26,14 @@ public class UserMes {
 	
 	public AccountVO login(AccountVO vo) {
 		try {
-			return (AccountVO)VOPOchange.POtoVO(accountds.check(vo.ID, vo.password));
+			AccountPO temp = accountds.check(vo.ID, vo.password);
+			if(temp == null){
+				return null;
+			}else{
+				return (AccountVO)VOPOchange.POtoVO(temp);
+			}
+			
+			
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;

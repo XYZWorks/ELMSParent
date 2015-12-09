@@ -13,31 +13,33 @@ import ui.tools.CheckDocPanel;
 @SuppressWarnings("serial")
 public class LoadDocCheckPanel extends CheckDocPanel{
 
-	public LoadDocCheckPanel(Element config, JPanel changePanel) {
-		super(config, changePanel);
+	public LoadDocCheckPanel(Element config, JPanel changePanel , String checkDocName , String addDocName) {
+		super(config, changePanel , checkDocName , addDocName);
+
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	protected void initialAddDocPanel(Element e) {
-		// TODO Auto-generated method stub
+	protected void initialAddDocPanelAndTable(Element e) {
+		addDocPanel = new LoadDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr);
+		messageTable = new LoadDocMesTable(e.element(tableStr));
 		
 	}
 
 	@Override
-	protected void initialOtherComp(Element e) {
+	protected void initialDifferComp(Element e) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	protected void addComp() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	protected void addListener() {
+		super.addListener();		
+	}
+
+	@Override
+	protected void addDifferComp() {
 		// TODO Auto-generated method stub
 		
 	}

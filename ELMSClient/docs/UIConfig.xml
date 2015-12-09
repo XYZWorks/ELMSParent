@@ -372,10 +372,11 @@
 					<name x="100" y="160" width="115" height="40" />
 				</TEXTFIELDS>
 				<datePicker x="650" y="170" width="200" height="50">
-					<field x="0" y="0" width="150" height="50"/>
-					<button  x="250" y="0" width="50" height="50"/>
+					<field x="0" y="0" width="150" height="50" />
+					<button x="250" y="0" width="50" height="50" />
 				</datePicker>
-				<table x="100" y="350" width="600" height="250" column ="机构ID 所在城市 类型 人员数目 车辆数目"/>
+				<table x="100" y="350" width="600" height="250"
+					column="机构ID 所在城市 类型 人员数目 车辆数目" />
 				<addCar x="232" y="54" width="1080" height="637">
 					<BUTTONS>
 						<confirm x="500" y="560" width="115" height="40" text="确认"
@@ -386,17 +387,16 @@
 							type="rectangle" />
 					</BUTTONS>
 					<LABELS>
-						<ID x="500" y="560" width="115" height="40" text="车辆ID"
-							 />
+						<ID x="500" y="560" width="115" height="40" text="车辆ID" />
 						<plateNum x="500" y="560" width="115" height="40" text="车牌号" />
 						<useYear x="500" y="560" width="115" height="40" text="使用年份" />
 					</LABELS>
 					<TEXTFIELDS>
 						<ID x="500" y="560" width="115" height="40" />
 						<plateNum x="500" y="560" width="115" height="40" />
-						<useYear x="500" y="560" width="115" height="40"/>
+						<useYear x="500" y="560" width="115" height="40" />
 					</TEXTFIELDS>
-					<table x="500" y="560" width="115" height="40" column = "车辆ID 车牌号 使用年份"/>
+					<table x="500" y="560" width="115" height="40" column="车辆ID 车牌号 使用年份" />
 				</addCar>
 				<addInst x="232" y="54" width="1080" height="637">
 					<BUTTONS>
@@ -429,8 +429,8 @@
 					<TEXTFIELDS>
 						<ID x="500" y="560" width="115" height="40" />
 						<InstID x="500" y="560" width="115" height="40" />
-						<Name x="500" y="560" width="115" height="40"/>
-						<Phone x="500" y="560" width="115" height="40"/>
+						<Name x="500" y="560" width="115" height="40" />
+						<Phone x="500" y="560" width="115" height="40" />
 					</TEXTFIELDS>
 					<LABELS>
 						<InstID x="45" y="500" width="50" height="40" text="机构ID" />
@@ -441,7 +441,8 @@
 					</LABELS>
 					<Type x="600" y="125" width="200" height="50" text="确认"
 						strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理人员 司机" />
-						<table x="600" y="125" width="200" height="50" text="确认" column = "机构ID 职员类型 ID 姓名 手机号"/>
+					<table x="600" y="125" width="200" height="50" text="确认"
+						column="机构ID 职员类型 ID 姓名 手机号" />
 				</addPeople>
 			</BulidBillPanel>
 			<BankAccountManagePanel x="232" y="54" width="1080"
@@ -485,7 +486,7 @@
 					<money x="500" y="560" width="115" height="40" />
 					<password x="500" y="560" width="115" height="40" />
 				</LABELS>
-					<table x="50" y="75" width="750" height="430" column = "账户ID 密码 存款"/>
+				<table x="50" y="75" width="750" height="430" column="账户ID 密码 存款" />
 			</BankAccountManagePanel>
 			<CostManagePanel x="232" y="54" width="1080" height="637">
 			</CostManagePanel>
@@ -505,17 +506,17 @@
 					<money x="650" y="560" width="115" height="40" />
 				</TEXTFIELDS>
 				<LABELS>
-					<money x="500" y="560" width="115" height="40" text="金额"/>
-					<password x="500" y="560" width="115" height="40" text="类型"/>
-					<time x="500" y="560" width="115" height="40" text="时间"/>
+					<money x="500" y="560" width="115" height="40" text="金额" />
+					<password x="500" y="560" width="115" height="40" text="类型" />
+					<time x="500" y="560" width="115" height="40" text="时间" />
 				</LABELS>
-				<type x="500" y="560" width="115" height="40" strings = "1 2"/>
-				<table x="500" y="560" width="115" height="40" columm = "1 2" />
+				<type x="500" y="560" width="115" height="40" strings="1 2" />
+				<table x="500" y="560" width="115" height="40" columm="1 2" />
 				<datepicker x="700" y="50" width="300" height="50">
-					<field x="0" y="0" width="250" height="50"/>
-					<button  x="250" y="0" width="50" height="50"/>
+					<field x="0" y="0" width="250" height="50" />
+					<button x="250" y="0" width="50" height="50" />
 				</datepicker>
-				
+
 			</BulidPayPanel>
 
 
@@ -584,34 +585,171 @@
 
 
 		</Adminstrator>
+		<Salesman x="232" y="54" width="1080" height="637">
+			<BUTTONS>
+				<loadDoc text="装车单" x="0" y="227" />
+				<arriveYYDoc text="接收单" x="0" y="267" />
+				<sendGoodDoc text="派送单" x="0" y="307" />
+				<payDoc text="收款单" x="0" y="347" />
+				<driverInfoManage text="司机信息管理" x="0" y="387" />
+				<truckInfoManage text="车辆信息管理" x="0" y="427" />
+			</BUTTONS>
+
+			<mainWindow x="232" y="54" width="1080" height="637">
+				<BUTTONS>
+					<truckInfoManage text="" x="648" y="146" width="140"
+						height="165" normal="saleman//TruckInfoManage" enter="saleman//TruckInfoManage-enter"
+						clicked="saleman//TruckInfoManage-clicked" />
+					<driverInfoManage text="" x="648" y="350" width="140"
+						height="165" normal="saleman//DriverInfoManage" enter="saleman//DriverInfoManage-enter"
+						clicked="saleman//DriverInfoManage-clicked" />
+					<loadDoc text="" x="44" y="146" width="140" height="165"
+						normal="saleman//LoadDoc" enter="saleman//LoadDoc-enter" clicked="saleman//LoadDoc-clicked" />
+					<arriveYYDoc text="" x="44" y="350" width="140" height="165"
+						normal="saleman//ArriveYYDoc" enter="saleman//ArriveYYDoc-enter"
+						clicked="saleman//ArriveYYDoc-clicked" />
+					<sendGoodDoc text="" x="345" y="146" width="140"
+						height="165" normal="saleman//SendGoodDoc" enter="saleman//SendGoodDoc-enter"
+						clicked="saleman//SendGoodDoc-clicked" />
+					<payDoc text="" x="345" y="350" width="140" height="165"
+						normal="saleman//PayDoc" enter="saleman//PayDoc-enter" clicked="saleman//PayDoc-clicked" />
+				</BUTTONS>
+			</mainWindow>
+			<loadDocShowpanel x="232" y="54" width="1080"
+				height="637">
+				<loadDocShowpanelAddPanel x="232" y="54" width="1080" height="637">
+					<BUTTONS>
+					<confirm x="550" y="560" width="115" height="40"
+						text="确认" type="rectangle" />
+					<cancel x="700" y="560" width="115" height="40"
+						text="取消" type="cancel" />
+					<back x="625" y="560" width="115"
+						height="40" text="返回" type="confirm" />
+					</BUTTONS>
+				
+				</loadDocShowpanelAddPanel>
+					<addDoc x="550" y="560" width="115" height="40"
+						text="增加" type="rectangle" />
+					<search x="600" y="100" />
+					<datepicker x="100" y="45" width="250" height="50" />
+					<table x="200" y="100" width="550" height="400" />
+
+
+			</loadDocShowpanel>
+			<arriveYYDocShowPanel x="232" y="54" width="1080"
+				height="637">
+				<arriveYYDocShowPanelAddPanel x="232" y="54" width="1080" height="637">
+					<BUTTONS>
+					<confirm x="550" y="560" width="115" height="40"
+						text="确认" type="rectangle" />
+					<cancel x="700" y="560" width="115" height="40"
+						text="取消" type="cancel" />
+					<back x="625" y="560" width="115"
+						height="40" text="返回" type="confirm" />
+					</BUTTONS>
+				
+				</arriveYYDocShowPanelAddPanel>
+					<addDoc x="550" y="560" width="115" height="40"
+						text="增加" type="rectangle" />
+					<search x="600" y="100" />
+					<datepicker x="100" y="45" width="250" height="50" />
+					<table x="200" y="100" width="550" height="400" />
+				
+				
+				</arriveYYDocShowPanel>
+			<sendGoodDocShowPanel x="232" y="54" width="1080"
+				height="637">
+				<sendGoodDocShowPanelAddPanel x="232" y="54" width="1080" height="637">
+					<BUTTONS>
+					<confirm x="550" y="560" width="115" height="40"
+						text="确认" type="rectangle" />
+					<cancel x="700" y="560" width="115" height="40"
+						text="取消" type="cancel" />
+					<back x="625" y="560" width="115"
+						height="40" text="返回" type="confirm" />
+					</BUTTONS>
+				
+				</sendGoodDocShowPanelAddPanel>
+					<addDoc x="550" y="560" width="115" height="40"
+						text="增加" type="rectangle" />
+					<search x="600" y="100" />
+					<datepicker x="100" y="45" width="250" height="50" />
+					<table x="200" y="100" width="550" height="400" />
+
+			</sendGoodDocShowPanel>
+			<payDocShowPanel x="232" y="54" width="1080" height="637">
+				<payDocShowPanelAddPanel x="232" y="54" width="1080" height="637">
+					<BUTTONS>
+					<confirm x="550" y="560" width="115" height="40"
+						text="确认" type="rectangle" />
+					<cancel x="700" y="560" width="115" height="40"
+						text="取消" type="cancel" />
+					<back x="625" y="560" width="115"
+						height="40" text="返回" type="confirm" />
+					</BUTTONS>
+				
+				</payDocShowPanelAddPanel>
+					<addDoc x="550" y="560" width="115" height="40"
+						text="增加" type="rectangle" />
+					<search x="600" y="100" />
+					<datepicker x="100" y="45" width="250" height="50" />
+					<table x="200" y="100" width="550" height="400" />
+
+
+			</payDocShowPanel>
+			<driverInfoManagePanel x="232" y="54" width="1080"
+				height="637">
+				<driverInfoManagePanelAddPanel x="232" y="54" width="1080" height="637">
+					<BUTTONS>
+					<confirm x="550" y="560" width="115" height="40"
+						text="确认" type="rectangle" />
+					<cancel x="700" y="560" width="115" height="40"
+						text="取消" type="cancel" />
+					<back x="625" y="560" width="115"
+						height="40" text="返回" type="confirm" />
+					</BUTTONS>
+				
+				</driverInfoManagePanelAddPanel>
+					<addDoc x="550" y="560" width="115" height="40"
+						text="增加" type="rectangle" />
+					<search x="600" y="100" />
+					<datepicker x="100" y="45" width="250" height="50" />
+					<table x="200" y="100" width="550" height="400" />
+
+
+			</driverInfoManagePanel>
+			<truckInfoManagePanel x="232" y="54" width="1080"
+				height="637">
+				<truckInfoManagePanelAddPanel x="232" y="54" width="1080" height="637">
+					<BUTTONS>
+					<confirm x="550" y="560" width="115" height="40"
+						text="确认" type="rectangle" />
+					<cancel x="700" y="560" width="115" height="40"
+						text="取消" type="cancel" />
+					<back x="625" y="560" width="115"
+						height="40" text="返回" type="confirm" />
+					</BUTTONS>
+				
+				</truckInfoManagePanelAddPanel>
+					<addDoc x="550" y="560" width="115" height="40"
+						text="增加" type="rectangle" />
+					<search x="600" y="100" />
+					<datepicker x="100" y="45" width="250" height="50" />
+					<table x="200" y="100" width="550" height="400" />
+
+
+			</truckInfoManagePanel>
+		</Salesman>
+
+
+
+
+
+
+
+
+
 	</initialpanel>
-
-
-
-	<courier width="1080" height="720">
-		<buttons>
-			<close text="" x="1041" y="17" width="19" height="18"
-				normal="element//close-normal" enter="element//close-enter" exit="element//close-exit" />
-			<min text="" x="1004" y="24" width="22" height="3"
-				normal="element//min-normal" enter="element//min-enter" exit="element//min-exit" />
-			<drop text="" x="955" y="24" width="15" height="8"
-				normal="element//drop-normal" enter="element//drop-enter" exit="element//drop-exit" />
-			<home text="" x="773" y="16" width="26" height="22"
-				normal="element//home-normal" enter="element//home-enter" exit="element//home-exit" />
-			<Addorder text="" x="290" y="290" width="115" height="159"
-				normal="courier//AddOrder" enter="courier//AddOrder-enter" exit="courier//AddOrder-exit" />
-			<CheckOrder text="" x="591" y="292" width="119" height="155"
-				normal="courier//CheckOrder" enter="courier//CheckOrder-enter" exit="courier//CheckOrder-exit" />
-			<InputReceive text="" x="889" y="290" width="121"
-				height="157" normal="courier//InputReceive" enter="courier//InputReceive-enter"
-				exit="courier//InputReceive-exit" />
-
-
-		</buttons>
-
-
-
-	</courier>
 
 
 

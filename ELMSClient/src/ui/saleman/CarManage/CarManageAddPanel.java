@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import org.dom4j.Element;
 
 import ui.tools.AddDocPanel;
+import ui.util.ConfirmListener;
  /** 
  * 车辆管理增加界面
  * @author czq 
@@ -12,10 +13,12 @@ import ui.tools.AddDocPanel;
  */
 @SuppressWarnings("serial")
 public class CarManageAddPanel extends AddDocPanel {
-
-	public CarManageAddPanel(Element config, JPanel changePanel) {
-		super(config, changePanel);
-		// TODO Auto-generated constructor stub
+	
+	
+	
+	
+	public CarManageAddPanel(Element config, JPanel changePanel, String checkDocPanelStr) {
+		super(config , changePanel , checkDocPanelStr);
 	}
 
 	@Override
@@ -56,7 +59,26 @@ public class CarManageAddPanel extends AddDocPanel {
 
 	@Override
 	protected void addListener() {
-		// TODO Auto-generated method stub
+		confirm.addMouseListener(new ConfirmListener(confirm) {
+			
+			@Override
+			protected void saveToSQL() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			protected void reInitial() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			protected boolean checkDataValid() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+		});
 
 	}
 

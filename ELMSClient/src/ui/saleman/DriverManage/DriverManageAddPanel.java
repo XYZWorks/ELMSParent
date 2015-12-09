@@ -10,10 +10,11 @@ import ui.tools.AddDocPanel;
  * @author czq 
  * @version 2015年12月8日 下午8:17:45 
  */
+@SuppressWarnings("serial")
 public class DriverManageAddPanel extends AddDocPanel {
 
-	public DriverManageAddPanel(Element config, JPanel changePanel) {
-		super(config, changePanel);
+	public DriverManageAddPanel(Element config, JPanel changePanel, String checkDocPanelStr) {
+		super(config , changePanel , checkDocPanelStr);
 		// TODO Auto-generated constructor stub
 	}
 

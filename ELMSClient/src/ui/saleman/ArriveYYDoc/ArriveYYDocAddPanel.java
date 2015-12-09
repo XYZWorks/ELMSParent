@@ -6,6 +6,7 @@ import org.dom4j.Element;
 
 
 
+
 /**
  * 接收单界面
  */
@@ -23,7 +24,6 @@ import ui.util.PanelController;
  */
 @SuppressWarnings("serial")
 public class ArriveYYDocAddPanel extends AddDocPanel{
-	private PanelController controller;
 	
 	//接收单号
 	private MyPictureLabel arriveYYDocID;
@@ -39,8 +39,8 @@ public class ArriveYYDocAddPanel extends AddDocPanel{
 	private MyLabel sendCIty;
 	private MyLabel goodState;
 
-	public  ArriveYYDocAddPanel(Element config , JPanel changePanel) {
-		super(config , changePanel);
+	public  ArriveYYDocAddPanel(Element config , JPanel changePanel, String checkDocPanelStr) {
+		super(config , changePanel , checkDocPanelStr);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -18,8 +18,8 @@ public class ArriveYYDocCheckPanel extends CheckDocPanel{
 
 	
 
-	public ArriveYYDocCheckPanel(Element config, JPanel changePanel) {
-		super(config, changePanel);
+	public ArriveYYDocCheckPanel(Element config, JPanel changePanel , String checkDocName , String addDocName) {
+		super(config, changePanel , checkDocName , addDocName);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -29,27 +29,28 @@ public class ArriveYYDocCheckPanel extends CheckDocPanel{
 
 	@Override
 	protected void addListener() {
-		// TODO Auto-generated method stub
+		super.addListener();
 		
 	}
 
 	@Override
-	protected void initialAddDocPanel(Element e) {
-		addDocPanel = new ArriveYYDocAddPanel(e, changePanel);
-		
+	protected void initialAddDocPanelAndTable(Element e) {
+		addDocPanel = new ArriveYYDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr);
+		messageTable = new ArriveYYDocMesTable(e.element(tableStr));
 	}
 
 	@Override
-	protected void initialOtherComp(Element e) {
-		messageTable = new ArriveYYDocMesTable(e.element("table"));
-		searchBox = new MySerachBox(e.element("search"));
-		datePicker = new MyDatePicker(e.element("date"));
-		addDoc = new MyPictureButton(e.element("add"));
+	protected void initialDifferComp(Element e) {
 		
 	}
 
+	
+
+
+
+
 	@Override
-	protected void addComp() {
+	protected void addDifferComp() {
 		// TODO Auto-generated method stub
 		
 	}
