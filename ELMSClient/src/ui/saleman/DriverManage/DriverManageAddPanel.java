@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
  /** 
  * 司机增加界面
@@ -13,8 +14,8 @@ import ui.tools.AddDocPanel;
 @SuppressWarnings("serial")
 public class DriverManageAddPanel extends AddDocPanel {
 
-	public DriverManageAddPanel(Element config, JPanel changePanel, String checkDocPanelStr) {
-		super(config , changePanel , checkDocPanelStr);
+	public DriverManageAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable) {
+		super(config , changePanel , checkDocPanelStr,  messageTable);
 		// TODO Auto-generated constructor stub
 	}
 

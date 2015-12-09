@@ -4,7 +4,12 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
+import ui.tools.MyLabel;
+import ui.tools.MyPictureLabel;
+import ui.tools.MyTextField;
+import ui.util.CancelListener;
 import ui.util.ConfirmListener;
  /** 
  * 车辆管理增加界面
@@ -14,11 +19,16 @@ import ui.util.ConfirmListener;
 @SuppressWarnings("serial")
 public class CarManageAddPanel extends AddDocPanel {
 	
-	
-	
-	
-	public CarManageAddPanel(Element config, JPanel changePanel, String checkDocPanelStr) {
-		super(config , changePanel , checkDocPanelStr);
+	MyLabel id;
+	MyLabel plateNum;
+	MyLabel useYear;
+
+	MyTextField idT;
+	MyTextField plateNumT;
+	MyTextField useYearT;
+
+	public CarManageAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable) {
+		super(config , changePanel , checkDocPanelStr,  messageTable);
 	}
 
 	@Override
@@ -35,13 +45,17 @@ public class CarManageAddPanel extends AddDocPanel {
 
 	@Override
 	protected void initTextFields(Element e) {
-		// TODO Auto-generated method stub
+		idT = new MyTextField(e.element("id"));
+		plateNumT = new MyTextField(e.element("plateNum"));
+		useYearT = new MyTextField(e.element("useYear"));
 
 	}
 
 	@Override
 	protected void initLabels(Element e) {
-		// TODO Auto-generated method stub
+		id = new MyPictureLabel(e.element("id"));
+		plateNum = new MyPictureLabel(e.element("plateNum"));
+		useYear = new MyPictureLabel(e.element("useYear"));
 
 	}
 
@@ -53,8 +67,7 @@ public class CarManageAddPanel extends AddDocPanel {
 
 	@Override
 	protected void addCompoment() {
-		// TODO Auto-generated method stub
-
+		add(id);add(plateNum);add(useYear);add(idT);add(plateNumT);add(useYearT);
 	}
 
 	@Override
@@ -65,6 +78,8 @@ public class CarManageAddPanel extends AddDocPanel {
 			protected void saveToSQL() {
 				// TODO Auto-generated method stub
 				
+				//增加一条信息
+//				messageTable.addOneRow(data);
 			}
 			
 			@Override
@@ -79,7 +94,14 @@ public class CarManageAddPanel extends AddDocPanel {
 				return false;
 			}
 		});
-
+		cancel.addMouseListener(new CancelListener(cancel) {
+			
+			@Override
+			public void resetMes() {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 
 }

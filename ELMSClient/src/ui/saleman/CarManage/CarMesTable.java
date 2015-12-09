@@ -10,7 +10,9 @@ import ui.table.MyTablePanel;
  */
 @SuppressWarnings("serial")
 public class CarMesTable extends MyTablePanel{
-
+	
+	
+	
 	public CarMesTable(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub

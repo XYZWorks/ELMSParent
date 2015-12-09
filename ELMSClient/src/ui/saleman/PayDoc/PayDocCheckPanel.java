@@ -21,8 +21,9 @@ public class PayDocCheckPanel extends CheckDocPanel{
 
 	@Override
 	protected void initialAddDocPanelAndTable(Element e) {
-		addDocPanel = new PayDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr);
 		messageTable = new PayDocMesTable(e.element(tableStr));
+		addDocPanel = new PayDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable);
+		
 		
 	}
 

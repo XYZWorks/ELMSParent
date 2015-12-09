@@ -35,8 +35,9 @@ public class ArriveYYDocCheckPanel extends CheckDocPanel{
 
 	@Override
 	protected void initialAddDocPanelAndTable(Element e) {
-		addDocPanel = new ArriveYYDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr);
 		messageTable = new ArriveYYDocMesTable(e.element(tableStr));
+		addDocPanel = new ArriveYYDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr , messageTable);
+		
 	}
 
 	@Override

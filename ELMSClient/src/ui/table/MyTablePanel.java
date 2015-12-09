@@ -24,6 +24,8 @@ public abstract class MyTablePanel extends JPanel {
 	protected MyTable table;
 
 	protected JScrollPane rollpane;
+	
+	protected final static String columnStr = "column";
 
 	public MyTablePanel(Element config) {
 		this.setLayout(null);
@@ -135,7 +137,30 @@ public abstract class MyTablePanel extends JPanel {
 		// TODO Auto-generated method stub
 		
 	}
-
 	
-
+	/**
+	 * 增加一行数据
+	 * @param data
+	 */
+	public void addOneRow(Object[] data) {
+		table.getModel().addRow(data);
+	}
+	
+	/**
+	 * 删除某一行数据、其中ID必须位于第一列
+	 * @param ID
+	 */
+	public void deleteRow(String ID){
+		int row = -1;
+		for (int i = 0; i < table.getRowCount(); i++) {
+			if(  ( (String)table.getValueAt(i, 0)).equals(ID)){
+				row = i;
+				break;
+			}
+		}
+		if(row >= 0){
+			removeRow(row);
+		}
+	}
+	
 }

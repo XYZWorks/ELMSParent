@@ -8,10 +8,12 @@ import org.dom4j.Element;
 
 
 
+
 /**
  * 接收单界面
  */
 import ui.table.MyTable;
+import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
@@ -43,8 +45,8 @@ public class ArriveYYDocAddPanel extends AddDocPanel{
 	
 	private MyTextField instIDT;
 
-	public  ArriveYYDocAddPanel(Element config , JPanel changePanel, String checkDocPanelStr) {
-		super(config , changePanel , checkDocPanelStr);
+	public  ArriveYYDocAddPanel(Element config , JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable) {
+		super(config , changePanel , checkDocPanelStr,  messageTable);
 		// TODO Auto-generated constructor stub
 	}
 

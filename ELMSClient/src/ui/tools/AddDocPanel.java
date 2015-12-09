@@ -14,8 +14,10 @@ import javax.swing.JPanel;
 
 
 
+
 import org.dom4j.Element;
 
+import ui.table.MyTablePanel;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
 /** 
@@ -36,13 +38,16 @@ public abstract class AddDocPanel extends MyPanel{
 	private final static String cancelButtonStr = "cancel";
 	private final static String backButtonStr = "back";
 	
+	protected MyTablePanel messageTable;
+	
 	private final JPanel changePanel;
 	private final CardLayout panelManager;
 	
-	public AddDocPanel(Element config , JPanel changePanel , String checkDocPanelStr) {
+	public AddDocPanel(Element config , JPanel changePanel , String checkDocPanelStr , MyTablePanel messageTable) {
 		super(config);
 		this.changePanel = changePanel;
 		this.checkDocPanelStr = checkDocPanelStr;
+		this.messageTable = messageTable;
 		panelManager = (CardLayout) changePanel.getLayout();
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));

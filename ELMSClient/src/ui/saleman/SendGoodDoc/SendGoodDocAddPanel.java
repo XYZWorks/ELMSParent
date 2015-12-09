@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
 import ui.tools.MyPanel;
 
@@ -16,8 +17,8 @@ import ui.tools.MyPanel;
 public class SendGoodDocAddPanel extends AddDocPanel{
 
 	
-	public SendGoodDocAddPanel(Element config, JPanel changePanel, String checkDocPanelStr) {
-		super(config , changePanel , checkDocPanelStr);
+	public SendGoodDocAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable) {
+		super(config , changePanel , checkDocPanelStr,  messageTable);
 		// TODO Auto-generated constructor stub
 	}
 

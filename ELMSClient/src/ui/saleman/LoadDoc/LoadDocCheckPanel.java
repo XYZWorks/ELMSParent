@@ -21,8 +21,8 @@ public class LoadDocCheckPanel extends CheckDocPanel{
 
 	@Override
 	protected void initialAddDocPanelAndTable(Element e) {
-		addDocPanel = new LoadDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr);
 		messageTable = new LoadDocMesTable(e.element(tableStr));
+		addDocPanel = new LoadDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable);
 		
 	}
 

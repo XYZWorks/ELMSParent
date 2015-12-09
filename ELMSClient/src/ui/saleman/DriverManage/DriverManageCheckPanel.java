@@ -21,8 +21,9 @@ public class DriverManageCheckPanel extends CheckDocPanel{
 
 	@Override
 	protected void initialAddDocPanelAndTable(Element e) {
-		addDocPanel = new DriverManageAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr);
 		messageTable = new DriverMesPanel(e.element(tableStr));
+		addDocPanel = new DriverManageAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable);
+		
 	}
 
 	@Override
