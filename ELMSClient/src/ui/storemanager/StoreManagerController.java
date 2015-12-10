@@ -179,7 +179,7 @@ public class StoreManagerController extends PanelController {
 		panelMap.put(addInStorePanelStr, addInStorePanel);		
 		panelMap.put(fullInPanelStr, fullInPanel);
 		panelMap.put(inStorePanelStr, inStorePanel);
-		panelMap.put(addOutStorePanelStr, outStorePanel);
+		panelMap.put(outStorePanelStr, outStorePanel);
 	}
 
 	@Override
