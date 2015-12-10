@@ -1,7 +1,11 @@
 package ui.common;
 
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
 import org.dom4j.Element;
 
+import ui.common.CommonInitalPanel.SearchBoxListener;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -9,6 +13,7 @@ import ui.tools.MyPictureLabel;
 import ui.tools.MySearchBox;
 import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
+import ui.util.TipsDialog;
 
 /**
  * 查询订单
@@ -147,8 +152,32 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 
 	@Override
 	protected void addListener() {
-		// TODO Auto-generated method stub
+		searchBox.addKeyListener(new SearchBoxListener());// TODO Auto-generated method stub
 		
+	}
+
+	class SearchBoxListener extends KeyAdapter{
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			if(e.getKeyCode()==KeyEvent.VK_ENTER){
+				TipsDialog wrongLength=new TipsDialog("订单号是10位哦～",560,470,300,55);
+				
+//				//获得输入的条形码
+//				String barcode=searchBox.getMyText();
+//				//判断条形码格式是否正确
+//				FormatMes result=UserfulMethod.checkBarCode(barcode);
+//				if(result==FormatMes.WRONG_LENGTH){
+//					TipsDialog wrongLength=new TipsDialog("订单号是10位哦～");
+//				}
+//				else if(result==FormatMes.ILEGAL_CHAR){
+//					TipsDialog ilegalChar=new TipsDialog("订单号是10位数字,输入了非法字符");
+//				}
+//				else if(result==FormatMes.CORRECT){
+			
+//				}
+			}
+		}
 	}
 
 	

@@ -239,15 +239,15 @@
 					<button x="746" y="0" width="50" height="40" type="rectangle" />
 				</DatePicker>
 
-				<bag text="快递袋" x="113" y="149" width="85" height="18" />
-				<carton text="纸箱" x="250" y="149" width="85" height="18" />
-				<woodCase text="木箱" x="406" y="149" width="85" height="18" />
+				<bag text="快递袋(1元)" x="113" y="149" width="85" height="18" />
+				<carton text="纸箱（5元）" x="250" y="149" width="85" height="18" />
+				<woodCase text="木箱（10元）" x="406" y="149" width="85" height="18" />
 
 				<economicOrder text="经济快递" x="113" y="183" width="100"
 					height="18" />
 				<commonOrder text="普通快递" x="250" y="183" width="100"
 					height="18" />
-				<quickOrder text="特快快递" x="406" y="183" width="100"
+				<quickOrder text="特快专递" x="406" y="183" width="100"
 					height="18" />
 
 				<senderCity x="64" y="149" width="120" height="29"

@@ -1,6 +1,8 @@
 package ui.courier;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
@@ -22,6 +24,7 @@ import ui.tools.MyWhitePanel;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
+import vo.strategy.ConstVO;
 
 /**
  * 查询订单界面
@@ -32,9 +35,12 @@ import ui.util.ConfirmListener;
 @SuppressWarnings("serial")
 
 public class AddOrderPanel extends MyPanelWithScroller {
+	
 	//bl
 	private Orderblservice orderblservice;
 	private StrategyblService strategyblService;
+	
+	private ConstVO constVO;
 
 	// 白色矩形panel
 	private MyWhitePanel senderInfoPanel;
@@ -149,6 +155,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		super(config);
 		this.orderblservice=orderblservice;
 		this.strategyblService=strategyblService;
+		constVO=strategyblService.getConst();
 		
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
@@ -418,9 +425,50 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		addSenderCityComboxListener(senderCity);
 		addReceiverCityComboxListener(receiverCity);
 		
+		bag.addActionListener(new goodPackListener());
+		carton.addActionListener(new goodPackListener());
+		woodCase.addActionListener(new goodPackListener());
 		
+		commonOrder.addActionListener(new goodPackListener());
+		quickOrder.addActionListener(new goodPackListener());
+		economicOrder.addActionListener(new goodPackListener());
 	}
 
+	class goodPackListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		String selected=null;
+		if(bag.isSelected()){
+			selected="bag";
+		}
+		else if(woodCase.isSelected()){
+			selected="woodCase";
+		}
+		else if(carton.isSelected()){
+			selected="carton";
+		}
+			
+		}
+    }
+	
+
+	class orderFormListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+		String selected=null;
+		if(commonOrder.isSelected()){
+			selected="commonOrder";
+		}
+		else if(economicOrder.isSelected()){
+			selected="economicOrder";
+		}
+		else if(quickOrder.isSelected()){
+			selected="quickOrder";
+		}
+			
+		}
+    }
+	
 	/**
 	 * 收件人的城市选择 combobox的监听 控制城市对应区域的跳转
 	 * @param city
@@ -522,10 +570,10 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	 * 根据选择的包装费用和快递形式来计算运费
 	 */
 	public void setCost(){
-		if(){
-			cost.setForeground(new Color(255, 138, 0));
-			cost.setText("");
-		}
+//		if(){
+//			cost.setForeground(new Color(255, 138, 0));
+//			cost.setText("");
+//		}
 	}
 	
 	
