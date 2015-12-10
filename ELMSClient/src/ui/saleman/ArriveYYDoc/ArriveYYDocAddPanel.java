@@ -9,6 +9,7 @@ import org.dom4j.Element;
 
 
 
+
 /**
  * 接收单界面
  */
@@ -20,6 +21,8 @@ import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
+import ui.util.CancelListener;
+import ui.util.ConfirmListener;
 import ui.util.PanelController;
 /**
  * 接收单增加界面
@@ -88,8 +91,44 @@ public class ArriveYYDocAddPanel extends AddDocPanel{
 
 	@Override
 	protected void addListener() {
-		// TODO Auto-generated method stub
+			confirm.addMouseListener(new ConfirmListener(confirm) {
+			
+			@Override
+			protected void saveToSQL() {
+				// TODO Auto-generated method stub
+				
+				//增加一条信息
+//				messageTable.addOneRow(data);
+			}
+			
+			@Override
+			protected void reInitial() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			protected boolean checkDataValid() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			@Override
+			protected void updateMes() {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		cancel.addMouseListener(new CancelListener(cancel) {
+			
+			@Override
+			public void resetMes() {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	}
 		
 	}
 
-}
+

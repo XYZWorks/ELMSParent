@@ -192,8 +192,10 @@ public class AddTransportPanel extends MyPanel {
 
 		@Override
 		protected void updateMes() {
+
 			TransportPanel tPanel = (TransportPanel) controller.getPanelMap().get("TransportPanel");
 			tPanel.table.updateTableMes();
+
 		}
 	}
 
