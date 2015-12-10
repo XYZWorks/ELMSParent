@@ -33,33 +33,33 @@
 			</LABELS>
 			<CommonMainPanel x="232" y="54" width="848" height="637">
 				<WHITEPANELS>
-					<WhitePanel x="49" y="150" width="748" height="600" />
+					<WhitePanel x="37" y="184" width="775" height="360" />
 				</WHITEPANELS>
 				<LABELS>
-					<BarCode text="订单号" x="20" y="80" width="100" height="53" size="26" />
-					<BarCodeText text="" x="1027" y="0" width="53" height="53" />
+					<BarCode text="订单号" x="37" y="116" width="90" height="28" size="30" />
+					<BarCodeText text="" x="174" y="120" width="137" height="19" size="24"/>
 
 					<transferInfo text="物流信息" x="0" y="0" width="114"
 						height="40" type="rectangle" />
 
-					<LineLeft x="63" y="57" width="60" height="200" one="element//timeAxis" />
-					<LineRight x="63" y="57" width="60" height="200" one="element//timeAxis" />
+					<LineLeft x="16" y="65" width="13" height="264" one="element//timeAxis" />
+					<LineRight x="400" y="65" width="13" height="264" one="element//timeAxis" />
 
-					<One x="63" y="57" width="276" height="32" />
-					<Two x="63" y="57" width="276" height="32" />
-					<Three x="63" y="57" width="276" height="32" />
-					<Four x="63" y="57" width="276" height="32" />
-					<Five x="63" y="57" width="276" height="32" />
-					<Six x="63" y="57" width="276" height="32" />
-					<Seven x="63" y="57" width="276" height="32" />
-					<Eight x="63" y="57" width="276" height="32" />
-					<Nine x="63" y="57" width="276" height="32" />
-					<Ten x="63" y="57" width="276" height="32" />
+					<One x="43" y="63" width="306" height="19" />
+					<Two x="43" y="113" width="306" height="19" />
+					<Three x="43" y="167" width="306" height="19" />
+					<Four x="43" y="220" width="306" height="19" />
+					<Five x="43" y="273" width="306" height="19" />
+					<Six x="428" y="63" width="306" height="19" />
+					<Seven x="428" y="113" width="306" height="19" />
+					<Eight x="428" y="167" width="306" height="19" />
+					<Nine x="428" y="220" width="306" height="19" />
+					<Ten x="428" y="273" width="306" height="19" />
 				</LABELS>
-				<searchBox x="20" y="30" />
-				<DatePicker x="596" y="20" width="200" height="40">
-					<field x="596" y="20" width="150" height="40" />
-					<button x="746" y="20" width="50" height="40" type="rectangle" />
+				<searchBox x="37" y="38" />
+				<DatePicker x="652" y="113" width="200" height="40">
+					<field x="652" y="113" width="150" height="40" />
+					<button x="802" y="113" width="50" height="40" type="rectangle" />
 				</DatePicker>
 
 
