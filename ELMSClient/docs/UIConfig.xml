@@ -374,16 +374,16 @@
 			</FinanceApprovalPanel>
 			<BulidBillPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
-					<confirm x="500" y="560" width="115" height="40" text="确认"
+					<confirm x="599" y="560" width="89" height="37" text="确认"
 						type="confirm" />
-					<cancel x="650" y="560" width="115" height="40" text="取消"
+					<cancel x="707" y="560" width="89" height="37" text="取消"
 						type="cancel" />
 					<newInst x="350" y="560" width="115" height="40" text="新增机构"
 						type="rectangle" />
 				</BUTTONS>
 				<LABELS>
 					<title x="300" y="30" width="500" height="100" text="ELMS公司 期初建账"
-						fontName="华文新魏" size="28" />
+						fontName="华文细黑" size="28" />
 					<user x="50" y="170" width="115" height="40" text="经手人" />
 					<time x="500" y="170" width="115" height="40" text="建账日期" />
 					<message x="50" y="300" width="115" height="40" text="账单信息" />
