@@ -50,6 +50,7 @@ public abstract class MyTablePanel extends JPanel {
 	 */
 	protected abstract void initialTitleAndColumn(Element config);
 
+	
 	/**
 	 * 初始化表格
 	 */

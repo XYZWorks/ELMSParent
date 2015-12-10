@@ -92,7 +92,7 @@ public class InStoreTablePanel extends MyTablePanel {
 //		System.out.println("invoke inpanel table");
 		
 		setDataValue();
-		
+		//将增加table的行数
 		Object[] tmp = {"","","","",""};
 		
 		for(int i = table.getRowCount();i<vos.size();i++)

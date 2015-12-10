@@ -189,6 +189,12 @@ public class AddTransportPanel extends MyPanel {
 			LoadManNameT.setText("");
 			ordersT.setText("");
 		}
+
+		@Override
+		protected void updateMes() {
+			TransportPanel tPanel = (TransportPanel) controller.getPanelMap().get("TransportPanel");
+			tPanel.table.updateTableMes();
+		}
 	}
 
 }

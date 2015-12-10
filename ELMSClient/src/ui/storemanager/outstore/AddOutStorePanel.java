@@ -37,7 +37,9 @@ public class AddOutStorePanel extends MyPanel {
 	MyTextField IDT;
 	MyDatePicker picker;
 	MyComboBox sendCityC;
-
+	MyComboBox shipWayC;
+	
+	MyTextField transferDocT;
 	MyTextField orderT;
 
 	StoreController bl;
@@ -74,6 +76,7 @@ public class AddOutStorePanel extends MyPanel {
 	protected void initTextFields(Element e) {
 		IDT = new MyTextField(e.element("ID"));
 		orderT = new MyTextField(e.element("order"));
+		transferDocT = new MyTextField(e.element("transferDoc"));
 	}
 
 	@Override
@@ -83,6 +86,9 @@ public class AddOutStorePanel extends MyPanel {
 		dateL = new MyLabel(e.element("date"));
 		sendCityL = new MyLabel(e.element("sendCity"));
 		orderL = new MyLabel(e.element("order"));
+		shipWayL = new MyLabel(e.element("shipWay"));
+		
+		transferDocL = new MyLabel(e.element("transferDoc"));
 
 	}
 
@@ -90,7 +96,7 @@ public class AddOutStorePanel extends MyPanel {
 	protected void initOtherCompoment(Element e) {
 		picker = new MyDatePicker(e.element("DatePicker"));
 		sendCityC = new MyComboBox(e.element("sendCityC"));
-		
+		shipWayC = new MyComboBox(e.element("shipWayC"));
 
 	}
 
@@ -107,6 +113,10 @@ public class AddOutStorePanel extends MyPanel {
 		add(sendCityC);
 		add(sendCityL);
 		add(title);
+		add(shipWayC);
+		add(transferDocT);
+		add(shipWayL);
+		add(transferDocL);
 
 	}
 

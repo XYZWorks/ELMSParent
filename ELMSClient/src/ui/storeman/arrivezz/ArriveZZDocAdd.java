@@ -194,8 +194,8 @@ public class ArriveZZDocAdd extends MyPanel {
 
 		@Override
 		protected void updateMes() {
-			// TODO Auto-generated method stub
-			
+			ArriveZZPanel aPanel = (ArriveZZPanel) controller.getPanelMap().get("ArriveZZPanel");
+			aPanel.arriveZZTablePanel.updateTableMes();
 		}
 	}
 }

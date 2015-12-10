@@ -28,7 +28,7 @@ public class TransportPanel extends MyPanel {
 	private MyPictureButton returnButton;
 	private MyLabel nowDoc;
 
-	private TransportTablePanel table;
+	 TransportTablePanel table;
 
 	private PanelController controller;
 
