@@ -2,6 +2,9 @@ package ui.common;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -10,9 +13,12 @@ import javax.swing.JFrame;
 import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
+import ui.config.UserfulMethod;
 import ui.tools.MyFrame;
+import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
+import ui.tools.MySearchBox;
 import ui.util.ButtonState;
 import ui.util.CompomentType;
 
@@ -25,15 +31,24 @@ import ui.util.CompomentType;
 public class CommonInitalPanel extends MyPanel{
 	
 	private MyFrame parent;
-	
+
+	//搜索栏
+	//private MySearchBox searchBox;
+	//字：显示查询订单
+	//private MyLabel show;
 	private MyPictureButton exit;
 	private MyPictureButton min;
+	private Element config;
+	private FindSimpleOrderInfoPanel goodInfo;
+	
 	
 	private final static Image bg = GraphicsUtils.getImage("bg//bg");
 	
 	public CommonInitalPanel(Element config, MyFrame parent) {
 		super(config);
 		this.parent=parent;
+		this.config=config;
+		
 		
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
@@ -41,7 +56,6 @@ public class CommonInitalPanel extends MyPanel{
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initOtherCompoment(config);
 
-		FindSimpleOrderInfoPanel findSimpleOrderInfoPanel=new FindSimpleOrderInfoPanel(config.element("CommonMainPanel"));
 		
 		addCompoment();
 		addListener();
@@ -78,13 +92,14 @@ public class CommonInitalPanel extends MyPanel{
 
 	@Override
 	protected void initLabels(Element e) {
-		// TODO Auto-generated method stub
+		//show=new MyLabel(e.element("show"));
 		
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		// TODO Auto-generated method stub
+	//	searchBox=new MySearchBox(e.element("searchBox"));
+		goodInfo=new FindSimpleOrderInfoPanel(config.element("CommonMainPanel"));
 		
 	}
 
@@ -92,7 +107,9 @@ public class CommonInitalPanel extends MyPanel{
 	protected void addCompoment() {
 		this.add(exit);
 		this.add(min);
-		
+//		this.add(searchBox);
+//		this.add(show);
+		this.add(goodInfo);
 	}
 
 	@Override
@@ -100,9 +117,23 @@ public class CommonInitalPanel extends MyPanel{
 		exit.addMouseListener(new ExitListener());
 		min.addMouseListener(new MinListener());
 		
+		
 	}
 	
-	
+//	class SearchBoxListener extends KeyAdapter{
+//
+//		@Override
+//		public void keyPressed(KeyEvent e) {
+////			if(e.getKeyCode()==KeyEvent.VK_ENTER){
+////				String barcode=searchBox.getMyText();
+////				UserfulMethod.checkBarCode(barcode);
+////				
+////			}
+//			System.out.println("键盘收到监听");
+//			FindSimpleOrderInfoPanel findSimpleOrderInfoPanel=new FindSimpleOrderInfoPanel(config.element("CommonMainPanel"));
+//		}
+//	}
+//	
 	class ExitListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {

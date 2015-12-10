@@ -2,6 +2,8 @@ package ui.common;
 
 import org.dom4j.Element;
 
+import ui.config.ParseXML;
+import ui.login.LoginFrame;
 import ui.tools.MyFrame;
 
 /**
@@ -22,4 +24,10 @@ public class CommonFrame extends MyFrame{
 		this.setVisible(true);
 
 	}
+	public static void main(String[] args) {
+		//
+		ParseXML xmlReader = new ParseXML("xc.xml");
+		new CommonFrame(xmlReader.getConfig("commonFrame"));
+	}	
+	
 }

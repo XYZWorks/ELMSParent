@@ -2,12 +2,9 @@ package ui.common;
 
 import org.dom4j.Element;
 
-import com.eltima.components.ui.m;
-
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
-import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MySearchBox;
 import ui.tools.MyWhitePanel;
@@ -41,15 +38,14 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 	private MyLabel nine;
 	private MyLabel ten;
 	
+	private MySearchBox searchBox;
+	
 	//显示订单号 
 	private MyLabel BarCode;
 	private MyLabel BarCodeText;
 	
 	//选择日期
 	private MyDatePicker DatePicker;
-	
-	//搜索栏
-	private MySearchBox searchBox;
 	
 	public FindSimpleOrderInfoPanel(Element config) {
 		super(config);
@@ -138,6 +134,7 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		this.add(BarCodeText);
 		this.add(DatePicker);
 		this.add(searchBox);
+		
 	}
 
 	@Override

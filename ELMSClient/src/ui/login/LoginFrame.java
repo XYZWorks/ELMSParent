@@ -1,4 +1,4 @@
-package ui.login;
+ package ui.login;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -219,7 +219,8 @@ class MyCheckOrderListener extends MouseAdapter{
 
 
 public static void main(String[] args) {
-	ParseXML xmlReader = new ParseXML();
+	//
+	ParseXML xmlReader = new ParseXML("xc.xml");
 	new LoginFrame(xmlReader.getConfig("loginframe"));
 }	
 }
