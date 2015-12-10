@@ -731,7 +731,7 @@
 							type="cancel" />
 						<back x="625" y="560" width="115" height="40" text="返回" type="confirm" />
 					</BUTTONS>
-<<<<<<< HEAD
+
 					<LABELS>
 					<id x="50" y="50" width="115" height="40"
 						text="ID" type="rectangle" />
@@ -760,18 +760,8 @@
 					<table x="200" y="100" width="550" height="400" column = "编号 姓名 机构ID 出生日期 身份证号 手机号码 性别 驾驶证期限"/>
 					<searchButton x="700" y="0" width="115" height="40" text="搜索" type="rectangle"/>
 					<searchWay x="200" y="100" width="200" height="100" strings = "（查找方式） 按姓名查找 按ID查找 按机构ID查找"/>
-=======
 
-				</driverInfoManagePanelAddPanel>
-				<addDoc x="550" y="560" width="115" height="40" text="增加"
-					type="rectangle" />
-				<search x="300" y="0" />
-				<datepicker x="0" y="0" width="250" height="50" />
-				<table x="200" y="100" width="550" height="400" />
-				<searchButton x="700" y="0" width="115" height="40"
-					text="搜索" type="rectangle" />
 
->>>>>>> origin/master
 			</driverInfoManagePanel>
 			<truckInfoManagePanel x="232" y="54" width="848"
 				height="637">
@@ -785,20 +775,20 @@
 						<back x="625" y="560" width="115" height="40" text="返回" type="confirm" />
 					</BUTTONS>
 					<LABELS>
-<<<<<<< HEAD
+
 					<id x="50" y="50" width="115" height="40"
 						text="ID" type="rectangle" />
 					<plateNum x="50" y="150" width="115" height="40"
 						text="ID" type="rectangle" />
 					<useYear x="50" y="250" width="115" height="40"
 						text="ID" type="rectangle" />
-=======
+<!-- =======
 						<id x="50" y="50" width="115" height="40" text="ID" type="rectangle" />
 						<plateNum x="50" y="150" width="115" height="40" text="ID"
 							type="rectangle" />
 						<useYear x="50" y="250" width="115" height="40" text="ID"
 							type="rectangle" />
->>>>>>> origin/master
+>>>>>>> origin/master -->
 					</LABELS>
 					<TEXTFIELDS>
 						<id x="250" y="50" width="115" height="40" text="ID" type="rectangle" />
