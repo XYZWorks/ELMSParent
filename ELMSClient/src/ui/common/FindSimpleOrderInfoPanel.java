@@ -17,6 +17,8 @@ import ui.util.CompomentType;
  */
 @SuppressWarnings("serial")
 public class FindSimpleOrderInfoPanel extends MyPanel {
+	private MyPanel parent;
+	
 	private MyWhitePanel white;
 	
 	//标题栏：物流信息
@@ -47,8 +49,12 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 	//选择日期
 	private MyDatePicker DatePicker;
 	
-	public FindSimpleOrderInfoPanel(Element config) {
+	public FindSimpleOrderInfoPanel(Element config,MyPanel parent) {
+		
 		super(config);
+		System.out.println("findsimpleorder!!");
+		this.parent=parent;
+		
 //		this.orderblservice=orderblservice;
 //		this.strategyblService=strategyblService;
 		
@@ -134,6 +140,8 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		this.add(BarCodeText);
 		this.add(DatePicker);
 		this.add(searchBox);
+		
+		parent.add(this);
 		
 	}
 

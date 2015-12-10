@@ -51,7 +51,9 @@ public class TipsDialog extends JDialog{
 	 * @param message
 	 */
 	public TipsDialog(String message) {
+		
 		this(message , Color.red);
+		System.out.println("tipsDialog！");
     }
 	
 	public TipsDialog(String message , Color color) {
@@ -71,14 +73,14 @@ public class TipsDialog extends JDialog{
 	 */
 	public TipsDialog(String message , Color color , Font font , boolean isCenter) {
 		super(parent);
-		label.setIcon(GraphicsUtils.getIcon("element\\close"));
+		label.setIcon(GraphicsUtils.getIcon("element//close"));
 		label.setFont(font);
         label.setText(message);
         if(isCenter){
         	label.setHorizontalTextPosition(JLabel.CENTER);
         	label.setVerticalTextPosition(JLabel.CENTER);
         }
-        
+   
         
         new Thread(new Runnable() {
 			@Override

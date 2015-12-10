@@ -8,6 +8,7 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -60,6 +61,14 @@ public class MySearchBox extends JLabel{
 		
 	}
 	
+	/**
+	 * 把对mySearchBox的监听聚焦到textfield的身上，避免监听的流失
+	 * @param adapter
+	 */
+	public void addKeyListener(KeyAdapter adapter){
+		field.addKeyListener(adapter);
+	}
+	
 	public String getMyText(){
 		return field.getText();
 	}
@@ -92,7 +101,7 @@ public class MySearchBox extends JLabel{
 			}
 		});
 		
-		field.addKeyListener(new KeyListener());
+	//	field.addKeyListener(new KeyListener());
 	}
 	
 	class MyListener extends MouseAdapter{
@@ -116,19 +125,20 @@ public class MySearchBox extends JLabel{
 		}
 	}
 	
-	class KeyListener extends KeyAdapter{
-		@Override
-		public void keyPressed(KeyEvent e) {
-			
-			if(e.getKeyCode()==KeyEvent.VK_ENTER){
-				System.out.println("键盘收到监听");
-			}
-//				String barcode=searchBox.getMyText();
-//				UserfulMethod.checkBarCode(barcode);
-//				
+	
+//	class KeyListener extends KeyAdapter{
+//		@Override
+//		public void keyPressed(KeyEvent e) {
+//			
+//			if(e.getKeyCode()==KeyEvent.VK_ENTER){
+//				System.out.println("键盘收到监听");
 //			}
-		}
-	}
+////				String barcode=searchBox.getMyText();
+////				UserfulMethod.checkBarCode(barcode);
+////				
+////			}
+//		}
+//	}
 	
 	@Override
 	public void paintComponent(Graphics g){

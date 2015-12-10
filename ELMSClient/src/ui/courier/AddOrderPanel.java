@@ -1,5 +1,6 @@
 package ui.courier;
 
+import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
@@ -454,6 +455,9 @@ public class AddOrderPanel extends MyPanelWithScroller {
 							setChoseComboboxVisible(senderShangHaiArea);
 							break;
 					   }
+						
+						setTime();
+						repaint();
 				}
 			}
 		});	
@@ -494,18 +498,35 @@ public class AddOrderPanel extends MyPanelWithScroller {
 						setChoseComboboxVisible(receiverShangHaiArea);
 						break;
 				   }
+					setTime();
 					repaint();
 				}	
 			}	
 		});	
 	}
 
-	public void judgeTime(){
+	/**
+	 * 根据选择的收件、寄件城市来估计时间
+	 */
+	public void setTime(){
 		if((senderChose!=0)&&(receiverChose!=0)){
+			//获得常量 ？？？所有？？？
+			strategyblService.getConst();
 			
+			estimateTime.setForeground(new Color(26, 188, 156));
+			estimateTime.setText("");
 		}
 	}
 	
+	/**
+	 * 根据选择的包装费用和快递形式来计算运费
+	 */
+	public void setCost(){
+		if(){
+			cost.setForeground(new Color(255, 138, 0));
+			cost.setText("");
+		}
+	}
 	
 	
 	/**

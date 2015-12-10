@@ -3,7 +3,6 @@ package ui.common;
 import org.dom4j.Element;
 
 import ui.config.ParseXML;
-import ui.login.LoginFrame;
 import ui.tools.MyFrame;
 
 /**
