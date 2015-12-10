@@ -93,7 +93,7 @@ public class BusinessLogicDataFactory {
 		return new StatisticController();
 	}
 	
-<<<<<<< HEAD
+
 	public Orderblservice getOrderBussinessLogic(){
 		return new OrderController();
 	}
@@ -101,13 +101,8 @@ public class BusinessLogicDataFactory {
 	public StrategyblService getStrategyBussinessLogic(){
 		return new StrategyController();
 	}
-=======
 	public Transportblservice getTransportblservice(){
 		return new TransportController();
 	}
-	
-	
-	
->>>>>>> origin/master
 	
 }
