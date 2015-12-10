@@ -138,6 +138,11 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	// button
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
+	
+	//判断寄件人、收件人的城市是否已经选择
+	private int senderChose=0;
+	private int receiverChose=0;
+	
 
 	public AddOrderPanel(Element config,Orderblservice orderblservice,StrategyblService strategyblService) {
 		super(config);
@@ -370,7 +375,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 
 			@Override
 			protected void saveToSQL() {
-				// TODO Auto-generated method stub
+				
 
 			}
 
@@ -425,6 +430,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 			public void itemStateChanged(final ItemEvent e) {
 				if(e.getStateChange() == ItemEvent.SELECTED){
 					int index = city.getSelectedIndex();
+						senderChose=index;
 						//寄件人 所有对应栏的地区加载框全部设为不可见
 						setAllSenderComboboxUnvisible();
 						switch (index) {
@@ -465,6 +471,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 					//收件人 把所有对应栏的地区加载框全部设为不可见
 					setAllReceiverComboboxUnvisible();
 					int index = city.getSelectedIndex();
+					receiverChose=index;
 					switch (index) {
 					//默认
 					case 0:
@@ -493,7 +500,14 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		});	
 	}
 
-
+	public void judgeTime(){
+		if((senderChose!=0)&&(receiverChose!=0)){
+			
+		}
+	}
+	
+	
+	
 	/**
 	 * 设置 收件人 所有不同城市区域的选择框不可见
 	 */
