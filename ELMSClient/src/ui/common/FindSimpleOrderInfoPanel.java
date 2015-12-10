@@ -9,6 +9,7 @@ import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
+import ui.tools.MySearchBox;
 import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
 
@@ -21,12 +22,14 @@ import ui.util.CompomentType;
 public class FindSimpleOrderInfoPanel extends MyPanel {
 	private MyWhitePanel white;
 	
+	//标题栏：物流信息
 	private MyPictureLabel transferInfo;
 	
 	//左右两边的物流线
 	private MyLabel LineLeft;
 	private MyLabel LineRight;
 	
+	//物流的10个状态点
 	private MyLabel Load1;
 	private MyLabel arriveZZ2;
 	private MyLabel inStore3;
@@ -38,10 +41,15 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 	private MyLabel nine;
 	private MyLabel ten;
 	
+	//显示订单号 
 	private MyLabel BarCode;
 	private MyLabel BarCodeText;
 	
+	//选择日期
 	private MyDatePicker DatePicker;
+	
+	//搜索栏
+	private MySearchBox searchBox;
 	
 	public FindSimpleOrderInfoPanel(Element config) {
 		super(config);
@@ -104,7 +112,7 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 	@Override
 	protected void initOtherCompoment(Element e) {
 		DatePicker = new MyDatePicker(e.element("DatePicker"));
-		
+		searchBox=new MySearchBox(e.element("searchBox"));
 	}
 
 	@Override
@@ -129,7 +137,7 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		this.add(BarCode);
 		this.add(BarCodeText);
 		this.add(DatePicker);
-		
+		this.add(searchBox);
 	}
 
 	@Override

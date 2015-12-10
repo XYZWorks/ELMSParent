@@ -35,11 +35,11 @@
 					<BarCode text="" x="1027" y="0" width="53" height="53" />
 					<BarCodeText text="" x="1027" y="0" width="53" height="53" />
 
-					<transferInfo text="流转信息" x="0" y="0" width="114"
+					<transferInfo text="物流信息" x="0" y="0" width="114"
 						height="40" type="rectangle" />
 
-					<LineLeft x="63" y="57" width="276" height="32" one=""(路径))/>
-					<LineRight x="63" y="57" width="276" height="32" one=""/>
+					<LineLeft x="63" y="57" width="276" height="32" one="" />
+					<LineRight x="63" y="57" width="276" height="32" one="" />
 
 					<One x="63" y="57" width="276" height="32" />
 					<Two x="63" y="57" width="276" height="32" />
@@ -57,6 +57,7 @@
 					<field x="596" y="0" width="150" height="40" />
 					<button x="746" y="0" width="50" height="40" type="rectangle" />
 				</DatePicker>
+				<searchBox x="" y="" />
 
 			</CommonMainPanel>
 		</commonInitalPanel>
@@ -352,7 +353,7 @@
 					<goodWidthText x="229" y="533" width="85" height="29" />
 					<goodHeightText x="319" y="533" width="85" height="29" />
 
-					<transferInfo text="流转信息" x="0" y="0" width="114"
+					<transferInfo text="物流信息" x="0" y="0" width="114"
 						height="40" type="rectangle" />
 					<estimateTime text="" x="49" y="920" width="189"
 						height="65" one="element//estimateTime" />

@@ -41,6 +41,8 @@ public class CommonInitalPanel extends MyPanel{
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initOtherCompoment(config);
 
+		FindSimpleOrderInfoPanel findSimpleOrderInfoPanel=new FindSimpleOrderInfoPanel(config.element("CommonMainPanel"));
+		
 		addCompoment();
 		addListener();
 		setVisible(true);
