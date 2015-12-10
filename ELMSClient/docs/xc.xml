@@ -38,8 +38,8 @@
 					<transferInfo text="流转信息" x="0" y="0" width="114"
 						height="40" type="rectangle" />
 
-					<LineLeft x="63" y="57" width="276" height="32" />
-					<LineRight x="63" y="57" width="276" height="32" />
+					<LineLeft x="63" y="57" width="276" height="32" one=""(路径))/>
+					<LineRight x="63" y="57" width="276" height="32" one=""/>
 
 					<One x="63" y="57" width="276" height="32" />
 					<Two x="63" y="57" width="276" height="32" />
