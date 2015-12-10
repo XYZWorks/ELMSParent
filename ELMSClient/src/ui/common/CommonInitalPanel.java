@@ -137,7 +137,7 @@ public class CommonInitalPanel extends MyPanel{
 		@Override
 		public void keyPressed(KeyEvent e) {
 			if(e.getKeyCode()==KeyEvent.VK_ENTER){
-				TipsDialog wrongLength=new TipsDialog("订单号是10位哦～");
+				TipsDialog wrongLength=new TipsDialog("订单号是10位哦～",560,470,300,55);
 				
 //				//获得输入的条形码
 //				String barcode=searchBox.getMyText();

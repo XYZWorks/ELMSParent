@@ -24,15 +24,14 @@ public class TipsDialog extends JDialog{
 	 */
 	private static JFrame parent;
 	
-	
-	
 	private final int MAX_TIMES = 100;
 	
 	private final int PAUSE_TIME = 1000;
 	
 	private int nowTime = 1;
 	
-	private final static Rectangle bounds = new Rectangle(990, 600, 200, 100);
+	private static Rectangle bounds = new Rectangle(990, 600, 200, 100);
+	
 	
 	
 	private final  MyLabel label = new MyLabel() {
@@ -51,9 +50,8 @@ public class TipsDialog extends JDialog{
 	 * @param message
 	 */
 	public TipsDialog(String message) {
-		
 		this(message , Color.red);
-		System.out.println("tipsDialog！");
+		//System.out.println("tipsDialog！");
     }
 	
 	public TipsDialog(String message , Color color) {
@@ -64,6 +62,22 @@ public class TipsDialog extends JDialog{
 		this(message, color, font, false);
        
     }
+	
+	/**
+	 * 构造器2，可以设置所在frame的位置和大小
+	 * @param message
+	 * @param x
+	 * @param y
+	 * @param width
+	 * @param height
+	 */
+	public TipsDialog(String message,int x,int y,int width,int height){
+		this(message);
+		bounds=new Rectangle(x, y, width, height);
+		
+	}
+	
+	
 	/**
 	 * 
 	 * @param message
