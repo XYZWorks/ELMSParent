@@ -20,15 +20,47 @@
 	</loginframe>
 
 	<commonFrame x="0" y="0" width="1080" height="720">
-		<BUTTONS>
-			<exit text="" x="1027" y="0" width="53" height="53" normal="element//close"
-				enter="element//close-enter" clicked="element//close-clicked" />
-			<min text="" x="974" y="0" width="53" height="53" normal="element//min"
-				enter="element//min-enter" clicked="element//min-clicked" />
-		</BUTTONS>
-		<LABELS>
-		
-		</LABELS>
+		<commonInitalPanel>
+			<BUTTONS>
+				<exit text="" x="1027" y="0" width="53" height="53" normal="element//close"
+					enter="element//close-enter" clicked="element//close-clicked" />
+				<min text="" x="974" y="0" width="53" height="53" normal="element//min"
+					enter="element//min-enter" clicked="element//min-clicked" />
+			</BUTTONS>
+			<CommonMainPanel>
+				<WHITEPANELS>
+					<WhitePanel x="0" y="0" width="1080" height="720" />
+				</WHITEPANELS>
+				<LABELS>
+					<BarCode text="" x="1027" y="0" width="53" height="53" />
+					<BarCodeText text="" x="1027" y="0" width="53" height="53" />
+
+					<transferInfo text="流转信息" x="0" y="0" width="114"
+						height="40" type="rectangle" />
+
+					<LineLeft x="63" y="57" width="276" height="32" />
+					<LineRight x="63" y="57" width="276" height="32" />
+
+					<One x="63" y="57" width="276" height="32" />
+					<Two x="63" y="57" width="276" height="32" />
+					<Three x="63" y="57" width="276" height="32" />
+					<Four x="63" y="57" width="276" height="32" />
+					<Five x="63" y="57" width="276" height="32" />
+					<Six x="63" y="57" width="276" height="32" />
+					<Seven x="63" y="57" width="276" height="32" />
+					<Eight x="63" y="57" width="276" height="32" />
+					<Nine x="63" y="57" width="276" height="32" />
+					<Ten x="63" y="57" width="276" height="32" />
+				</LABELS>
+
+				<DatePicker x="596" y="0" width="200" height="40">
+					<field x="596" y="0" width="150" height="40" />
+					<button x="746" y="0" width="50" height="40" type="rectangle" />
+				</DatePicker>
+
+			</CommonMainPanel>
+		</commonInitalPanel>
+
 	</commonFrame>
 
 	<initialpanel x="0" y="0" width="1080" height="720">
@@ -79,7 +111,8 @@
 				<findFullInfo text="查询订单" x="0" y="317" />
 				<inputReceiveInfo text="收件信息录入" x="0" y="367" />
 			</BUTTONS>
-
+			<LABELS>
+			</LABELS>
 			<mainWindow x="232" y="54" width="848" height="637">
 				<BUTTONS>
 					<AddOrder text="" x="58" y="237" width="115" height="159"

@@ -4,8 +4,11 @@ import org.dom4j.Element;
 
 import com.eltima.components.ui.m;
 
+import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
+import ui.tools.MyPictureButton;
+import ui.tools.MyPictureLabel;
 import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
 
@@ -16,8 +19,14 @@ import ui.util.CompomentType;
  */
 @SuppressWarnings("serial")
 public class FindSimpleOrderInfoPanel extends MyPanel {
-	private MyWhitePanel background;
-	private MyLabel verticalLine;
+	private MyWhitePanel white;
+	
+	private MyPictureLabel transferInfo;
+	
+	//左右两边的物流线
+	private MyLabel LineLeft;
+	private MyLabel LineRight;
+	
 	private MyLabel Load1;
 	private MyLabel arriveZZ2;
 	private MyLabel inStore3;
@@ -28,6 +37,11 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 	private MyLabel eight;
 	private MyLabel nine;
 	private MyLabel ten;
+	
+	private MyLabel BarCode;
+	private MyLabel BarCodeText;
+	
+	private MyDatePicker DatePicker;
 	
 	public FindSimpleOrderInfoPanel(Element config) {
 		super(config);
@@ -49,7 +63,7 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		background=new MyWhitePanel(e.element("Background"));
+		white=new MyWhitePanel(e.element("WhitePanel"));
 
 	}
 	
@@ -67,6 +81,14 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 
 	@Override
 	protected void initLabels(Element e) {
+		BarCode=new MyLabel(e.element("BarCode"));
+		BarCodeText=new MyLabel(e.element("BarCodeText"));
+		
+		transferInfo=new MyPictureLabel(e.element("transferInfo"));
+		
+		LineLeft=new MyLabel(e.element("LineLeft"));
+		LineRight=new MyLabel(e.element("LineRight"));
+		
 		Load1=new MyLabel(e.element("One"));
 		arriveZZ2=new MyLabel(e.element("Two"));
 		inStore3=new MyLabel(e.element("Three"));
@@ -81,24 +103,33 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		// TODO Auto-generated method stub
+		DatePicker = new MyDatePicker(e.element("DatePicker"));
 		
 	}
 
 	@Override
 	protected void addCompoment() {
-		background.add(Load1);
-		background.add(arriveZZ2);
-		background.add(inStore3);
-		background.add(outStore4);
-		background.add(five);
-		background.add(six);
-		background.add(seven);
-		background.add(eight);
-		background.add(nine);
-		background.add(ten);
+		white.add(transferInfo);
 		
-		this.add(background);
+		white.add(LineLeft);
+		white.add(LineRight);
+		
+		white.add(Load1);
+		white.add(arriveZZ2);
+		white.add(inStore3);
+		white.add(outStore4);
+		white.add(five);
+		white.add(six);
+		white.add(seven);
+		white.add(eight);
+		white.add(nine);
+		white.add(ten);
+		
+		this.add(white);
+		this.add(BarCode);
+		this.add(BarCodeText);
+		this.add(DatePicker);
+		
 	}
 
 	@Override
