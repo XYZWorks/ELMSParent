@@ -15,7 +15,7 @@ public class CommonFrame extends MyFrame{
 	public CommonFrame(Element config) {
 		super(config);
 		
-		CommonInitalPanel inital =new CommonInitalPanel(config.element(""),this);
+		CommonInitalPanel inital =new CommonInitalPanel(config.element("commonFrame"),this);
 		
 		this.setContentPane(inital);
 

@@ -106,8 +106,8 @@ public class InitalPanel2 extends MyPanel {
 	protected void initButtons(Element e) {
 
 		min = new MyPictureButton(e.element("min"));
-		home = new MyPictureButton(e.element("home"));
 		exit = new MyPictureButton(e.element("exit"));
+		home = new MyPictureButton(e.element("home"));
 		rectangle = new MyPictureButton(e.element("drop"));
 	}
 
