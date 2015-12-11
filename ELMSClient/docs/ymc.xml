@@ -366,31 +366,37 @@
 			 		<LABELS>
 						<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="35"
 						text="出库单" type="rectangle"/>
-			 			<ID  x="420" y="150" width="200" height="100"  
+			 			<ID  x="50" y="150" width="200" height="100"  
 						text="出库单编号" type="rectangle"/>
 						<date  x="420" y="20" width="200" height="100"  
 						text="生成时间" type="rectangle"/>
 						
-						<sendCity  x="50" y="150" width="200" height="100"  
+						<sendCity  x="420" y="150" width="200" height="100"  
 						text="目的地" type="rectangle"/>	
-						<order  x="50" y="240" width="200" height="100"  
+						<order  x="50" y="420" width="200" height="100"  
 						text="订单编号" type="rectangle"/>
-						
-			 			
+						<transferDoc  x="50" y="290" width="200" height="100"  
+						text="中转单编号" type="rectangle"/>
+			 			<shipWay  x="420" y="290" width="200" height="100"  
+						text="中转单编号" type="rectangle"/>
 						
 			 		</LABELS>
 	
 			 		
 			 		<TEXTFIELDS>
-			 			<ID x="550" y="180" width="200" height="45"/>
-			 			
-			 			
-			 		
+			 			<ID x="180" y="180" width="200" height="45"/>
+			 			<order x="180" y="450" width="500" height="45" />
+			 			<transferDoc x="180" y="320" width="200" height="45" />
 			 		</TEXTFIELDS>
+			 			
+			 			
 			 		
-			 		<sendCityC x="150" y="187" width="240" height="30"
+			 		
+			 		
+			 		<sendCityC x="520" y="187" width="240" height="30"
 					strings="南京 广州 上海 北京" />
-					
+					<shipWayC x="520" y="327" width="240" height="30"
+					strings="飞机 火车 汽车" />
 					
 			 		
 			 		<DatePicker x="550" y="50" width="200" height="50">

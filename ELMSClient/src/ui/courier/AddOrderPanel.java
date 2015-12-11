@@ -1,5 +1,6 @@
 package ui.courier;
 
+import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
@@ -138,6 +139,11 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	// button
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
+	
+	//判断寄件人、收件人的城市是否已经选择
+	private int senderChose=0;
+	private int receiverChose=0;
+	
 
 	public AddOrderPanel(Element config,Orderblservice orderblservice,StrategyblService strategyblService) {
 		super(config);
@@ -370,7 +376,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 
 			@Override
 			protected void saveToSQL() {
-				// TODO Auto-generated method stub
+				
 
 			}
 
@@ -425,6 +431,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 			public void itemStateChanged(final ItemEvent e) {
 				if(e.getStateChange() == ItemEvent.SELECTED){
 					int index = city.getSelectedIndex();
+						senderChose=index;
 						//寄件人 所有对应栏的地区加载框全部设为不可见
 						setAllSenderComboboxUnvisible();
 						switch (index) {
@@ -448,6 +455,9 @@ public class AddOrderPanel extends MyPanelWithScroller {
 							setChoseComboboxVisible(senderShangHaiArea);
 							break;
 					   }
+						
+						setTime();
+						repaint();
 				}
 			}
 		});	
@@ -465,6 +475,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 					//收件人 把所有对应栏的地区加载框全部设为不可见
 					setAllReceiverComboboxUnvisible();
 					int index = city.getSelectedIndex();
+					receiverChose=index;
 					switch (index) {
 					//默认
 					case 0:
@@ -487,13 +498,37 @@ public class AddOrderPanel extends MyPanelWithScroller {
 						setChoseComboboxVisible(receiverShangHaiArea);
 						break;
 				   }
+					setTime();
 					repaint();
 				}	
 			}	
 		});	
 	}
 
-
+	/**
+	 * 根据选择的收件、寄件城市来估计时间
+	 */
+	public void setTime(){
+		if((senderChose!=0)&&(receiverChose!=0)){
+			//获得常量 ？？？所有？？？
+			strategyblService.getConst();
+			
+			estimateTime.setForeground(new Color(26, 188, 156));
+			estimateTime.setText("");
+		}
+	}
+	
+	/**
+	 * 根据选择的包装费用和快递形式来计算运费
+	 */
+	public void setCost(){
+		if(){
+			cost.setForeground(new Color(255, 138, 0));
+			cost.setText("");
+		}
+	}
+	
+	
 	/**
 	 * 设置 收件人 所有不同城市区域的选择框不可见
 	 */

@@ -29,7 +29,7 @@ public class ArriveZZPanel extends MyPanel {
 	private MyPictureButton returnButton;
 	private MyLabel nowDoc;
 
-	private ArriveZZTablePanel arriveZZTablePanel;
+	ArriveZZTablePanel arriveZZTablePanel;
 
 	private PanelController controller;
 

@@ -46,20 +46,8 @@ public class ArriveZZTablePanel extends MyTablePanel {
 	protected void initialTitleAndColumn(Element config,MyDate date) {
 		columnNames = getColumnName(config.attributeValue("columnName"));
 		
-		vos = bl.getDayArriveZZDocs(date);
-		data = new String[vos.size()][COLUMN_NUM];
-		ArriveZZDocVO vo;
-		for (int i = 0; i < vos.size(); i++) {
-			vo = vos.get(i);
-			data[i][0] = DocType.getName(vo.type);
-			data[i][1] = vo.ID;
-			data[i][2] = MyDate.toString(vo.date);
-			data[i][3] = vo.zZID;
-			data[i][4] = vo.sendCity.getName();
-			data[i][5] = vo.goodState.getName();
-			data[i][6] = UserfulMethod.orderArrayToString(vo.orderBarCodes);
-		}
-
+		setDataValue(date);
+		
 	}
 
 	
@@ -80,8 +68,38 @@ public class ArriveZZTablePanel extends MyTablePanel {
 
 	@Override
 	public void updateTableMes() {
-		// TODO Auto-generated method stub
+		//将增加table的行数
 		
+		setDataValue(MyDate.getNowTime());
+		Object[] tmp = {"","","","","","",""};
+		
+		for(int i = table.getRowCount();i<vos.size();i++)
+			addOneRow(tmp);
+		
+		for(int i = 0;i<vos.size();i++){
+			for(int j = 0;j<COLUMN_NUM;j++)
+				table.setValueAt(data[i][j], i, j);
+		}
+		
+	}
+
+	private void setDataValue(MyDate date) {
+		vos = bl.getDayArriveZZDocs(date);
+		if(vos==null)
+			return;
+		data = new String[vos.size()][COLUMN_NUM];
+		ArriveZZDocVO vo;
+		for (int i = 0; i < vos.size(); i++) {
+			vo = vos.get(i);
+			data[i][0] = DocType.getName(vo.type);
+			data[i][1] = vo.ID;
+			data[i][2] = MyDate.toString(vo.date);
+			data[i][3] = vo.zZID;
+			data[i][4] = vo.sendCity.getName();
+			data[i][5] = vo.goodState.getName();
+			data[i][6] = UserfulMethod.orderArrayToString(vo.orderBarCodes);
+		}
+
 	}
 
 }

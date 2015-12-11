@@ -42,27 +42,8 @@ public class TransportTablePanel extends MyTablePanel {
 	@Override
 	protected void initialTitleAndColumn(Element config,MyDate date) {
 		columnNames = getColumnName(config.attributeValue("columnName"));
+		setDataValue(date);
 		
-		vos = bl.getDayTransferDocs(date);
-		try{
-			vos.size();
-		}
-		catch(NullPointerException e){
-			return;
-		}
-		data = new String[vos.size()][COLUMN_NUM];
-		TransferDocVO vo;
-		for (int i = 0; i < vos.size(); i++) {
-			vo = vos.get(i);
-			data[i][0] = DocType.getName(vo.type);
-			data[i][1] = vo.ID;
-			data[i][2] = MyDate.toString(vo.date);
-			data[i][3] = vo.transferWayID;
-			data[i][4] = vo.sendCity.getName();
-			data[i][5] = String.valueOf(vo.containerNum);
-			data[i][6] = vo.loadManName;
-			data[i][7] = UserfulMethod.orderArrayToString(vo.orderBarCode);
-		}
 
 	}
 
@@ -79,7 +60,35 @@ public class TransportTablePanel extends MyTablePanel {
 
 	@Override
 	public void updateTableMes() {
-		// TODO Auto-generated method stub
+		setDataValue(MyDate.getNowTime());
+		Object[] tmp = {"","","","","","","",""};
+		
+		for(int i = table.getRowCount();i<vos.size();i++)
+			addOneRow(tmp);
+		
+		for(int i = 0;i<vos.size();i++){
+			for(int j = 0;j<COLUMN_NUM;j++)
+				table.setValueAt(data[i][j], i, j);
+		}
+	}
+
+	private void setDataValue(MyDate date) {
+		vos = bl.getDayTransferDocs(date);
+		if(vos==null)
+			return;
+		data = new String[vos.size()][COLUMN_NUM];
+		TransferDocVO vo;
+		for (int i = 0; i < vos.size(); i++) {
+			vo = vos.get(i);
+			data[i][0] = DocType.getName(vo.type);
+			data[i][1] = vo.ID;
+			data[i][2] = MyDate.toString(vo.date);
+			data[i][3] = vo.transferWayID;
+			data[i][4] = vo.sendCity.getName();
+			data[i][5] = String.valueOf(vo.containerNum);
+			data[i][6] = vo.loadManName;
+			data[i][7] = UserfulMethod.orderArrayToString(vo.orderBarCode);
+		}
 		
 	}
 

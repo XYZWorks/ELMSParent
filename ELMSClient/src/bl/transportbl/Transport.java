@@ -86,11 +86,11 @@ public class Transport {
 		}
 
 		for (LoadDocPO po : pos) {
-			if (po.getDate().equals(date)) {
+//			if (po.getDate().equals(date)) {
 				vos.add((LoadDocVO) VOPOchange.POtoVO(po));
-			}
+//			}
 		}
-
+		
 		return vos;
 	}
 
@@ -235,12 +235,14 @@ public class Transport {
 		}
 
 		if (pos == null) {
+			System.err.println("po is null");
 			return null;
 		}
+	
 		for (TransferDocPO po : pos) {
-			if (po.getDate().equals(date)) {
+//			if (po.getDate().equals(date)) {
 				vos.add((TransferDocVO) VOPOchange.POtoVO(po));
-			}
+//			}
 		}
 
 		return vos;

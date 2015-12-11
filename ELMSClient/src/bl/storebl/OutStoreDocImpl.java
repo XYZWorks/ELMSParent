@@ -12,6 +12,7 @@ import test.java.other.DataTool;
 import test.java.other.VOPOchange;
 import util.DocState;
 import util.DocType;
+import util.MyDate;
 import util.ResultMessage;
 import vo.DocVO;
 import vo.store.OutStoreDocVO;
@@ -34,9 +35,9 @@ public class OutStoreDocImpl implements OutStoreDocService {
 	public ArrayList<OutStoreDocVO> show() {
 	ArrayList<OutStoreDocPO> pos = new ArrayList<OutStoreDocPO>();
 		
-		generate((OutStoreDocVO)DataTool.getDocList(DocType.outStoreDoc).get(0));
-		generate((OutStoreDocVO)DataTool.getDocList(DocType.outStoreDoc).get(1));
-		generate((OutStoreDocVO)DataTool.getDocList(DocType.outStoreDoc).get(2));
+//		generate((OutStoreDocVO)DataTool.getDocList(DocType.outStoreDoc).get(0));
+//		generate((OutStoreDocVO)DataTool.getDocList(DocType.outStoreDoc).get(1));
+//		generate((OutStoreDocVO)DataTool.getDocList(DocType.outStoreDoc).get(2));
 		try {
 			pos = storeData.getOut();
 			pos.size();
@@ -57,7 +58,6 @@ public class OutStoreDocImpl implements OutStoreDocService {
 
 	public ResultMessage generate(OutStoreDocVO vo) {
 		OutStoreDocPO po = (OutStoreDocPO) VOPOchange.VOtoPO(vo);
-//		System.out.println(po.getID()+po.getShipWay().name());
 		try {
 			return storeData.addOut(po);
 		} catch (RemoteException e) {

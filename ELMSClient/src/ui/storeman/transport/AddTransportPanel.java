@@ -192,8 +192,10 @@ public class AddTransportPanel extends MyPanel {
 
 		@Override
 		protected void updateMes() {
-			// TODO Auto-generated method stub
-			
+
+			TransportPanel tPanel = (TransportPanel) controller.getPanelMap().get("TransportPanel");
+			tPanel.table.updateTableMes();
+
 		}
 	}
 

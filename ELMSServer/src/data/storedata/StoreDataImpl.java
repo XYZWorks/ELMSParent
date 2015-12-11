@@ -69,8 +69,8 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService{
 	}
 
 	public ResultMessage addOut(OutStoreDocPO po) throws RemoteException {
-		
 		return addToSQL(outstoreDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , helper.tranFromArrayToString(po.getOrderPOs()) , po.getLoc().name() , po.getTransferDoc() , po.getShipWay().name());
+		 
 	}
 	public ArrayList<InStoreDocPO> getIn() throws RemoteException {
 		ArrayList<InStoreDocPO> pos = new ArrayList<InStoreDocPO>(40);

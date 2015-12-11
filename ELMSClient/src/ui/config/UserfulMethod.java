@@ -44,6 +44,23 @@ public class UserfulMethod {
 
 	}
 	
+	
+	public static final FormatMes checkBarCode(String barcode) {
+		if (barcode.length() != 10) {
+			//
+			return FormatMes.WRONG_LENGTH;
+		}
+		for (int i = 0; i < 10; i++) {
+			if(!isNum(barcode.charAt(i))){
+				return FormatMes.ILEGAL_CHAR;
+			}
+			
+		}
+
+		return FormatMes.CORRECT;
+
+	}
+	
 	public static ArrayList<String>  stringToArray(String total) {
 		ArrayList<String> orders = new ArrayList<>();
 		String[] spl = total.split(",");
@@ -106,6 +123,8 @@ public class UserfulMethod {
 			return true;
 		}
 	}
+
+	
 	
 	
 }

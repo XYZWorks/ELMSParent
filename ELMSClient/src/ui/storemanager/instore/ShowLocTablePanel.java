@@ -1,5 +1,6 @@
 package ui.storemanager.instore;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.swing.JScrollPane;
@@ -33,9 +34,11 @@ public class ShowLocTablePanel extends MyTablePanel {
 		
 		super(config);
 		initialTitleAndColumn(config);
-//		initTable();
-//		initScrollerPane();
-//		this.add(rollpane);
+		initTable();
+		initScrollerPane();
+		this.add(rollpane);
+		int[] columnLen = { 330, 100, 100, 100, 100 };
+		this.setRowAndColumnLen(30, columnLen);
 	
 	}
 
@@ -61,6 +64,17 @@ public class ShowLocTablePanel extends MyTablePanel {
 	}
 
 	public void reset() {
+		//清空table
+		for(int i = 0;i<table.getRowCount();i++){
+			for(int j = 0;j<COLUMN_NUM ; j++)
+				table.setValueAt("", i, j);
+		}
+		
+		//将增加table的行数
+		Object[] tmp = {"","","","",""};	
+		for(int i = table.getRowCount();i<orders.size();i++)
+			addOneRow(tmp);
+		
 		data = new String[orders.size()][COLUMN_NUM];
 		for(int i = 0;i<orders.size();i++){
 			data[i][0] = orders.get(i);
@@ -72,12 +86,11 @@ public class ShowLocTablePanel extends MyTablePanel {
 			data[i][3] = sp3[0]+"架";
 			data[i][4] = sp3[1];
 		}
+		for(int i = 0;i<orders.size();i++){
+			for(int j = 0;j<COLUMN_NUM ; j++)
+				table.setValueAt(data[i][j], i, j);
+		}
 		
-		initTable();
-		initScrollerPane();
-		this.add(rollpane);
-		int[] columnLen = { 330, 100, 100, 100, 100 };
-		this.setRowAndColumnLen(30, columnLen);
 	}
 
 }

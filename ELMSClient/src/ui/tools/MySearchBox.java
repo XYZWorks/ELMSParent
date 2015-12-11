@@ -6,6 +6,9 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -16,6 +19,7 @@ import javax.swing.border.EmptyBorder;
 import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
+import ui.config.UserfulMethod;
  /** 
  * 搜索框
  * @author czq 
@@ -57,6 +61,14 @@ public class MySearchBox extends JLabel{
 		
 	}
 	
+	/**
+	 * 把对mySearchBox的监听聚焦到textfield的身上，避免监听的流失
+	 * @param adapter
+	 */
+	public void addKeyListener(KeyAdapter adapter){
+		field.addKeyListener(adapter);
+	}
+	
 	public String getMyText(){
 		return field.getText();
 	}
@@ -73,6 +85,7 @@ public class MySearchBox extends JLabel{
 			
 			@Override
 			public void focusLost(FocusEvent e) {
+				System.out.println("focousLost");
 				isEditing = false;
 				tempImage = outSerach;
 				repaint();
@@ -80,6 +93,7 @@ public class MySearchBox extends JLabel{
 			
 			@Override
 			public void focusGained(FocusEvent e) {
+				System.out.println("focousGained");
 				isEditing = true;
 				tempImage = editing;
 				repaint();
@@ -87,11 +101,13 @@ public class MySearchBox extends JLabel{
 			}
 		});
 		
+	//	field.addKeyListener(new KeyListener());
 	}
 	
 	class MyListener extends MouseAdapter{
 		@Override
 		public void mouseEntered(MouseEvent e) {
+			System.out.println("mouseEntered");
 			if(!isEditing){
 				tempImage = inSerach;
 				repaint();
@@ -100,6 +116,7 @@ public class MySearchBox extends JLabel{
 		}
 		@Override
 		public void mouseExited(MouseEvent e) {
+			System.out.println("mouseExited");
 			super.mouseExited(e);
 			if(!isEditing){
 				tempImage = outSerach;
@@ -108,6 +125,20 @@ public class MySearchBox extends JLabel{
 		}
 	}
 	
+	
+//	class KeyListener extends KeyAdapter{
+//		@Override
+//		public void keyPressed(KeyEvent e) {
+//			
+//			if(e.getKeyCode()==KeyEvent.VK_ENTER){
+//				System.out.println("键盘收到监听");
+//			}
+////				String barcode=searchBox.getMyText();
+////				UserfulMethod.checkBarCode(barcode);
+////				
+////			}
+//		}
+//	}
 	
 	@Override
 	public void paintComponent(Graphics g){

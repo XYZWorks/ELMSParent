@@ -18,13 +18,13 @@ public enum TransferWay  {
 	
 	public static TransferWay getTransferWay(String name) {
 		switch (name) {
-		case "plane":
+		case "飞机":
 			
 			return plane;
-		case "train":
+		case "火车":
 			
 			return train;
-		case "car":
+		case "汽车":
 			
 			return car;
 		default:

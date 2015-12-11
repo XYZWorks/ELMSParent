@@ -374,16 +374,16 @@
 			</FinanceApprovalPanel>
 			<BulidBillPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
-					<confirm x="500" y="560" width="115" height="40" text="确认"
+					<confirm x="560" y="560" width="115" height="40" text="确认"
 						type="confirm" />
-					<cancel x="650" y="560" width="115" height="40" text="取消"
+					<cancel x="707" y="560" width="115" height="40" text="取消"
 						type="cancel" />
-					<newInst x="350" y="560" width="115" height="40" text="新增机构"
+					<newInst x="650" y="560" width="115" height="40" text="新增机构"
 						type="rectangle" />
 				</BUTTONS>
 				<LABELS>
 					<title x="300" y="30" width="500" height="100" text="ELMS公司 期初建账"
-						fontName="华文新魏" size="28" />
+						fontName="华文细黑" size="28" />
 					<user x="50" y="170" width="115" height="40" text="经手人" />
 					<time x="500" y="170" width="115" height="40" text="建账日期" />
 					<message x="50" y="300" width="115" height="40" text="账单信息" />
@@ -640,13 +640,14 @@
 					width="1080" height="637">
 					<BUTTONS>
 						<confirm x="550" y="560" width="115" height="40" text="确认"
-							type="rectangle" />
+							type="confirm" />
 						<cancel x="700" y="560" width="115" height="40" text="取消"
 							type="cancel" />
 						<back x="625" y="560" width="115" height="40" text="返回" type="confirm" />
 					</BUTTONS>
 
 				</loadDocShowpanelAddPanel>
+				
 				<addDoc x="550" y="560" width="115" height="40" text="增加"
 					type="rectangle" />
 				<search x="300" y="0" />
@@ -756,6 +757,7 @@
 						text="增加" type="rectangle" />
 					<search x="300" y="0" />
 					<datepicker x="0" y="0" width="250" height="50" />
+
 					
 					
 
@@ -769,6 +771,13 @@
 				<searchButton x="700" y="0" width="115" height="40"
 					text="搜索" type="rectangle" />
 				<searchWay x="200" y="100" width="200" height="100" strings = "（查找方式） 按姓名查找 按ID查找 按机构ID查找"/>
+=======
+					<table x="200" y="100" width="550" height="400" column = "编号 姓名 机构ID 出生日期 身份证号 手机号码 性别 驾驶证期限"/>
+					<searchButton x="700" y="0" width="115" height="40" text="搜索" type="rectangle"/>
+					<searchWay x="200" y="100" width="200" height="100" strings = "（查找方式） 按姓名查找 按ID查找 按机构ID查找"/>
+
+
+>>>>>>> origin/master
 			</driverInfoManagePanel>
 			<truckInfoManagePanel x="232" y="54" width="848"
 				height="637">
@@ -782,12 +791,26 @@
 						<back x="625" y="560" width="115" height="40" text="返回" type="confirm" />
 					</BUTTONS>
 					<LABELS>
+
+
+					<id x="50" y="50" width="115" height="40"
+						text="ID" type="rectangle" />
+					<plateNum x="50" y="150" width="115" height="40"
+						text="ID" type="rectangle" />
+					<useYear x="50" y="250" width="115" height="40"
+						text="ID" type="rectangle" />
+<!-- =======
+>>>>>>> origin/master
 						<id x="50" y="50" width="115" height="40" text="ID" type="rectangle" />
 						<plateNum x="50" y="150" width="115" height="40" text="ID"
 							type="rectangle" />
 						<useYear x="50" y="250" width="115" height="40" text="ID"
 							type="rectangle" />
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master -->
+>>>>>>> origin/master
 					</LABELS>
 					<TEXTFIELDS>
 						<id x="250" y="50" width="115" height="40" text="ID" type="rectangle" />
