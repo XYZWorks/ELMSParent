@@ -29,7 +29,6 @@ public class DriverManageAddPanel extends AddDocPanel {
 	MyDatePicker borns;
 	public DriverManageAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable) {
 		super(config , changePanel , checkDocPanelStr,  messageTable);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

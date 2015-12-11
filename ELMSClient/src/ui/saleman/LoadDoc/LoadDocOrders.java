@@ -33,7 +33,7 @@ public class LoadDocOrders extends MyTablePanel{
 
 	@Override
 	protected void initialTitleAndColumn(Element config) {
-		columnNames = MyTablePanel.getColumnName(config.attributeValue("table"));
+		columnNames = MyTablePanel.getColumnName(config.attributeValue(columnStr));
 		data = null;
 	}
 

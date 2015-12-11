@@ -23,7 +23,7 @@ public class LoadDocVO extends DocVO{
 	/**
 	 * 汽运编号
 	 */
-	public String LoadDocID;
+	public String loadDocID;
 	/**
 	 * 到达地
 	 */
@@ -31,22 +31,21 @@ public class LoadDocVO extends DocVO{
 	/**
 	 * 车辆代号
 	 */
-	public String CarID;
+	public String carID;
 	/**
 	 * 监运员姓名
 	 */
-	public String Supervisor;
+	public String supervisor;
 	/**
 	 * 押送员代号
 	 */
-	public String Escort; 
+	public String escort; 
 	/**
 	 * 订单号集合
 	 */
 	public ArrayList<String> orderBarCodes;
 	
 	public LoadDocVO() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public LoadDocVO(String iD, MyDate date,
@@ -54,11 +53,11 @@ public class LoadDocVO extends DocVO{
 			String supervisor, String escort,ArrayList<String> orderBarCodes) {
 		super(iD, DocType.loadDoc, date, DocState.wait);
 		YYID = yYID;
-		LoadDocID = loadDocID;
+		this.loadDocID = loadDocID;
 		this.arriveCity = arriveCity;
-		CarID = carID;
-		Supervisor = supervisor;
-		Escort = escort;
+		this.carID = carID;
+		this.supervisor = supervisor;
+		this.escort = escort;
 		this.orderBarCodes = orderBarCodes;
 	}
 

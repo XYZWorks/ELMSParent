@@ -78,6 +78,10 @@ public class MyDate implements Serializable{
 		return true;
 		
 	}
+	/**
+	 * 获得当前系统的时间
+	 * @return
+	 */
 	public static MyDate getNowTime() {
 		MyDate date = null;
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式

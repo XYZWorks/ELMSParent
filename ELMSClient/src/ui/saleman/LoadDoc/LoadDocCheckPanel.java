@@ -13,16 +13,21 @@ import ui.tools.CheckDocPanel;
  */
 @SuppressWarnings("serial")
 public class LoadDocCheckPanel extends CheckDocPanel{
-
+	
+	Transportblservice bl;
+	LoadDocMesTable myTable;
+	
 	public LoadDocCheckPanel(Element config, JPanel changePanel , String checkDocName , String addDocName, Transportblservice transportblservice) {
 		super(config, changePanel , checkDocName , addDocName);
-
-		// TODO Auto-generated constructor stub
+		this.bl = transportblservice;
+		myTable = (LoadDocMesTable) messageTable;
+		myTable.bl = this.bl;
+		initTableContent();
 	}
 
 	@Override
 	protected void initialAddDocPanelAndTable(Element e) {
-		messageTable = new LoadDocMesTable(e.element(tableStr));
+		messageTable = new LoadDocMesTable(e.element(tableStr), bl);
 		addDocPanel = new LoadDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable);
 		
 	}
