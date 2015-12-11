@@ -2,6 +2,7 @@ package ui.saleman.LoadDoc;
 
 import org.dom4j.Element;
 
+import blservice.transportblservice.Transportblservice;
 import ui.table.MyTablePanel;
  /** 
  * 装车单信息表
@@ -10,7 +11,7 @@ import ui.table.MyTablePanel;
  */
 @SuppressWarnings("serial")
 public class LoadDocMesTable extends MyTablePanel {
-
+	Transportblservice bl;
 	public LoadDocMesTable(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
