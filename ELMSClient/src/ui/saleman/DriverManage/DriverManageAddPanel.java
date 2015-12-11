@@ -17,14 +17,14 @@ import ui.tools.MyTextField;
  */
 @SuppressWarnings("serial")
 public class DriverManageAddPanel extends AddDocPanel {
-	MyLabel id;
-	MyLabel name;
-	MyLabel bornDay;
-	MyLabel phone;
+	private MyLabel id;
+	private MyLabel name;
+	private MyLabel bornDay;
+	private MyLabel phone;
 	
-	MyTextField idT;
-	MyTextField nameT;
-	MyTextField phoneT;
+	private MyTextField idT;
+	private MyTextField nameT;
+	private MyTextField phoneT;
 	
 	MyDatePicker borns;
 	public DriverManageAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable) {

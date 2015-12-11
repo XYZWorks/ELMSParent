@@ -147,7 +147,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
-		initLables(config.element(CompomentType.LABELS.name()));
+		initLabels(config.element(CompomentType.LABELS.name()));
 		initOtherCompoment(config);
 
 		addCompoment();
@@ -194,7 +194,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	}
 
 	@Override
-	protected void initLables(Element e) {
+	protected void initLabels(Element e) {
 
 		orderBarCode = new MyPictureLabel(e.element("orderBarCode"));
 		orderBarCodeLabel = new MyLabel(e.element("orderBarCodeLabel"));

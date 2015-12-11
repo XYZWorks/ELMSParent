@@ -99,7 +99,7 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller{
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initOtherCompoment(config);
-		initLables(config.element(CompomentType.LABELS.name()));
+		initLabels(config.element(CompomentType.LABELS.name()));
 		addCompoment();
 		addListener();
 		setVisible(true);
@@ -117,7 +117,7 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller{
 	}
 
 	@Override
-	protected void initLables(Element e) {
+	protected void initLabels(Element e) {
 		orderBarCode=new MyPictureLabel(e.element("orderBarCode"));
 		orderBarCodeLabel=new MyLabel(e.element("orderBarCodeLabel"));
 		
