@@ -35,11 +35,11 @@ import vo.strategy.ConstVO;
 @SuppressWarnings("serial")
 
 public class AddOrderPanel extends MyPanelWithScroller {
-	
-	//bl
+
+	// bl
 	private Orderblservice orderblservice;
 	private StrategyblService strategyblService;
-	
+
 	private ConstVO constVO;
 
 	// 白色矩形panel
@@ -71,11 +71,11 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	// 货物信息
 	private MyPictureLabel goodsInfo;
 	private MyLabel goodNameLabel;
-	
+
 	private MyLabel goodWeightLabel;
-	
+
 	private MyLabel goodNumLabel;
-	
+
 	private MyLabel goodVolumLabel;// 体积
 	private MyLabel goodPackLabel;// 包装形式
 	private MyLabel orderFormLabel;// 快递形式
@@ -98,14 +98,14 @@ public class AddOrderPanel extends MyPanelWithScroller {
 
 	private MyTextField goodNameText;
 	private MyTextField goodNumText;
-	
+
 	private MyTextField goodWeightText;
 	private MyLabel KG;
-	
+
 	private MyTextField goodLongText;
 	private MyTextField goodWidthText;
 	private MyTextField goodHeightText;
-	
+
 	private MyLabel Long;
 	private MyLabel Width;
 	private MyLabel Height;
@@ -118,22 +118,27 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	private MyRadioButton carton;// 纸箱
 	private MyRadioButton woodCase;// 木箱
 	private ButtonGroup goodpackGroup;
+	private String packChose;
+	private double packMoney;
 
 	// 快递形式
 	private MyRadioButton commonOrder;
 	private MyRadioButton quickOrder;
 	private MyRadioButton economicOrder;
 	private ButtonGroup orderFormGroup;
+	private String FormChose;
+	private double formMoney;
+
 	// 下拉框
 	private MyComboBox senderCity;
 	private MyComboBox senderArea;
 
-	//寄件人 四种不同城市的地区
+	// 寄件人 四种不同城市的地区
 	private MyComboBox senderNanJingArea;
 	private MyComboBox senderShangHaiArea;
 	private MyComboBox senderGuangZhouArea;
 	private MyComboBox senderBeiJingArea;
-	
+
 	private MyComboBox receiverCity;
 	private MyComboBox receiverArea;
 
@@ -141,22 +146,24 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	private MyComboBox receiverShangHaiArea;
 	private MyComboBox receiverGuangZhouArea;
 	private MyComboBox receiverBeiJingArea;
-	
+
 	// button
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
-	
-	//判断寄件人、收件人的城市是否已经选择
-	private int senderChose=0;
-	private int receiverChose=0;
-	
 
-	public AddOrderPanel(Element config,Orderblservice orderblservice,StrategyblService strategyblService) {
+	// 判断寄件人、收件人的城市是否已经选择
+	private int senderChose = 0;
+	private int receiverChose = 0;
+
+	// 费用总计
+	private double total;
+
+	public AddOrderPanel(Element config, Orderblservice orderblservice, StrategyblService strategyblService) {
 		super(config);
-		this.orderblservice=orderblservice;
-		this.strategyblService=strategyblService;
-		constVO=strategyblService.getConst();
-		
+		this.orderblservice = orderblservice;
+		this.strategyblService = strategyblService;
+		constVO = strategyblService.getConst();
+
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
@@ -230,13 +237,13 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		// 货物信息
 		goodsInfo = new MyPictureLabel(e.element("goodsInfo"));
 		goodNameLabel = new MyLabel(e.element("goodNameLabel"));
-		
+
 		goodWeightLabel = new MyLabel(e.element("goodWeightLabel"));
-		KG=new MyLabel(e.element("KG"));
-		Long=new MyLabel(e.element("Long"));
-		Width=new MyLabel(e.element("Width"));
-		Height=new MyLabel(e.element("Height"));
-		
+		KG = new MyLabel(e.element("KG"));
+		Long = new MyLabel(e.element("Long"));
+		Width = new MyLabel(e.element("Width"));
+		Height = new MyLabel(e.element("Height"));
+
 		goodNumLabel = new MyLabel(e.element("goodNumLabel"));
 		goodVolumLabel = new MyLabel(e.element("goodVolumLabel"));
 		goodPackLabel = new MyLabel(e.element("goodPackLabel"));
@@ -264,20 +271,19 @@ public class AddOrderPanel extends MyPanelWithScroller {
 
 		senderCity = new MyComboBox(e.element("senderCity"));
 		senderArea = new MyComboBox(e.element("senderArea"));
-		
-		senderNanJingArea=new MyComboBox(e.element("senderArea"),"NanJing");
-		senderBeiJingArea=new MyComboBox(e.element("senderArea"),"BeiJing");
-		senderShangHaiArea=new MyComboBox(e.element("senderArea"),"ShangHai");
-		senderGuangZhouArea=new MyComboBox(e.element("senderArea"),"GuangZhou");
+
+		senderNanJingArea = new MyComboBox(e.element("senderArea"), "NanJing");
+		senderBeiJingArea = new MyComboBox(e.element("senderArea"), "BeiJing");
+		senderShangHaiArea = new MyComboBox(e.element("senderArea"), "ShangHai");
+		senderGuangZhouArea = new MyComboBox(e.element("senderArea"), "GuangZhou");
 
 		receiverCity = new MyComboBox(e.element("receiverCity"));
 		receiverArea = new MyComboBox(e.element("receiverArea"));
-		
-		receiverNanJingArea=new MyComboBox(e.element("receiverArea"),"NanJing");
-		receiverBeiJingArea=new MyComboBox(e.element("receiverArea"),"BeiJing");
-		receiverShangHaiArea=new MyComboBox(e.element("receiverArea"),"ShangHai");
-		receiverGuangZhouArea=new MyComboBox(e.element("receiverArea"),"GuangZhou");
 
+		receiverNanJingArea = new MyComboBox(e.element("receiverArea"), "NanJing");
+		receiverBeiJingArea = new MyComboBox(e.element("receiverArea"), "BeiJing");
+		receiverShangHaiArea = new MyComboBox(e.element("receiverArea"), "ShangHai");
+		receiverGuangZhouArea = new MyComboBox(e.element("receiverArea"), "GuangZhou");
 
 	}
 
@@ -301,16 +307,15 @@ public class AddOrderPanel extends MyPanelWithScroller {
 
 		senderInfoPanel.add(senderCity);
 		senderInfoPanel.add(senderArea);
-		
+
 		senderInfoPanel.add(senderNanJingArea);
 		senderInfoPanel.add(senderBeiJingArea);
 		senderInfoPanel.add(senderGuangZhouArea);
 		senderInfoPanel.add(senderShangHaiArea);
-		
-		
+
 		receiverInfoPanel.add(receiverCity);
 		receiverInfoPanel.add(receiverArea);
-		
+
 		receiverInfoPanel.add(receiverNanJingArea);
 		receiverInfoPanel.add(receiverBeiJingArea);
 		receiverInfoPanel.add(receiverGuangZhouArea);
@@ -345,8 +350,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		goodInfoPanel.add(Long);
 		goodInfoPanel.add(Width);
 		goodInfoPanel.add(Height);
-		
-		
+
 		goodpackGroup.add(bag);
 		goodpackGroup.add(carton);
 		goodpackGroup.add(woodCase);
@@ -365,7 +369,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 
 		this.add(confirm);
 		this.add(cancel);
-		
+
 		this.add(estimateTime);
 		this.add(cost);
 
@@ -375,15 +379,13 @@ public class AddOrderPanel extends MyPanelWithScroller {
 
 	}
 
-	
 	@Override
 	protected void addListener() {
-       //确认提交订单的监听
+		// 确认提交订单的监听
 		confirm.addMouseListener(new ConfirmListener(confirm) {
 
 			@Override
 			protected void saveToSQL() {
-				
 
 			}
 
@@ -391,13 +393,10 @@ public class AddOrderPanel extends MyPanelWithScroller {
 			protected boolean checkDataValid() {
 				// TODO 检查必填项目是否正确
 
-				//confirm后可以显示 预计时间、报价
-				
-				
-				
-				//提交时 检查各项的名称
-				
-				
+				// confirm后可以显示 预计时间、报价
+
+				// 提交时 检查各项的名称
+
 				return true;
 			}
 
@@ -409,7 +408,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 			@Override
 			protected void updateMes() {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
 
@@ -421,14 +420,14 @@ public class AddOrderPanel extends MyPanelWithScroller {
 				setAllTextFieldEmpty();
 			}
 		});
-		
+
 		addSenderCityComboxListener(senderCity);
 		addReceiverCityComboxListener(receiverCity);
-		
+
 		bag.addActionListener(new goodPackListener());
 		carton.addActionListener(new goodPackListener());
 		woodCase.addActionListener(new goodPackListener());
-		
+
 		commonOrder.addActionListener(new goodPackListener());
 		quickOrder.addActionListener(new goodPackListener());
 		economicOrder.addActionListener(new goodPackListener());
@@ -437,95 +436,96 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	class goodPackListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-		String selected=null;
-		if(bag.isSelected()){
-			selected="bag";
+			if (bag.isSelected()) {
+				packChose = "bag";
+				packMoney = constVO.plasticBag;
+
+			} else if (woodCase.isSelected()) {
+				packChose = "woodCase";
+				packMoney = constVO.woodBox;
+
+			} else if (carton.isSelected()) {
+				packChose = "carton";
+				packMoney = constVO.paperBox;
+			}
+
 		}
-		else if(woodCase.isSelected()){
-			selected="woodCase";
-		}
-		else if(carton.isSelected()){
-			selected="carton";
-		}
-			
-		}
-    }
-	
+	}
 
 	class orderFormListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-		String selected=null;
-		if(commonOrder.isSelected()){
-			selected="commonOrder";
+			if (commonOrder.isSelected()) {
+				FormChose = "commonOrder";
+			} else if (economicOrder.isSelected()) {
+				FormChose = "economicOrder";
+			} else if (quickOrder.isSelected()) {
+				FormChose = "quickOrder";
+			}
+
 		}
-		else if(economicOrder.isSelected()){
-			selected="economicOrder";
-		}
-		else if(quickOrder.isSelected()){
-			selected="quickOrder";
-		}
-			
-		}
-    }
-	
+	}
+
 	/**
 	 * 收件人的城市选择 combobox的监听 控制城市对应区域的跳转
+	 * 
 	 * @param city
 	 */
 	public void addSenderCityComboxListener(final MyComboBox city) {
 		city.addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(final ItemEvent e) {
-				if(e.getStateChange() == ItemEvent.SELECTED){
+				if (e.getStateChange() == ItemEvent.SELECTED) {
 					int index = city.getSelectedIndex();
-						senderChose=index;
-						//寄件人 所有对应栏的地区加载框全部设为不可见
-						setAllSenderComboboxUnvisible();
-						switch (index) {
-						//默认
-						case 0:
-							setChoseComboboxVisible(senderArea);
-							break;
-						// 南京
-						case 1:
-							setChoseComboboxVisible(senderNanJingArea);
+					senderChose = index;
+					// 寄件人 所有对应栏的地区加载框全部设为不可见
+					setAllSenderComboboxUnvisible();
+					switch (index) {
+					// 默认
+					case 0:
+						setChoseComboboxVisible(senderArea);
+						break;
+					// 南京
+					case 1:
+						setChoseComboboxVisible(senderNanJingArea);
 						// 北京
-						case 2:
-							setChoseComboboxVisible(senderBeiJingArea);
-							break;
-						// 广州
-						case 3:
-							setChoseComboboxVisible(senderGuangZhouArea);
-							break;
-						// 上海
-						default:
-							setChoseComboboxVisible(senderShangHaiArea);
-							break;
-					   }
-						
-						setTime();
-						repaint();
+					case 2:
+						setChoseComboboxVisible(senderBeiJingArea);
+						break;
+					// 广州
+					case 3:
+						setChoseComboboxVisible(senderGuangZhouArea);
+						break;
+					// 上海
+					default:
+						setChoseComboboxVisible(senderShangHaiArea);
+						break;
+					}
+
+					setTime();
+					calCost();
+					repaint();
 				}
 			}
-		});	
+		});
 	}
 
 	/**
 	 * 寄件人的城市选择 combobox的监听 控制城市对应区域的跳转
+	 * 
 	 * @param city
 	 */
 	public void addReceiverCityComboxListener(final MyComboBox city) {
 		city.addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(final ItemEvent e) {
-				if(e.getStateChange() == ItemEvent.SELECTED){
-					//收件人 把所有对应栏的地区加载框全部设为不可见
+				if (e.getStateChange() == ItemEvent.SELECTED) {
+					// 收件人 把所有对应栏的地区加载框全部设为不可见
 					setAllReceiverComboboxUnvisible();
 					int index = city.getSelectedIndex();
-					receiverChose=index;
+					receiverChose = index;
 					switch (index) {
-					//默认
+					// 默认
 					case 0:
 						setChoseComboboxVisible(receiverArea);
 						break;
@@ -545,68 +545,126 @@ public class AddOrderPanel extends MyPanelWithScroller {
 					default:
 						setChoseComboboxVisible(receiverShangHaiArea);
 						break;
-				   }
+					}
 					setTime();
+					calCost();
 					repaint();
-				}	
-			}	
-		});	
+				}
+			}
+		});
 	}
 
 	/**
 	 * 根据选择的收件、寄件城市来估计时间
 	 */
-	public void setTime(){
-		if((senderChose!=0)&&(receiverChose!=0)){
-			//获得常量 ？？？所有？？？
+	public void setTime() {
+		if ((senderChose != 0) && (receiverChose != 0)) {
+			// 获得常量 ？？？所有？？？
 			strategyblService.getConst();
-			
+
 			estimateTime.setForeground(new Color(26, 188, 156));
 			estimateTime.setText("");
 		}
 	}
-	
+
+	public double getMiles() {
+		// 单位：km
+		double miles = 0;
+		if ((senderChose == receiverChose) && (senderChose != 0)) {
+			//同城的营业厅距离30km
+			miles = 30;
+		} else {
+			// 让senderchose比receiverChose小
+			if (senderChose < receiverChose) {
+				int tmp;
+				tmp = receiverChose;
+				receiverChose = senderChose;
+				senderChose = tmp;
+			}
+			// 如果寄件人在南京
+			if (senderChose == 1) {
+				switch (receiverChose) {
+				case 2:
+					miles = constVO.mileInBN;// 南京＋北京
+					break;
+				case 3:
+					miles = constVO.mileInNG;// 南京+广州
+					break;
+				case 4:
+					miles = constVO.mileInNS;// 南京＋上海
+					break;
+				}
+			}
+			// 如果寄件人在北京
+			else if (senderChose == 2) {
+				switch (receiverChose) {
+				case 3:
+					miles = constVO.mileInBG;// 北京+广州
+					break;
+				case 4:
+					miles = constVO.mileInBS;// 北京＋上海
+					break;
+				}
+			}
+			else if((senderChose==3)&&(receiverChose==4)){
+				miles=constVO.mileINSG;//上海＋广州
+			}
+		}
+		return miles;
+	}
+
 	/**
 	 * 根据选择的包装费用和快递形式来计算运费
 	 */
-	public void setCost(){
-//		if(){
-//			cost.setForeground(new Color(255, 138, 0));
-//			cost.setText("");
-//		}
+	public void calCost(){
+		double goodweight=Double.parseDouble(goodWeightText.getText());
+		double transferCost=getMiles()/1000*23*goodweight;
+		
+		total=formMoney+transferCost;
+		setCost(total);
 	}
-	
-	
+
+	/**
+	 * 根据计算的运费 绘制到label上
+	 * (可能出现问题：：小数问题）
+	 */
+	public void setCost(double total) {
+		 cost.setForeground(new Color(255, 138, 0));
+		 cost.setText(String.valueOf(total));
+		
+	}
+
 	/**
 	 * 设置 收件人 所有不同城市区域的选择框不可见
 	 */
-	protected void setAllSenderComboboxUnvisible(){
-			senderArea.setVisible(false);
-			senderNanJingArea.setVisible(false);
-			senderBeiJingArea.setVisible(false);
-			senderGuangZhouArea.setVisible(false);
-			senderShangHaiArea.setVisible(false);
+	protected void setAllSenderComboboxUnvisible() {
+		senderArea.setVisible(false);
+		senderNanJingArea.setVisible(false);
+		senderBeiJingArea.setVisible(false);
+		senderGuangZhouArea.setVisible(false);
+		senderShangHaiArea.setVisible(false);
 	}
-	
+
 	/**
 	 * 设置 收件人 所有不同城市区域的选择框不可见
 	 */
-	protected void setAllReceiverComboboxUnvisible(){
-			receiverArea.setVisible(false);
-			receiverNanJingArea.setVisible(false);
-			receiverBeiJingArea.setVisible(false);
-			receiverGuangZhouArea.setVisible(false);
-			receiverShangHaiArea.setVisible(false);
+	protected void setAllReceiverComboboxUnvisible() {
+		receiverArea.setVisible(false);
+		receiverNanJingArea.setVisible(false);
+		receiverBeiJingArea.setVisible(false);
+		receiverGuangZhouArea.setVisible(false);
+		receiverShangHaiArea.setVisible(false);
 	}
 
 	/**
 	 * 设置 选择的选择框可见
+	 * 
 	 * @param area
 	 */
-	protected void setChoseComboboxVisible(MyComboBox area){
+	protected void setChoseComboboxVisible(MyComboBox area) {
 		area.setVisible(true);
 	}
-	
+
 	/**
 	 * 清空文本框
 	 */
@@ -628,7 +686,5 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		goodWidthText.setText("");
 		goodHeightText.setText("");
 	}
-
-	
 
 }
