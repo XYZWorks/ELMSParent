@@ -132,7 +132,7 @@ public class AddOutStorePanel extends MyPanel {
 	@Override
 	protected void addListener() {
 		confirmButton.addMouseListener(new AddOutStoreListener(confirmButton));
-		returnButton.addMouseListener(new MyJumpListener(returnButton, "OutStorePanel", controller));
+		returnButton.addMouseListener(new MyJumpListener(returnButton, "OutStorePanel", controller,true));
 
 	}
 

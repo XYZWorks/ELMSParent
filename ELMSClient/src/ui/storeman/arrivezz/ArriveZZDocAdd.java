@@ -143,7 +143,7 @@ public class ArriveZZDocAdd extends MyPanel {
 	@Override
 	protected void addListener() {
 		confirmButton.addMouseListener(new MyAddListener(confirmButton, bl));
-		returnButton.addMouseListener(new MyJumpListener(returnButton, "ArriveZZPanel", controller));
+		returnButton.addMouseListener(new MyJumpListener(returnButton, "ArriveZZPanel", controller,true));
 
 	}
 

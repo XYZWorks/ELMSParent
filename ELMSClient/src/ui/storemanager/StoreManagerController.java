@@ -1,16 +1,9 @@
 package ui.storemanager;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
-
 import org.dom4j.Element;
 
 import bl.storebl.StoreController;
-import blservice.storeblservice.StoreblService;
 import config.StaticMessage;
-import ui.storeman.StoreMain;
-import ui.storeman.arrivezz.ArriveZZPanel;
-import ui.storeman.storeshow.StoreShowPanel;
-import ui.storeman.transport.TransportPanel;
 import ui.storemanager.alarm.AlarmRecoverPanel;
 import ui.storemanager.alarm.AlarmSetPanel;
 import ui.storemanager.instore.AddInStorePanel;
@@ -19,8 +12,9 @@ import ui.storemanager.instore.InStorePanel;
 import ui.storemanager.outstore.AddOutStorePanel;
 import ui.storemanager.outstore.OutStorePanel;
 import ui.storemanager.storecheck.StoreCheckPanel;
+import ui.storemanager.storeshow.StoreShowPanel;
+import ui.storemanager.storeshow.StoreSingleShowPanel;
 import ui.tools.MyPanel;
-import ui.tools.MyPictureButton;
 import ui.tools.MySideBarButton;
 import ui.util.ButtonState;
 import ui.util.CompomentType;
@@ -65,6 +59,8 @@ public class StoreManagerController extends PanelController {
 	private final String fullInPanelStr = "FullInPanel";
 	private AddOutStorePanel addOutStorePanel;
 	private final String addOutStorePanelStr = "AddOutStorePanel";
+	private StoreSingleShowPanel storeSingleShowPanel;
+	private final String storeSingleShowPanelStr = "StoreSingleShowPanel";
 	
 	public StoreManagerController(MyPanel initialPanel, Element e) {
 		super(initialPanel , e);
@@ -85,13 +81,13 @@ public class StoreManagerController extends PanelController {
 		inStorePanel = new InStorePanel(e.element(inStorePanelStr),bl,this);
 		outStorePanel = new OutStorePanel(e.element(outStorePanelStr),bl,this);
 		storeCheckPanel = new StoreCheckPanel(e.element(storeCheckPanelStr));
-		storeShowPanel = new StoreShowPanel(e.element(storeShowPanelStr));
+		storeShowPanel = new StoreShowPanel(e.element(storeShowPanelStr),bl,this);
 		alarmRecoverPanel = new AlarmRecoverPanel(e.element(alarmRecoverPanelStr));
 		alarmSetPanel = new AlarmSetPanel(e.element(alarmSetPanelStr));
 		addInStorePanel = new AddInStorePanel(e.element(inStorePanelStr).element(addInStorePanelStr),bl,this);
 		fullInPanel = new FullInPanel(e.element(inStorePanelStr).element(fullInPanelStr),bl,this);
 		addOutStorePanel = new AddOutStorePanel(e.element(outStorePanelStr).element(addOutStorePanelStr), bl, this);
-		
+		storeSingleShowPanel = new StoreSingleShowPanel(e.element(storeShowPanelStr).element(storeSingleShowPanelStr),bl,this);
 	}
 
 	@Override
@@ -129,6 +125,7 @@ public class StoreManagerController extends PanelController {
 		changePanel.add(addInStorePanel, addInStorePanelStr);
 		changePanel.add(fullInPanel, fullInPanelStr);
 		changePanel.add(addOutStorePanel, addOutStorePanelStr);
+		changePanel.add(storeSingleShowPanel,storeSingleShowPanelStr);
 	}
 
 	@Override
@@ -180,7 +177,10 @@ public class StoreManagerController extends PanelController {
 		panelMap.put(fullInPanelStr, fullInPanel);
 		panelMap.put(inStorePanelStr, inStorePanel);
 		panelMap.put(outStorePanelStr, outStorePanel);
+		panelMap.put(storeSingleShowPanelStr, storeSingleShowPanel);
 	}
+	
+	
 
 	@Override
 	protected void initialBL() {

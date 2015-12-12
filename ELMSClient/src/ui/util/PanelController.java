@@ -1,6 +1,7 @@
 package ui.util;
 
 import java.awt.CardLayout;
+import java.awt.Component;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,7 +43,7 @@ public abstract class PanelController {
 	/**
 	 * 存储字符串与界面的对应关系
 	 */
-	protected Map<String, MyPanel> panelMap = new HashMap<>(9);
+	protected Map<String, Component> panelMap = new HashMap<>(9);
 	
 	/**
 	 * 
@@ -93,7 +94,7 @@ public abstract class PanelController {
 	 */
 	public abstract void setAllButtonVisable(boolean state);
 	
-	public Map<String, MyPanel> getPanelMap() {
+	public Map<String, Component> getPanelMap() {
 		return panelMap;
 	}
 	
@@ -130,7 +131,7 @@ public abstract class PanelController {
 	/**
 	 * 使得与该界面对应的按钮亮起
 	 */
-	private void setTheRelatedButton(String panelName){
+	public void setTheRelatedButton(String panelName){
 		if(panelName.length() <= 6){
 			return;
 		}

@@ -2,12 +2,17 @@ package ui.storeman.storeshow;
 
 import org.dom4j.Element;
 
+import bl.storebl.StoreController;
+import bl.transportbl.TransportController;
+import blservice.transportblservice.Transportblservice;
+import ui.storemanager.StoreManagerController;
 import ui.tools.MyPanel;
+import ui.util.PanelController;
 
 public class StoreShowPanel extends MyPanel{
 	
 	
-	public StoreShowPanel(Element config) {
+	public StoreShowPanel(Element config, Transportblservice bl, PanelController controller) {
 		super(config);
 		// TODO Auto-generated constructor stub
 	}

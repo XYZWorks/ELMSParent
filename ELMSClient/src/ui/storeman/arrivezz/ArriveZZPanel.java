@@ -85,8 +85,8 @@ public class ArriveZZPanel extends MyPanel {
 
 	@Override
 	protected void addListener() {
-		addButton.addMouseListener(new MyJumpListener(addButton, "AddArriveZZPanel", controller));
-		returnButton.addMouseListener(new MyJumpListener(returnButton, StaticMessage.MAIN_WINDOW, controller));
+		addButton.addMouseListener(new MyJumpListener(addButton, "AddArriveZZPanel", controller,false));
+		returnButton.addMouseListener(new MyJumpListener(returnButton, StaticMessage.MAIN_WINDOW, controller,false));
 	}
 
 	@Override

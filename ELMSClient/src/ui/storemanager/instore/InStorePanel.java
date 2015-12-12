@@ -95,15 +95,15 @@ public class InStorePanel extends MyPanel {
 
 	@Override
 	protected void addListener() {
-		addButton.addMouseListener(new MyJumpListener(addButton, "AddInStorePanel", controller));
-		returnButton.addMouseListener(new MyJumpListener(returnButton, StaticMessage.MAIN_WINDOW, controller));
+		addButton.addMouseListener(new MyJumpListener(addButton, "AddInStorePanel", controller,false));
+		returnButton.addMouseListener(new MyJumpListener(returnButton, StaticMessage.MAIN_WINDOW, controller,false));
 		fullButton.addMouseListener(new MyFullListener(fullButton, "FullInPanel", controller));
 	}
 	class MyFullListener extends MyJumpListener{
 		
 		int index;
 		public MyFullListener(MyPictureButton button, String toPanel, PanelController controller) {
-			super(button, toPanel, controller);
+			super(button, toPanel, controller,false);
 			
 		}
 		@Override

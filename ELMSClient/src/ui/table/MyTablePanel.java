@@ -147,7 +147,9 @@ public abstract class MyTablePanel extends JPanel {
 	 * @param data
 	 */
 	public void addOneRow(Object[] data) {
+//		table.getModel().setRowCount(table.getModel().getRowCount() + 1);
 		table.getModel().addRow(data);
+		
 	}
 	
 	/**

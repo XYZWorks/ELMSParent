@@ -65,7 +65,7 @@ public class StoreManController extends PanelController{
 		SMmainpanel = new StoreMain(e.element(SMmainpanelStr) , this);
 		TransportPanel = new TransportPanel(e.element(TransportPanelStr),bl,this);
 		ArriveZZPanel = new ArriveZZPanel(e.element(ArriveZZPanelStr),bl,this);
-		StorePanel = new StoreShowPanel(e.element(StorePanelStr));
+		StorePanel = new StoreShowPanel(e.element(StorePanelStr),bl,this);
 		AddArriveZZPanel = new ArriveZZDocAdd(e.element(ArriveZZPanelStr).element(AddArriveZZPanelStr),bl,this);
 		AddTransportPanel = new AddTransportPanel(e.element(TransportPanelStr).element(AddTransportPanelStr),bl,this);
 	}

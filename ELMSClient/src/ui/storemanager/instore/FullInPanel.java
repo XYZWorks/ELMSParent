@@ -108,7 +108,7 @@ public class FullInPanel extends MyPanel {
 
 	@Override
 	protected void addListener() {
-		returnButton.addMouseListener(new MyJumpListener(returnButton, "InStorePanel", controller));
+		returnButton.addMouseListener(new MyJumpListener(returnButton, "InStorePanel", controller,true));
 	}
 
 	public void setInStoreVO(InStoreDocVO vo) {

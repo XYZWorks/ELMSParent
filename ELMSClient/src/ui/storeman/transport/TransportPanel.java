@@ -84,8 +84,8 @@ public class TransportPanel extends MyPanel {
 
 	@Override
 	protected void addListener() {
-		addButton.addMouseListener(new MyJumpListener(addButton, "AddTransportPanel", controller));
-		returnButton.addMouseListener(new MyJumpListener(returnButton, StaticMessage.MAIN_WINDOW, controller));
+		addButton.addMouseListener(new MyJumpListener(addButton, "AddTransportPanel", controller,false));
+		returnButton.addMouseListener(new MyJumpListener(returnButton, StaticMessage.MAIN_WINDOW, controller,false));
 	}
 
 	@Override

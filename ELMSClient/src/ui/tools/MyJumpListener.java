@@ -18,11 +18,15 @@ public class MyJumpListener extends MyPictureButtonListener{
 	protected CardLayout layout;
 	
 	protected String toPanel;
-	public MyJumpListener(MyPictureButton button, String toPanel, PanelController controller) {
+	
+	protected Boolean isVisable;
+	
+	public MyJumpListener(MyPictureButton button, String toPanel, PanelController controller,boolean isVisable) {
 		super(button);
 		this.toPanel = toPanel;
 		this.controller = controller;
 		this.layout = controller.getCardLayout();
+		this.isVisable = isVisable;
 	}
 	
 	@Override
@@ -32,8 +36,10 @@ public class MyJumpListener extends MyPictureButtonListener{
 		
 		layout.show(controller.getChangePanel(), toPanel);
 //		if(toPanel.equals(StaticMessage.MAIN_WINDOW)){
-			controller.setAllButtonVisable(false);
+			controller.setAllButtonVisable(isVisable);
 			controller.setAllButtonUnClicked();
+			if(isVisable)
+				controller.setTheRelatedButton(toPanel);
 //		}
 //		System.out.println("jump to "+ toPanel);
 	}
