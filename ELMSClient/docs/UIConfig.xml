@@ -378,13 +378,14 @@
 						type="confirm" />
 					<cancel x="707" y="560" width="115" height="40" text="取消"
 						type="cancel" />
-					<newInst x="645" y="150" width="115" height="40" text="新增机构"
-						type="rectangle" />
+					<add x="707" y="150" width="40" height="40" 
+						type="add" />
 				</BUTTONS>
 				<LABELS>
+					<newInst x="700" y="180" width="115" height="40" text="新增机构" fontName="华文细黑" size="14"/>
 					<user x="60" y="60" width="115" height="40" text="经手人" type="rectangle"/>
 					<time x="410" y="60" width="115" height="40" text="建账日期" type="rectangle"/>
-					<message x="75" y="150" width="115" height="40" text="账单信息"  fontName="华文细黑" size="20"/>
+					<message x="60" y="150" width="115" height="40" text="账单信息" type="rectangle"/>
 				</LABELS>
 				<TEXTFIELDS>
 					<name x="200" y="60" width="160" height="40" />
@@ -422,19 +423,19 @@
 						type="confirm" />
 						<cancel x="707" y="560" width="115" height="40" text="取消"
 						type="cancel" />
-						<back x="350" y="560" width="115" height="40" text="返回"
-							type="rectangle" />
+						<back x="707" y="560" width="115" height="40" text="返回"
+							type="back" />
 					</BUTTONS>
 					<TEXTFIELDS>
 						<instid x="345" y="201" width="276" height="40" />
 					</TEXTFIELDS>
 					<LABELS>
-						<instid x="200" y="201" width="50" height="40" text="职员ID" type="rectangle"/>
-						<type x="200" y="271" width="50" height="40" text="职员类型" type="rectangle"/>
-						<location x="200" y="341" width="50" height="40" text="城市" type="rectangle"/>
+						<instid x="200" y="201" width="115" height="40" text="职员ID" type="rectangle"/>
+						<type x="200" y="271" width="115" height="40" text="职员类型" type="rectangle"/>
+						<location x="200" y="341" width="115" height="40" text="城市" type="rectangle"/>
 					</LABELS>
-					<location x="345" y="341" width="115" height="40" strings="南京 北京 上海 广州" />
-					<type x="345" y="271" width="115" height="40" strings="中转中心 营业厅 总部" />
+					<location x="345" y="341" width="276" height="40" strings="南京 北京 上海 广州" />
+					<type x="345" y="271" width="276" height="40" strings="中转中心 营业厅 总部" />
 
 				</addInst>
 				<addPeople x="232" y="54" width="848" height="637">

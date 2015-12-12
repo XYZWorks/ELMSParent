@@ -45,16 +45,16 @@
 					<LineLeft x="18" y="60" width="13" height="264" one="element//timeAxis" />
 					<LineRight x="403" y="60" width="13" height="264" one="element//timeAxis" />
 
-					<One x="63" y="57" width="276" height="32" />
-					<Two x="63" y="57" width="276" height="32" />
-					<Three x="63" y="57" width="276" height="32" />
-					<Four x="63" y="57" width="276" height="32" />
-					<Five x="63" y="57" width="276" height="32" />
-					<Six x="63" y="57" width="276" height="32" />
-					<Seven x="63" y="57" width="276" height="32" />
-					<Eight x="63" y="57" width="276" height="32" />
-					<Nine x="63" y="57" width="276" height="32" />
-					<Ten x="63" y="57" width="276" height="32" />
+					<One x="48" y="54" width="326" height="32" />
+					<Two x="48" y="106" width="326" height="32" />
+					<Three x="49" y="158" width="326" height="32" />
+					<Four x="49" y="212" width="326" height="32" />
+					<Five x="49" y="266" width="326" height="32" />
+					<Six x="433" y="54" width="326" height="32" />
+					<Seven x="433" y="106" width="326" height="32" />
+					<Eight x="433" y="158" width="326" height="32" />
+					<Nine x="433" y="212" width="326" height="32" />
+					<Ten x="433" y="266" width="326" height="32" />
 				</LABELS>
 				<searchBox x="20" y="30" />
 				<DatePicker x="611" y="98" width="200" height="40">
