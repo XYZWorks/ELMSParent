@@ -21,7 +21,7 @@ public class LoadDocMesTable extends MyTablePanel {
 	ArrayList<LoadDocVO> vos;
 	
 	String[] oneData = new String[COLUMN_NUM];
- 	private static final int COLUMN_NUM = 8;
+ 	private static final int COLUMN_NUM = 9;
 	public LoadDocMesTable(Element config , Transportblservice bl) {
 		super(config);
 		this.bl = bl;
@@ -48,6 +48,7 @@ public class LoadDocMesTable extends MyTablePanel {
 		oneData[5] = vo.carID;
 		oneData[6] = vo.supervisor;
 		oneData[7] = vo.escort;
+		oneData[8] = String.valueOf(vo.orderBarCodes.size());
 		addOneRow(oneData);
 		
 	}
@@ -77,6 +78,7 @@ public class LoadDocMesTable extends MyTablePanel {
 			data[i][5] = vo.carID;
 			data[i][6] = vo.supervisor;
 			data[i][7] = vo.escort;
+			data[i][8] = String.valueOf(vo.orderBarCodes.size());
 			
 		}
 		

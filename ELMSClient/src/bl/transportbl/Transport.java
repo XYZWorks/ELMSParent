@@ -84,7 +84,11 @@ public class Transport {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
+		if(pos == null){
+			return null;
+		}
+		
 		for (LoadDocPO po : pos) {
 //			if (po.getDate().equals(date)) {
 				vos.add((LoadDocVO) VOPOchange.POtoVO(po));

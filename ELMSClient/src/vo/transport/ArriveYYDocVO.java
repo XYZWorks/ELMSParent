@@ -19,7 +19,7 @@ public class ArriveYYDocVO extends DocVO{
 	/**
 	 * 中转中心编号
 	 */
-	public String zZID;
+	public String ZZID;
 		
 //	/**
 //	 * 到达日期
@@ -52,7 +52,7 @@ public class ArriveYYDocVO extends DocVO{
 	public ArriveYYDocVO(String iD, MyDate date,
 			String zZID, City sendCity, GoodsState goodState,ArrayList<String> orderBarCodes) {
 		super(iD, DocType.arriveYYDoc, date, DocState.wait);
-		this.zZID = zZID;
+		this.ZZID = zZID;
 		this.sendCity = sendCity;
 		this.goodState = goodState;
 		this.orderBarCodes = orderBarCodes;

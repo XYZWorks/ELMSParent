@@ -88,7 +88,7 @@ public class LoadDocAddPanel extends AddDocPanel{
 		YYID = new MyPictureLabel(e.element("YYID"));
 		loadDocID = new MyPictureLabel(e.element("loadDoc"));
 		arriveCity = new MyPictureLabel(e.element("arriveCity"));
-		carID = new MyPictureLabel(e.element("carID"));
+		carID = new MyPictureLabel(e.element("car"));
 		supervisor = new MyPictureLabel(e.element("supervisor"));
 		escort = new MyPictureLabel(e.element("escort"));
 		newOrder = new MyPictureLabel(e.element("order"));

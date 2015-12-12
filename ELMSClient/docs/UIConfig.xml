@@ -647,17 +647,42 @@
 						<addOrder x="400" y="560" width="115" height="40" text="增加订单"
 							type="confirm" />
 					</BUTTONS>
+					<LABELS>
+					<id x="50" y="50" width="115" height="40"
+						text="ID" type="rectangle" />
+					<YYID x="50" y="150" width="115" height="40"
+						text="营业厅编号" type="rectangle" />
+					<loadDoc x="50" y="250" width="115" height="40"
+						text="汽运编号" type="rectangle" />
+					<arriveCity x="50" y="350" width="115" height="40" text="到达地" type="rectangle"/>
+					<car x="50" y="350" width="115" height="40"
+						text="车辆ID" type="rectangle" />
+					<supervisor x="50" y="150" width="115" height="40"
+						text="监运员" type="rectangle" />
+					<escort x="50" y="250" width="115" height="40"
+						text="押送员" type="rectangle" />
+					<order x="50" y="350" width="115" height="40"
+						text="订单号" type="rectangle" />
+					</LABELS>
 					<TEXTFIELDS>
-						
-					
+					<id x="50" y="50" width="115" height="40" />
+					<YYID x="50" y="150" width="115" height="40" />
+					<loadDoc x="50" y="250" width="115" height="40" />
+					<car x="50" y="350" width="115" height="40"/>
+					<supervisor x="50" y="150" width="115" height="40" />
+					<escort x="50" y="250" width="115" height="40" />
+					<order x="50" y="350" width="115" height="40"/>
 					</TEXTFIELDS>
+					<datepicker x="50" y="50" width="200" height="50" />
+					<arrive x="50" y="50" width="150" height="50" strings = "南京 北京 上海 广州"/>
+					<table x="50" y="50" width="200" height="50" column = "序号 ID"/>
 				</loadDocShowpanelAddPanel>
 				
 				<addDoc x="550" y="560" width="115" height="40" text="增加"
 					type="rectangle" />
 				<search x="300" y="0" />
 				<datepicker x="0" y="0" width="250" height="50" />
-				<table x="200" y="100" width="550" height="400" />
+				<table x="200" y="100" width="550" height="400" column = "ID 日期 营业厅编号 汽运编号 到达地 车辆ID 监运员 押送员 订单数量"/>
 				<searchButton x="700" y="0" width="115" height="40"
 					text="搜索" type="rectangle" />
 

@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import org.dom4j.Element;
 
 import blservice.transportblservice.Transportblservice;
+import ui.saleman.LoadDoc.LoadDocMesTable;
 import ui.tools.CheckDocPanel;
 import ui.tools.MyDatePicker;
 import ui.tools.MyPictureButton;
@@ -17,11 +18,15 @@ import ui.tools.MySearchBox;
 @SuppressWarnings("serial")
 public class ArriveYYDocCheckPanel extends CheckDocPanel{
 
-	
+	Transportblservice bl;
+	ArriveYYDocMesTable myTable;
 
 	public ArriveYYDocCheckPanel(Element config, JPanel changePanel , String checkDocName , String addDocName, Transportblservice transportblservice) {
 		super(config, changePanel , checkDocName , addDocName);
-		// TODO Auto-generated constructor stub
+		this.bl = transportblservice;
+		myTable = (ArriveYYDocMesTable) messageTable;
+		myTable.bl = this.bl;
+		initTableContent();
 	}
 
 	

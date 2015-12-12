@@ -6,6 +6,10 @@ import org.dom4j.Element;
 
 import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
+import ui.tools.MyComboBox;
+import ui.tools.MyDatePicker;
+import ui.tools.MyLabel;
+import ui.tools.MyTextField;
  /** 
  * 
  * @author czq 
@@ -13,7 +17,26 @@ import ui.tools.AddDocPanel;
  */
 @SuppressWarnings("serial")
 public class PayDocAddPanel extends AddDocPanel {
-
+	
+	private MyLabel id;
+	private MyDatePicker date;
+	private MyLabel YYID;
+	private MyLabel loadDocID;
+	private MyLabel arriveCity;
+	private MyLabel carID;
+	private MyLabel supervisor;
+	private MyLabel escort;
+	private MyLabel newOrder;
+	
+	private MyTextField idT;
+	private MyTextField YYIDT;
+	private MyTextField loadDocT;
+	private MyComboBox arriveCityB;;
+	private MyTextField supervisorT;
+	private MyTextField carT;
+	private MyTextField escortT;
+	private MyTextField orderCode;
+	
 	public PayDocAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable) {
 		super(config , changePanel , checkDocPanelStr,  messageTable);
 		// TODO Auto-generated constructor stub

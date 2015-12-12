@@ -17,7 +17,7 @@ public class SendGoodDocVO extends DocVO{
 	/**
 	 * 快递员
 	 */
-	public String SendMan;
+	public String sendMan;
 	/**
 	 *订单条形码号
 	 */
@@ -28,13 +28,12 @@ public class SendGoodDocVO extends DocVO{
 	public City sendCity;
 	
 	public SendGoodDocVO() {
-		// TODO Auto-generated constructor stub
 	}
 	public SendGoodDocVO(String iD, MyDate date,
 			 String sendMan, String orderBarCode,City sendCity) {
 		super(iD, DocType.sendGoodDoc, date, DocState.wait);
 		this.sendCity = sendCity;
-		SendMan = sendMan;
+		this.sendMan = sendMan;
 		this.orderBarCode = orderBarCode;
 	}
 
