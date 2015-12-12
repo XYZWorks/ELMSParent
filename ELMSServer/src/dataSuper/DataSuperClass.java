@@ -56,7 +56,7 @@ public abstract class DataSuperClass extends UnicastRemoteObject {
 	 */
 	protected static DataServiceHelper helper = new DataServiceHelper();
 
-	private static final Map<String, ArrayList<String>> SQLmap = new HashMap<String, ArrayList<String>>(30);
+	private static final Map<String, ArrayList<String>> SQLmap = new HashMap<String, ArrayList<String>>(50);
 
 	static {
 		SQLmap.put("account", helper.bulidSQL("account", 6, "id", "name", "type", "password","phone", "email"));
@@ -126,7 +126,6 @@ public abstract class DataSuperClass extends UnicastRemoteObject {
 			return ResultMessage.FAIL;
 		}
 		
-		System.out.println(affectRows);
 		return ResultMessage.SUCCESS;
 	}
 	
