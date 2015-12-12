@@ -358,6 +358,8 @@
 					<company x="345" y="341" width="276" height="40" />
 				</TEXTFIELDS>
 				<LABELS>
+					<title x="48" y="36" width="200" height="28" text="交易审核" fontName="华文细黑" size="26"/>
+					
 					<money x="200" y="201" width="115" height="40" text="收款金额"
 						type="rectangle" />
 					<company x="200" y="341" width="115" height="40" text="收款方"
@@ -378,23 +380,25 @@
 						type="confirm" />
 					<cancel x="707" y="560" width="115" height="40" text="取消"
 						type="cancel" />
-					<add x="707" y="150" width="40" height="40" 
+					<add x="720" y="160" width="40" height="40" 
 						type="add" />
 				</BUTTONS>
 				<LABELS>
-					<newInst x="700" y="180" width="115" height="40" text="增加机构" fontName="华文细黑" size="14"/>
-					<user x="60" y="60" width="115" height="40" text="经手人" type="rectangle"/>
-					<time x="410" y="60" width="115" height="40" text="建账日期" type="rectangle"/>
-					<message x="60" y="150" width="115" height="40" text="账单信息" type="rectangle"/>
+					<title x="48" y="36" width="200" height="28" text="期初建账" fontName="华文细黑" size="26"/>
+					
+					<newInst x="725" y="190" width="115" height="40" text="增加" fontName="华文细黑" size="14"/>
+					<user x="48" y="100" width="115" height="40" text="经手人" type="rectangle"/>
+					<time x="410" y="100" width="115" height="40" text="建账日期" type="rectangle"/>
+					<message x="48" y="175" width="115" height="28" text="账单信息" fontName="华文细黑" size="26"/>
 				</LABELS>
 				<TEXTFIELDS>
-					<name x="200" y="60" width="160" height="40" />
+					<name x="200" y="100" width="160" height="40" />
 				</TEXTFIELDS>
-				<datePicker x="560" y="60" width="200" height="40">
-					<field x="560" y="60" width="150" height="40" />
-					<button x="710" y="60" width="50" height="40" type="rectangle" />
+				<datePicker x="560" y="100" width="200" height="40">
+					<field x="560" y="100" width="150" height="40" />
+					<button x="710" y="100" width="50" height="40" type="rectangle" />
 				</datePicker>
-				<table x="60" y="280" width="727" height="250"
+				<table x="48" y="280" width="727" height="250"
 					column="机构ID 所在城市 类型 人员数目 车辆数目" />
 			
 				<addInst x="232" y="54" width="848" height="637">
@@ -475,46 +479,55 @@
 			</BulidBillPanel>
 			<BankAccountManagePanel x="232" y="54" width="848"
 				height="637">
+				
+				<BUTTONS>			
+					<confirm x="560" y="560" width="115" height="40" text="确认"
+						type="confirm" />
+					<cancel x="707" y="560" width="115" height="40" text="取消"
+						type="cancel" />
+					<add x="642" y="65" width="40" height="40" 
+						 type="add" />
+					<delete x="758" y="65" width="40" height="40" 
+						type="delete" />
+					<modify x="700" y="65" width="40" height="40" 
+						type="modify" />
+				</BUTTONS>
+				<TEXTFIELDS>
+					<passT x="345" y="341" width="115" height="40" />
+					<money x="345" y="271" width="115" height="40" />
+				</TEXTFIELDS>
+				<LABELS>
+					<title x="48" y="36" width="200" height="28" text="银行账户管理" fontName="华文细黑" size="26"/>
+					
+					<deleteL x="763" y="111" width="50" height="28" text="删除" fontName="华文细黑" size="16"/>
+					<modifyL x="703" y="111" width="50" height="28" text="修改" fontName="华文细黑" size="16"/>
+					<addL x="647" y="111" width="50" height="28" text="增加" fontName="华文细黑" size="16"/>
+					
+					<money x="200" y="271" width="115" height="40" type = "rectangle"/>
+					<password x="200" y="341" width="115" height="40" type = "rectangle" />
+				</LABELS>
+				<table x="48" y="150" width="750" height="380" 
+				column="账户ID 密码 存款" />
 				<addPanel x="232" y="54" width="848" height="637">
 					<BUTTONS>
-						<confirm x="500" y="560" width="115" height="40" text="确认"
-							type="confirm" />
-						<cancel x="650" y="560" width="115" height="40" text="取消"
-							type="cancel" />
+						<confirm x="560" y="560" width="115" height="40" text="确认"
+						type="confirm" />
+						<cancel x="707" y="560" width="115" height="40" text="取消"
+						type="cancel" />
 					</BUTTONS>
 					<LABELS>
-						<id x="300" y="160" width="115" height="40" text="ID" type="rectangle" />
-						<money x="350" y="260" width="115" height="40" text="金额"
+						<id x="200" y="201" width="115" height="40" text="ID" type="rectangle" />
+						<money x="200" y="271" width="115" height="40"  text="金额"
 							type="rectangle" />
-						<password x="200" y="360" width="115" height="40" text="密码"
+						<password x="200" y="341" width="115" height="40" text="密码"
 							type="rectangle" />
 					</LABELS>
 					<TEXTFIELDS>
-						<idT x="100" y="160" width="115" height="40" />
-						<passT x="200" y="260" width="115" height="40" />
-						<money x="350" y="360" width="115" height="40" />
+						<idT x="345" y="201" width="276" height="40" />
+						<passT x="345" y="271" width="276" height="40" />
+						<money x="345" y="341" width="276" height="40" />
 					</TEXTFIELDS>
 				</addPanel>
-				<BUTTONS>
-					<delete x="500" y="560" width="115" height="40" text="删除"
-						type="rectangle" />
-					<modify x="650" y="560" width="115" height="40" text="修改"
-						type="rectangle" />
-					<confirm x="500" y="560" width="115" height="40" text="确认"
-						type="rectangle" />
-					<cancel x="650" y="560" width="115" height="40" text="取消"
-						type="rectangle" />
-					<add x="400" y="560" width="115" height="40" text="增加" type="rectangle" />
-				</BUTTONS>
-				<TEXTFIELDS>
-					<passT x="500" y="560" width="115" height="40" />
-					<money x="650" y="560" width="115" height="40" />
-				</TEXTFIELDS>
-				<LABELS>
-					<money x="500" y="560" width="115" height="40" />
-					<password x="500" y="560" width="115" height="40" />
-				</LABELS>
-				<table x="50" y="75" width="750" height="430" column="账户ID 密码 存款" />
 			</BankAccountManagePanel>
 			<CostManagePanel x="232" y="54" width="848" height="637">
 			</CostManagePanel>

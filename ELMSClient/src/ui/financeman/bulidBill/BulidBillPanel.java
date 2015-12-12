@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import org.dom4j.Element;
 
 import ui.tools.MyDatePicker;
+import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
@@ -52,6 +53,7 @@ public class BulidBillPanel extends MyPanel {
 	private MyPictureButton cancel;
 	private MyPictureButton add;
 
+	private MyLabel title;
 	private MyPictureLabel newInst;
 	private MyPictureLabel user;
 	private MyPictureLabel time;
@@ -100,6 +102,7 @@ public class BulidBillPanel extends MyPanel {
 		user = new MyPictureLabel(e.element("user"));
 		time = new MyPictureLabel(e.element("time"));
 		message = new MyPictureLabel(e.element("message"));
+		title = new MyLabel(e.element("title"));
 	}
 
 	@Override
@@ -126,7 +129,8 @@ public class BulidBillPanel extends MyPanel {
 		add(message);
 		add(add);
 		add(time);
-
+		add(title);
+		
 	}
 
 	@Override

@@ -36,12 +36,13 @@ public class BankAccountManagePanel extends MyPanel {
 	private MyPictureButton cancel;
 	private MyPictureButton modify;
 	private MyPictureButton add;
+	
+	private MyLabel title;
+	private MyLabel deleteL;
+	private MyLabel modifyL;
+	private MyLabel addL;
+	
 
-	private MyLabel newPassword;
-	private MyLabel newMoney;
-
-	private MyTextField moneyT;
-	private MyTextField passT;
 	
 	private AddBankAccountPanel addPanel;
 	private final static String addPanelStr = "addPanel";
@@ -75,14 +76,15 @@ public class BankAccountManagePanel extends MyPanel {
 
 	@Override
 	protected void initTextFields(Element e) {
-		passT = new MyTextField(e.element("passT"));
-		moneyT = new MyTextField(e.element("money"));
+	
 	}
 
 	@Override
 	protected void initLabels(Element e) {
-		newMoney = new MyPictureLabel(e.element("money"));
-		newPassword = new MyPictureLabel(e.element("password"));
+		deleteL = new MyLabel(e.element("deleteL"));
+		modifyL = new MyLabel(e.element("modifyL"));
+		addL = new MyLabel(e.element("addL"));
+		title = new MyLabel(e.element("title"));
 
 	}
 
@@ -98,13 +100,13 @@ public class BankAccountManagePanel extends MyPanel {
 		add(confirm);
 		add(delete);
 		add(modify);
-		add(moneyT);
-		add(newMoney);
-		add(newPassword);
-		add(passT);
 		add(table);
 		add(add);
 		add(addPanel);
+		add(deleteL);
+		add(modifyL);
+		add(addL);
+		add(title);
 	}
 
 	@Override

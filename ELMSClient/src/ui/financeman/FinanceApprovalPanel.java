@@ -23,6 +23,7 @@ public class FinanceApprovalPanel extends MyPanel{
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
 	
+	private MyLabel title;
 	private MyPictureLabel time;
 	private MyPictureLabel person;
 	private MyPictureLabel money;
@@ -65,6 +66,7 @@ public class FinanceApprovalPanel extends MyPanel{
 		person = new MyPictureLabel(e.element("person"));
 		money = new MyPictureLabel(e.element("money"));
 		company = new MyPictureLabel(e.element("company"));
+		title = new MyPictureLabel(e.element("title"));
 	}
 
 	@Override
@@ -85,6 +87,7 @@ public class FinanceApprovalPanel extends MyPanel{
 		add(name);
 		add(money);
 		add(moneyT);
+		add(title);
 	}
 
 	@Override
