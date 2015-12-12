@@ -6,9 +6,9 @@ import org.dom4j.Element;
 
 import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
-import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
+import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
  /** 
  * 
@@ -21,21 +21,14 @@ public class PayDocAddPanel extends AddDocPanel {
 	private MyLabel id;
 	private MyDatePicker date;
 	private MyLabel YYID;
-	private MyLabel loadDocID;
-	private MyLabel arriveCity;
-	private MyLabel carID;
-	private MyLabel supervisor;
-	private MyLabel escort;
-	private MyLabel newOrder;
+	private MyLabel money;
+	private MyLabel courierName;
 	
 	private MyTextField idT;
 	private MyTextField YYIDT;
-	private MyTextField loadDocT;
-	private MyComboBox arriveCityB;;
-	private MyTextField supervisorT;
-	private MyTextField carT;
-	private MyTextField escortT;
-	private MyTextField orderCode;
+	private MyTextField moneyT;
+	private MyTextField courierNameT;
+	private PayDocMesTable ordersTable;
 	
 	public PayDocAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable) {
 		super(config , changePanel , checkDocPanelStr,  messageTable);
@@ -56,25 +49,31 @@ public class PayDocAddPanel extends AddDocPanel {
 
 	@Override
 	protected void initTextFields(Element e) {
-		// TODO Auto-generated method stub
+		idT = new MyTextField(e.element("id"));
+		YYIDT = new MyTextField(e.element("YYID"));
+		moneyT = new MyTextField(e.element("car"));
+		courierNameT = new MyTextField(e.element("supervisor"));
 
 	}
 
 	@Override
 	protected void initLabels(Element e) {
-		// TODO Auto-generated method stub
-
+		id = new MyPictureLabel(e.element("id"));
+		YYID = new MyPictureLabel(e.element("YYID"));
+		money = new MyPictureLabel(e.element("money"));
+		courierName = new MyPictureLabel(e.element("courierName"));
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		// TODO Auto-generated method stub
-
+		date = new MyDatePicker(e.element("datepicker"));
+		ordersTable = new PayDocMesTable(e.element("table"));
 	}
 
 	@Override
 	protected void addCompoment() {
-		// TODO Auto-generated method stub
+		add(YYID);add(YYIDT);add(courierName);add(courierNameT);add(date);add(id);add(idT);
+		add(money);add(moneyT); add(ordersTable);
 
 	}
 

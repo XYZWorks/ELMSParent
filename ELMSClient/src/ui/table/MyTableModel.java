@@ -15,7 +15,7 @@ public class MyTableModel extends DefaultTableModel {
 	 */
 	Object[][] values;
 
-	boolean[][] isCellEditable;
+	boolean[][] isCellEditable; // TODO 動態的改變表格時會出現越界異常，待處理
 
 	public MyTableModel(Object[] headers, Object[][] data) {
 		super(data, headers);
