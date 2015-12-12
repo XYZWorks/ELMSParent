@@ -4,20 +4,18 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import ui.saleman.LoadDoc.LoadDocOrders;
 import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
-import ui.tools.MyPanel;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.ConfirmListener;
 
 /**
- * 
+ * 派送单增加界面
  * @author czq
  *
  */

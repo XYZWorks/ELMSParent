@@ -694,18 +694,38 @@
 					y="54" width="1080" height="637">
 					<BUTTONS>
 						<confirm x="550" y="560" width="115" height="40" text="确认"
-							type="rectangle" />
+							type="confirm" />
 						<cancel x="700" y="560" width="115" height="40" text="取消"
 							type="cancel" />
 						<back x="625" y="560" width="115" height="40" text="返回" type="confirm" />
+						<addOrder x="400" y="560" width="115" height="40" text="增加订单"
+							type="confirm" />
 					</BUTTONS>
-
+					<LABELS>
+					<id x="50" y="50" width="115" height="40"
+						text="ID" type="rectangle" />
+					<ZZID x="50" y="150" width="115" height="40"
+						text="中转中心编号" type="rectangle" />
+					<sendCity x="50" y="250" width="115" height="40"
+						text="出发地" type="rectangle" />
+					<goodState x="50" y="350" width="115" height="40" text="货物状态" type="rectangle"/>
+					<order x="50" y="350" width="115" height="40"
+						text="新增订单" type="rectangle" />
+					</LABELS>
+					<TEXTFIELDS>
+					<id x="50" y="50" width="115" height="40" />
+					<ZZID x="50" y="150" width="115" height="40" />
+					</TEXTFIELDS>
+					<datepicker x="50" y="50" width="200" height="50" />
+					<sendCity x="50" y="50" width="150" height="50" strings = "南京 北京 上海 广州"/>
+					<goodState x="50" y="50" width="150" height="50" strings = "完好 损坏"/>
+					<table x="50" y="50" width="200" height="50" column = "序号 ID"/>
 				</arriveYYDocShowPanelAddPanel>
 				<addDoc x="550" y="560" width="115" height="40" text="增加"
 					type="rectangle" />
 				<search x="300" y="0" />
 				<datepicker x="0" y="0" width="250" height="50" />
-				<table x="200" y="100" width="550" height="400" />
+				<table x="200" y="100" width="550" height="400" column = "ID 日期 中转中心编号 出发地 货物状态 单据数量"/>
 
 				<searchButton x="700" y="0" width="115" height="40"
 					text="搜索" type="rectangle" />
@@ -716,18 +736,33 @@
 					y="54" width="1080" height="637">
 					<BUTTONS>
 						<confirm x="550" y="560" width="115" height="40" text="确认"
-							type="rectangle" />
+							type="confirm" />
 						<cancel x="700" y="560" width="115" height="40" text="取消"
 							type="cancel" />
 						<back x="625" y="560" width="115" height="40" text="返回" type="confirm" />
 					</BUTTONS>
-
+					<LABELS>
+					<id x="50" y="50" width="115" height="40"
+						text="ID" type="rectangle" />
+					<sendMan x="50" y="150" width="115" height="40"
+						text="快递员" type="rectangle" />
+					<orderBarCode x="50" y="250" width="115" height="40"
+						text="订单条形码" type="rectangle" />
+					<sendCity x="50" y="350" width="115" height="40" text="目的地" type="rectangle"/>
+					</LABELS>
+					<TEXTFIELDS>
+					<id x="50" y="50" width="115" height="40" />
+					<sendMan x="50" y="150" width="115" height="40" />
+					<orderBarCode x="50" y="150" width="115" height="40" />
+					</TEXTFIELDS>
+					<datepicker x="50" y="50" width="200" height="50" />
+					<sendCity x="50" y="50" width="150" height="50" strings = "南京 北京 上海 广州"/>
 				</sendGoodDocShowPanelAddPanel>
 				<addDoc x="550" y="560" width="115" height="40" text="增加"
 					type="rectangle" />
 				<search x="300" y="0" />
 				<datepicker x="0" y="0" width="250" height="50" />
-				<table x="200" y="100" width="550" height="400" />
+				<table x="200" y="100" width="550" height="400" column = "ID 日期 送货员 订单号 到达地"/>
 				<searchButton x="700" y="0" width="115" height="40"
 					text="搜索" type="rectangle" />
 			</sendGoodDocShowPanel>
@@ -736,11 +771,28 @@
 					width="1080" height="637">
 					<BUTTONS>
 						<confirm x="550" y="560" width="115" height="40" text="确认"
-							type="rectangle" />
+							type="confirm" />
 						<cancel x="700" y="560" width="115" height="40" text="取消"
 							type="cancel" />
 						<back x="625" y="560" width="115" height="40" text="返回" type="confirm" />
 					</BUTTONS>
+					<LABELS>
+					<id x="50" y="50" width="115" height="40"
+						text="ID" type="rectangle" />
+					<YYID x="50" y="150" width="115" height="40"
+						text="营业厅ID" type="rectangle" />
+					<money x="50" y="250" width="115" height="40"
+						text="金额" type="rectangle" />
+					<courierName x="50" y="350" width="115" height="40" text="快递员" type="rectangle"/>
+					</LABELS>
+					<TEXTFIELDS>
+					<id x="50" y="50" width="115" height="40" />
+					<YYID x="50" y="150" width="115" height="40" />
+					<money x="50" y="150" width="115" height="40" />
+					<courierName x="50" y="150" width="115" height="40" />
+					</TEXTFIELDS>
+					<datepicker x="50" y="50" width="200" height="50" />
+					<table x="50" y="50" width="150" height="50" column = "ID 金额 营业厅编号 日期 快递员"/>
 
 				</payDocShowPanelAddPanel>
 				<addDoc x="550" y="560" width="115" height="40" text="增加"

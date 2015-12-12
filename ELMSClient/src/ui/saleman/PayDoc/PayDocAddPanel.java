@@ -13,7 +13,7 @@ import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.ConfirmListener;
  /** 
- * 
+ * 付款单增加界面
  * @author czq 
  * @version 2015年12月8日 下午8:30:34 
  */

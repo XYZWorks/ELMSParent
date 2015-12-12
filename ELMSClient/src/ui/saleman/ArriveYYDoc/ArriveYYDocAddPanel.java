@@ -15,9 +15,7 @@ import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.ConfirmListener;
-/**
- * 接收单界面
- */
+
 /**
  * 接收单增加界面
  * @author czq

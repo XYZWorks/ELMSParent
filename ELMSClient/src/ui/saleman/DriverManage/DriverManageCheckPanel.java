@@ -8,7 +8,7 @@ import ui.tools.CheckDocPanel;
 import ui.tools.MyComboBox;
 import blservice.DTManageblservice.DTManageblservice;
  /** 
- * 
+ * 司机信息查看界面
  * @author czq 
  * @version 2015年12月8日 下午8:18:26 
  */

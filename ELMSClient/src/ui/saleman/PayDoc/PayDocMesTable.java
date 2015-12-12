@@ -4,13 +4,11 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import blservice.transportblservice.Transportblservice;
 import ui.table.MyTablePanel;
-import util.MyDate;
-import vo.transport.LoadDocVO;
 import vo.transport.PayDocVO;
+import blservice.transportblservice.Transportblservice;
  /** 
- * 
+ * 付款单信息表
  * @author czq 
  * @version 2015年12月8日 下午8:30:50 
  */

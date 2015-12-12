@@ -4,16 +4,13 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import blservice.DTManageblservice.DTManageblservice;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
-import ui.tools.MyLabel;
-import ui.tools.MyTextField;
 import util.MyDate;
-import vo.DTManage.CarVO;
 import vo.DTManage.DriverVO;
+import blservice.DTManageblservice.DTManageblservice;
  /** 
- * 
+ * 司机信息表
  * @author czq 
  * @version 2015年12月8日 下午8:25:55 
  */

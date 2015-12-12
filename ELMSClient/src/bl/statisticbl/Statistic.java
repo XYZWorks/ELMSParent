@@ -3,11 +3,6 @@ package bl.statisticbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import javax.naming.spi.DirStateFactory.Result;
-
-import blservice.statisticblservice.Statisticblservice;
-import ds.financedataservice.FinanceDataService;
-import ds.statisticdataservice.StatisticDataService;
 import net.RMIManage;
 import po.statistic.BillPO;
 import po.statistic.CostIncomePO;
@@ -18,6 +13,8 @@ import util.ResultMessage;
 import vo.statistic.BillVO;
 import vo.statistic.CostIncomeVO;
 import vo.statistic.StateFormVO;
+import ds.financedataservice.FinanceDataService;
+import ds.statisticdataservice.StatisticDataService;
 
 /** 
  * @author ymc 
@@ -25,8 +22,8 @@ import vo.statistic.StateFormVO;
  *
  */
 public class Statistic {
-	StatisticDataService statisticData;
-	FinanceDataService financeData;
+	private StatisticDataService statisticData;
+	private FinanceDataService financeData;
 	
 	public Statistic() {
 		statisticData = (StatisticDataService) RMIManage.getDataService(DataServiceType.StatisticDataService);
@@ -54,7 +51,6 @@ public class Statistic {
 		try {
 			result = statisticData.bulidStateForm(po);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
@@ -68,9 +64,7 @@ public class Statistic {
 
 		try {
 			result = statisticData.CostIncomeForm(po);
-		//	System.out.println("biuld cost income form" + " "+ result);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
@@ -84,7 +78,6 @@ public class Statistic {
 		try {
 			pos = statisticData.getStateForm();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if(pos == null){
@@ -107,8 +100,11 @@ public class Statistic {
 		try {
 			pos = statisticData.getCostIncomeForm();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		
+		if(pos == null){
+			return null;
 		}
 		
 		for(CostIncomePO po : pos ){
@@ -125,7 +121,6 @@ public class Statistic {
 		try {
 			result = statisticData.bulidBill(po);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
@@ -139,8 +134,11 @@ public class Statistic {
 		try {
 			pos = statisticData.getBills();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		
+		if(pos == null){
+			return null;
 		}
 		
 		for(BillPO po : pos ){

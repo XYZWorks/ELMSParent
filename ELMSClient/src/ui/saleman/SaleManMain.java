@@ -4,7 +4,6 @@ import java.awt.Color;
 
 import org.dom4j.Element;
 
-import ui.tools.MyDatePicker;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.util.CompomentType;
@@ -16,6 +15,7 @@ import ui.util.PanelController;
 *@author:xingcheng
 *@version 2015年11月26日
 */
+@SuppressWarnings("serial")
 public class SaleManMain extends MyPanel{
 	
 	private MyPictureButton arriveYYDocButton;

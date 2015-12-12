@@ -4,14 +4,13 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import blservice.transportblservice.Transportblservice;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import util.MyDate;
 import vo.transport.ArriveYYDocVO;
-import vo.transport.LoadDocVO;
+import blservice.transportblservice.Transportblservice;
  /** 
- * 
+ * 接收单表
  * @author czq 
  * @version 2015年12月8日 下午8:35:12 
  */
@@ -61,7 +60,7 @@ public class ArriveYYDocMesTable extends MyTablePanel {
 
 	@Override
 	protected void initTable() {
-		table = new MyTable(oneData, data);
+		table = new MyTable(columnNames, data);
 
 	}
 

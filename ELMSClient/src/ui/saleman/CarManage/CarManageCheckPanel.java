@@ -6,12 +6,11 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import blservice.DTManageblservice.DTManageblservice;
 import ui.tools.CheckDocPanel;
 import ui.tools.MyComboBox;
-import ui.tools.MySearchBox;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
+import blservice.DTManageblservice.DTManageblservice;
  /** 
  * 车辆信息管理查看界面
  * @author czq 

@@ -4,12 +4,8 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import blservice.transportblservice.Transportblservice;
-import ui.saleman.LoadDoc.LoadDocMesTable;
 import ui.tools.CheckDocPanel;
-import ui.tools.MyDatePicker;
-import ui.tools.MyPictureButton;
-import ui.tools.MySearchBox;
+import blservice.transportblservice.Transportblservice;
 /**
  * 接收单查看界面
  * @author czq

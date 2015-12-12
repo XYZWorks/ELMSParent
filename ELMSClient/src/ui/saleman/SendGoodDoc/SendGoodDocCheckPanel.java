@@ -4,11 +4,10 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import blservice.transportblservice.Transportblservice;
-import ui.saleman.LoadDoc.LoadDocMesTable;
 import ui.tools.CheckDocPanel;
+import blservice.transportblservice.Transportblservice;
  /** 
- * 
+ * 派送单查看界面
  * @author czq 
  * @version 2015年12月8日 下午8:33:08 
  */

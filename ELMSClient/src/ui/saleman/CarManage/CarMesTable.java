@@ -5,14 +5,11 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import blservice.DTManageblservice.DTManageblservice;
-
-import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
-
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import ui.util.TipsDialog;
 import vo.DTManage.CarVO;
+import blservice.DTManageblservice.DTManageblservice;
  /** 
  * 车辆信息表格
  * @author czq 

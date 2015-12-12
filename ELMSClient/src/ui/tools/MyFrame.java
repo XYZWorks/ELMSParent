@@ -8,7 +8,6 @@ import java.awt.event.MouseMotionAdapter;
 import javax.swing.JFrame;
 
 import org.dom4j.Element;
-import org.junit.experimental.theories.Theories;
 /** 
  * 所有Frame父类
  * @author czq 

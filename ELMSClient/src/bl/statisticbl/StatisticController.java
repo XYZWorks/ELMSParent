@@ -14,33 +14,33 @@ import blservice.statisticblservice.Statisticblservice;
  */
 public class StatisticController implements Statisticblservice{
 	
-	Statistic sta;
+	Statistic statistic;
 	
 	public StatisticController(){
-		sta = new Statistic();
+		statistic = new Statistic();
 	}
 	public ResultMessage bulidStateForm(StateFormVO vo) {
-		return sta.bulidStateForm(vo);
+		return statistic.bulidStateForm(vo);
 	}
 
 	public ResultMessage bulidCostIncomeForm(CostIncomeVO vo) {
-		return sta.bulidCostIncomeForm(vo);
+		return statistic.bulidCostIncomeForm(vo);
 	}
 
 	public ArrayList<StateFormVO> getStateForm() {
-		return sta.getStateForm();
+		return statistic.getStateForm();
 	}
 
 	public ArrayList<CostIncomeVO> getIncomeForm() {
-		return sta.getIncomeForm();
+		return statistic.getIncomeForm();
 	}
 
 	public ResultMessage bulidBill(BillVO vo) {
-		return sta.bulidBill(vo);
+		return statistic.bulidBill(vo);
 	}
 
 	public ArrayList<BillVO> getBills() {
-		return sta.getBills();
+		return statistic.getBills();
 	}
 
 }

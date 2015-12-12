@@ -7,7 +7,7 @@ import org.dom4j.Element;
 import blservice.transportblservice.Transportblservice;
 import ui.tools.CheckDocPanel;
  /** 
- * 
+ * 付款单查看界面
  * @author czq 
  * @version 2015年12月8日 下午8:29:59 
  */
