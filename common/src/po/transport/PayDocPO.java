@@ -15,15 +15,25 @@ public class PayDocPO implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * 单据ID
+	 */
 	private String ID;
-	
+	/**
+	 * 金额
+	 */
 	private int money;
-	
+	/**
+	 * 营业厅ID
+	 */
 	private String YYID;
-	
+	/**
+	 * 日期
+	 */
 	private MyDate date;
-	
+	/**
+	 * 快递员姓名
+	 */
 	private String courierName;
 	
 	public PayDocPO() {

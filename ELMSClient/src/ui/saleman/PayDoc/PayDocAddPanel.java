@@ -53,8 +53,8 @@ public class PayDocAddPanel extends AddDocPanel {
 	protected void initTextFields(Element e) {
 		idT = new MyTextField(e.element("id"));
 		YYIDT = new MyTextField(e.element("YYID"));
-		moneyT = new MyTextField(e.element("car"));
-		courierNameT = new MyTextField(e.element("supervisor"));
+		moneyT = new MyTextField(e.element("money"));
+		courierNameT = new MyTextField(e.element("courierName"));
 
 	}
 

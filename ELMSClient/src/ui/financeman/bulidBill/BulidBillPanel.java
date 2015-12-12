@@ -5,11 +5,9 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT;
 
 import org.dom4j.Element;
 
-import blservice.statisticblservice.Statisticblservice;
 import ui.tools.MyDatePicker;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
@@ -23,6 +21,7 @@ import vo.DTManage.CarVO;
 import vo.personnel.InstVO;
 import vo.personnel.PersonVO;
 import vo.statistic.BillVO;
+import blservice.statisticblservice.Statisticblservice;
 
 /**
  * 期初建账主界面

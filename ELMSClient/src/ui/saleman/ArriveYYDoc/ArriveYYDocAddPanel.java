@@ -82,7 +82,7 @@ public class ArriveYYDocAddPanel extends AddDocPanel{
 	@Override
 	protected void initOtherCompoment(Element e) {
 		date = new MyDatePicker(e.element("datepicker"));
-		sendCityB = new MyComboBox(e.element("arrsendCityive"));
+		sendCityB = new MyComboBox(e.element("sendCity"));
 		ordersTable = new LoadDocOrders(e.element("table"));
 		goodStateB = new MyComboBox(e.element("goodState"));
 	}

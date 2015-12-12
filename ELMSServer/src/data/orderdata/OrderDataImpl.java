@@ -62,11 +62,11 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 						new OtherOrderMes(result.getString(19), result
 								.getString(20), Integer.parseInt(result
 								.getString(21)), Integer.parseInt(result
-								.getString(22)), result.getString(28), MyDate
-								.getDate(result.getString(29))),
+								.getString(22)), result.getString(32), MyDate
+								.getDate(result.getString(33))),
 						new TransferDocs(result.getString(23), result
 								.getString(24), result.getString(25), result
-								.getString(26), result.getString(27)));
+								.getString(26), result.getString(27) , result.getString(28) ,result.getString(29) , result.getString(30) , result.getString(31)));
 				pos.add(po);
 			}
 			
@@ -156,11 +156,11 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 					new OtherOrderMes(findMes.get(18), findMes
 							.get(19), Integer.parseInt(findMes
 							.get(20)), Integer.parseInt(findMes
-							.get(21)), findMes.get(27), MyDate
-							.getDate(findMes.get(28))),
+							.get(21)), findMes.get(31), MyDate
+							.getDate(findMes.get(32))),
 					new TransferDocs(findMes.get(22), findMes
 							.get(23), findMes.get(24), findMes
-							.get(25), findMes.get(26)));
+							.get(25), findMes.get(26) , findMes.get(27) , findMes.get(28) , findMes.get(29) , findMes.get(30)));
 		}
 		
 	}
@@ -230,11 +230,11 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 						new OtherOrderMes(result.getString(19), result
 								.getString(20), Integer.parseInt(result
 								.getString(21)), Integer.parseInt(result
-								.getString(22)), result.getString(28), MyDate
-								.getDate(result.getString(29))),
+								.getString(22)), result.getString(32), MyDate
+								.getDate(result.getString(33))),
 						new TransferDocs(result.getString(23), result
 								.getString(24), result.getString(25), result
-								.getString(26), result.getString(27)));
+								.getString(26), result.getString(27) , result.getString(28) ,result.getString(29) ,result.getString(30) ,result.getString(31)));
 				pos.add(po);
 			}
 			
