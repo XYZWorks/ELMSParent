@@ -1,7 +1,6 @@
 package ui.saleman.LoadDoc;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import org.dom4j.Element;
 
@@ -46,7 +45,7 @@ public class LoadDocMesTable extends MyTablePanel {
 		oneData[2] = vo.YYID;
 		oneData[3] = vo.loadDocID;
 		oneData[4] = vo.arriveCity.getName();
-		oneData[5] = vo.CarID;
+		oneData[5] = vo.carID;
 		oneData[6] = vo.supervisor;
 		oneData[7] = vo.escort;
 		addOneRow(oneData);
@@ -75,7 +74,7 @@ public class LoadDocMesTable extends MyTablePanel {
 			data[i][2] = vo.YYID;
 			data[i][3] = vo.loadDocID;
 			data[i][4] = vo.arriveCity.getName();
-			data[i][5] = vo.CarID;
+			data[i][5] = vo.carID;
 			data[i][6] = vo.supervisor;
 			data[i][7] = vo.escort;
 			

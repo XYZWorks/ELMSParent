@@ -644,8 +644,13 @@
 						<cancel x="700" y="560" width="115" height="40" text="取消"
 							type="cancel" />
 						<back x="625" y="560" width="115" height="40" text="返回" type="confirm" />
+						<addOrder x="400" y="560" width="115" height="40" text="增加订单"
+							type="confirm" />
 					</BUTTONS>
-
+					<TEXTFIELDS>
+						
+					
+					</TEXTFIELDS>
 				</loadDocShowpanelAddPanel>
 				
 				<addDoc x="550" y="560" width="115" height="40" text="增加"
