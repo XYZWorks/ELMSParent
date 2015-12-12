@@ -29,6 +29,4 @@ public interface Approvalblservice {
 	 * @return
 	 */
 	public ResultMessage approveMany(ArrayList<? extends DocVO> docsVO);
-	//TODO 有提供给总经理修改的接口吗！！！（暂时选择性忽略此功能）
-//	public ResultMessage modify();
 }

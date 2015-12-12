@@ -5,8 +5,11 @@ import java.util.ArrayList;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
+import bl.BusinessLogicDataFactory;
 import blservice.approvalblservice.Approvalblservice;
 import blservice.orderblservice.Orderblservice;
+import blservice.storeblservice.InStoreDocService;
+import blservice.storeblservice.OutStoreDocService;
 import blservice.storeblservice.StoreblService;
 import blservice.transportblservice.Transportblservice;
 
@@ -19,18 +22,22 @@ public class ApprovalController implements Approvalblservice {
 
 	Transportblservice transportbl;
 	Orderblservice orderbl;
-	StoreblService storebl;
-	
+	InStoreDocService inStoreDocService;
+	OutStoreDocService outStoreDocService;
 	Approval approval;
 
 	public ApprovalController() {
+		transportbl = BusinessLogicDataFactory.getFactory().getTransportblservice();
+		inStoreDocService = BusinessLogicDataFactory.getFactory().getInstoreService();
+		outStoreDocService = BusinessLogicDataFactory.getFactory().getOutStoreService();
+		orderbl = BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
+		//TODO bl由谁而来
 		
 		
-		approval = new Approval();
+		approval = new Approval(transportbl, orderbl, inStoreDocService, outStoreDocService);
 	}
 
-	public ArrayList<DocVO> getBills(DocType type) {
-
+	public ArrayList<? extends DocVO> getBills(DocType type) {
 		return approval.getBills(type);
 	}
 
@@ -39,8 +46,8 @@ public class ApprovalController implements Approvalblservice {
 	}
 
 	public ResultMessage approveMany(ArrayList<? extends DocVO> docsVO) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return approval.approveMany(docsVO);
 	}
 
 }
