@@ -51,9 +51,9 @@ public class BulidBillPanel extends MyPanel {
 
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
-	private MyPictureButton newInst;
+	private MyPictureButton add;
 
-//	private MyPictureLabel title;
+	private MyPictureLabel newInst;
 	private MyPictureLabel user;
 	private MyPictureLabel time;
 	private MyPictureLabel message;
@@ -86,7 +86,7 @@ public class BulidBillPanel extends MyPanel {
 	protected void initButtons(Element e) {
 		confirm = new MyPictureButton(e.element("confirm"));
 		cancel = new MyPictureButton(e.element("cancel"));
-		newInst = new MyPictureButton(e.element("newInst"));
+		add = new MyPictureButton(e.element("add"));
 		 
 	}
 
@@ -97,8 +97,7 @@ public class BulidBillPanel extends MyPanel {
 
 	@Override
 	protected void initLabels(Element e) {
-		// 要特大号字体
-//		title = new MyPictureLabel(e.element("title"));
+		newInst = new MyPictureLabel(e.element("newInst"));
 		user = new MyPictureLabel(e.element("user"));
 		time = new MyPictureLabel(e.element("time"));
 		message = new MyPictureLabel(e.element("message"));
@@ -126,7 +125,7 @@ public class BulidBillPanel extends MyPanel {
 		add(name);
 		add(datePicker);
 		add(message);
-//		add(title);
+		add(add);
 		add(time);
 
 	}
@@ -167,7 +166,7 @@ public class BulidBillPanel extends MyPanel {
 
 			}
 		});
-		newInst.addMouseListener(new MyPictureButtonListener(newInst){
+		add.addMouseListener(new MyPictureButtonListener(add){
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
