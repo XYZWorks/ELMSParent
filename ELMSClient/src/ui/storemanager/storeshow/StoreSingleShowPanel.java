@@ -43,7 +43,8 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 	
 	private MyLabel inputTime;
 	private MyLabel nowLoc;
-	private MyLabel info;
+	private MyLabel infoin;
+	private MyLabel infoout;
 	
 	MyDate nowDate;
 	MyDatePicker picker;
@@ -87,9 +88,9 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 	@Override
 	protected void initLabels(Element e) {
 		centerL = new MyLabel(e.element("centerL"));
-		storeNumL = new MyLabel(e.element("storeL"));
+		storeNumL = new MyLabel(e.element("storeNumL"));
 		center = new MyLabel(e.element("center"));
-		storeNum = new MyLabel(e.element("store"));
+		storeNum = new MyLabel(e.element("storeNum"));
 		nowNum = new MyLabel(e.element("nowNum"));
 		totalNum = new MyLabel(e.element("totalNum"));
 		nowNumL = new MyLabel(e.element("nowNumL"));
@@ -98,7 +99,8 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 		nowTimeL = new MyLabel(e.element("nowTimeL"));
 		inputTime = new MyLabel(e.element("inputTime"));
 		nowLoc = new MyLabel(e.element("nowLoc"));
-		info = new MyLabel(e.element("info"));
+		infoin = new MyLabel(e.element("infoin"));
+		infoout = new MyLabel(e.element("infoout"));
 
 	}
 
@@ -107,19 +109,41 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 		nowDate = MyDate.getNowTime();
 		nowTime.setText(MyDate.toString(nowDate));
 		picker = new MyDatePicker(e.element("DatePicker"));
+		outTable = new OutStoreTablePanel(e.element("outTable"), bl, MyDate.getNowTime());
+		inTable = new InStoreTablePanel(e.element("inTable"), bl,  MyDate.getNowTime());
+		orderTable = new OrderInfoTable(e.element("orderTable"));
 		
 	}
 
 	@Override
 	protected void addCompoment() {
-		// TODO Auto-generated method stub
-
+		add(center);
+		add(centerL);
+		add(confirmButton);
+		add(inTable);
+		add(infoin);
+		add(infoout);
+		add(inputTime);
+		add(nowLoc);
+		add(nowNum);
+		add(nowNumL);
+		add(nowTime);
+		add(nowTimeL);
+		add(orderTable);
+		add(outTable);
+		add(picker);
+		add(returnButton);
+		add(storeNum);
+		add(storeNumL);
+		add(totalNum);
+		add(totalNumL);
+		
 	}
 
 	@Override
 	protected void addListener() {
 		confirmButton.addMouseListener(new ShowListener(confirmButton));
-		returnButton.addMouseListener(new MyJumpListener(returnButton, "StoreShowPanel", controller,false));
+		returnButton.addMouseListener(new MyJumpListener(returnButton, "StoreShowPanel", controller,true));
 
 	}
 
