@@ -139,8 +139,8 @@ public class CommonInitalPanel extends MyPanel{
 			if(e.getKeyCode()==KeyEvent.VK_ENTER){
 			//	TipsDialog wrongLength=new TipsDialog("订单号是10位哦～",560,470,300,55);
 				
-//				//获得输入的条形码
-//				String barcode=searchBox.getMyText();
+				//获得输入的条形码
+				String barcode=searchBox.getMyText();
 //				//判断条形码格式是否正确
 //				FormatMes result=UserfulMethod.checkBarCode(barcode);
 //				if(result==FormatMes.WRONG_LENGTH){
@@ -151,7 +151,7 @@ public class CommonInitalPanel extends MyPanel{
 //				}
 //				else if(result==FormatMes.CORRECT){
 				setTwoUnvisible();
-					FindSimpleOrderInfoPanel findSimpleOrderInfoPanel=new FindSimpleOrderInfoPanel(config.element("CommonMainPanel"),inital);
+					FindSimpleOrderInfoPanel findSimpleOrderInfoPanel=new FindSimpleOrderInfoPanel(config.element("CommonMainPanel"),inital, barcode);
 //				}
 			}
 		}

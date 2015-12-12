@@ -66,6 +66,7 @@ public class GraphicsUtils {
 				return font;
 			} catch (Exception e) {
 				return new Font("华文细黑", Font.PLAIN, 16);
+				
 			}
 			
 		}

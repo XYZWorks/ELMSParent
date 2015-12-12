@@ -559,9 +559,8 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	 */
 	public void setTime() {
 		if ((senderChose != 0) && (receiverChose != 0)) {
-			// 获得常量 ？？？所有？？？
-			strategyblService.getConst();
-
+			//TODO 获得时间 单独建立方法
+			
 			estimateTime.setForeground(new Color(26, 188, 156));
 			estimateTime.setText("");
 		}
