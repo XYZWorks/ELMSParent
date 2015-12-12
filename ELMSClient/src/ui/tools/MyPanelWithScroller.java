@@ -4,7 +4,6 @@ import java.awt.Component;
 import java.awt.Dimension;
 
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
 import org.dom4j.Element;

@@ -22,10 +22,6 @@ public abstract class PanelController {
 	 * 全局panel
 	 */
 	protected MyPanel mainPanel;
-//	/**vr43
-//	 * 左边条
-//	 */
-//	protected MyPanel leftBar;
 	/**
 	 * 中间将要更改的panel
 	 */
@@ -165,7 +161,7 @@ public abstract class PanelController {
 	private void initial(Element e){
 		panelManager = new CardLayout();
 		this.changePanel = new JPanel(panelManager);
-		buttonMap = new HashMap<String, MySideBarButton>(6);
+		buttonMap = new HashMap<String, MySideBarButton>(10);
 		
 		if(e==null){
 			System.err.println("-----------配置文件出错");

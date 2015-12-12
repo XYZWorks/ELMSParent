@@ -93,4 +93,16 @@ public class DTManageblservice_Stub implements DTManageblservice{
 		return DataTool.getDriverList();
 	}
 
+	@Override
+	public ResultMessage delDriver(String ID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage delCar(String ID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

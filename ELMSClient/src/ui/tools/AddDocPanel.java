@@ -61,7 +61,6 @@ public abstract class AddDocPanel extends MyPanel{
 	}
 	
 	private void jumpToCheck() {
-		System.err.println(checkDocPanelStr);
 		panelManager.show(changePanel, checkDocPanelStr);
 	}
 	

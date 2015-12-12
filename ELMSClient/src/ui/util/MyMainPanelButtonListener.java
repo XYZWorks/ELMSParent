@@ -1,6 +1,5 @@
 package ui.util;
 
-import java.awt.Button;
 import java.awt.event.MouseEvent;
 
 import ui.tools.MyPictureButton;

@@ -1,7 +1,6 @@
 package ui.util;
 
 import java.awt.CardLayout;
-import java.awt.Container;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -29,13 +28,6 @@ public class MySideBarListener extends MouseAdapter{
 		this.panelManager = controller.panelManager;
 		this.itsPanel = itsPanel;
 	}
-//	public MySideBarListener(MySideBarButton button , PanelController controller) {
-//		this.button = button;
-//		this.controller = controller;
-//		this.panelManager = controller.panelManager;
-//	}
-//	
-	
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {

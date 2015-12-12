@@ -110,9 +110,9 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 		return null;
 	}
 
-	public ResultMessage delDriverPO(DriverPO po) throws RemoteException {
+	public ResultMessage delDriverPO(String ID) throws RemoteException {
 		
-		return delFromSQL(driverTable, po.getID());
+		return delFromSQL(driverTable, ID);
 	}
 
 	@Override
@@ -151,6 +151,27 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 		
 		
 		return null;	}
+
+	@Override
+	public CarPO checkByPlateNum(String plateNum) throws RemoteException {
+		
+		try {
+			sql = "SELECT * FROM　" + carTable + " WHERE `plateNum` = " + "\"" + plateNum + "\""; 
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while (result.next()) {
+				return new CarPO(result.getString(1), result.getString(2), Integer.parseInt(result.getString(3)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public ResultMessage delCarPO(String ID) throws RemoteException {
+		return delFromSQL(carTable, ID);
+	}
 
 	
 
