@@ -1,5 +1,7 @@
 package vo.order;
 
+import util.DocType;
+
 /**
  * 订单VO类
  * 
@@ -17,16 +19,22 @@ public class OrderSimpleInfoVO {
 	public String place;
 	
 	/**
+	 * 得到简易信息的单据属性
+	 */
+	public DocType type;
+	
+	/**
 	 * 得到简易信息的时间
 	 */
 	public String time;
+	
 	public OrderSimpleInfoVO() {
 		// TODO Auto-generated constructor stub
 	}
-	public OrderSimpleInfoVO(String orderBarCode,String place,String time){
+	public OrderSimpleInfoVO(String orderBarCode,String place,String time,DocType type){
 		this.orderBarCode=orderBarCode;
 		this.place=place;
 		this.time=time;
-		
+		this.type=type;
 	}
 }

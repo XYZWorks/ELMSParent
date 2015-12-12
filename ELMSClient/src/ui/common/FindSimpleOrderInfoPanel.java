@@ -2,10 +2,12 @@ package ui.common;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import ui.common.CommonInitalPanel.SearchBoxListener;
+import bl.BusinessLogicDataFactory;
+import blservice.orderblservice.Orderblservice;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -14,66 +16,71 @@ import ui.tools.MySearchBox;
 import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
 import ui.util.TipsDialog;
+import util.DocType;
+import vo.order.OrderSimpleInfoVO;
 
 /**
  * 查询订单
+ * 
  * @author xingcheng
  *
  */
 @SuppressWarnings("serial")
 public class FindSimpleOrderInfoPanel extends MyPanel {
 	private MyPanel parent;
-	
+
 	private MyWhitePanel white;
-	
-	//标题栏：物流信息
+
+	// 标题栏：物流信息
 	private MyPictureLabel transferInfo;
-	
-	//左右两边的物流线
+
+	// 左右两边的物流线
 	private MyPictureLabel LineLeft;
 	private MyPictureLabel LineRight;
-	
-	//物流的10个状态点
-	private MyLabel Load1;
-	private MyLabel arriveZZ2;
-	private MyLabel inStore3;
-	private MyLabel outStore4;
+
+	// 物流的10个状态点
+	private MyLabel one;
+	private MyLabel two;
+	private MyLabel three;
+	private MyLabel four;
 	private MyLabel five;
 	private MyLabel six;
 	private MyLabel seven;
 	private MyLabel eight;
 	private MyLabel nine;
 	private MyLabel ten;
-	
-	private MyLabel Load1Text;
-	private MyLabel arriveZZ2Text;
-	private MyLabel inStore3Text;
-	private MyLabel outStore4Text;
+
+	private MyLabel oneText;
+	private MyLabel twoText;
+	private MyLabel threeText;
+	private MyLabel fourText;
 	private MyLabel fiveText;
 	private MyLabel sixText;
 	private MyLabel sevenText;
 	private MyLabel eightText;
 	private MyLabel nineText;
 	private MyLabel tenText;
-	
+
 	private MySearchBox searchBox;
-	
-	//显示订单号 
-	private MyLabel BarCode;
-	private MyLabel BarCodeText;
-	
-	//选择日期
+
+	// 显示订单号
+	private String orderBarCode;// 传入的订单号
+	private MyLabel BarCode;// 显示三个字“订单号”
+	private MyLabel BarCodeText;// label绘制出订单号
+
+	// 选择日期
 	private MyDatePicker DatePicker;
-	
-	public FindSimpleOrderInfoPanel(Element config,MyPanel parent) {
-		
+
+	// bl
+	private Orderblservice orderblservice;
+
+	public FindSimpleOrderInfoPanel(Element config, MyPanel parent, String BarCodeText) {
+
 		super(config);
-		System.out.println("findsimpleorder!!");
-		this.parent=parent;
-		
-//		this.orderblservice=orderblservice;
-//		this.strategyblService=strategyblService;
-		
+	//	System.out.println("findsimpleorder!!");
+		this.parent = parent;
+		this.orderBarCode = BarCodeText;
+
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
@@ -87,131 +94,198 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 
 	}
 
+	
 	@Override
 	protected void initWhitePanels(Element e) {
-		white=new MyWhitePanel(e.element("WhitePanel"));
+		white = new MyWhitePanel(e.element("WhitePanel"));
 
 	}
-	
+
 	@Override
 	protected void initButtons(Element e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	protected void initTextFields(Element e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	protected void initLabels(Element e) {
-		BarCode=new MyLabel(e.element("BarCode"));
-		BarCodeText=new MyLabel(e.element("BarCodeText"));
-		
-		transferInfo=new MyPictureLabel(e.element("transferInfo"));
-		
-		LineLeft=new MyPictureLabel(e.element("LineLeft"));
-		LineRight=new MyPictureLabel(e.element("LineRight"));
-		
-		Load1=new MyLabel(e.element("One"));
-		arriveZZ2=new MyLabel(e.element("Two"));
-		inStore3=new MyLabel(e.element("Three"));
-		outStore4=new MyLabel(e.element("Four"));
-		five=new MyLabel(e.element("Five"));
-		six=new MyLabel(e.element("Six"));
-		seven=new MyLabel(e.element("Seven"));
-		eight=new MyLabel(e.element("Eight"));
-		nine=new MyLabel(e.element("Nine"));
-		ten=new MyLabel(e.element("Ten"));
-		
-		Load1Text=new MyLabel(e.element("OneText"));
-		arriveZZ2Text=new MyLabel(e.element("TwoText"));
-		inStore3Text=new MyLabel(e.element("ThreeText"));
-		outStore4Text=new MyLabel(e.element("FourText"));
-		fiveText=new MyLabel(e.element("FiveText"));
-		sixText=new MyLabel(e.element("SixText"));
-		sevenText=new MyLabel(e.element("SevenText"));
-		eightText=new MyLabel(e.element("EightText"));
-		nineText=new MyLabel(e.element("NineText"));
-		tenText=new MyLabel(e.element("TenText"));
+		BarCode = new MyLabel(e.element("BarCode"));
+		BarCodeText = new MyLabel(e.element("BarCodeText"));
+		// 显示传入的orderBarCode
+		BarCodeText.setText(orderBarCode);
+
+		transferInfo = new MyPictureLabel(e.element("transferInfo"));
+
+		LineLeft = new MyPictureLabel(e.element("LineLeft"));
+		LineRight = new MyPictureLabel(e.element("LineRight"));
+
+		one = new MyLabel(e.element("One"));
+		two = new MyLabel(e.element("Two"));
+		three = new MyLabel(e.element("Three"));
+		four = new MyLabel(e.element("Four"));
+		five = new MyLabel(e.element("Five"));
+		six = new MyLabel(e.element("Six"));
+		seven = new MyLabel(e.element("Seven"));
+		eight = new MyLabel(e.element("Eight"));
+		nine = new MyLabel(e.element("Nine"));
+		ten = new MyLabel(e.element("Ten"));
+
+		one = new MyLabel(e.element("OneText"));
+		two = new MyLabel(e.element("TwoText"));
+		three = new MyLabel(e.element("ThreeText"));
+		four = new MyLabel(e.element("FourText"));
+		fiveText = new MyLabel(e.element("FiveText"));
+		sixText = new MyLabel(e.element("SixText"));
+		sevenText = new MyLabel(e.element("SevenText"));
+		eightText = new MyLabel(e.element("EightText"));
+		nineText = new MyLabel(e.element("NineText"));
+		tenText = new MyLabel(e.element("TenText"));
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
+		orderblservice= BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
 		DatePicker = new MyDatePicker(e.element("DatePicker"));
-		searchBox=new MySearchBox(e.element("searchBox"));
+		searchBox = new MySearchBox(e.element("searchBox"));
 	}
 
 	@Override
 	protected void addCompoment() {
 		white.add(transferInfo);
-		
+
 		white.add(LineLeft);
 		white.add(LineRight);
-		
-		white.add(Load1);
-		white.add(arriveZZ2);
-		white.add(inStore3);
-		white.add(outStore4);
+
+		white.add(one);
+		white.add(two);
+		white.add(three);
+		white.add(four);
 		white.add(five);
 		white.add(six);
 		white.add(seven);
 		white.add(eight);
 		white.add(nine);
 		white.add(ten);
-		
-		white.add(Load1Text);
-		white.add(arriveZZ2Text);
-		white.add(inStore3Text);
-		white.add(outStore4Text);
+
+		white.add(one);
+		white.add(two);
+		white.add(three);
+		white.add(four);
 		white.add(fiveText);
 		white.add(sixText);
 		white.add(sevenText);
 		white.add(eightText);
 		white.add(nineText);
 		white.add(tenText);
-		
+
 		this.add(white);
 		this.add(BarCode);
 		this.add(BarCodeText);
 		this.add(DatePicker);
 		this.add(searchBox);
-		
+
 		parent.add(this);
-		
+
 	}
 
 	@Override
 	protected void addListener() {
-		searchBox.addKeyListener(new SearchBoxListener());// TODO Auto-generated method stub
-		
+		searchBox.addKeyListener(new SearchBoxListener());// TODO Auto-generated
+															// method stub
+
 	}
 
-	class SearchBoxListener extends KeyAdapter{
+	public void readInfo() {
+		// 依次读取物流信息：地点＋时间
+		ArrayList<OrderSimpleInfoVO> info = orderblservice.getSimpleInfo(orderBarCode);
+		int length = info.size();
+
+		MyLabel[] place = { one, two, three, four, five, six, seven, eight, nine, ten };
+		MyLabel[] time = { oneText, twoText, threeText, fourText, fiveText, sixText, sevenText, eightText, nineText,
+				tenText };
+		for (int i = 0; i < length; i++) {
+			place[i].setText(processPlace(info.get(i).place, info.get(i).type, i));
+			time[i].setText(processTime(info.get(i).time));
+		}
+
+		// 如果流转信息不超过5个，右边栏点点不会出现
+		if (length <= 5) {
+			LineRight.setVisible(false);
+		} else {
+			LineRight.setVisible(true);
+		}
+	}
+
+	private String processPlace(String place, DocType type, int i) {
+		String result = null;
+		switch (type) {
+		// 装车单
+		case loadDoc:
+			result = "快件已被营业厅接收，成功装车，送往"+place+"中转中心";
+			break;
+		// 中转中心到达单
+		case arriveZZDoc:
+			result = "";
+			break;
+		// 入库单
+		case inStoreDoc:
+			result = "";
+			break;
+		// 出库单
+		case outStoreDoc:
+			result = "";
+			break;
+		// 接受单
+		case arriveYYDoc:
+			result = "";
+			break;
+		// 派送单
+		case sendGoodDoc:
+			result = "";
+			break;
+		default:
+			break;
+		}
+		return result;
+
+	}
+
+	private String processTime(String time) {
+		String[] origin = time.split("-");
+		// 转化格式：年－月－日 时：分：秒
+		String after = origin[0] + "-" + origin[1] + "-" + origin[2] + "  " + origin[3] + ":" + origin[4] + ":"
+				+ origin[5];
+		return after;
+	}
+
+	class SearchBoxListener extends KeyAdapter {
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			if(e.getKeyCode()==KeyEvent.VK_ENTER){
-				TipsDialog wrongLength=new TipsDialog("订单号是10位哦～",670,95,235,45);
-				
-//				//获得输入的条形码
-//				String barcode=searchBox.getMyText();
-//				//判断条形码格式是否正确
-//				FormatMes result=UserfulMethod.checkBarCode(barcode);
-//				if(result==FormatMes.WRONG_LENGTH){
-//					TipsDialog wrongLength=new TipsDialog("订单号是10位哦～");
-//				}
-//				else if(result==FormatMes.ILEGAL_CHAR){
-//					TipsDialog ilegalChar=new TipsDialog("订单号是10位数字,输入了非法字符");
-//				}
-//				else if(result==FormatMes.CORRECT){
-			
-//				}
+			if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+				TipsDialog wrongLength = new TipsDialog("订单号是10位哦～", 670, 95, 235, 45);
+
+				// //获得输入的条形码
+				// String barcode=searchBox.getMyText();
+				// //判断条形码格式是否正确
+				// FormatMes result=UserfulMethod.checkBarCode(barcode);
+				// if(result==FormatMes.WRONG_LENGTH){
+				// TipsDialog wrongLength=new TipsDialog("订单号是10位哦～");
+				// }
+				// else if(result==FormatMes.ILEGAL_CHAR){
+				// TipsDialog ilegalChar=new TipsDialog("订单号是10位数字,输入了非法字符");
+				// }
+				// else if(result==FormatMes.CORRECT){
+
+				// }
 			}
 		}
 	}
 
-	
 }

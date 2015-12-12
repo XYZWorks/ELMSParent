@@ -13,6 +13,7 @@ import po.order.OrderPO;
 import po.order.ReceivePO;
 import test.java.other.VOPOchange;
 import util.DataServiceType;
+import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
 import vo.DocVO;
@@ -122,48 +123,63 @@ public class Order {
 		
 		String time = "";
 		String place = "";
+		DocType type=null;
 		for (String poString : poStrings) {
 			String tmp = poString.substring(0, 3);
 			switch (tmp) {
+			//装车单
 			case "ZCD":
 				LoadDocVO vol = (LoadDocVO) transportController.getByID(poString);
 				place = vol.arriveCity.toString();
 				time = MyDate.toString(vol.date);
+				type=DocType.loadDoc;
 				break;
+			//接受单
 			case "JSD":
 				ArriveYYDocVO voy = (ArriveYYDocVO) transportController.getByID(poString);
 				place = voy.sendCity.toString();
 				time = MyDate.toString(voy.date);
+				type=DocType.arriveYYDoc;
 				break;
+			//到达单
 			case "DDD":
 				ArriveZZDocVO voz = (ArriveZZDocVO) transportController.getByID(poString);
 				place = voz.sendCity.toString();
 				time = MyDate.toString(voz.date);
+				type=DocType.arriveZZDoc;
 				break;
+			//中转单
 			case "ZZD":
 				TransferDocVO vot = (TransferDocVO) transportController.getByID(poString);
 				place = vot.sendCity.toString();
 				time =MyDate.toString(vot.date);
+				type=DocType.transferDoc;
 				break;
+			//派送单 
 			case "PSD":
 				SendGoodDocVO vop = (SendGoodDocVO) transportController.getByID(poString);
 				place = vop.sendCity.toString();
 				time = MyDate.toString(vop.date);
+				type=DocType.sendGoodDoc;
 				break;
+			//入库单
 			case "RKD":
 				InStoreDocVO vor = (InStoreDocVO) storeController.getByID(poString);
 				place = vor.loc.toString();
 				time = MyDate.toString(vor.date);
+				type=DocType.loadDoc;
 				break;
+			//出库单
 			case "CKD":
 				OutStoreDocVO voc = (OutStoreDocVO) storeController.getByID(poString);
 				place = voc.loc.toString();
 				time = MyDate.toString(voc.date);
+				type=DocType.outStoreDoc;
 				break;
 			default:
 				break;
 			}
-			orderSimpleInfoVOs.add(new OrderSimpleInfoVO(orderBarCode, place, time));
+			orderSimpleInfoVOs.add(new OrderSimpleInfoVO(orderBarCode, place, time,type));
 			
 		
 		

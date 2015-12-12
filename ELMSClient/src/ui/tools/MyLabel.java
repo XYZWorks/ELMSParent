@@ -1,5 +1,7 @@
 package ui.tools;
 
+import java.awt.Color;
+
 import javax.swing.JLabel;
 
 import org.dom4j.Element;
@@ -32,7 +34,10 @@ public class MyLabel extends JLabel{
 			this.setFont(GraphicsUtils.getFont(config));
 			
 		}
-		
+		if(config.attributeValue("color")!=null){
+			String[]rgb=config.attributeValue("color").split(",");
+			this.setForeground(new Color((Integer.parseInt(rgb[0])), (Integer.parseInt(rgb[1])), (Integer.parseInt(rgb[2]))) );
+		}
 		
 		this.setVisible(true);
 	}
@@ -50,6 +55,5 @@ public class MyLabel extends JLabel{
 	public MyLabel(){
 		this.setVisible(true);
 	}
-	
 	
 }
