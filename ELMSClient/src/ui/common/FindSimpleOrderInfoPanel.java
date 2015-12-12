@@ -30,8 +30,8 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 	private MyPictureLabel transferInfo;
 	
 	//左右两边的物流线
-	private MyLabel LineLeft;
-	private MyLabel LineRight;
+	private MyPictureLabel LineLeft;
+	private MyPictureLabel LineRight;
 	
 	//物流的10个状态点
 	private MyLabel Load1;
@@ -101,8 +101,8 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		
 		transferInfo=new MyPictureLabel(e.element("transferInfo"));
 		
-		LineLeft=new MyLabel(e.element("LineLeft"));
-		LineRight=new MyLabel(e.element("LineRight"));
+		LineLeft=new MyPictureLabel(e.element("LineLeft"));
+		LineRight=new MyPictureLabel(e.element("LineRight"));
 		
 		Load1=new MyLabel(e.element("One"));
 		arriveZZ2=new MyLabel(e.element("Two"));
