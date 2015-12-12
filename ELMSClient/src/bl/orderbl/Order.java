@@ -128,37 +128,37 @@ public class Order {
 			case "ZCD":
 				LoadDocVO vol = (LoadDocVO) transportController.getByID(poString);
 				place = vol.arriveCity.toString();
-				time = vol.date.toString();
+				time = MyDate.toString(vol.date);
 				break;
 			case "JSD":
 				ArriveYYDocVO voy = (ArriveYYDocVO) transportController.getByID(poString);
 				place = voy.sendCity.toString();
-				time = voy.date.toString();
+				time = MyDate.toString(voy.date);
 				break;
 			case "DDD":
 				ArriveZZDocVO voz = (ArriveZZDocVO) transportController.getByID(poString);
 				place = voz.sendCity.toString();
-				time = voz.date.toString();
+				time = MyDate.toString(voz.date);
 				break;
 			case "ZZD":
 				TransferDocVO vot = (TransferDocVO) transportController.getByID(poString);
 				place = vot.sendCity.toString();
-				time = vot.date.toString();
+				time =MyDate.toString(vot.date);
 				break;
 			case "PSD":
 				SendGoodDocVO vop = (SendGoodDocVO) transportController.getByID(poString);
 				place = vop.sendCity.toString();
-				time = vop.date.toString();
+				time = MyDate.toString(vop.date);
 				break;
 			case "RKD":
 				InStoreDocVO vor = (InStoreDocVO) storeController.getByID(poString);
 				place = vor.loc.toString();
-				time = vor.date.toString();
+				time = MyDate.toString(vor.date);
 				break;
 			case "CKD":
 				OutStoreDocVO voc = (OutStoreDocVO) storeController.getByID(poString);
 				place = voc.loc.toString();
-				time = voc.date.toString();
+				time = MyDate.toString(voc.date);
 				break;
 			default:
 				break;
