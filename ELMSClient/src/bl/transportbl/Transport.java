@@ -127,6 +127,11 @@ public class Transport {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		if(pos == null){
+			return null;
+		}
+		
 
 		for (SendGoodDocPO po : pos) {
 			if (po.getDate().equals(date)) {

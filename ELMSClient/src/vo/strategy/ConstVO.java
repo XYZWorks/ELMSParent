@@ -7,7 +7,6 @@ package vo.strategy;
 public class ConstVO {
 	
 	
-	
 	/**
 	 * 北京、南京距离
 	 */
