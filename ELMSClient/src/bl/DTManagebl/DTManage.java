@@ -3,14 +3,13 @@ package bl.DTManagebl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import ds.DTManagedataservice.DTManagedataservice;
-import net.RMIManage;
+import po.DTManage.CarPO;
 import po.DTManage.DriverPO;
 import test.java.other.VOPOchange;
-import util.DataServiceType;
 import util.ResultMessage;
 import vo.DTManage.CarVO;
 import vo.DTManage.DriverVO;
+import ds.DTManagedataservice.DTManagedataservice;
 
 /** 
  * @author ymc 
@@ -20,22 +19,14 @@ import vo.DTManage.DriverVO;
 public class DTManage{
 	
 	
-	DTManagedataservice manageData;
-	
-	public DTManage() {
-		manageData = (DTManagedataservice) RMIManage.getDataService(DataServiceType.DTManageDataService);
-//		try {
-//			manageData.initial();
-//		} catch (RemoteException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+	private DTManagedataservice manageData;
+	private ResultMessage result = null;
+	public DTManage(DTManagedataservice manageData) {
+		this.manageData = manageData;
 	}
-	public ResultMessage add(DriverVO vo) {
+	public ResultMessage addDriver(DriverVO vo) {
 		
 		DriverPO po = (DriverPO) VOPOchange.VOtoPO(vo);
-		ResultMessage result = null;
-		
 		try {
 			result = manageData.addDriverPO(po);
 		} catch (RemoteException e) {
@@ -45,32 +36,34 @@ public class DTManage{
 		return result;
 	}
 
-	public ArrayList<DriverVO> CheckByName(String name) {
+	public ArrayList<DriverVO> checkDriverByName(String name) {
 		
 		ArrayList<DriverPO> pos = new ArrayList<DriverPO>();
-		ArrayList<DriverVO> vos = new ArrayList<DriverVO>();
+		
 
 		try {
 			pos = manageData.getDriverByName(name);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if (pos == null) {
+			return null;
+		}
 		
+		ArrayList<DriverVO> vos = new ArrayList<DriverVO>(pos.size());
 		for(DriverPO po : pos){
 			vos.add((DriverVO)VOPOchange.POtoVO(po));
 		}
 		return vos;
 	}
 
-	public DriverVO CheckDriverByID(String ID) {
+	public DriverVO checkDriverByID(String ID) {
 		
 		DriverPO po = null;
 		
 		try {
 			po = manageData.getDriverMes(ID);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -78,44 +71,41 @@ public class DTManage{
 		return vo;
 	}
 
-	public ArrayList<DriverVO> CheckByInst(String InstID) {
+	public ArrayList<DriverVO> checkDriverByInst(String InstID) {
 		
 		ArrayList<DriverPO> pos = new ArrayList<DriverPO>();
-		ArrayList<DriverVO> vos = new ArrayList<DriverVO>();
+		
 
 		try {
 			pos = manageData.getDriverByInst(InstID);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		ArrayList<DriverVO> vos = new ArrayList<DriverVO>(pos.size());
 		for(DriverPO po : pos){
 			vos.add((DriverVO)VOPOchange.POtoVO(po));
 		}
 		return vos;
 	}
 
-	public ResultMessage modify(DriverVO vo) {
+	public ResultMessage modifyDriver(DriverVO vo) {
 		DriverPO po = (DriverPO) VOPOchange.VOtoPO(vo);
-		ResultMessage result=null;
 		try {
 			result = manageData.updateDriverPo(po);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		return result;
 	}
 
-	public ResultMessage Del(DriverVO vo) {
+	public ResultMessage delDriver(DriverVO vo) {
 		DriverPO po = (DriverPO) VOPOchange.VOtoPO(vo);
-		ResultMessage result=null;
+		result = null;
 		try {
 			result = manageData.delDriverPO(po);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -123,36 +113,46 @@ public class DTManage{
 	}
 
 	public ArrayList<String> getDriverName(String InstID) {
-		ArrayList<DriverVO> vos = CheckByInst(InstID);
-		ArrayList<String> names = new ArrayList<String>();
+		ArrayList<DriverVO> vos = checkDriverByInst(InstID);
 		
+		
+		if (vos == null) {
+			return null;
+		}
+		
+		ArrayList<String> names = new ArrayList<String>(vos.size());
 		for(DriverVO vo : vos){
 			names.add(vo.name);
 		}
 		return names;
 	}
 
-	public ResultMessage add(CarVO vo) {
+	public ResultMessage addCar(CarVO vo) {
+		result = null;
+		try {
+			result =  manageData.addCarPO((CarPO) VOPOchange.VOtoPO(vo));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public CarVO checkCarByID(String ID) {
+		
+		return null;
+	}
+
+	public CarVO checkByPlateNum(String PlateNum) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public CarVO CheckCarByID(String ID) {
+	public ResultMessage modifyCar(CarVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public CarVO CheckByPlateNum(String PlateNum) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public ResultMessage modify(CarVO vo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public ResultMessage Del(CarVO vo) {
+	public ResultMessage delCar(CarVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}

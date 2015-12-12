@@ -24,9 +24,9 @@ public class TipsDialog extends JDialog{
 	 */
 	private static JFrame parent;
 	
-	private final int MAX_TIMES = 100;
+	private final static int MAX_TIMES = 100;
 	
-	private final int PAUSE_TIME = 1000;
+	private final static int PAUSE_TIME = 1000;
 	
 	private int nowTime = 1;
 	

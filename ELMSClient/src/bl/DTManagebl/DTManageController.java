@@ -2,90 +2,88 @@ package bl.DTManagebl;
 
 import java.util.ArrayList;
 
-import blservice.DTManageblservice.DTManageblservice;
-import po.DTManage.DriverPO;
-import test.java.other.VOPOchange;
+import net.RMIManage;
+import util.DataServiceType;
 import util.ResultMessage;
 import vo.DTManage.CarVO;
 import vo.DTManage.DriverVO;
+import blservice.DTManageblservice.DTManageblservice;
+import ds.DTManagedataservice.DTManagedataservice;
  /** 
- * 
+ * 车辆司机信息管理逻辑层控制器
  * @author czq 
  * @version 2015年11月15日 上午9:16:29 
  */
 public class DTManageController implements DTManageblservice{
-	DTManage dtm;
+	
+	private DTManage dtm;
+	private DTManagedataservice manageData = (DTManagedataservice) RMIManage.getDataService(DataServiceType.DTManageDataService);
 	
 	public DTManageController() {
-		dtm = new DTManage();
+		dtm = new DTManage(manageData);
 	}
-	public ResultMessage add(DriverVO vo) {
-		return dtm.add(vo);
+	@Override
+	public ResultMessage addDriver(DriverVO vo) {
+		return dtm.addDriver(vo);
 	}
-
-	public ArrayList<DriverVO> CheckByName(String name) {
-		return dtm.CheckByName(name);
+	@Override
+	public ArrayList<DriverVO> checkDriverByName(String name) {
+		return dtm.checkDriverByName(name);
 	}
-
-	public DriverVO CheckDriverByID(String ID) {
-		
-		return dtm.CheckDriverByID(ID);
+	@Override
+	public DriverVO checkDriverByID(String ID) {
+		return dtm.checkDriverByID(ID);
 	}
-
-	public ArrayList<DriverVO> CheckByInst(String InstID) {
-		return dtm.CheckByInst(InstID);
+	@Override
+	public ArrayList<DriverVO> checkDriverByInst(String InstID) {
+		return dtm.checkDriverByInst(InstID);
 	}
-
-	public ResultMessage modify(DriverVO vo) {
-		return dtm.modify(vo);
+	@Override
+	public ResultMessage modifyDriver(DriverVO vo) {
+		return dtm.modifyDriver(vo);
 	}
-
-	public ResultMessage Del(DriverVO vo) {
-		return dtm.Del(vo);
+	@Override
+	public ResultMessage delDriver(DriverVO vo) {
+		return dtm.delDriver(vo);
 	}
 
 	public ArrayList<String> getDriverName(String InstID) {
 		return dtm.getDriverName(InstID);
 	}
 
-	public ResultMessage add(CarVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+
+
+	public CarVO checkCarByID(String ID) {
+		return dtm.checkCarByID(ID);
 	}
 
-	public CarVO CheckCarByID(String ID) {
-		// TODO Auto-generated method stub
-		return null;
+	public CarVO checkByPlateNum(String plateNum) {
+		return dtm.checkByPlateNum(plateNum);
+	}
+	@Override
+	public ResultMessage addCar(CarVO vo) {
+		return dtm.addCar(vo);
+	}
+	public ResultMessage modifyCar(CarVO vo) {
+		return dtm.modifyCar(vo);
 	}
 
-	public CarVO CheckByPlateNum(String PlateNum) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMessage delCar(CarVO vo) {
+		return dtm.delCar(vo);
 	}
 
-	public ResultMessage modify(CarVO vo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public ResultMessage Del(CarVO vo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public ArrayList<String> getPlateNumber(String InstID) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<String> getPlateNumber(String instID) {
+		
+		return dtm.getPlateNumber(instID);
 	}
 	@Override
 	public ArrayList<CarVO> getAllCars() {
-		// TODO Auto-generated method stub
-		return null;
+		return dtm.getAllCars();
 	}
 	@Override
 	public ArrayList<DriverVO> getAllDrivers() {
-		// TODO Auto-generated method stub
-		return null;
+		return dtm.getAllDrivers();
 	}
+	
 
 }

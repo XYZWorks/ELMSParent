@@ -1,5 +1,6 @@
 package test.java.personnel;
 
+import ds.personneldataservice.PersonnelDataService;
 import bl.personnelbl.Personnel;
 
 /** 
@@ -8,5 +9,10 @@ import bl.personnelbl.Personnel;
  *
  */
 public class MockPersonnelblImpl extends Personnel {
+
+	public MockPersonnelblImpl(PersonnelDataService personnelData) {
+		super(personnelData);
+		// TODO Auto-generated constructor stub
+	}
 
 }

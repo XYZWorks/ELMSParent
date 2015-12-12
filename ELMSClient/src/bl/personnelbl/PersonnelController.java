@@ -2,23 +2,26 @@ package bl.personnelbl;
 
 import java.util.ArrayList;
 
+import net.RMIManage;
+import ds.personneldataservice.PersonnelDataService;
+import util.DataServiceType;
 import util.ResultMessage;
 import vo.personnel.InstVO;
 import vo.personnel.PersonVO;
 import blservice.personnelblservice.Personnelblservice;
  /** 
- * 
+ * 人員機構管理控制類
  * @author czq 
  * @version 2015年11月15日 上午9:24:36 
  */
 public class PersonnelController implements Personnelblservice{
-	Personnel per;
-	
+	private Personnel per;
+	private PersonnelDataService personnelDataService;
 	public PersonnelController() {
-		per = new Personnel();
+		personnelDataService = (PersonnelDataService) RMIManage.getDataService(DataServiceType.PersonnelDataService);
+		per = new Personnel(personnelDataService);
 	}
 	public ArrayList<PersonVO> getPeopleByInst(String ID) {
-		
 		return per.getPeopleByInst(ID);
 	}
 

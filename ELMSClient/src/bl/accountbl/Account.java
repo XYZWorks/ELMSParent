@@ -18,40 +18,32 @@ import net.RMIManage;
  */
 public class Account {
 
-	AccountDataService accountData;
+	private AccountDataService accountData;
+	private ResultMessage result = null;
+	public Account(AccountDataService accountDataService) {
+		this.accountData = accountDataService;
 
-
-	public Account() {
-		accountData = (AccountDataService) RMIManage.getDataService(DataServiceType.AccountDataService);
-//		try {
-//			accountData.initial();
-//		} catch (RemoteException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 	}
 
 	public ResultMessage add(AccountVO vo) {
 		AccountPO po = null;
-		ResultMessage result = null;
+		result = null;
 		
 		po = (AccountPO) VOPOchange.VOtoPO(vo);
 		
 		try {
 			result = accountData.add(po);
 		} catch (RemoteException e) {
-
 			e.printStackTrace();
 		}
 		return result;
 	}
 
 	public ResultMessage delete(String ID ) {
-		ResultMessage result = null;
+		result = null;
 		try {
 			result = accountData.delete(ID);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
@@ -62,7 +54,6 @@ public class Account {
 		try {
 			po = accountData.find(ID);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if(po!=null){
@@ -78,7 +69,6 @@ public class Account {
 		try {
 			result = accountData.modify(po);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;

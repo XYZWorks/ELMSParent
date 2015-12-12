@@ -21,6 +21,11 @@ public class VOPOchange {
 	
 	public static Object POtoVO(Object o){
 		
+		if(o == null){
+			return null;
+		}
+		
+		
 		Object vo = null;
 		
 		Class<? extends Object> poClass = o.getClass();

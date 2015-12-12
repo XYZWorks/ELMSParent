@@ -1,9 +1,8 @@
 package bl.storebl;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bl.orderbl.Order;
+import net.RMIManage;
 import util.City;
 import util.DataServiceType;
 import util.DocState;
@@ -18,7 +17,6 @@ import blservice.storeblservice.InStoreDocService;
 import blservice.storeblservice.OutStoreDocService;
 import blservice.storeblservice.StoreblService;
 import ds.storedataservice.StoreDataService;
-import net.RMIManage;
  /** 
  * 库存管理、出库入库单Controller类
  * @author czq 
@@ -26,22 +24,20 @@ import net.RMIManage;
  */
 public class StoreController implements StoreblService , InStoreDocService , OutStoreDocService{
 	
-	Store store;
+	private Store store;
 	
-	InStoreDocImpl inStoreDocImpl;
+	private InStoreDocImpl inStoreDocImpl;
 	
-	OutStoreDocImpl outStoreDocImpl;
+	private OutStoreDocImpl outStoreDocImpl;
 	
-	StoreDataService storeDataService;
+	private StoreDataService storeDataService;
 	public StoreController() {
 		storeDataService = (StoreDataService) RMIManage.getDataService(DataServiceType.StoreDataService);
 //		try {
 //			storeDataService.initial();
 //		} catch (RemoteException e) {
-//			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-		
 		store = new Store(storeDataService);
 		inStoreDocImpl = new InStoreDocImpl(storeDataService);
 		outStoreDocImpl = new OutStoreDocImpl(storeDataService);

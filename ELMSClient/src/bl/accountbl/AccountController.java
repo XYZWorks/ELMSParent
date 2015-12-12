@@ -2,6 +2,9 @@ package bl.accountbl;
 
 import java.util.ArrayList;
 
+import net.RMIManage;
+import ds.accountdataservice.AccountDataService;
+import util.DataServiceType;
 import util.ResultMessage;
 import vo.account.AccountVO;
 import blservice.accountblservice.Accountblservice;
@@ -12,10 +15,10 @@ import blservice.accountblservice.Accountblservice;
  */
 public class AccountController implements Accountblservice{
 	
-	Account account;
-	
+	private Account account;
+	private AccountDataService accountDataService = (AccountDataService) RMIManage.getDataService(DataServiceType.AccountDataService);
 	public AccountController(){
-		account=new Account();
+		account=new Account(accountDataService);
 	}
 	
 	public ResultMessage add(AccountVO vo) {

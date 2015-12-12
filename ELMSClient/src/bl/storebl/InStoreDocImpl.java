@@ -25,20 +25,17 @@ import vo.store.InStoreDocVO;
  */
 public class InStoreDocImpl  {
 	
-	StoreDataService storeData;
-	Approvalblservice approvalbl;
-	Orderblservice orderbl;
+	private StoreDataService storeData;
+	private Approvalblservice approvalbl;
+	private Orderblservice orderbl;
 	
 	public InStoreDocImpl(StoreDataService storeDataService) {
-		
 		storeData = storeDataService;
 	}
+	
 	public ArrayList<InStoreDocVO> show() {
 		ArrayList<InStoreDocPO> pos = new ArrayList<InStoreDocPO>();
 		
-//		generate((InStoreDocVO)DataTool.getDocList(DocType.inStoreDoc).get(0));
-//		generate((InStoreDocVO)DataTool.getDocList(DocType.inStoreDoc).get(1));
-//		generate((InStoreDocVO)DataTool.getDocList(DocType.inStoreDoc).get(2));
 		try {
 			pos = storeData.getIn();
 			pos.size();

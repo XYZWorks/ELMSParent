@@ -30,7 +30,7 @@ public class DTManageControllerTest {
 
 	@Test
 	public void testAddDriverVO() {
-		result = bl.add(DataTool.getDriverList().get(0));
+		result = bl.addDriver(DataTool.getDriverList().get(0));
 		System.out.println(result);
 		if(result == ResultMessage.SUCCESS){
 		}else{
@@ -44,7 +44,7 @@ public class DTManageControllerTest {
 	@Test
 	public void testCheckByName() {
 		String name = DataTool.getDriverList().get(0).name;
-		DriverVO vo = bl.CheckByName(name).get(0);
+		DriverVO vo = bl.checkDriverByName(name).get(0);
 		if(vo.name.equalsIgnoreCase(name)){
 			
 		}else{
@@ -56,7 +56,7 @@ public class DTManageControllerTest {
 	@Test
 	public void testCheckDriverByID() {
 		String ID = DataTool.getDriverList().get(0).ID;
-		DriverVO vo = bl.CheckByName(ID).get(0);
+		DriverVO vo = bl.checkDriverByName(ID).get(0);
 		if(vo.ID.equalsIgnoreCase(ID)){
 			
 		}else{
@@ -67,7 +67,7 @@ public class DTManageControllerTest {
 	@Test
 	public void testCheckByInst() {
 		String instid = DataTool.getDriverList().get(0).InstID;
-		DriverVO vo = bl.CheckByName(instid).get(0);
+		DriverVO vo = bl.checkDriverByName(instid).get(0);
 		if(vo.ID.equalsIgnoreCase(instid)){
 			
 		}else{
@@ -79,7 +79,7 @@ public class DTManageControllerTest {
 	public void testModifyDriverVO() {
 		DriverVO vo = DataTool.getDriverList().get(0);
 		vo.InstID = "123456";
-		result = bl.modify(vo);
+		result = bl.modifyDriver(vo);
 		System.out.println(result);
 		if(result == ResultMessage.SUCCESS && vo.InstID.equalsIgnoreCase("123456")){
 			
@@ -94,12 +94,12 @@ public class DTManageControllerTest {
 	@Test
 	public void testDelDriverVO() {
 		DriverVO vo = DataTool.getDriverList().get(1);
-		result = bl.Del(vo);
+		result = bl.delDriver(vo);
 		if(result == ResultMessage.SUCCESS){
 			fail("允许删除空数据");
 		}
-		bl.add(vo);
-		result = bl.Del(vo);
+		bl.addDriver(vo);
+		result = bl.delDriver(vo);
 		if(result == ResultMessage.FAIL){
 			fail("删除失败");
 		}
@@ -114,7 +114,7 @@ public class DTManageControllerTest {
 
 	@Test
 	public void testAddCarVO() {
-		result = bl.add(DataTool.getcarlist().get(0));
+		result = bl.addCar(DataTool.getcarlist().get(0));
 		if(result == ResultMessage.SUCCESS){
 			
 		}else{
@@ -125,7 +125,7 @@ public class DTManageControllerTest {
 	@Test
 	public void testCheckCarByID() {
 		String id = DataTool.getcarlist().get(0).ID;
-		CarVO vo = bl.CheckCarByID(id);
+		CarVO vo = bl.checkCarByID(id);
 		
 		if(vo.plateNum.equalsIgnoreCase(DataTool.getcarlist().get(0).plateNum))
 			return ;
@@ -137,7 +137,7 @@ public class DTManageControllerTest {
 	@Test
 	public void testCheckByPlateNum() {
 		String plateNum = DataTool.getcarlist().get(0).plateNum;
-		CarVO vo = bl.CheckByPlateNum(plateNum);
+		CarVO vo = bl.checkByPlateNum(plateNum);
 		
 		if(vo.ID.equalsIgnoreCase(DataTool.getcarlist().get(0).ID))
 			return ;
@@ -150,9 +150,9 @@ public class DTManageControllerTest {
 	public void testModifyCarVO() {
 		CarVO vo =DataTool.getcarlist().get(0);
 		vo.useYear = 8;
-		result = bl.modify(vo);
+		result = bl.modifyCar(vo);
 		
-		if(result == ResultMessage.SUCCESS && bl.CheckCarByID(vo.ID).useYear == 8){
+		if(result == ResultMessage.SUCCESS && bl.checkCarByID(vo.ID).useYear == 8){
 			
 			
 		}else{
@@ -165,12 +165,12 @@ public class DTManageControllerTest {
 	@Test
 	public void testDelCarVO() {
 		CarVO vo = DataTool.getcarlist().get(1);
-		result = bl.Del(vo);
+		result = bl.delCar(vo);
 		if(result == ResultMessage.SUCCESS){
 			fail("允许删除空数据");
 		}
-		bl.add(vo);
-		result = bl.Del(vo);
+		bl.addCar(vo);
+		result = bl.delCar(vo);
 		if(result == ResultMessage.FAIL){
 			fail("删除失败");
 		}

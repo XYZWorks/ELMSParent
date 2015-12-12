@@ -14,34 +14,34 @@ import vo.personnel.PersonVO;
 
 public class DTManageblservice_Stub implements DTManageblservice{
 
-	public ResultMessage add(DriverVO vo) {
+	public ResultMessage addDriver(DriverVO vo) {
 		// TODO 自动生成的方法存根
 		return ResultMessage.SUCCESS;
 	}
 
-	public ArrayList<DriverVO> CheckByName(String name) {
+	public ArrayList<DriverVO> checkDriverByName(String name) {
 		;
 		ArrayList<DriverVO> temp = new ArrayList<DriverVO>();
 
 		return temp;
 	}
 
-	public DriverVO CheckDriverByID(String ID) {
+	public DriverVO checkDriverByID(String ID) {
 		// TODO 自动生成的方法存根
 		return null;
 	}
 
-	public ArrayList<DriverVO> CheckByInst(String InstID) {
+	public ArrayList<DriverVO> checkDriverByInst(String InstID) {
 		// TODO 自动生成的方法存根
 		return null;
 	}
 
-	public ResultMessage modify(DriverVO vo) {
+	public ResultMessage modifyDriver(DriverVO vo) {
 		// TODO 自动生成的方法存根
 		return ResultMessage.SUCCESS;
 	}
 
-	public ResultMessage Del(DriverVO vo) {
+	public ResultMessage delDriver(DriverVO vo) {
 		// TODO 自动生成的方法存根
 		return ResultMessage.SUCCESS;
 	}
@@ -51,27 +51,27 @@ public class DTManageblservice_Stub implements DTManageblservice{
 		return null;
 	}
 
-	public ResultMessage add(CarVO vo) {
+	public ResultMessage addCar(CarVO vo) {
 		// TODO 自动生成的方法存根
 		return ResultMessage.SUCCESS;
 	}
 
-	public CarVO CheckCarByID(String ID) {
+	public CarVO checkCarByID(String ID) {
 		// TODO 自动生成的方法存根
 		return null;
 	}
 
-	public CarVO CheckByPlateNum(String PlateNum) {
+	public CarVO checkByPlateNum(String PlateNum) {
 		// TODO 自动生成的方法存根
 		return null;
 	}
 
-	public ResultMessage modify(CarVO vo) {
+	public ResultMessage modifyCar(CarVO vo) {
 		// TODO 自动生成的方法存根
 		return ResultMessage.SUCCESS;
 	}
 
-	public ResultMessage Del(CarVO vo) {
+	public ResultMessage delCar(CarVO vo) {
 		// TODO 自动生成的方法存根
 		return ResultMessage.SUCCESS;
 	}
