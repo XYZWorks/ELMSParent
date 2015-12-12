@@ -24,7 +24,7 @@ import ui.util.MyPictureButtonListener;
 @SuppressWarnings("serial")
 public class AddInst extends MyPanel{
 	
-	
+	private MyLabel title;
 	
 	private MyPictureLabel instid;
 	private MyPictureLabel location;
@@ -72,6 +72,7 @@ public class AddInst extends MyPanel{
 		instid = new MyPictureLabel(e.element("instid"));
 		location = new MyPictureLabel(e.element("location"));
 		type = new MyPictureLabel(e.element("type"));
+		title=new MyLabel(e.element("title"));
 	}
 
 	@Override
@@ -91,6 +92,7 @@ public class AddInst extends MyPanel{
 		add(locationB);
 		add(type);
 		add(typeB);
+		add(title);
 	}
 
 	@Override

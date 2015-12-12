@@ -382,7 +382,7 @@
 						type="add" />
 				</BUTTONS>
 				<LABELS>
-					<newInst x="700" y="180" width="115" height="40" text="新增机构" fontName="华文细黑" size="14"/>
+					<newInst x="700" y="180" width="115" height="40" text="增加机构" fontName="华文细黑" size="14"/>
 					<user x="60" y="60" width="115" height="40" text="经手人" type="rectangle"/>
 					<time x="410" y="60" width="115" height="40" text="建账日期" type="rectangle"/>
 					<message x="60" y="150" width="115" height="40" text="账单信息" type="rectangle"/>
@@ -394,29 +394,9 @@
 					<field x="560" y="60" width="150" height="40" />
 					<button x="710" y="60" width="50" height="40" type="rectangle" />
 				</datePicker>
-				<table x="60" y="200" width="750" height="430"
+				<table x="60" y="280" width="727" height="250"
 					column="机构ID 所在城市 类型 人员数目 车辆数目" />
-				<addCar x="232" y="54" width="848" height="637">
-					<BUTTONS>
-						<confirm x="560" y="560" width="115" height="40" text="确认"
-						type="confirm" />
-						<cancel x="707" y="560" width="115" height="40" text="取消"
-						type="cancel" />
-						<back x="350" y="560" width="115" height="40" text="返回"
-							type="rectangle" />
-					</BUTTONS>
-					<LABELS>
-						<ID x="500" y="560" width="115" height="40" text="车辆ID" />
-						<plateNum x="500" y="560" width="115" height="40" text="车牌号" />
-						<useYear x="500" y="560" width="115" height="40" text="使用年份" />
-					</LABELS>
-					<TEXTFIELDS>
-						<ID x="500" y="560" width="115" height="40" />
-						<plateNum x="500" y="560" width="115" height="40" />
-						<useYear x="500" y="560" width="115" height="40" />
-					</TEXTFIELDS>
-					<table x="500" y="560" width="115" height="40" column="车辆ID 车牌号 使用年份" />
-				</addCar>
+			
 				<addInst x="232" y="54" width="848" height="637">
 					<BUTTONS>
 					<confirm x="560" y="560" width="115" height="40" text="确认"
@@ -430,8 +410,9 @@
 						<instid x="345" y="201" width="276" height="40" />
 					</TEXTFIELDS>
 					<LABELS>
-						<instid x="200" y="201" width="115" height="40" text="职员ID" type="rectangle"/>
-						<type x="200" y="271" width="115" height="40" text="职员类型" type="rectangle"/>
+						<title x="48" y="36" width="200" height="28" text="增加机构" fontName="华文细黑" size="26"/>
+						<instid x="200" y="201" width="115" height="40" text="机构ID" type="rectangle"/>
+						<type x="200" y="271" width="115" height="40" text="机构类型" type="rectangle"/>
 						<location x="200" y="341" width="115" height="40" text="城市" type="rectangle"/>
 					</LABELS>
 					<location x="345" y="341" width="276" height="40" strings="南京 北京 上海 广州" />
@@ -440,31 +421,57 @@
 				</addInst>
 				<addPeople x="232" y="54" width="848" height="637">
 					<BUTTONS>
-						<confirm x="500" y="560" width="115" height="40" text="确认"
-							type="confirm" />
-						<cancel x="650" y="560" width="115" height="40" text="取消"
-							type="cancel" />
-						<addCar x="350" y="560" width="115" height="40" text="确认"
-							type="rectangle" />
+						<confirm x="560" y="560" width="115" height="40" text="确认"
+						type="confirm" />
+						<cancel x="707" y="560" width="115" height="40" text="取消"
+						type="cancel" />
+						<add x="715" y="210" width="40" height="40" text=""
+						type="add" />
+
 					</BUTTONS>
 					<TEXTFIELDS>
-						<ID x="500" y="560" width="115" height="40" />
-						<InstID x="500" y="560" width="115" height="40" />
-						<Name x="500" y="560" width="115" height="40" />
-						<Phone x="500" y="560" width="115" height="40" />
+						<ID x="575" y="90" width="200" height="40" />
+						<Name x="188" y="90" width="200" height="40" />
+						<Phone x="188" y="150" width="200" height="40" />
 					</TEXTFIELDS>
 					<LABELS>
-						<InstID x="45" y="500" width="50" height="40" text="机构ID" />
-						<Type x="45" y="500" width="50" height="40" text="职员类型" />
-						<ID x="300" y="500" width="50" height="40" text="ID" />
-						<Name x="300" y="500" width="50" height="40" text="姓名" />
-						<Phone x="300" y="500" width="50" height="40" text="手机号" />
+						<title x="48" y="36" width="200" height="28" text="增加人员" fontName="华文细黑" size="26"/>
+						<message x="48" y="220" width="200" height="28" text="人员信息" fontName="华文细黑" size="26"/>
+						<addCar x="707" y="250" width="100" height="28" text="增加车辆" fontName="华文细黑" size="14"/>
+						
+						<Type x="435" y="150" width="200" height="40" text="职员类型" type="rectangle"/>
+						<ID x="435" y="90" width="200" height="40" text="ID" type="rectangle"/>
+						<Name x="48" y="90" width="200" height="40" text="姓名" type="rectangle"/>
+						<Phone x="48" y="150" width="200" height="40" text="手机号" type="rectangle"/>
 					</LABELS>
-					<Type x="600" y="125" width="200" height="50" text="确认"
+					<Type x="575" y="150" width="200" height="40" 
 						strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理人员 司机" />
-					<table x="600" y="125" width="200" height="50" text="确认"
+					<table x="48" y="280" width="727" height="250" 
 						column="机构ID 职员类型 ID 姓名 手机号" />
 				</addPeople>
+					<addCar x="232" y="54" width="848" height="637">
+					<BUTTONS>
+						<confirm x="560" y="560" width="115" height="40" text="确认"
+						type="confirm" />
+					<cancel x="707" y="560" width="115" height="40" text="取消"
+						type="cancel" />
+					</BUTTONS>
+					<TEXTFIELDS>
+						<ID x="188" y="90" width="200" height="40" />
+						<plateNum x="575" y="90" width="200" height="40" />
+						<useYear x="188" y="150" width="200" height="40" />
+					</TEXTFIELDS>
+					<LABELS>
+						<title x="48" y="36" width="200" height="28" text="增加车辆" fontName="华文细黑" size="26"/>
+						<message x="48" y="220" width="200" height="28" text="车辆信息" fontName="华文细黑" size="26"/>
+						
+						<ID x="48" y="90" width="200" height="40" text="车辆ID" type = "rectangle"/>
+						<plateNum x="435" y="90" width="200" height="40" text="车牌号" type = "rectangle"/>
+						<useYear x="48" y="150" width="200" height="40" text="使用年份" type = "rectangle"/>
+					</LABELS>
+					
+					<table x="48" y="280" width="727" height="250" column="车辆ID 车牌号 使用年份" />
+				</addCar>
 			</BulidBillPanel>
 			<BankAccountManagePanel x="232" y="54" width="848"
 				height="637">

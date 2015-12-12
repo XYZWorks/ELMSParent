@@ -12,6 +12,7 @@ import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
+import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
@@ -22,14 +23,15 @@ import ui.util.MyPictureButtonListener;
  */
 @SuppressWarnings("serial")
 public class AddPeople extends MyPanel{
-
-	private MyLabel instIDL;
-	private MyLabel IDL;
-	private MyLabel nameL;
-	private MyLabel phoneL;
-	private MyLabel typeL;
 	
-	private MyTextField instID;
+	private MyLabel title;
+	private MyLabel message;
+	private MyLabel addCar;
+	private MyPictureLabel IDL;
+	private MyPictureLabel nameL;
+	private MyPictureLabel phoneL;
+	private MyPictureLabel typeL;
+	
 	private MyTextField ID;
 	private MyTextField name;
 	private MyTextField phone;
@@ -41,7 +43,7 @@ public class AddPeople extends MyPanel{
 	/**
 	 * 完成人员增加，进入增加车辆信息界面
 	 */
-	private MyPictureButton addCar;
+	private MyPictureButton add;
 	
 	private CardLayout panelManager;
 	private JPanel changePanel;
@@ -66,12 +68,11 @@ public class AddPeople extends MyPanel{
 	protected void initButtons(Element e) {
 		confirm = new MyPictureButton(e.element("confirm"));
 		cancel = new MyPictureButton(e.element("cancel"));
-		addCar = new MyPictureButton(e.element("addCar"));
+		add = new MyPictureButton(e.element("add"));
 	}
 
 	@Override
 	protected void initTextFields(Element e) {
-		instID = new MyTextField(e.element("InstID"));
 		ID = new MyTextField(e.element("ID"));
 		name = new MyTextField(e.element("Name"));
 		phone = new MyTextField(e.element("Phone"));
@@ -79,11 +80,13 @@ public class AddPeople extends MyPanel{
 
 	@Override
 	protected void initLabels(Element e) {
-		instIDL = new MyLabel(e.element("InstID"));
-		IDL = new MyLabel(e.element("ID"));
-		nameL = new MyLabel(e.element("Name"));
-		phoneL = new MyLabel(e.element("Phone"));
-		typeL = new MyLabel(e.element("Type"));
+		IDL = new MyPictureLabel(e.element("ID"));
+		nameL = new MyPictureLabel(e.element("Name"));
+		phoneL = new MyPictureLabel(e.element("Phone"));
+		typeL = new MyPictureLabel(e.element("Type"));
+		title = new MyLabel(e.element("title"));
+		message = new MyLabel(e.element("message"));
+		addCar = new MyLabel(e.element("addCar"));
 	}
 
 	@Override
@@ -98,21 +101,23 @@ public class AddPeople extends MyPanel{
 		add(IDL);
 		add(cancel);
 		add(confirm);
-		add(instID);
-		add(instIDL);
 		add(type);
 		add(typeL);
 		add(phone);
 		add(phoneL);
 		add(name);
-		add(nameL);add(addCar);
+		add(nameL);
+		add(add);
+		add(title);
+		add(message);
+		add(addCar);
 	}
 
 	@Override
 	protected void addListener() {
 		confirm.addMouseListener(new MyCancelButtonListener(confirm));
 		cancel.addMouseListener(new MyConfirmButtonListner(cancel));
-		addCar.addMouseListener(new MyPictureButtonListener(addCar){
+		add.addMouseListener(new MyPictureButtonListener(add){
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);

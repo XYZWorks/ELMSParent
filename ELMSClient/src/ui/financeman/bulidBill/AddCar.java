@@ -25,9 +25,11 @@ import ui.util.MyPictureButtonListener;
 @SuppressWarnings("serial")
 public class AddCar extends MyPanel{
 	
-	private MyLabel IDL;
-	private MyLabel plateNumL;
-	private MyLabel useYearL;
+	private MyPictureLabel IDL;
+	private MyPictureLabel plateNumL;
+	private MyPictureLabel useYearL;
+	private MyLabel title;
+	private MyLabel message;
 	
 	private MyTextField ID;
 	private MyTextField plateNum;
@@ -70,7 +72,7 @@ public class AddCar extends MyPanel{
 	protected void initButtons(Element e) {
 		confirm = new MyPictureButton(e.element("confirm"));
 		cancel = new MyPictureButton(e.element("cancel"));
-		back = new MyPictureButton(e.element("back"));
+//	back = new MyPictureButton(e.element("back"));
 		
 	}
 
@@ -87,6 +89,8 @@ public class AddCar extends MyPanel{
 		IDL = new MyPictureLabel(e.element("ID"));
 		plateNumL = new MyPictureLabel(e.element("plateNum"));
 		useYearL = new MyPictureLabel(e.element("useYear"));
+		title = new MyLabel(e.element("title"));
+		message = new MyLabel(e.element("message"));
 		
 	}
 
@@ -98,8 +102,9 @@ public class AddCar extends MyPanel{
 
 	@Override
 	protected void addCompoment() {
-		add(ID);add(IDL);add(back);add(cancel);add(confirm);add(useYear);
-		add(useYearL);add(plateNum);add(plateNumL);add(table);
+		add(ID);add(IDL);add(cancel);add(confirm);add(useYear);
+		add(useYearL);add(plateNum);add(plateNumL);add(table);add(title);
+		add(message);
 		
 	}
 
@@ -139,17 +144,17 @@ public class AddCar extends MyPanel{
 				
 			}
 		});
-		back.addMouseListener(new MyPictureButtonListener(back){
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				super.mouseClicked(e);
-				//TODO 检查数据合法性、保存至数据库
-				//无错误时跳转至查看界面
-				
-				panelManager.show(changePanel, BulidBillPanel.bulidBillStr);
-				
-			}
-		});
+//		back.addMouseListener(new MyPictureButtonListener(back){
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				super.mouseClicked(e);
+//				//TODO 检查数据合法性、保存至数据库
+//				//无错误时跳转至查看界面
+//				
+//				panelManager.show(changePanel, BulidBillPanel.bulidBillStr);
+//				
+//			}
+//		});
 	}
 
 }
