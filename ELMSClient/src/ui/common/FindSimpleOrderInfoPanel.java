@@ -45,6 +45,17 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 	private MyLabel nine;
 	private MyLabel ten;
 	
+	private MyLabel Load1Text;
+	private MyLabel arriveZZ2Text;
+	private MyLabel inStore3Text;
+	private MyLabel outStore4Text;
+	private MyLabel fiveText;
+	private MyLabel sixText;
+	private MyLabel sevenText;
+	private MyLabel eightText;
+	private MyLabel nineText;
+	private MyLabel tenText;
+	
 	private MySearchBox searchBox;
 	
 	//显示订单号 
@@ -114,6 +125,17 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		eight=new MyLabel(e.element("Eight"));
 		nine=new MyLabel(e.element("Nine"));
 		ten=new MyLabel(e.element("Ten"));
+		
+		Load1Text=new MyLabel(e.element("OneText"));
+		arriveZZ2Text=new MyLabel(e.element("TwoText"));
+		inStore3Text=new MyLabel(e.element("ThreeText"));
+		outStore4Text=new MyLabel(e.element("FourText"));
+		fiveText=new MyLabel(e.element("FiveText"));
+		sixText=new MyLabel(e.element("SixText"));
+		sevenText=new MyLabel(e.element("SevenText"));
+		eightText=new MyLabel(e.element("EightText"));
+		nineText=new MyLabel(e.element("NineText"));
+		tenText=new MyLabel(e.element("TenText"));
 	}
 
 	@Override
@@ -140,6 +162,17 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		white.add(nine);
 		white.add(ten);
 		
+		white.add(Load1Text);
+		white.add(arriveZZ2Text);
+		white.add(inStore3Text);
+		white.add(outStore4Text);
+		white.add(fiveText);
+		white.add(sixText);
+		white.add(sevenText);
+		white.add(eightText);
+		white.add(nineText);
+		white.add(tenText);
+		
 		this.add(white);
 		this.add(BarCode);
 		this.add(BarCodeText);
@@ -161,7 +194,7 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		@Override
 		public void keyPressed(KeyEvent e) {
 			if(e.getKeyCode()==KeyEvent.VK_ENTER){
-				TipsDialog wrongLength=new TipsDialog("订单号是10位哦～",560,470,300,55);
+				TipsDialog wrongLength=new TipsDialog("订单号是10位哦～",670,95,235,45);
 				
 //				//获得输入的条形码
 //				String barcode=searchBox.getMyText();

@@ -55,6 +55,19 @@
 					<Eight x="433" y="158" width="326" height="32" />
 					<Nine x="433" y="212" width="326" height="32" />
 					<Ten x="433" y="266" width="326" height="32" />
+					
+					<OneText x="63" y="57" width="276" height="32" />
+					<TwoText x="63" y="57" width="276" height="32" />
+					<ThreeText x="63" y="57" width="276" height="32" />
+					<FourText x="63" y="57" width="276" height="32" />
+					<FiveText x="63" y="57" width="276" height="32" />
+					<SixText x="63" y="57" width="276" height="32" />
+					<SevenText x="63" y="57" width="276" height="32" />
+					<EightText x="63" y="57" width="276" height="32" />
+					<NineText x="63" y="57" width="276" height="32" />
+					<TenText x="63" y="57" width="276" height="32" />
+					
+					
 				</LABELS>
 				<searchBox x="20" y="30" />
 				<DatePicker x="611" y="98" width="200" height="40">
