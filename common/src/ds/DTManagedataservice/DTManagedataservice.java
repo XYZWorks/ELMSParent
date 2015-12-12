@@ -25,8 +25,6 @@ public interface DTManagedataservice extends DataserviceParent{
 	 * @return
 	 */
 	public ArrayList<DriverPO> getAllDrivers()  throws RemoteException;
-	
-	
 	/**
 	 * 得到司机信息PO
 	 * @param id
@@ -55,6 +53,14 @@ public interface DTManagedataservice extends DataserviceParent{
 	 * @throws RemoteException
 	 */
 	public CarPO getCarMes(String id) throws RemoteException;
+	
+	/**
+	 * 根据车牌号获得车辆信息
+	 * @param plateNum
+	 * @return
+	 * @throws RemoteException
+	 */
+	public CarPO checkByPlateNum(String plateNum)throws RemoteException;
 	/**
 	 * 增加一个司机PO
 	 * @param po
@@ -82,7 +88,7 @@ public interface DTManagedataservice extends DataserviceParent{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResultMessage delDriverPO(DriverPO po) throws RemoteException;
+	public ResultMessage delDriverPO(String ID) throws RemoteException;
 	/**
 	 * 更新一个车辆PO
 	 * @param po
@@ -90,6 +96,12 @@ public interface DTManagedataservice extends DataserviceParent{
 	 * @throws RemoteException
 	 */
 	public ResultMessage updateCarPo(CarPO po) throws RemoteException;
-	
+	/**
+	 * 删除车辆信息
+	 * @param po
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ResultMessage delCarPO(String ID) throws RemoteException;
 	
 }

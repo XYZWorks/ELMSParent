@@ -100,11 +100,10 @@ public class DTManage{
 		return result;
 	}
 
-	public ResultMessage delDriver(DriverVO vo) {
-		DriverPO po = (DriverPO) VOPOchange.VOtoPO(vo);
+	public ResultMessage delDriver(String ID) {
 		result = null;
 		try {
-			result = manageData.delDriverPO(po);
+			result = manageData.delDriverPO(ID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -138,27 +137,48 @@ public class DTManage{
 	}
 
 	public CarVO checkCarByID(String ID) {
+		CarVO vo = null;
 		
-		return null;
+		try {
+			vo = (CarVO) VOPOchange.POtoVO(manageData.getCarMes(ID));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return vo;
 	}
 
-	public CarVO checkByPlateNum(String PlateNum) {
-		// TODO Auto-generated method stub
-		return null;
+	public CarVO checkByPlateNum(String plateNum) {
+		CarVO vo = null;
+		
+		try {
+			vo = (CarVO) VOPOchange.POtoVO(manageData.checkByPlateNum(plateNum));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return vo;
 	}
 
 	public ResultMessage modifyCar(CarVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return manageData.updateCarPo((CarPO) VOPOchange.VOtoPO(vo));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		
+		return ResultMessage.FAIL;
 	}
 
-	public ResultMessage delCar(CarVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMessage delCar(String ID) {
+		try {
+			return manageData.delCarPO(ID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
 	}
 
 	public ArrayList<String> getPlateNumber(String InstID) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 	public ArrayList<CarVO> getAllCars() {

@@ -59,7 +59,7 @@ public interface DTManageblservice{
 	 * @param vo
 	 * @return
 	 */
-	public ResultMessage delDriver(DriverVO vo);
+	public ResultMessage delDriver(String ID);
 	/**
 	 * 获得该机构下的司机姓名列表
 	 * @param InstID
@@ -95,7 +95,7 @@ public interface DTManageblservice{
 	 * @param vo
 	 * @return
 	 */
-	public ResultMessage delCar(CarVO vo);
+	public ResultMessage delCar(String ID);
 	/**
 	 * 获得该机构下的车牌信息
 	 * @param InstID

@@ -43,8 +43,8 @@ public class DTManageController implements DTManageblservice{
 		return dtm.modifyDriver(vo);
 	}
 	@Override
-	public ResultMessage delDriver(DriverVO vo) {
-		return dtm.delDriver(vo);
+	public ResultMessage delDriver(String ID) {
+		return dtm.delDriver(ID);
 	}
 
 	public ArrayList<String> getDriverName(String InstID) {
@@ -68,8 +68,8 @@ public class DTManageController implements DTManageblservice{
 		return dtm.modifyCar(vo);
 	}
 
-	public ResultMessage delCar(CarVO vo) {
-		return dtm.delCar(vo);
+	public ResultMessage delCar(String ID) {
+		return dtm.delCar(ID);
 	}
 
 	public ArrayList<String> getPlateNumber(String instID) {

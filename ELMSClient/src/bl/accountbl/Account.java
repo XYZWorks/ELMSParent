@@ -5,11 +5,9 @@ import java.util.ArrayList;
 
 import po.account.AccountPO;
 import test.java.other.VOPOchange;
-import util.DataServiceType;
 import util.ResultMessage;
 import vo.account.AccountVO;
 import ds.accountdataservice.AccountDataService;
-import net.RMIManage;
 
 /**
  * @author ymc
@@ -78,6 +76,11 @@ public class Account {
 		ArrayList<AccountVO> vos = null;
 		try {
 			ArrayList<AccountPO> pos = accountData.show();
+			
+			if(pos == null){
+				return null;
+			}
+			
 			vos = new ArrayList<AccountVO>(pos.size());
 			for (AccountPO accountPO : pos) {
 				vos.add( (AccountVO)VOPOchange.POtoVO(accountPO));
