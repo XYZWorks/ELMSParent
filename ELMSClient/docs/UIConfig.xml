@@ -378,32 +378,30 @@
 						type="confirm" />
 					<cancel x="707" y="560" width="115" height="40" text="取消"
 						type="cancel" />
-					<newInst x="650" y="560" width="115" height="40" text="新增机构"
+					<newInst x="645" y="150" width="115" height="40" text="新增机构"
 						type="rectangle" />
 				</BUTTONS>
 				<LABELS>
-					<title x="300" y="30" width="500" height="100" text="ELMS公司 期初建账"
-						fontName="华文细黑" size="28" />
-					<user x="50" y="170" width="115" height="40" text="经手人" />
-					<time x="500" y="170" width="115" height="40" text="建账日期" />
-					<message x="50" y="300" width="115" height="40" text="账单信息" />
+					<user x="60" y="60" width="115" height="40" text="经手人" type="rectangle"/>
+					<time x="410" y="60" width="115" height="40" text="建账日期" type="rectangle"/>
+					<message x="75" y="150" width="115" height="40" text="账单信息"  fontName="华文细黑" size="20"/>
 				</LABELS>
 				<TEXTFIELDS>
-					<name x="100" y="160" width="115" height="40" />
+					<name x="200" y="60" width="160" height="40" />
 				</TEXTFIELDS>
-				<datePicker x="596" y="0" width="200" height="50">
-					<field x="596" y="0" width="150" height="50" />
-					<button x="746" y="0" width="50" height="50" type="rectangle" />
+				<datePicker x="560" y="60" width="200" height="40">
+					<field x="560" y="60" width="150" height="40" />
+					<button x="710" y="60" width="50" height="40" type="rectangle" />
 				</datePicker>
-				<table x="100" y="350" width="600" height="250"
+				<table x="60" y="200" width="750" height="430"
 					column="机构ID 所在城市 类型 人员数目 车辆数目" />
 				<addCar x="232" y="54" width="848" height="637">
 					<BUTTONS>
-						<confirm x="500" y="560" width="115" height="40" text="确认"
-							type="confirm" />
-						<cancel x="650" y="560" width="115" height="40" text="取消"
-							type="cancel" />
-						<back x="350" y="560" width="115" height="40" text="确认"
+						<confirm x="560" y="560" width="115" height="40" text="确认"
+						type="confirm" />
+						<cancel x="707" y="560" width="115" height="40" text="取消"
+						type="cancel" />
+						<back x="350" y="560" width="115" height="40" text="返回"
 							type="rectangle" />
 					</BUTTONS>
 					<LABELS>
@@ -420,21 +418,23 @@
 				</addCar>
 				<addInst x="232" y="54" width="848" height="637">
 					<BUTTONS>
-						<confirm x="550" y="600" width="50" height="40" text="确认"
-							type="confirm" />
-						<cancel x="45650" y="600" width="50" height="40" text="取消"
-							type="cancel" />
+					<confirm x="560" y="560" width="115" height="40" text="确认"
+						type="confirm" />
+						<cancel x="707" y="560" width="115" height="40" text="取消"
+						type="cancel" />
+						<back x="350" y="560" width="115" height="40" text="返回"
+							type="rectangle" />
 					</BUTTONS>
 					<TEXTFIELDS>
-						<instid x="550" y="600" width="50" height="40" />
+						<instid x="345" y="201" width="276" height="40" />
 					</TEXTFIELDS>
 					<LABELS>
-						<instid x="45" y="500" width="50" height="40" text="职员ID" />
-						<type x="45" y="500" width="50" height="40" text="职员类型" />
-						<location x="300" y="500" width="50" height="40" text="城市" />
+						<instid x="200" y="201" width="50" height="40" text="职员ID" type="rectangle"/>
+						<type x="200" y="271" width="50" height="40" text="职员类型" type="rectangle"/>
+						<location x="200" y="341" width="50" height="40" text="城市" type="rectangle"/>
 					</LABELS>
-					<location x="300" y="580" width="100" height="40" strings="南京 北京 上海 广州" />
-					<type x="45" y="580" width="100" height="40" strings="中转中心 营业厅 总部" />
+					<location x="345" y="341" width="115" height="40" strings="南京 北京 上海 广州" />
+					<type x="345" y="271" width="115" height="40" strings="中转中心 营业厅 总部" />
 
 				</addInst>
 				<addPeople x="232" y="54" width="848" height="637">

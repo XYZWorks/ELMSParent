@@ -53,7 +53,7 @@ public class BulidBillPanel extends MyPanel {
 	private MyPictureButton cancel;
 	private MyPictureButton newInst;
 
-	private MyPictureLabel title;
+//	private MyPictureLabel title;
 	private MyPictureLabel user;
 	private MyPictureLabel time;
 	private MyPictureLabel message;
@@ -98,7 +98,7 @@ public class BulidBillPanel extends MyPanel {
 	@Override
 	protected void initLabels(Element e) {
 		// 要特大号字体
-		title = new MyPictureLabel(e.element("title"));
+//		title = new MyPictureLabel(e.element("title"));
 		user = new MyPictureLabel(e.element("user"));
 		time = new MyPictureLabel(e.element("time"));
 		message = new MyPictureLabel(e.element("message"));
@@ -126,7 +126,7 @@ public class BulidBillPanel extends MyPanel {
 		add(name);
 		add(datePicker);
 		add(message);
-		add(title);
+//		add(title);
 		add(time);
 
 	}

@@ -110,7 +110,7 @@ public class AddInst extends MyPanel{
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
-			panelManager.show(cancel, BulidBillPanel.addPeopleStr);
+			panelManager.show(changePanel, BulidBillPanel.addPeopleStr);
 		}
 
 		@Override
