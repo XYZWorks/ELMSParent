@@ -47,25 +47,25 @@
 
 					<One x="48" y="54" width="326" height="32" />
 					<Two x="48" y="106" width="326" height="32" />
-					<Three x="49" y="158" width="326" height="32" />
-					<Four x="49" y="212" width="326" height="32" />
-					<Five x="49" y="266" width="326" height="32" />
+					<Three x="48" y="158" width="326" height="32" />
+					<Four x="48" y="212" width="326" height="32" />
+					<Five x="48" y="266" width="326" height="32" />
 					<Six x="433" y="54" width="326" height="32" />
 					<Seven x="433" y="106" width="326" height="32" />
 					<Eight x="433" y="158" width="326" height="32" />
 					<Nine x="433" y="212" width="326" height="32" />
 					<Ten x="433" y="266" width="326" height="32" />
 					
-					<OneText x="63" y="57" width="276" height="32" />
-					<TwoText x="63" y="57" width="276" height="32" />
-					<ThreeText x="63" y="57" width="276" height="32" />
-					<FourText x="63" y="57" width="276" height="32" />
-					<FiveText x="63" y="57" width="276" height="32" />
-					<SixText x="63" y="57" width="276" height="32" />
-					<SevenText x="63" y="57" width="276" height="32" />
-					<EightText x="63" y="57" width="276" height="32" />
-					<NineText x="63" y="57" width="276" height="32" />
-					<TenText x="63" y="57" width="276" height="32" />
+					<OneText x="48" y="78" width="276" height="16" />
+					<TwoText x="48" y="130" width="276" height="16" />
+					<ThreeText x="48" y="188" width="276" height="16" />
+					<FourText x="48" y="240" width="276" height="16" />
+					<FiveText x="48" y="290" width="276" height="16" />
+					<SixText x="433" y="78" width="276" height="16" />
+					<SevenText x="433" y="130" width="276" height="16" />
+					<EightText x="433" y="188" width="276" height="16" />
+					<NineText x="433" y="240" width="276" height="16" />
+					<TenText x="433" y="290" width="276" height="16" />
 					
 					
 				</LABELS>
