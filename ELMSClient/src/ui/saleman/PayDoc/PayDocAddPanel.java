@@ -10,6 +10,8 @@ import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
+import ui.util.CancelListener;
+import ui.util.ConfirmListener;
  /** 
  * 
  * @author czq 
@@ -79,7 +81,40 @@ public class PayDocAddPanel extends AddDocPanel {
 
 	@Override
 	protected void addListener() {
-		// TODO Auto-generated method stub
+		confirm.addMouseListener(new ConfirmListener(confirm) {
+			
+			@Override
+			protected void updateMes() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			protected void saveToSQL() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			protected void reInitial() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			protected boolean checkDataValid() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+		});
+		cancel.addMouseListener(new CancelListener(cancel) {
+			
+			@Override
+			public void resetMes() {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 
 	}
 

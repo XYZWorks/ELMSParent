@@ -93,8 +93,8 @@ public class AddInst extends MyPanel{
 
 	@Override
 	protected void addListener() {
-		confirm.addMouseListener(new MyCancelButtonListener(confirm));
-		cancel.addMouseListener(new MyConfirmButtonListner(cancel));
+		confirm.addMouseListener(new MyConfirmButtonListner(confirm));
+		cancel.addMouseListener(new MyCancelButtonListener(cancel));
 		
 	}
 
