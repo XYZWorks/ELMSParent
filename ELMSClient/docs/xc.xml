@@ -37,7 +37,7 @@
 				</WHITEPANELS>
 				<LABELS>
 					<BarCode text="订单号" x="20" y="98" width="100" height="53" size="26" />
-					<BarCodeText text="" x="1027" y="0" width="53" height="53" />
+					<BarCodeText text="" x="130" y="98" width="200" height="53" size="26" color="26,188,156"/>
 
 					<transferInfo text="物流信息" x="0" y="0" width="114"
 						height="40" type="rectangle" />
@@ -56,16 +56,16 @@
 					<Nine x="433" y="212" width="326" height="32" />
 					<Ten x="433" y="266" width="326" height="32" />
 					
-					<OneText x="48" y="78" width="276" height="16" />
-					<TwoText x="48" y="130" width="276" height="16" />
-					<ThreeText x="48" y="188" width="276" height="16" />
-					<FourText x="48" y="240" width="276" height="16" />
-					<FiveText x="48" y="290" width="276" height="16" />
-					<SixText x="433" y="78" width="276" height="16" />
-					<SevenText x="433" y="130" width="276" height="16" />
-					<EightText x="433" y="188" width="276" height="16" />
-					<NineText x="433" y="240" width="276" height="16" />
-					<TenText x="433" y="290" width="276" height="16" />
+					<OneText x="48" y="78" width="276" height="16" color="26,188,156" size="14"/>
+					<TwoText x="48" y="130" width="276" height="16" color="26,188,156" size="14"/>
+					<ThreeText x="48" y="188" width="276" height="16" color="26,188,156" size="14" />
+					<FourText x="48" y="240" width="276" height="16" color="26,188,156" size="14"/>
+					<FiveText x="48" y="290" width="276" height="16" color="26,188,156" size="14"/>
+					<SixText x="433" y="78" width="276" height="16" color="26,188,156" size="14"/>
+					<SevenText x="433" y="130" width="276" height="16" color="26,188,156" size="14"/>
+					<EightText x="433" y="188" width="276" height="16" color="26,188,156" size="14"/>
+					<NineText x="433" y="240" width="276" height="16" color="26,188,156" size="14" />
+					<TenText x="433" y="290" width="276" height="16" color="26,188,156" size="14"/>
 					
 					
 				</LABELS>

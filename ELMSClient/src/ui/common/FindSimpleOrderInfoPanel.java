@@ -9,6 +9,7 @@ import org.dom4j.Element;
 import bl.BusinessLogicDataFactory;
 import bl.orderbl.orderbl_stub;
 import blservice.orderblservice.Orderblservice;
+import ui.config.UserfulMethod;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -18,6 +19,8 @@ import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
 import ui.util.TipsDialog;
 import util.DocType;
+import util.FormatMes;
+import util.ResultMessage;
 import vo.order.OrderSimpleInfoVO;
 
 /**
@@ -28,6 +31,8 @@ import vo.order.OrderSimpleInfoVO;
  */
 @SuppressWarnings("serial")
 public class FindSimpleOrderInfoPanel extends MyPanel {
+	private MyPanel my;
+	
 	private MyPanel parent;
 
 	private MyWhitePanel white;
@@ -69,17 +74,23 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 	private MyLabel BarCode;// 显示三个字“订单号”
 	private MyLabel BarCodeText;// label绘制出订单号
 
+	
+	
 	// 选择日期
 	private MyDatePicker DatePicker;
 
 	// bl
 	private Orderblservice orderblservice;
 
-	public FindSimpleOrderInfoPanel(Element config, MyPanel parent, String BarCodeText) {
+	
+	
+	public FindSimpleOrderInfoPanel(Element config, MyPanel parent, String BarCodeText,Orderblservice orderblservice) {
 
 		super(config);
-	//	System.out.println("findsimpleorder!!");
+		//对自己的引用
+		my=this;
 		this.parent = parent;
+		this.orderblservice=orderblservice;
 		this.orderBarCode = BarCodeText;
 
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
@@ -92,8 +103,9 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		addListener();
 		
 		readInfo();
-		
+
 		setVisible(true);
+		validate();
 		repaint();
 
 	}
@@ -140,10 +152,10 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		nine = new MyLabel(e.element("Nine"));
 		ten = new MyLabel(e.element("Ten"));
 
-		one = new MyLabel(e.element("OneText"));
-		two = new MyLabel(e.element("TwoText"));
-		three = new MyLabel(e.element("ThreeText"));
-		four = new MyLabel(e.element("FourText"));
+		oneText = new MyLabel(e.element("OneText"));
+		twoText = new MyLabel(e.element("TwoText"));
+		threeText = new MyLabel(e.element("ThreeText"));
+		fourText = new MyLabel(e.element("FourText"));
 		fiveText = new MyLabel(e.element("FiveText"));
 		sixText = new MyLabel(e.element("SixText"));
 		sevenText = new MyLabel(e.element("SevenText"));
@@ -154,8 +166,7 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		orderblservice= BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
-		
+
 		DatePicker = new MyDatePicker(e.element("DatePicker"));
 		searchBox = new MySearchBox(e.element("searchBox"));
 	}
@@ -178,10 +189,10 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		white.add(nine);
 		white.add(ten);
 
-		white.add(one);
-		white.add(two);
-		white.add(three);
-		white.add(four);
+		white.add(oneText);
+		white.add(twoText);
+		white.add(threeText);
+		white.add(fourText);
 		white.add(fiveText);
 		white.add(sixText);
 		white.add(sevenText);
@@ -232,33 +243,32 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		switch (type) {
 		// 装车单
 		case loadDoc:
-			result = "快件已被营业厅接收，成功装车，送往"+place+"中转中心";
+			result = "快件已被成功装车，送往"+place+"中转中心";
 			break;
 		// 中转中心到达单
 		case arriveZZDoc:
-			result = "快递已到达"+place+"中转中心";
+			result = "快递已到达["+place+"中转中心]";
 			break;
 		// 入库单
 		case inStoreDoc:
-			result = "快递已入库"+place+"中转中心";
+			result = "快递已入库["+place+"中转中心]";
 			break;
 		// 出库单
 		case outStoreDoc:
-			result = "快递已出库"+place+"中转中心";
+			result = "快递已出库["+place+"中转中心]";
 			break;
 		// 接受单
 		case arriveYYDoc:
-			result = "快件已到达" +place+"营业厅";
+			result = "快件已到达[" +place+"营业厅]";
 			break;
 		// 派送单
 		case sendGoodDoc:
-			result = "快递正在被"+place+"快递员派送";
+			result = "快递正在被快递员："+place+" 派送";
 			break;
 		default:
 			break;
 		}
 		return result;
-
 	}
 
 	private String processTime(String time) {
@@ -274,21 +284,29 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		@Override
 		public void keyPressed(KeyEvent e) {
 			if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-				TipsDialog wrongLength = new TipsDialog("订单号是10位哦～", 670, 95, 235, 45);
+				//TipsDialog wrongLength = new TipsDialog("订单号是10位哦～", 670, 95, 235, 45);
 
-				// //获得输入的条形码
-				// String barcode=searchBox.getMyText();
-				// //判断条形码格式是否正确
-				// FormatMes result=UserfulMethod.checkBarCode(barcode);
-				// if(result==FormatMes.WRONG_LENGTH){
-				// TipsDialog wrongLength=new TipsDialog("订单号是10位哦～");
-				// }
-				// else if(result==FormatMes.ILEGAL_CHAR){
-				// TipsDialog ilegalChar=new TipsDialog("订单号是10位数字,输入了非法字符");
-				// }
-				// else if(result==FormatMes.CORRECT){
-
-				// }
+				 //获得输入的条形码
+				 orderBarCode=searchBox.getMyText();
+				 //判断条形码格式是否正确
+				 FormatMes result=UserfulMethod.checkBarCode(orderBarCode);
+				 if(result==FormatMes.WRONG_LENGTH){
+				 TipsDialog wrongLength=new TipsDialog("订单号是10位哦～");
+				 }
+				 else if(result==FormatMes.ILEGAL_CHAR){
+				 TipsDialog ilegalChar=new TipsDialog("订单号是10位数字,输入了非法字符");
+				 }
+				 else if(result==FormatMes.CORRECT){
+					 if(orderblservice.checkBarCode(orderBarCode)==ResultMessage.NOT_EXIST){
+						 TipsDialog notExist=new TipsDialog("此订单号不存在");
+					 }
+					 else if(orderblservice.checkBarCode(orderBarCode)==ResultMessage.hasExist){
+						 BarCodeText.setText(orderBarCode);
+						 readInfo();
+						 my.repaint();
+					 }
+							 
+				 }
 			}
 		}
 	}

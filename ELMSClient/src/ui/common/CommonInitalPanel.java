@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 
 import org.dom4j.Element;
 
+import bl.orderbl.orderbl_stub;
+import blservice.orderblservice.Orderblservice;
 import ui.config.GraphicsUtils;
 import ui.config.UserfulMethod;
 import ui.tools.MyFrame;
@@ -22,6 +24,7 @@ import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.TipsDialog;
 import util.FormatMes;
+import util.ResultMessage;
 
 /**
 *
@@ -30,6 +33,8 @@ import util.FormatMes;
 */
 @SuppressWarnings("serial")
 public class CommonInitalPanel extends MyPanel{
+	//bl
+	private Orderblservice orderblservice;
 	
 	private MyFrame parent;
 	private MyPanel inital;
@@ -101,7 +106,9 @@ public class CommonInitalPanel extends MyPanel{
 	@Override
 	protected void initOtherCompoment(Element e) {
 		searchBox=new MySearchBox(e.element("searchBox"));
-		
+		orderblservice=new orderbl_stub();
+		//BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
+
 		
 	}
 
@@ -141,18 +148,24 @@ public class CommonInitalPanel extends MyPanel{
 				
 				//获得输入的条形码
 				String barcode=searchBox.getMyText();
-//				//判断条形码格式是否正确
-//				FormatMes result=UserfulMethod.checkBarCode(barcode);
-//				if(result==FormatMes.WRONG_LENGTH){
-//					TipsDialog wrongLength=new TipsDialog("订单号是10位哦～");
-//				}
-//				else if(result==FormatMes.ILEGAL_CHAR){
-//					TipsDialog ilegalChar=new TipsDialog("订单号是10位数字,输入了非法字符");
-//				}
-//				else if(result==FormatMes.CORRECT){
-				setTwoUnvisible();
-					FindSimpleOrderInfoPanel findSimpleOrderInfoPanel=new FindSimpleOrderInfoPanel(config.element("CommonMainPanel"),inital, barcode);
-//				}
+				System.out.println("commoninitalP"+barcode);
+				//判断条形码格式是否正确
+				FormatMes result=UserfulMethod.checkBarCode(barcode);
+				if(result==FormatMes.WRONG_LENGTH){
+					TipsDialog wrongLength=new TipsDialog("订单号是10位哦～",560,470,300,55);
+				}
+				else if(result==FormatMes.ILEGAL_CHAR){
+					TipsDialog ilegalChar=new TipsDialog("输入了非法字符",560,470,300,55);
+				}
+				else if(result==FormatMes.CORRECT){
+					if(orderblservice.checkBarCode(barcode)==ResultMessage.NOT_EXIST){
+						 TipsDialog notExist=new TipsDialog("此订单号不存在");
+					 }
+					 else if(orderblservice.checkBarCode(barcode)==ResultMessage.hasExist){
+							setTwoUnvisible();
+							FindSimpleOrderInfoPanel findSimpleOrderInfoPanel=new FindSimpleOrderInfoPanel(config.element("CommonMainPanel"),inital, barcode,orderblservice);
+					 }
+				}
 			}
 		}
 	}

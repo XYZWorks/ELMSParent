@@ -63,10 +63,44 @@ public class orderbl_stub implements Orderblservice{
 
 	@Override
 	public ArrayList<OrderSimpleInfoVO> getSimpleInfo(String orderBarCode) {
+		
+		if(orderBarCode.equals("1234567890")){
 		ArrayList<OrderSimpleInfoVO> info=new ArrayList<>();
-		OrderSimpleInfoVO one=new OrderSimpleInfoVO("1","南京","2015-10-9-11-23-12",DocType.loadDoc);
+		OrderSimpleInfoVO one=new OrderSimpleInfoVO("1234567890","南京","2015-10-9-11-23-12",DocType.loadDoc);
+		OrderSimpleInfoVO two=new OrderSimpleInfoVO("1234567890","南京","2015-10-9-11-23-12",DocType.arriveZZDoc);
+		OrderSimpleInfoVO three=new OrderSimpleInfoVO("1234567890","南京","2015-10-9-11-23-12",DocType.inStoreDoc);
+		OrderSimpleInfoVO four=new OrderSimpleInfoVO("1234567890","南京","2015-10-9-11-23-12",DocType.outStoreDoc);
+		OrderSimpleInfoVO five=new OrderSimpleInfoVO("1234567890","南京","2015-10-9-11-23-12",DocType.arriveYYDoc);
+		OrderSimpleInfoVO six=new OrderSimpleInfoVO("1234567890","王伟","2015-10-9-11-23-12",DocType.sendGoodDoc);
+		
 		info.add(one);
-		return null;
+		info.add(two);
+		info.add(three);
+		info.add(four);
+		info.add(five);
+		info.add(six);
+	
+		return info;
+		}
+		else{
+				ArrayList<OrderSimpleInfoVO> info=new ArrayList<>();
+				OrderSimpleInfoVO one=new OrderSimpleInfoVO("1234567899","上海","2015-10-9-11-23-12",DocType.loadDoc);
+				OrderSimpleInfoVO two=new OrderSimpleInfoVO("1234567899","上海","2015-10-9-11-23-12",DocType.arriveZZDoc);
+				OrderSimpleInfoVO three=new OrderSimpleInfoVO("1234567899","上海","2015-10-9-11-23-12",DocType.inStoreDoc);
+				OrderSimpleInfoVO four=new OrderSimpleInfoVO("1234567899","上海","2015-10-9-11-23-12",DocType.outStoreDoc);
+				OrderSimpleInfoVO five=new OrderSimpleInfoVO("1234567899","上海","2015-10-9-11-23-12",DocType.arriveYYDoc);
+				OrderSimpleInfoVO six=new OrderSimpleInfoVO("1234567899","王伟","2015-10-9-11-23-12",DocType.sendGoodDoc);
+				
+				info.add(one);
+				info.add(two);
+				info.add(three);
+				info.add(four);
+				info.add(five);
+				info.add(six);
+			
+				return info;
+		}
+	
 	}
 
 	@Override

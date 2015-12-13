@@ -47,7 +47,6 @@ public class UserfulMethod {
 	
 	public static final FormatMes checkBarCode(String barcode) {
 		if (barcode.length() != 10) {
-			//
 			return FormatMes.WRONG_LENGTH;
 		}
 		for (int i = 0; i < 10; i++) {
@@ -56,7 +55,6 @@ public class UserfulMethod {
 			}
 			
 		}
-
 		return FormatMes.CORRECT;
 
 	}

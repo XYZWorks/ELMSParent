@@ -12,6 +12,9 @@ import org.dom4j.Element;
 
 import blservice.orderblservice.Orderblservice;
 import blservice.strategyblservice.StrategyblService;
+import po.order.GoodMes;
+import po.order.OtherOrderMes;
+import po.order.PeopleMes;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
@@ -49,8 +52,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 
 	// 订单号
 	private MyPictureLabel orderBarCode;
-	private MyLabel orderBarCodeLabel;
-
+	
 	// 日历
 	private MyDatePicker DatePicker;
 
@@ -86,25 +88,27 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	private MyPictureLabel cost;
 
 	// textField
-	private MyTextField senderNameText;
-	private MyTextField senderPhoneText;
-	private MyTextField senderAddressText;
-	private MyTextField senderUnitText;
+	MyTextField orderBarCodeLabel;
 
-	private MyTextField receiverNameText;
-	private MyTextField receiverPhoneText;
-	private MyTextField receiverAddressText;
-	private MyTextField receiverUnitText;
+	MyTextField senderNameText;
+	MyTextField senderPhoneText;
+	MyTextField senderAddressText;
+	MyTextField senderUnitText;
 
-	private MyTextField goodNameText;
-	private MyTextField goodNumText;
+	MyTextField receiverNameText;
+	MyTextField receiverPhoneText;
+	MyTextField receiverAddressText;
+	MyTextField receiverUnitText;
 
-	private MyTextField goodWeightText;
+	MyTextField goodNameText;
+	MyTextField goodNumText;
+
+	MyTextField goodWeightText;
 	private MyLabel KG;
 
-	private MyTextField goodLongText;
-	private MyTextField goodWidthText;
-	private MyTextField goodHeightText;
+	MyTextField goodLongText;
+	MyTextField goodWidthText;
+	MyTextField goodHeightText;
 
 	private MyLabel Long;
 	private MyLabel Width;
@@ -154,7 +158,8 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	// 判断寄件人、收件人的城市是否已经选择
 	private int senderChose = 0;
 	private int receiverChose = 0;
-
+	
+	
 	// 费用总计
 	private double total;
 
@@ -194,6 +199,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 
 	@Override
 	protected void initTextFields(Element e) {
+		orderBarCodeLabel = new MyTextField(e.element("orderBarCodeLabel"));
 		senderNameText = new MyTextField(e.element("senderNameText"));
 		senderPhoneText = new MyTextField(e.element("senderPhoneText"));
 		senderAddressText = new MyTextField(e.element("senderAddressText"));
@@ -217,7 +223,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	protected void initLabels(Element e) {
 
 		orderBarCode = new MyPictureLabel(e.element("orderBarCode"));
-		orderBarCodeLabel = new MyLabel(e.element("orderBarCodeLabel"));
+		
 
 		// 寄件人信息
 
@@ -386,18 +392,20 @@ public class AddOrderPanel extends MyPanelWithScroller {
 
 			@Override
 			protected void saveToSQL() {
+				 PeopleMes sender=new PeopleMes(senderNameText, senderPhoneText,senderUnitText, );
 
+				 PeopleMes receiver=new PeopleMes(senderNameText, senderPhoneText,senderUnitText, );
+				
+				 GoodMes goodMes=new GoodMes(goodNum, goodName, goodWeight, goodLong, goodWidth, goodHeight);
+				OtherOrderMes otherMes;
+				orderblservice.add();
 			}
 
 			@Override
 			protected boolean checkDataValid() {
-				// TODO 检查必填项目是否正确
-
-				// confirm后可以显示 预计时间、报价
-
-				// 提交时 检查各项的名称
-
-				return true;
+				//检查订单所有属性是否填写完整
+				checkDataValid checkDataValid=new checkDataValid();
+				return checkDataValid.isValid();
 			}
 
 			@Override
