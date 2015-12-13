@@ -13,6 +13,7 @@ import ui.tools.MyPanelWithScroller;
 import ui.tools.MyPictureButton;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
+import ui.util.PanelController;
 import util.MyDate;
 
 /** 
@@ -24,36 +25,36 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 	
 	StoreController bl;
 	
-	private MyPictureButton confirmButton;
-	private MyPictureButton returnButton;
+	 MyPictureButton confirmButton;
+	 MyPictureButton returnButton;
 	
 	
-	private MyLabel centerL;
-	private MyLabel storeNumL;
-	private MyLabel center;
-	private MyLabel storeNum;
+	 MyLabel centerL;
+	 MyLabel storeNumL;
+	 MyLabel center;
+	 MyLabel storeNum;
 	
-	private MyLabel nowNumL;
-	private MyLabel totalNumL;
-	private MyLabel nowNum;
-	private MyLabel totalNum;
+	 MyLabel nowNumL;
+	 MyLabel totalNumL;
+	 MyLabel nowNum;
+	 MyLabel totalNum;
 	
-	private MyLabel nowTimeL;
-	private MyLabel nowTime;
+	 MyLabel nowTimeL;
+	 MyLabel nowTime;
 	
-	private MyLabel inputTime;
-	private MyLabel nowLoc;
-	private MyLabel infoin;
-	private MyLabel infoout;
+	 MyLabel inputTime;
+	 MyLabel nowLoc;
+	 MyLabel infoin;
+	 MyLabel infoout;
 	
 	MyDate nowDate;
 	MyDatePicker picker;
-	StoreManagerController controller;
+	PanelController controller;
 	
 	OrderInfoTable orderTable;
 	InStoreTablePanel inTable;
 	OutStoreTablePanel outTable; 
-	public StoreSingleShowPanel(Element config, StoreController bl, StoreManagerController controller) {
+	public StoreSingleShowPanel(Element config, StoreController bl, PanelController controller) {
 		super(config);
 		this.bl = bl;
 		this.controller = controller;

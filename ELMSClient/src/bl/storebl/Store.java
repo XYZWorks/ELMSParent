@@ -1,5 +1,6 @@
 package bl.storebl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bl.approvalbl.Approval;
@@ -10,6 +11,7 @@ import util.ResultMessage;
 import vo.store.StoreCheckVO;
 import vo.store.StoreMessageVO;
 import ds.storedataservice.StoreDataService;
+import po.store.StoreMessagePO;
 
 /** 
  * @author ymc 
@@ -24,7 +26,13 @@ public class Store {
 	}
 	
 	public ArrayList<StoreMessageVO> show() {
-		// TODO Auto-generated method stub
+		StoreMessagePO pos = new StoreMessagePO();
+		try {
+			pos = storeData.getStoreMessage();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 

@@ -66,7 +66,8 @@ public class VOPOchange {
 			Field tmp = null;
 			if(f.getName().equals("serialVersionUID"))
 				continue;
-			
+//			if(f.getType().toString().endsWith("PO"))
+				
 			if(f.getType().toString().endsWith("ArrayList")&&!f.getGenericType().toString().endsWith("String>")){
 				
 				Type listType = f.getGenericType();
