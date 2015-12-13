@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import blservice.orderblservice.Orderblservice;
 import blservice.storeblservice.OutStoreDocService;
 import ds.storedataservice.StoreDataService;
+import po.DocPO;
 import po.store.InStoreDocPO;
 import po.store.OutStoreDocPO;
 import test.java.other.DataTool;
@@ -61,22 +62,51 @@ public class OutStoreDocImpl implements OutStoreDocService {
 		try {
 			return storeData.addOut(po);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return ResultMessage.FAIL;
 	}
 
-	public ArrayList<DocVO> getDocLists(DocType type) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList< ? extends DocVO> getDocLists(DocType type) {
+		ArrayList<? extends DocPO> pos = null;
+		try {
+			pos = storeData.getDocLists(DocType.outStoreDoc);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		} 
+		
+		if(pos == null){
+			return null;
+		}
+		
+		ArrayList<OutStoreDocVO> vos = new ArrayList<>(pos.size());
+		for (int i = 0; i < pos.size(); i++) {
+			vos.add((OutStoreDocVO) VOPOchange.POtoVO(pos.get(i)));
+		}
+		
+		return vos;
 	}
 
 
 
 	public ArrayList<OutStoreDocVO> showOutStoreDocs() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<OutStoreDocPO> pos = null;
+		try {
+			pos = storeData.getOut();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		
+		if(pos == null){
+			return null;
+		}
+		
+		ArrayList<OutStoreDocVO> vos = new ArrayList<>(pos.size());
+		for (int i = 0; i < pos.size(); i++) {
+			vos.add((OutStoreDocVO) VOPOchange.POtoVO(pos.get(i)));
+		}
+		
+		return vos;
 	}
 
 	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {

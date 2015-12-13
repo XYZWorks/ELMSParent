@@ -48,7 +48,7 @@ public interface StoreblService {
 	 * 得到库存报警值
 	 * @return
 	 */
-	public String getAlarmValue(String city);
+	public String getAlarmValue(City city);
 
 
 }

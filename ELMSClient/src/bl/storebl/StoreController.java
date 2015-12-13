@@ -54,7 +54,7 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 	}
 
 
-	public ArrayList<DocVO> getDocLists(DocType type) {
+	public ArrayList<? extends DocVO> getDocLists(DocType type) {
 		switch (type) {
 		case inStoreDoc:
 			return inStoreDocImpl.getDocLists(type);
@@ -111,9 +111,8 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 		return store.setAlarmValue(value,city);
 	}
 
-	public String getAlarmValue(String city) {
-		//TODO 
-		return null;
+	public String getAlarmValue(City city) {
+		return store.getAlarmValue(city);
 	}
 	public DocVO getByID(String ID) {
 		try{

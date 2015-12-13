@@ -9,7 +9,7 @@ import po.store.StoreCheckPO;
 import po.store.StoreMessagePO;
 import util.City;
 import util.ResultMessage;
-import ds.DataserviceParent;
+import ds.DocApprovalDataService;
 
 /**
  * 
@@ -17,7 +17,7 @@ import ds.DataserviceParent;
  * @author ymc
  *
  */
-public interface StoreDataService extends DataserviceParent{
+public interface StoreDataService extends DocApprovalDataService{
 	/**
 	 * 得到库存信息PO
 	 * @return

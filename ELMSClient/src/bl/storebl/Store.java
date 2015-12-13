@@ -1,5 +1,6 @@
 package bl.storebl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.store.StoreCheckPO;
@@ -42,12 +43,21 @@ public class Store {
 	}
 
 	public ResultMessage setAlarmValue(String value,City city) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return storeData.setAlarmValue(value, city);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
 	}
 	
-	public String getAlarmValue() {
-		// TODO Auto-generated method stub
+	public String getAlarmValue(City city) {
+		
+		try {
+			return storeData.getAlarmValue(city);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
