@@ -641,11 +641,7 @@
 						text="" type="rectangle"/>
 						<nowNumL  x="80" y="150" width="200" height="100"  
 						text="当前库存数量" type="rectangle"/>
-			 			<totalNumL  x="450" y="150" width="200" height="100"  
-						text="库存总容量" type="rectangle"/>
-						<totalNum  x="600" y="150" width="200" height="100"  
-						text="" type="rectangle"/>
-						
+			 			
 						<nowTime  x="230" y="230" width="200" height="100"  
 						text="" type="rectangle"/>
 						<nowTimeL  x="80" y="230" width="200" height="100"  
@@ -655,10 +651,10 @@
 						<nowLoc  x="80" y="310" width="200" height="100"  
 						text="当前货物位置信息" type="rectangle"/>
 						<infoin  x="80" y="800" width="500" height="100"  
-						text="截至到当前时间的入库信息" type="rectangle"/>
+						text="当天入库信息" type="rectangle"/>
 						
 						<infoout  x="80" y="1200" width="500" height="100"  
-						text="截至到当前时间的出库信息" type="rectangle"/>
+						text="当天出库信息" type="rectangle"/>
 						
 			 		</LABELS>
 			 		

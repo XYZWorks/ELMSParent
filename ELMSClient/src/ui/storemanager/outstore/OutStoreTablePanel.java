@@ -11,6 +11,7 @@ import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import util.DocType;
 import util.MyDate;
+import util.TransferWay;
 import vo.store.InStoreDocVO;
 import vo.store.OutStoreDocVO;
 
@@ -64,7 +65,7 @@ public class OutStoreTablePanel extends MyTablePanel {
 			data[i][2] = MyDate.toString(vo.date);
 			data[i][3] = vo.loc.getName();
 			data[i][4] = vo.transferDoc;
-			data[i][5] = vo.shipWay.getTransferWay();
+			data[i][5] = vo.shipWay.getName();
 			data[i][6] = UserfulMethod.orderArrayToString(vo.orders);
 			
 		}
