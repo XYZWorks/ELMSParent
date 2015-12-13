@@ -7,8 +7,6 @@ import java.awt.Image;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -19,7 +17,6 @@ import javax.swing.border.EmptyBorder;
 import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
-import ui.config.UserfulMethod;
  /** 
  * 搜索框
  * @author czq 
@@ -85,7 +82,6 @@ public class MySearchBox extends JLabel{
 			
 			@Override
 			public void focusLost(FocusEvent e) {
-				System.out.println("focousLost");
 				isEditing = false;
 				tempImage = outSerach;
 				repaint();
@@ -93,7 +89,6 @@ public class MySearchBox extends JLabel{
 			
 			@Override
 			public void focusGained(FocusEvent e) {
-				System.out.println("focousGained");
 				isEditing = true;
 				tempImage = editing;
 				repaint();
@@ -107,7 +102,6 @@ public class MySearchBox extends JLabel{
 	class MyListener extends MouseAdapter{
 		@Override
 		public void mouseEntered(MouseEvent e) {
-			System.out.println("mouseEntered");
 			if(!isEditing){
 				tempImage = inSerach;
 				repaint();
@@ -116,7 +110,6 @@ public class MySearchBox extends JLabel{
 		}
 		@Override
 		public void mouseExited(MouseEvent e) {
-			System.out.println("mouseExited");
 			super.mouseExited(e);
 			if(!isEditing){
 				tempImage = outSerach;

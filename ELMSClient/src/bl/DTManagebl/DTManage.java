@@ -178,15 +178,47 @@ public class DTManage{
 	}
 
 	public ArrayList<String> getPlateNumber(String InstID) {
-		
+		try {
+			return manageData.getPlateNums();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 	public ArrayList<CarVO> getAllCars() {
+		ArrayList<CarPO> pos = null;
+		try {
+			pos = manageData.getAllCars();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		if(pos == null){
+			return null;
+		}
 		
-		return null;
+		ArrayList<CarVO> vos = new ArrayList<>(pos.size());
+		for (CarPO carPO : pos) {
+			vos.add((CarVO) VOPOchange.POtoVO(carPO));
+		}
+		
+		return vos;
 	}
 	public ArrayList<DriverVO> getAllDrivers() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<DriverPO> pos = null;
+		try {
+			pos = manageData.getAllDrivers();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		if(pos == null){
+			return null;
+		}
+		
+		ArrayList<DriverVO> vos = new ArrayList<>(pos.size());
+		for (DriverPO driverPO : pos) {
+			vos.add((DriverVO) VOPOchange.POtoVO(driverPO));
+		}
+		
+		return vos;
 	}
 }

@@ -64,4 +64,10 @@ public class StoreService_Stub implements StoreblService {
 		return null;
 	}
 
+	@Override
+	public String getAlarmValue(City city) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

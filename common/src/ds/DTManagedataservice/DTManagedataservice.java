@@ -16,6 +16,14 @@ import ds.DataserviceParent;
 public interface DTManagedataservice extends DataserviceParent{
 	
 	/**
+	 * 获得所有车牌号
+	 * @return
+	 * @throws RemoteException
+	 */
+	public ArrayList<String> getPlateNums() throws RemoteException;
+	
+	
+	/**
 	 * 获得所有车辆信息
 	 * @return
 	 */
