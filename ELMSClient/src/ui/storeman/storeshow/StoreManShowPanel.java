@@ -92,7 +92,7 @@ StoreController bl;
 	
 	@Override
 	protected void addListener() {
-		confirmButton.addMouseListener(new SingleShowListener(confirmButton, "StoreSingleShowPanel", controller));
+		confirmButton.addMouseListener(new SingleShowListener(confirmButton, "StoreManSingleShowPanel", controller));
 		returnButton.addMouseListener(new MyJumpListener(returnButton, StaticMessage.MAIN_WINDOW, controller,false));
 
 
@@ -107,7 +107,7 @@ StoreController bl;
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
-			StoreSingleShowPanel tmp  = (StoreSingleShowPanel) controller.getPanelMap().get("StoreSingleShowPanel");
+			StoreManSingleShowPanel tmp  = (StoreManSingleShowPanel) controller.getPanelMap().get("StoreManSingleShowPanel");
 			tmp.getInfo(cityC.getSelectedItem().toString(),storeC.getSelectedItem().toString());
 		}
 	}

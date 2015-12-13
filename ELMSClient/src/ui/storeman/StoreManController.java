@@ -9,8 +9,10 @@ import config.StaticMessage;
 import ui.storeman.arrivezz.ArriveZZDocAdd;
 import ui.storeman.arrivezz.ArriveZZPanel;
 import ui.storeman.storeshow.StoreManShowPanel;
+import ui.storeman.storeshow.StoreManSingleShowPanel;
 import ui.storeman.transport.AddTransportPanel;
 import ui.storeman.transport.TransportPanel;
+import ui.storemanager.storeshow.StoreSingleShowPanel;
 import ui.tools.MyPanel;
 import ui.tools.MySideBarButton;
 import ui.util.ButtonState;
@@ -31,6 +33,7 @@ public class StoreManController extends PanelController{
 	private MyPanel StorePanel;
 	private MyPanel AddArriveZZPanel;
 	private MyPanel AddTransportPanel;
+	private StoreManSingleShowPanel storeManSingleShowPanel;
 	
 	private MySideBarButton transportButton;
 	private MySideBarButton arriveZZButton;
@@ -43,6 +46,7 @@ public class StoreManController extends PanelController{
 	private final String StorePanelStr = "StorePanel";
 	private final String AddArriveZZPanelStr = "AddArriveZZPanel";
 	private final String AddTransportPanelStr = "AddTransportPanel";
+	private final String StoreManSingleShowPanelStr = "StoreManSingleShowPanel";
 	
 	private Transportblservice blt;
 	
@@ -69,6 +73,7 @@ public class StoreManController extends PanelController{
 		StorePanel = new StoreManShowPanel(e.element(StorePanelStr),blc,this);
 		AddArriveZZPanel = new ArriveZZDocAdd(e.element(ArriveZZPanelStr).element(AddArriveZZPanelStr),blt,this);
 		AddTransportPanel = new AddTransportPanel(e.element(TransportPanelStr).element(AddTransportPanelStr),blt,this);
+		storeManSingleShowPanel = new StoreManSingleShowPanel(e.element(StorePanelStr).element(StoreManSingleShowPanelStr), blc, this);
 	}
 
 	@Override
@@ -94,7 +99,7 @@ public class StoreManController extends PanelController{
 		changePanel.add(StorePanel, StorePanelStr);
 		changePanel.add(AddArriveZZPanel, AddArriveZZPanelStr);
 		changePanel.add(AddTransportPanel, AddTransportPanelStr);
-		
+		changePanel.add(storeManSingleShowPanel,StoreManSingleShowPanelStr);
 	}
 
 	@Override
@@ -129,11 +134,13 @@ public class StoreManController extends PanelController{
 		
 		panelMap.put(ArriveZZPanelStr, ArriveZZPanel);
 		panelMap.put(TransportPanelStr, TransportPanel);
+		panelMap.put(StoreManSingleShowPanelStr, storeManSingleShowPanel);
 	}
 
 	@Override
 	protected void initialBL() {
 		blt = new TransportController();
+		blc = new StoreController();
 	}
 
 

@@ -22,6 +22,11 @@ public class StoreManSingleShowPanel extends StoreSingleShowPanel {
 	@Override
 	protected void addListener() {
 		confirmButton.addMouseListener(new ShowListener(confirmButton));
-		returnButton.addMouseListener(new MyJumpListener(returnButton, "StoreShowPanel", controller,true));
+		returnButton.addMouseListener(new MyJumpListener(returnButton, "StorePanel", controller,true));
+	}
+	@Override
+	public void getInfo(String cen, String sto) {
+		// TODO Auto-generated method stub
+		super.getInfo(cen, sto);
 	}
 }

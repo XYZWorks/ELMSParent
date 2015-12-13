@@ -23,37 +23,37 @@ import util.MyDate;
  */
 public class StoreSingleShowPanel extends MyPanelWithScroller {
 	
-	StoreController bl;
+	protected StoreController bl;
 	
-	 MyPictureButton confirmButton;
-	 MyPictureButton returnButton;
+	protected MyPictureButton confirmButton;
+	protected MyPictureButton returnButton;
 	
 	
-	 MyLabel centerL;
-	 MyLabel storeNumL;
-	 MyLabel center;
-	 MyLabel storeNum;
+	protected MyLabel centerL;
+	protected MyLabel storeNumL;
+	protected MyLabel center;
+	protected MyLabel storeNum;
 	
-	 MyLabel nowNumL;
-	 MyLabel totalNumL;
-	 MyLabel nowNum;
-	 MyLabel totalNum;
+	protected MyLabel nowNumL;
+	protected MyLabel totalNumL;
+	protected MyLabel nowNum;
+	protected MyLabel totalNum;
 	
-	 MyLabel nowTimeL;
-	 MyLabel nowTime;
+	protected MyLabel nowTimeL;
+	protected MyLabel nowTime;
 	
-	 MyLabel inputTime;
-	 MyLabel nowLoc;
-	 MyLabel infoin;
-	 MyLabel infoout;
+	protected MyLabel inputTime;
+	protected MyLabel nowLoc;
+	protected MyLabel infoin;
+	protected MyLabel infoout;
 	
-	MyDate nowDate;
-	MyDatePicker picker;
-	PanelController controller;
+	protected MyDate nowDate;
+	protected MyDatePicker picker;
+	protected PanelController controller;
 	
-	OrderInfoTable orderTable;
-	InStoreTablePanel inTable;
-	OutStoreTablePanel outTable; 
+	protected OrderInfoTable orderTable;
+	protected InStoreTablePanel inTable;
+	protected OutStoreTablePanel outTable; 
 	public StoreSingleShowPanel(Element config, StoreController bl, PanelController controller) {
 		super(config);
 		this.bl = bl;
@@ -148,7 +148,7 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 
 	}
 
-	class ShowListener extends MyPictureButtonListener{
+	public class ShowListener extends MyPictureButtonListener{
 
 		public ShowListener(MyPictureButton button) {
 			super(button);

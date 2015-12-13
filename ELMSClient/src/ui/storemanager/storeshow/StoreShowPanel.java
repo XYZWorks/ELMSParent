@@ -24,17 +24,17 @@ public class StoreShowPanel extends MyPanel {
 	
 	StoreController bl;
 	
-	private MyPictureButton confirmButton;
-	private MyPictureButton returnButton;
+	protected MyPictureButton confirmButton;
+	protected MyPictureButton returnButton;
 	
 	
-	private MyLabel centerL;
-	private MyLabel storeNum;
+	protected MyLabel centerL;
+	protected MyLabel storeNum;
 	
-	MyComboBox cityC;
-	MyComboBox storeC;
+	protected MyComboBox cityC;
+	protected MyComboBox storeC;
 	
-	StoreManagerController controller;
+	protected StoreManagerController controller;
 
 	public StoreShowPanel(Element config, StoreController bl, StoreManagerController controller) {
 		super(config);
