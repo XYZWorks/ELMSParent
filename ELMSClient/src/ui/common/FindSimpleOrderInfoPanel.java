@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import org.dom4j.Element;
 
 import bl.BusinessLogicDataFactory;
+import bl.orderbl.orderbl_stub;
 import blservice.orderblservice.Orderblservice;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
@@ -89,6 +90,9 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 
 		addCompoment();
 		addListener();
+		
+		readInfo();
+		
 		setVisible(true);
 		repaint();
 
@@ -151,6 +155,7 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 	@Override
 	protected void initOtherCompoment(Element e) {
 		orderblservice= BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
+		
 		DatePicker = new MyDatePicker(e.element("DatePicker"));
 		searchBox = new MySearchBox(e.element("searchBox"));
 	}
@@ -231,23 +236,23 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 			break;
 		// 中转中心到达单
 		case arriveZZDoc:
-			result = "";
+			result = "快递已到达"+place+"中转中心";
 			break;
 		// 入库单
 		case inStoreDoc:
-			result = "";
+			result = "快递已入库"+place+"中转中心";
 			break;
 		// 出库单
 		case outStoreDoc:
-			result = "";
+			result = "快递已出库"+place+"中转中心";
 			break;
 		// 接受单
 		case arriveYYDoc:
-			result = "";
+			result = "快件已到达" +place+"营业厅";
 			break;
 		// 派送单
 		case sendGoodDoc:
-			result = "";
+			result = "快递正在被"+place+"快递员派送";
 			break;
 		default:
 			break;

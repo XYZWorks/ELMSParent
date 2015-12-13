@@ -158,7 +158,8 @@ public class Order {
 			//派送单 
 			case "PSD":
 				SendGoodDocVO vop = (SendGoodDocVO) transportController.getByID(poString);
-				place = vop.sendCity.toString();
+				//传入派送员姓名
+				place = vop.sendMan.toString();
 				time = MyDate.toString(vop.date);
 				type=DocType.sendGoodDoc;
 				break;
