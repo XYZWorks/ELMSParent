@@ -3,20 +3,17 @@ package bl.storebl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import blservice.orderblservice.Orderblservice;
-import blservice.storeblservice.OutStoreDocService;
-import ds.storedataservice.StoreDataService;
 import po.DocPO;
-import po.store.InStoreDocPO;
 import po.store.OutStoreDocPO;
-import test.java.other.DataTool;
 import test.java.other.VOPOchange;
 import util.DocState;
 import util.DocType;
-import util.MyDate;
 import util.ResultMessage;
 import vo.DocVO;
 import vo.store.OutStoreDocVO;
+import blservice.orderblservice.Orderblservice;
+import blservice.storeblservice.OutStoreDocService;
+import ds.storedataservice.StoreDataService;
 
 /** 
  * @author ymc 
@@ -41,14 +38,15 @@ public class OutStoreDocImpl implements OutStoreDocService {
 //		generate((OutStoreDocVO)DataTool.getDocList(DocType.outStoreDoc).get(2));
 		try {
 			pos = storeData.getOut();
-			pos.size();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}catch (NullPointerException e) {
-			System.err.println("pos is null");
+		}
+		
+		if(pos == null){
 			return null;
 		}
+		
+		
 		ArrayList<OutStoreDocVO> vos = new ArrayList<OutStoreDocVO>(pos.size());
 		
 		for(OutStoreDocPO po : pos ){
@@ -110,17 +108,25 @@ public class OutStoreDocImpl implements OutStoreDocService {
 	}
 
 	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return storeData.changeDocsState(docsID, type, state);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
 	}
 
 	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return storeData.changeOneDocState(docID, type, state);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
 	}
 
 	public DocVO getByID(String ID) {
-		// TODO Auto-generated method stub
+		//TODO
 		return null;
 	}
 

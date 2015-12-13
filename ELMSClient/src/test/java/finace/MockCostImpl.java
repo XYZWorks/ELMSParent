@@ -1,5 +1,6 @@
 package test.java.finace;
 
+import ds.financedataservice.FinanceDataService;
 import bl.financebl.Cost;
 
 /** 
@@ -8,5 +9,10 @@ import bl.financebl.Cost;
  *
  */
 public class MockCostImpl extends Cost {
+
+	public MockCostImpl(FinanceDataService financeDataService) {
+		super(financeDataService);
+		// TODO Auto-generated constructor stub
+	}
 
 }

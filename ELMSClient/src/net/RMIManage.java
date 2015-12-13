@@ -33,6 +33,8 @@ public class RMIManage {
 		return true;
 	}
 	
+	//TODO 延迟加载 等到登录时再查询
+	
 	/**
 	 * 获取所需数据服务
 	 * @param name

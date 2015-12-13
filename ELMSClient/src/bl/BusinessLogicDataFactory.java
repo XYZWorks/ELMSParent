@@ -4,7 +4,6 @@ import bl.DTManagebl.DTManageController;
 import bl.accountbl.AccountController;
 import bl.approvalbl.ApprovalController;
 import bl.financebl.FinanceController;
-import bl.orderbl.OrderController;
 import bl.orderbl.orderbl_stub;
 import bl.personnelbl.PersonnelController;
 import bl.statisticbl.StatisticController;
@@ -39,12 +38,20 @@ public class BusinessLogicDataFactory {
 	private static BusinessLogicDataFactory factory;
 	
 	
+	
+	
 	private BusinessLogicDataFactory() {}
 	
 	private FinanceController financeController = new FinanceController();
-	
 	private StoreController storeController = new StoreController();
-	
+	private AccountController accountController = new AccountController();
+	private ApprovalController approvalController =new ApprovalController();
+	private DTManageController dtManageController = new DTManageController();
+	private UserController userController = new UserController();
+	private StrategyController strategyController = new StrategyController();
+	private PersonnelController personnelController = new PersonnelController();
+	private StatisticController statisticController = new StatisticController();
+	private TransportController transportController = new TransportController();
 	public static BusinessLogicDataFactory getFactory(){
 		if(factory == null){
 			factory = new BusinessLogicDataFactory();
@@ -70,33 +77,33 @@ public class BusinessLogicDataFactory {
 	}
 	
 	public Accountblservice getAccountBusinessLogic(){
-		return new AccountController();
+		return accountController;
 	}
 	
 	public Approvalblservice getApprovalBusinessLogic(){
-		return new ApprovalController();
+		return approvalController;
 	}
 	
 	public DTManageblservice getDTManageBusinessLogic(){
-		return new DTManageController();
+		return dtManageController;
 	}
 	
 	public UserMesblservice getUserMesBusinessLogic(){
-		return new UserController();
+		return userController;
 		
 		
 	}
 	
 	public StrategyblService getStrategyBusinessLogic(){
-		return new StrategyController();
+		return strategyController;
 	}
 	
 	public Personnelblservice getPersonnelBusinessLogic(){
-		return new PersonnelController();
+		return personnelController;
 	}
 	
 	public Statisticblservice getStatisticBusinessLogic(){
-		return new StatisticController();
+		return statisticController;
 	}
 	
 
@@ -106,11 +113,11 @@ public class BusinessLogicDataFactory {
 	}
 	
 	public StrategyblService getStrategyBussinessLogic(){
-		return new StrategyController();
+		return strategyController;
 	}
 
 	public Transportblservice getTransportblservice(){
-		return new TransportController();
+		return transportController;
 	}
 	
 	public InStoreDocService getInstoreService(){

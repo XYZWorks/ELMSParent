@@ -4,6 +4,8 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.store.StoreCheckPO;
+import po.store.StoreMessagePO;
+import test.java.other.VOPOchange;
 import util.City;
 import util.ResultMessage;
 import vo.store.StoreCheckVO;
@@ -23,13 +25,29 @@ public class Store {
 	}
 	
 	public ArrayList<StoreMessageVO> show() {
-		ArrayList<StoreMessageVO> pos = storeData.g();
-		return storeData.getStoreMessage();
+//		ArrayList<StoreMessageVO> pos = storeData.g();
+//		return storeData.getStoreMessage();
+		//TODO
+		return null;
 	}
 
 	public ArrayList<StoreCheckVO> showCheck() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<StoreCheckPO> pos = null;
+		try {
+			pos = storeData.getCheck();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		
+		if(pos == null){
+			return null;
+		}
+		ArrayList<StoreCheckVO> vos = new ArrayList<>(pos.size());
+		for (StoreCheckPO storeCheckPO : pos) {
+			vos.add((StoreCheckVO) VOPOchange.POtoVO(storeCheckPO));
+		}
+		
+		return vos;
 	}
 
 	public ResultMessage exportExcel(String path) {
@@ -38,8 +56,14 @@ public class Store {
 	}
 
 	public ResultMessage update(StoreMessageVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		StoreMessagePO po = (StoreMessagePO) VOPOchange.VOtoPO(vo);
+		
+		try {
+			return storeData.update(po);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
 	}
 
 	public ResultMessage setAlarmValue(String value,City city) {

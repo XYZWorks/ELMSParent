@@ -3,20 +3,15 @@ package bl.storebl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import blservice.approvalblservice.Approvalblservice;
-import blservice.orderblservice.Orderblservice;
-import blservice.storeblservice.InStoreDocService;
-import ds.storedataservice.StoreDataService;
-import net.RMIManage;
+import po.DocPO;
 import po.store.InStoreDocPO;
-import test.java.other.DataTool;
 import test.java.other.VOPOchange;
-import util.DataServiceType;
 import util.DocState;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
 import vo.store.InStoreDocVO;
+import ds.storedataservice.StoreDataService;
 
 /** 
  * @author ymc 
@@ -26,8 +21,6 @@ import vo.store.InStoreDocVO;
 public class InStoreDocImpl  {
 	
 	private StoreDataService storeData;
-	private Approvalblservice approvalbl;
-	private Orderblservice orderbl;
 	
 	public InStoreDocImpl(StoreDataService storeDataService) {
 		storeData = storeDataService;
@@ -38,14 +31,14 @@ public class InStoreDocImpl  {
 		
 		try {
 			pos = storeData.getIn();
-			pos.size();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}catch (NullPointerException e) {
-			System.err.println("pos is null");
+		}
+		
+		if(pos == null){
 			return null;
 		}
+		
 		ArrayList<InStoreDocVO> vos = new ArrayList<InStoreDocVO>(pos.size());
 		
 		for(InStoreDocPO po : pos ){
@@ -60,26 +53,49 @@ public class InStoreDocImpl  {
 		try {
 			return storeData.addIn(po);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return ResultMessage.FAIL;
 	}
 
-	public ArrayList<DocVO> getDocLists(DocType type) {
-		return null;
+	public ArrayList< ? extends DocVO> getDocLists(DocType type) {
+		ArrayList<? extends DocPO> pos = null;
+		try {
+			pos = storeData.getDocLists(DocType.inStoreDoc);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		} 
+		
+		if(pos == null){
+			return null;
+		}
+		
+		ArrayList<InStoreDocVO> vos = new ArrayList<>(pos.size());
+		for (int i = 0; i < pos.size(); i++) {
+			vos.add((InStoreDocVO) VOPOchange.POtoVO(pos.get(i)));
+		}
+		
+		return vos;
 	}
 
 
 
 	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return storeData.changeDocsState(docsID, type, state);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
 	}
 
 	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return storeData.changeOneDocState(docID, type, state);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
 	}
 	public DocVO getByID(String iD) {
 		// TODO Auto-generated method stub

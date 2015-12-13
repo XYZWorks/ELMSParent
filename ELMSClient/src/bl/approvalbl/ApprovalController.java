@@ -10,7 +10,6 @@ import blservice.approvalblservice.Approvalblservice;
 import blservice.orderblservice.Orderblservice;
 import blservice.storeblservice.InStoreDocService;
 import blservice.storeblservice.OutStoreDocService;
-import blservice.storeblservice.StoreblService;
 import blservice.transportblservice.Transportblservice;
 
 /**
@@ -31,7 +30,6 @@ public class ApprovalController implements Approvalblservice {
 		inStoreDocService = BusinessLogicDataFactory.getFactory().getInstoreService();
 		outStoreDocService = BusinessLogicDataFactory.getFactory().getOutStoreService();
 		orderbl = BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
-		//TODO bl由谁而来
 		
 		
 		approval = new Approval(transportbl, orderbl, inStoreDocService, outStoreDocService);

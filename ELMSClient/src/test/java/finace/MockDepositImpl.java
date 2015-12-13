@@ -1,5 +1,6 @@
 package test.java.finace;
 
+import ds.financedataservice.FinanceDataService;
 import bl.financebl.Deposit;
 
 /** 
@@ -8,5 +9,10 @@ import bl.financebl.Deposit;
  *
  */
 public class MockDepositImpl extends Deposit {
+
+	public MockDepositImpl(FinanceDataService financeDataService) {
+		super(financeDataService);
+		// TODO Auto-generated constructor stub
+	}
 
 }
