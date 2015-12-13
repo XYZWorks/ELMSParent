@@ -35,19 +35,19 @@ public class inputReceiveTablePanel extends MyTablePanel{
 	
 	@Override
 	protected void initialTitleAndColumn(Element config) {
-		columnNames = MyTablePanel.getColumnName(config
-				.attributeValue("column"));
-		pre = bl.getPreReceive();
-
-		if (pre != null) {
-			for (int i = 0; i < pre.size(); i++) {
-				data[i][0] = pre.get(i).barCode;
-				data[i][1] = pre.get(i).address;
-				data[i][2] = pre.get(i).name;
-				data[i][3] = pre.get(i).realReceiver;
-				data[i][4] = pre.get(i).receiveTime;
-			}
-		}
+//		columnNames = MyTablePanel.getColumnName(config
+//				.attributeValue("column"));
+//		pre = bl.getPreReceive();
+//
+//		if (pre != null) {
+//			for (int i = 0; i < pre.size(); i++) {
+//				data[i][0] = pre.get(i).barCode;
+//				data[i][1] = pre.get(i).address;
+//				data[i][2] = pre.get(i).name;
+//				data[i][3] = pre.get(i).realReceiver;
+//				data[i][4] = pre.get(i).receiveTime;
+//			}
+//		}
 
 		
 	}

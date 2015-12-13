@@ -162,7 +162,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		super(config);
 		this.orderblservice = orderblservice;
 		this.strategyblService = strategyblService;
-		constVO = strategyblService.getConst();
+		//constVO = strategyblService.getConst();
 
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
