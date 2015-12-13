@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import org.dom4j.Element;
 
 import ui.tools.CheckDocPanel;
+import ui.tools.MyLabel;
 import blservice.transportblservice.Transportblservice;
  /** 
  * 派送单查看界面
@@ -13,6 +14,8 @@ import blservice.transportblservice.Transportblservice;
  */
 @SuppressWarnings("serial")
 public class SendGoodDocCheckPanel extends CheckDocPanel {
+	
+	private MyLabel title;
 	
 	Transportblservice bl;
 	SendGoodMesTable myTable;
@@ -34,7 +37,7 @@ public class SendGoodDocCheckPanel extends CheckDocPanel {
 
 	@Override
 	protected void initialDifferComp(Element e) {
-		// TODO Auto-generated method stub
+		title = new MyLabel(e.element("title"));// TODO Auto-generated method stub
 
 	}
 
@@ -47,7 +50,7 @@ public class SendGoodDocCheckPanel extends CheckDocPanel {
 
 	@Override
 	protected void addDifferComp() {
-		// TODO Auto-generated method stub
+		add(title);// TODO Auto-generated method stub
 		
 	}
 

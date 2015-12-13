@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 import org.dom4j.Element;
 
 import ui.tools.CheckDocPanel;
+import ui.tools.MyLabel;
 import blservice.transportblservice.Transportblservice;
 /**
  * 接收单查看界面
@@ -13,7 +14,9 @@ import blservice.transportblservice.Transportblservice;
  */
 @SuppressWarnings("serial")
 public class ArriveYYDocCheckPanel extends CheckDocPanel{
-
+	
+	private MyLabel title;
+	
 	Transportblservice bl;
 	ArriveYYDocMesTable myTable;
 
@@ -44,7 +47,7 @@ public class ArriveYYDocCheckPanel extends CheckDocPanel{
 
 	@Override
 	protected void initialDifferComp(Element e) {
-		
+		title = new MyLabel(e.element("title"));
 	}
 
 	
@@ -54,7 +57,7 @@ public class ArriveYYDocCheckPanel extends CheckDocPanel{
 
 	@Override
 	protected void addDifferComp() {
-		// TODO Auto-generated method stub
+		add(title);// TODO Auto-generated method stub
 		
 	}
 

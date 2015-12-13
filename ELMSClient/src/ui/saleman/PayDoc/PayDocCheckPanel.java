@@ -6,6 +6,7 @@ import org.dom4j.Element;
 
 import blservice.transportblservice.Transportblservice;
 import ui.tools.CheckDocPanel;
+import ui.tools.MyLabel;
  /** 
  * 付款单查看界面
  * @author czq 
@@ -13,7 +14,8 @@ import ui.tools.CheckDocPanel;
  */
 @SuppressWarnings("serial")
 public class PayDocCheckPanel extends CheckDocPanel{
-
+	
+	private MyLabel title;
 	public PayDocCheckPanel(Element config, JPanel changePanel , String checkDocName , String addDocName, Transportblservice transportblservice) {
 		super(config, changePanel , checkDocName , addDocName);
 
@@ -30,6 +32,7 @@ public class PayDocCheckPanel extends CheckDocPanel{
 
 	@Override
 	protected void initialDifferComp(Element e) {
+		title = new MyLabel(e.element("title"));
 		// TODO Auto-generated method stub
 		
 	}
@@ -42,7 +45,7 @@ public class PayDocCheckPanel extends CheckDocPanel{
 
 	@Override
 	protected void addDifferComp() {
-		// TODO Auto-generated method stub
+		add(title);// TODO Auto-generated method stub
 		
 	}
 

@@ -540,7 +540,7 @@
 						type="confirm" />
 					<cancel x="707" y="560" width="115" height="40" text="取消"
 						type="cancel" />
-					<back x="650" y="560" width="115" height="40" text="返回" type="cancel" />
+					<back x="0" y="0" width="53" height="53" text="返回" type="back" />
 				</BUTTONS>
 				<TEXTFIELDS>
 					<money x="345" y="271" width="276" height="40" />
@@ -658,15 +658,15 @@
 			</mainWindow>
 			<loadDocShowpanel x="232" y="54" width="848" height="637">
 				<loadDocShowpanelAddPanel x="232" y="54"
-					width="1080" height="637">
+					width="848" height="637">
 					<BUTTONS>
-						<confirm x="550" y="560" width="115" height="40" text="确认"
-							type="confirm" />
-						<cancel x="700" y="560" width="115" height="40" text="取消"
-							type="cancel" />
-						<back x="625" y="560" width="115" height="40" text="返回" type="confirm" />
-						<addOrder x="400" y="560" width="115" height="40" text="增加订单"
-							type="confirm" />
+						<confirm x="560" y="560" width="115" height="40" text="确认"
+						type="confirm" />
+						<cancel x="707" y="560" width="115" height="40" text="取消"
+						type="cancel" />
+						<back x="0" y="0" width="53" height="53"  type="back" />
+						<addOrder x="400" y="560" width="115" height="40" 
+							type="add" />
 					</BUTTONS>
 					<LABELS>
 					<id x="50" y="50" width="115" height="40"
@@ -699,13 +699,14 @@
 					<table x="50" y="50" width="200" height="50" column = "序号 ID"/>
 				</loadDocShowpanelAddPanel>
 				
-				<addDoc x="550" y="560" width="115" height="40" text="增加"
-					type="rectangle" />
-				<search x="300" y="0" />
-				<datepicker x="0" y="0" width="250" height="50" />
-				<table x="200" y="100" width="550" height="400" column = "ID 日期 营业厅编号 汽运编号 到达地 车辆ID 监运员 押送员 订单数量"/>
-				<searchButton x="700" y="0" width="115" height="40"
-					text="搜索" type="rectangle" />
+				<addDoc x="700" y="80" width="40" height="40" 
+					type="add" />
+				<title x="48" y="36" width="200" height="28" text="装车单列表" fontName="华文细黑" size="26"/>
+				<search x="48" y="80" />
+				<datepicker x="758" y="80" width="40" height="40" />
+				<table x="48" y="150" width="750" height="420" column = "ID 日期 营业厅编号 汽运编号 到达地 车辆ID 监运员 押送员 订单数量"/>
+				<searchButton x="380" y="80" width="115" height="40"
+					text="搜索"  type = "cancel"/>
 
 			</loadDocShowpanel>
 			<arriveYYDocShowPanel x="232" y="54" width="848"
@@ -741,14 +742,15 @@
 					<goodState x="50" y="50" width="150" height="50" strings = "完好 损坏"/>
 					<table x="50" y="50" width="200" height="50" column = "序号 ID"/>
 				</arriveYYDocShowPanelAddPanel>
-				<addDoc x="550" y="560" width="115" height="40" text="增加"
-					type="rectangle" />
-				<search x="300" y="0" />
-				<datepicker x="0" y="0" width="250" height="50" />
-				<table x="200" y="100" width="550" height="400" column = "ID 日期 中转中心编号 出发地 货物状态 单据数量"/>
-
-				<searchButton x="700" y="0" width="115" height="40"
-					text="搜索" type="rectangle" />
+				
+				<addDoc x="700" y="80" width="40" height="40" 
+					type="add" />
+				<title x="48" y="36" width="200" height="28" text="接收单列表" fontName="华文细黑" size="26"/>
+				<search x="48" y="80" />
+				<datepicker x="758" y="80" width="40" height="40" />
+				<table x="48" y="150" width="750" height="420" column = "ID 日期 中转中心编号 出发地 货物状态 单据数量"/>
+				<searchButton x="380" y="80" width="115" height="40"
+					text="搜索"  type = "cancel"/>
 			</arriveYYDocShowPanel>
 			<sendGoodDocShowPanel x="232" y="54" width="848"
 				height="637">
@@ -778,13 +780,14 @@
 					<datepicker x="50" y="50" width="200" height="50" />
 					<sendCity x="50" y="50" width="150" height="50" strings = "南京 北京 上海 广州"/>
 				</sendGoodDocShowPanelAddPanel>
-				<addDoc x="550" y="560" width="115" height="40" text="增加"
-					type="rectangle" />
-				<search x="300" y="0" />
-				<datepicker x="0" y="0" width="250" height="50" />
-				<table x="200" y="100" width="550" height="400" column = "ID 日期 送货员 订单号 到达地"/>
-				<searchButton x="700" y="0" width="115" height="40"
-					text="搜索" type="rectangle" />
+				<addDoc x="700" y="80" width="40" height="40" 
+					type="add" />
+				<title x="48" y="36" width="200" height="28" text="派送单列表" fontName="华文细黑" size="26"/>
+				<search x="48" y="80" />
+				<datepicker x="758" y="80" width="40" height="40" />
+				<table x="48" y="150" width="750" height="420" column = "ID 日期 送货员 订单号 到达地"/>
+				<searchButton x="380" y="80" width="115" height="40"
+					text="搜索"  type = "cancel"/>
 			</sendGoodDocShowPanel>
 			<payDocShowPanel x="232" y="54" width="848" height="637">
 				<payDocShowPanelAddPanel x="232" y="54"
@@ -815,14 +818,14 @@
 					<table x="50" y="50" width="150" height="50" column = "ID 金额 营业厅编号 日期 快递员"/>
 
 				</payDocShowPanelAddPanel>
-				<addDoc x="550" y="560" width="115" height="40" text="增加"
-					type="rectangle" />
-				<search x="300" y="0" />
-				<datepicker x="0" y="0" width="250" height="50" />
-				<table x="200" y="100" width="550" height="400" />
-				<searchButton x="700" y="0" width="115" height="40"
-					text="搜索" type="rectangle" />
-
+				<addDoc x="700" y="80" width="40" height="40" 
+					type="add" />
+				<title x="48" y="36" width="200" height="28" text="付款单列表" fontName="华文细黑" size="26"/>
+				<search x="48" y="80" />
+				<datepicker x="758" y="80" width="40" height="40" />
+				<table x="48" y="150" width="750" height="420" column = "ID 日期 "/>
+				<searchButton x="380" y="80" width="115" height="40"
+					text="搜索"  type = "cancel"/>
 			</payDocShowPanel>
 			<driverInfoManagePanel x="232" y="54" width="848"
 				height="637">

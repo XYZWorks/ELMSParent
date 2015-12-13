@@ -116,7 +116,8 @@ public abstract class CheckDocPanel extends JPanel{
 		add(datePicker);
 		add(addDoc);
 		add(addDocPanel);
-		add(messageTable);add(search);
+		add(messageTable);
+		add(search);
 	}
 	
 	/**

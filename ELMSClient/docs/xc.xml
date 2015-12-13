@@ -326,8 +326,6 @@
 						height="29" />
 					<senderUnitText x="112" y="355" width="276" height="29" />
 
-
-
 					<receiverInfo text="收件人" x="0" y="0" width="114"
 						height="40" type="rectangle" />
 					<receiverNameLabel text="姓名" x="20" y="63" width="36"
@@ -348,9 +346,6 @@
 						height="29" />
 					<receiverUnitText x="497" y="355" width="276"
 						height="29" />
-
-
-
 
 					<goodsInfo text="货物信息" x="0" y="0" width="114" height="40"
 						type="rectangle" />

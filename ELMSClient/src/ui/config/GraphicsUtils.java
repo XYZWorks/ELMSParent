@@ -44,6 +44,8 @@ public class GraphicsUtils {
 		labelPictureMap.put("delete", new ButtonOrLabelPicture("element//delete","element//delete-enter","element//delete-clicked"));
 		
 		labelPictureMap.put("modify", new ButtonOrLabelPicture("element//modify","element//modify-enter","element//modify-clicked"));
+		
+		labelPictureMap.put("back", new ButtonOrLabelPicture("element//back","element//back-enter","element//back-clicked"));
 	}
 	
 	public static final ButtonOrLabelPicture getButtonLabelPic(String type){
