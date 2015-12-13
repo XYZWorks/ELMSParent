@@ -536,26 +536,28 @@
 			</BulidStateFromPanel>
 			<BulidPayPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
-					<confirm x="500" y="560" width="115" height="40" text="确认"
+					<confirm x="560" y="560" width="115" height="40" text="确认"
 						type="confirm" />
-					<cancel x="650" y="560" width="115" height="40" text="取消"
+					<cancel x="707" y="560" width="115" height="40" text="取消"
 						type="cancel" />
-					<add x="500" y="560" width="115" height="40" text="增加" type="confirm" />
+					<add x="642" y="65" width="40" height="40" 
+						 type="add" />
 					<back x="650" y="560" width="115" height="40" text="返回" type="cancel" />
 				</BUTTONS>
 				<TEXTFIELDS>
-					<money x="650" y="560" width="115" height="40" />
+					<money x="345" y="271" width="276" height="40" />
 				</TEXTFIELDS>
 				<LABELS>
-					<money x="500" y="560" width="115" height="40" text="金额" />
-					<password x="500" y="560" width="115" height="40" text="类型" />
-					<time x="500" y="560" width="115" height="40" text="时间" />
+					<title x="48" y="36" width="200" height="28" text="新建付款单" fontName="华文细黑" size="26"/>
+					<money x="200" y="271" width="115" height="40" text="金额" type="rectangle" />
+					<password x="200" y="341" width="115" height="40" text="类型" type="rectangle" />
+					<time x="200" y="201" width="115" height="40" text="时间" type="rectangle" />
 				</LABELS>
-				<type x="500" y="560" width="115" height="40" strings="1 2" />
+				<type x="345" y="341" width="276" height="40" strings="1 2" />
 				<table x="500" y="560" width="115" height="40" columm="1 2" />
-				<datepicker x="596" y="0" width="200" height="50">
-					<field x="596" y="0" width="150" height="50" />
-					<button x="746" y="0" width="50" height="50" type="rectangle" />
+				<datepicker x="345" y="201" width="276" height="40">
+					<field x="345" y="201" width="236" height="40" />
+					<button x="581" y="201" width="40" height="40" type="rectangle" />
 				</datepicker>
 
 			</BulidPayPanel>

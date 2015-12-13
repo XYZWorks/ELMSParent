@@ -33,13 +33,13 @@ public class BulidPayPanel extends MyPanel {
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
 	private MyPictureButton addPay;
-	private MyPictureButton back;
 
 	private PayTable table;
-
-	private MyLabel time;
-	private MyLabel type;
-	private MyLabel money;
+	private MyLabel title;
+	
+	private MyPictureLabel time;
+	private MyPictureLabel type;
+	private MyPictureLabel money;
 
 	private MyDatePicker datePicker;
 	private MyComboBox typeT;
@@ -62,7 +62,6 @@ public class BulidPayPanel extends MyPanel {
 		confirm = new MyPictureButton(e.element("confirm"));
 		cancel = new MyPictureButton(e.element("cancel"));
 		addPay = new MyPictureButton(e.element("add"));
-		back = new MyPictureButton(e.element("back"));
 	}
 
 	@Override
@@ -77,6 +76,7 @@ public class BulidPayPanel extends MyPanel {
 		money = new MyPictureLabel(e.element("money"));
 		type = new MyPictureLabel(e.element("password"));
 		time = new MyPictureLabel(e.element("time"));
+		title = new MyPictureLabel(e.element("title"));
 	}
 
 	@Override
@@ -90,7 +90,7 @@ public class BulidPayPanel extends MyPanel {
 	protected void addCompoment() {
 		add(datePicker);
 		add(addPay);
-		add(back);
+		add(title);
 		add(cancel);
 		add(confirm);
 		add(money);
@@ -99,6 +99,7 @@ public class BulidPayPanel extends MyPanel {
 		add(time);
 		add(type);
 		add(typeT);
+		add(title);
 
 	}
 
