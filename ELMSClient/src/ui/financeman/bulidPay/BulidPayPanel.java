@@ -32,7 +32,6 @@ public class BulidPayPanel extends MyPanel {
 
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
-	private MyPictureButton addPay;
 
 	private PayTable table;
 	private MyLabel title;
@@ -61,7 +60,7 @@ public class BulidPayPanel extends MyPanel {
 	protected void initButtons(Element e) {
 		confirm = new MyPictureButton(e.element("confirm"));
 		cancel = new MyPictureButton(e.element("cancel"));
-		addPay = new MyPictureButton(e.element("add"));
+	
 	}
 
 	@Override
@@ -89,7 +88,7 @@ public class BulidPayPanel extends MyPanel {
 	@Override
 	protected void addCompoment() {
 		add(datePicker);
-		add(addPay);
+	
 		add(title);
 		add(cancel);
 		add(confirm);

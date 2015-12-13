@@ -540,8 +540,6 @@
 						type="confirm" />
 					<cancel x="707" y="560" width="115" height="40" text="取消"
 						type="cancel" />
-					<add x="642" y="65" width="40" height="40" 
-						 type="add" />
 					<back x="650" y="560" width="115" height="40" text="返回" type="cancel" />
 				</BUTTONS>
 				<TEXTFIELDS>
