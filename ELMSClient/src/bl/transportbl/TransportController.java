@@ -1,17 +1,22 @@
 package bl.transportbl;
 
 import java.util.ArrayList;
-import util.MyDate;
+
+import net.RMIManage;
+import util.DataServiceType;
 import util.DocState;
 import util.DocType;
+import util.MyDate;
 import util.ResultMessage;
 import vo.DocVO;
+import vo.store.OutStoreDocVO;
 import vo.transport.ArriveYYDocVO;
 import vo.transport.ArriveZZDocVO;
 import vo.transport.LoadDocVO;
 import vo.transport.SendGoodDocVO;
 import vo.transport.TransferDocVO;
 import blservice.transportblservice.Transportblservice;
+import ds.transportdataservice.Transportdataservice;
  /** 
  * 货物流转controller类
  * @author czq 
@@ -19,10 +24,10 @@ import blservice.transportblservice.Transportblservice;
  */
 public class TransportController implements Transportblservice{
 
-	Transport transport ;
-	
+	private Transport transport ;
+	private Transportdataservice transportData = (Transportdataservice) RMIManage.getDataService(DataServiceType.TransportDataService);
 	public TransportController() {
-		transport = new Transport();
+		transport = new Transport(transportData);
 	}
 	public ResultMessage add(LoadDocVO vo) {
 		return transport.add(vo);
@@ -57,7 +62,7 @@ public class TransportController implements Transportblservice{
 	}
 
 	public ResultMessage add(TransferDocVO vo) {
-		return transport.add(vo);
+		return transport.addTransferDoc(vo);
 	}
 
 	public ArrayList<TransferDocVO> getDayTransferDocs(MyDate date) {
@@ -69,8 +74,8 @@ public class TransportController implements Transportblservice{
 	}
 
 
-	public double getExpense(ArriveZZDocVO arriveVO, TransferDocVO transferVO) {
-		return transport.getExpense(arriveVO,transferVO);
+	public double getExpense(OutStoreDocVO outStoreVO, TransferDocVO transferVO) {
+		return transport.getExpense(outStoreVO,transferVO);
 	}
 
 	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {

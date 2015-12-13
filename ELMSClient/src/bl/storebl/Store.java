@@ -3,9 +3,6 @@ package bl.storebl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bl.approvalbl.Approval;
-import blservice.approvalblservice.Approvalblservice;
-import blservice.approvalblservice.Approvalblservice_Stub;
 import util.City;
 import util.ResultMessage;
 import vo.store.StoreCheckVO;

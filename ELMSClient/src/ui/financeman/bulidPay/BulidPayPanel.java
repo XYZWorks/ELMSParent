@@ -4,9 +4,6 @@ import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
 
-import com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource;
-
-import blservice.financeblservice.PayService;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
@@ -18,6 +15,7 @@ import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
+import blservice.financeblservice.PayService;
 
 /**
  * 新建付款单

@@ -24,12 +24,6 @@ public class OutStoreDocVO extends DocVO{
 	 */
 	public City loc;
 	/**
-	 * 时间
-	 */
-	//继承 edited by czq
-//	public String time;
-	
-	/**
 	 * 对应中转单编号
 	 */
 	public String transferDoc;
@@ -38,7 +32,6 @@ public class OutStoreDocVO extends DocVO{
 	 */
 	public TransferWay shipWay;
 	public OutStoreDocVO() {
-		// TODO Auto-generated constructor stub
 	}
 	/**
 	 * 

@@ -14,11 +14,8 @@ import vo.DocVO;
  */
 public class TransferDocVO extends DocVO{
 	
-//	/**
-//	 * 中转单ID
-//	 */
-//	public int TransferDocID;
-	//继承
+
+	
 	/**
 	 * 航班号/车次/车牌号
 	 */
@@ -40,7 +37,6 @@ public class TransferDocVO extends DocVO{
 	 */
 	public ArrayList<String> orderBarCode;
 	public TransferDocVO() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	public TransferDocVO(String iD, util.MyDate date,

@@ -4,15 +4,12 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import net.RMIManage;
-import po.account.AccountPO;
 import po.finance.BankAccountPO;
-import ds.financedataservice.FinanceDataService;
-import blservice.financeblservice.BankAccountBusinessService;
 import test.java.other.VOPOchange;
 import util.DataServiceType;
 import util.ResultMessage;
-import vo.account.AccountVO;
 import vo.finance.BankAccountVO;
+import ds.financedataservice.FinanceDataService;
  /** 
  * 
  * @author czq 
@@ -66,7 +63,6 @@ public class BankAccount {
 		try {
 			return dataService.addAccount((BankAccountPO) VOPOchange.VOtoPO(vo));
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return ResultMessage.FAIL;

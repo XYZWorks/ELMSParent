@@ -30,14 +30,9 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 	
 	private OutStoreDocImpl outStoreDocImpl;
 	
-	private StoreDataService storeDataService;
+	private StoreDataService storeDataService = (StoreDataService) RMIManage.getDataService(DataServiceType.StoreDataService);
+	
 	public StoreController() {
-		storeDataService = (StoreDataService) RMIManage.getDataService(DataServiceType.StoreDataService);
-//		try {
-//			storeDataService.initial();
-//		} catch (RemoteException e) {
-//			e.printStackTrace();
-//		}
 		store = new Store(storeDataService);
 		inStoreDocImpl = new InStoreDocImpl(storeDataService);
 		outStoreDocImpl = new OutStoreDocImpl(storeDataService);
@@ -60,7 +55,14 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 
 
 	public ArrayList<DocVO> getDocLists(DocType type) {
-		return null;
+		switch (type) {
+		case inStoreDoc:
+			return inStoreDocImpl.getDocLists(type);
+		case outStoreDoc:
+			return outStoreDocImpl.getDocLists(type);
+		default:
+			return null;
+		}
 	}
 
 
@@ -83,12 +85,25 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 	}
 
 	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
-		return null;
+		switch (type) {
+		case inStoreDoc:
+			return inStoreDocImpl.changeDocsState(docsID, type, state);
+		case outStoreDoc:
+			return outStoreDocImpl.changeDocsState(docsID, type, state);
+		default:
+			return null;
+		}
 	}
 
 	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
-		// TODO Auto-generated method stub
-		return null;
+		switch (type) {
+		case inStoreDoc:
+			return inStoreDocImpl.changeOneDocState(docID, type, state);
+		case outStoreDoc:
+			return outStoreDocImpl.changeOneDocState(docID, type, state);
+		default:
+			return null;
+		}
 	}
 
 
@@ -97,7 +112,7 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 	}
 
 	public String getAlarmValue(String city) {
-		// TODO Auto-generated method stub
+		//TODO 
 		return null;
 	}
 	public DocVO getByID(String ID) {

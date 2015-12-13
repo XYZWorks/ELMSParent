@@ -20,14 +20,7 @@ public class ArriveZZDocVO extends DocVO {
 	 * 中转中心编号
 	 */
 	public String zZID;
-	// /**
-	// * 到达日期
-	// */
-	// public Date arriveDate;
-	// /**
-	// * 中转单编号
-	// */
-	// public int TransferDocID;
+
 	/**
 	 * 出发地
 	 */
@@ -42,7 +35,6 @@ public class ArriveZZDocVO extends DocVO {
 	public ArrayList<String> orderBarCodes;
 	
 	public ArriveZZDocVO() {
-		// TODO Auto-generated constructor stub
 	}
 	public ArriveZZDocVO(String iD, MyDate date, String zZID, City sendCity,
 			GoodsState goodState,ArrayList<String> orderBarCodes) {
