@@ -17,8 +17,12 @@ import ds.financedataservice.FinanceDataService;
  */
 public class BankAccount {
 	
-	FinanceDataService dataService = (FinanceDataService) RMIManage.getDataService(DataServiceType.FinanceDataService);
+	FinanceDataService dataService ;
 	
+	public BankAccount(FinanceDataService financeDataService) {
+		this.dataService = financeDataService;
+	}
+
 	public ArrayList<BankAccountVO> getAccounts() {
 		ArrayList<BankAccountVO> vos = null;
 		try {

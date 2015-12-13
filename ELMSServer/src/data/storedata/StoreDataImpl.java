@@ -54,14 +54,15 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService{
 		addToSQL(alarmTable, City.SHANGHAI.name() , "0");
 	}
  
-	public StoreMessagePO getStoreMessage() throws RemoteException {
+	public ArrayList<StoreMessagePO> getStoreMessage() throws RemoteException {
 		Object ob = helper.readFromSerFile(storeMessage);
+		ArrayList<Object> obs = helper
 		if(ob == null){
 			return null;
 		}else{
 			return (StoreMessagePO) ob;
 		}
-	}
+	}                
 
 	public ResultMessage addIn(InStoreDocPO po) throws RemoteException {
 		

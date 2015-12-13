@@ -81,7 +81,7 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 	//	System.out.println("findsimpleorder!!");
 		this.parent = parent;
 		this.orderBarCode = BarCodeText;
-
+		orderblservice= new orderbl_stub();
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
@@ -90,9 +90,10 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 
 		addCompoment();
 		addListener();
-		
+//		
 		readInfo();
 		
+		validate();
 		setVisible(true);
 		repaint();
 
@@ -140,10 +141,10 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		nine = new MyLabel(e.element("Nine"));
 		ten = new MyLabel(e.element("Ten"));
 
-		one = new MyLabel(e.element("OneText"));
-		two = new MyLabel(e.element("TwoText"));
-		three = new MyLabel(e.element("ThreeText"));
-		four = new MyLabel(e.element("FourText"));
+		oneText = new MyLabel(e.element("OneText"));
+		twoText = new MyLabel(e.element("TwoText"));
+		threeText = new MyLabel(e.element("ThreeText"));
+		fourText = new MyLabel(e.element("FourText"));
 		fiveText = new MyLabel(e.element("FiveText"));
 		sixText = new MyLabel(e.element("SixText"));
 		sevenText = new MyLabel(e.element("SevenText"));
@@ -154,7 +155,7 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		orderblservice= BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
+		
 		
 		DatePicker = new MyDatePicker(e.element("DatePicker"));
 		searchBox = new MySearchBox(e.element("searchBox"));
@@ -216,6 +217,7 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 				tenText };
 		for (int i = 0; i < length; i++) {
 			place[i].setText(processPlace(info.get(i).place, info.get(i).type, i));
+			
 			time[i].setText(processTime(info.get(i).time));
 		}
 
@@ -225,6 +227,7 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		} else {
 			LineRight.setVisible(true);
 		}
+		
 	}
 
 	private String processPlace(String place, DocType type, int i) {

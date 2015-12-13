@@ -159,10 +159,7 @@ public class Transport {
 			return null; 
 		}
 
-		if (pos == null) {
-			return null;
-		}
-
+		
 		for (ArriveYYDocPO po : pos) {
 			if (po.getDate().equals(date)) {
 				vos.add((ArriveYYDocVO) VOPOchange.POtoVO(po));

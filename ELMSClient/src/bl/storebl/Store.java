@@ -1,14 +1,13 @@
 package bl.storebl;
 
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import po.store.StoreCheckPO;
 import util.City;
 import util.ResultMessage;
 import vo.store.StoreCheckVO;
 import vo.store.StoreMessageVO;
 import ds.storedataservice.StoreDataService;
-import po.store.StoreMessagePO;
 
 /** 
  * @author ymc 
@@ -16,21 +15,15 @@ import po.store.StoreMessagePO;
  *
  */
 public class Store {
-	StoreDataService storeData;
+	private StoreDataService storeData;
 
 	public Store(StoreDataService storeDataService) {
 		storeData = storeDataService;
 	}
 	
 	public ArrayList<StoreMessageVO> show() {
-		StoreMessagePO pos = new StoreMessagePO();
-		try {
-			pos = storeData.getStoreMessage();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
+		ArrayList<StoreMessageVO> pos = storeData.g();
+		return storeData.getStoreMessage();
 	}
 
 	public ArrayList<StoreCheckVO> showCheck() {

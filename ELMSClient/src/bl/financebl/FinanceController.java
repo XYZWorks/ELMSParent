@@ -2,6 +2,8 @@ package bl.financebl;
 
 import java.util.ArrayList;
 
+import net.RMIManage;
+import util.DataServiceType;
 import util.ResultMessage;
 import vo.finance.BankAccountVO;
 import vo.finance.CostVO;
@@ -13,6 +15,7 @@ import blservice.financeblservice.CostService;
 import blservice.financeblservice.DepositService;
 import blservice.financeblservice.PayService;
 import blservice.financeblservice.ProfitService;
+import ds.financedataservice.FinanceDataService;
  /** 
  * 
  * @author czq 
@@ -20,76 +23,77 @@ import blservice.financeblservice.ProfitService;
  */
 public class FinanceController implements BankAccountBusinessService, CostService, PayService , ProfitService,DepositService{
 	
-	private BankAccount bankAccount = new BankAccount();
+	FinanceDataService financeDataService = (FinanceDataService) RMIManage.getDataService(DataServiceType.FinanceDataService);
+	private BankAccount bankAccount ;
+	private Pay pay;
+	private Cost cost;
+	private Profit profit;
+	private Deposit deposit;
+	
+	public FinanceController() {
+		bankAccount = new BankAccount(financeDataService);
+		pay = new Pay(financeDataService);
+		cost = new Cost(financeDataService);
+		profit = new Profit(financeDataService);
+		deposit = new Deposit(financeDataService);
+	}
+	
 	
 	public ProfitVO getMessage() {
-		// TODO Auto-generated method stub
-		return null;
+		return profit.getMessage();
 	}
 
 	public ResultMessage create(PayVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return pay.create(vo);
 	}
  
 
 	public ResultMessage add(CostVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return cost.add(vo);
 	}
 
 	public ResultMessage modify(CostVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return cost.modify(vo);
 	}
 
 	public ResultMessage del(CostVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return cost.del(vo);
 	}
 
 	public ArrayList<CostVO> showCosts() {
-		// TODO Auto-generated method stub
-		return null;
+		return cost.showCosts();
 	}
 
 	public ArrayList<PayVO> showPays() {
-		// TODO Auto-generated method stub
-		return null;
+		return pay.showPays();
 	}
 
 	public ResultMessage createDeposit(DepositVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return deposit.create(vo);
 	}
 
 	public ArrayList<DepositVO> showDeposit() {
-		// TODO Auto-generated method stub
-		return null;
+		return deposit.show();
 	}
 
 	@Override
 	public ArrayList<BankAccountVO> getAccounts() {
-		
 		return bankAccount.getAccounts();
 	}
 
 	@Override
 	public ResultMessage modifyAccount(BankAccountVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return bankAccount.modifyAccount(vo);
 	}
 
 	@Override
 	public ResultMessage deleteAccount(String ID) {
-		// TODO Auto-generated method stub
-		return null;
+		return bankAccount.deleteAccount(ID);
 	}
 
 	@Override
 	public ResultMessage addAccount(BankAccountVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return bankAccount.addAccount(vo);
 	}
 
 }

@@ -66,7 +66,7 @@ public class orderbl_stub implements Orderblservice{
 		ArrayList<OrderSimpleInfoVO> info=new ArrayList<>();
 		OrderSimpleInfoVO one=new OrderSimpleInfoVO("1","南京","2015-10-9-11-23-12",DocType.loadDoc);
 		info.add(one);
-		return null;
+		return info;
 	}
 
 	@Override

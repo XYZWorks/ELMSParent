@@ -11,6 +11,9 @@ import vo.finance.ProfitVO;
  */
 public class Profit {
 	FinanceDataService financebl;
+	public Profit(FinanceDataService financeDataService) {
+		// TODO Auto-generated constructor stub
+	}
 	public ProfitVO getMessage() {
 		// TODO Auto-generated method stub
 		return null;

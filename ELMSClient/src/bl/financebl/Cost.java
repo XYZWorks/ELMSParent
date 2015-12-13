@@ -26,6 +26,10 @@ public class Cost {
 	StrategyblService strategybl;
 	Transportblservice transportbl;
 	Personnelblservice personnelbl;
+	public Cost(FinanceDataService financeDataService) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public ArrayList<CostVO> showCosts() {
 		
 		ArrayList<CostVO> vos = null;
@@ -48,7 +52,6 @@ public class Cost {
 					vos.add((CostVO)VOPOchange.POtoVO(po));
 				}
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -61,7 +64,6 @@ public class Cost {
 		try {
 			result = financeData.add(po);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
@@ -73,7 +75,6 @@ public class Cost {
 		try {
 			result = financeData.modify(po);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
@@ -85,7 +86,6 @@ public class Cost {
 		try {
 			result = financeData.del(vo.ID, vo.costType);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
