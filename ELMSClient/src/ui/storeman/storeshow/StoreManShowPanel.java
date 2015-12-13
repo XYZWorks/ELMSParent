@@ -1,4 +1,4 @@
-package ui.storemanager.storeshow;
+package ui.storeman.storeshow;
 
 import java.awt.event.MouseEvent;
 
@@ -6,7 +6,8 @@ import org.dom4j.Element;
 
 import bl.storebl.StoreController;
 import config.StaticMessage;
-import ui.storemanager.StoreManagerController;
+import ui.storeman.StoreManController;
+import ui.storemanager.storeshow.StoreSingleShowPanel;
 import ui.tools.MyComboBox;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
@@ -15,28 +16,24 @@ import ui.tools.MyPictureButton;
 import ui.util.CompomentType;
 import ui.util.PanelController;
 
-/** 
- * @author ymc 
- * @version 创建时间：2015年12月3日 上午11:47:57 
- *
- */
-public class StoreShowPanel extends MyPanel {
-	
-	StoreController bl;
-	
-	protected MyPictureButton confirmButton;
-	protected MyPictureButton returnButton;
+public class StoreManShowPanel extends MyPanel{
 	
 	
-	protected MyLabel centerL;
-	protected MyLabel storeNum;
+StoreController bl;
 	
-	protected MyComboBox cityC;
-	protected MyComboBox storeC;
+	private MyPictureButton confirmButton;
+	private MyPictureButton returnButton;
 	
-	protected StoreManagerController controller;
+	
+	private MyLabel centerL;
+	private MyLabel storeNum;
+	
+	MyComboBox cityC;
+	MyComboBox storeC;
+	
+	StoreManController controller;
 
-	public StoreShowPanel(Element config, StoreController bl, StoreManagerController controller) {
+	public StoreManShowPanel(Element config, StoreController bl, StoreManController controller) {
 		super(config);
 		this.bl = bl;
 		this.controller = controller;
@@ -95,13 +92,13 @@ public class StoreShowPanel extends MyPanel {
 	
 	@Override
 	protected void addListener() {
-		confirmButton.addMouseListener(new SingleShowListener(confirmButton, "StoreSingleShowPanel", controller));
+		confirmButton.addMouseListener(new SingleShowListener(confirmButton, "StoreManSingleShowPanel", controller));
 		returnButton.addMouseListener(new MyJumpListener(returnButton, StaticMessage.MAIN_WINDOW, controller,false));
 
 
 	}
 	
-	 class SingleShowListener extends MyJumpListener{
+	class SingleShowListener extends MyJumpListener{
 
 		public SingleShowListener(MyPictureButton button, String toPanel, PanelController controller) {
 			super(button, toPanel, controller,false);
@@ -110,9 +107,10 @@ public class StoreShowPanel extends MyPanel {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
-			StoreSingleShowPanel tmp  = (StoreSingleShowPanel) controller.getPanelMap().get("StoreSingleShowPanel");
+			StoreManSingleShowPanel tmp  = (StoreManSingleShowPanel) controller.getPanelMap().get("StoreManSingleShowPanel");
 			tmp.getInfo(cityC.getSelectedItem().toString(),storeC.getSelectedItem().toString());
 		}
 	}
+
 
 }

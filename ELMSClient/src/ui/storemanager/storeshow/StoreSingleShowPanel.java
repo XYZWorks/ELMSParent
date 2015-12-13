@@ -13,6 +13,7 @@ import ui.tools.MyPanelWithScroller;
 import ui.tools.MyPictureButton;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
+import ui.util.PanelController;
 import util.MyDate;
 
 /** 
@@ -22,38 +23,38 @@ import util.MyDate;
  */
 public class StoreSingleShowPanel extends MyPanelWithScroller {
 	
-	StoreController bl;
+	protected StoreController bl;
 	
-	private MyPictureButton confirmButton;
-	private MyPictureButton returnButton;
+	protected MyPictureButton confirmButton;
+	protected MyPictureButton returnButton;
 	
 	
-	private MyLabel centerL;
-	private MyLabel storeNumL;
-	private MyLabel center;
-	private MyLabel storeNum;
+	protected MyLabel centerL;
+	protected MyLabel storeNumL;
+	protected MyLabel center;
+	protected MyLabel storeNum;
 	
-	private MyLabel nowNumL;
-	private MyLabel totalNumL;
-	private MyLabel nowNum;
-	private MyLabel totalNum;
+	protected MyLabel nowNumL;
+	protected MyLabel totalNumL;
+	protected MyLabel nowNum;
+	protected MyLabel totalNum;
 	
-	private MyLabel nowTimeL;
-	private MyLabel nowTime;
+	protected MyLabel nowTimeL;
+	protected MyLabel nowTime;
 	
-	private MyLabel inputTime;
-	private MyLabel nowLoc;
-	private MyLabel infoin;
-	private MyLabel infoout;
+	protected MyLabel inputTime;
+	protected MyLabel nowLoc;
+	protected MyLabel infoin;
+	protected MyLabel infoout;
 	
-	MyDate nowDate;
-	MyDatePicker picker;
-	StoreManagerController controller;
+	protected MyDate nowDate;
+	protected MyDatePicker picker;
+	protected PanelController controller;
 	
-	OrderInfoTable orderTable;
-	InStoreTablePanel inTable;
-	OutStoreTablePanel outTable; 
-	public StoreSingleShowPanel(Element config, StoreController bl, StoreManagerController controller) {
+	protected OrderInfoTable orderTable;
+	protected InStoreTablePanel inTable;
+	protected OutStoreTablePanel outTable; 
+	public StoreSingleShowPanel(Element config, StoreController bl, PanelController controller) {
 		super(config);
 		this.bl = bl;
 		this.controller = controller;
@@ -147,7 +148,7 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 
 	}
 
-	class ShowListener extends MyPictureButtonListener{
+	public class ShowListener extends MyPictureButtonListener{
 
 		public ShowListener(MyPictureButton button) {
 			super(button);

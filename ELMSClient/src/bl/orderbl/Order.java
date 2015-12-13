@@ -35,20 +35,13 @@ import vo.transport.TransferDocVO;
  *
  */
 public class Order {
-	OrderDataService orderData;
-	StrategyblService strategybl;
-	TransportController transportController;
-	StoreController storeController;
+	private OrderDataService orderData;
+	private StrategyblService strategybl;
+	private TransportController transportController;
+	private StoreController storeController;
 	
-	public Order() {
-		orderData = (OrderDataService) RMIManage.getDataService(DataServiceType.OrderDataService);
-		try {
-			orderData.initial();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+	public Order(OrderDataService orderData) {
+		this.orderData = orderData;
 	}
 
 	public ResultMessage add(OrderVO vo) {
@@ -56,7 +49,6 @@ public class Order {
 		try {
 			return orderData.add(po);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return ResultMessage.FAIL;
@@ -115,6 +107,9 @@ public class Order {
 		
 		try {
 			poStrings = orderData.getSingleOrderDocs(orderBarCode);
+			if(poStrings == null ){
+				return null;
+			}
 			orderSimpleInfoVOs = new ArrayList<OrderSimpleInfoVO>(poStrings.size());
 			
 		} catch (RemoteException e) {

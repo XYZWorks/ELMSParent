@@ -1,17 +1,18 @@
 package blservice.transportblservice;
 
 import java.util.ArrayList;
-import util.MyDate;
 
-import blservice.DocApprovalService;
 import util.DocType;
+import util.MyDate;
 import util.ResultMessage;
 import vo.DocVO;
+import vo.store.OutStoreDocVO;
 import vo.transport.ArriveYYDocVO;
 import vo.transport.ArriveZZDocVO;
 import vo.transport.LoadDocVO;
 import vo.transport.SendGoodDocVO;
 import vo.transport.TransferDocVO;
+import blservice.DocApprovalService;
 
 /**
  * 流转单管理接口类
@@ -90,5 +91,5 @@ public interface Transportblservice extends DocApprovalService{
 	 * @param arriveVO,transferVO
 	 * @return
 	 */
-	public double getExpense(ArriveZZDocVO arriveVO, TransferDocVO transferVO);
+	public double getExpense(OutStoreDocVO arriveVO, TransferDocVO transferVO);
 }

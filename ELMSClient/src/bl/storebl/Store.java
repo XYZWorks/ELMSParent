@@ -1,10 +1,9 @@
 package bl.storebl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bl.approvalbl.Approval;
-import blservice.approvalblservice.Approvalblservice;
-import blservice.approvalblservice.Approvalblservice_Stub;
+import po.store.StoreCheckPO;
 import util.City;
 import util.ResultMessage;
 import vo.store.StoreCheckVO;
@@ -17,15 +16,15 @@ import ds.storedataservice.StoreDataService;
  *
  */
 public class Store {
-	StoreDataService storeData;
+	private StoreDataService storeData;
 
 	public Store(StoreDataService storeDataService) {
 		storeData = storeDataService;
 	}
 	
 	public ArrayList<StoreMessageVO> show() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<StoreMessageVO> pos = storeData.g();
+		return storeData.getStoreMessage();
 	}
 
 	public ArrayList<StoreCheckVO> showCheck() {
@@ -44,12 +43,21 @@ public class Store {
 	}
 
 	public ResultMessage setAlarmValue(String value,City city) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return storeData.setAlarmValue(value, city);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
 	}
 	
-	public String getAlarmValue() {
-		// TODO Auto-generated method stub
+	public String getAlarmValue(City city) {
+		
+		try {
+			return storeData.getAlarmValue(city);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 

@@ -16,6 +16,10 @@ import vo.finance.DepositVO;
 public class Deposit {
 	FinanceDataService financeData;
 	Orderblservice orderbl;
+	public Deposit(FinanceDataService financeDataService) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public ResultMessage create(DepositVO vo) {
 		// TODO Auto-generated method stub
 		return null;

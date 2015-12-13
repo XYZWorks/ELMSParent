@@ -169,5 +169,9 @@ public class MyDatePicker extends JLabel {
 			return dateField.getText();
 		}
 		
+		public void setTime(MyDate date){
+			dateField.setText(MyDate.toString(date));
+		}
+		
 	
 }

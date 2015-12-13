@@ -13,6 +13,7 @@ import util.AccountType;
  * @author czq 
  * @version 2015年11月26日 上午11:13:35 
  */
+@SuppressWarnings("serial")
 public class testframeforxc extends MyFrame {
 	
 		public static void main(String[] args) {

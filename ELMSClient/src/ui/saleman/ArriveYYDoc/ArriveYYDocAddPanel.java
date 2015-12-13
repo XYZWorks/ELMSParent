@@ -31,6 +31,7 @@ public class ArriveYYDocAddPanel extends AddDocPanel{
 	private MyLabel goodState;
 	private MyLabel newOrder;
 	
+	private MyTextField order;
 	private MyTextField idT;
 	private MyTextField ZZIDT;
 	private MyComboBox sendCityB;;
@@ -64,7 +65,7 @@ public class ArriveYYDocAddPanel extends AddDocPanel{
 	protected void initTextFields(Element e) {
 		idT = new MyTextField(e.element("id"));
 		ZZIDT = new MyTextField(e.element("ZZID"));
-		
+		order = new MyTextField(e.element("order"));
 	}
 
 	@Override
@@ -89,7 +90,7 @@ public class ArriveYYDocAddPanel extends AddDocPanel{
 	protected void addCompoment() {
 		add(ZZID);add(ZZIDT);add(sendCity);add(sendCityB);add(goodState);add(date);add(id);add(idT);
 		add(newOrder);add(addOneOrder);add(ordersTable);add(goodStateB);
-	
+		add(order);
 		
 	}
 

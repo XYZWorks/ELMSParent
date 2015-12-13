@@ -2,6 +2,8 @@ package vo.store;
 
 import java.util.ArrayList;
 
+import util.TransferWay;
+
 /**
  * 库存信息VO
  * @author ymc
@@ -15,7 +17,7 @@ public class StoreMessageVO {
 	/**
 	 * 区位置
 	 */
-	public String storeLoc;
+	public TransferWay storeLoc;
 
 	/**
 	 * 库存数量
@@ -32,7 +34,7 @@ public class StoreMessageVO {
 	public StoreMessageVO() {
 		// TODO Auto-generated constructor stub
 	}
-	public StoreMessageVO(String location, String storeLoc, int number, ArrayList<InStoreDocVO> inStoreDocs,
+	public StoreMessageVO(String location, TransferWay storeLoc, int number, ArrayList<InStoreDocVO> inStoreDocs,
 			ArrayList<OutStoreDocVO> outStoreDocs) {
 		super();
 		this.location = location;

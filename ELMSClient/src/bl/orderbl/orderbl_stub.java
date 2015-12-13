@@ -74,6 +74,7 @@ public class orderbl_stub implements Orderblservice{
 		OrderSimpleInfoVO six=new OrderSimpleInfoVO("1234567890","王伟","2015-10-9-11-23-12",DocType.sendGoodDoc);
 		
 		info.add(one);
+<<<<<<< HEAD
 		info.add(two);
 		info.add(three);
 		info.add(four);
@@ -101,6 +102,9 @@ public class orderbl_stub implements Orderblservice{
 				return info;
 		}
 	
+=======
+		return info;
+>>>>>>> origin/master
 	}
 
 	@Override

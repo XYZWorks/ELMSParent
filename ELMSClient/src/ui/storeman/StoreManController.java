@@ -2,14 +2,17 @@ package ui.storeman;
 
 import org.dom4j.Element;
 
+import bl.storebl.StoreController;
 import bl.transportbl.TransportController;
 import blservice.transportblservice.Transportblservice;
 import config.StaticMessage;
 import ui.storeman.arrivezz.ArriveZZDocAdd;
 import ui.storeman.arrivezz.ArriveZZPanel;
-import ui.storeman.storeshow.StoreShowPanel;
+import ui.storeman.storeshow.StoreManShowPanel;
+import ui.storeman.storeshow.StoreManSingleShowPanel;
 import ui.storeman.transport.AddTransportPanel;
 import ui.storeman.transport.TransportPanel;
+import ui.storemanager.storeshow.StoreSingleShowPanel;
 import ui.tools.MyPanel;
 import ui.tools.MySideBarButton;
 import ui.util.ButtonState;
@@ -30,6 +33,7 @@ public class StoreManController extends PanelController{
 	private MyPanel StorePanel;
 	private MyPanel AddArriveZZPanel;
 	private MyPanel AddTransportPanel;
+	private StoreManSingleShowPanel storeManSingleShowPanel;
 	
 	private MySideBarButton transportButton;
 	private MySideBarButton arriveZZButton;
@@ -42,10 +46,11 @@ public class StoreManController extends PanelController{
 	private final String StorePanelStr = "StorePanel";
 	private final String AddArriveZZPanelStr = "AddArriveZZPanel";
 	private final String AddTransportPanelStr = "AddTransportPanel";
+	private final String StoreManSingleShowPanelStr = "StoreManSingleShowPanel";
 	
-	private Transportblservice bl;
+	private Transportblservice blt;
 	
-	
+	private StoreController blc;
 	
 	public StoreManController(MyPanel initialPanel, Element e) {
 		super(initialPanel , e);
@@ -63,11 +68,12 @@ public class StoreManController extends PanelController{
 	@Override
 	protected void initPanel(Element e) {
 		SMmainpanel = new StoreMain(e.element(SMmainpanelStr) , this);
-		TransportPanel = new TransportPanel(e.element(TransportPanelStr),bl,this);
-		ArriveZZPanel = new ArriveZZPanel(e.element(ArriveZZPanelStr),bl,this);
-		StorePanel = new StoreShowPanel(e.element(StorePanelStr),bl,this);
-		AddArriveZZPanel = new ArriveZZDocAdd(e.element(ArriveZZPanelStr).element(AddArriveZZPanelStr),bl,this);
-		AddTransportPanel = new AddTransportPanel(e.element(TransportPanelStr).element(AddTransportPanelStr),bl,this);
+		TransportPanel = new TransportPanel(e.element(TransportPanelStr),blt,this);
+		ArriveZZPanel = new ArriveZZPanel(e.element(ArriveZZPanelStr),blt,this);
+		StorePanel = new StoreManShowPanel(e.element(StorePanelStr),blc,this);
+		AddArriveZZPanel = new ArriveZZDocAdd(e.element(ArriveZZPanelStr).element(AddArriveZZPanelStr),blt,this);
+		AddTransportPanel = new AddTransportPanel(e.element(TransportPanelStr).element(AddTransportPanelStr),blt,this);
+		storeManSingleShowPanel = new StoreManSingleShowPanel(e.element(StorePanelStr).element(StoreManSingleShowPanelStr), blc, this);
 	}
 
 	@Override
@@ -93,7 +99,7 @@ public class StoreManController extends PanelController{
 		changePanel.add(StorePanel, StorePanelStr);
 		changePanel.add(AddArriveZZPanel, AddArriveZZPanelStr);
 		changePanel.add(AddTransportPanel, AddTransportPanelStr);
-		
+		changePanel.add(storeManSingleShowPanel,StoreManSingleShowPanelStr);
 	}
 
 	@Override
@@ -128,11 +134,13 @@ public class StoreManController extends PanelController{
 		
 		panelMap.put(ArriveZZPanelStr, ArriveZZPanel);
 		panelMap.put(TransportPanelStr, TransportPanel);
+		panelMap.put(StoreManSingleShowPanelStr, storeManSingleShowPanel);
 	}
 
 	@Override
 	protected void initialBL() {
-		bl = new TransportController();
+		blt = new TransportController();
+		blc = new StoreController();
 	}
 
 

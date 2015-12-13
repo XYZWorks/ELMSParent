@@ -6,6 +6,8 @@ import org.dom4j.Element;
 
 import blservice.transportblservice.Transportblservice;
 import ui.tools.CheckDocPanel;
+import ui.tools.MyLabel;
+import ui.tools.MyPictureLabel;
  /** 
  * 装车单信息查看表
  * @author czq 
@@ -16,6 +18,8 @@ public class LoadDocCheckPanel extends CheckDocPanel{
 	
 	Transportblservice bl;
 	LoadDocMesTable myTable;
+	
+	private MyLabel title;
 	
 	public LoadDocCheckPanel(Element config, JPanel changePanel , String checkDocName , String addDocName, Transportblservice transportblservice) {
 		super(config, changePanel , checkDocName , addDocName);
@@ -34,7 +38,7 @@ public class LoadDocCheckPanel extends CheckDocPanel{
 
 	@Override
 	protected void initialDifferComp(Element e) {
-		// TODO Auto-generated method stub
+		title = new MyLabel(e.element("title"));
 		
 	}
 
@@ -46,8 +50,13 @@ public class LoadDocCheckPanel extends CheckDocPanel{
 
 	@Override
 	protected void addDifferComp() {
+		add(title);
 		// TODO Auto-generated method stub
 		
 	}
+	
+		
+//		protected void initLabels(Element e) {
+//}
 
 }

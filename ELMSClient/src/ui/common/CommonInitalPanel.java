@@ -66,6 +66,7 @@ public class CommonInitalPanel extends MyPanel{
 		addCompoment();
 		addListener();
 		setVisible(true);
+		validate();
 		repaint();
 		
 	}

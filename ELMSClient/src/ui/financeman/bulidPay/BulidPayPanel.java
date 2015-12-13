@@ -4,9 +4,6 @@ import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
 
-import com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource;
-
-import blservice.financeblservice.PayService;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
@@ -18,6 +15,7 @@ import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
+import blservice.financeblservice.PayService;
 
 /**
  * 新建付款单
@@ -32,7 +30,8 @@ public class BulidPayPanel extends MyPanel {
 
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
-
+//	private MyPictureButton back;
+	
 	private PayTable table;
 	private MyLabel title;
 	
@@ -60,7 +59,7 @@ public class BulidPayPanel extends MyPanel {
 	protected void initButtons(Element e) {
 		confirm = new MyPictureButton(e.element("confirm"));
 		cancel = new MyPictureButton(e.element("cancel"));
-	
+//		back = new MyPictureButton(e.element("back"));
 	}
 
 	@Override
@@ -88,7 +87,7 @@ public class BulidPayPanel extends MyPanel {
 	@Override
 	protected void addCompoment() {
 		add(datePicker);
-	
+//		add(back);
 		add(title);
 		add(cancel);
 		add(confirm);
@@ -138,12 +137,13 @@ public class BulidPayPanel extends MyPanel {
 				
 			}
 		});
-		addPay.addMouseListener(new MyPictureButtonListener(addPay){
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-			}
-		});
+//		back.addMouseListener(new MyPictureButtonListener(back){
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				super.mouseClicked(e);
+//				
+//			}
+//		});
 	}
 
 	@Override

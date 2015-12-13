@@ -19,7 +19,6 @@ public class CommonFrame extends MyFrame{
 		CommonInitalPanel inital =new CommonInitalPanel(config.element("commonInitalPanel"),this);
 		
 		this.setContentPane(inital);
-
 		this.setVisible(true);
 
 	}

@@ -11,6 +11,7 @@ import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import util.DocType;
 import util.MyDate;
+import util.TransferWay;
 import vo.store.InStoreDocVO;
 import vo.store.OutStoreDocVO;
 

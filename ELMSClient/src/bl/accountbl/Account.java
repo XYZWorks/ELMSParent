@@ -20,7 +20,6 @@ public class Account {
 	private ResultMessage result = null;
 	public Account(AccountDataService accountDataService) {
 		this.accountData = accountDataService;
-
 	}
 
 	public ResultMessage add(AccountVO vo) {

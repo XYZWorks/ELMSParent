@@ -2,6 +2,9 @@ package bl.orderbl;
 
 import java.util.ArrayList;
 
+import net.RMIManage;
+import ds.orderdataservice.OrderDataService;
+import util.DataServiceType;
 import util.DocState;
 import util.DocType;
 import util.MyDate;
@@ -20,11 +23,11 @@ import blservice.orderblservice.Orderblservice;
  */
 public class OrderController implements Orderblservice{
 
-	TransportController transportController;
-	Order order ;
+	private TransportController transportController;
+	private OrderDataService orderData = (OrderDataService) RMIManage.getDataService(DataServiceType.OrderDataService);
+	private Order order ;
 	public OrderController() {
-		order = new Order();
-		
+		order = new Order(orderData);
 		transportController = new TransportController();
 	}
 	public ResultMessage add(OrderVO vo) {
@@ -60,7 +63,7 @@ public class OrderController implements Orderblservice{
 	}
 
 	public ArrayList<DocVO> getDocLists(DocType type) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

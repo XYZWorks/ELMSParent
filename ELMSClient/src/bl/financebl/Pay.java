@@ -1,11 +1,13 @@
 package bl.financebl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import blservice.financeblservice.PayService;
-import ds.financedataservice.FinanceDataService;
+import po.finance.PayPO;
+import test.java.other.VOPOchange;
 import util.ResultMessage;
 import vo.finance.PayVO;
+import ds.financedataservice.FinanceDataService;
 
 /** 
  * @author ymc 
@@ -13,15 +15,40 @@ import vo.finance.PayVO;
  *
  */
 public class Pay {
-	FinanceDataService financebl;
+	private FinanceDataService financeds;
+	public Pay(FinanceDataService financeDataService) {
+		this.financeds = financeDataService;
+	}
+
 	public ResultMessage create(PayVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		PayPO po = (PayPO) VOPOchange.VOtoPO(vo);
+		
+		try {
+			return financeds.addPay(po);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
 	}
 
 	public ArrayList<PayVO> showPays() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<PayPO> pos = null;
+		try {
+			pos = financeds.getPayPO();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		
+		if(pos == null){
+			return null;
+		}
+		
+		ArrayList<PayVO> vos = new ArrayList<>(pos.size());
+		
+		for (PayPO payPO : pos) {
+			vos.add((PayVO) VOPOchange.POtoVO(payPO));
+		}
+		return vos;
 	}
 
 }

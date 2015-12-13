@@ -11,6 +11,7 @@ import ui.storemanager.instore.FullInPanel;
 import ui.storemanager.instore.InStorePanel;
 import ui.storemanager.outstore.AddOutStorePanel;
 import ui.storemanager.outstore.OutStorePanel;
+import ui.storemanager.storecheck.StoreCheckInfoPanel;
 import ui.storemanager.storecheck.StoreCheckPanel;
 import ui.storemanager.storeshow.StoreShowPanel;
 import ui.storemanager.storeshow.StoreSingleShowPanel;
@@ -61,6 +62,8 @@ public class StoreManagerController extends PanelController {
 	private final String addOutStorePanelStr = "AddOutStorePanel";
 	private StoreSingleShowPanel storeSingleShowPanel;
 	private final String storeSingleShowPanelStr = "StoreSingleShowPanel";
+	private StoreCheckInfoPanel storeCheckInfoPanel;
+	private final String storeCheckInfoPanelStr = "StoreCheckInfoPanel";
 	
 	public StoreManagerController(MyPanel initialPanel, Element e) {
 		super(initialPanel , e);
@@ -80,7 +83,7 @@ public class StoreManagerController extends PanelController {
 		SMmainpanel = new StoreManageMain(e.element(SMmainpanelStr) , this);
 		inStorePanel = new InStorePanel(e.element(inStorePanelStr),bl,this);
 		outStorePanel = new OutStorePanel(e.element(outStorePanelStr),bl,this);
-		storeCheckPanel = new StoreCheckPanel(e.element(storeCheckPanelStr));
+		storeCheckPanel = new StoreCheckPanel(e.element(storeCheckPanelStr),bl,this);
 		storeShowPanel = new StoreShowPanel(e.element(storeShowPanelStr),bl,this);
 		alarmRecoverPanel = new AlarmRecoverPanel(e.element(alarmRecoverPanelStr));
 		alarmSetPanel = new AlarmSetPanel(e.element(alarmSetPanelStr));
@@ -88,6 +91,7 @@ public class StoreManagerController extends PanelController {
 		fullInPanel = new FullInPanel(e.element(inStorePanelStr).element(fullInPanelStr),bl,this);
 		addOutStorePanel = new AddOutStorePanel(e.element(outStorePanelStr).element(addOutStorePanelStr), bl, this);
 		storeSingleShowPanel = new StoreSingleShowPanel(e.element(storeShowPanelStr).element(storeSingleShowPanelStr),bl,this);
+		storeCheckInfoPanel = new StoreCheckInfoPanel(e.element(storeCheckPanelStr).element(storeCheckInfoPanelStr), bl, this);
 	}
 
 	@Override
@@ -126,6 +130,7 @@ public class StoreManagerController extends PanelController {
 		changePanel.add(fullInPanel, fullInPanelStr);
 		changePanel.add(addOutStorePanel, addOutStorePanelStr);
 		changePanel.add(storeSingleShowPanel,storeSingleShowPanelStr);
+		changePanel.add(storeCheckInfoPanel,storeCheckInfoPanelStr);
 	}
 
 	@Override
@@ -178,6 +183,7 @@ public class StoreManagerController extends PanelController {
 		panelMap.put(inStorePanelStr, inStorePanel);
 		panelMap.put(outStorePanelStr, outStorePanel);
 		panelMap.put(storeSingleShowPanelStr, storeSingleShowPanel);
+		panelMap.put(storeCheckInfoPanelStr, storeCheckInfoPanel);
 	}
 	
 	

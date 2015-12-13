@@ -2,6 +2,7 @@ package bl.strategybl;
 
 import java.util.ArrayList;
 
+import ds.strategydataservice.StrategyDataService;
 import util.ResultMessage;
 import util.StaffType;
 import vo.strategy.ConstVO;
@@ -14,10 +15,10 @@ import blservice.strategyblservice.StrategyblService;
  */
 public class StrategyController implements StrategyblService{
 	
-	Strategy strategy ;
-	
+	private Strategy strategy ;
+	private StrategyDataService strategyData;
 	public StrategyController() {
-		strategy = new Strategy();
+		strategy = new Strategy(strategyData);
 	}
 	
 	public ConstVO getConst() {
