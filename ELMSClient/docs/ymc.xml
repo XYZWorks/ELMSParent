@@ -617,12 +617,12 @@
 				<store x="350" y="347" width="240" height="45"
 					strings="航运区 汽运区 铁运区" />
 				
-			 	<StoreCheckInfoPanel x="232" y="54" width="848" height="1400">
+			 	<StoreCheckInfoPanel x="232" y="54" width="848" height="1250">
 			 	
 			 		<BUTTONS>
-			 			<confirm x="550" y="1300" width="150" height="100" text="确认"
+			 			<confirm x="550" y="1150" width="150" height="100" text="确认"
 						type="rectangle"/>
-						<return x="700" y="1300" width="150" height="100" text="返回"
+						<return x="700" y="1150" width="150" height="100" text="返回"
 						type="rectangle"/>
 			 		</BUTTONS>
 
@@ -648,20 +648,18 @@
 						text="当前时间" type="rectangle"/>
 						<inputTime  x="80" y="720" width="200" height="100"  
 						text="查询时间" type="rectangle"/>
-						<nowLoc  x="80" y="310" width="200" height="100"  
-						text="当前货物位置信息" type="rectangle"/>
-						<infoin  x="80" y="800" width="500" height="100"  
+						
+						<infoin  x="80" y="300" width="500" height="100"  
 						text="当天入库信息" type="rectangle"/>
 						
-						<infoout  x="80" y="1200" width="500" height="100"  
+						<infoout  x="80" y="730" width="500" height="100"  
 						text="当天出库信息" type="rectangle"/>
 						
 			 		</LABELS>
 			 		
 			 		
-					<inTable x="100" y="900" width="650" height="300" columnName="单据类型 ID 日期 目的地 订单号集合" />
-			 		<outTable x="100" y="1300" width="650" height="300" columnName="单据类型 ID 日期 目的地 中转单ID 装运方式 订单号集合" />
-			 		<orderTable x="100" y="400" width="650" height="300"  columnName="订单号 区号 排号 架号 位号"/>
+					<inTable x="100" y="400" width="650" height="300" columnName="单据类型 ID 日期 目的地 订单号集合" />
+			 		<outTable x="100" y="830" width="650" height="300" columnName="单据类型 ID 日期 目的地 中转单ID 装运方式 订单号集合" />
 			 		
 			 		
 			 		<TEXTFIELDS>
