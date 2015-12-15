@@ -175,8 +175,18 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 
 	@Override
 	public ArrayList<String> getPlateNums() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<String> reStrings = new ArrayList<>(100);
+		try {
+			sql = "SELECT `plateNum` FROM　" + carTable ;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while (result.next()) {
+				reStrings.add(result.getString(1));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return reStrings.isEmpty()?null:reStrings;
 	}
 
 	

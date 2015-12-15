@@ -21,10 +21,11 @@ import data.datafactory.DataFactory;
  * @author czq
  * @version 2015年11月8日 下午11:34:57
  */
+@SuppressWarnings("unused")
 public class RMIServer {
 
 	private InetAddress hostInetAddress;
-	private String hostAdr;
+	private String hostAdr;//TODO unused
 	private String hostName;
 	private String port;
 	private static DataFactory datafactory;

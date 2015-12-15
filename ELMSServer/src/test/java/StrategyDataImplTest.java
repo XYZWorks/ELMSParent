@@ -1,23 +1,15 @@
 package test.java;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import java.rmi.RemoteException;
 
 import org.junit.Before;
 import org.junit.Test;
- 
-
-
-
-
-
 
 import po.strategy.SalaryWayPO;
 import util.StaffType;
-import data.statisticdata.StatisticDataImpl;
 import data.strategydata.StrategyDataImpl;
-import ds.statisticdataservice.StatisticDataService;
 import ds.strategydataservice.StrategyDataService;
 /** 
  * 

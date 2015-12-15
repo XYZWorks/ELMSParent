@@ -12,7 +12,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import util.DocState;
-import util.DocType;
 import util.ResultMessage;
 
 import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;

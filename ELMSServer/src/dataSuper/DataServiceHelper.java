@@ -171,7 +171,6 @@ public class DataServiceHelper {
 			}
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 
@@ -212,13 +211,15 @@ public class DataServiceHelper {
 		}
 		return null;
 	}
-
+	/**
+	 * 從序列化文件中讀取多個對象
+	 * @param name
+	 * @return
+	 */
 	public final ArrayList<Object> readManyFromSerFile(String name) {
 		String pres = "data\\";
 		ArrayList<Object> result = new ArrayList<>();
 		ObjectInputStream input = null;
-		Object temp = null;
-
 		File file = new File(pres + name);
 
 		try {
@@ -234,6 +235,7 @@ public class DataServiceHelper {
 			}
 		} catch (FileNotFoundException e1) {
 			System.err.println("序列化文件丢失");
+			//重新嘗試創建新文件
 			try {
 				file.createNewFile();
 			} catch (IOException e) {

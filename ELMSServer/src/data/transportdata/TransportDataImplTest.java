@@ -1,13 +1,11 @@
 package data.transportdata;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.omg.PortableInterceptor.SUCCESSFUL;
 
 import po.transport.ArriveZZDocPO;
 import test.java.other.DataTool;
@@ -47,9 +45,9 @@ public class TransportDataImplTest {
 
 	@Test
 	public void testGetDocLists() throws RemoteException {
-		ArrayList<ArriveZZDocPO> pos =  (ArrayList<ArriveZZDocPO>) test.getDocLists(DocType.arriveZZDoc);
-		System.out.println(pos.size());
-		System.out.println(pos.get(0).getID());
+//		ArrayList<ArriveZZDocPO> pos =  (ArrayList<ArriveZZDocPO>) test.getDocLists(DocType.arriveZZDoc);
+//		System.out.println(pos.size());
+//		System.out.println(pos.get(0).getID());
 		
 		
 		fail("Not yet implemented");

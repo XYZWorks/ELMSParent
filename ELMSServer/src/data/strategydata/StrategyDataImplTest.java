@@ -1,18 +1,13 @@
 package data.strategydata;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import java.rmi.RemoteException;
 
 import org.junit.Before;
 import org.junit.Test;
- 
-
-
 
 import po.strategy.ConstPO;
-import ui.inital.testframeforczq;
-import vo.strategy.ConstVO;
 /** 
  * 
  * @author czq 

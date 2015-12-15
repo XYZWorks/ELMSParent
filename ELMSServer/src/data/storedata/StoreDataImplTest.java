@@ -1,21 +1,15 @@
 package data.storedata;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
- 
-
-
-
-
 
 import po.store.StoreMessagePO;
 import test.java.other.DataTool;
-import ui.inital.testframeforczq;
 import util.ResultMessage;
 /** 
  * 
