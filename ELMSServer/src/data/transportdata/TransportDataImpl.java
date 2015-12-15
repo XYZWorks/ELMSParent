@@ -218,20 +218,7 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 		default:
 			return null;
 		}
-		try {
-			sql = "UPDATE `" + temptable + "` SET state =  ? WHERE id = " +"\""+ docID +"\"";
-			preState = conn.prepareStatement(sql);
-			preState.setString(1, state.name());
-			affectRows = preState.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return ResultMessage.FAIL;
-		}
-		if(affectRows == 0){
-			return ResultMessage.NOT_EXIST;
-		}else{
-			return ResultMessage.SUCCESS;
-		}
+		return super.changeOneDocState(docID, temptable, state);
 	}
 
 }

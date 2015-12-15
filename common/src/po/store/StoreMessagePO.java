@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import util.City;
+import util.TransferWay;
 /**
  * 库存信息
  * @author ymc
@@ -22,7 +23,7 @@ public class StoreMessagePO implements Serializable{
 	/**
 	 * 区位置
 	 */
-	private String storeLoc;
+	private TransferWay storeLoc;
 	/**
 	 * 库存数量
 	 */
@@ -39,7 +40,7 @@ public class StoreMessagePO implements Serializable{
 	public StoreMessagePO() {}
 	
 	
-	public StoreMessagePO(City location, String storeLoc, int number,
+	public StoreMessagePO(City location, TransferWay storeLoc, int number,
 			ArrayList<InStoreDocPO> inStoreDocs,
 			ArrayList<OutStoreDocPO> outStoreDocs) {
 		super();
@@ -70,10 +71,10 @@ public class StoreMessagePO implements Serializable{
 		this.outStoreDocs = outStoreDocs;
 	}
 
-	public String getStoreLoc() {
+	public TransferWay getStoreLoc() {
 		return storeLoc;
 	}
-	public void setStoreLoc(String storeLoc) {
+	public void setStoreLoc(TransferWay storeLoc) {
 		this.storeLoc = storeLoc;
 	}
 	public City getLocation() {

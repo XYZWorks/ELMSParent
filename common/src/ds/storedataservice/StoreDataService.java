@@ -19,10 +19,10 @@ import ds.DocApprovalDataService;
  */
 public interface StoreDataService extends DocApprovalDataService{
 	/**
-	 * 得到库存信息PO
+	 * 得到库存信息PO,返回4個城市共12個區的StoreMessagePO
 	 * @return
 	 */
-	public StoreMessagePO getStoreMessage() throws RemoteException;
+	public ArrayList<StoreMessagePO> getStoreMessages() throws RemoteException;
 	/**
 	 * 增加入库单信息
 	 * @param po

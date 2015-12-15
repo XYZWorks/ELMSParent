@@ -261,21 +261,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 
 	public ResultMessage changeOneDocState (String docID,
 			DocType type, DocState state)  throws RemoteException {
-		
-		try {
-			sql = "UPDATE `" + orderTable + "` SET state =  ? WHERE id = "+"\"" + docID+"\"" ;
-			preState = conn.prepareStatement(sql);
-			preState.setString(1, state.name());
-			affectRows = preState.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return ResultMessage.FAIL;
-		}
-		if(affectRows == 0){
-			return ResultMessage.NOT_EXIST;
-		}else{
-			return ResultMessage.SUCCESS;
-		}
+		return super.changeOneDocState(docID, orderTable, state);
 	}
 
 	

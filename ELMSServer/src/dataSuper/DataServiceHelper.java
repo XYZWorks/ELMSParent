@@ -1,5 +1,6 @@
 package dataSuper;
 
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -8,8 +9,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-
-import org.omg.CORBA.StringHolder;
 
 /**
  * 
@@ -146,9 +145,20 @@ public class DataServiceHelper {
 	public boolean writeToSerFile(Object object, String name, boolean append) {
 		String pres = "data\\";
 		ObjectOutputStream out;
+		FileOutputStream fo;
 		File file = new File(pres + name);
 		try {
-			out = new ObjectOutputStream(new FileOutputStream(file, append));
+			//當需要寫入多個對象至同一個文件時需要將開頭的節點AD刪去，否則會報錯（怎麼突然變繁體字了 = =）
+			if(append){
+				fo = new FileOutputStream(file, append);
+				if(file.length() > 0){
+					fo.getChannel().truncate(fo.getChannel().position() - 4);
+				}
+				out = new ObjectOutputStream(fo);
+			}else{
+				out = new ObjectOutputStream(new FileOutputStream(file));
+			}
+			
 			out.writeObject(object);
 			out.close();
 			return true;
@@ -186,6 +196,7 @@ public class DataServiceHelper {
 		try {
 
 			input = new ObjectInputStream(new FileInputStream(file));
+			
 			result = input.readObject();
 			input.close();
 			return result;
@@ -212,16 +223,12 @@ public class DataServiceHelper {
 
 		try {
 			input = new ObjectInputStream(new FileInputStream(file));
-			while (true) {
+			while (input.available() != -1) {
 				try {
-					temp = input.readObject();
-				} catch (ClassNotFoundException e) {
+					result.add(input.readObject());
+				} catch (ClassNotFoundException e ) {
 					e.printStackTrace();
-				}
-
-				if (temp != null) {
-					result.add(temp);
-				} else {
+				} catch (EOFException e) {
 					break;
 				}
 			}
@@ -235,14 +242,13 @@ public class DataServiceHelper {
 			e1.printStackTrace();
 		} catch (IOException e1) {
 			e1.printStackTrace();
-		}finally{
-			try {
-				input.close();
-			} catch (Exception e) {
-			}
 		}
 
-		
+		try {
+			input.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		return result.isEmpty() ? null : result;
 

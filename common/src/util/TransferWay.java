@@ -1,5 +1,6 @@
 package util;
 /** 
+ * 運載方式 庫存方式
  * @author ymc 
  * @version 创建时间：2015年12月9日 下午8:42:20 
  *

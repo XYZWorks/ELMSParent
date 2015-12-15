@@ -2,6 +2,8 @@ package test.java.other;
 
 import java.util.ArrayList;
 
+import po.statistic.StateFormPO;
+import po.store.StoreMessagePO;
 import util.MyDate;
 import util.AccountType;
 import util.City;
@@ -271,5 +273,12 @@ public class DataTool {
 	public static AccountVO getAccountVO() {
 		AccountVO vo = new AccountVO("12323","wsada",AccountType.courier);
 		return vo;
+	}
+	
+	public static StoreMessagePO getStoreMessagePO(){
+		return new StoreMessagePO(City.NANJING, TransferWay.car, 45, null, null);
+	}
+	public static StateFormPO getStateFormPO(){
+		return new StateFormPO(d2, d4, null, null);
 	}
 }

@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import util.DocState;
+import util.DocType;
 import util.ResultMessage;
 
 import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
@@ -268,6 +270,29 @@ public abstract class DataSuperClass extends UnicastRemoteObject {
 		
 		return ResultMessage.SUCCESS;
 	}
+	
+	public ResultMessage changeOneDocState (String docID,
+			String tableName, DocState state) {
+		
+		try {
+			sql = "UPDATE `" + tableName + "` SET state =  ? WHERE id = "+"\"" + docID+"\"" ;
+			preState = conn.prepareStatement(sql);
+			preState.setString(1, state.name());
+			affectRows = preState.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return ResultMessage.FAIL;
+		}
+		if(affectRows == 0){
+			return ResultMessage.NOT_EXIST;
+		}else{
+			return ResultMessage.SUCCESS;
+		}
+		
+		
+	}
+	
+	
 	
 	/**
 	 * 清除表内所有信息

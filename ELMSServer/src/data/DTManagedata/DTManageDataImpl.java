@@ -173,6 +173,12 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 		return delFromSQL(carTable, ID);
 	}
 
+	@Override
+	public ArrayList<String> getPlateNums() throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 }
