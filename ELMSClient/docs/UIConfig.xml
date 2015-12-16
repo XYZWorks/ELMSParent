@@ -376,9 +376,9 @@
 			</FinanceApprovalPanel>
 			<BulidBillPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
-					<confirm x="560" y="560" width="115" height="40" text="确认"
+					<confirm x="560" y="560" width="89" height="40" text="确认"
 						type="confirm" />
-					<cancel x="707" y="560" width="115" height="40" text="取消"
+					<cancel x="707" y="560" width="89" height="40" text="取消"
 						type="cancel" />
 					<add x="720" y="160" width="40" height="40" 
 						type="add" />
@@ -403,9 +403,9 @@
 			
 				<addInst x="232" y="54" width="848" height="637">
 					<BUTTONS>
-					<confirm x="560" y="560" width="115" height="40" text="确认"
+					<confirm x="560" y="560" width="89" height="40" text="确认"
 						type="confirm" />
-						<cancel x="707" y="560" width="115" height="40" text="取消"
+						<cancel x="707" y="560" width="89" height="40" text="取消"
 						type="cancel" />
 						<back x="707" y="560" width="115" height="40" text="返回"
 							type="back" />
@@ -425,9 +425,9 @@
 				</addInst>
 				<addPeople x="232" y="54" width="848" height="637">
 					<BUTTONS>
-						<confirm x="560" y="560" width="115" height="40" text="确认"
+						<confirm x="560" y="560" width="89" height="40" text="确认"
 						type="confirm" />
-						<cancel x="707" y="560" width="115" height="40" text="取消"
+						<cancel x="707" y="560" width="89" height="40" text="取消"
 						type="cancel" />
 						<add x="715" y="210" width="40" height="40" text=""
 						type="add" />
@@ -455,9 +455,9 @@
 				</addPeople>
 					<addCar x="232" y="54" width="848" height="637">
 					<BUTTONS>
-						<confirm x="560" y="560" width="115" height="40" text="确认"
+						<confirm x="560" y="560" width="89" height="40" text="确认"
 						type="confirm" />
-					<cancel x="707" y="560" width="115" height="40" text="取消"
+					<cancel x="707" y="560" width="89" height="40" text="取消"
 						type="cancel" />
 					</BUTTONS>
 					<TEXTFIELDS>
@@ -481,9 +481,9 @@
 				height="637">
 				
 				<BUTTONS>			
-					<confirm x="560" y="560" width="115" height="40" text="确认"
+					<confirm x="560" y="560" width="89" height="40" text="确认"
 						type="confirm" />
-					<cancel x="707" y="560" width="115" height="40" text="取消"
+					<cancel x="707" y="560" width="89" height="40" text="取消"
 						type="cancel" />
 					<add x="642" y="65" width="40" height="40" 
 						 type="add" />
@@ -510,9 +510,9 @@
 				column="账户ID 密码 存款" />
 				<addPanel x="232" y="54" width="848" height="637">
 					<BUTTONS>
-						<confirm x="560" y="560" width="115" height="40" text="确认"
+						<confirm x="560" y="560" width="89" height="40" text="确认"
 						type="confirm" />
-						<cancel x="707" y="560" width="115" height="40" text="取消"
+						<cancel x="707" y="560" width="89" height="40" text="取消"
 						type="cancel" />
 					</BUTTONS>
 					<LABELS>
@@ -536,9 +536,9 @@
 			</BulidStateFromPanel>
 			<BulidPayPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
-					<confirm x="560" y="560" width="115" height="40" text="确认"
+					<confirm x="560" y="560" width="89" height="40" text="确认"
 						type="confirm" />
-					<cancel x="707" y="560" width="115" height="40" text="取消"
+					<cancel x="707" y="560" width="89" height="40" text="取消"
 						type="cancel" />
 					<back x="0" y="0" width="53" height="53" text="返回" type="back" />
 				</BUTTONS>
@@ -632,8 +632,8 @@
 				<arriveYYDoc text="接收单" x="0" y="267" />
 				<sendGoodDoc text="派送单" x="0" y="307" />
 				<payDoc text="收款单" x="0" y="347" />
-				<driverInfoManage text="司机信息管理" x="0" y="387" />
-				<truckInfoManage text="车辆信息管理" x="0" y="427" />
+				<driverInfoManage text="司机信息管理" x="0" y="427" />
+				<truckInfoManage text="车辆信息管理" x="0" y="387" />
 			</BUTTONS>
 
 			<mainWindow x="232" y="54" width="848" height="637">
@@ -660,9 +660,9 @@
 				<loadDocShowpanelAddPanel x="232" y="54"
 					width="848" height="637">
 					<BUTTONS>
-						<confirm x="560" y="560" width="115" height="40" text="确认"
+						<confirm x="560" y="560" width="89" height="40" text="确认"
 						type="confirm" />
-						<cancel x="707" y="560" width="115" height="40" text="取消"
+						<cancel x="707" y="560" width="89" height="40" text="取消"
 						type="cancel" />
 						<back x="0" y="0" width="53" height="53"  type="back" />
 						<addOrder x="748" y="120" width="40" height="40" 
@@ -714,9 +714,9 @@
 				<arriveYYDocShowPanelAddPanel x="232"
 					y="54" width="1080" height="637">
 					<BUTTONS>
-						<confirm x="550" y="560" width="115" height="40" text="确认"
+						<confirm x="550" y="560" width="89" height="40" text="确认"
 							type="confirm" />
-						<cancel x="700" y="560" width="115" height="40" text="取消"
+						<cancel x="700" y="560" width="89" height="40" text="取消"
 							type="cancel" />
 						<back x="0" y="0" width="53" height="53"  type="back" />
 						<addOrder x="748" y="120" width="40" height="40" 
@@ -760,9 +760,9 @@
 				<sendGoodDocShowPanelAddPanel x="232"
 					y="54" width="1080" height="637">
 					<BUTTONS>
-						<confirm x="550" y="560" width="115" height="40" text="确认"
+						<confirm x="550" y="560" width="89" height="40" text="确认"
 							type="confirm" />
-						<cancel x="700" y="560" width="115" height="40" text="取消"
+						<cancel x="700" y="560" width="89" height="40" text="取消"
 							type="cancel" />
 						<back x="0" y="0" width="53" height="53" text="返回" type="back" />
 					</BUTTONS>
@@ -797,9 +797,9 @@
 				<payDocShowPanelAddPanel x="232" y="54"
 					width="1080" height="637">
 					<BUTTONS>
-						<confirm x="550" y="560" width="115" height="40" text="确认"
+						<confirm x="550" y="560" width="89" height="40" text="确认"
 							type="confirm" />
-						<cancel x="700" y="560" width="115" height="40" text="取消"
+						<cancel x="700" y="560" width="89" height="40" text="取消"
 							type="cancel" />
 						<back x="0" y="0" width="53" height="53" text="返回" type="back" />
 					</BUTTONS>
@@ -836,99 +836,97 @@
 				<driverInfoManagePanelAddPanel x="232"
 					y="54" width="848" height="637">
 					<BUTTONS>
-						<confirm x="550" y="560" width="115" height="40" text="确认"
-							type="rectangle" />
-						<cancel x="700" y="560" width="115" height="40" text="取消"
+						<confirm x="550" y="560" width="89" height="40" text="确认"
+							type="confirm" />
+						<cancel x="700" y="560" width="89" height="40" text="取消"
 							type="cancel" />
 						<back x="0" y="0" width="53" height="53" type="back" />
 					</BUTTONS>
 
 					<LABELS>
-					<id x="60" y="120" width="115" height="40"
+					<id x="60" y="60" width="115" height="40"
 						text="ID" type="rectangle" />
-					<name x="60" y="180" width="115" height="40"
+					<name x="60" y="120" width="115" height="40"
 						text="姓名" type="rectangle" />
+					<sex x="60" y="180" width="115" height="40"
+						text="性别" type="rectangle" />
 					<bornday x="60" y="240" width="115" height="40"
-						text="出生年月" type="rectangle" />
-					<phone x="60" y="300" width="115" height="40"
+						text="出生日期" type="rectangle" />
+					<idCard x="60" y="300" width="115" height="40"
+						text="身份证号" type="rectangle" />
+					<phone x="60" y="360" width="115" height="40"
 						text="手机号码" type="rectangle" />
+					<instid x="60" y="420" width="115" height="40"
+						text="机构ID" type="rectangle" />
+					<license x="60" y="480" width="115" height="40"
+						text="驾驶证期限" type="rectangle" />
 					</LABELS>
 					<TEXTFIELDS>
-						<id x="200" y="120" width="200" height="40"/>
-						<name x="200" y="180" width="200" height="40" />
-						<phone x="200" y="300" width="200" height="40"/>
+						<id x="200" y="60" width="200" height="40"/>
+						<name x="200" y="120" width="200" height="40" />
+						<phone x="200" y="360" width="200" height="40"/>
+						<instid x="200" y="420" width="200" height="40"/>
+						<idCard x="200" y="300" width="200" height="40" />
+						<license x="200" y="480" width="200" height="40"/>
 					</TEXTFIELDS>
 					<borns x="200" y="240" width="200" height="40"/>
-		
+					<sex x="200" y="180" width="200" height="40" strings = "男 女"/>
 					<datepicker x="588" y="60" width="200" height="40" />
-				</driverInfoManagePanelAddPanel>
-				
-			
-				<title x="48" y="36" width="200" height="28" text="收款单列表" fontName="华文细黑" size="26"/>
+				</driverInfoManagePanelAddPanel>			
+				<title x="48" y="36" width="200" height="28" text="司机信息列表" fontName="华文细黑" size="26"/>
 						
 				<addDoc x="700" y="80" width="40" height="40" 
 					type="add" />
 				<search x="150" y="80" />
 				<datepicker x="758" y="80" width="40" height="40" />
-				<table x="48" y="150" width="750" height="420" column = "编号 姓名 机构ID 出生日期 身份证号 手机号码 性别 驾驶证期限"/>
+				<table x="48" y="150" width="750" height="420" column = "编号 姓名 性别 出生日期 身份证号 手机号码 机构ID 驾驶证期限"/>
 				<searchButton x="475" y="80" width="115" height="40"
 					text="搜索"  type = "cancel"/>
 				<searchWay x="48" y="80" width="95" height="40" strings = "查找方式 按姓名查找 按ID查找 按机构ID查找"/>
 			</driverInfoManagePanel>
+			
 			<truckInfoManagePanel x="232" y="54" width="848"
 				height="637">
 				<truckInfoManagePanelAddPanel x="232"
 					y="54" width="1080" height="637">
 					<BUTTONS>
-						<confirm x="550" y="560" width="115" height="40" text="确认"
-							type="rectangle" />
-						<cancel x="700" y="560" width="115" height="40" text="取消"
+						<confirm x="550" y="560" width="89" height="40" text="确认"
+							type="confirm" />
+						<cancel x="700" y="560" width="89" height="40" text="取消"
 							type="cancel" />
-						<back x="625" y="560" width="115" height="40" text="返回" type="confirm" />
+						<back x="0" y="0" width="53" height="53"  type="back" />
 					</BUTTONS>
+					
 					<LABELS>
-
-
-					<id x="50" y="50" width="115" height="40"
+					<id x="60" y="120" width="115" height="40"
 						text="ID" type="rectangle" />
-					<plateNum x="50" y="150" width="115" height="40"
-						text="ID" type="rectangle" />
-					<useYear x="50" y="250" width="115" height="40"
-						text="ID" type="rectangle" />
-<!-- =======
->>>>>>> origin/master
-						<id x="50" y="50" width="115" height="40" text="ID" type="rectangle" />
-						<plateNum x="50" y="150" width="115" height="40" text="ID"
-							type="rectangle" />
-						<useYear x="50" y="250" width="115" height="40" text="ID"
-							type="rectangle" />
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master -->
->>>>>>> origin/master
+					<plateNum x="60" y="180" width="115" height="40"
+						text="车牌号" type="rectangle" />
+					<useYear x="60" y="240" width="115" height="40"
+						text="使用年份" type="rectangle" />
 					</LABELS>
+					
 					<TEXTFIELDS>
-						<id x="250" y="50" width="115" height="40" text="ID" type="rectangle" />
-						<plateNum x="250" y="150" width="115" height="40" text="ID"
-							type="rectangle" />
-						<useYear x="250" y="250" width="115" height="40" text="ID"
-							type="rectangle" />
+						<id x="200" y="120" width="200" height="40"   />
+						<plateNum x="200" y="180" width="200" height="40"/>
+						<useYear x="200" y="240" width="200" height="40"  />
 					</TEXTFIELDS>
 				</truckInfoManagePanelAddPanel>
-				<addDoc x="550" y="560" width="115" height="40" text="增加"
-					type="rectangle" />
-				<search x="300" y="0" />
-				<datepicker x="0" y="0" width="250" height="50" />
-				<table x="200" y="225" width="150" height="100" column="ID 车牌号 使用年份" />
-				<searchWay x="200" y="100" width="200" height="100"
-					strings="（查找方式） 按ID查找 按車牌號查找" />
-				<searchButton x="700" y="0" width="115" height="40"
-					text="搜索" type="rectangle" />
+				<title x="48" y="36" width="200" height="28" text="车辆信息列表" fontName="华文细黑" size="26"/>
+						
+				<addDoc x="700" y="80" width="40" height="40" 
+					type="add" />
+				<search x="150" y="80" />
+				<datepicker x="758" y="80" width="40" height="40" />
+				<table x="48" y="150" width="750" height="420" column="ID 车牌号 使用年份" />
+				<searchWay x="48" y="80" width="95" height="40"
+					strings="查找方式 按ID查找 按車牌號查找" />
+				<searchButton x="475" y="80" width="115" height="40"
+					text="搜索" type="cancel" />
 			</truckInfoManagePanel>
+			
+			
 		</Salesman>
-
-
 
 
 

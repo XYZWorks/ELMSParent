@@ -8,6 +8,7 @@ import org.dom4j.Element;
 
 import ui.tools.CheckDocPanel;
 import ui.tools.MyComboBox;
+import ui.tools.MyLabel;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
 import blservice.DTManageblservice.DTManageblservice;
@@ -24,7 +25,7 @@ public class CarManageCheckPanel extends CheckDocPanel{
 	 * 查找方式
 	 */
 	MyComboBox searchWay;
-	
+	private MyLabel title;
 	CarMesTable myTable;
 	
 	public CarManageCheckPanel(Element config, JPanel changePanel, String checkDocName , String addDocName, DTManageblservice dtManageblservice) {
@@ -78,12 +79,13 @@ public class CarManageCheckPanel extends CheckDocPanel{
 	@Override
 	protected void initialDifferComp(Element e) {
 		searchWay = new MyComboBox(e.element("searchWay"));
-		
+		title = new MyLabel(e.element("title"));
 	}
 
 	@Override
 	protected void addDifferComp() {
 		add(searchWay);
+		add(title);
 	}
 
 	

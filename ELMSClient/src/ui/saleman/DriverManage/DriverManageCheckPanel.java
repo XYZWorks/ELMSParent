@@ -6,6 +6,7 @@ import org.dom4j.Element;
 
 import ui.tools.CheckDocPanel;
 import ui.tools.MyComboBox;
+import ui.tools.MyLabel;
 import blservice.DTManageblservice.DTManageblservice;
  /** 
  * 司机信息查看界面
@@ -21,6 +22,7 @@ DTManageblservice bl;
 	 */
 	MyComboBox searchWay;
 	
+	private MyLabel title;
 	DriverMesPanel myTable;
 	public DriverManageCheckPanel(Element config, JPanel changePanel , String checkDocName , String addDocName, DTManageblservice dtManageblservice) {
 		super(config, changePanel , checkDocName , addDocName);
@@ -41,7 +43,7 @@ DTManageblservice bl;
 	@Override
 	protected void initialDifferComp(Element e) {
 		searchWay = new MyComboBox(e.element("searchWay"));
-		
+		title = new MyLabel(e.element("title"));
 	}
 
 
@@ -53,7 +55,7 @@ DTManageblservice bl;
 	@Override
 	protected void addDifferComp() {
 		add(searchWay);
-		
+		add(title);
 	}
 
 }
