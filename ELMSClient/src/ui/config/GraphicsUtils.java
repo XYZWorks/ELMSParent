@@ -110,18 +110,7 @@ public class GraphicsUtils {
 			g2d.setComposite(alphacomposite);
 		}
 
-		/**
-		 * 检测长度是否合格
-		 * @param s
-		 * @return
-		 */
-		public static final boolean isLengthValid(String s){
 		
-			
-			
-		return true;
-		
-		}
 	
 
 	

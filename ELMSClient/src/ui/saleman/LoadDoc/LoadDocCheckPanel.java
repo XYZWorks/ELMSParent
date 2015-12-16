@@ -4,10 +4,9 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import blservice.transportblservice.Transportblservice;
 import ui.tools.CheckDocPanel;
 import ui.tools.MyLabel;
-import ui.tools.MyPictureLabel;
+import blservice.transportblservice.Transportblservice;
  /** 
  * 装车单信息查看表
  * @author czq 

@@ -20,14 +20,11 @@ public class LoadDocOrders extends MyTablePanel{
 	
 	public LoadDocOrders(Element config) {
 		super(config);
-		initialTitleAndColumn(config);
-		initTable();
-		initScrollerPane();
+		myInit();
 	}
 
 	@Override
 	public void updateTableMes() {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -36,7 +33,16 @@ public class LoadDocOrders extends MyTablePanel{
 		columnNames = MyTablePanel.getColumnName(config.attributeValue(columnStr));
 		data = null;
 	}
-
+	/**
+	 * 清空表内所有信息
+	 */
+	void clearOrders(){
+		while(table.getRowCount() > 0){
+			table.getModel().removeRow(0);
+		}
+		orderbarCodes.clear();
+	}
+	
 	@Override
 	protected void initTable() {
 		table = new MyTable(columnNames, data);
@@ -48,7 +54,7 @@ public class LoadDocOrders extends MyTablePanel{
 	 */
 	void addAOrder(String orderID){
 		orderbarCodes.add(orderID);
-		oneOrder[0] = String.valueOf(orderbarCodes.size() + 1); 
+		oneOrder[0] = String.valueOf(orderbarCodes.size()); 
 		oneOrder[1] = orderID;
 		this.addOneRow(oneOrder);
 	}

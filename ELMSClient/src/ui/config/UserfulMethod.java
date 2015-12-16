@@ -23,7 +23,9 @@ public class UserfulMethod {
 		}
 		return true;
 	}
-	
+	public static boolean dealWithData(SimpleDataFormat datas){
+		return dataHandler(datas.message, datas.type ,datas.chineseName);
+	}
 	
 	
 	/**
@@ -32,7 +34,7 @@ public class UserfulMethod {
 	 * @param type
 	 * @return
 	 */
-	public static boolean dataHandler(String message , DataType type,String chineseName){
+	private static boolean dataHandler(String message , DataType type,String chineseName){
 		switch (type) {
 		case ID:
 			return FormatMesHandler(checkID(message) , chineseName);

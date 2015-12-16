@@ -58,6 +58,7 @@ public class BusinessLogicDataFactory {
 			factory = new BusinessLogicDataFactory();
 			//因为持有其他的引用，必须先初始化工厂后才能启动approval内的初始化
 			factory.approvalController.myInit();
+			factory.transportController.myInit();
 		}
 		
 		return factory;

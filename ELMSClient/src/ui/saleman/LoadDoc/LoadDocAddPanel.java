@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import blservice.transportblservice.Transportblservice;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
@@ -27,6 +26,7 @@ import ui.util.TipsDialog;
 import util.City;
 import util.MyDate;
 import vo.transport.LoadDocVO;
+import blservice.transportblservice.Transportblservice;
  /** 
  * 装车单增加界面
  * @author czq 
@@ -71,8 +71,6 @@ public class LoadDocAddPanel extends AddDocPanel{
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -124,9 +122,10 @@ public class LoadDocAddPanel extends AddDocPanel{
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
 				String temp = orderCode.getText();
-				//格式检查 TODO
-				ordersTable.addAOrder(temp);
-				new TipsDialog("成功新增订单" , Color.BLUE);
+				if(UserfulMethod.dealWithData(new SimpleDataFormat(temp, DataType.ID, "订单号"))){
+					ordersTable.addAOrder(temp);
+					new TipsDialog("成功新增订单" , Color.BLUE);
+				}
 			}
 		});
 		confirm.addMouseListener(new ConfirmListener(confirm) {
@@ -141,19 +140,19 @@ public class LoadDocAddPanel extends AddDocPanel{
 			ArrayList<String> orderBarCodes;
 			@Override
 			protected void updateMes() {
-				
-				
+				String[] data = {id, MyDate.toString(myDate), yyID, loadDocID,arriveCity.getName(), carID, supervisor, escort, String.valueOf(orderBarCodes.size())};
+				messageTable.addOneRow(data);
 			}
 			
 			@Override
 			protected void saveToSQL() {
 				bl.add(new LoadDocVO(id, myDate, yyID, loadDocID, arriveCity, carID, supervisor, escort, orderBarCodes));
+				new TipsDialog("成功新增装车单" , Color.GREEN);
 			}
 			
 			@Override
 			protected void reInitial() {
-				// TODO Auto-generated method stub
-				
+				reinit();
 			}
 			
 			@Override
@@ -171,14 +170,20 @@ public class LoadDocAddPanel extends AddDocPanel{
 				return UserfulMethod.dealWithData(dataForTest);
 			}
 		});
-//		cancel.addMouseListener(new CancelListener(cancel) {
-//			
-//			@Override
-//			public void resetMes() {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//		});
+		cancel.addMouseListener(new CancelListener(cancel) {
+			
+			@Override
+			public void resetMes() {
+				reinit();
+			}
+		});
 	}
-
+	
+	private void reinit(){
+		idT.setText("");YYIDT.setText("");loadDocT.setText("");carT.setText("");
+		supervisorT.setText("");escortT.setText("");orderCode.setText("");
+		
+		
+		ordersTable.clearOrders();
+	}
 }

@@ -15,6 +15,7 @@ import vo.transport.ArriveZZDocVO;
 import vo.transport.LoadDocVO;
 import vo.transport.SendGoodDocVO;
 import vo.transport.TransferDocVO;
+import bl.BusinessLogicDataFactory;
 import blservice.transportblservice.Transportblservice;
 import ds.transportdataservice.Transportdataservice;
  /** 
@@ -27,7 +28,9 @@ public class TransportController implements Transportblservice{
 	private Transport transport ;
 	private Transportdataservice transportData = (Transportdataservice) RMIManage.getDataService(DataServiceType.TransportDataService);
 	public TransportController() {
-		transport = new Transport(transportData);
+	}
+	public void myInit(){
+		transport = new Transport(transportData , BusinessLogicDataFactory.getFactory().getOrderBussinessLogic() , BusinessLogicDataFactory.getFactory().getStrategyBusinessLogic());
 	}
 	public ResultMessage add(LoadDocVO vo) {
 		return transport.add(vo);

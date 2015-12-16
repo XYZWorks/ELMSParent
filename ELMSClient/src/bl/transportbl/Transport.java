@@ -22,7 +22,6 @@ import vo.transport.ArriveZZDocVO;
 import vo.transport.LoadDocVO;
 import vo.transport.SendGoodDocVO;
 import vo.transport.TransferDocVO;
-import bl.strategybl.StrategyController;
 import blservice.orderblservice.Orderblservice;
 import blservice.strategyblservice.StrategyblService;
 import ds.transportdataservice.Transportdataservice;
@@ -40,15 +39,16 @@ public class Transport {
 
 	private StrategyblService strategybl;
 
-	public Transport(Transportdataservice transportdataservice) {
+	public Transport(Transportdataservice transportdataservice , Orderblservice orderbl , StrategyblService strategybl) {
 
-		transportData = transportdataservice;
-
-		strategybl = new StrategyController();
-		// orderbl = new OrderController();
+		this.transportData = transportdataservice;
+		this.orderbl = orderbl;
+		this.strategybl = strategybl;
+		
 
 	}
-
+	
+	
 	public ResultMessage add(LoadDocVO vo) {
 		LoadDocPO po = (LoadDocPO) VOPOchange.VOtoPO(vo);
 		ResultMessage result = null;

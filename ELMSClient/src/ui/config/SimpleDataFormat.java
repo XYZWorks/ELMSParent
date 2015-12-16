@@ -1,6 +1,6 @@
 package ui.config;
  /** 
- * 
+ * 格式处理包装类
  * @author czq 
  * @version 2015年12月16日 下午1:21:31 
  */
