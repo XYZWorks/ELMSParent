@@ -24,8 +24,8 @@ public abstract class ConfirmListener extends MyPictureButtonListener{
 		super.mouseClicked(e);
 		if(checkDataValid()){
 			saveToSQL();
-			reInitial();
 			updateMes();
+			reInitial();
 		}
 	}
 	/**
