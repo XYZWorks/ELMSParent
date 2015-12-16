@@ -5,6 +5,7 @@ import org.dom4j.Element;
 import bl.storebl.StoreController;
 import config.StaticMessage;
 import ui.storemanager.alarm.AlarmRecoverPanel;
+import ui.storemanager.alarm.AlarmRecoverSinglePanel;
 import ui.storemanager.alarm.AlarmSetPanel;
 import ui.storemanager.alarm.AlarmSetSinglePanel;
 import ui.storemanager.instore.AddInStorePanel;
@@ -67,6 +68,8 @@ public class StoreManagerController extends PanelController {
 	private final String storeCheckInfoPanelStr = "StoreCheckInfoPanel";
 	private AlarmSetSinglePanel alarmSetSinglePanel;
 	private final String alarmSetSinglePanelStr = "AlarmSetSinglePanel";
+	private AlarmRecoverSinglePanel alarmRecoverSinglePanel;
+	private final String alarmRecoverSinglePanelStr = "AlarmRecoverSinglePanel";
 	
 	public StoreManagerController(MyPanel initialPanel, Element e) {
 		super(initialPanel , e);
@@ -88,7 +91,7 @@ public class StoreManagerController extends PanelController {
 		outStorePanel = new OutStorePanel(e.element(outStorePanelStr),bl,this);
 		storeCheckPanel = new StoreCheckPanel(e.element(storeCheckPanelStr),bl,this);
 		storeShowPanel = new StoreShowPanel(e.element(storeShowPanelStr),bl,this);
-		alarmRecoverPanel = new AlarmRecoverPanel(e.element(alarmRecoverPanelStr));
+		alarmRecoverPanel = new AlarmRecoverPanel(e.element(alarmRecoverPanelStr),bl,this);
 		alarmSetPanel = new AlarmSetPanel(e.element(alarmSetPanelStr),bl,this);
 		addInStorePanel = new AddInStorePanel(e.element(inStorePanelStr).element(addInStorePanelStr),bl,this);
 		fullInPanel = new FullInPanel(e.element(inStorePanelStr).element(fullInPanelStr),bl,this);
@@ -96,6 +99,8 @@ public class StoreManagerController extends PanelController {
 		storeSingleShowPanel = new StoreSingleShowPanel(e.element(storeShowPanelStr).element(storeSingleShowPanelStr),bl,this);
 		storeCheckInfoPanel = new StoreCheckInfoPanel(e.element(storeCheckPanelStr).element(storeCheckInfoPanelStr), bl, this);
 		alarmSetSinglePanel = new AlarmSetSinglePanel(e.element(alarmSetPanelStr).element(alarmSetSinglePanelStr),bl,this);
+		alarmRecoverSinglePanel = new AlarmRecoverSinglePanel(e.element(alarmRecoverPanelStr).element(alarmRecoverSinglePanelStr),bl,this);
+	
 	}
 
 	@Override
@@ -136,6 +141,7 @@ public class StoreManagerController extends PanelController {
 		changePanel.add(storeSingleShowPanel,storeSingleShowPanelStr);
 		changePanel.add(storeCheckInfoPanel,storeCheckInfoPanelStr);
 		changePanel.add(alarmSetSinglePanel,alarmSetSinglePanelStr);
+		changePanel.add(alarmRecoverSinglePanel,alarmRecoverSinglePanelStr);
 	}
 
 	@Override
@@ -190,6 +196,7 @@ public class StoreManagerController extends PanelController {
 		panelMap.put(storeSingleShowPanelStr, storeSingleShowPanel);
 		panelMap.put(storeCheckInfoPanelStr, storeCheckInfoPanel);
 		panelMap.put(alarmSetSinglePanelStr, alarmSetSinglePanel);
+		panelMap.put(alarmRecoverSinglePanelStr, alarmRecoverSinglePanel);
 	}
 	
 	

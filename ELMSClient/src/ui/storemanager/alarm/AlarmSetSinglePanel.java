@@ -123,7 +123,7 @@ public class AlarmSetSinglePanel extends MyPanel {
 
 		@Override
 		protected void updateMes() {
-			// TODO Auto-generated method stub
+			nowValue.setText(bl.getAlarmValue(City.toCity(center.getText()))+"%");
 			
 		}
 

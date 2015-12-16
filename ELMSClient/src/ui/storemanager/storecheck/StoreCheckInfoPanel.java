@@ -90,6 +90,7 @@ public class StoreCheckInfoPanel extends StoreSingleShowPanel {
 
 	@Override
 	protected void addListener() {
+		
 		returnButton.addMouseListener(new MyJumpListener(returnButton, "StoreCheckPanel", controller,true));
 
 	}

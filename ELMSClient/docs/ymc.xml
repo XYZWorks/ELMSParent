@@ -685,7 +685,7 @@
 			</StoreCheckPanel>
 			
 			<AlarmSetPanel x="232" y="54" width="848" height="637">
-							<BUTTONS>
+				<BUTTONS>
 					
 					<confirm x="560" y="500" width="130" height="100" text="确认"
 						type="rectangle"/>
@@ -749,7 +749,79 @@
 			</AlarmSetPanel>
 			
 			<AlarmRecoverPanel x="232" y="54" width="848" height="637">
-			
+				<BUTTONS>
+					
+					<confirm x="560" y="500" width="130" height="100" text="确认"
+						type="rectangle"/>
+					<return x="720" y="500" width="130" height="100" text="返回"
+						type="rectangle"/>
+				</BUTTONS>
+				
+				<LABELS>
+					<center  x="100" y="150" width="300" height="100"  fontName="华文新魏" size="30"
+					text="中转中心所在地" type="rectangle"/>
+					<store  x="100" y="320" width="200" height="100"   fontName="华文新魏" size="30"
+					text="仓库区" type="rectangle"/>
+				</LABELS>
+				
+				<city x="350" y="177" width="240" height="45"
+					strings="南京 广州 上海 北京" />
+					
+				<store x="350" y="347" width="240" height="45"
+					strings="航运区 汽运区 铁运区" />
+				
+			 	<AlarmRecoverSinglePanel x="232" y="54" width="848" height="637">
+			 	
+			 		<BUTTONS>
+			 			<confirm x="550" y="500" width="150" height="100" text="确认"
+						type="rectangle"/>
+						<return x="700" y="500" width="150" height="100" text="返回"
+						type="rectangle"/>
+			 		</BUTTONS>
+
+
+			 		<LABELS>
+						<center  x="250" y="30" width="200" height="100"  size="25"
+						text="" type="rectangle"/>
+			 			<centerL  x="50" y="30" width="200" height="100"    fontName="华文新魏" size="30"
+						text="中转中心" type="rectangle"/>
+						<storeNum  x="570" y="30" width="200" height="100"   size="25"
+						text="" type="rectangle"/>
+						
+						<storeNumL  x="420" y="30" width="200" height="100"   fontName="华文新魏" size="30"
+						text="仓库区" type="rectangle"/>	
+						<nowValue  x="230" y="200" width="200" height="100"  
+						text="" type="rectangle"/>
+						<nowValueL  x="80" y="200" width="200" height="100"  
+						text="当前警戒值" type="rectangle"/>
+			 			<modifyL  x="80" y="370" width="200" height="100"  
+						text="修改警戒值" type="rectangle"/>
+						<nowNum  x="550" y="160" width="200" height="100"  
+						text="" type="rectangle"/>
+						<nowNumL  x="450" y="160" width="200" height="100"  
+						text="当前库存量" type="rectangle"/>
+						
+						<totalNum  x="550" y="250" width="200" height="100"  
+						text="" type="rectangle"/>
+						<totalNumL  x="450" y="250" width="200" height="100"  
+						text="当前总库存量" type="rectangle"/>
+						
+						<addNumL  x="80" y="390" width="200" height="100"  
+						text="增加库存" type="rectangle"/>
+						
+			 		</LABELS>
+			 		
+			 		
+					
+			 		
+			 		
+			 		<TEXTFIELDS>
+			 	
+			 			<addNumT x="230" y="420" width="200" height="45" />
+			 		</TEXTFIELDS>
+			 		
+					
+			 	</AlarmRecoverSinglePanel>
 			</AlarmRecoverPanel>
 			
 		</StoreManager>
