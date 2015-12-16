@@ -40,6 +40,10 @@ public class UserfulMethod {
 			return FormatMesHandler(checkID(message) , chineseName);
 		case phone:
 			return FormatMesHandler(checkPhone(message) , chineseName);
+		case idCard:
+			return FormatMesHandler(checkIDCARD(message), chineseName);
+		case PositiveNum:
+			return FormatMesHandler(checkPositiveNum(message), chineseName);
 		default:
 			break;
 		}
@@ -56,6 +60,8 @@ public class UserfulMethod {
 			break;
 		case WRONG_LENGTH:
 			new TipsDialog(chineseName + "中长度不正确，请您重新输入");
+			case NEGATIVE_NUM:
+			new TipsDialog(chineseName + "应为正整数 ， 请重新输入");
 		}
 		return false;
 	}
@@ -76,6 +82,34 @@ public class UserfulMethod {
 			}
 		}
 		return FormatMes.CORRECT;
+	}
+	
+	public static final FormatMes checkIDCARD(String idCard){
+		if(idCard.length() != 45){
+			return FormatMes.WRONG_LENGTH;
+		}
+		for (int i = 0; i < 45; i++) {
+			if(isNum(idCard.charAt(i))){
+				
+			}else{
+				return FormatMes.ILEGAL_CHAR;
+			}
+		}
+		
+		return FormatMes.CORRECT;
+	}
+	
+	public static final FormatMes checkPositiveNum(String num){
+		
+		try {
+			int number = Integer.parseInt(num);
+			if (number <= 0) {
+				return FormatMes.NEGATIVE_NUM;
+			}
+			return FormatMes.CORRECT;
+		} catch (Exception e) {
+		}
+		return FormatMes.ILEGAL_CHAR;
 	}
 	
 	public static final FormatMes checkPhone(String phone) {

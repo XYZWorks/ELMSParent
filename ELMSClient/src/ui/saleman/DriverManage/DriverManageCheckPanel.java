@@ -34,7 +34,7 @@ DTManageblservice bl;
 	@Override
 	protected void initialAddDocPanelAndTable(Element e) {
 		messageTable = new DriverMesPanel(e.element(tableStr));
-		addDocPanel = new DriverManageAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable);
+		addDocPanel = new DriverManageAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable, bl);
 		
 	}
 
