@@ -65,7 +65,7 @@ public class OutStoreTablePanel extends MyTablePanel {
 			data[i][2] = MyDate.toString(vo.date);
 			data[i][3] = vo.loc.getName();
 			data[i][4] = vo.transferDoc;
-			data[i][5] = vo.shipWay.getName();
+			data[i][5] = TransferWay.getTransferWay(vo.shipWay.name());
 			data[i][6] = UserfulMethod.orderArrayToString(vo.orders);
 			
 		}

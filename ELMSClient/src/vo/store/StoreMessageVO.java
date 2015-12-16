@@ -24,6 +24,10 @@ public class StoreMessageVO {
 	 */
 	public int number;
 	/**
+	 * 库存总容量
+	 */
+	public int totalNum;
+	/**
 	 * 入库单集合
 	 */
 	public ArrayList<InStoreDocVO> inStoreDocs;
