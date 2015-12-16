@@ -90,7 +90,8 @@ public class PayDocAddPanel extends AddDocPanel {
 			}
 			
 			@Override
-			protected void saveToSQL() {
+			protected boolean saveToSQL() {
+				return false;
 				// TODO Auto-generated method stub
 				
 			}

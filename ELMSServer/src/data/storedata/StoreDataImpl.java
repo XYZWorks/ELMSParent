@@ -132,8 +132,6 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 					System.err.println("WARNING: " +city.name() + storeLoc.name() +"區的庫存信息未創建或丟失");
 					continue;
 				}
-				System.out.println(city.name());
-				System.out.println(storeLoc.name());
 				pos.add((StoreMessagePO) ob);
 			}
 		}

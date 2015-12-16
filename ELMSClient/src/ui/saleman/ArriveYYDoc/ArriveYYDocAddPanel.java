@@ -143,12 +143,14 @@ public class ArriveYYDocAddPanel extends AddDocPanel {
 			ArrayList<String> orderBarCodes;
 
 			@Override
-			protected void saveToSQL() {
+			protected boolean saveToSQL() {
 				if(bl.add(new ArriveYYDocVO(ID, myDate, ZZID, sendCity, goodState,
 						orderBarCodes)) == ResultMessage.SUCCESS){
 					new TipsDialog("成功新增接收单", Color.GREEN);
+					return true;
 				}else{
 					new TipsDialog("未成功增加接收单", Color.RED);
+					return false;
 				}
 				
 			}

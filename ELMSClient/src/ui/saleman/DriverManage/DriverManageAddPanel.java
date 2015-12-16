@@ -21,11 +21,14 @@ import ui.util.CancelListener;
 import ui.util.ConfirmListener;
 import ui.util.TipsDialog;
 import util.MyDate;
+import util.ResultMessage;
 import vo.DTManage.DriverVO;
- /** 
+
+/**
  * 司机增加界面
- * @author czq 
- * @version 2015年12月8日 下午8:17:45 
+ * 
+ * @author czq
+ * @version 2015年12月8日 下午8:17:45
  */
 @SuppressWarnings("serial")
 public class DriverManageAddPanel extends AddDocPanel {
@@ -37,9 +40,7 @@ public class DriverManageAddPanel extends AddDocPanel {
 	private MyLabel phone;
 	private MyLabel sex;
 	private MyLabel licenseYear;
-	
-	
-	
+
 	private MyTextField idT;
 	private MyTextField nameT;
 	private MyTextField instidT;
@@ -49,8 +50,11 @@ public class DriverManageAddPanel extends AddDocPanel {
 	private MyTextField licenseYearT;
 	private MyDatePicker borns;
 	private DTManageblservice bl;
-	public DriverManageAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable , DTManageblservice bl) {
-		super(config , changePanel , checkDocPanelStr,  messageTable);
+
+	public DriverManageAddPanel(Element config, JPanel changePanel,
+			String checkDocPanelStr, MyTablePanel messageTable,
+			DTManageblservice bl) {
+		super(config, changePanel, checkDocPanelStr, messageTable);
 		this.bl = bl;
 	}
 
@@ -71,11 +75,11 @@ public class DriverManageAddPanel extends AddDocPanel {
 		idT = new MyTextField(e.element("id"));
 		nameT = new MyTextField(e.element("name"));
 		phoneT = new MyTextField(e.element("phone"));
-		
+
 		instidT = new MyTextField(e.element("instid"));
 		licenseYearT = new MyTextField(e.element("license"));
 		idCardT = new MyTextField(e.element("idCard"));
-		
+
 	}
 
 	@Override
@@ -84,7 +88,7 @@ public class DriverManageAddPanel extends AddDocPanel {
 		name = new MyPictureLabel(e.element("name"));
 		bornDay = new MyPictureLabel(e.element("bornday"));
 		phone = new MyPictureLabel(e.element("phone"));
-		
+
 		instid = new MyPictureLabel(e.element("instid"));
 		sex = new MyPictureLabel(e.element("sex"));
 		licenseYear = new MyPictureLabel(e.element("license"));
@@ -99,8 +103,22 @@ public class DriverManageAddPanel extends AddDocPanel {
 
 	@Override
 	protected void addCompoment() {
-		add(bornDay);add(borns);add(id);add(idT);add(name);add(nameT);add(phone);add(phoneT);
-		add(sex);add(sexB);add(idCard);add(idCardT);add(instid);add(instidT);add(licenseYear);add(licenseYearT);
+		add(bornDay);
+		add(borns);
+		add(id);
+		add(idT);
+		add(name);
+		add(nameT);
+		add(phone);
+		add(phoneT);
+		add(sex);
+		add(sexB);
+		add(idCard);
+		add(idCardT);
+		add(instid);
+		add(instidT);
+		add(licenseYear);
+		add(licenseYearT);
 	}
 
 	@Override
@@ -114,25 +132,32 @@ public class DriverManageAddPanel extends AddDocPanel {
 			String licenseYear;
 			boolean isman;
 			String idCard;
+
 			@Override
 			protected void updateMes() {
-				String[] data = {id, name, instid, MyDate.toString(birthday) ,idCard, phone, isman?"男":"女", licenseYear};
+				String[] data = { id, name, instid, MyDate.toString(birthday),
+						idCard, phone, isman ? "男" : "女", licenseYear };
 				messageTable.addOneRow(data);
-				
+
 			}
-			
+
 			@Override
-			protected void saveToSQL() {
-				bl.addDriver(new DriverVO(id, name, instid, birthday, idCard, phone, isman, Integer.parseInt(licenseYear)));
-				new TipsDialog("成功增加司机信息" , Color.GREEN);
+			protected boolean saveToSQL() {
+				if (bl.addDriver(new DriverVO(id, name, instid, birthday,
+						idCard, phone, isman, Integer.parseInt(licenseYear))) == ResultMessage.SUCCESS) {
+					new TipsDialog("成功增加司机信息", Color.GREEN);
+					return true;
+				} else {
+					new TipsDialog("增加司机信息失败，可能由于ID重复或数据库错误", Color.RED);
+					return false;
+				}
 			}
-			
+
 			@Override
 			protected void reInitial() {
 				myInit();
-				
 			}
-			
+
 			@Override
 			protected boolean checkDataValid() {
 				id = idT.getText();
@@ -142,20 +167,27 @@ public class DriverManageAddPanel extends AddDocPanel {
 				birthday = borns.getMyDate();
 				idCard = idCardT.getText();
 				licenseYear = licenseYearT.getText();
-				isman = sexB.getSelectedIndex()==0?true:false;
-				SimpleDataFormat[] datas = {new SimpleDataFormat(id, DataType.ID, "ID") , new SimpleDataFormat(phone, DataType.phone, "手机号码") , new SimpleDataFormat(instid, DataType.ID, "机构ID") , new SimpleDataFormat(idCard, DataType.idCard, "身份证号") , new SimpleDataFormat(licenseYear, DataType.PositiveNum, "驾驶证期限")};
+				isman = sexB.getSelectedIndex() == 0 ? true : false;
+				SimpleDataFormat[] datas = {
+						new SimpleDataFormat(id, DataType.ID, "ID"),
+						new SimpleDataFormat(phone, DataType.phone, "手机号码"),
+						new SimpleDataFormat(instid, DataType.ID, "机构ID"),
+						new SimpleDataFormat(idCard, DataType.idCard, "身份证号"),
+						new SimpleDataFormat(licenseYear, DataType.PositiveNum,
+								"驾驶证期限") };
 				return UserfulMethod.dealWithData(datas);
 			}
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {
-			
+
 			@Override
 			public void resetMes() {
 				myInit();
-				
+
 			}
 		});
 	}
+
 	private void myInit() {
 		idT.setText("");
 		nameT.setText("");

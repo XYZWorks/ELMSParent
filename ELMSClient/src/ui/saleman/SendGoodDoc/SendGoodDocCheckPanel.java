@@ -31,7 +31,7 @@ public class SendGoodDocCheckPanel extends CheckDocPanel {
 	@Override
 	protected void initialAddDocPanelAndTable(Element e) {
 		messageTable = new SendGoodMesTable(e.element(tableStr));
-		addDocPanel = new SendGoodDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable);
+		addDocPanel = new SendGoodDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable, bl);
 		
 	}
 
@@ -50,7 +50,7 @@ public class SendGoodDocCheckPanel extends CheckDocPanel {
 
 	@Override
 	protected void addDifferComp() {
-		add(title);// TODO Auto-generated method stub
+		add(title);
 		
 	}
 

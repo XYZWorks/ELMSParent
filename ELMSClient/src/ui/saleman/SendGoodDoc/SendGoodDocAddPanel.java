@@ -1,11 +1,15 @@
 package ui.saleman.SendGoodDoc;
 
+import java.awt.Color;
+
 import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import blservice.transportblservice.Transportblservice;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
 import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
 import ui.tools.MyComboBox;
@@ -15,8 +19,11 @@ import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.ConfirmListener;
+import ui.util.TipsDialog;
 import util.City;
 import util.MyDate;
+import util.ResultMessage;
+import vo.transport.SendGoodDocVO;
 
 /**
  * 派送单增加界面
@@ -37,10 +44,11 @@ public class SendGoodDocAddPanel extends AddDocPanel{
 	private MyTextField orderBarCodeT;
 	private MyComboBox sendCityB;
 	
+	Transportblservice bl;
 	
-	public SendGoodDocAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable) {
-		super(config , changePanel , checkDocPanelStr,  messageTable);
-		// TODO Auto-generated constructor stub
+	public SendGoodDocAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable , Transportblservice bl) {
+		super(config , changePanel , checkDocPanelStr,  messageTable );
+		this.bl = bl;
 	}
 
 	@Override
@@ -102,37 +110,43 @@ public class SendGoodDocAddPanel extends AddDocPanel{
 				orderBarCode = orderBarCodeT.getText();
 				sendCity = City.toCity((String) sendCityB.getSelectedItem());
 				SimpleDataFormat[] datas = {new SimpleDataFormat(id, DataType.ID, "ID")  , new SimpleDataFormat(orderBarCode, DataType.ID, "订单号")};
-				return false;
+				return UserfulMethod.dealWithData(datas);
 			}
 			@Override
 			protected void updateMes() {
-				// TODO Auto-generated method stub
-				
+				String[] data = {id, MyDate.toString(myDate), sendMan, orderBarCode,sendCity.getName()};
+				messageTable.addOneRow(data);
 			}
 			
 			@Override
-			protected void saveToSQL() {
-				// TODO Auto-generated method stub
-				
+			protected boolean saveToSQL() {
+				if(bl.add(new SendGoodDocVO(id, myDate, sendMan, orderBarCode, sendCity))==ResultMessage.SUCCESS){
+					new TipsDialog("成功生成接收单~"  , Color.GREEN);
+					return true;
+				}else{
+					new TipsDialog("接收单可能单据ID重复或数据库问题，未能保存成功", Color.RED);
+					return false;
+				}
 			}
 			
 			@Override
 			protected void reInitial() {
-				// TODO Auto-generated method stub
-				
+				myInit();
 			}
 			
 			
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {
-			
 			@Override
 			public void resetMes() {
-				// TODO Auto-generated method stub
-				
+				myInit();
 			}
 		});
 		
 	}
-
+	private void  myInit() {
+		idT.setText("");
+		sendManT.setText("");
+		orderBarCodeT.setText("");
+	}
 }

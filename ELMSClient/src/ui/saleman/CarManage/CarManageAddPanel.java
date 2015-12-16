@@ -88,11 +88,13 @@ public class CarManageAddPanel extends AddDocPanel {
 			String plateNum;
 			String useYear;
 			@Override
-			protected void saveToSQL() {
+			protected boolean saveToSQL() {
 				if(bl.addCar(new CarVO(id, plateNum, Integer.parseInt(useYear))) == ResultMessage.SUCCESS){
 					new TipsDialog("成功增加司机信息" , Color.GREEN);
+					return true;
 				}else{
 					new TipsDialog("未能增加司机信息", Color.RED);
+					return false;
 				}
 			}
 			

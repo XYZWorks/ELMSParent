@@ -25,6 +25,7 @@ import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
 import util.City;
 import util.MyDate;
+import util.ResultMessage;
 import vo.transport.LoadDocVO;
 import blservice.transportblservice.Transportblservice;
  /** 
@@ -145,9 +146,15 @@ public class LoadDocAddPanel extends AddDocPanel{
 			}
 			
 			@Override
-			protected void saveToSQL() {
-				bl.add(new LoadDocVO(id, myDate, yyID, loadDocID, arriveCity, carID, supervisor, escort, orderBarCodes));
-				new TipsDialog("成功新增装车单" , Color.GREEN);
+			protected boolean saveToSQL() {
+				if(bl.add(new LoadDocVO(id, myDate, yyID, loadDocID, arriveCity, carID, supervisor, escort, orderBarCodes)) == ResultMessage.SUCCESS){
+					new TipsDialog("成功新增装车单" , Color.GREEN);
+					return true;
+				}else{
+					new TipsDialog("ID重复或数据库错误，增加装车单失败，请重试", Color.RED);
+					return false;
+				}
+				
 			}
 			
 			@Override

@@ -23,9 +23,11 @@ public abstract class ConfirmListener extends MyPictureButtonListener{
 	public void mouseClicked(MouseEvent e) {	
 		super.mouseClicked(e);
 		if(checkDataValid()){
-			saveToSQL();
-			updateMes();
-			reInitial();
+			if(saveToSQL()){
+				updateMes();
+				reInitial();
+			}
+			
 		}
 	}
 	/**
@@ -39,9 +41,10 @@ public abstract class ConfirmListener extends MyPictureButtonListener{
 	protected abstract boolean checkDataValid();
 	
 	/**
-	 * 若数据有效，则保存至数据库
+	 * 保存数据，若保存成功，则进行下一步动作：更新相关信息，清空表格
+	 * @return
 	 */
-	protected abstract void saveToSQL();
+	protected abstract boolean saveToSQL();
 	
 	
 
