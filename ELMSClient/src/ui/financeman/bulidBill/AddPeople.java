@@ -1,21 +1,29 @@
 package ui.financeman.bulidBill;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import ui.generalmanager.people.PeopleManagePanel;
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
 import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
+import ui.util.CancelListener;
 import ui.util.CompomentType;
+import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
+import ui.util.TipsDialog;
+import util.StaffType;
+import vo.personnel.PersonVO;
  /** 
  * 增加人员界面
  * @author czq 
@@ -32,11 +40,11 @@ public class AddPeople extends MyPanel{
 	private MyPictureLabel phoneL;
 	private MyPictureLabel typeL;
 	
-	private MyTextField ID;
-	private MyTextField name;
-	private MyTextField phone;
+	private MyTextField IDT;
+	private MyTextField nameT;
+	private MyTextField phoneT;
 	
-	private MyComboBox type;
+	private MyComboBox typeT;
 	
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
@@ -73,9 +81,9 @@ public class AddPeople extends MyPanel{
 
 	@Override
 	protected void initTextFields(Element e) {
-		ID = new MyTextField(e.element("ID"));
-		name = new MyTextField(e.element("Name"));
-		phone = new MyTextField(e.element("Phone"));
+		IDT = new MyTextField(e.element("ID"));
+		nameT = new MyTextField(e.element("Name"));
+		phoneT = new MyTextField(e.element("Phone"));
 	}
 
 	@Override
@@ -91,32 +99,76 @@ public class AddPeople extends MyPanel{
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		type = new MyComboBox(e.element("Type"));
+		typeT = new MyComboBox(e.element("Type"));
 		table = new AddPeopleTable(e.element("table"));
 	}
 
 	@Override
 	protected void addCompoment() {
-		add(ID);
+		add(IDT);
 		add(IDL);
 		add(cancel);
 		add(confirm);
-		add(type);
+		add(typeT);
 		add(typeL);
-		add(phone);
+		add(phoneT);
 		add(phoneL);
-		add(name);
+		add(nameT);
 		add(nameL);
 		add(add);
 		add(title);
 		add(message);
 		add(addCar);
+		add(table);
 	}
 
 	@Override
 	protected void addListener() {
-		confirm.addMouseListener(new MyCancelButtonListener(confirm));
-		cancel.addMouseListener(new MyConfirmButtonListner(cancel));
+		confirm.addMouseListener(new ConfirmListener(confirm) {
+			String name;
+			String id;
+			StaffType type;
+			String phone;
+			@Override
+			protected void updateMes() {
+				String[] data = {mainPanel.instVOs.get(0).ID,StaffType.getName(type), id, name , phone};
+				table.addOneRow(data);
+				
+			}
+			
+			@Override
+			protected boolean saveToSQL() {
+				mainPanel.personVOs.add(new PersonVO(mainPanel.instVOs.get(0).ID, id, name, type, phone));
+				new TipsDialog("成功增加一条人员信息", Color.GREEN);
+				return true;
+			}
+			
+			@Override
+			protected void reInitial() {
+				myInit();
+				
+				
+			}
+			
+			@Override
+			protected boolean checkDataValid() {
+				name = nameT.getText();
+				id = IDT.getText();
+				type = StaffType.getType((String) typeT.getSelectedItem());
+				phone = phoneT.getText();
+				SimpleDataFormat[] datas = {new SimpleDataFormat(id, DataType.ID, "ID") , new SimpleDataFormat(phone, DataType.phone, "手机号")};
+				
+				return UserfulMethod.dealWithData(datas);
+			}
+		});
+		cancel.addMouseListener(new CancelListener(cancel) {
+			
+			@Override
+			public void resetMes() {
+				myInit();
+				
+			}
+		});
 		add.addMouseListener(new MyPictureButtonListener(add){
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -126,41 +178,12 @@ public class AddPeople extends MyPanel{
 		});
 	}
 	
-	class MyConfirmButtonListner extends MyPictureButtonListener{
-
-		public MyConfirmButtonListner(MyPictureButton button) {
-			super(button);
-		}
-
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
-			//TODO 检查数据合法性、保存至数据库
-			//无错误时跳转至查看界面
-			
-			panelManager.show(changePanel, BulidBillPanel.addCarStr);
-			
-		}
-
-	}
-	
-	class MyCancelButtonListener extends MyPictureButtonListener{
-		public MyCancelButtonListener(MyPictureButton button) {
-			super(button);
-		}
-		
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
-			//TODO 清空数据
-			
-		}
+	private void myInit(){
+		nameT.setText("");IDT.setText("");phoneT.setText("");typeT.setSelectedIndex(0);
 	}
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

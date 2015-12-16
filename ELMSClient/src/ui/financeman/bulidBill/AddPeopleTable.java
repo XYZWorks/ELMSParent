@@ -45,10 +45,10 @@ public class AddPeopleTable extends MyTablePanel{
 	void addAPeople(PersonVO vo){
 		if(vo!= null){
 			Object[] temp = new Object[COLUMN_NUMS];
-			temp[0] = vo.ID;
-			temp[1] =vo.instID;
-			temp[2] = vo.name;
-			temp[3] = vo.type.name();
+			temp[2] = vo.ID;
+			temp[0] =vo.instID;
+			temp[3] = vo.name;
+			temp[1] = vo.type.name();
 			temp[4] = vo.phoneNum;
 			table.getModel().addRow(temp);
 		}

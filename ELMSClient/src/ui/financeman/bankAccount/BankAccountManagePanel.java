@@ -1,22 +1,22 @@
 package ui.financeman.bankAccount;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import blservice.financeblservice.BankAccountBusinessService;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
-import ui.tools.MyPictureLabel;
-import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
-import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
+import ui.util.TipsDialog;
+import util.ResultMessage;
+import blservice.financeblservice.BankAccountBusinessService;
 
 /**
  * 银行账户管理
@@ -28,7 +28,6 @@ import ui.util.MyPictureButtonListener;
 public class BankAccountManagePanel extends MyPanel {
 
 	private BankAccountBusinessService bl;
-
 	private BankAccountTable table;
 
 	private MyPictureButton confirm;
@@ -63,6 +62,9 @@ public class BankAccountManagePanel extends MyPanel {
 		
 		changePanel.add(addPanel, addPanelStr);
 		layout = (CardLayout) changePanel.getLayout();
+		
+		//删除时才出现
+		confirm.setVisible(false);cancel.setVisible(false);
 	}
 
 	@Override
@@ -91,7 +93,7 @@ public class BankAccountManagePanel extends MyPanel {
 	@Override
 	protected void initOtherCompoment(Element e) {
 		table = new BankAccountTable(e.element("table") , bl);
-		addPanel = new AddBankAccountPanel(e.element("addPanel"), bl, changePanel);
+		addPanel = new AddBankAccountPanel(e.element("addPanel"), bl, changePanel , table);
 	}
 
 	@Override
@@ -114,55 +116,62 @@ public class BankAccountManagePanel extends MyPanel {
 		add.addMouseListener(new MyPictureButtonListener(add){
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				addPanel.setAddOrModify(true, null);
 				layout.show(changePanel, addPanelStr);
 			}
 		});
 		
-		confirm.addMouseListener(new ConfirmListener(confirm) {
-
+		confirm.addMouseListener(new MyPictureButtonListener(confirm) {
 			@Override
-			protected void saveToSQL() {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			protected void reInitial() {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			protected boolean checkDataValid() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-
-			@Override
-			protected void updateMes() {
-				// TODO Auto-generated method stub
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				confirm.setVisible(false);cancel.setVisible(false);
+				result = 
+				bl.deleteAccount((String) table.getValueAt(table.getSelectedRow(), 0));
 				
+				if (result == ResultMessage.SUCCESS) {
+					new TipsDialog("删除成功" , Color.green);
+					table.removeRow(table.getSelectedRow());
+				}else{
+					new TipsDialog("数据库或网络故障");
+				}
 			}
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {
 
 			@Override
 			public void resetMes() {
-				// TODO Auto-generated method stub
+				confirm.setVisible(false);
+				cancel.setVisible(false);
 
 			}
 		});
 		modify.addMouseListener(new MyPictureButtonListener(modify) {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
+				super.mouseClicked(e);
+				if(table.getSelectedRow() == -1){
+					new TipsDialog("请选择一条数据", Color.GREEN);
+					return;
+				}
+				
+				addPanel.setAddOrModify(false, (String) table.getValueAt(table.getSelectedRow(), 0));
+				layout.show(changePanel, addPanelStr);
 			}
 
 		});
 		delete.addMouseListener(new MyPictureButtonListener(delete) {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
+				super.mouseClicked(e);
+				if(table.getSelectedRow() == -1){
+					new TipsDialog("请选择一条数据", Color.GREEN);
+					return;
+				}
+				new TipsDialog("请确认！");
+				confirm.setVisible(true);
+				cancel.setVisible(true);
 			}
 
 		});
@@ -170,8 +179,6 @@ public class BankAccountManagePanel extends MyPanel {
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

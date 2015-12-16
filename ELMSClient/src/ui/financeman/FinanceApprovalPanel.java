@@ -34,6 +34,8 @@ public class FinanceApprovalPanel extends MyPanel{
 	private MyTextField moneyT;
 	private MyTextField companyT;
 	
+	
+	
 	public FinanceApprovalPanel(Element config) {
 		super(config);
 		initButtons(config.element(CompomentType.BUTTONS.name()));
@@ -95,7 +97,8 @@ public class FinanceApprovalPanel extends MyPanel{
 		confirm.addMouseListener(new ConfirmListener(confirm) {
 			
 			@Override
-			protected void saveToSQL() {
+			protected boolean saveToSQL() {
+				return false;
 				// TODO Auto-generated method stub
 				
 			}

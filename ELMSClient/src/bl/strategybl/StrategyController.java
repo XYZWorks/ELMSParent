@@ -2,7 +2,9 @@ package bl.strategybl;
 
 import java.util.ArrayList;
 
+import net.RMIManage;
 import ds.strategydataservice.StrategyDataService;
+import util.DataServiceType;
 import util.ResultMessage;
 import util.StaffType;
 import vo.strategy.ConstVO;
@@ -16,7 +18,7 @@ import blservice.strategyblservice.StrategyblService;
 public class StrategyController implements StrategyblService{
 	
 	private Strategy strategy ;
-	private StrategyDataService strategyData;
+	private StrategyDataService strategyData = (StrategyDataService) RMIManage.getDataService(DataServiceType.StrategyDataService);
 	public StrategyController() {
 		strategy = new Strategy(strategyData);
 	}

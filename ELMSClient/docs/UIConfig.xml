@@ -492,10 +492,6 @@
 					<modify x="700" y="65" width="40" height="40" 
 						type="modify" />
 				</BUTTONS>
-				<TEXTFIELDS>
-					<passT x="345" y="341" width="115" height="40" />
-					<money x="345" y="271" width="115" height="40" />
-				</TEXTFIELDS>
 				<LABELS>
 					<title x="48" y="36" width="200" height="28" text="银行账户管理" fontName="华文细黑" size="26"/>
 					
@@ -524,8 +520,8 @@
 					</LABELS>
 					<TEXTFIELDS>
 						<idT x="345" y="201" width="276" height="40" />
-						<passT x="345" y="271" width="276" height="40" />
-						<money x="345" y="341" width="276" height="40" />
+						<money x="345" y="271" width="276" height="40" />
+						<passT x="345" y="341" width="276" height="40" />
 					</TEXTFIELDS>
 				</addPanel>
 			</BankAccountManagePanel>

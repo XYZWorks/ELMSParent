@@ -4,11 +4,10 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import blservice.financeblservice.BankAccountBusinessService;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
-import vo.account.AccountVO;
 import vo.finance.BankAccountVO;
+import blservice.financeblservice.BankAccountBusinessService;
  /** 
  * 银行账户列表
  * @author czq 

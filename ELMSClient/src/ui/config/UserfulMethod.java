@@ -11,7 +11,7 @@ import util.FormatMes;
   */
 public class UserfulMethod {
 	/**
-	 * 消息处理机制
+	 * 消息处理机制，若整个过程中无异常，将进行下一步保存数据库的行为，否则自动返回并提示错误信息
 	 * @param datas
 	 * @return
 	 */

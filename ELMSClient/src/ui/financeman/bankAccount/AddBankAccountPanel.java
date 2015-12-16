@@ -1,12 +1,16 @@
 package ui.financeman.bankAccount;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 
 import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
 import blservice.financeblservice.BankAccountBusinessService;
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
@@ -15,6 +19,9 @@ import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
+import ui.util.TipsDialog;
+import util.ResultMessage;
+import vo.finance.BankAccountVO;
  /** 
  * 增加银行账户
  * @author czq 
@@ -39,13 +46,15 @@ public class AddBankAccountPanel extends MyPanel{
 	private JPanel changePanel;
 	private CardLayout layout;
 	private final String bankAccountStr = "BankAccountManagePanel";
+	private boolean addOrModify = true;
+	private BankAccountTable table;
 	
-	public AddBankAccountPanel(Element config , BankAccountBusinessService bl ,JPanel changePanel) {
+	public AddBankAccountPanel(Element config , BankAccountBusinessService bl ,JPanel changePanel, BankAccountTable table) {
 		super(config);
 		this.bl = bl;
 		this.changePanel = changePanel;
 		this.layout = (CardLayout) changePanel.getLayout();
-		
+		this.table = table;
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
@@ -57,8 +66,6 @@ public class AddBankAccountPanel extends MyPanel{
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -86,8 +93,6 @@ public class AddBankAccountPanel extends MyPanel{
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -105,28 +110,64 @@ public class AddBankAccountPanel extends MyPanel{
 	@Override
 	protected void addListener() {
 		confirm.addMouseListener(new ConfirmListener(confirm) {
+			String id;
+			String money;
+			String password;
+			@Override
+			protected boolean checkDataValid() {
+				id = idT.getText();
+				money = moneyT.getText();
+				password = passwordT.getText();
+				SimpleDataFormat[] datas = {new SimpleDataFormat(id, DataType.ID, "银行账户ID")
+				, new SimpleDataFormat(money, DataType.PositiveNum, "存款") , new SimpleDataFormat(password, DataType.ID, "密码")
+				};
+				return UserfulMethod.dealWithData(datas);
+			}
 
 			@Override
-			protected void saveToSQL() {
-				// TODO Auto-generated method stub
+			protected boolean saveToSQL() {
+				if(addOrModify){
+					result = bl.addAccount(new BankAccountVO(id, password, money));
+					if(result == ResultMessage.SUCCESS){
+						new TipsDialog("成功增加账户", Color.GREEN);
+						return true;
+					}else if(result == ResultMessage.hasExist){
+						new TipsDialog("账户ID已经存在");
+					}else{
+						new TipsDialog("网络或数据库异常");
+					}
+					return false;
+				}else{
+					result = bl.modifyAccount(new BankAccountVO(id, password, money));
+					if(result == ResultMessage.SUCCESS){
+						new TipsDialog("成功修改账户", Color.GREEN);
+						return true;
+					}else if(result == ResultMessage.NOT_EXIST){
+						new TipsDialog("账户ID不存在");
+					}else{
+						new TipsDialog("网络或数据库异常");
+					}
+					return false;
+					
+					
+				}
+				
 
 			}
 
 			@Override
 			protected void reInitial() {
-				// TODO Auto-generated method stub
-
+				idT.setText("");
+				passwordT.setText("");
+				moneyT.setText("");
+				layout.show(changePanel, bankAccountStr);
 			}
 
-			@Override
-			protected boolean checkDataValid() {
-				return false;
-			}
-
+			
 			@Override
 			protected void updateMes() {
-				// TODO Auto-generated method stub
-				
+				String[] data = {id , money , password};
+ 				table.addOneRow(data);
 			}
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {
@@ -141,5 +182,15 @@ public class AddBankAccountPanel extends MyPanel{
 		});
 		
 	}
-
+	void setAddOrModify(boolean isAdd , String id){
+		if(isAdd){
+			idT.setEditable(true);
+			this.addOrModify = true;
+		}else{
+			idT.setEditable(false);
+			this.addOrModify = false;
+			idT.setText(id);
+		}
+		
+	}
 }

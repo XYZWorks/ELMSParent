@@ -79,11 +79,11 @@ public class InitalPanel extends MyPanel {
 	 */
 	private void addOtherPanel(Element e) {
 //		AccountType type = vo.type;
-		controller = new SaleManController(this, e.element("Salesman"));
-		return;
+//		controller = new SaleManController(this, e.element("Salesman"));
+//		return;
 		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
 //		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
-//		controller = new FinanceController(this, e.element("Financeman"));
+		controller = new FinanceController(this, e.element("Financeman"));
 //		controller = new AdminstratorController(this, e.element("Adminstrator"));
 //		switch (type) {
 //		case Adminstrator:
@@ -247,7 +247,6 @@ public class InitalPanel extends MyPanel {
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
 		
 	}
 }

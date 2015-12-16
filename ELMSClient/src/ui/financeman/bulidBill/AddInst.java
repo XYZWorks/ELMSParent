@@ -7,6 +7,9 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
 import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -16,6 +19,9 @@ import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
+import util.City;
+import util.InstType;
+import vo.personnel.InstVO;
  /** 
  * 增加机构主界面
  * @author czq 
@@ -39,6 +45,7 @@ public class AddInst extends MyPanel{
 	private CardLayout panelManager;
 	private JPanel changePanel;
 	private BulidBillPanel mainPanel;
+	InstVO vo;
 	
 	public AddInst(Element config , BulidBillPanel mainPanel) {
 		super(config);
@@ -106,26 +113,26 @@ public class AddInst extends MyPanel{
 	protected void initWhitePanels(Element e) {}
 	
 	class MyConfirmButtonListner extends ConfirmListener{
-
+		String instid;
+		InstType type;
+		City city;
 		public MyConfirmButtonListner(MyPictureButton button) {
 			super(button);
 		}
 
 		@Override
-		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
-			panelManager.show(changePanel, BulidBillPanel.addPeopleStr);
-		}
-
-		@Override
 		protected boolean checkDataValid() {
-			// TODO Auto-generated method stub
-			return false;
+			instid = instidT.getText();
+			type = InstType.toInst((String) typeB.getSelectedItem());
+			city = City.toCity((String) locationB.getSelectedItem());
+			return UserfulMethod.dealWithData(new SimpleDataFormat(instid, DataType.ID, "机构ID"));
 		}
 
 		@Override
-		protected void saveToSQL() {
-			// TODO Auto-generated method stub
+		protected boolean saveToSQL() {
+			vo = new InstVO(instid, city, type);
+			mainPanel.instVOs.add(vo);
+			return true;
 			
 		}
 
@@ -137,7 +144,7 @@ public class AddInst extends MyPanel{
 
 		@Override
 		protected void updateMes() {
-			// TODO Auto-generated method stub
+			panelManager.show(changePanel, BulidBillPanel.addPeopleStr);
 			
 		}
 
@@ -151,9 +158,7 @@ public class AddInst extends MyPanel{
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
-			//TODO 清空数据
-			
-			
+			instidT.setText("");
 			panelManager.show(changePanel, BulidBillPanel.bulidBillStr);
 		}
 	}
