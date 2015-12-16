@@ -20,18 +20,22 @@ public class SendGoodDocCheckPanel extends CheckDocPanel {
 	Transportblservice bl;
 	SendGoodMesTable myTable;
 	
+	SendGoodDocAddPanel myAddPanel;
+	
 	public SendGoodDocCheckPanel(Element config, JPanel changePanel , String checkDocName , String addDocName, Transportblservice transportblservice) {
 		super(config, changePanel , checkDocName , addDocName);
 		this.bl = transportblservice;
 		myTable = (SendGoodMesTable) messageTable;
 		myTable.bl = this.bl;
+		myAddPanel = (SendGoodDocAddPanel) addDocPanel;
+		myAddPanel.bl = this.bl;
 		initTableContent();
 	}
 
 	@Override
 	protected void initialAddDocPanelAndTable(Element e) {
 		messageTable = new SendGoodMesTable(e.element(tableStr));
-		addDocPanel = new SendGoodDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable, bl);
+		addDocPanel = new SendGoodDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable);
 		
 	}
 

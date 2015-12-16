@@ -37,9 +37,9 @@ public class CarManageAddPanel extends AddDocPanel {
 	private MyTextField useYearT;
 	
 	DTManageblservice bl;
-	public CarManageAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable , DTManageblservice bl) {
+	public CarManageAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable ) {
 		super(config , changePanel , checkDocPanelStr,  messageTable);
-		this.bl = bl;
+		
 	}
 
 	@Override
@@ -89,6 +89,7 @@ public class CarManageAddPanel extends AddDocPanel {
 			String useYear;
 			@Override
 			protected boolean saveToSQL() {
+				
 				if(bl.addCar(new CarVO(id, plateNum, Integer.parseInt(useYear))) == ResultMessage.SUCCESS){
 					new TipsDialog("成功增加司机信息" , Color.GREEN);
 					return true;
@@ -105,6 +106,7 @@ public class CarManageAddPanel extends AddDocPanel {
 			
 			@Override
 			protected boolean checkDataValid() {
+				System.err.println("2222222222");
 				id = idT.getText();
 				plateNum = plateNumT.getText();
 				useYear = useYearT.getText();

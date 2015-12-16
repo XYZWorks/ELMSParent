@@ -15,7 +15,7 @@ import blservice.DTManageblservice.DTManageblservice;
  */
 @SuppressWarnings("serial")
 public class DriverManageCheckPanel extends CheckDocPanel{
-DTManageblservice bl;
+	DTManageblservice bl;
 	
 	/**
 	 * 查找方式
@@ -24,19 +24,22 @@ DTManageblservice bl;
 	
 	private MyLabel title;
 	DriverMesPanel myTable;
+	DriverManageAddPanel myAddPanel;
 	public DriverManageCheckPanel(Element config, JPanel changePanel , String checkDocName , String addDocName, DTManageblservice dtManageblservice) {
 		super(config, changePanel , checkDocName , addDocName);
 		this.bl = dtManageblservice;
 		myTable = (DriverMesPanel) messageTable;
 		//注意必须先传bl然后才能初始化table，否则将报空指针异常
-		myTable.bl = bl;
+		myTable.bl = this.bl;
+		myAddPanel = (DriverManageAddPanel) addDocPanel;
+		myAddPanel.bl = this.bl;
 		initTableContent();
 	}
 
 	@Override
 	protected void initialAddDocPanelAndTable(Element e) {
 		messageTable = new DriverMesPanel(e.element(tableStr));
-		addDocPanel = new DriverManageAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable, bl);
+		addDocPanel = new DriverManageAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable);
 		
 	}
 

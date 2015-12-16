@@ -35,7 +35,7 @@ public class PayDocMesTable extends MyTablePanel{
 
 	@Override
 	protected void initialTitleAndColumn(Element config) {
-columnNames = MyTablePanel.getColumnName(config.attributeValue(columnStr));
+		columnNames = MyTablePanel.getColumnName(config.attributeValue(columnStr));
 		
 //		vos = bl.get
 		

@@ -44,6 +44,8 @@ public class UserfulMethod {
 			return FormatMesHandler(checkIDCARD(message), chineseName);
 		case PositiveNum:
 			return FormatMesHandler(checkPositiveNum(message), chineseName);
+		case PlateNum:
+			return FormatMesHandler(checkPlateNum(message), chineseName);
 		default:
 			break;
 		}
@@ -54,14 +56,15 @@ public class UserfulMethod {
 		switch (message) {
 		case CORRECT:
 			return true;
-
 		case ILEGAL_CHAR:
 			new TipsDialog(chineseName + "中存在非法字符，请您重新输入");
 			break;
 		case WRONG_LENGTH:
 			new TipsDialog(chineseName + "中长度不正确，请您重新输入");
-			case NEGATIVE_NUM:
+			break;
+		case NEGATIVE_NUM:
 			new TipsDialog(chineseName + "应为正整数 ， 请重新输入");
+			break;
 		}
 		return false;
 	}
@@ -85,10 +88,10 @@ public class UserfulMethod {
 	}
 	
 	public static final FormatMes checkIDCARD(String idCard){
-		if(idCard.length() != 45){
+		if(idCard.length() != 18){
 			return FormatMes.WRONG_LENGTH;
 		}
-		for (int i = 0; i < 45; i++) {
+		for (int i = 0; i < 18; i++) {
 			if(isNum(idCard.charAt(i))){
 				
 			}else{
@@ -126,7 +129,17 @@ public class UserfulMethod {
 		return FormatMes.CORRECT;
 
 	}
-	
+	public static final FormatMes checkPlateNum(String plateNum){
+		if(plateNum.length() != 7 ){
+			return FormatMes.WRONG_LENGTH;
+		}
+		for (int i = 2; i < plateNum.length(); i++) {
+			if(!isAlaOrNum(plateNum.charAt(i))){
+				return FormatMes.ILEGAL_CHAR;
+			}
+		}
+		return FormatMes.CORRECT;
+	}
 	
 	public static final FormatMes checkBarCode(String barcode) {
 		if (barcode.length() != 10) {

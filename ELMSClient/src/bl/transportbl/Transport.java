@@ -59,7 +59,7 @@ public class Transport {
 		}
 
 		if (result == ResultMessage.SUCCESS)
-			result = orderbl.addDocToList(vo, vo.orderBarCodes);
+			 orderbl.addDocToList(vo, vo.orderBarCodes);
 		return result;
 	}
 
@@ -99,7 +99,7 @@ public class Transport {
 		if (result == ResultMessage.SUCCESS) {
 			ArrayList<String> orderBarCodes = new ArrayList<>(1);
 			orderBarCodes.add(vo.orderBarCode);
-			result = orderbl.addDocToList(vo, orderBarCodes);
+			orderbl.addDocToList(vo, orderBarCodes);
 		}
 		return result;
 
@@ -122,9 +122,9 @@ public class Transport {
 		}
 
 		for (SendGoodDocPO po : pos) {
-			if (po.getDate().equals(date)) {
+//			if (po.getDate().equals(date)) {
 				vos.add((SendGoodDocVO) VOPOchange.POtoVO(po));
-			}
+//			}
 		}
 
 		return vos;
@@ -139,8 +139,10 @@ public class Transport {
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-		if (result == ResultMessage.SUCCESS)
-			result = orderbl.addDocToList(vo, vo.orderBarCodes);
+		if (result == ResultMessage.SUCCESS){
+			orderbl.addDocToList(vo, vo.orderBarCodes);
+		}
+			 
 		return result;
 	}
 
@@ -161,9 +163,9 @@ public class Transport {
 
 		
 		for (ArriveYYDocPO po : pos) {
-			if (po.getDate().equals(date)) {
+//			if (po.getDate().equals(date)) {
 				vos.add((ArriveYYDocVO) VOPOchange.POtoVO(po));
-			}
+//			}
 		}
 
 		return vos;

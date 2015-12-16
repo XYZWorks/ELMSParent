@@ -83,7 +83,13 @@ public class SaleManController extends PanelController {
 		arriveYYDocShowPanel = new ArriveYYDocCheckPanel(e.element(arriveYYDocShowPanelStr) , changePanel , arriveYYDocShowPanelStr , arriveYYDocShowPanelStr + postStr , transportblservice);
 		driverInfoManagePanel = new DriverManageCheckPanel(e.element(driverInfoManagePanelStr), changePanel , driverInfoManagePanelStr , driverInfoManagePanelStr + postStr , dtManageblservice);
 		loadDocShowPanel = new LoadDocCheckPanel(e.element(loadDocShowpanelStr), changePanel , loadDocShowpanelStr , loadDocShowpanelStr + postStr , transportblservice);
+		if(transportblservice == null){
+			System.err.println("aaaaaaaaaaaadasd");
+		}
 		payDocShowPanel = new PayDocCheckPanel(e.element(payDocShowPanelStr), changePanel , payDocShowPanelStr , payDocShowPanelStr +postStr  , transportblservice);
+		if(transportblservice == null){
+			System.err.println("aaaaawwwaaasddasd");
+		}
 		sendGoodDocShowPanel = new SendGoodDocCheckPanel(e.element(sendGoodDocShowPanelStr), changePanel , sendGoodDocShowPanelStr , sendGoodDocShowPanelStr + postStr , transportblservice);
 		truckInfoManagePanel = new CarManageCheckPanel(e.element(truckInfoManagePanelStr), changePanel , truckInfoManagePanelStr , truckInfoManagePanelStr + postStr ,dtManageblservice);
 		

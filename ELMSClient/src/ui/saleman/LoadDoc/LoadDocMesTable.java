@@ -58,7 +58,6 @@ public class LoadDocMesTable extends MyTablePanel {
 	@Override
 	protected void initialTitleAndColumn(Element config) {
 		columnNames = MyTablePanel.getColumnName(config.attributeValue(columnStr));
-		
 		vos = bl.getDayLoadDocs(MyDate.getNowTime());
 		
 		if(vos == null || vos.isEmpty()){

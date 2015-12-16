@@ -46,9 +46,8 @@ public class SendGoodDocAddPanel extends AddDocPanel{
 	
 	Transportblservice bl;
 	
-	public SendGoodDocAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable , Transportblservice bl) {
+	public SendGoodDocAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable) {
 		super(config , changePanel , checkDocPanelStr,  messageTable );
-		this.bl = bl;
 	}
 
 	@Override
@@ -120,11 +119,12 @@ public class SendGoodDocAddPanel extends AddDocPanel{
 			
 			@Override
 			protected boolean saveToSQL() {
-				if(bl.add(new SendGoodDocVO(id, myDate, sendMan, orderBarCode, sendCity))==ResultMessage.SUCCESS){
-					new TipsDialog("成功生成接收单~"  , Color.GREEN);
+				result = bl.add(new SendGoodDocVO(id, myDate, sendMan, orderBarCode, sendCity));
+				if(result ==ResultMessage.SUCCESS){
+					new TipsDialog("成功生成送货单~"  , Color.GREEN);
 					return true;
 				}else{
-					new TipsDialog("接收单可能单据ID重复或数据库问题，未能保存成功", Color.RED);
+					new TipsDialog("送货单可能单据ID重复或数据库问题，未能保存成功", Color.RED);
 					return false;
 				}
 			}

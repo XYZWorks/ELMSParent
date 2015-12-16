@@ -49,13 +49,11 @@ public class DriverManageAddPanel extends AddDocPanel {
 	private MyComboBox sexB;
 	private MyTextField licenseYearT;
 	private MyDatePicker borns;
-	private DTManageblservice bl;
+	DTManageblservice bl;
 
 	public DriverManageAddPanel(Element config, JPanel changePanel,
-			String checkDocPanelStr, MyTablePanel messageTable,
-			DTManageblservice bl) {
+			String checkDocPanelStr, MyTablePanel messageTable) {
 		super(config, changePanel, checkDocPanelStr, messageTable);
-		this.bl = bl;
 	}
 
 	@Override
@@ -194,6 +192,6 @@ public class DriverManageAddPanel extends AddDocPanel {
 		phoneT.setText("");
 		instidT.setText("");
 		idCardT.setText("");
-		licenseYear.setText("");
+		licenseYearT.setText("");
 	}
 }

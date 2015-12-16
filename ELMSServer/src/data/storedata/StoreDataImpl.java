@@ -152,7 +152,7 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 
 		return addToSQL(storeCheckTable, MyDate.toString(po.getTime()), po
 				.getPo().getLocation().name(), po.getPo().getStoreLoc().name(),
-				String.valueOf(po.getPo().getNumber()),
+				String.valueOf(po.getPo().getNumber()), String.valueOf(po.getPo().getTotalNum()) ,
 				helper.tranFromArrayToString(instores),
 				helper.tranFromArrayToString(outstores));
 	}
@@ -167,12 +167,13 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 				pos.add(new StoreCheckPO(MyDate.getDate(result.getString(1)),
 						new StoreMessagePO(City.valueOf(result.getString(2)),
 								TransferWay.valueOf(result.getString(3)), Integer.parseInt(result
-										.getString(4)), getInstoreDocs(helper
+										.getString(4)), Integer.parseInt(result
+												.getString(5)), getInstoreDocs(helper
 										.tranFromStringToArray(result
-												.getString(5))),
+												.getString(6))),
 								getOutstoreDocs(helper
 										.tranFromStringToArray(result
-												.getString(6))))));
+												.getString(7))))));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

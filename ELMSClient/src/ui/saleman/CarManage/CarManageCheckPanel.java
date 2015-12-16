@@ -27,6 +27,7 @@ public class CarManageCheckPanel extends CheckDocPanel{
 	MyComboBox searchWay;
 	private MyLabel title;
 	CarMesTable myTable;
+	CarManageAddPanel myAddPanel;
 	
 	public CarManageCheckPanel(Element config, JPanel changePanel, String checkDocName , String addDocName, DTManageblservice dtManageblservice) {
 		super(config, changePanel , checkDocName , addDocName);
@@ -34,6 +35,8 @@ public class CarManageCheckPanel extends CheckDocPanel{
 		myTable = (CarMesTable) messageTable;
 		//注意必须先传bl然后才能初始化table，否则将报空指针异常
 		myTable.bl = bl;
+		myAddPanel = (CarManageAddPanel) addDocPanel;
+		myAddPanel.bl = this.bl;
 		initTableContent();
 	}
 
@@ -73,7 +76,7 @@ public class CarManageCheckPanel extends CheckDocPanel{
 	@Override
 	protected void initialAddDocPanelAndTable(Element e) {
 		messageTable = new CarMesTable(e.element(tableStr), bl);
-		addDocPanel = new CarManageAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable, bl);
+		addDocPanel = new CarManageAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable);
 		
 	}
 	@Override

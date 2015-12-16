@@ -144,11 +144,13 @@ public class ArriveYYDocAddPanel extends AddDocPanel {
 
 			@Override
 			protected boolean saveToSQL() {
-				if(bl.add(new ArriveYYDocVO(ID, myDate, ZZID, sendCity, goodState,
-						orderBarCodes)) == ResultMessage.SUCCESS){
+				result = bl.add(new ArriveYYDocVO(ID, myDate, ZZID, sendCity, goodState,
+						orderBarCodes)) ;
+				if(result == ResultMessage.SUCCESS){
 					new TipsDialog("成功新增接收单", Color.GREEN);
 					return true;
 				}else{
+					System.out.println(result);
 					new TipsDialog("未成功增加接收单", Color.RED);
 					return false;
 				}

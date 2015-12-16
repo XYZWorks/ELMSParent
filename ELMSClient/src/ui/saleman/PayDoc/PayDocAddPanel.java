@@ -4,6 +4,10 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import blservice.transportblservice.Transportblservice;
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
 import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
 import ui.tools.MyDatePicker;
@@ -12,8 +16,9 @@ import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.ConfirmListener;
+import util.MyDate;
  /** 
- * 付款单增加界面
+ * 收款单增加界面
  * @author czq 
  * @version 2015年12月8日 下午8:30:34 
  */
@@ -31,6 +36,8 @@ public class PayDocAddPanel extends AddDocPanel {
 	private MyTextField moneyT;
 	private MyTextField courierNameT;
 	private PayDocMesTable ordersTable;
+	
+	Transportblservice bl;
 	
 	public PayDocAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable) {
 		super(config , changePanel , checkDocPanelStr,  messageTable);
@@ -82,6 +89,11 @@ public class PayDocAddPanel extends AddDocPanel {
 	@Override
 	protected void addListener() {
 		confirm.addMouseListener(new ConfirmListener(confirm) {
+			String YYID;
+			String courierName;
+			MyDate myDate;
+			String ID;
+			String money;
 			
 			@Override
 			protected void updateMes() {
@@ -92,7 +104,8 @@ public class PayDocAddPanel extends AddDocPanel {
 			@Override
 			protected boolean saveToSQL() {
 				return false;
-				// TODO Auto-generated method stub
+//				result = bl.
+				
 				
 			}
 			
@@ -104,8 +117,13 @@ public class PayDocAddPanel extends AddDocPanel {
 			
 			@Override
 			protected boolean checkDataValid() {
-				// TODO Auto-generated method stub
-				return false;
+				YYID = YYIDT.getText();
+				courierName = courierNameT.getText();
+				myDate = date.getMyDate();
+				ID = idT.getText();
+				money = moneyT.getText();
+				SimpleDataFormat[] datas = {new SimpleDataFormat(YYID, DataType.ID, "营业厅ID") , new SimpleDataFormat(money, DataType.PositiveNum, "金额")  , new SimpleDataFormat(ID, DataType.ID, "ID")};
+				return UserfulMethod.dealWithData(datas);
 			}
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {
