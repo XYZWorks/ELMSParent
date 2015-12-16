@@ -150,7 +150,7 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 			switch (type) {
 			case loadDoc:
 				while(result.next())
-					pos.add(new LoadDocPO(result.getString(1), DocType.valueOf(result.getString(2)), MyDate.getDate(result.getString(3)), DocState.valueOf(result.getString(4)), result.getString(5), result.getString(6),  City.valueOf(result.getString(6)),result.getString(7) , result.getString(8), result.getString(9) , helper.tranFromStringToArrayList(result.getString(10)))  );
+					pos.add(new LoadDocPO(result.getString(1), DocType.valueOf(result.getString(2)), MyDate.getDate(result.getString(3)), DocState.valueOf(result.getString(4)), result.getString(5), result.getString(6),  City.valueOf(result.getString(7)),result.getString(8) , result.getString(9), result.getString(10) , helper.tranFromStringToArrayList(result.getString(11)))  );
 				break;
 			case arriveYYDoc:
 				while(result.next())

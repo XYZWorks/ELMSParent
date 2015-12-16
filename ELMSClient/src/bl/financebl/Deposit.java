@@ -17,7 +17,7 @@ public class Deposit {
 	FinanceDataService financeData;
 	Orderblservice orderbl;
 	public Deposit(FinanceDataService financeDataService) {
-		// TODO Auto-generated constructor stub
+		this.financeData = financeDataService;
 	}
 
 	public ResultMessage create(DepositVO vo) {

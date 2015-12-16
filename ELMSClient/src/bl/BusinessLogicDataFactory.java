@@ -45,16 +45,19 @@ public class BusinessLogicDataFactory {
 	private FinanceController financeController = new FinanceController();
 	private StoreController storeController = new StoreController();
 	private AccountController accountController = new AccountController();
-	private ApprovalController approvalController =new ApprovalController();
+	
 	private DTManageController dtManageController = new DTManageController();
 	private UserController userController = new UserController();
 	private StrategyController strategyController = new StrategyController();
 	private PersonnelController personnelController = new PersonnelController();
 	private StatisticController statisticController = new StatisticController();
 	private TransportController transportController = new TransportController();
+	private ApprovalController approvalController =new ApprovalController();
 	public static BusinessLogicDataFactory getFactory(){
 		if(factory == null){
 			factory = new BusinessLogicDataFactory();
+			//因为持有其他的引用，必须先初始化工厂后才能启动approval内的初始化
+			factory.approvalController.myInit();
 		}
 		
 		return factory;

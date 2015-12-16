@@ -18,7 +18,7 @@ public class LoadDocCheckPanel extends CheckDocPanel{
 	
 	Transportblservice bl;
 	LoadDocMesTable myTable;
-	
+	LoadDocAddPanel myAddPanel;
 	private MyLabel title;
 	
 	public LoadDocCheckPanel(Element config, JPanel changePanel , String checkDocName , String addDocName, Transportblservice transportblservice) {
@@ -26,6 +26,8 @@ public class LoadDocCheckPanel extends CheckDocPanel{
 		this.bl = transportblservice;
 		myTable = (LoadDocMesTable) messageTable;
 		myTable.bl = this.bl;
+		myAddPanel = (LoadDocAddPanel) addDocPanel;
+		myAddPanel.bl = this.bl;
 		initTableContent();
 	}
 

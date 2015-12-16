@@ -2,6 +2,7 @@ package ui.config;
 
 import java.util.ArrayList;
 
+import ui.util.TipsDialog;
 import util.FormatMes;
 import util.ResultMessage;
 /**
@@ -10,6 +11,53 @@ import util.ResultMessage;
   * @date 2015-10-26
   */
 public class UserfulMethod {
+	/**
+	 * 消息处理机制
+	 * @param datas
+	 * @return
+	 */
+	public static boolean dealWithData(SimpleDataFormat[] datas){
+		for (int i = 0; i < datas.length; i++) {
+			if(!dataHandler(datas[i].message, datas[i].type , datas[i].chineseName)){
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	
+	
+	/**
+	 * 数据处理通用静态方法
+	 * @param message
+	 * @param type
+	 * @return
+	 */
+	public static boolean dataHandler(String message , DataType type,String chineseName){
+		switch (type) {
+		case ID:
+			return FormatMesHandler(checkID(message) , chineseName);
+		case phone:
+			return FormatMesHandler(checkPhone(message) , chineseName);
+		default:
+			break;
+		}
+		return false;
+	}
+	
+	private static boolean FormatMesHandler( FormatMes message,String chineseName){
+		switch (message) {
+		case CORRECT:
+			return true;
+
+		case ILEGAL_CHAR:
+			new TipsDialog(chineseName + "中存在非法字符，请您重新输入");
+			break;
+		case WRONG_LENGTH:
+			new TipsDialog(chineseName + "中长度不正确，请您重新输入");
+		}
+		return false;
+	}
 	
 	/**
 	 * 检查ID是否有误，返回有关信息

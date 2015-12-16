@@ -2,11 +2,16 @@ package ui.saleman.LoadDoc;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import blservice.transportblservice.Transportblservice;
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
 import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
 import ui.tools.MyComboBox;
@@ -19,6 +24,9 @@ import ui.util.CancelListener;
 import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
+import util.City;
+import util.MyDate;
+import vo.transport.LoadDocVO;
  /** 
  * 装车单增加界面
  * @author czq 
@@ -53,6 +61,8 @@ public class LoadDocAddPanel extends AddDocPanel{
 	 * 装车单上放置的订单号表
 	 */
 	private LoadDocOrders ordersTable;
+	
+	Transportblservice bl;
 	
 	public LoadDocAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable) {
 		super(config , changePanel , checkDocPanelStr,  messageTable);
@@ -120,17 +130,24 @@ public class LoadDocAddPanel extends AddDocPanel{
 			}
 		});
 		confirm.addMouseListener(new ConfirmListener(confirm) {
-			
+			String id;
+			MyDate myDate;
+			String yyID;
+			String loadDocID;
+			City arriveCity;
+			String carID;
+			String supervisor;
+			String escort;
+			ArrayList<String> orderBarCodes;
 			@Override
 			protected void updateMes() {
-				// TODO Auto-generated method stub
+				
 				
 			}
 			
 			@Override
 			protected void saveToSQL() {
-				// TODO Auto-generated method stub
-				
+				bl.add(new LoadDocVO(id, myDate, yyID, loadDocID, arriveCity, carID, supervisor, escort, orderBarCodes));
 			}
 			
 			@Override
@@ -141,18 +158,27 @@ public class LoadDocAddPanel extends AddDocPanel{
 			
 			@Override
 			protected boolean checkDataValid() {
-				// TODO Auto-generated method stub
-				return false;
+				id = idT.getText();
+				yyID = YYIDT.getText();
+				loadDocID = loadDocT.getText();
+				carID = carT.getText();
+				myDate = date.getMyDate();
+				arriveCity = City.toCity((String) arriveCityB.getSelectedItem());
+				supervisor = supervisorT.getText();
+				escort = escortT.getText();
+				orderBarCodes = ordersTable.orderbarCodes;
+				SimpleDataFormat[] dataForTest = { new SimpleDataFormat(id, DataType.ID , "ID") , new SimpleDataFormat(yyID, DataType.ID , "汽运编号") , new SimpleDataFormat(loadDocID, DataType.ID , "装车单") , new SimpleDataFormat(carID, DataType.ID , "车辆ID")   };
+				return UserfulMethod.dealWithData(dataForTest);
 			}
 		});
-		cancel.addMouseListener(new CancelListener(cancel) {
-			
-			@Override
-			public void resetMes() {
-				// TODO Auto-generated method stub
-				
-			}
-		});
+//		cancel.addMouseListener(new CancelListener(cancel) {
+//			
+//			@Override
+//			public void resetMes() {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//		});
 	}
 
 }

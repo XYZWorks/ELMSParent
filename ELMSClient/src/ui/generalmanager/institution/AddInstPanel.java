@@ -101,16 +101,6 @@ public class AddInstPanel extends MyPanel {
 		public MyConfirmButtonListner(MyPictureButton button) {
 			super(button);
 		}
-
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
-			//TODO 检查数据合法性、保存至数据库
-			//无错误时跳转至查看界面
-//			panelManager.show(c, name);
-			((CardLayout)changePanel.getLayout() ).show(changePanel, "InstManagePanel");
-		}
-
 		@Override
 		protected boolean checkDataValid() {
 			// TODO Auto-generated method stub
@@ -125,7 +115,7 @@ public class AddInstPanel extends MyPanel {
 
 		@Override
 		protected void reInitial() {
-			// TODO Auto-generated method stub
+			((CardLayout)changePanel.getLayout() ).show(changePanel, "InstManagePanel");
 			
 		}
 

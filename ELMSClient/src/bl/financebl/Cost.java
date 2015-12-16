@@ -27,7 +27,7 @@ public class Cost {
 	Transportblservice transportbl;
 	Personnelblservice personnelbl;
 	public Cost(FinanceDataService financeDataService) {
-		// TODO Auto-generated constructor stub
+		this.financeData = financeDataService;
 	}
 
 	public ArrayList<CostVO> showCosts() {

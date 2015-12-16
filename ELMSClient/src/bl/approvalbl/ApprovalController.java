@@ -26,15 +26,17 @@ public class ApprovalController implements Approvalblservice {
 	Approval approval;
 
 	public ApprovalController() {
+		
+	}
+	
+	public void myInit(){
 		transportbl = BusinessLogicDataFactory.getFactory().getTransportblservice();
 		inStoreDocService = BusinessLogicDataFactory.getFactory().getInstoreService();
 		outStoreDocService = BusinessLogicDataFactory.getFactory().getOutStoreService();
 		orderbl = BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
-		
-		
 		approval = new Approval(transportbl, orderbl, inStoreDocService, outStoreDocService);
 	}
-
+	
 	public ArrayList<? extends DocVO> getBills(DocType type) {
 		return approval.getBills(type);
 	}
