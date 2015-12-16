@@ -742,7 +742,7 @@
 					</TEXTFIELDS>
 					<datepicker x="588" y="60" width="200" height="40" />
 					<sendCity x="200" y="240" width="200" height="40" strings = "南京 北京 上海 广州"/>
-					<goodState x="200" y="300" width="200" height="40" strings = "完好 损坏"/>
+					<goodState x="200" y="300" width="200" height="40" strings = "完整 损坏 丢失"/>
 					<table x="500" y="120" width="288" height="400" column = "序号 ID"/>
 				</arriveYYDocShowPanelAddPanel>
 				

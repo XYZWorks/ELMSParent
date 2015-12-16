@@ -165,7 +165,7 @@ public class LoadDocAddPanel extends AddDocPanel{
 				arriveCity = City.toCity((String) arriveCityB.getSelectedItem());
 				supervisor = supervisorT.getText();
 				escort = escortT.getText();
-				orderBarCodes = ordersTable.orderbarCodes;
+				orderBarCodes = ordersTable.getOrderbarCodes();
 				SimpleDataFormat[] dataForTest = { new SimpleDataFormat(id, DataType.ID , "ID") , new SimpleDataFormat(yyID, DataType.ID , "汽运编号") , new SimpleDataFormat(loadDocID, DataType.ID , "装车单") , new SimpleDataFormat(carID, DataType.ID , "车辆ID")   };
 				return UserfulMethod.dealWithData(dataForTest);
 			}

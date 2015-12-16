@@ -19,12 +19,15 @@ public class ArriveYYDocCheckPanel extends CheckDocPanel{
 	
 	Transportblservice bl;
 	ArriveYYDocMesTable myTable;
+	ArriveYYDocAddPanel addPanel;
 
 	public ArriveYYDocCheckPanel(Element config, JPanel changePanel , String checkDocName , String addDocName, Transportblservice transportblservice) {
 		super(config, changePanel , checkDocName , addDocName);
 		this.bl = transportblservice;
 		myTable = (ArriveYYDocMesTable) messageTable;
 		myTable.bl = this.bl;
+		addPanel = (ArriveYYDocAddPanel) addDocPanel;
+		addPanel.bl = this.bl;
 		initTableContent();
 	}
 

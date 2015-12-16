@@ -36,7 +36,7 @@ public class LoadDocOrders extends MyTablePanel{
 	/**
 	 * 清空表内所有信息
 	 */
-	void clearOrders(){
+	public void clearOrders(){
 		while(table.getRowCount() > 0){
 			table.getModel().removeRow(0);
 		}
@@ -52,11 +52,15 @@ public class LoadDocOrders extends MyTablePanel{
 	 * 增加一条订单信息
 	 * @param orderID
 	 */
-	void addAOrder(String orderID){
+	public void addAOrder(String orderID){
 		orderbarCodes.add(orderID);
 		oneOrder[0] = String.valueOf(orderbarCodes.size()); 
 		oneOrder[1] = orderID;
 		this.addOneRow(oneOrder);
+	}
+
+	public ArrayList<String> getOrderbarCodes() {
+		return orderbarCodes;
 	}
 	
 }

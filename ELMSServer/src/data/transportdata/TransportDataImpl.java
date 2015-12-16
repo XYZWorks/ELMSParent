@@ -116,7 +116,6 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 
 	public ResultMessage addArriveYYDocPO(ArriveYYDocPO po)
 			throws RemoteException {
-		
 		return addToSQL(arriveYYDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , po.getZZID() , po.getSendCity().name() , po.getGoodState().name() ,  helper.tranFromArrayToString(po.getOrderBarCodes()));
 	}
 
