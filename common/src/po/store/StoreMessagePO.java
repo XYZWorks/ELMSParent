@@ -29,8 +29,13 @@ public class StoreMessagePO implements Serializable{
 	 */
 	private int number;
 	/**
+	 * 库存总容量
+	 */
+	private int totalNum;
+	/**
 	 * 入库单集合
 	 */
+	
 	private ArrayList<InStoreDocPO> inStoreDocs;
 	/**
 	 * 出库单集合
@@ -40,13 +45,14 @@ public class StoreMessagePO implements Serializable{
 	public StoreMessagePO() {}
 	
 	
-	public StoreMessagePO(City location, TransferWay storeLoc, int number,
+	public StoreMessagePO(City location, TransferWay storeLoc, int number,int totalNum,
 			ArrayList<InStoreDocPO> inStoreDocs,
 			ArrayList<OutStoreDocPO> outStoreDocs) {
 		super();
 		this.location = location;
 		this.storeLoc = storeLoc;
 		this.number = number;
+		this.totalNum = totalNum;
 		this.inStoreDocs = inStoreDocs;
 		this.outStoreDocs = outStoreDocs;
 	}
@@ -82,6 +88,16 @@ public class StoreMessagePO implements Serializable{
 	}
 	public void setLocation(City location) {
 		this.location = location;
+	}
+
+
+	public int getTotalNum() {
+		return totalNum;
+	}
+
+
+	public void setTotalNum(int totalNum) {
+		this.totalNum = totalNum;
 	}
 	
 }
