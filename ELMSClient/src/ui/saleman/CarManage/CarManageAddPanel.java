@@ -1,9 +1,14 @@
 package ui.saleman.CarManage;
 
+import java.awt.Color;
+
 import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
 import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
 import ui.tools.MyLabel;
@@ -11,6 +16,10 @@ import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.ConfirmListener;
+import ui.util.TipsDialog;
+import util.ResultMessage;
+import vo.DTManage.CarVO;
+import blservice.DTManageblservice.DTManageblservice;
  /** 
  * 车辆管理增加界面
  * @author czq 
@@ -19,16 +28,18 @@ import ui.util.ConfirmListener;
 @SuppressWarnings("serial")
 public class CarManageAddPanel extends AddDocPanel {
 	
-	MyLabel id;
-	MyLabel plateNum;
-	MyLabel useYear;
+	private MyLabel id;
+	private MyLabel plateNum;
+	private MyLabel useYear;
 
-	MyTextField idT;
-	MyTextField plateNumT;
-	MyTextField useYearT;
-
-	public CarManageAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable) {
+	private MyTextField idT;
+	private MyTextField plateNumT;
+	private MyTextField useYearT;
+	
+	DTManageblservice bl;
+	public CarManageAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable , DTManageblservice bl) {
 		super(config , changePanel , checkDocPanelStr,  messageTable);
+		this.bl = bl;
 	}
 
 	@Override
@@ -73,30 +84,36 @@ public class CarManageAddPanel extends AddDocPanel {
 	@Override
 	protected void addListener() {
 		confirm.addMouseListener(new ConfirmListener(confirm) {
-			
+			String id;
+			String plateNum;
+			String useYear;
 			@Override
 			protected void saveToSQL() {
-				// TODO Auto-generated method stub
-				
-				//增加一条信息
-//				messageTable.addOneRow(data);
+				if(bl.addCar(new CarVO(id, plateNum, Integer.parseInt(useYear))) == ResultMessage.SUCCESS){
+					new TipsDialog("成功增加司机信息" , Color.GREEN);
+				}else{
+					new TipsDialog("未能增加司机信息", Color.RED);
+				}
 			}
 			
 			@Override
 			protected void reInitial() {
-				// TODO Auto-generated method stub
-				
+				myInit();
 			}
 			
 			@Override
 			protected boolean checkDataValid() {
-				// TODO Auto-generated method stub
-				return false;
+				id = idT.getText();
+				plateNum = plateNumT.getText();
+				useYear = useYearT.getText();
+				SimpleDataFormat[] datas = {new SimpleDataFormat(id, DataType.ID, "ID") , new SimpleDataFormat(plateNum, DataType.PlateNum, "车牌号")};
+				return UserfulMethod.dealWithData(datas);
 			}
 
 			@Override
 			protected void updateMes() {
-				// TODO Auto-generated method stub
+				String[] data = { id, plateNum , useYear };
+				messageTable.addOneRow(data);
 				
 			}
 		});
@@ -104,10 +121,12 @@ public class CarManageAddPanel extends AddDocPanel {
 			
 			@Override
 			public void resetMes() {
-				// TODO Auto-generated method stub
-				
+				myInit();
 			}
 		});
 	}
-
+	
+	private void  myInit() {
+		idT.setText("");plateNumT.setText("");useYearT.setText("");
+	}
 }

@@ -27,6 +27,7 @@ import ui.util.TipsDialog;
 import util.City;
 import util.GoodsState;
 import util.MyDate;
+import util.ResultMessage;
 import vo.transport.ArriveYYDocVO;
 import blservice.transportblservice.Transportblservice;
 
@@ -143,9 +144,13 @@ public class ArriveYYDocAddPanel extends AddDocPanel {
 
 			@Override
 			protected void saveToSQL() {
-				bl.add(new ArriveYYDocVO(ID, myDate, ZZID, sendCity, goodState,
-						orderBarCodes));
-				new TipsDialog("成功新增接收单", Color.GREEN);
+				if(bl.add(new ArriveYYDocVO(ID, myDate, ZZID, sendCity, goodState,
+						orderBarCodes)) == ResultMessage.SUCCESS){
+					new TipsDialog("成功新增接收单", Color.GREEN);
+				}else{
+					new TipsDialog("未成功增加接收单", Color.RED);
+				}
+				
 			}
 
 			@Override

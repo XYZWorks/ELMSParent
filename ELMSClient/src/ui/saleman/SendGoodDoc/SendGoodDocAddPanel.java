@@ -4,6 +4,8 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
 import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
 import ui.tools.MyComboBox;
@@ -13,6 +15,8 @@ import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.ConfirmListener;
+import util.City;
+import util.MyDate;
 
 /**
  * 派送单增加界面
@@ -83,8 +87,23 @@ public class SendGoodDocAddPanel extends AddDocPanel{
 
 	@Override
 	protected void addListener() {
+		
 		confirm.addMouseListener(new ConfirmListener(confirm) {
-			
+			String id;
+			MyDate myDate;
+			String sendMan;
+			String orderBarCode;
+			City sendCity;
+			@Override
+			protected boolean checkDataValid() {
+				id = idT.getText();
+				myDate = date.getMyDate();
+				sendMan = sendManT.getText();
+				orderBarCode = orderBarCodeT.getText();
+				sendCity = City.toCity((String) sendCityB.getSelectedItem());
+				SimpleDataFormat[] datas = {new SimpleDataFormat(id, DataType.ID, "ID")  , new SimpleDataFormat(orderBarCode, DataType.ID, "订单号")};
+				return false;
+			}
 			@Override
 			protected void updateMes() {
 				// TODO Auto-generated method stub
@@ -103,11 +122,7 @@ public class SendGoodDocAddPanel extends AddDocPanel{
 				
 			}
 			
-			@Override
-			protected boolean checkDataValid() {
-				// TODO Auto-generated method stub
-				return false;
-			}
+			
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {
 			

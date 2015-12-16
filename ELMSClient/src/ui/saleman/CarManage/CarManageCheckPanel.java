@@ -72,7 +72,7 @@ public class CarManageCheckPanel extends CheckDocPanel{
 	@Override
 	protected void initialAddDocPanelAndTable(Element e) {
 		messageTable = new CarMesTable(e.element(tableStr), bl);
-		addDocPanel = new CarManageAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable);
+		addDocPanel = new CarManageAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable, bl);
 		
 	}
 	@Override
