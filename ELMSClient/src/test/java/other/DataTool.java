@@ -83,8 +83,8 @@ public class DataTool {
 		drivers.add(new DriverVO("000002", "张田田",instid2, new MyDate(1990, 4, 11) , "445202199004111134", "18324522333", false, 6));
 		
 		
-		cars.add(new CarVO("025000001", "粤VDC798" , 1));
-		cars.add(new CarVO("025000002", "粤Vxx877", 2));
+		cars.add(new CarVO("025000001", "123412" ,"粤VDC798" , 1));
+		cars.add(new CarVO("025000002", "123412", "粤Vxx877", 2));
 		
 		pays.add(new PayVO(d1, 2000, "transport"));
 		pays.add(new PayVO(d1, 4000, "salary"));
@@ -276,7 +276,7 @@ public class DataTool {
 	}
 	
 	public static StoreMessagePO getStoreMessagePO(){
-		return new StoreMessagePO(City.NANJING, TransferWay.car, 45, null, null);
+		return new StoreMessagePO(City.NANJING, TransferWay.car, 45, 0, null, null);
 	}
 	public static StateFormPO getStateFormPO(){
 		return new StateFormPO(d2, d4, null, null);

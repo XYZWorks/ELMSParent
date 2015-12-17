@@ -310,7 +310,7 @@
 
 		</GeneralManager>
 
-		<Financeman x="232" y="54" width="848" height="637">
+		<Financeman x="232" y="54" width="848" height="720">
 			<BUTTONS>
 				<BankAccountManage text="银行账户管理" x="0" y="387" />
 				<BulidBill text="期初建账" x="0" y="267" />
@@ -898,16 +898,19 @@
 					<LABELS>
 					<id x="60" y="120" width="115" height="40"
 						text="ID" type="rectangle" />
-					<plateNum x="60" y="180" width="115" height="40"
+					<instid x="60" y="180" width="115" height="40"
+						text="机构ID" type="rectangle" />
+					<plateNum x="60" y="240" width="115" height="40"
 						text="车牌号" type="rectangle" />
-					<useYear x="60" y="240" width="115" height="40"
+					<useYear x="60" y="300" width="115" height="40"
 						text="使用年份" type="rectangle" />
 					</LABELS>
 					
 					<TEXTFIELDS>
 						<id x="200" y="120" width="200" height="40"   />
-						<plateNum x="200" y="180" width="200" height="40"/>
-						<useYear x="200" y="240" width="200" height="40"  />
+						<instid x="200" y="180" width="200" height="40"   />
+						<plateNum x="200" y="240" width="200" height="40"/>
+						<useYear x="200" y="300" width="200" height="40"  />
 					</TEXTFIELDS>
 				</truckInfoManagePanelAddPanel>
 				<title x="48" y="36" width="200" height="28" text="车辆信息列表" fontName="华文细黑" size="26"/>
@@ -916,7 +919,7 @@
 					type="add" />
 				<search x="150" y="80" />
 				<datepicker x="758" y="80" width="40" height="40" />
-				<table x="48" y="150" width="750" height="420" column="ID 车牌号 使用年份" />
+				<table x="48" y="150" width="750" height="420" column="ID 机构ID 车牌号 使用年份" />
 				<searchWay x="48" y="80" width="95" height="40"
 					strings="查找方式 按ID查找 按車牌號查找" />
 				<searchButton x="475" y="80" width="115" height="40"

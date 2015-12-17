@@ -31,7 +31,8 @@ public class CarManageAddPanel extends AddDocPanel {
 	private MyLabel id;
 	private MyLabel plateNum;
 	private MyLabel useYear;
-
+	private MyLabel instid;
+	private MyTextField instidT;
 	private MyTextField idT;
 	private MyTextField plateNumT;
 	private MyTextField useYearT;
@@ -59,7 +60,7 @@ public class CarManageAddPanel extends AddDocPanel {
 		idT = new MyTextField(e.element("id"));
 		plateNumT = new MyTextField(e.element("plateNum"));
 		useYearT = new MyTextField(e.element("useYear"));
-
+		instidT = new MyTextField(e.element("instid"));
 	}
 
 	@Override
@@ -67,7 +68,7 @@ public class CarManageAddPanel extends AddDocPanel {
 		id = new MyPictureLabel(e.element("id"));
 		plateNum = new MyPictureLabel(e.element("plateNum"));
 		useYear = new MyPictureLabel(e.element("useYear"));
-
+		instid = new MyPictureLabel(e.element("instid"));
 	}
 
 	@Override
@@ -78,7 +79,7 @@ public class CarManageAddPanel extends AddDocPanel {
 
 	@Override
 	protected void addCompoment() {
-		add(id);add(plateNum);add(useYear);add(idT);add(plateNumT);add(useYearT);
+		add(id);add(plateNum);add(useYear);add(idT);add(plateNumT);add(useYearT);add(instid);add(instidT);
 	}
 
 	@Override
@@ -87,10 +88,11 @@ public class CarManageAddPanel extends AddDocPanel {
 			String id;
 			String plateNum;
 			String useYear;
+			String instid;
 			@Override
 			protected boolean saveToSQL() {
 				
-				if(bl.addCar(new CarVO(id, plateNum, Integer.parseInt(useYear))) == ResultMessage.SUCCESS){
+				if(bl.addCar(new CarVO(id, instid ,plateNum, Integer.parseInt(useYear))) == ResultMessage.SUCCESS){
 					new TipsDialog("成功增加司机信息" , Color.GREEN);
 					return true;
 				}else{
@@ -106,17 +108,17 @@ public class CarManageAddPanel extends AddDocPanel {
 			
 			@Override
 			protected boolean checkDataValid() {
-				System.err.println("2222222222");
 				id = idT.getText();
 				plateNum = plateNumT.getText();
 				useYear = useYearT.getText();
-				SimpleDataFormat[] datas = {new SimpleDataFormat(id, DataType.ID, "ID") , new SimpleDataFormat(plateNum, DataType.PlateNum, "车牌号")};
+				instid = instidT.getText();
+				SimpleDataFormat[] datas = {new SimpleDataFormat(id, DataType.ID, "ID") , new SimpleDataFormat(instid, DataType.ID, "机构ID"), new SimpleDataFormat(plateNum, DataType.PlateNum, "车牌号")};
 				return UserfulMethod.dealWithData(datas);
 			}
 
 			@Override
 			protected void updateMes() {
-				String[] data = { id, plateNum , useYear };
+				String[] data = { id, instid , plateNum , useYear };
 				messageTable.addOneRow(data);
 				
 			}
@@ -131,6 +133,6 @@ public class CarManageAddPanel extends AddDocPanel {
 	}
 	
 	private void  myInit() {
-		idT.setText("");plateNumT.setText("");useYearT.setText("");
+		idT.setText("");plateNumT.setText("");useYearT.setText("");instidT.setText("");
 	}
 }

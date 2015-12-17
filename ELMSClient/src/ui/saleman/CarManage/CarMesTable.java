@@ -32,13 +32,14 @@ public class CarMesTable extends MyTablePanel{
 	 * @param type
 	 */
 	void checkByIDOrPlate(String identifier , int type){
-		String[][] result = new String[1][3];
+		String[][] result = new String[1][4];
 		boolean find = false;
 		for (int i = 0; i < table.getRowCount(); i++) {
 			if( ((String)table.getValueAt(i, type)).equals(identifier)){
 				result[0][0] = (String) table.getValueAt(i, 0);
 				result[0][1] = (String) table.getValueAt(i, 1);
 				result[0][2] = (String) table.getValueAt(i, 2);
+				result[0][3] = (String) table.getValueAt(i, 3);
 				find = true;
 				break;
 			}
@@ -76,13 +77,14 @@ public class CarMesTable extends MyTablePanel{
 			return;
 		}
 		
-		data = new String[vos.size()][3];
+		data = new String[vos.size()][4];
 		CarVO vo;
 		for (int i = 0; i < vos.size(); i++) {
 			vo = vos.get(i);
 			data[i][0] = vo.ID;
-			data[i][1] = vo.plateNum;
-			data[i][2] = String.valueOf(vo.useYear);
+			data[i][1] = vo.instID;
+			data[i][2] = vo.plateNum;
+			data[i][3] = String.valueOf(vo.useYear);
 		}
 		
 		
