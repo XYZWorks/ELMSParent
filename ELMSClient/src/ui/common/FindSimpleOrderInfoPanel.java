@@ -101,14 +101,9 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 
 		addCompoment();
 		addListener();
-//		
+	
 		readInfo();
-<<<<<<< HEAD
 
-=======
-		
-		validate();
->>>>>>> origin/master
 		setVisible(true);
 		validate();
 		repaint();
@@ -171,12 +166,7 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-<<<<<<< HEAD
 
-=======
-		
-		
->>>>>>> origin/master
 		DatePicker = new MyDatePicker(e.element("DatePicker"));
 		searchBox = new MySearchBox(e.element("searchBox"));
 	}
