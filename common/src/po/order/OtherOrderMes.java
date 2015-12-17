@@ -25,7 +25,7 @@ public class OtherOrderMes {
 	/**
 	 * 订单费用总计
 	 */
-	private int orderCost;
+	private double orderCost;
 	
 	/**
 	 * 订单货物真实的收件人
@@ -61,7 +61,7 @@ public class OtherOrderMes {
 		this.orderEestiTime = orderEestiTime;
 	}
 
-	public int getOrderCost() {
+	public double getOrderCost() {
 		return orderCost;
 	}
 
@@ -86,12 +86,12 @@ public class OtherOrderMes {
 	}
 
 	public OtherOrderMes(String goodPack, String orderForm, int orderEestiTime,
-			int orderCost, String realReceiver, MyDate orderReceiveDate) {
+			double total, String realReceiver, MyDate orderReceiveDate) {
 		super();
 		this.goodPack = goodPack;
 		this.orderForm = orderForm;
 		this.orderEestiTime = orderEestiTime;
-		this.orderCost = orderCost;
+		this.orderCost = total;
 		this.realReceiver = realReceiver;
 		this.orderReceiveDate = orderReceiveDate;
 	}

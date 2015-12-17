@@ -169,7 +169,7 @@
 				<LABELS>
 					<orderBarCode text="订单号" x="48" y="36" width="90"
 						height="28" />
-					<orderBarCodeLabel text="" x="48" y="76" width="137"
+					<orderBarCodeText text="" x="48" y="76" width="137"
 						height="19" />
 
 					<senderInfo text="寄件人" x="0" y="0" width="114" height="40"

@@ -87,13 +87,16 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	private MyLabel goodPackLabel;// 包装形式
 	private MyLabel orderFormLabel;// 快递形式
 
-	// 预计送达时间
+	// 预计送达时间label
 	private MyPictureLabel estimateTime;
-	// 费用总计
-	private MyPictureLabel cost;
+	// 费用总计label
+		private MyPictureLabel cost;
+	// 费用double
+	private double total;
+	
 
 	// textField
-	MyTextField orderBarCodeLabel;
+	MyTextField orderBarCodeText;
 
 	MyTextField senderNameText;
 	MyTextField senderPhoneText;
@@ -146,8 +149,6 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	private MyComboBox senderShangHaiArea;
 	private MyComboBox senderGuangZhouArea;
 	private MyComboBox senderBeiJingArea;
-	private MyComboBox[] senderAreaListen = { senderNanJingArea,
-			senderBeiJingArea, senderGuangZhouArea, senderShangHaiArea };
 
 	private MyComboBox receiverCity;
 	private MyComboBox receiverArea;
@@ -156,8 +157,6 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	private MyComboBox receiverShangHaiArea;
 	private MyComboBox receiverGuangZhouArea;
 	private MyComboBox receiverBeiJingArea;
-	private MyComboBox[] receiverAreaListen = { senderNanJingArea,
-			senderBeiJingArea, senderGuangZhouArea, senderShangHaiArea };
 
 	// 判断寄件人、收件人的城市是否已经选择
 	private int senderChose = 0;
@@ -173,9 +172,6 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	// button
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
-
-	// 费用总计
-	private double total;
 
 	public AddOrderPanel(Element config, Orderblservice orderblservice,
 			StrategyblService strategyblService) {
@@ -214,7 +210,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 
 	@Override
 	protected void initTextFields(Element e) {
-		orderBarCodeLabel = new MyTextField(e.element("orderBarCodeLabel"));
+		orderBarCodeText = new MyTextField(e.element("orderBarCodeText"));
 		senderNameText = new MyTextField(e.element("senderNameText"));
 		senderPhoneText = new MyTextField(e.element("senderPhoneText"));
 		senderAddressText = new MyTextField(e.element("senderAddressText"));
@@ -316,7 +312,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	protected void addCompoment() {
 
 		this.add(orderBarCode);
-		this.add(orderBarCodeLabel);
+		this.add(orderBarCodeText);
 
 		this.add(DatePicker);
 
@@ -410,8 +406,8 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		confirm.addMouseListener(new ConfirmListener(confirm) {
 
 			@Override
-			protected void saveToSQL() {
-				//所有的数据经过了检测，包装vo传给 bl
+			protected boolean saveToSQL() {
+				// 所有的数据经过了检测，包装vo传给 bl
 				String senderADDRESS = senderCityString + senderAreaString
 						+ senderAddressText.getText();
 				String receiverADDRESS = receiverCityString
@@ -424,17 +420,27 @@ public class AddOrderPanel extends MyPanelWithScroller {
 						receiverPhoneText.getText(),
 						receiverUnitText.getText(), receiverADDRESS);
 
-				GoodMes goodMes = new GoodMes(Integer.parseInt(goodNumText.getText()),goodNameText.getText(), Integer.parseInt(goodWeightText.getText()),
-						Integer.parseInt(goodLongText.getText()), Integer.parseInt(goodWidthText.getText()), Integer.parseInt(goodHeightText.getText()));
-				
-				OtherOrderMes otherMes=new OtherOrderMes(goodPack, orderForm, orderEestiTime, orderCost, realReceiver, orderReceiveDate);
-				
-//			    订单的构造器	
-//				String iD, DocType type, MyDate date, DocState state,
-//				PeopleMes sender, PeopleMes receiver, GoodMes goodMes,
-//				OtherOrderMes otherMes, TransferDocs transferDocs
-				OrderVO order=new OrderVO(null,null,null,null,sender,receiver,goodMes,otherMes,null);
+				GoodMes goodMes = new GoodMes(Integer.parseInt(goodNumText
+						.getText()), goodNameText.getText(), Integer
+						.parseInt(goodWeightText.getText()), Integer
+						.parseInt(goodLongText.getText()), Integer
+						.parseInt(goodWidthText.getText()), Integer
+						.parseInt(goodHeightText.getText()));
+
+				OtherOrderMes otherMes = new OtherOrderMes(packChose,
+						FormChose, Integer.parseInt(estimateTime.getText()),total, null,
+						null);
+
+				// 订单的构造器
+				// String iD, DocType type, MyDate date, DocState state,
+				// PeopleMes sender, PeopleMes receiver, GoodMes goodMes,
+				// OtherOrderMes otherMes, TransferDocs transferDocs
+				OrderVO order = new OrderVO(orderBarCodeText.getText(),
+						DocType.order, DatePicker.getMyDate(), DocState.wait,
+						sender, receiver, goodMes, otherMes, null);
 				orderblservice.add(order);
+				
+				return true;
 			}
 
 			@Override
