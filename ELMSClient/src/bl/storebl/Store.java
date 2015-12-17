@@ -25,10 +25,21 @@ public class Store {
 	}
 	
 	public ArrayList<StoreMessageVO> show() {
-//		ArrayList<StoreMessageVO> pos = storeData.g();
-//		return storeData.getStoreMessage();
-		//TODO
-		return null;
+		ArrayList<StoreMessagePO> pos = new ArrayList<>();
+		
+		try {
+			pos = storeData.getStoreMessages();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		ArrayList<StoreMessageVO> vos = null;
+		if(pos!=null){
+			vos = new ArrayList<>(pos.size());
+			for(StoreMessagePO po:pos)
+				vos.add((StoreMessageVO)VOPOchange.POtoVO(po));
+		}
+		
+		return vos;
 	}
 
 	public ArrayList<StoreCheckVO> showCheck() {

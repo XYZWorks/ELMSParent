@@ -66,7 +66,7 @@ public class VOPOchange {
 			Field tmp = null;
 			if(f.getName().equals("serialVersionUID"))
 				continue;
-//			if(f.getType().toString().endsWith("PO"))
+
 				
 			if(f.getType().toString().endsWith("ArrayList")&&!f.getGenericType().toString().endsWith("String>")){
 				
@@ -82,6 +82,8 @@ public class VOPOchange {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				if(list ==null)
+					continue;
 				ArrayList<Object> polist = (ArrayList<Object>)list;
 				
 				String[] spl = listType.toString().split("<");		
