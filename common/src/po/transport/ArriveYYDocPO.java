@@ -44,22 +44,22 @@ public class ArriveYYDocPO extends DocPO implements Serializable{
 	private ArrayList<String> orderBarCodes;
 	
 	public ArriveYYDocPO() {}
-	/**
-	 * 
-	 * @param ZZID
-	 * @param arriveDate
-	 * @param TransferDocID
-	 * @param SendCity
-	 * @param GoodState
-	 */
-	public ArriveYYDocPO(String ZZID, MyDate arriveDate, String TransferDocID,
-			City SendCity, GoodsState GoodState,ArrayList<String> orderBarCodes) {
-		super(TransferDocID, DocType.arriveYYDoc, arriveDate, DocState.wait);
-		this.goodState = GoodState;
-		this.sendCity = SendCity;
-		this.ZZID = ZZID;
-		this.orderBarCodes = orderBarCodes;
-	}
+//	/**
+//	 * 
+//	 * @param ZZID
+//	 * @param arriveDate
+//	 * @param TransferDocID
+//	 * @param SendCity
+//	 * @param GoodState
+//	 */
+//	public ArriveYYDocPO(String ZZID, MyDate arriveDate, String TransferDocID,
+//			City SendCity, GoodsState GoodState,ArrayList<String> orderBarCodes) {
+//		super(TransferDocID, DocType.arriveYYDoc, arriveDate, DocState.wait);
+//		this.goodState = GoodState;
+//		this.sendCity = SendCity;
+//		this.ZZID = ZZID;
+//		this.orderBarCodes = orderBarCodes;
+//	}
 	
 	
 	

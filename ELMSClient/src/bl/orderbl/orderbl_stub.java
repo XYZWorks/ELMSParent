@@ -37,11 +37,6 @@ public class orderbl_stub implements Orderblservice{
 		return null;
 	}
 
-	@Override
-	public DocVO getByID(String ID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public ResultMessage add(OrderVO vo) {
@@ -125,6 +120,12 @@ public class orderbl_stub implements Orderblservice{
 
 	@Override
 	public ArrayList<PreReceiveVO> getPreReceive() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DocVO getByID(String ID, DocType type) {
 		// TODO Auto-generated method stub
 		return null;
 	}

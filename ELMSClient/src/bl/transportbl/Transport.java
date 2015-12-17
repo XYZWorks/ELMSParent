@@ -39,16 +39,15 @@ public class Transport {
 
 	private StrategyblService strategybl;
 
-	public Transport(Transportdataservice transportdataservice , Orderblservice orderbl , StrategyblService strategybl) {
+	public Transport(Transportdataservice transportdataservice,
+			Orderblservice orderbl, StrategyblService strategybl) {
 
 		this.transportData = transportdataservice;
 		this.orderbl = orderbl;
 		this.strategybl = strategybl;
-		
 
 	}
-	
-	
+
 	public ResultMessage add(LoadDocVO vo) {
 		LoadDocPO po = (LoadDocPO) VOPOchange.VOtoPO(vo);
 		ResultMessage result = null;
@@ -59,7 +58,7 @@ public class Transport {
 		}
 
 		if (result == ResultMessage.SUCCESS)
-			 orderbl.addDocToList(vo, vo.orderBarCodes);
+			orderbl.addDocToList(vo, vo.orderBarCodes);
 		return result;
 	}
 
@@ -122,9 +121,9 @@ public class Transport {
 		}
 
 		for (SendGoodDocPO po : pos) {
-//			if (po.getDate().equals(date)) {
-				vos.add((SendGoodDocVO) VOPOchange.POtoVO(po));
-//			}
+			// if (po.getDate().equals(date)) {
+			vos.add((SendGoodDocVO) VOPOchange.POtoVO(po));
+			// }
 		}
 
 		return vos;
@@ -139,10 +138,10 @@ public class Transport {
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-		if (result == ResultMessage.SUCCESS){
+		if (result == ResultMessage.SUCCESS) {
 			orderbl.addDocToList(vo, vo.orderBarCodes);
 		}
-			 
+
 		return result;
 	}
 
@@ -157,15 +156,14 @@ public class Transport {
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-		if(pos== null){
-			return null; 
+		if (pos == null) {
+			return null;
 		}
 
-		
 		for (ArriveYYDocPO po : pos) {
-//			if (po.getDate().equals(date)) {
-				vos.add((ArriveYYDocVO) VOPOchange.POtoVO(po));
-//			}
+			// if (po.getDate().equals(date)) {
+			vos.add((ArriveYYDocVO) VOPOchange.POtoVO(po));
+			// }
 		}
 
 		return vos;
@@ -262,27 +260,46 @@ public class Transport {
 
 		return vos;
 	}
-	
-	public DocVO getDocByID(String ID, DocType type){
-		switch (type) {
-		case value:
-			
-			break;
 
-		default:
-			break;
+	public DocVO getDocByID(String ID, DocType type) {
+		DocPO po = null;
+		try {
+			switch (type) {
+			case transferDoc:
+				po = transportData.getTransferDocPO(ID);
+				break;
+			case arriveYYDoc:
+				po = transportData.getArriveYYDocPO(ID);
+				break;
+			case arriveZZDoc:
+				po = transportData.getArriveZZDocPO(ID);
+				break;
+			case loadDoc:
+				po = transportData.getLoadDocPO(ID);
+				break;
+			case sendGoodDoc:
+				po = transportData.getSendGoodDocPO(ID);
+				break;
+			default:
+				break;
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
 		}
-		
-		
+
+		if (po == null) {
+			return null;
+		}
+		return (DocVO) VOPOchange.POtoVO(po);
+
 	}
-	
-	
-	//TODO 求运费==
-	public double getExpense(OutStoreDocVO outStoreDocVO, TransferDocVO transferVO) {
+
+	// TODO 求运费==
+	public double getExpense(OutStoreDocVO outStoreDocVO,
+			TransferDocVO transferVO) {
 		ConstVO vo = strategybl.getConst();
-		
-		
-		
+
 		return 0;
 	}
 

@@ -71,4 +71,19 @@ public interface StoreDataService extends DocApprovalDataService{
 	 * @return
 	 */
 	public ArrayList<StoreCheckPO> getCheck()throws RemoteException;
+	/**
+	 * 获得单个入库单
+	 * @param ID
+	 * @return
+	 * @throws RemoteException
+	 */
+	public InStoreDocPO getOneInstoreDoc(String ID) throws RemoteException;
+	/**
+	 * 获得单个出库单
+	 * @param ID
+	 * @return
+	 * @throws RemoteException
+	 */
+	public OutStoreDocPO getOneOutStoreDoc(String ID) throws RemoteException;
+	
 }

@@ -38,5 +38,5 @@ public interface DocApprovalService {
 	 * @param ID
 	 * @return
 	 */
-	public DocVO getByID(String ID);
+	public DocVO getByID(String ID , DocType type);
 }

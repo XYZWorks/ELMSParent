@@ -125,9 +125,21 @@ public class OutStoreDocImpl implements OutStoreDocService {
 		return ResultMessage.FAIL;
 	}
 
-	public DocVO getByID(String ID) {
-		//TODO
-		return null;
+
+	@Override
+	public DocVO getByID(String ID, DocType type) {
+		OutStoreDocPO po = null;
+		try {
+			po = storeData.getOneOutStoreDoc(ID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		if(po == null){
+			return null;
+		}else{
+			return (DocVO) VOPOchange.POtoVO(po);
+		}
 	}
+	
 
 }

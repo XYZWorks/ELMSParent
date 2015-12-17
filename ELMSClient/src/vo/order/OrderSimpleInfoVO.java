@@ -29,7 +29,6 @@ public class OrderSimpleInfoVO {
 	public String time;
 	
 	public OrderSimpleInfoVO() {
-		// TODO Auto-generated constructor stub
 	}
 	public OrderSimpleInfoVO(String orderBarCode,String place,String time,DocType type){
 		this.orderBarCode=orderBarCode;

@@ -1,21 +1,22 @@
 package data.transportdata;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.rmi.RemoteException;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import po.transport.ArriveZZDocPO;
-import test.java.other.DataTool;
-import test.java.other.VOPOchange;
+import po.transport.ArriveYYDocPO;
+import util.City;
+import util.DocState;
 import util.DocType;
-import util.ResultMessage;
+import util.GoodsState;
+import util.MyDate;
  /** 
  * 
  * @author czq 
- * @version 2015年12月5日 上午11:46:53 
+ * @version 2015年12月17日 下午10:17:38 
  */
 public class TransportDataImplTest {
 	TransportDataImpl test;
@@ -25,32 +26,28 @@ public class TransportDataImplTest {
 	}
 
 	@Test
-	public void testGetArriveZZDocPO() {
-		ResultMessage resultMessage = null;
-		try {
-			resultMessage = test.addArriveZZDocPO((ArriveZZDocPO)VOPOchange.VOtoPO(DataTool.getDocList(DocType.arriveZZDoc).get(0)));
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(resultMessage);
-		if(resultMessage!=ResultMessage.SUCCESS)
-		fail("Not yet implemented");
+	public void testAddLoadDocPO() throws RemoteException  {
+//		test.addLoadDocPO(po);
 	}
 
 	@Test
-	public void testAddArriveZZDocPO() {
-		fail("Not yet implemented");
+	public void testAddSendGoodDocPO() throws RemoteException  {
+//		test.addSendGoodDocPO(po);
 	}
 
 	@Test
-	public void testGetDocLists() throws RemoteException {
-//		ArrayList<ArriveZZDocPO> pos =  (ArrayList<ArriveZZDocPO>) test.getDocLists(DocType.arriveZZDoc);
-//		System.out.println(pos.size());
-//		System.out.println(pos.get(0).getID());
-		
-		
-		fail("Not yet implemented");
+	public void testAddTransferDocPO() throws RemoteException  {
+//		test.addTransferDocPO(po);
+	}
+
+	@Test
+	public void testAddArriveZZDocPO()  throws RemoteException {
+//		test.addArriveZZDocPO(po);
+	}
+
+	@Test
+	public void testAddArriveYYDocPO() throws RemoteException {
+		test.addArriveYYDocPO(new ArriveYYDocPO("JSD000001", DocType.arriveYYDoc, MyDate.getNowTime(), DocState.wait, "asdasd", City.NANJING, GoodsState.Complete, null));
 	}
 
 }

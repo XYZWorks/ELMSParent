@@ -85,6 +85,11 @@ public class OrderController implements Orderblservice{
 	public ArrayList<PreReceiveVO> getPreReceive() {
 		return order.getPreReceive(transportController.getDaySendDocs(MyDate.getNowTime()));
 	}
+	@Override
+	public DocVO getByID(String ID, DocType type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 	

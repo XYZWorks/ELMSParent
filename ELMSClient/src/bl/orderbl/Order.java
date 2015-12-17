@@ -126,35 +126,35 @@ public class Order {
 			switch (tmp) {
 			//装车单
 			case "ZCD":
-				LoadDocVO vol = (LoadDocVO) transportController.getByID(poString);
+				LoadDocVO vol = (LoadDocVO) transportController.getByID(poString , DocType.loadDoc);
 				place = vol.arriveCity.toString();
 				time = MyDate.toString(vol.date);
 				type=DocType.loadDoc;
 				break;
 			//接受单
 			case "JSD":
-				ArriveYYDocVO voy = (ArriveYYDocVO) transportController.getByID(poString);
+				ArriveYYDocVO voy = (ArriveYYDocVO) transportController.getByID(poString , DocType.arriveYYDoc);
 				place = voy.sendCity.toString();
 				time = MyDate.toString(voy.date);
 				type=DocType.arriveYYDoc;
 				break;
 			//到达单
 			case "DDD":
-				ArriveZZDocVO voz = (ArriveZZDocVO) transportController.getByID(poString);
+				ArriveZZDocVO voz = (ArriveZZDocVO) transportController.getByID(poString , DocType.arriveZZDoc);
 				place = voz.sendCity.toString();
 				time = MyDate.toString(voz.date);
 				type=DocType.arriveZZDoc;
 				break;
 			//中转单
 			case "ZZD":
-				TransferDocVO vot = (TransferDocVO) transportController.getByID(poString);
+				TransferDocVO vot = (TransferDocVO) transportController.getByID(poString , DocType.transferDoc);
 				place = vot.sendCity.toString();
 				time =MyDate.toString(vot.date);
 				type=DocType.transferDoc;
 				break;
 			//派送单 
 			case "PSD":
-				SendGoodDocVO vop = (SendGoodDocVO) transportController.getByID(poString);
+				SendGoodDocVO vop = (SendGoodDocVO) transportController.getByID(poString , DocType.sendGoodDoc);
 				//传入派送员姓名
 				place = vop.sendMan.toString();
 				time = MyDate.toString(vop.date);
@@ -162,14 +162,14 @@ public class Order {
 				break;
 			//入库单
 			case "RKD":
-				InStoreDocVO vor = (InStoreDocVO) storeController.getByID(poString);
+				InStoreDocVO vor = (InStoreDocVO) storeController.getByID(poString , DocType.inStoreDoc);
 				place = vor.loc.toString();
 				time = MyDate.toString(vor.date);
 				type=DocType.loadDoc;
 				break;
 			//出库单
 			case "CKD":
-				OutStoreDocVO voc = (OutStoreDocVO) storeController.getByID(poString);
+				OutStoreDocVO voc = (OutStoreDocVO) storeController.getByID(poString , DocType.outStoreDoc);
 				place = voc.loc.toString();
 				time = MyDate.toString(voc.date);
 				type=DocType.outStoreDoc;

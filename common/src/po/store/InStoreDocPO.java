@@ -43,14 +43,14 @@ public class InStoreDocPO extends DocPO implements Serializable{
 	
 	public InStoreDocPO() {}
 
-	public InStoreDocPO(String iD, MyDate date, ArrayList<String> orderPOs,
-			City loc, ArrayList<String> location) {
-
-		super(iD, DocType.inStoreDoc, date, DocState.wait);
-		this.orders = orderPOs;
-		this.loc = loc;
-		this.location = location;
-	}
+//	public InStoreDocPO(String iD, MyDate date, ArrayList<String> orderPOs,
+//			City loc, ArrayList<String> location) {
+//
+//		super(iD, DocType.inStoreDoc, date, DocState.wait);
+//		this.orders = orderPOs;
+//		this.loc = loc;
+//		this.location = location;
+//	}
 	
 	
 	

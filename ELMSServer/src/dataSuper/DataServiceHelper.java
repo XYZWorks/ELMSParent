@@ -101,6 +101,9 @@ public class DataServiceHelper {
 	 * @return
 	 */
 	public String tranFromArrayToString(String[] datas) {
+		if(datas == null){
+			return null;
+		}
 		StringBuffer buffer = new StringBuffer(datas.length * 15);
 		for (int i = 0; i < datas.length; i++) {
 			buffer.append(datas[i]).append(',');
@@ -109,6 +112,10 @@ public class DataServiceHelper {
 	}
 
 	public String tranFromArrayToString(ArrayList<String> datas) {
+		if(datas == null){
+			return null;
+		}
+		
 		StringBuffer buffer = new StringBuffer(datas.size() * 15);
 		for (int i = 0; i < datas.size(); i++) {
 			buffer.append(datas.get(i)).append(',');
@@ -122,6 +129,9 @@ public class DataServiceHelper {
 	}
 
 	public ArrayList<String> tranFromStringToArrayList(String data) {
+		if(data == null){
+			return null;
+		}
 		ArrayList<String> result;
 		String[] temp = tranFromStringToArray(data);
 		if (temp != null) {

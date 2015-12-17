@@ -55,8 +55,6 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 		addToSQL(alarmTable, City.SHANGHAI.name(), "0");
 	}
 
-
-
 	public ResultMessage addIn(InStoreDocPO po) throws RemoteException {
 
 		return addToSQL(instoreDocTable, po.getID(), po.getType().name(),
@@ -114,22 +112,25 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 	}
 
 	public ResultMessage update(StoreMessagePO po) {
-		if (helper.writeToSerFile(po, storeMessage + po.getLocation().name() + po.getStoreLoc().name(), false)) {
+		if (helper.writeToSerFile(po, storeMessage + po.getLocation().name()
+				+ po.getStoreLoc().name(), false)) {
 			return ResultMessage.SUCCESS;
 		} else {
 			return ResultMessage.FAIL;
 		}
 	}
-	
+
 	@Override
 	public ArrayList<StoreMessagePO> getStoreMessages() throws RemoteException {
 		ArrayList<StoreMessagePO> pos = new ArrayList<>(20);
 		Object ob = null;
 		for (City city : City.values()) {
 			for (TransferWay storeLoc : TransferWay.values()) {
-				ob = helper.readFromSerFile(storeMessage + city.name() + storeLoc.name());
-				if(ob == null){
-					System.err.println("WARNING: " +city.name() + storeLoc.name() +"區的庫存信息未創建或丟失");
+				ob = helper.readFromSerFile(storeMessage + city.name()
+						+ storeLoc.name());
+				if (ob == null) {
+					System.err.println("WARNING: " + city.name()
+							+ storeLoc.name() + "區的庫存信息未創建或丟失");
 					continue;
 				}
 				pos.add((StoreMessagePO) ob);
@@ -137,8 +138,7 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 		}
 		return pos;
 	}
-	
-	
+
 	public ResultMessage storeCheck(StoreCheckPO po) {
 		String[] instores = new String[po.getPo().getInStoreDocs().size()];
 		String[] outstores = new String[po.getPo().getOutStoreDocs().size()];
@@ -152,7 +152,8 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 
 		return addToSQL(storeCheckTable, MyDate.toString(po.getTime()), po
 				.getPo().getLocation().name(), po.getPo().getStoreLoc().name(),
-				String.valueOf(po.getPo().getNumber()), String.valueOf(po.getPo().getTotalNum()) ,
+				String.valueOf(po.getPo().getNumber()),
+				String.valueOf(po.getPo().getTotalNum()),
 				helper.tranFromArrayToString(instores),
 				helper.tranFromArrayToString(outstores));
 	}
@@ -166,9 +167,10 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 			while (result.next()) {
 				pos.add(new StoreCheckPO(MyDate.getDate(result.getString(1)),
 						new StoreMessagePO(City.valueOf(result.getString(2)),
-								TransferWay.valueOf(result.getString(3)), Integer.parseInt(result
-										.getString(4)), Integer.parseInt(result
-												.getString(5)), getInstoreDocs(helper
+								TransferWay.valueOf(result.getString(3)),
+								Integer.parseInt(result.getString(4)), Integer
+										.parseInt(result.getString(5)),
+								getInstoreDocs(helper
 										.tranFromStringToArray(result
 												.getString(6))),
 								getOutstoreDocs(helper
@@ -260,10 +262,14 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 				}
 			} else {
 				while (result.next()) {
-					 pos.add(new OutStoreDocPO(result.getString(1), DocType
-								.valueOf(result.getString(2)), MyDate
-								.getDate(result.getString(3)), DocState
-								.valueOf(result.getString(4)), helper.tranFromStringToArrayList(result.getString(5)), City.valueOf(result.getString(6)), result.getString(7), TransferWay.valueOf(result.getString(8))));
+					pos.add(new OutStoreDocPO(result.getString(1), DocType
+							.valueOf(result.getString(2)), MyDate
+							.getDate(result.getString(3)), DocState
+							.valueOf(result.getString(4)), helper
+							.tranFromStringToArrayList(result.getString(5)),
+							City.valueOf(result.getString(6)), result
+									.getString(7), TransferWay.valueOf(result
+									.getString(8))));
 				}
 			}
 
@@ -298,8 +304,33 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 		return ResultMessage.FAIL;
 	}
 
+	@Override
+	public InStoreDocPO getOneInstoreDoc(String ID) throws RemoteException {
+		findMes = findFromSQL(instoreDocTable, ID);
+		if (findMes == null) {
+			return null;
+		} else {
+			return new InStoreDocPO(findMes.get(0), DocType.inStoreDoc,
+					MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes
+							.get(3)), helper.tranFromStringToArrayList(findMes
+							.get(4)), City.toCity(findMes.get(5)),
+					helper.tranFromStringToArrayList(findMes.get(6)));
+		}
 
+	}
 
-	
+	@Override
+	public OutStoreDocPO getOneOutStoreDoc(String ID) throws RemoteException {
+		findMes = findFromSQL(instoreDocTable, ID);
+		if (findMes == null) {
+			return null;
+		} else {
+			return new OutStoreDocPO(findMes.get(0), DocType.outStoreDoc,
+					MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes
+							.get(3)), helper.tranFromStringToArrayList(findMes
+							.get(4)), City.toCity(findMes.get(5)),
+					findMes.get(6), TransferWay.valueOf(findMes.get(7)));
+		}
+	}
 
 }

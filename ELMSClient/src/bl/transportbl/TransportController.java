@@ -94,10 +94,10 @@ public class TransportController implements Transportblservice{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public DocVO getByID(String ID) {
-		// TODO Auto-generated method stub
-		return transport.get;
+	public DocVO getByID(String ID , DocType type) {
+		return transport.getDocByID(ID , type);
 	}
+	
 	
 
 }

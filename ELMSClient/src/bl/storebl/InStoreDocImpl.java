@@ -97,9 +97,18 @@ public class InStoreDocImpl  {
 		}
 		return ResultMessage.FAIL;
 	}
-	public DocVO getByID(String iD) {
-		// TODO Auto-generated method stub
-		return null;
+	public DocVO getByID(String iD, DocType instoredoc) {
+		InStoreDocPO po = null;
+		try {
+			po = storeData.getOneInstoreDoc(iD);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		if(po == null){
+			return null;
+		}else{
+			return (DocVO) VOPOchange.POtoVO(po);
+		}
 	}
 
 }

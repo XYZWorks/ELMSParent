@@ -114,12 +114,13 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 	public String getAlarmValue(City city) {
 		return store.getAlarmValue(city);
 	}
-	public DocVO getByID(String ID) {
-		try{
-			return inStoreDocImpl.getByID(ID);
-		}
-		catch(NullPointerException e){
-			return outStoreDocImpl.getByID(ID);
+	public DocVO getByID(String ID , DocType type) {
+		if(type == DocType.inStoreDoc){
+			return inStoreDocImpl.getByID(ID , DocType.inStoreDoc);
+		}else if(type == DocType.outStoreDoc){
+			return outStoreDocImpl.getByID(ID , DocType.outStoreDoc);
+		}else{
+			return null;
 		}
 		
 				

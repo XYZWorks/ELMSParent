@@ -22,7 +22,20 @@ public class StoreDataImplTest {
 	public void setUp() throws Exception {
 		test = new StoreDataImpl();
 	}
+	
+	@Test
+	public void testAddIn() {
+//		test.addIn(po);
+	}
 
+	@Test
+	public void testAddOut() {
+//		test.addOut(po);
+	}
+	
+	
+	
+	
 	@Test
 	public void testUpdate() {
 		if(test.update(DataTool.getStoreMessagePO()) == ResultMessage.SUCCESS){
