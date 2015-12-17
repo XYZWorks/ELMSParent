@@ -53,7 +53,7 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 		if(findMes == null){
 			return null;
 		}else{
-			return new CarPO(findMes.get(0), findMes.get(1), Integer.parseInt(findMes.get(2)));
+			return new CarPO(findMes.get(0), findMes.get(1), findMes.get(2) , Integer.parseInt(findMes.get(3)));
 		}
 		
 	}
@@ -63,7 +63,7 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 	}
 
 	public ResultMessage addCarPO(CarPO po) throws RemoteException {
-		return addToSQL(carTable, po.getID() , po.getPlateNum() , String.valueOf(po.getUseYear()));
+		return addToSQL(carTable, po.getID() , po.getInstID() , po.getPlateNum() , String.valueOf(po.getUseYear()));
 	}
 
 	public ResultMessage updateDriverPo(DriverPO po) throws RemoteException {
@@ -123,7 +123,7 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {
-				pos.add(new CarPO(result.getString(1), result.getString(2), Integer.parseInt(result.getString(3))));
+				pos.add(new CarPO(result.getString(1), result.getString(2), result.getString(3), Integer.parseInt(result.getString(4))));
 			}
 			return (pos.isEmpty())?null:pos;
 		} catch (SQLException e) {
@@ -160,7 +160,7 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {
-				return new CarPO(result.getString(1), result.getString(2), Integer.parseInt(result.getString(3)));
+				return new CarPO(result.getString(1), result.getString(2), result.getString(3), Integer.parseInt(result.getString(4)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

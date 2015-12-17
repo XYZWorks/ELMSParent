@@ -40,4 +40,14 @@ public class BillVO {
 	public ArrayList<CarVO> cars;
 	
 	public BillVO() {}
+	
+	public BillVO(String finanaceMan , MyDate date){
+		this.date = new MyDate(date.year, date.month, date.day);
+		this.finaceman = finanaceMan;
+		instituations = new ArrayList<>();
+		persons = new ArrayList<>();
+		cars = new ArrayList<>();
+		
+	}
+	
 }

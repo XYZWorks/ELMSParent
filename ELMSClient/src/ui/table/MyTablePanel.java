@@ -138,8 +138,6 @@ public abstract class MyTablePanel extends JPanel {
 	}
 
 	protected void initialTitleAndColumn(Element config, MyDate date) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	/**
@@ -166,6 +164,12 @@ public abstract class MyTablePanel extends JPanel {
 		}
 		if(row >= 0){
 			removeRow(row);
+		}
+	}
+	
+	public void removeAllRows() {
+		while(table.getRowCount() > 0){
+			table.getModel().removeRow(0);
 		}
 	}
 	

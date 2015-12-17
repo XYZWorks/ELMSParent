@@ -159,7 +159,8 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage{
 			return false;
 		}
 		@Override
-		protected void saveToSQL() {
+		protected boolean saveToSQL() {
+			return false;
 			
 		}
 		@Override

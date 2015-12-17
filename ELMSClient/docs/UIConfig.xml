@@ -457,7 +457,9 @@
 					<BUTTONS>
 						<confirm x="560" y="560" width="89" height="40" text="确认"
 						type="confirm" />
-					<cancel x="707" y="560" width="89" height="40" text="取消"
+						<cancel x="707" y="560" width="89" height="40" text="取消"
+						type="cancel" />
+						<back x="400" y="560" width="89" height="40" text="完成"
 						type="cancel" />
 					</BUTTONS>
 					<TEXTFIELDS>

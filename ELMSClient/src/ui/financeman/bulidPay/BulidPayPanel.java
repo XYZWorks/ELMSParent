@@ -106,7 +106,8 @@ public class BulidPayPanel extends MyPanel {
 		confirm.addMouseListener(new ConfirmListener(confirm) {
 			
 			@Override
-			protected void saveToSQL() {
+			protected boolean saveToSQL() {
+				return false;
 				// TODO Auto-generated method stub
 				
 			}

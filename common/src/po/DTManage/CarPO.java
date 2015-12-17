@@ -9,13 +9,15 @@ import java.io.Serializable;
  */
 public class CarPO implements Serializable{
 	public CarPO() {
-		// TODO Auto-generated constructor stub
 	}
 	/**
 	 * 序列化UID
 	 */
 	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * 机构ID
+	 */
+	private String instID;
 	/**
 	 * 车辆编号
 	 */
@@ -29,19 +31,21 @@ public class CarPO implements Serializable{
 	 */
 	private  int useYear;
 
-	/**
-	 * 
-	 * @param ID
-	 * @param PlateNum
-	 * @param useYear
-	 */
 
-	public CarPO(String ID, String PlateNum, int useYear) {
+	public CarPO(String instID, String iD, String plateNum, int useYear) {
 		super();
-		this.ID = ID;
-		this.plateNum = PlateNum;
+		this.instID = instID;
+		ID = iD;
+		this.plateNum = plateNum;
 		this.useYear = useYear;
+	}
 
+	public String getInstID() {
+		return instID;
+	}
+
+	public void setInstID(String instID) {
+		this.instID = instID;
 	}
 
 	public String getID() {

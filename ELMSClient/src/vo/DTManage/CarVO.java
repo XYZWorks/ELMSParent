@@ -8,6 +8,10 @@ package vo.DTManage;
  */
 public class CarVO{
 	/**
+	 * 机构ID
+	 */
+	public String instID;
+	/**
 	 * 车辆代号（城市编号（电话号码区号南京025）+营业厅编号（000三位数字）+000三位数字
 	 */
 	public String ID;
@@ -27,13 +31,14 @@ public class CarVO{
 	 * @param useYear
 	 */
 	public CarVO() {
-		// TODO Auto-generated constructor stub
 	}
-	public CarVO(String ID, String PlateNum, int useYear) {
-		super();
-		this.ID = ID;
-		this.plateNum = PlateNum;
-		this.useYear = useYear;
 
+	public CarVO(String instID, String iD, String plateNum, int useYear) {
+		super();
+		this.instID = instID;
+		this.ID = iD;
+		this.plateNum = plateNum;
+		this.useYear = useYear;
 	}
+	
 }

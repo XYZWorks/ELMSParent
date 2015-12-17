@@ -174,6 +174,8 @@ public class AddPeople extends MyPanel{
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
 				panelManager.show(changePanel, BulidBillPanel.addCarStr);
+				myInit();
+				table.removeAllRows();
 			}
 		});
 	}

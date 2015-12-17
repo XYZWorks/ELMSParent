@@ -138,8 +138,9 @@ public class AddInst extends MyPanel{
 
 		@Override
 		protected void reInitial() {
-			// TODO Auto-generated method stub
-			
+			instidT.setText("");
+			typeB.setSelectedIndex(0);
+			locationB.setSelectedIndex(0);
 		}
 
 		@Override

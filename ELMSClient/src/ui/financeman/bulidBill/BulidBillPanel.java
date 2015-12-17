@@ -18,6 +18,8 @@ import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
+import util.City;
+import util.MyDate;
 import vo.DTManage.CarVO;
 import vo.personnel.InstVO;
 import vo.personnel.PersonVO;
@@ -39,7 +41,7 @@ public class BulidBillPanel extends MyPanel {
 	/**
 	 * 账单 = =
 	 */
-	BillVO bill;
+	BillVO bill = new BillVO("", MyDate.getNowTime());
 	ArrayList<InstVO> instVOs = new ArrayList<>();;
 	ArrayList<CarVO> carVOs = new ArrayList<>();
 	ArrayList<PersonVO> personVOs = new ArrayList<>();
@@ -130,15 +132,34 @@ public class BulidBillPanel extends MyPanel {
 		add(add);
 		add(time);
 		add(title);
+		add(mainTable);
 		
 	}
-
+	/**
+	 * 完成一个机构的增加时调用的方法
+	 */
+	void finishOneInst(){
+		bill.instituations.addAll(instVOs);
+		bill.persons.addAll(personVOs);
+		bill.cars.addAll(carVOs);
+		
+		InstVO vo = instVOs.get(0);
+		String[] data = {vo.ID ,  vo.location.getName() , vo.type.getName() , String.valueOf(personVOs.size()) , String.valueOf(carVOs.size()) };
+		mainTable.addOneRow(data);
+		instVOs.clear();
+		personVOs.clear();
+		carVOs.clear();
+		
+	}
+	
+	
 	@Override
 	protected void addListener() {
 		confirm.addMouseListener(new ConfirmListener(confirm) {
 
 			@Override
 			protected boolean saveToSQL() {
+				return false;
 				// TODO Auto-generated method stub
 
 			}
@@ -180,8 +201,6 @@ public class BulidBillPanel extends MyPanel {
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2015-12-12 07:01:53
+-- Generation Time: 2015-12-17 11:13:15
 -- 服务器版本： 5.6.26
 -- PHP Version: 5.6.12
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `elmssql`
 --
-CREATE DATABASE IF NOT EXISTS `elmssql` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `elmssql`;
 
 -- --------------------------------------------------------
 
@@ -28,6 +26,7 @@ USE `elmssql`;
 -- 表的结构 `account`
 --
 
+DROP TABLE IF EXISTS `account`;
 CREATE TABLE IF NOT EXISTS `account` (
   `id` varchar(45) NOT NULL,
   `name` varchar(45) DEFAULT NULL,
@@ -42,6 +41,7 @@ CREATE TABLE IF NOT EXISTS `account` (
 --
 
 INSERT INTO `account` (`id`, `name`, `type`, `password`, `phone`, `email`) VALUES
+('', '', 'courier', '', '', ''),
 ('000000', 'Adminstrator', 'Adminstrator', '000000', '', ''),
 ('000001', '张三', 'manager', '123456', '', ''),
 ('111', '陈自强', 'courier', '123456', '', ''),
@@ -58,6 +58,7 @@ INSERT INTO `account` (`id`, `name`, `type`, `password`, `phone`, `email`) VALUE
 -- 表的结构 `alarm`
 --
 
+DROP TABLE IF EXISTS `alarm`;
 CREATE TABLE IF NOT EXISTS `alarm` (
   `city` varchar(45) NOT NULL,
   `value` varchar(45) NOT NULL
@@ -68,9 +69,9 @@ CREATE TABLE IF NOT EXISTS `alarm` (
 --
 
 INSERT INTO `alarm` (`city`, `value`) VALUES
-('NANJING', '0'),
 ('BEIJING', '0'),
 ('GUANGZHOU', '0'),
+('NANJING', '0'),
 ('SHANGHAI', '0');
 
 -- --------------------------------------------------------
@@ -79,6 +80,7 @@ INSERT INTO `alarm` (`city`, `value`) VALUES
 -- 表的结构 `arriveyydoc`
 --
 
+DROP TABLE IF EXISTS `arriveyydoc`;
 CREATE TABLE IF NOT EXISTS `arriveyydoc` (
   `id` varchar(45) NOT NULL,
   `type` varchar(45) DEFAULT NULL,
@@ -95,9 +97,16 @@ CREATE TABLE IF NOT EXISTS `arriveyydoc` (
 --
 
 INSERT INTO `arriveyydoc` (`id`, `type`, `date`, `state`, `zzid`, `sendciry`, `goodstate`, `orderBarCodes`) VALUES
-('JSD1511110000001', 'arriveYYDoc', '2015-11-11', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,'),
-('JSD1511110000001', 'arriveYYDoc', '2015-11-11', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,'),
-('JSD1511110000001', 'arriveYYDoc', '2015-11-11', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,');
+('123123123', 'arriveYYDoc', '115-11-3', 'wait', '123123123', 'NANJING', 'Lost', '12312312312,'),
+('123123123123', 'arriveYYDoc', '115-11-3', 'wait', '123123123123', 'NANJING', 'Complete', '123123123123,'),
+('123123213', 'arriveYYDoc', '115-11-3', 'wait', '213213123', 'NANJING', 'Complete', '123123123,123123123123,'),
+('123213', 'arriveYYDoc', '115-11-3', 'wait', '123213213', 'NANJING', 'Complete', '12321323,1232132311,'),
+('12321312', 'arriveYYDoc', '115-11-3', 'wait', '123213213', 'NANJING', 'Complete', '123213123123,1232132,12321321321,12321323,'),
+('1232131211', 'arriveYYDoc', '115-11-3', 'wait', '123213213', 'NANJING', 'Complete', '123213123123,1232132,12321321321,12321323,'),
+('123213213', 'arriveYYDoc', '115-11-3', 'wait', '123123123', 'NANJING', 'Complete', '12312312,'),
+('12321322', 'arriveYYDoc', '2015-12-16', 'wait', '123213', 'NANJING', 'Complete', '123213123,1232123,'),
+('12341241', 'arriveYYDoc', '115-11-3', 'wait', '123412343124', 'NANJING', 'Complete', '1234124,1234124124,1234124124345,'),
+('1321321321', 'arriveYYDoc', '115-11-3', 'wait', '213123123', 'NANJING', 'Complete', '123123123,123121233123,');
 
 -- --------------------------------------------------------
 
@@ -105,6 +114,7 @@ INSERT INTO `arriveyydoc` (`id`, `type`, `date`, `state`, `zzid`, `sendciry`, `g
 -- 表的结构 `arrivezzdoc`
 --
 
+DROP TABLE IF EXISTS `arrivezzdoc`;
 CREATE TABLE IF NOT EXISTS `arrivezzdoc` (
   `id` varchar(45) NOT NULL,
   `type` varchar(45) DEFAULT NULL,
@@ -116,28 +126,13 @@ CREATE TABLE IF NOT EXISTS `arrivezzdoc` (
   `orderBarCodes` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- 转存表中的数据 `arrivezzdoc`
---
-
-INSERT INTO `arrivezzdoc` (`id`, `type`, `date`, `state`, `zzid`, `sendcity`, `goodstate`, `orderBarCodes`) VALUES
-('DDD1511140000001', 'arriveZZDoc', '2015-12-5', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,'),
-('DDD1511140000001', 'arriveZZDoc', '2015-12-5', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,'),
-('DDD1511140000001', 'arriveZZDoc', '2015-12-5', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,'),
-('DDD1511140000001', 'arriveZZDoc', '2015-12-5', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,'),
-('DDD1511140000001', 'arriveZZDoc', '2015-12-5', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,'),
-('DDD1511140000001', 'arriveZZDoc', '2015-12-5', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,'),
-('DDD1511140000001', 'arriveZZDoc', '2015-12-5', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,'),
-('DDD1511140000001', 'arriveZZDoc', '2015-12-5', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,'),
-('DDD1511140000001', 'arriveZZDoc', '2015-12-5', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,'),
-('DDD1511140000001', 'arriveZZDoc', '2015-12-5', 'wait', '0250', 'BEIJING', 'Complete', '1234536433,2069601212,4902720820,');
-
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `bankaccount`
 --
 
+DROP TABLE IF EXISTS `bankaccount`;
 CREATE TABLE IF NOT EXISTS `bankaccount` (
   `id` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
@@ -150,7 +145,9 @@ CREATE TABLE IF NOT EXISTS `bankaccount` (
 
 INSERT INTO `bankaccount` (`id`, `password`, `money`) VALUES
 ('000002', '123123', '22222'),
-('111111', '123456', '20000');
+('123213', '123121', '12312375'),
+('1232qw', '123121', '123212'),
+('1321321', '123212', '123');
 
 -- --------------------------------------------------------
 
@@ -158,6 +155,7 @@ INSERT INTO `bankaccount` (`id`, `password`, `money`) VALUES
 -- 表的结构 `bill`
 --
 
+DROP TABLE IF EXISTS `bill`;
 CREATE TABLE IF NOT EXISTS `bill` (
   `financeman` varchar(45) NOT NULL,
   `date` varchar(45) NOT NULL,
@@ -172,8 +170,10 @@ CREATE TABLE IF NOT EXISTS `bill` (
 -- 表的结构 `car`
 --
 
+DROP TABLE IF EXISTS `car`;
 CREATE TABLE IF NOT EXISTS `car` (
   `id` varchar(45) NOT NULL,
+  `instid` varchar(45) NOT NULL,
   `plateNum` varchar(45) DEFAULT NULL,
   `useYear` int(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='车辆信息';
@@ -182,9 +182,9 @@ CREATE TABLE IF NOT EXISTS `car` (
 -- 转存表中的数据 `car`
 --
 
-INSERT INTO `car` (`id`, `plateNum`, `useYear`) VALUES
-('000001', '粤A12345', 3),
-('000002', '粤A123W5', 4);
+INSERT INTO `car` (`id`, `instid`, `plateNum`, `useYear`) VALUES
+('000001', '', '粤A12345', 3),
+('000002', '', '粤A123W5', 4);
 
 -- --------------------------------------------------------
 
@@ -192,6 +192,7 @@ INSERT INTO `car` (`id`, `plateNum`, `useYear`) VALUES
 -- 表的结构 `const`
 --
 
+DROP TABLE IF EXISTS `const`;
 CREATE TABLE IF NOT EXISTS `const` (
   `id` int(11) NOT NULL,
   `mileinbn` int(11) NOT NULL,
@@ -216,6 +217,7 @@ CREATE TABLE IF NOT EXISTS `const` (
 -- 表的结构 `costincomeform`
 --
 
+DROP TABLE IF EXISTS `costincomeform`;
 CREATE TABLE IF NOT EXISTS `costincomeform` (
   `income` int(4) NOT NULL,
   `expense` int(4) NOT NULL,
@@ -229,6 +231,7 @@ CREATE TABLE IF NOT EXISTS `costincomeform` (
 -- 表的结构 `deposit`
 --
 
+DROP TABLE IF EXISTS `deposit`;
 CREATE TABLE IF NOT EXISTS `deposit` (
   `ID` int(4) NOT NULL,
   `date` varchar(20) DEFAULT NULL,
@@ -241,6 +244,7 @@ CREATE TABLE IF NOT EXISTS `deposit` (
 -- 表的结构 `driver`
 --
 
+DROP TABLE IF EXISTS `driver`;
 CREATE TABLE IF NOT EXISTS `driver` (
   `id` varchar(45) NOT NULL,
   `name` varchar(45) DEFAULT NULL,
@@ -258,6 +262,7 @@ CREATE TABLE IF NOT EXISTS `driver` (
 -- 表的结构 `freight`
 --
 
+DROP TABLE IF EXISTS `freight`;
 CREATE TABLE IF NOT EXISTS `freight` (
   `startdate` varchar(20) NOT NULL,
   `enddate` varchar(20) NOT NULL,
@@ -271,6 +276,7 @@ CREATE TABLE IF NOT EXISTS `freight` (
 -- 表的结构 `inst`
 --
 
+DROP TABLE IF EXISTS `inst`;
 CREATE TABLE IF NOT EXISTS `inst` (
   `id` varchar(20) NOT NULL,
   `location` varchar(20) DEFAULT NULL,
@@ -283,6 +289,7 @@ CREATE TABLE IF NOT EXISTS `inst` (
 -- 表的结构 `instoredoc`
 --
 
+DROP TABLE IF EXISTS `instoredoc`;
 CREATE TABLE IF NOT EXISTS `instoredoc` (
   `id` varchar(45) NOT NULL,
   `type` varchar(45) NOT NULL,
@@ -299,6 +306,7 @@ CREATE TABLE IF NOT EXISTS `instoredoc` (
 -- 表的结构 `loaddoc`
 --
 
+DROP TABLE IF EXISTS `loaddoc`;
 CREATE TABLE IF NOT EXISTS `loaddoc` (
   `id` varchar(45) NOT NULL,
   `type` varchar(45) DEFAULT NULL,
@@ -313,12 +321,35 @@ CREATE TABLE IF NOT EXISTS `loaddoc` (
   `orderbarcodes` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='装车单';
 
+--
+-- 转存表中的数据 `loaddoc`
+--
+
+INSERT INTO `loaddoc` (`id`, `type`, `date`, `state`, `yyid`, `loadDocID`, `arriveCity`, `carid`, `supervisor`, `escort`, `orderbarcodes`) VALUES
+('11111111', 'loadDoc', '115-11-3', 'wait', '12341212', '23432412%', 'NANJING', '123213213', '12323', '213213', ''),
+('1111111123', 'loadDoc', '115-11-3', 'wait', '123213213', '123123123', 'NANJING', '123123123', '123123123', '123123123', '123213213,123213213,123213213123,'),
+('111111112311', 'loadDoc', '115-11-3', 'wait', '123213213', '123123123', 'NANJING', '123123123', '123123123', '123123123', '123213213,123213213,123213213123,'),
+('1231231', 'loadDoc', '115-11-3', 'wait', '123123213', '12321312', 'NANJING', '123123123', '12321321', '3123123213', '123123123,123123123123,'),
+('1231231123', 'loadDoc', '115-11-3', 'wait', '123123213', '12321312', 'NANJING', '123123123', '12321321', '3123123213', '123123123,123123123123,'),
+('123123112311', 'loadDoc', '115-11-3', 'wait', '123123213', '12321312', 'NANJING', '123123123', '12321321', '3123123213', '123123123,123123123123,'),
+('12321', 'loadDoc', '115-11-3', 'wait', '1232113%12', '123213221', 'NANJING', '', '', '', ''),
+('12321312', 'loadDoc', '115-11-3', 'wait', '123213123', '123213213', 'NANJING', '123213213', '123213213', '12321312312', '123213213,123213123,12312312321,'),
+('123213123', 'loadDoc', '115-11-3', 'wait', '123123123', '12312312', 'NANJING', '12321312', '123213123', '123123123', '1223123123,122312312312312,12323311,123233,'),
+('1232131232', 'loadDoc', '115-11-3', 'wait', '1232113%12', '123213221', 'NANJING', '', '', '', ''),
+('12321321', 'loadDoc', '2015-2015-2015', 'wait', '123123', '213211', 'NANJING', '12321321', '12321321', '213213213', '123213213213,1232132123,12321123,'),
+('1242341', 'loadDoc', '115-11-3', 'wait', '1241241', '124124', 'NANJING', '124124124', '12421411243', '2341124124', ''),
+('213213123', 'loadDoc', '115-11-3', 'wait', '213123213', '123213213', 'NANJING', '123213213', '213123213', '123213123213', ''),
+('22222222', 'loadDoc', '115-11-3', 'wait', '222222', '2222222', 'NANJING', '123213213', '1232132132', '123213213', '123213123,12312312321,123123213123,123123213123,'),
+('234322343', 'loadDoc', '115-11-3', 'wait', '234323432', '23423243', 'NANJING', '23423432', '但是', '额', '1234567,123456733,12345673322,'),
+('ZCD1511120000001', 'loadDoc', '2015-11-12', 'wait', '02500', '02501511120000001', 'GUANGZHOU', '001', 'ttt', NULL, '1234536433,2069601212,4902720820,');
+
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `myorder`
 --
 
+DROP TABLE IF EXISTS `myorder`;
 CREATE TABLE IF NOT EXISTS `myorder` (
   `id` varchar(15) NOT NULL,
   `type` varchar(45) NOT NULL,
@@ -361,6 +392,7 @@ CREATE TABLE IF NOT EXISTS `myorder` (
 -- 表的结构 `outstoredoc`
 --
 
+DROP TABLE IF EXISTS `outstoredoc`;
 CREATE TABLE IF NOT EXISTS `outstoredoc` (
   `id` varchar(45) NOT NULL,
   `type` varchar(45) NOT NULL,
@@ -378,6 +410,7 @@ CREATE TABLE IF NOT EXISTS `outstoredoc` (
 -- 表的结构 `pay`
 --
 
+DROP TABLE IF EXISTS `pay`;
 CREATE TABLE IF NOT EXISTS `pay` (
   `id` int(11) NOT NULL,
   `time` varchar(45) NOT NULL,
@@ -391,6 +424,7 @@ CREATE TABLE IF NOT EXISTS `pay` (
 -- 表的结构 `person`
 --
 
+DROP TABLE IF EXISTS `person`;
 CREATE TABLE IF NOT EXISTS `person` (
   `id` varchar(45) NOT NULL,
   `instid` varchar(45) DEFAULT NULL,
@@ -405,6 +439,7 @@ CREATE TABLE IF NOT EXISTS `person` (
 -- 表的结构 `rent`
 --
 
+DROP TABLE IF EXISTS `rent`;
 CREATE TABLE IF NOT EXISTS `rent` (
   `startdate` varchar(45) NOT NULL,
   `enddate` varchar(45) NOT NULL,
@@ -418,6 +453,7 @@ CREATE TABLE IF NOT EXISTS `rent` (
 -- 表的结构 `salary`
 --
 
+DROP TABLE IF EXISTS `salary`;
 CREATE TABLE IF NOT EXISTS `salary` (
   `type` varchar(15) NOT NULL,
   `basicSalary` int(4) NOT NULL,
@@ -443,6 +479,7 @@ INSERT INTO `salary` (`type`, `basicSalary`, `moreMoney`, `way`) VALUES
 -- 表的结构 `salarycost`
 --
 
+DROP TABLE IF EXISTS `salarycost`;
 CREATE TABLE IF NOT EXISTS `salarycost` (
   `startdate` varchar(45) NOT NULL,
   `enddate` varchar(45) NOT NULL,
@@ -457,6 +494,7 @@ CREATE TABLE IF NOT EXISTS `salarycost` (
 -- 表的结构 `sendgooddoc`
 --
 
+DROP TABLE IF EXISTS `sendgooddoc`;
 CREATE TABLE IF NOT EXISTS `sendgooddoc` (
   `id` varchar(45) NOT NULL,
   `type` varchar(45) DEFAULT NULL,
@@ -467,12 +505,25 @@ CREATE TABLE IF NOT EXISTS `sendgooddoc` (
   `sendCity` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 转存表中的数据 `sendgooddoc`
+--
+
+INSERT INTO `sendgooddoc` (`id`, `type`, `date`, `state`, `sendMan`, `orderBarCode`, `sendCity`) VALUES
+('123123', 'sendGoodDoc', '115-11-3', 'wait', '123', '123213123123', 'NANJING'),
+('123123213', 'sendGoodDoc', '115-11-3', 'wait', '123123123', '12312312312', 'NANJING'),
+('123213', 'sendGoodDoc', '115-11-3', 'wait', '123123', '1232131231223', 'NANJING'),
+('123213123', 'sendGoodDoc', '115-11-3', 'wait', '123123123', '123123213123', 'NANJING'),
+('12321325661', 'sendGoodDoc', '115-11-3', 'wait', '123123', '1232131231223', 'NANJING'),
+('PSD1511120000001', 'sendGoodDoc', '2015-11-12', 'wait', 'moxigan', '3213640812', 'BEIJING');
+
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `stateform`
 --
 
+DROP TABLE IF EXISTS `stateform`;
 CREATE TABLE IF NOT EXISTS `stateform` (
   `startdate` varchar(45) NOT NULL,
   `enddate` varchar(45) NOT NULL,
@@ -486,11 +537,13 @@ CREATE TABLE IF NOT EXISTS `stateform` (
 -- 表的结构 `storecheck`
 --
 
+DROP TABLE IF EXISTS `storecheck`;
 CREATE TABLE IF NOT EXISTS `storecheck` (
   `date` varchar(45) NOT NULL,
   `location` varchar(45) NOT NULL,
   `storeLoc` varchar(45) NOT NULL,
   `number` int(4) NOT NULL,
+  `total` int(8) NOT NULL,
   `inStoreDocs` text,
   `outStoreDocs` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -501,6 +554,7 @@ CREATE TABLE IF NOT EXISTS `storecheck` (
 -- 表的结构 `transferdoc`
 --
 
+DROP TABLE IF EXISTS `transferdoc`;
 CREATE TABLE IF NOT EXISTS `transferdoc` (
   `id` varchar(45) NOT NULL,
   `type` varchar(45) DEFAULT NULL,
@@ -531,6 +585,24 @@ ALTER TABLE `account`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `alarm`
+--
+ALTER TABLE `alarm`
+  ADD PRIMARY KEY (`city`);
+
+--
+-- Indexes for table `arriveyydoc`
+--
+ALTER TABLE `arriveyydoc`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `arrivezzdoc`
+--
+ALTER TABLE `arrivezzdoc`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `bankaccount`
 --
 ALTER TABLE `bankaccount`
@@ -555,6 +627,12 @@ ALTER TABLE `const`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `costincomeform`
+--
+ALTER TABLE `costincomeform`
+  ADD PRIMARY KEY (`startdate`);
+
+--
 -- Indexes for table `deposit`
 --
 ALTER TABLE `deposit`
@@ -565,6 +643,12 @@ ALTER TABLE `deposit`
 --
 ALTER TABLE `driver`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `freight`
+--
+ALTER TABLE `freight`
+  ADD PRIMARY KEY (`startdate`);
 
 --
 -- Indexes for table `inst`
@@ -609,6 +693,12 @@ ALTER TABLE `person`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `rent`
+--
+ALTER TABLE `rent`
+  ADD PRIMARY KEY (`startdate`);
+
+--
 -- Indexes for table `salary`
 --
 ALTER TABLE `salary`
@@ -616,10 +706,22 @@ ALTER TABLE `salary`
   ADD UNIQUE KEY `type` (`type`);
 
 --
+-- Indexes for table `salarycost`
+--
+ALTER TABLE `salarycost`
+  ADD PRIMARY KEY (`startdate`);
+
+--
 -- Indexes for table `sendgooddoc`
 --
 ALTER TABLE `sendgooddoc`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `stateform`
+--
+ALTER TABLE `stateform`
+  ADD PRIMARY KEY (`startdate`);
 
 --
 -- Indexes for table `storecheck`

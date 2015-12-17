@@ -63,7 +63,7 @@ public abstract class DataSuperClass extends UnicastRemoteObject {
 		SQLmap.put("account", helper.bulidSQL("account", 6, "id", "name", "type", "password","phone", "email"));
 		SQLmap.put("person", helper.bulidSQL("person" , 5 , "id" , "instid" , "name" , "type" ,"phone"));
 		SQLmap.put("inst", helper.bulidSQL("inst", 3, "id" , "location" , "type"));
-		SQLmap.put("car",helper.bulidSQL("car", 3, "id" , "plateNum" , "useYear") );
+		SQLmap.put("car",helper.bulidSQL("car", 4, "id" , "instid", "plateNum" , "useYear") );
 		SQLmap.put("driver", helper.bulidSQL("driver", 8, "id", "name" , "birthday" ,  "instid" ,"idCard" , "phoneNum" , "isman" , "licenseYear" ));
 		SQLmap.put("myorder", helper.bulidSQL("myorder" , 33 , "id" , "type" , "date" , "state" , "senderName" , "senderPhone" ,"senderCompany" , "senderAddress" , "receiverName" , "receiverPhone" , "receiverCompany" , "receiverAddress" , "goodNum" , "goodName" , "goodWeight" , "goodLong" , "goodWidth" , "goodHeight" , "goodPack" , "orderForm" , "orderEestiTime" , "orderCost" , "loadDoc" , "arriveZZDoc" ,"inStoreOneDoc" , "outStoreOneDoc", "transferDoc" , "instoreTwoDoc" , "outStoreTwoDoc","arriveYYDoc" , "sendGoodDoc" ,"realReceiver" ,"orderReceiveDate"));
 		SQLmap.put("salary", helper.bulidSQL("salary", 4, "type" , "basicSalary" , "moreMoney" , "way"));

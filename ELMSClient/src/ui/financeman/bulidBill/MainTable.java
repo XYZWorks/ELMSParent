@@ -2,6 +2,7 @@ package ui.financeman.bulidBill;
 
 import org.dom4j.Element;
 
+import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import vo.statistic.BillVO;
  /** 
@@ -19,7 +20,10 @@ public class MainTable extends MyTablePanel{
 	public MainTable(Element config ,BulidBillPanel mainPanel) {
 		super(config);
 		this.mainPanel = mainPanel;
-		
+		initialTitleAndColumn(config);
+		initTable();
+		initScrollerPane();
+		add(rollpane);
 	}
 
 	
@@ -44,7 +48,7 @@ public class MainTable extends MyTablePanel{
 
 	@Override
 	protected void initTable() {
-		
+		table = new MyTable(columnNames, data);
 	}
 
 }

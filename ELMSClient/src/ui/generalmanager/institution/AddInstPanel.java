@@ -108,7 +108,8 @@ public class AddInstPanel extends MyPanel {
 		}
 
 		@Override
-		protected void saveToSQL() {
+		protected boolean saveToSQL() {
+			return false;
 			// TODO Auto-generated method stub
 			
 		}
