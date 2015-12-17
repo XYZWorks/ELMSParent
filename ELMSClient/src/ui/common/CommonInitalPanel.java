@@ -159,13 +159,13 @@ public class CommonInitalPanel extends MyPanel{
 					TipsDialog ilegalChar=new TipsDialog("输入了非法字符",560,470,300,55);
 				}
 				else if(result==FormatMes.CORRECT){
-					if(orderblservice.checkBarCode(barcode)==ResultMessage.NOT_EXIST){
-						 TipsDialog notExist=new TipsDialog("此订单号不存在");
-					 }
-					 else if(orderblservice.checkBarCode(barcode)==ResultMessage.hasExist){
+//					if(orderblservice.checkBarCode(barcode)==ResultMessage.NOT_EXIST){
+//						 TipsDialog notExist=new TipsDialog("此订单号不存在");
+//					 }
+//					 else if(orderblservice.checkBarCode(barcode)==ResultMessage.hasExist){
 							setTwoUnvisible();
 							FindSimpleOrderInfoPanel findSimpleOrderInfoPanel=new FindSimpleOrderInfoPanel(config.element("CommonMainPanel"),inital, barcode,orderblservice);
-					 }
+					// }
 				}
 			}
 		}

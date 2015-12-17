@@ -15,10 +15,10 @@
 		</TEXTFIELDS>
 		<rememberMe x="284" y="287" width="15" height="15" />
 		<password x="179" y="241" width="174" height="31" />
-    
-    
-    
-    
+
+
+
+
 	</loginframe>
 
 	<commonFrame x="0" y="0" width="1080" height="720">
@@ -32,21 +32,26 @@
 					enter="element//min-enter" clicked="element//min-clicked" />
 			</BUTTONS>
 			<LABELS>
-				<show  x="530" y="160" width="149" height="192" one="courier//checkOrderSimple"/>
+				<show x="530" y="160" width="149" height="192"
+					one="courier//checkOrderSimple" />
 			</LABELS>
 			<CommonMainPanel x="232" y="54" width="848" height="637">
 				<WHITEPANELS>
 					<WhitePanel x="36" y="189" width="775" height="360" />
 				</WHITEPANELS>
 				<LABELS>
-					<BarCode text="订单号" x="20" y="98" width="100" height="53" size="26" />
-					<BarCodeText text="" x="130" y="98" width="200" height="53" size="26" color="26,188,156"/>
+					<BarCode text="订单号" x="20" y="98" width="100" height="53"
+						size="26" />
+					<BarCodeText text="" x="130" y="98" width="200" height="53"
+						size="26" color="26,188,156" />
 
 					<transferInfo text="物流信息" x="0" y="0" width="114"
 						height="40" type="rectangle" />
 
-					<LineLeft x="18" y="60" width="13" height="264" one="element//timeAxis" />
-					<LineRight x="403" y="60" width="13" height="264" one="element//timeAxis" />
+					<LineLeft x="18" y="60" width="13" height="264"
+						one="element//timeAxis" />
+					<LineRight x="403" y="60" width="13" height="264"
+						one="element//timeAxis" />
 
 					<One x="48" y="54" width="326" height="32" />
 					<Two x="48" y="106" width="326" height="32" />
@@ -58,19 +63,29 @@
 					<Eight x="433" y="158" width="326" height="32" />
 					<Nine x="433" y="212" width="326" height="32" />
 					<Ten x="433" y="266" width="326" height="32" />
-					
-					<OneText x="48" y="78" width="276" height="16" color="26,188,156" size="14"/>
-					<TwoText x="48" y="130" width="276" height="16" color="26,188,156" size="14"/>
-					<ThreeText x="48" y="188" width="276" height="16" color="26,188,156" size="14" />
-					<FourText x="48" y="240" width="276" height="16" color="26,188,156" size="14"/>
-					<FiveText x="48" y="290" width="276" height="16" color="26,188,156" size="14"/>
-					<SixText x="433" y="78" width="276" height="16" color="26,188,156" size="14"/>
-					<SevenText x="433" y="130" width="276" height="16" color="26,188,156" size="14"/>
-					<EightText x="433" y="188" width="276" height="16" color="26,188,156" size="14"/>
-					<NineText x="433" y="240" width="276" height="16" color="26,188,156" size="14" />
-					<TenText x="433" y="290" width="276" height="16" color="26,188,156" size="14"/>
-					
-					
+
+					<OneText x="48" y="78" width="276" height="16" color="26,188,156"
+						size="14" />
+					<TwoText x="48" y="130" width="276" height="16" color="26,188,156"
+						size="14" />
+					<ThreeText x="48" y="188" width="276" height="16" color="26,188,156"
+						size="14" />
+					<FourText x="48" y="240" width="276" height="16" color="26,188,156"
+						size="14" />
+					<FiveText x="48" y="290" width="276" height="16" color="26,188,156"
+						size="14" />
+					<SixText x="433" y="78" width="276" height="16" color="26,188,156"
+						size="14" />
+					<SevenText x="433" y="130" width="276" height="16"
+						color="26,188,156" size="14" />
+					<EightText x="433" y="188" width="276" height="16"
+						color="26,188,156" size="14" />
+					<NineText x="433" y="240" width="276" height="16" color="26,188,156"
+						size="14" />
+					<TenText x="433" y="290" width="276" height="16" color="26,188,156"
+						size="14" />
+
+
 				</LABELS>
 				<searchBox x="20" y="30" />
 				<DatePicker x="611" y="98" width="200" height="40">
@@ -167,11 +182,8 @@
 				</BUTTONS>
 
 				<LABELS>
-					<orderBarCode text="订单号" x="48" y="36" width="90"
-						height="28" />
-					<orderBarCodeText text="" x="48" y="76" width="137"
-						height="19" />
-
+					<orderBarCode text="订单号" x="48" y="40" width="150"
+						height="40" size="36" color="26,188,156" />
 					<senderInfo text="寄件人" x="0" y="0" width="114" height="40"
 						type="rectangle" />
 					<senderNameLabel text="姓名" x="20" y="63" width="36"
@@ -219,14 +231,17 @@
 
 
 					<estimateTime text="" x="49" y="668" width="189"
-						height="65" one="element//estimateTime" fontName="Microsoft YaHei"/>
+						height="65" one="element//estimateTime" fontName="Microsoft YaHei" />
 
 					<cost text="" x="300" y="668" width="189" height="65"
-						one="element//cost"  fontName="Microsoft YaHei"/>
+						one="element//cost" fontName="Microsoft YaHei" />
 				</LABELS>
 
 
 				<TEXTFIELDS>
+
+					<orderBarCodeText text="" x="180" y="38" width="150"
+						height="42" />
 					<senderNameText x="63" y="57" width="276" height="32" />
 					<senderPhoneText x="63" y="103" width="276" height="32" />
 					<senderAddressText x="63" y="195" width="276"
@@ -243,21 +258,23 @@
 						height="32" />
 
 					<goodNameText x="94" y="54" width="263" height="32" />
-					<goodNumText x="468" y="54" width="85" height="32" />
+					<goodNumText x="468" y="54" width="85" height="32"
+						text="1" />
 					<goodWeightText x="468" y="100" width="85" height="32" />
 					<goodLongText x="94" y="100" width="60" height="32" />
 					<goodWidthText x="182" y="100" width="60" height="32" />
 					<goodHeightText x="272" y="100" width="60" height="32" />
 				</TEXTFIELDS>
 
-				<DatePicker x="596" y="0" width="200" height="40">
-					<field x="596" y="0" width="150" height="40" />
-					<button x="746" y="0" width="50" height="40" type="rectangle" />
+				<DatePicker x="596" y="38" width="200" height="40">
+					<field x="596" y="38" width="150" height="40" />
+					<button x="746" y="38" width="50" height="40" type="rectangle" />
 				</DatePicker>
 
-				<bag text="快递袋(1元)" x="113" y="149" width="85" height="18" />
-				<carton text="纸箱（5元）" x="250" y="149" width="85" height="18" />
-				<woodCase text="木箱（10元）" x="406" y="149" width="85" height="18" />
+				<bag text="快递袋(1元)" x="113" y="149" width="150" height="18" />
+				<carton text="纸箱（5元）" x="250" y="149" width="150" height="18" />
+				<woodCase text="木箱（10元）" x="406" y="149" width="150"
+					height="18" />
 
 				<economicOrder text="经济快递" x="113" y="183" width="100"
 					height="18" />
@@ -304,10 +321,12 @@
 						height="220" />
 				</WHITEPANELS>
 				<BUTTONS>
+					<delete x="48" y="76" width="137" height="19" normal="element//min"
+					enter="element//min-enter" clicked="element//min-clicked" />
 				</BUTTONS>
 				<LABELS>
-					<orderBarCode text="订单号" x="48" y="36" width="90"
-						height="28" />
+					<orderBarCode text="订单号" x="48" y="40" width="150"
+						height="40" size="36" color="26,188,156" />
 					<orderBarCodeLabel text="" x="48" y="76" width="137"
 						height="19" />
 
@@ -382,9 +401,9 @@
 				</LABELS>
 				<TEXTFIELDS>
 				</TEXTFIELDS>
-				<DatePicker x="0" y="0" width="400" height="40">
-					<field x="0" y="0" width="350" height="40" />
-					<button x="200" y="0" width="40" height="40" type="rectangle" />
+				<DatePicker x="596" y="38" width="200" height="40">
+					<field x="596" y="38" width="150" height="40" />
+					<button x="746" y="38" width="50" height="40" type="rectangle" />
 				</DatePicker>
 			</findFullInfoPanel>
 			<inputReceiveInfoPanel x="232" y="54" width="1080"

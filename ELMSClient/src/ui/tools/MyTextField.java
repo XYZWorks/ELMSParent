@@ -33,6 +33,9 @@ public class MyTextField extends JTextField {
 	
 	public MyTextField(Element config){
 		this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));
+		if(config.attributeValue("text")!=null){
+			this.setText(config.attributeValue("text"));
+		}
 		this.setFont(GraphicsUtils.getFont(null));
 		this.setVisible(true);
 		
