@@ -112,6 +112,17 @@ public class UserfulMethod {
 			return FormatMes.CORRECT;
 		} catch (Exception e) {
 		}
+		try {
+			double number = Double.parseDouble(num);
+			if (number <= 0) {
+				return FormatMes.NEGATIVE_NUM;
+			}
+			return FormatMes.CORRECT;
+		} catch (Exception e) {
+		}
+		
+		
+		
 		return FormatMes.ILEGAL_CHAR;
 	}
 	
