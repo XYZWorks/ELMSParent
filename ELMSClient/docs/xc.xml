@@ -15,7 +15,10 @@
 		</TEXTFIELDS>
 		<rememberMe x="284" y="287" width="15" height="15" />
 		<password x="179" y="241" width="174" height="31" />
-
+    
+    
+    
+    
 	</loginframe>
 
 	<commonFrame x="0" y="0" width="1080" height="720">
