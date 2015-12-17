@@ -173,7 +173,6 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 		findMes = findFromSQL(orderTable, orderBarCode);
 		System.err.println(orderBarCode);
 		if(findMes == null){
-			System.err.println("---------");
 			return null; 
 		}else{
 			docpos = new ArrayList<String>(10);

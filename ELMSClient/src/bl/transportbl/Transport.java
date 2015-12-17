@@ -263,6 +263,20 @@ public class Transport {
 		return vos;
 	}
 	
+	public DocVO getDocByID(String ID, DocType type){
+		switch (type) {
+		case value:
+			
+			break;
+
+		default:
+			break;
+		}
+		
+		
+	}
+	
+	
 	//TODO 求运费==
 	public double getExpense(OutStoreDocVO outStoreDocVO, TransferDocVO transferVO) {
 		ConstVO vo = strategybl.getConst();

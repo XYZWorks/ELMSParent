@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2015-12-17 11:13:15
+-- Generation Time: 2015-12-17 14:00:56
 -- 服务器版本： 5.6.26
 -- PHP Version: 5.6.12
 
@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 -- 表的结构 `account`
 --
 
-DROP TABLE IF EXISTS `account`;
 CREATE TABLE IF NOT EXISTS `account` (
   `id` varchar(45) NOT NULL,
   `name` varchar(45) DEFAULT NULL,
@@ -58,7 +57,6 @@ INSERT INTO `account` (`id`, `name`, `type`, `password`, `phone`, `email`) VALUE
 -- 表的结构 `alarm`
 --
 
-DROP TABLE IF EXISTS `alarm`;
 CREATE TABLE IF NOT EXISTS `alarm` (
   `city` varchar(45) NOT NULL,
   `value` varchar(45) NOT NULL
@@ -80,7 +78,6 @@ INSERT INTO `alarm` (`city`, `value`) VALUES
 -- 表的结构 `arriveyydoc`
 --
 
-DROP TABLE IF EXISTS `arriveyydoc`;
 CREATE TABLE IF NOT EXISTS `arriveyydoc` (
   `id` varchar(45) NOT NULL,
   `type` varchar(45) DEFAULT NULL,
@@ -114,7 +111,6 @@ INSERT INTO `arriveyydoc` (`id`, `type`, `date`, `state`, `zzid`, `sendciry`, `g
 -- 表的结构 `arrivezzdoc`
 --
 
-DROP TABLE IF EXISTS `arrivezzdoc`;
 CREATE TABLE IF NOT EXISTS `arrivezzdoc` (
   `id` varchar(45) NOT NULL,
   `type` varchar(45) DEFAULT NULL,
@@ -132,7 +128,6 @@ CREATE TABLE IF NOT EXISTS `arrivezzdoc` (
 -- 表的结构 `bankaccount`
 --
 
-DROP TABLE IF EXISTS `bankaccount`;
 CREATE TABLE IF NOT EXISTS `bankaccount` (
   `id` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
@@ -155,7 +150,6 @@ INSERT INTO `bankaccount` (`id`, `password`, `money`) VALUES
 -- 表的结构 `bill`
 --
 
-DROP TABLE IF EXISTS `bill`;
 CREATE TABLE IF NOT EXISTS `bill` (
   `financeman` varchar(45) NOT NULL,
   `date` varchar(45) NOT NULL,
@@ -170,7 +164,6 @@ CREATE TABLE IF NOT EXISTS `bill` (
 -- 表的结构 `car`
 --
 
-DROP TABLE IF EXISTS `car`;
 CREATE TABLE IF NOT EXISTS `car` (
   `id` varchar(45) NOT NULL,
   `instid` varchar(45) NOT NULL,
@@ -192,7 +185,6 @@ INSERT INTO `car` (`id`, `instid`, `plateNum`, `useYear`) VALUES
 -- 表的结构 `const`
 --
 
-DROP TABLE IF EXISTS `const`;
 CREATE TABLE IF NOT EXISTS `const` (
   `id` int(11) NOT NULL,
   `mileinbn` int(11) NOT NULL,
@@ -217,7 +209,6 @@ CREATE TABLE IF NOT EXISTS `const` (
 -- 表的结构 `costincomeform`
 --
 
-DROP TABLE IF EXISTS `costincomeform`;
 CREATE TABLE IF NOT EXISTS `costincomeform` (
   `income` int(4) NOT NULL,
   `expense` int(4) NOT NULL,
@@ -231,7 +222,6 @@ CREATE TABLE IF NOT EXISTS `costincomeform` (
 -- 表的结构 `deposit`
 --
 
-DROP TABLE IF EXISTS `deposit`;
 CREATE TABLE IF NOT EXISTS `deposit` (
   `ID` int(4) NOT NULL,
   `date` varchar(20) DEFAULT NULL,
@@ -244,7 +234,6 @@ CREATE TABLE IF NOT EXISTS `deposit` (
 -- 表的结构 `driver`
 --
 
-DROP TABLE IF EXISTS `driver`;
 CREATE TABLE IF NOT EXISTS `driver` (
   `id` varchar(45) NOT NULL,
   `name` varchar(45) DEFAULT NULL,
@@ -262,7 +251,6 @@ CREATE TABLE IF NOT EXISTS `driver` (
 -- 表的结构 `freight`
 --
 
-DROP TABLE IF EXISTS `freight`;
 CREATE TABLE IF NOT EXISTS `freight` (
   `startdate` varchar(20) NOT NULL,
   `enddate` varchar(20) NOT NULL,
@@ -276,7 +264,6 @@ CREATE TABLE IF NOT EXISTS `freight` (
 -- 表的结构 `inst`
 --
 
-DROP TABLE IF EXISTS `inst`;
 CREATE TABLE IF NOT EXISTS `inst` (
   `id` varchar(20) NOT NULL,
   `location` varchar(20) DEFAULT NULL,
@@ -289,7 +276,6 @@ CREATE TABLE IF NOT EXISTS `inst` (
 -- 表的结构 `instoredoc`
 --
 
-DROP TABLE IF EXISTS `instoredoc`;
 CREATE TABLE IF NOT EXISTS `instoredoc` (
   `id` varchar(45) NOT NULL,
   `type` varchar(45) NOT NULL,
@@ -306,7 +292,6 @@ CREATE TABLE IF NOT EXISTS `instoredoc` (
 -- 表的结构 `loaddoc`
 --
 
-DROP TABLE IF EXISTS `loaddoc`;
 CREATE TABLE IF NOT EXISTS `loaddoc` (
   `id` varchar(45) NOT NULL,
   `type` varchar(45) DEFAULT NULL,
@@ -341,6 +326,7 @@ INSERT INTO `loaddoc` (`id`, `type`, `date`, `state`, `yyid`, `loadDocID`, `arri
 ('213213123', 'loadDoc', '115-11-3', 'wait', '213123213', '123213213', 'NANJING', '123213213', '213123213', '123213123213', ''),
 ('22222222', 'loadDoc', '115-11-3', 'wait', '222222', '2222222', 'NANJING', '123213213', '1232132132', '123213213', '123213123,12312312321,123123213123,123123213123,'),
 ('234322343', 'loadDoc', '115-11-3', 'wait', '234323432', '23423243', 'NANJING', '23423432', '但是', '额', '1234567,123456733,12345673322,'),
+('ZCD000001', 'LOADDOC', '2015-11-4', 'WAIT', '2011123123', '123213123', 'NANJING', '123123', '123', '123', ''),
 ('ZCD1511120000001', 'loadDoc', '2015-11-12', 'wait', '02500', '02501511120000001', 'GUANGZHOU', '001', 'ttt', NULL, '1234536433,2069601212,4902720820,');
 
 -- --------------------------------------------------------
@@ -349,7 +335,6 @@ INSERT INTO `loaddoc` (`id`, `type`, `date`, `state`, `yyid`, `loadDocID`, `arri
 -- 表的结构 `myorder`
 --
 
-DROP TABLE IF EXISTS `myorder`;
 CREATE TABLE IF NOT EXISTS `myorder` (
   `id` varchar(15) NOT NULL,
   `type` varchar(45) NOT NULL,
@@ -372,7 +357,7 @@ CREATE TABLE IF NOT EXISTS `myorder` (
   `goodPack` varchar(20) DEFAULT NULL,
   `orderForm` varchar(20) DEFAULT NULL,
   `orderEestiTime` int(4) DEFAULT NULL,
-  `orderCost` int(4) DEFAULT NULL,
+  `orderCost` float DEFAULT NULL,
   `loadDoc` varchar(20) DEFAULT NULL,
   `arriveZZDoc` varchar(20) DEFAULT NULL,
   `inStoreOneDoc` varchar(45) DEFAULT NULL,
@@ -386,13 +371,19 @@ CREATE TABLE IF NOT EXISTS `myorder` (
   `orderReceiveDate` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单表';
 
+--
+-- 转存表中的数据 `myorder`
+--
+
+INSERT INTO `myorder` (`id`, `type`, `date`, `state`, `senderName`, `senderPhone`, `senderCompany`, `senderAddress`, `receiverName`, `receiverPhone`, `receiverCompany`, `receiverAddress`, `goodNum`, `goodName`, `goodWeight`, `goodLong`, `goodWidth`, `goodHeight`, `goodPack`, `orderForm`, `orderEestiTime`, `orderCost`, `loadDoc`, `arriveZZDoc`, `inStoreOneDoc`, `outStoreOneDoc`, `transferDoc`, `instoreTwoDoc`, `outStoreTwoDoc`, `arriveYYDoc`, `sendGoodDoc`, `realReceiver`, `orderReceiveDate`) VALUES
+('123456', 'order', '2015-12-4', 'wait', '123', '123', '123', '123213', '123', '123', '123', '123', 2, '123', 12, 123, 12, 12, '12', '123', 4, 23, 'ZCD000001', 'JSD000001', 'RKD000001', 'CKD000001', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `outstoredoc`
 --
 
-DROP TABLE IF EXISTS `outstoredoc`;
 CREATE TABLE IF NOT EXISTS `outstoredoc` (
   `id` varchar(45) NOT NULL,
   `type` varchar(45) NOT NULL,
@@ -410,7 +401,6 @@ CREATE TABLE IF NOT EXISTS `outstoredoc` (
 -- 表的结构 `pay`
 --
 
-DROP TABLE IF EXISTS `pay`;
 CREATE TABLE IF NOT EXISTS `pay` (
   `id` int(11) NOT NULL,
   `time` varchar(45) NOT NULL,
@@ -424,7 +414,6 @@ CREATE TABLE IF NOT EXISTS `pay` (
 -- 表的结构 `person`
 --
 
-DROP TABLE IF EXISTS `person`;
 CREATE TABLE IF NOT EXISTS `person` (
   `id` varchar(45) NOT NULL,
   `instid` varchar(45) DEFAULT NULL,
@@ -439,7 +428,6 @@ CREATE TABLE IF NOT EXISTS `person` (
 -- 表的结构 `rent`
 --
 
-DROP TABLE IF EXISTS `rent`;
 CREATE TABLE IF NOT EXISTS `rent` (
   `startdate` varchar(45) NOT NULL,
   `enddate` varchar(45) NOT NULL,
@@ -453,7 +441,6 @@ CREATE TABLE IF NOT EXISTS `rent` (
 -- 表的结构 `salary`
 --
 
-DROP TABLE IF EXISTS `salary`;
 CREATE TABLE IF NOT EXISTS `salary` (
   `type` varchar(15) NOT NULL,
   `basicSalary` int(4) NOT NULL,
@@ -479,7 +466,6 @@ INSERT INTO `salary` (`type`, `basicSalary`, `moreMoney`, `way`) VALUES
 -- 表的结构 `salarycost`
 --
 
-DROP TABLE IF EXISTS `salarycost`;
 CREATE TABLE IF NOT EXISTS `salarycost` (
   `startdate` varchar(45) NOT NULL,
   `enddate` varchar(45) NOT NULL,
@@ -494,7 +480,6 @@ CREATE TABLE IF NOT EXISTS `salarycost` (
 -- 表的结构 `sendgooddoc`
 --
 
-DROP TABLE IF EXISTS `sendgooddoc`;
 CREATE TABLE IF NOT EXISTS `sendgooddoc` (
   `id` varchar(45) NOT NULL,
   `type` varchar(45) DEFAULT NULL,
@@ -523,7 +508,6 @@ INSERT INTO `sendgooddoc` (`id`, `type`, `date`, `state`, `sendMan`, `orderBarCo
 -- 表的结构 `stateform`
 --
 
-DROP TABLE IF EXISTS `stateform`;
 CREATE TABLE IF NOT EXISTS `stateform` (
   `startdate` varchar(45) NOT NULL,
   `enddate` varchar(45) NOT NULL,
@@ -537,7 +521,6 @@ CREATE TABLE IF NOT EXISTS `stateform` (
 -- 表的结构 `storecheck`
 --
 
-DROP TABLE IF EXISTS `storecheck`;
 CREATE TABLE IF NOT EXISTS `storecheck` (
   `date` varchar(45) NOT NULL,
   `location` varchar(45) NOT NULL,
@@ -554,7 +537,6 @@ CREATE TABLE IF NOT EXISTS `storecheck` (
 -- 表的结构 `transferdoc`
 --
 
-DROP TABLE IF EXISTS `transferdoc`;
 CREATE TABLE IF NOT EXISTS `transferdoc` (
   `id` varchar(45) NOT NULL,
   `type` varchar(45) DEFAULT NULL,
