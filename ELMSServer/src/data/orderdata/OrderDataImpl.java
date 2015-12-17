@@ -61,7 +61,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 								Integer.parseInt(result.getString(18))),
 						new OtherOrderMes(result.getString(19), result
 								.getString(20), Integer.parseInt(result
-								.getString(21)), Integer.parseInt(result
+								.getString(21)), Double.parseDouble(result
 								.getString(22)), result.getString(32), MyDate
 								.getDate(result.getString(33))),
 						new TransferDocs(result.getString(23), result
@@ -155,8 +155,8 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 							Integer.parseInt(findMes.get(17))),
 					new OtherOrderMes(findMes.get(18), findMes
 							.get(19), Integer.parseInt(findMes
-							.get(20)), Integer.parseInt(findMes
-							.get(21)), findMes.get(31), MyDate
+							.get(20)), Double.parseDouble(findMes
+									.get(21)), findMes.get(31), MyDate
 							.getDate(findMes.get(32))),
 					new TransferDocs(findMes.get(22), findMes
 							.get(23), findMes.get(24), findMes
@@ -171,15 +171,20 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 			throws RemoteException {
 		ArrayList<String> docpos ;
 		findMes = findFromSQL(orderTable, orderBarCode);
+		System.err.println(orderBarCode);
 		if(findMes == null){
+			System.err.println("---------");
 			return null; 
 		}else{
-			docpos = new ArrayList<String>(5);
-			docpos.add(findMes.get(20));
-			docpos.add(findMes.get(21));
-			docpos.add(findMes.get(22));
-			docpos.add(findMes.get(23));
-			docpos.add(findMes.get(24));
+			docpos = new ArrayList<String>(10);
+			for (int i = 0; i < 10; i++) {
+				if(findMes.get(22 + i) != null){
+					docpos.add(findMes.get(22 + i));
+					System.err.println(findMes.get(22 + i));
+				}else{
+					break;
+				}
+			}
 			return docpos;
 		}
 	}
@@ -229,7 +234,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 								Integer.parseInt(result.getString(18))),
 						new OtherOrderMes(result.getString(19), result
 								.getString(20), Integer.parseInt(result
-								.getString(21)), Integer.parseInt(result
+								.getString(21)), Double.parseDouble(result
 								.getString(22)), result.getString(32), MyDate
 								.getDate(result.getString(33))),
 						new TransferDocs(result.getString(23), result

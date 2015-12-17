@@ -3,6 +3,7 @@ package bl.orderbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessLogicDataFactory;
 import bl.storebl.StoreController;
 import bl.transportbl.TransportController;
 import blservice.strategyblservice.StrategyblService;
@@ -102,7 +103,7 @@ public class Order {
 		ArrayList<String> poStrings = new ArrayList<String>();
 		ArrayList<OrderSimpleInfoVO> orderSimpleInfoVOs = null;
 		
-		transportController = new TransportController();
+		transportController = (TransportController) BusinessLogicDataFactory.getFactory().getTransportblservice();
 		storeController = new StoreController();
 		
 		try {
@@ -120,6 +121,9 @@ public class Order {
 		String place = "";
 		DocType type=null;
 		for (String poString : poStrings) {
+			if(poStrings == null || poString.length() < 3){
+				break;
+			}
 			String tmp = poString.substring(0, 3);
 			switch (tmp) {
 			//装车单
