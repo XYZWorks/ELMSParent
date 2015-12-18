@@ -531,6 +531,46 @@
 			</CostManagePanel>
 			<BulidStateFromPanel x="232" y="54" width="1080"
 				height="637">
+				<BUTTONS>
+					<jump x="400" y="560" width="89" height="40" text="经营状况表"
+						type="confirm" />
+					<confirm x="560" y="560" width="89" height="40" text="确认"
+						type="confirm" />
+					<cancel x="707" y="560" width="89" height="40" text="取消"
+						type="cancel" />
+					<addOneDeposit x="560" y="560" width="89" height="40" text=""
+						type="confirm" />
+					<addOnePay x="707" y="560" width="89" height="40" text=""
+						type="cancel" />
+				</BUTTONS>
+				<TEXTFIELDS>
+					<moneyT x="345" y="271" width="276" height="40" />
+					<payMoneyT x="345" y="271" width="276" height="40" />
+					<payTypeT x="345" y="271" width="276" height="40" />
+					<incomeT x="345" y="271" width="276" height="40" />
+					<outComeT x="345" y="271" width="276" height="40" />
+				</TEXTFIELDS>
+				<LABELS>
+					<title x="48" y="36" width="200" height="28" text="" fontName="华文细黑" size="26"/>
+					<start x="48" y="36" width="200" height="28" text="起始日期" fontName="华文细黑" size="26"/>
+					<end x="200" y="271" width="115" height="40" text="结束日期" type="rectangle" />
+					<depositMoney x="200" y="341" width="115" height="40" text="金额" type="rectangle" />
+					<payMoney x="200" y="201" width="115" height="40" text="金额" type="rectangle" />
+					<payType x="48" y="36" width="200" height="28" text="成本类型" fontName="华文细黑" size="26"/>
+					<deposits x="200" y="271" width="115" height="40" text="付款单数量" type="rectangle" />
+					<pays x="200" y="341" width="115" height="40" text="成本表数量" type="rectangle" />
+					<income x="200" y="201" width="115" height="40" text="收入" type="rectangle" />
+					<outCome x="48" y="36" width="200" height="28" text="支出" fontName="华文细黑" size="26"/>
+				</LABELS>
+				<WHITEPANELS>
+					<Deposit x="345" y="201" width="276" height="40" />
+					<Pay x="345" y="201" width="276" height="40" />
+				</WHITEPANELS>
+				<start x="345" y="201" width="276" height="40" />
+				<end x="345" y="201" width="276" height="40" />
+				<PayDate x="345" y="201" width="276" height="40" />
+				<DepositDate x="345" y="201" width="276" height="40" />
+				
 			</BulidStateFromPanel>
 			<BulidPayPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>

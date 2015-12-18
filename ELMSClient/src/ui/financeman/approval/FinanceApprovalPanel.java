@@ -1,4 +1,4 @@
-package ui.financeman;
+package ui.financeman.approval;
 
 import org.dom4j.Element;
 

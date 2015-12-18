@@ -1,4 +1,4 @@
-package ui.financeman;
+package ui.financeman.costManage;
 
 import org.dom4j.Element;
 
