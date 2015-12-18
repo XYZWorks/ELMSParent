@@ -81,7 +81,8 @@ public class InputReceiveInfoPanel extends MyPanel{
 		modify.addMouseListener(new ConfirmListener(modify) {
 
 			@Override
-			protected void saveToSQL() {
+			protected boolean saveToSQL() {
+				return false;
 				// TODO Auto-generated method stub
 
 			}

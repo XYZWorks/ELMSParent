@@ -65,7 +65,7 @@ public class TableTest extends JFrame{
 		table = new MyTable(model);
 		table.setBounds(0, 100, 200, 200);
 		
-		table.setColEditable(true, 3);;
+//		table.setColEditable(true, 3);;
 	}
 	
 	public static void main(String[] args) {

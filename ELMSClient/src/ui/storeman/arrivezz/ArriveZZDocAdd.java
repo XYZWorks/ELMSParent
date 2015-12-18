@@ -176,7 +176,7 @@ public class ArriveZZDocAdd extends MyPanel {
 		}
 
 		@Override
-		protected void saveToSQL() {
+		protected boolean saveToSQL() {
 			String ID = IDT.getText();
 			String zzID = centerT.getText();
 			MyDate myDate = picker.getMyDate();
@@ -189,6 +189,7 @@ public class ArriveZZDocAdd extends MyPanel {
 			ResultMessage result = bl.add(new ArriveZZDocVO(ID, myDate, zzID, sendCity, goodsState, orders));
 			if(result ==ResultMessage.SUCCESS)
 				showSuccess();
+			return true;
 		}
 
 

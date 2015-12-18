@@ -104,13 +104,18 @@ public class DocSimpleInfoTable extends MyTablePanel{
 	public void changeDocType(DocType type){
 		initialMes();
 		this.type = type;
-		MyTableModel dtm = new MyTableModel(columnNames, data);
+		MyTableModel dtm = new MyTableModel(columnNames, data){
+			@Override
+			public boolean isCellEditable(int rowIndex, int columnIndex) {
+				if(columnIndex == 0){
+				return true;
+				}else{
+				return false;
+				}
+			}
+		};
 		//第一列可修改
 		table.setModel(dtm);
-		try {
-			setColumnEdit(true, 0);
-		} catch (NullPointerException e) {
-		}
 	}
 	
 	@Override
@@ -123,12 +128,17 @@ public class DocSimpleInfoTable extends MyTablePanel{
 
 	@Override
 	protected void initTable() {
-		table = new MyTable(columnNames, data);
+		table = new MyTable(columnNames, data){
+			@Override
+			public boolean isCellEditable(int rowIndex, int columnIndex) {
+				if(columnIndex == 0){
+				return true;
+				}else{
+				return false;
+				}
+			}
+		};
 		//第一列可修改
-		try {
-			setColumnEdit(true, 0);
-		} catch (NullPointerException e) {
-		}
 		
 		
 	}

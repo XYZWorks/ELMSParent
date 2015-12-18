@@ -36,14 +36,14 @@ public class AddLocTablePanel extends MyTablePanel {
 
 		int[] columnLen = { 330, 100, 100, 100, 100 };
 		this.setRowAndColumnLen(30, columnLen);
-
-		for (int i = 0; i < ROW_NUM; i++){
-			this.setRowEdit(true, i);
-		}
-		
-		for (int i = 0; i < COLUMN_NUM; i++) {
-			this.setColumnEdit(true, i);
-		}
+//需要重写 TODO
+//		for (int i = 0; i < ROW_NUM; i++){
+//			this.setRowEdit(true, i);
+//		}
+//		
+//		for (int i = 0; i < COLUMN_NUM; i++) {
+//			this.setColumnEdit(true, i);
+//		}
 	}
 
 	@Override

@@ -30,6 +30,7 @@ import vo.store.OutStoreDocVO;
  * @version 创建时间：2015年12月9日 下午8:00:05
  *
  */
+@SuppressWarnings("serial")
 public class AddOutStorePanel extends MyPanel {
 
 	MyPictureButton confirmButton;

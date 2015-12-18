@@ -111,19 +111,19 @@ public abstract class MyTablePanel extends JPanel {
 		}
 	}
 
-	public void setRowEdit(boolean flag, int row) {
-		table.setRowEditable(flag, row);
-	}
+//	public void setRowEdit(boolean flag, int row) {
+//		table.setRowEditable(flag, row);
+//	}
 
-	/**
-	 * 设置某一列可修改
-	 * 
-	 * @param flag
-	 * @param column
-	 */
-	public void setColumnEdit(boolean flag, int column) {
-		table.setColEditable(flag, column);
-	}
+//	/**
+//	 * 设置某一列可修改
+//	 * 
+//	 * @param flag
+//	 * @param column
+//	 */
+//	public void setColumnEdit(boolean flag, int column) {
+//		table.setColEditable(flag, column);
+//	}
 
 	public MyTableModel getDtm() {
 		return dtm;

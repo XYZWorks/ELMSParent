@@ -1,7 +1,5 @@
 package data.transportdata;
 
-import static org.junit.Assert.*;
-
 import java.rmi.RemoteException;
 
 import org.junit.Before;

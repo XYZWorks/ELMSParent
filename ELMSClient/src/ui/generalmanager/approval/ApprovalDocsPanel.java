@@ -6,17 +6,15 @@ import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
 
-import blservice.approvalblservice.Approvalblservice;
-import ui.table.MyTable;
 import ui.tools.MyComboBox;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
-import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
 import util.DocType;
+import blservice.approvalblservice.Approvalblservice;
 
 /**
  * 审批单据

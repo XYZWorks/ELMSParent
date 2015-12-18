@@ -1,14 +1,8 @@
 package ui.table;
 
-import java.awt.Dimension;
-
 import javax.swing.JLabel;
 import javax.swing.JTable;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-
-import org.dom4j.Element;
  /** 
  * 表格类
  * @author czq 
@@ -53,14 +47,14 @@ public class MyTable extends JTable{
 	}
 	
 	
-	public void setColEditable(boolean flag ,int column){
-		model.setCellInColumEdit(flag, column);
-		revalidate();
-	}
-	public void setRowEditable(boolean flag ,int row){
-		model.setCellInRowEdit(flag, row);
-		revalidate();
-	}
+//	public void setColEditable(boolean flag ,int column){
+//		model.setCellInColumEdit(flag, column);
+//		revalidate();
+//	}
+//	public void setRowEditable(boolean flag ,int row){
+//		model.setCellInRowEdit(flag, row);
+//		revalidate();
+//	}
 	
 	
 	public MyTableModel getModel() {

@@ -45,7 +45,7 @@ public class RMIServer {
 			NAMING_MAP.put("StrategyDataService", datafactory.getStrategyDataImpl().getClass());
 			NAMING_MAP.put("TransportDataService", datafactory.getTransportDataImpl().getClass());
 
-		} catch (RemoteException e) {
+		} catch (Exception e) {
 			System.err.println("产生数据实现对象出错");
 			e.printStackTrace();
 		}

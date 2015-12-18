@@ -1,7 +1,5 @@
 package ui.financeman.bulidPay;
 
-import java.awt.event.MouseEvent;
-
 import org.dom4j.Element;
 
 import ui.tools.MyComboBox;
@@ -14,7 +12,6 @@ import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
-import ui.util.MyPictureButtonListener;
 import blservice.financeblservice.PayService;
 
 /**

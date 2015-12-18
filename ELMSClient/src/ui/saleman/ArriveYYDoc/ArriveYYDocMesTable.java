@@ -53,6 +53,7 @@ public class ArriveYYDocMesTable extends MyTablePanel {
 			data[i][2] = vo.ZZID;
 			data[i][3] = vo.sendCity.getName();
 			data[i][4] = vo.goodState.getName();
+			if(vo.orderBarCodes!= null)
 			data[i][5] = String.valueOf(vo.orderBarCodes.size());
 		}
 

@@ -46,33 +46,33 @@ public class MyTableModel extends DefaultTableModel {
 		return temp;
 	}
 
-	/**
-	 * 设置某一列可否编辑
-	 * 
-	 * @param flag
-	 * @param column
-	 */
-	public void setCellInColumEdit(boolean flag, int column) {
-		for (int i = 0; i < isCellEditable.length; i++) {
-			isCellEditable[i][column] = flag;
-		}
-
-	}
-
-	public void setCellInRowEdit(boolean flag, int row) {
-		for (int i = 0; i < isCellEditable[0].length; i++) {
-			isCellEditable[row][i] = flag;
-		}
-
-	}
-	
-	public void setCellEdit(boolean flag ,int row , int col){
-		isCellEditable[row][col] = flag;
-	}
-	
-	@Override
-	public boolean isCellEditable(int rowIndex, int columnIndex) {
-		return isCellEditable[rowIndex][columnIndex];
-	}
+//	/**
+//	 * 设置某一列可否编辑
+//	 * 
+//	 * @param flag
+//	 * @param column
+//	 */
+//	public void setCellInColumEdit(boolean flag, int column) {
+//		for (int i = 0; i < isCellEditable.length; i++) {
+//			isCellEditable[i][column] = flag;
+//		}
+//
+//	}
+//
+//	public void setCellInRowEdit(boolean flag, int row) {
+//		for (int i = 0; i < isCellEditable[0].length; i++) {
+//			isCellEditable[row][i] = flag;
+//		}
+//
+//	}
+//	
+//	public void setCellEdit(boolean flag ,int row , int col){
+//		isCellEditable[row][col] = flag;
+//	}
+//	
+//	@Override
+//	public boolean isCellEditable(int rowIndex, int columnIndex) {
+//		return isCellEditable[rowIndex][columnIndex];
+//	}
 
 }
