@@ -56,7 +56,7 @@ public enum StaffType {
 		case "营业厅业务员":
 
 			return saleman;
-		case "中转中心业务人员":
+		case "中转中心业务员":
 
 			return storeman;
 		case "中转中心管理员":
@@ -64,6 +64,7 @@ public enum StaffType {
 			return storemanager;
 
 		default:
+			System.err.println("---------人员账户中英文不对应");
 			return null;
 		}
 		

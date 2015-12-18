@@ -532,7 +532,7 @@
 			<BulidStateFromPanel x="232" y="54" width="1080"
 				height="637">
 				<BUTTONS>
-					<jump x="400" y="560" width="89" height="40" text="经营状况表"
+					<jump x="400" y="560" width="200" height="40" text="经营状况表"
 						type="confirm" />
 					<confirm x="560" y="560" width="89" height="40" text="确认"
 						type="confirm" />

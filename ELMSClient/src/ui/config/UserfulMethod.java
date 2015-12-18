@@ -221,7 +221,8 @@ public class UserfulMethod {
 	}
 	
 	private static final boolean isAla(char c){
-		if( c > 'z' || c < 'a'){
+		c = Character.toLowerCase(c);
+		if( c > 'z' || c < 'a' ){
 			return false;
 			
 		}else{

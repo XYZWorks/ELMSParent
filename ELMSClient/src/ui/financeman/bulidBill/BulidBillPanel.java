@@ -1,6 +1,7 @@
 package ui.financeman.bulidBill;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
@@ -18,8 +19,10 @@ import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
+import ui.util.TipsDialog;
 import util.City;
 import util.MyDate;
+import util.ResultMessage;
 import vo.DTManage.CarVO;
 import vo.personnel.InstVO;
 import vo.personnel.PersonVO;
@@ -83,6 +86,30 @@ public class BulidBillPanel extends MyPanel {
 		addCompoment();
 		addListener();
 		panelManager.show(changePanel, bulidBillStr);
+		
+		myinit();
+	}
+	/**
+	 * 进行账单读取
+	 */
+	private void myinit() {
+		ArrayList<BillVO> vos = bl.getBills();
+		if(vos != null && !vos.isEmpty()){
+			bill = vos.get(vos.size() - 1);
+			String[][] data = new String[bill.instituations.size()][5];
+			String instid;
+			InstVO vo;
+			for (int i = 0 ; i < data.length ; i ++) {
+				vo = bill.instituations.get(i);
+				data[i][0] = vo.ID;
+				data[i][1] = vo.location.getName();
+				data[i][2] = vo.type.getName();
+			}
+			
+			
+			
+		}
+		
 	}
 
 	@Override
@@ -159,9 +186,15 @@ public class BulidBillPanel extends MyPanel {
 
 			@Override
 			protected boolean saveToSQL() {
-				return false;
-				// TODO Auto-generated method stub
-
+				bill.date = datePicker.getMyDate();
+				bill.finaceman = name.getText();
+				if(bl.bulidBill(bill) == ResultMessage.SUCCESS){
+					new TipsDialog("成功新建账单", Color.GREEN);
+					return true;
+				}else{
+					new TipsDialog("由于网络或数据库原因，新建失败");
+					return false;
+				}
 			}
 
 			@Override
@@ -172,8 +205,11 @@ public class BulidBillPanel extends MyPanel {
 
 			@Override
 			protected boolean checkDataValid() {
-				// TODO Auto-generated method stub
-				return false;
+				if(name.getText().equals("")){
+					new TipsDialog("请输入经手人", Color.GREEN);
+					return false;
+				}
+				return true;
 			}
 
 			@Override

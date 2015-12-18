@@ -2,13 +2,6 @@ package ui.financeman;
 
 import org.dom4j.Element;
 
-import bl.BusinessLogicDataFactory;
-import blservice.financeblservice.BankAccountBusinessService;
-import blservice.financeblservice.CostService;
-import blservice.financeblservice.DepositService;
-import blservice.financeblservice.PayService;
-import blservice.financeblservice.ProfitService;
-import blservice.statisticblservice.Statisticblservice;
 import ui.financeman.approval.FinanceApprovalPanel;
 import ui.financeman.bankAccount.BankAccountManagePanel;
 import ui.financeman.bulidBill.BulidBillPanel;
@@ -21,6 +14,13 @@ import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.MySideBarListener;
 import ui.util.PanelController;
+import bl.BusinessLogicDataFactory;
+import blservice.financeblservice.BankAccountBusinessService;
+import blservice.financeblservice.CostService;
+import blservice.financeblservice.DepositService;
+import blservice.financeblservice.PayService;
+import blservice.financeblservice.ProfitService;
+import blservice.statisticblservice.Statisticblservice;
 import config.StaticMessage;
  /** 
  * 财务管理人员控制器类
@@ -82,6 +82,7 @@ public class FinanceController extends PanelController {
 		depositService = BusinessLogicDataFactory.getFactory().getDepositService();
 		payService = BusinessLogicDataFactory.getFactory().getPayService();
 		profitService = BusinessLogicDataFactory.getFactory().getProfitService();
+		statisticblservice = BusinessLogicDataFactory.getFactory().getStatisticBusinessLogic();
 	}
 
 	

@@ -25,10 +25,10 @@ public class testframeforczq extends MyFrame{
 		super(e);
 		
 		try {
-			System.setProperty("sun.java2d.noddraw", "true");
-			BeautyEyeLNFHelper.frameBorderStyle = BeautyEyeLNFHelper.FrameBorderStyle.translucencySmallShadow;
+//			System.setProperty("sun.java2d.noddraw", "true");
+//			BeautyEyeLNFHelper.frameBorderStyle = BeautyEyeLNFHelper.FrameBorderStyle.translucencySmallShadow;
 			org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF();
-			UIManager.put("RootPane.setupButtonVisible" ,false);
+//			UIManager.put("RootPane.setupButtonVisible" ,false);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

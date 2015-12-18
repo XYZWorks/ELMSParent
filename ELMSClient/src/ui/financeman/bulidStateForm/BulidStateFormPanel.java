@@ -1,11 +1,14 @@
 package ui.financeman.bulidStateForm;
 
+import java.awt.Color;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import blservice.statisticblservice.Statisticblservice;
-import ui.tools.MyButton;
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -17,6 +20,14 @@ import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
+import ui.util.TipsDialog;
+import util.MyDate;
+import util.ResultMessage;
+import vo.finance.DepositVO;
+import vo.finance.PayVO;
+import vo.statistic.CostIncomeVO;
+import vo.statistic.StateFormVO;
+import blservice.statisticblservice.Statisticblservice;
 
 /**
  * 增加成本收益表、经营状况表界面
@@ -78,6 +89,9 @@ public class BulidStateFormPanel extends MyPanel{
 	
 	private MyTextField incomeT;
 	private MyTextField outComeT;
+	
+	private ArrayList<DepositVO> depositVOs = new ArrayList<>();
+	private ArrayList<PayVO> payVOs = new ArrayList<>();
 	
 	
 	
@@ -185,8 +199,10 @@ public class BulidStateFormPanel extends MyPanel{
 		//-----------------------------------
 		if(flag){
 			title.setText("增加经营状况表");
+			addCostInComeOrState.setText("增加成本收益表");
 		}else{
 			title.setText("增加成本收益表");
+			addCostInComeOrState.setText("增加经营状况表");
 		}
 	}
 	
@@ -201,40 +217,85 @@ public class BulidStateFormPanel extends MyPanel{
 			}
 		});
 		confirm.addMouseListener(new ConfirmListener(confirm) {
+			MyDate startDate;
+			MyDate endDate;
+			String income;
+			String outCome;
 			protected void updateMes() {
-				// TODO Auto-generated method stub
-				
 			}
 			protected boolean saveToSQL() {
-				// TODO Auto-generated method stub
-				return false;
+				if(isStateForm){
+					payVOs.trimToSize();
+					depositVOs.trimToSize();
+					result = bl.bulidStateForm(new StateFormVO(startDate, endDate, payVOs, depositVOs));
+				}else{
+					result = bl.bulidCostIncomeForm(new CostIncomeVO(Integer.parseInt(income), Integer.parseInt(outCome), startDate, endDate));
+				}
+				if(result == ResultMessage.SUCCESS){
+					new TipsDialog("新增成功", Color.GREEN);
+					return true;
+				}else{
+					new TipsDialog("新增失败");
+					return false;
+				}
 			}
 			protected void reInitial() {
-				// TODO Auto-generated method stub
-				
+				myInit();
 			}
 			protected boolean checkDataValid() {
-				// TODO Auto-generated method stub
-				return false;
+				startDate = start.getMyDate();
+				endDate = end.getMyDate();
+				if(isStateForm){
+					return true;
+				}else{
+					income = incomeT.getText();
+					outCome = outComeT.getText();
+					SimpleDataFormat[] datas = {new SimpleDataFormat(income, DataType.PositiveNum, "收入") , new SimpleDataFormat(outCome, DataType.PositiveNum, "支出")};
+					return UserfulMethod.dealWithData(datas);
+				}
 			}
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {
 			@Override
 			public void resetMes() {
-				// TODO Auto-generated method stub
+				myInit();
 				
 			}
 		});
 		addOneDeposit.addMouseListener(new MyPictureButtonListener(addOneDeposit){
+			private MyDate time;
+			private String money;
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
+				time = DepositDate.getMyDate();
+				money = moneyT.getText();
+				if(UserfulMethod.dealWithData(new SimpleDataFormat(money, DataType.PositiveNum, "金额"))){
+					depositVOs.add(new DepositVO(time, Integer.parseInt(money)));
+					new TipsDialog("成功增加付款单", Color.GREEN);
+					deposits.setText(depositStr + depositVOs.size());
+					
+					moneyT.setText("");
+				}
 			}
 		});
 		addOnePay.addMouseListener(new MyPictureButtonListener(addOnePay){
+			private MyDate time;
+			private String money;
+			private String type;
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
+				time = PayDate.getMyDate();
+				money = payMoneyT.getText();
+				type = payTypeT.getText();
+				if(UserfulMethod.dealWithData(new SimpleDataFormat(money, DataType.PositiveNum, "金额"))){
+					payVOs.add(new PayVO(time, Integer.parseInt(money), type));
+					new TipsDialog("成功增加成本单", Color.GREEN);
+					pays.setText(payStr + payVOs.size());
+					
+					payMoneyT.setText("");payTypeT.setText("");
+				}
 			}
 		});
 	}
@@ -242,6 +303,8 @@ public class BulidStateFormPanel extends MyPanel{
 	private void myInit(){
 		moneyT.setText("");payMoneyT.setText("");payTypeT.setText("");incomeT.setText("");outComeT.setText("");
 		deposits.setText("付款单数量：0");pays.setText("收款单数量：0");
+		
+		depositVOs.clear();payVOs.clear();
 	}
 	
 	@Override
