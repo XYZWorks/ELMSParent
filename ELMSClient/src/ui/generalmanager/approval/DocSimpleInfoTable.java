@@ -73,12 +73,18 @@ public class DocSimpleInfoTable extends MyTablePanel{
 	public boolean approvaeOne(){
 		try {
 			int nowint = getSelectedNum().get(0);
-			
 			if(bl.approveOne(new DocVO( (String) getValueAt(nowint, 1) , type , null , DocState.pass) ) == ResultMessage.SUCCESS){
 				removeRow(nowint);
 				return true;
 			}
 		} catch (Exception e) {
+			int nowint = getSelectedRow();
+			if(nowint != -1){
+				if(bl.approveOne(new DocVO( (String) getValueAt(nowint, 1) , type , null , DocState.pass) ) == ResultMessage.SUCCESS){
+					removeRow(nowint);
+					return true;
+				}
+			}
 		}
 		
 		return false;
@@ -104,6 +110,10 @@ public class DocSimpleInfoTable extends MyTablePanel{
 	public void changeDocType(DocType type){
 		initialMes();
 		this.type = type;
+		
+		vos = bl.getBills(type);
+		System.out.println(vos.size());
+		initialMes();
 		MyTableModel dtm = new MyTableModel(columnNames, data){
 			@Override
 			public boolean isCellEditable(int rowIndex, int columnIndex) {

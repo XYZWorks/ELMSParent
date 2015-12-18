@@ -178,7 +178,7 @@
 						text="返回" />
 				</BUTTONS>
 				<stateFormPanel x="100" y="100" width="770" height="400"
-					column="序号 开始时间 结束时间" />
+					column="序号 开始时间 结束时间 付款单总数 收款单总数" />
 				<costFormPanel x="100" y="100" width="770" height="400"
 					column="开始时间 结束时间 总收入 总支出" />
 				<type x="30" y="30" width="100" height="40" strings="经营状况表 成本收益表" />

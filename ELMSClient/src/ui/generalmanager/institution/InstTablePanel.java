@@ -41,7 +41,7 @@ public class InstTablePanel extends MyTablePanel {
 		if (vos != null) {
 			for (int i = 0; i < vos.size(); i++) {
 				data[i][0] = vos.get(i).ID;
-				data[i][1] = vos.get(i).type.name();
+				data[i][1] = vos.get(i).type.getName();
 				data[i][2] = vos.get(i).location.name();
 			}
 		}
@@ -67,7 +67,7 @@ public class InstTablePanel extends MyTablePanel {
 		for (int i = 0; i < vos.size(); i++) {
 			vo = vos.get(i);
 			table.setValueAt(vo.ID, i, 0);
-			table.setValueAt(vo.type.name(), i, 1);
+			table.setValueAt(vo.type.getName(), i, 1);
 			table.setValueAt(vo.location.name(), i, 2);
 
 		}

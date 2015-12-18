@@ -1,15 +1,14 @@
 package ui.generalmanager.people;
 
 import java.util.ArrayList;
-import java.util.Vector;
 
 import org.dom4j.Element;
 
-import blservice.personnelblservice.Personnelblservice;
-import po.personnel.PersonPO;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
+import util.StaffType;
 import vo.personnel.PersonVO;
+import blservice.personnelblservice.Personnelblservice;
  /** 
  * 
  * @author czq 
@@ -34,7 +33,7 @@ public class PeopleMesPanel extends MyTablePanel{
 		
 		int[] columnLen = {100,100,100,100 , 200};
 		setRowAndColumnLen(30, columnLen);
-//		vos = bl.
+		
 	}
 	
 	
@@ -48,6 +47,23 @@ public class PeopleMesPanel extends MyTablePanel{
 		columnNames[2] = "姓名";
 		columnNames[3] = "职位";
 		columnNames[4] = "手机号码";
+		
+		vos = bl.getPersons();
+		
+		if (vos == null) {
+			return ;
+		}
+		
+		data = new Object[vos.size()][5];
+		int i = 0;
+		for (PersonVO vo : vos) {
+			data[i][0] = vo.instID;
+			data[i][1] = vo.ID;
+			data[i][2] = vo.name;
+			data[i][3] = StaffType.getName(vo.type);
+			data[i][4] = vo.phoneNum;
+		}
+		
 		
 		
 		
@@ -72,13 +88,13 @@ public class PeopleMesPanel extends MyTablePanel{
 		if(vo == null){
 			return;
 		}
-		
+		removeAllRows();
 		Object[] mes= new Object[5];
 		for (PersonVO personVO : vo) {
 			mes[0] = personVO.ID ;
 			mes [1] = personVO.instID;
 			mes [2] = personVO.name;
-			mes [3] = personVO.type.name();
+			mes [3] = StaffType.getName(personVO.type);
 			mes [4] = personVO.phoneNum;
 			table.getModel().addRow(mes);
 		}
@@ -97,12 +113,13 @@ public class PeopleMesPanel extends MyTablePanel{
 		if(personVO == null){
 			return;
 		}
+		removeAllRows();
 		
 			Object[] mes= new Object[5];
 			mes[0] = personVO.ID ;
 			mes [1] = personVO.instID;
 			mes [2] = personVO.name;
-			mes [3] = personVO.type.name();
+			mes [3] = StaffType.getName(personVO.type);
 			mes [4] = personVO.phoneNum;
 			table.getModel().addRow(mes);
 		

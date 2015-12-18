@@ -60,4 +60,13 @@ public interface Personnelblservice {
 	 */
 	public ArrayList<InstVO> getInst();
 	
+	/**
+	 * 获得所有人员信息
+	 */
+	public ArrayList<PersonVO> getPersons();
+	
+	/**
+	 * 
+	 */
+	public ResultMessage modifyInst(InstVO vo);
 }

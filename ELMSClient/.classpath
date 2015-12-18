@@ -15,5 +15,6 @@
 	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="lib/DatePicker-V0.99-2006.09.01.jar"/>
 	<classpathentry kind="lib" path="lib/datepicker.jar"/>
+	<classpathentry kind="lib" path="lib/SwingSets3(BeautyEyeLNFDemo).jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

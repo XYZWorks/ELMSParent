@@ -6,6 +6,9 @@ import java.awt.event.MouseEvent;
 import org.dom4j.Element;
 
 import blservice.personnelblservice.Personnelblservice;
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
 import ui.table.MyTable;
 import ui.tools.MyComboBox;
 import ui.tools.MyPanel;
@@ -15,6 +18,7 @@ import ui.tools.MyTextField;
 import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
+import ui.util.TipsDialog;
 
 /**
  * 人员管理，主要进入人员查看界面
@@ -56,7 +60,6 @@ public class PeopleManagePanel extends MyPanel{
 		addpeople.setVisible(false);
 		
 		setVisible(true);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -73,23 +76,16 @@ public class PeopleManagePanel extends MyPanel{
 
 	@Override
 	protected void initLabels(Element e) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
 		searchway = new MyComboBox(e.element("search"));
-		addpeople = new AddPeoplePanel(e.element("addPeople"), this);
+		addpeople = new AddPeoplePanel(e.element("addPeople"), this, bl);
 		peopleMesTable = new PeopleMesPanel(e.element("peopleMes"), bl);
 	}
 	
-//	private void initTable(){
-//		columnName
-//		
-//		
-//		
-//	}
 	
 
 	@Override
@@ -111,7 +107,6 @@ public class PeopleManagePanel extends MyPanel{
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
 		
 	}
 	
@@ -124,7 +119,7 @@ public class PeopleManagePanel extends MyPanel{
 		searchway.setVisible(!flag);
 		peopleMesTable.setVisible(!flag);
 		
-		
+		peopleMesTable.myInit();
 	}
 	
 	class MyAddButtonListener extends MyPictureButtonListener{
@@ -153,16 +148,20 @@ public class PeopleManagePanel extends MyPanel{
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
 			
-			//TODO 检查输入
 			String input = searchT.getText();
 			
 			String temp = (String) searchway.getSelectedItem();
 			if(temp.equals("按姓名查找")){
+				
 				checkByName(input);
 			}else if(temp.equals("按ID查找")){
-				checkByID(input);
+				if(UserfulMethod.dealWithData( new SimpleDataFormat(input, DataType.ID, "ID"))){
+					checkByID(input);
+				
 			}else{
-				checkByInst(input);
+				if(UserfulMethod.dealWithData( new SimpleDataFormat(input, DataType.ID, "ID"))){
+					checkByInst(input);
+				}	
 			}
 			
 			
@@ -181,4 +180,5 @@ public class PeopleManagePanel extends MyPanel{
 	private void checkByName(String name) {
 		peopleMesTable.changeMes(bl.getPeopleByName(name));
 	}
+}
 }

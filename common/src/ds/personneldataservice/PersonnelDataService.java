@@ -61,4 +61,15 @@ public interface PersonnelDataService extends DataserviceParent{
 	 * @return
 	 */
 	public ArrayList<InstPO> getInst() throws RemoteException;
+	
+	/**
+	 * 获得所有人员信息
+	 * @return
+	 */
+	public ArrayList<PersonPO> getPersons() throws RemoteException;
+	
+	/**
+	 * 
+	 */
+	public ResultMessage modifyInst(InstPO po) throws RemoteException;
 }

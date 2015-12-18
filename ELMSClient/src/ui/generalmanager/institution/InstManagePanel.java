@@ -1,6 +1,7 @@
 package ui.generalmanager.institution;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JPanel;
@@ -15,6 +16,11 @@ import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
+import ui.util.TipsDialog;
+import util.City;
+import util.InstType;
+import util.ResultMessage;
+import vo.personnel.InstVO;
 import blservice.personnelblservice.Personnelblservice;
 
 /**
@@ -45,6 +51,8 @@ public class InstManagePanel extends MyPanel{
 	private MyComboBox type;
 	private MyComboBox location;
 	
+	private boolean isModify = false;
+	
 	public InstManagePanel(Element config , JPanel changePanel , Personnelblservice bl) {
 		super(config);
 		this.bl = bl;
@@ -56,6 +64,8 @@ public class InstManagePanel extends MyPanel{
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		addCompoment();
 		addListener();
+		
+		ismodify(false);
 	}
 
 	@Override
@@ -98,46 +108,58 @@ public class InstManagePanel extends MyPanel{
 		add(cancel);
 		changePanel.add(addInstPanel, addInstPanelStr);
 	}
-
+	
+	private void ismodify(boolean flag){
+		newLoc.setVisible(flag);
+		newType.setVisible(flag);
+		type.setVisible(flag);
+		location.setVisible(flag);
+		modify.setVisible(!flag);
+		isModify = flag;
+	}
+	
 	@Override
 	protected void addListener() {
-		modify.addMouseListener(new MyPictureButtonListener(modify) {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				super.mouseClicked(e);
-				
-			}
-		});
 		addInst.addMouseListener(new MyPictureButtonListener(addInst){
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
 				((CardLayout)changePanel.getLayout()).show(changePanel, addInstPanelStr);
+				ismodify(false);
 			}
 		});
 		confirm.addMouseListener(new ConfirmListener(confirm) {
 			
 			@Override
 			protected boolean saveToSQL() {
+				int temp = table.getSelectedRow();
+				if(temp != -1){
+					String instid = (String) table.getValueAt(temp, 0);
+							
+					result = bl.modifyInst(new InstVO(instid, City.toCity((String) location.getSelectedItem()), InstType.toInst((String) type.getSelectedItem())));
+					
+					if(result == ResultMessage.SUCCESS){
+						new TipsDialog("成功修改机构！");
+						table.getTable().setValueAt((String) location.getSelectedItem(), temp, 1);
+						table.getTable().setValueAt((String) type.getSelectedItem(), temp, 2);
+					}
+				}
+				
+				
 				return false;
 				
 			}
-			
 			@Override
 			protected boolean checkDataValid() {
-				return false;
+				return true;
 			}
 
 			@Override
 			protected void reInitial() {
-				// TODO Auto-generated method stub
-				
 			}
 
 			@Override
 			protected void updateMes() {
-				// TODO Auto-generated method stub
-				
 			}
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {
@@ -147,7 +169,24 @@ public class InstManagePanel extends MyPanel{
 				
 			}
 		});
+		delete.addMouseListener(new MyPictureButtonListener(cancel){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				if(table.getSelectedRow() == -1){
+					new TipsDialog("请选择一行数据", Color.GREEN);
+					return ;
+				}else{
+					result = bl.delInst((String) table.getValueAt(table.getSelectedRow(), 0));
+					if(result == ResultMessage.SUCCESS){
+						new TipsDialog("成功删除一条数据" , Color.GREEN);
+					}else{
+						new TipsDialog("未成功删除数据");
+					}
+				}
+			}
 		
+		});
 	}
 	
 	

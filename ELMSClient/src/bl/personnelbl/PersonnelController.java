@@ -52,5 +52,14 @@ public class PersonnelController implements Personnelblservice{
 	public ArrayList<InstVO> getInst() {
 		return per.getInst();
 	}
+	@Override
+	public ArrayList<PersonVO> getPersons() {
+		return per.getPersons();
+	}
+	@Override
+	public ResultMessage modifyInst(InstVO vo) {
+		
+		return per.modifyInst(vo);
+	}
 
 }

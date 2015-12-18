@@ -26,8 +26,7 @@ public class MyTable extends JTable{
 		this.setModel(model);
 		DefaultTableCellRenderer   r   =   new   DefaultTableCellRenderer();   
 		r.setHorizontalAlignment(JLabel.CENTER);   
-		setDefaultRenderer(Object.class,   r);
-//		setPreferredScrollableViewportSize(new Dimension(400, 200));//TODO
+		setDefaultRenderer(String.class,   r);
 
 		
 		

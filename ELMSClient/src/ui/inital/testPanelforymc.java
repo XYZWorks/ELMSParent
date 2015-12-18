@@ -6,7 +6,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import org.dom4j.Element;
 
 import ui.config.ParseXML;
-import ui.generalmanager.ConstSetPanel;
+import ui.generalmanager.constSet.ConstSetPanel;
 import ui.tools.MyFrame;
 
 /** 

@@ -136,6 +136,35 @@ public class PersonnelDataServiceImpl extends DataSuperClass implements
 		
 	}
 
+	@Override
+	public ArrayList<PersonPO> getPersons() throws RemoteException {
+		ArrayList<PersonPO> personPOss = new ArrayList<PersonPO>();
+		PersonPO po;
+		try {
+			sql = "SELECT * FROM " + personTable ;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while(result.next()){
+				po = new PersonPO(result.getString(2), result.getString(1), result.getString(3), StaffType.valueOf(result.getString(4)), result.getString(5));
+				personPOss.add(po);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		if(personPOss.isEmpty()){
+			return null;
+		}else{
+			return personPOss;
+		}
+	}
+
+	@Override
+	public ResultMessage modifyInst(InstPO po) throws RemoteException {
+		return modifyFromSQL(instTable, po.getID() , po.getLocation().name(), po.getType().name() );
+	}
+
 	
 	
 //	public static void main(String[] args) throws RemoteException {

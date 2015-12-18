@@ -1,16 +1,25 @@
 package ui.generalmanager.people;
 
-import java.awt.event.MouseEvent;
+import java.awt.Color;
 
 import org.dom4j.Element;
 
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
 import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
+import ui.util.CancelListener;
 import ui.util.CompomentType;
-import ui.util.MyPictureButtonListener;
+import ui.util.ConfirmListener;
+import ui.util.TipsDialog;
+import util.ResultMessage;
+import util.StaffType;
+import vo.personnel.PersonVO;
+import blservice.personnelblservice.Personnelblservice;
  /** 
  * 增加人员界面
  * @author czq 
@@ -36,10 +45,11 @@ public class AddPeoplePanel extends MyPanel{
 	private MyPictureButton cancel;
 	
 	private PeopleManagePanel managePanel;
-	
-	public AddPeoplePanel(Element config ,PeopleManagePanel managePanel) {
+	private Personnelblservice bl;
+	public AddPeoplePanel(Element config ,PeopleManagePanel managePanel , Personnelblservice bl) {
 		super(config);
 		this.managePanel = managePanel;
+		this.bl = bl;
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
@@ -95,45 +105,71 @@ public class AddPeoplePanel extends MyPanel{
 
 	@Override
 	protected void addListener() {
-		confirm.addMouseListener(new MyCancelButtonListener(confirm));
-		cancel.addMouseListener(new MyConfirmButtonListner(cancel));
+		confirm.addMouseListener(new ConfirmListener(confirm) {
+			String instidc;
+			String namec;
+			String idc;
+			StaffType typec;
+			String phonec;
+			@Override
+			protected void updateMes() {
+				
+				
+			}
+			
+			@Override
+			protected boolean saveToSQL() {
+				result = bl.addPeople(new PersonVO(instidc, idc, namec, typec, phonec));
+				if(result == ResultMessage.SUCCESS){
+					new TipsDialog("成功增加一条人员信息", Color.GREEN);
+					return true;
+				}else{
+					new TipsDialog("增加人员信息出错");
+					return false;
+				}
+			}
+			
+			@Override
+			protected void reInitial() {
+				myInit();
+				managePanel.changeADDPanel(false);
+				
+			}
+			
+			
+			@Override
+			protected boolean checkDataValid() {
+				instidc = instID.getText();
+				namec = name.getText();
+				idc = ID.getText();
+				typec = StaffType.getType((String) type.getSelectedItem());
+				phonec = phone.getText();
+				SimpleDataFormat[] datas = {new SimpleDataFormat(instidc, DataType.ID, "jigouID")  , new SimpleDataFormat(idc, DataType.ID, "ID") , new SimpleDataFormat(phonec, DataType.phone, "手机号")};
+				
+				return UserfulMethod.dealWithData(datas);
+			}
+		});
+		cancel.addMouseListener(new CancelListener(cancel) {
+			
+			@Override
+			public void resetMes() {
+				myInit();
+				managePanel.changeADDPanel(false);
+			}
+
+			
+		});
 		
 	}
 	
-	class MyConfirmButtonListner extends MyPictureButtonListener{
-
-		public MyConfirmButtonListner(MyPictureButton button) {
-			super(button);
-		}
-
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
-			//TODO 检查数据合法性、保存至数据库
-			//无错误时跳转至查看界面
-			
-			
-			managePanel.changeADDPanel(false);
-		}
-
+	private void myInit() {
+		name.setText("");phone.setText("");instID.setText("");type.setSelectedIndex(0);
 	}
 	
-	class MyCancelButtonListener extends MyPictureButtonListener{
-		public MyCancelButtonListener(MyPictureButton button) {
-			super(button);
-		}
-		
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			super.mouseClicked(e);
-			//TODO 清空数据
-			
-		}
-	}
+	
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
 		
 	}
 	

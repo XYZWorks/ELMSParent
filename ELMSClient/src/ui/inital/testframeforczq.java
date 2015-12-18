@@ -5,6 +5,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import org.dom4j.Element;
+import org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper;
 
 import ui.config.ParseXML;
 import ui.tools.MyFrame;
@@ -17,11 +18,21 @@ import ui.tools.MyFrame;
 public class testframeforczq extends MyFrame{
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
 		ParseXML xml = new ParseXML();
-		testframeforczq ads = new testframeforczq(xml.getRoot());
+		 new testframeforczq(xml.getRoot());
 	}
 	
 	public testframeforczq(Element e) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
 		super(e);
+		
+		try {
+			System.setProperty("sun.java2d.noddraw", "true");
+			BeautyEyeLNFHelper.frameBorderStyle = BeautyEyeLNFHelper.FrameBorderStyle.translucencySmallShadow;
+			org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF();
+			UIManager.put("RootPane.setupButtonVisible" ,false);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		/**
@@ -31,7 +42,16 @@ public class testframeforczq extends MyFrame{
 
 		this.setContentPane(initalPanel);
 		
-		UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+//		try
+//	    {
+////	        BeautyEyeLNFHelper.launchBeautyEyeLNF();
+//	       ;
+//	        UIManager.setLookAndFeel( BeautyEyeLNFHelper.getBeautyEyeLNFWindowsPlatform());
+//	    }
+//	    catch(Exception ex)
+//	    {
+//	    }
+	
 		
 		
 		this.setVisible(true);

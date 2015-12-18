@@ -161,5 +161,32 @@ public class Personnel {
 		}
 		return vos;
 	}
+	public ArrayList<PersonVO> getPersons() {
+		ArrayList<PersonPO> pos = new ArrayList<PersonPO>();
+		
+		try {
+			pos = personnelData.getPersons();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		if(pos == null){
+			return null;
+		}
+		
+		
+		ArrayList<PersonVO> vos = new ArrayList<PersonVO>(pos.size());
+		for(PersonPO po:pos){
+			vos.add((PersonVO)VOPOchange.POtoVO(po));
+		}
+		return vos;
+	}
+	public ResultMessage modifyInst(InstVO vo) {
+		try {
+			return personnelData.modifyInst((InstPO) VOPOchange.VOtoPO(vo));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
+	}
 
 }
