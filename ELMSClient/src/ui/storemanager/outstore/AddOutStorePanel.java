@@ -175,13 +175,14 @@ public class AddOutStorePanel extends MyPanel {
 		}
 
 		@Override
-		protected void saveToSQL() {
+		protected boolean saveToSQL() {
 			if(bl.generate(out)==ResultMessage.SUCCESS){
 				
-				reInitial();
+//				reInitial();
 				
 				new TipsDialog("生成出库单成功");
 			}
+			return true;
 
 		}
 

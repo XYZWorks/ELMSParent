@@ -1,9 +1,11 @@
 package ui.inital;
 
+import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import org.dom4j.Element;
+import org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper;
 
 import ui.config.ParseXML;
 import ui.generalmanager.constSet.ConstSetPanel;
@@ -19,23 +21,21 @@ public class testPanelforymc extends MyFrame{
 	public testPanelforymc(Element e) {
 		super(e);
 		
-		initialPanel3 initalPanel = new initialPanel3(e.element("initialpanel3") , this );
 
 		try {
-			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (InstantiationException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IllegalAccessException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (UnsupportedLookAndFeelException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			System.setProperty("sun.java2d.noddraw", "true");
+			BeautyEyeLNFHelper.frameBorderStyle = BeautyEyeLNFHelper.FrameBorderStyle.translucencySmallShadow;
+			org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF();
+	
+
+			UIManager.put("RootPane.setupButtonVisible" ,false);
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
+		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		initialPanel3 initalPanel = new initialPanel3(e.element("initialpanel3") , this );
+
 
 		this.setContentPane(initalPanel);
 		this.setVisible(true);

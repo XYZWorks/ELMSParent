@@ -152,15 +152,16 @@ public class AddInStorePanel extends MyPanel {
 		}
 
 		@Override
-		protected void saveToSQL() {
+		protected boolean saveToSQL() {
 
 			ResultMessage result = bl.generate(vo);
 
 			if (result == ResultMessage.SUCCESS) {
-				reInitial();
+//				reInitial();
 				new TipsDialog("生成入库单成功");
 
 			}
+			return true;
 
 		}
 

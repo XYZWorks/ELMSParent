@@ -136,10 +136,11 @@ public class AlarmSetSinglePanel extends MyPanel {
 		}
 
 		@Override
-		protected void saveToSQL() {
+		protected boolean saveToSQL() {
 			ResultMessage re = bl.setAlarmValue(value, City.toCity(center.getText()));
 			if(re==ResultMessage.SUCCESS)
 				new TipsDialog("修改"+center.getText()+"市警戒值成功");
+			return true;
 		}
 		
 	}

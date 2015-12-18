@@ -162,7 +162,7 @@ public class AddTransportPanel extends MyPanel {
 		}
 
 		@Override
-		protected void saveToSQL() {
+		protected boolean saveToSQL() {
 			String ID = IDT.getText();
 			int container = Integer.parseInt(containerT.getText());
 			String number = numberT.getText();
@@ -178,6 +178,7 @@ public class AddTransportPanel extends MyPanel {
 			
 			if(r ==ResultMessage.SUCCESS)
 				new TipsDialog("生成中转单成功");
+			return true;
 		}
 
 

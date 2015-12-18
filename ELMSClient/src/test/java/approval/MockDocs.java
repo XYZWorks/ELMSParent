@@ -72,4 +72,10 @@ public class MockDocs implements DocApprovalService {
 		return null;
 	}
 
+	@Override
+	public DocVO getByID(String ID, DocType type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
