@@ -1,5 +1,7 @@
 package ui.tools;
 
+import java.awt.Color;
+
 import javax.swing.Icon;
 import javax.swing.JLabel;
 
@@ -26,8 +28,10 @@ public MyPictureLabel(String str) {
 			
 			ButtonOrLabelPicture pics = GraphicsUtils.getButtonLabelPic("titleBar");
 			normal = pics.getNormal();
+			
 			this.setText(str);
 			this.setIcon(normal);
+			
 			this.setHorizontalTextPosition(JLabel.CENTER);
 			this.setVerticalTextPosition(JLabel.CENTER);
 		
@@ -38,7 +42,7 @@ public MyPictureLabel(String str) {
 		
 		
 		super(config);
-		
+//		this.setForeground(Color.WHITE);
 		//一个label－>一张图片的加载
 		if(config.attributeValue("one")!= null){
 			this.setIcon(GraphicsUtils.getIcon(config.attributeValue("one")));
