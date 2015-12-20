@@ -164,7 +164,9 @@ public class AddOutStorePanel extends MyPanel {
 			
 			
 			ArrayList<String> orders = UserfulMethod.stringToArray(orderT.getText());
+//			System.out.println((String) sendCityC.getSelectedItem());
 			City loc = City.toCity((String) sendCityC.getSelectedItem());
+//			System.out.println((String) shipWayC.getSelectedItem());
 			TransferWay shipWay = TransferWay.getTransferWay((String) shipWayC.getSelectedItem());
 			String transferDoc = transferDocT.getText();
 			String ID = IDT.getText();
@@ -180,7 +182,7 @@ public class AddOutStorePanel extends MyPanel {
 				
 //				reInitial();
 				
-				new TipsDialog("生成出库单成功");
+				new TipsDialog("生成成功");
 				bl.updateStore(out.loc, out.shipWay,out.ID,out.type);
 			}
 			return true;

@@ -3,6 +3,8 @@ package bl.storebl;
 import java.util.ArrayList;
 
 import net.RMIManage;
+import test.java.other.DataTool;
+import ui.inital.initialPanel3;
 import util.City;
 import util.DataServiceType;
 import util.DocState;
@@ -37,6 +39,11 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 		store = new Store(storeDataService);
 		inStoreDocImpl = new InStoreDocImpl(storeDataService);
 		outStoreDocImpl = new OutStoreDocImpl(storeDataService);
+		
+	}
+	
+	public void initial(){
+		
 	}
 	public ArrayList<StoreMessageVO> show() {
 		return store.show();
@@ -127,7 +134,10 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 				
 	}
 	public ResultMessage updateStore(City loc, TransferWay way,String ID , DocType type) {
+		System.out.println(type.name());
 		DocVO tmp = getByID(ID, type);
+		System.out.println(tmp==null);
+		System.out.println(tmp.type.name());
 		return store.updateStore(loc,way,tmp);
 		
 	}

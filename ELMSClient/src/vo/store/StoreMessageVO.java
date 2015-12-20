@@ -2,6 +2,7 @@ package vo.store;
 
 import java.util.ArrayList;
 
+import ui.inital.initialPanel3;
 import util.City;
 import util.TransferWay;
 
@@ -35,19 +36,20 @@ public class StoreMessageVO {
 	/**
 	 * 出库单集合
 	 */
-	public ArrayList<OutStoreDocVO> OutStoreDocs;
+	public ArrayList<OutStoreDocVO> outStoreDocs;
 	public StoreMessageVO() {
 		// TODO Auto-generated constructor stub
 	}
-	public StoreMessageVO(City location, TransferWay storeLoc, int number, ArrayList<InStoreDocVO> inStoreDocs,
+	public StoreMessageVO(City location, TransferWay storeLoc, int number,int totalNum,ArrayList<InStoreDocVO> inStoreDocs,
 
 			ArrayList<OutStoreDocVO> outStoreDocs) {
 		super();
 		this.location = location;
 		this.storeLoc = storeLoc;
 		this.number = number;
+		this.totalNum = totalNum;
 		this.inStoreDocs = inStoreDocs;
-		OutStoreDocs = outStoreDocs;
+		this.outStoreDocs = outStoreDocs;
 	}
 
 

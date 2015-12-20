@@ -12,6 +12,8 @@ import ui.tools.MyLabel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
 import ui.util.ConfirmListener;
+import ui.util.TipsDialog;
+import util.ResultMessage;
 import vo.store.StoreMessageVO;
 
 /**
@@ -73,12 +75,13 @@ public class AlarmRecoverSinglePanel extends AlarmSetSinglePanel {
 	public void getInfo(String cen, String sto) {
 		super.getInfo(cen, sto);
 		for (StoreMessageVO vo : bl.show()) {
-			if (cen.equals(vo.location.getName()) && sto.equals(vo.storeLoc.getStoreLocation()))
+//			System.out.println(cen+" "+vo.location.getName());
+			if (cen.equals(vo.location.getName()) && sto.equals(vo.storeLoc.getStoreLocation()+"区"))
 				target = vo;
 		}
 		if(target!=null){
-			nowNum.setText(String.valueOf(target.number));
-			totalNum.setText(String.valueOf(target.totalNum));
+			nowNum.setText("   "+String.valueOf(target.number));
+			totalNum.setText("   "+String.valueOf(target.totalNum));
 		}
 	}
 
@@ -89,33 +92,44 @@ public class AlarmRecoverSinglePanel extends AlarmSetSinglePanel {
 	}
 
 	class UpdateListener extends ConfirmListener {
-
+		int modifyNum;
 		public UpdateListener(MyPictureButton button) {
 			super(button);
 		}
 
 		@Override
 		protected void reInitial() {
-			// TODO Auto-generated method stub
+			addNumT.setText("");
 
 		}
 
 		@Override
 		protected void updateMes() {
-			// TODO Auto-generated method stub
+			totalNum.setText("    "+target.totalNum);
 
 		}
 
 		@Override
 		protected boolean checkDataValid() {
-			// TODO Auto-generated method stub
-			return false;
+			modifyNum = Integer.parseInt(addNumT.getText());
+			if(modifyNum>0){
+				return true;
+			}
+			else {
+				new TipsDialog("库存容量未增加");
+				return false;
+			}
 		}
 
 		@Override
 		protected boolean saveToSQL() {
+			target.totalNum =target.totalNum+ modifyNum;
+			ResultMessage res = bl.update(target);
+			if(res ==ResultMessage.SUCCESS){
+				new TipsDialog("成功修改库存容量");
+				return true;
+			}
 			return false;
-			// TODO Auto-generated method stub
 
 		}
 

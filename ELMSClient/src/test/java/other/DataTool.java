@@ -2,6 +2,7 @@ package test.java.other;
 
 import java.util.ArrayList;
 
+import blservice.transportblservice.transportblservice_Driver;
 import po.statistic.StateFormPO;
 import po.store.StoreMessagePO;
 import util.MyDate;
@@ -29,6 +30,7 @@ import vo.statistic.CostIncomeVO;
 import vo.statistic.StateFormVO;
 import vo.store.InStoreDocVO;
 import vo.store.OutStoreDocVO;
+import vo.store.StoreMessageVO;
 import vo.strategy.ConstVO;
 import vo.strategy.SalaryWayVO;
 import vo.transport.ArriveYYDocVO;
@@ -54,6 +56,9 @@ public class DataTool {
 	static String instid2 = "000001";
 	static String instid3 = "000002";
 	
+	static ArrayList<City> cities = new ArrayList<>();
+	static ArrayList<TransferWay> ways = new ArrayList<>();
+	
 	static String phone1 = "13142321234";
 	static String phone2 = "13923689344";
 	
@@ -69,6 +74,16 @@ public class DataTool {
 	static ArrayList<DepositVO> deposits = new ArrayList<DepositVO>();
 	
 	static{
+		cities.add(City.BEIJING);
+		cities.add(City.NANJING);
+		cities.add(City.GUANGZHOU);
+		cities.add(City.SHANGHAI);
+		
+		ways.add(TransferWay.car);
+		ways.add(TransferWay.plane);
+		ways.add(TransferWay.train);
+
+		
 		orders.add(new OrderVO());
 		locs.add("航空区2排3架2位");
 		orders.add(new OrderVO());
@@ -183,7 +198,18 @@ public class DataTool {
 		return al;
 		
 	}
-	
+	@SuppressWarnings("unchecked")
+	public static ArrayList<StoreMessageVO> getStoreMessage() {
+		ArrayList<StoreMessageVO> vos = new ArrayList<>(12);
+		StoreMessageVO vo ;
+		for(int i = 0;i<cities.size();i++){
+			for(int j = 0;j<ways.size();j++){
+				vo = new StoreMessageVO(cities.get(i),ways.get(j),0,300,(ArrayList<InStoreDocVO>)getDocList(DocType.inStoreDoc),(ArrayList<OutStoreDocVO>)getDocList(DocType.outStoreDoc));
+				vos.add(vo);
+			}
+		}
+		return vos;
+	}
 	
 	public static ArrayList<DriverVO> getDriverList(){
 		return drivers;}

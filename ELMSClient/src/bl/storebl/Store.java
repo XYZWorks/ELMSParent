@@ -5,7 +5,10 @@ import java.util.ArrayList;
 
 import po.store.StoreCheckPO;
 import po.store.StoreMessagePO;
+import test.java.other.DataTool;
 import test.java.other.VOPOchange;
+import ui.generalmanager.salary.SalaryStrategyMesTablePanel;
+import ui.inital.initialPanel3;
 import util.City;
 import util.DocType;
 import util.ResultMessage;
@@ -34,17 +37,32 @@ public class Store {
 		
 		try {
 			pos = storeData.getStoreMessages();
+//			System.out.println("pos size ------"+pos.size());
+//			if(pos.size()==0){
+//				initial();
+//				pos = storeData.getStoreMessages();
+//			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
+		
 		ArrayList<StoreMessageVO> vos = null;
 		if(pos!=null){
 			vos = new ArrayList<>(pos.size());
+//			System.err.println(pos.get(0).getTotalNum());
 			for(StoreMessagePO po:pos)
 				vos.add((StoreMessageVO)VOPOchange.POtoVO(po));
 		}
-		
+//		System.err.println(vos.get(0).totalNum);
 		return vos;
+	}
+
+	private void initial() {
+		ArrayList<StoreMessageVO> vos = DataTool.getStoreMessage();
+		
+		for(StoreMessageVO vo: vos)
+			update(vo);
+		
 	}
 
 	public ArrayList<StoreCheckVO> showCheck() {
@@ -123,7 +141,7 @@ public class Store {
 		}
 		else if(DocType.outStoreDoc==tmp.type){
 			OutStoreDocVO vo = (OutStoreDocVO)tmp;
-			target.OutStoreDocs.add(vo);
+			target.outStoreDocs.add(vo);
 			int delNum = vo.orders.size();
 			target.number = target.number-delNum;
 		}
