@@ -31,6 +31,8 @@ import vo.order.OrderSimpleInfoVO;
  */
 @SuppressWarnings("serial")
 public class FindSimpleOrderInfoPanel extends MyPanel {
+	
+	
 	private MyPanel my;
 	
 	private MyPanel parent;

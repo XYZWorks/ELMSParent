@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-=======
-
-package data.storedata;
->>>>>>> origin/master
-
 package data.storedata;
 
 import java.rmi.RemoteException;

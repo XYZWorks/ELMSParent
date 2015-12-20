@@ -1,10 +1,9 @@
 package ui.courier.FindFullInfo;
 
-import java.util.ArrayList;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
-import org.omg.CORBA.PUBLIC_MEMBER;
-import org.omg.CORBA.portable.ValueBase;
 
 import blservice.orderblservice.Orderblservice;
 import po.order.GoodMes;
@@ -19,13 +18,12 @@ import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
-import util.DocType;
-import vo.order.OrderSimpleInfoVO;
+import ui.util.TipsDialog;
+import util.ResultMessage;
 import vo.order.OrderVO;
 
 @SuppressWarnings("serial")
 public class FindFullOrderInfoPanel extends MyPanelWithScroller {
-	// private MyPictureButton returnToPrevious;
 
 	// bl
 	private Orderblservice orderblservice;
@@ -34,14 +32,15 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 	private MyWhitePanel senderInfoPanel;
 	private MyWhitePanel receiverInfoPanel;
 	private MyWhitePanel goodInfoPanel;
-	// private MyWhitePanel estimateTimePanel;
-	// private MyWhitePanel costPanel;
-	// 显示 物流信息面板
-	private MyWhitePanel transferInfoPanel;
+	private MyWhitePanel transferInfoPanel;// 显示 物流信息面板
 
 	// 订单号
 	private MyPictureLabel orderBarCode;
 	private MyLabel orderBarCodeLabel;
+	private String BarCode;
+
+	// 返回键
+	private MyPictureButton returnToPrevious;
 
 	// 日历
 	private MyDatePicker DatePicker;
@@ -139,25 +138,34 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 	private OtherOrderMes otherMes;
 	private TransferDocs transferDocs;
 
-	public FindFullOrderInfoPanel(Element config, Orderblservice orderblservice) {
+	public FindFullOrderInfoPanel(Element config, Orderblservice orderblservice, String BarCode) {
 		super(config);
-		this.orderblservice = orderblservice;
 
+		this.orderblservice = orderblservice;
+		
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initOtherCompoment(config);
 		initLabels(config.element(CompomentType.LABELS.name()));
+		
+		this.BarCode = BarCode;
+		orderBarCodeLabel.setText(BarCode);
+
+		getData();
+		readData();
+		
 		addCompoment();
 		addListener();
 		setVisible(true);
-		// System.out.println("couriermainpanel has existed!!");
+		
+		
 	}
 
 	@Override
 	protected void initButtons(Element e) {
 		delete = new MyPictureButton(e.element("delete"));
-
+		returnToPrevious = new MyPictureButton(e.element("returnToPrevious"));
 	}
 
 	@Override
@@ -203,17 +211,17 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		orderFormLabel = new MyLabel(e.element("orderFormLabel"));
 
 		goodNameText = new MyLabel(e.element("goodNameText"));
-		goodNumText=new MyLabel(e.element("goodNumText"));
+		goodNumText = new MyLabel(e.element("goodNumText"));
 		goodWeightText = new MyLabel(e.element("goodWeightText"));
 		goodLongText = new MyLabel(e.element("goodLongText"));
 		goodWidthText = new MyLabel(e.element("goodWidthText"));
 		goodHeightText = new MyLabel(e.element("goodHeightText"));
-		
-		//其他信息
-		goodPack=new MyLabel(e.element("goodPack"));
-		goodPackText=new MyLabel(e.element("goodPackText"));
-		orderForm=new MyLabel(e.element("orderForm"));
-		orderFormText=new MyLabel(e.element("orderFormText"));
+
+		// 其他信息
+		goodPack = new MyLabel(e.element("goodPack"));
+		goodPackText = new MyLabel(e.element("goodPackText"));
+		orderForm = new MyLabel(e.element("orderForm"));
+		orderFormText = new MyLabel(e.element("orderFormText"));
 
 		// 预计时间
 		estimateTime = new MyPictureLabel(e.element("estimateTime"));
@@ -257,8 +265,6 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		senderInfoPanel = new MyWhitePanel(e.element("senderInfoPanel"));
 		receiverInfoPanel = new MyWhitePanel(e.element("receiverInfoPanel"));
 		goodInfoPanel = new MyWhitePanel(e.element("goodInfoPanel"));
-		// estimateTimePanel=new MyWhitePanel(e.element("estimateTimePanel"));
-		// costPanel=new MyWhitePanel(e.element("costPanel"));
 		transferInfoPanel = new MyWhitePanel(e.element("transferInfoPanel"));
 
 	}
@@ -274,12 +280,12 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		this.add(senderInfoPanel);
 		this.add(receiverInfoPanel);
 		this.add(goodInfoPanel);
-		// this.add(estimateTimePanel);
-		// this.add(costPanel);
 		this.add(transferInfoPanel);
 
 		this.add(orderBarCode);
 		this.add(orderBarCodeLabel);
+
+		this.add(returnToPrevious);
 
 		this.add(DatePicker);
 
@@ -350,17 +356,24 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		this.add(estimateTime);
 		this.add(cost);
 
-		// estimateTimePanel.add(estimateTime);
-		// estimateTimePanel.add(estimateTimeLabel);
-		//
-		// costPanel.add(cost);
-		// costPanel.add(costLabel);
-
 	}
 
 	@Override
 	protected void addListener() {
-		// TODO Auto-generated method stub
+		delete.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ResultMessage result=orderblservice.del(BarCode);
+				//是否是删除失败就显示 fail
+				if(result==ResultMessage.FAIL){
+					 TipsDialog notDelete=new TipsDialog("货物已经装车 无法删除");
+				}
+				else if(result==ResultMessage.SUCCESS){
+					
+				}
+				
+			}
+		});
 
 	}
 
@@ -368,7 +381,7 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		orderVO = orderblservice.getFullInfo(orderBarCodeLabel.getText());
 		sender = orderVO.sender;
 		receiver = orderVO.receiver;
-		goodMes=orderVO.goodMes;
+		goodMes = orderVO.goodMes;
 		otherMes = orderVO.otherMes;
 		transferDocs = orderVO.transferDocs;
 
@@ -387,15 +400,15 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		receiverAddressText.setText(receiver.getPhone());
 		receiverUnitText.setText(receiver.getCompany());
 
-		//读取货物信息
+		// 读取货物信息
 		goodNameText.setText(goodMes.getGoodName());
 		goodNumText.setText(String.valueOf(goodMes.getGoodNum()));
 		goodWeightText.setText(String.valueOf(goodMes.getGoodWeight()));
 		goodLongText.setText(String.valueOf(goodMes.getGoodLong()));
 		goodWidthText.setText(String.valueOf(goodMes.getGoodWidth()));
 		goodHeightText.setText(String.valueOf(goodMes.getGoodHeight()));
-		
-		//读取其他信息
+
+		// 读取其他信息
 		goodPackText.setText(otherMes.getGoodPack());
 		orderFormText.setText(otherMes.getOrderForm());
 	}

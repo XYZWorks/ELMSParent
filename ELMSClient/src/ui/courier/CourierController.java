@@ -43,9 +43,13 @@ public class CourierController extends PanelController{
 	private final String inputReceiveInfoPanelStr="inputReceiveInfoPanel";
 	
 	public CourierController(MyPanel initialPanel, Element e) {
-		super(initialPanel,e);
+		super(initialPanel,e);		
+		initialBL();
+		
 		initButtons(e.element(CompomentType.BUTTONS.name()));
 		initPanel(e);
+		
+		
 		addButtons();
 		addPanels();
 		addListeners();	
@@ -128,6 +132,7 @@ public class CourierController extends PanelController{
 	protected void initialBL() {
 		orderblservice=BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
 		strategyblService=BusinessLogicDataFactory.getFactory().getStrategyBusinessLogic();
+		
 	}
 	
 	

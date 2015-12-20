@@ -113,8 +113,9 @@ public class BusinessLogicDataFactory {
 	
 
 	public Orderblservice getOrderBussinessLogic(){
-//		return new orderbl_stub();
-		return new OrderController();
+		//System.out.println("Factory!orderbussinesslogic");
+		return new orderbl_stub();
+	//	return new OrderController();
 	}
 	
 	public StrategyblService getStrategyBussinessLogic(){

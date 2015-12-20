@@ -25,12 +25,12 @@ public class GoodMes {
 	private double goodLong;
 	private double goodWidth;
 	private double goodHeight;
-	public GoodMes(int goodNum, String goodName, int goodWeight, int goodLong,
-			int goodWidth, int goodHeight) {
+	public GoodMes(int goodNum, String goodName, double d, double goodLong,
+			double goodWidth, double goodHeight) {
 		super();
 		this.goodNum = goodNum;
 		this.goodName = goodName;
-		this.goodWeight = goodWeight;
+		this.goodWeight = d;
 		this.goodLong = goodLong;
 		this.goodWidth = goodWidth;
 		this.goodHeight = goodHeight;
