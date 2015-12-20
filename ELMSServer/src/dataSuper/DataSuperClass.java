@@ -253,6 +253,7 @@ public abstract class DataSuperClass extends UnicastRemoteObject {
 			int paralen = Integer.parseInt(SQLmap.get(tableName).get(0));
 			preState = conn.prepareStatement(SQLmap.get(tableName).get(4) +"\"" + newParas[0]  +"\"");
 			for (int i = 0; i < paralen - 1; i++) {
+				System.err.println(i + 1);
 				preState.setString(i + 1, newParas[i + 1]);
 			}
 			affectRows = preState.executeUpdate();

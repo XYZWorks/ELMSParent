@@ -59,7 +59,7 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 	}
 
 	public ResultMessage addDriverPO(DriverPO po) throws RemoteException {
-		return addToSQL(driverTable, po.getID() , po.getName() , MyDate.toString(po.getBirthDay()) , po.getIDcard() , po.getPhoneNum() , po.getIsman()?"1":"0" , String.valueOf(po.getLicenseYear()));
+		return addToSQL(driverTable, po.getID() , po.getName() , MyDate.toString(po.getBirthDay()) , po.getInstID() , po.getIDcard() , po.getPhoneNum() , po.getIsman()?"1":"0" , String.valueOf(po.getLicenseYear()));
 	}
 
 	public ResultMessage addCarPO(CarPO po) throws RemoteException {
@@ -67,7 +67,7 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 	}
 
 	public ResultMessage updateDriverPo(DriverPO po) throws RemoteException {
-		return modifyFromSQL(driverTable,  po.getID() , po.getName() , MyDate.toString(po.getBirthDay()) , po.getIDcard() , po.getPhoneNum() , po.getIsman()?"1":"0" , String.valueOf(po.getLicenseYear()));
+		return modifyFromSQL(driverTable,  po.getID() , po.getName() , MyDate.toString(po.getBirthDay()) , po.getInstID() ,po.getIDcard() , po.getPhoneNum() , po.getIsman()?"1":"0" , String.valueOf(po.getLicenseYear()));
 	}
 
 	public ResultMessage updateCarPo(CarPO po) throws RemoteException {
@@ -156,7 +156,8 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 	public CarPO checkByPlateNum(String plateNum) throws RemoteException {
 		
 		try {
-			sql = "SELECT * FROM　" + carTable + " WHERE `plateNum` = " + "\"" + plateNum + "\""; 
+			sql = "SELECT * FROM " + carTable + " WHERE `plateNum` = " + "\"" + plateNum + "\""; 
+			System.out.println(sql);
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {

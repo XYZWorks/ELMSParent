@@ -1,12 +1,10 @@
 package test.java;
 
-import org.junit.Test;
+import junit.framework.TestCase;
+
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-import junit.framework.JUnit4TestAdapter;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 import test.java.DTManage.DTManageControllerTest;
 import test.java.account.AccountControllerTest;
 import test.java.approval.ApprovalControllerTest;
