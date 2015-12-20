@@ -134,10 +134,7 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 				
 	}
 	public ResultMessage updateStore(City loc, TransferWay way,String ID , DocType type) {
-		System.out.println(type.name());
 		DocVO tmp = getByID(ID, type);
-		System.out.println(tmp==null);
-		System.out.println(tmp.type.name());
 		return store.updateStore(loc,way,tmp);
 		
 	}

@@ -49,8 +49,10 @@ public class OutStoreTablePanel extends MyTablePanel {
 
 	}
 	
-
-	private void setDataValue() {
+	/**
+	 * 重新得到数据层的数据
+	 */
+	public void setDataValue() {
 		vos = bl.showOutStoreDocs();
 		
 		if(vos==null){
@@ -78,7 +80,12 @@ public class OutStoreTablePanel extends MyTablePanel {
 
 	@Override
 	protected void initTable() {
-		table = new MyTable(columnNames, data);
+		table = new MyTable(columnNames, data){
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
 //		table.setBounds(0, 0, 500,700);
 //		setRowAndColumnLen(rowLen, columnLen);
 		table.setFont(GraphicsUtils.getFont(null));
@@ -108,5 +115,27 @@ public class OutStoreTablePanel extends MyTablePanel {
 		}
 		
 	}
-
+	
+	/**
+	 * 根据传入的vos重设table的值
+	 * @param vos
+	 */
+	public void resetValue(ArrayList<OutStoreDocVO> vos) {
+		if(vos==null){
+			return;
+		}
+		data = new String[vos.size()][COLUMN_NUM];
+		OutStoreDocVO vo;
+		for (int i = 0; i < vos.size(); i++) {
+			vo = vos.get(i);
+			data[i][0] = DocType.getName(vo.type);
+			data[i][1] = vo.ID;
+			data[i][2] = MyDate.toString(vo.date);
+			data[i][3] = vo.loc.getName();
+			data[i][4] = vo.transferDoc;
+			data[i][5] = TransferWay.getTransferWay(vo.shipWay.name());
+			data[i][6] = UserfulMethod.orderArrayToString(vo.orders);
+			
+		}
+	}
 }

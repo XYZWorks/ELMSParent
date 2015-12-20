@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
+import blservice.strategyblservice.StrategyblService;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import vo.strategy.SalaryWayVO;
@@ -20,10 +21,11 @@ public class SalaryStrategyMesTablePanel extends MyTablePanel{
 	private static final String[] columnName = { "职员类型" , "计费策略" , "基础工资" ,"提成" };
  	
 	private ArrayList<SalaryWayVO> vos;
+	private StrategyblService bl;
 	
-	public SalaryStrategyMesTablePanel(Element config,ArrayList<SalaryWayVO> vos) {
+	public SalaryStrategyMesTablePanel(Element config,StrategyblService bl) {
 		super(config);
-		this.vos = vos;
+		this.bl = bl;
 		initialTitleAndColumn(config);
 		initTable();
 		initScrollerPane();
@@ -35,7 +37,7 @@ public class SalaryStrategyMesTablePanel extends MyTablePanel{
 		
 		columnNames = columnName;
 		
-		
+		vos = bl.getsalary();
 		
 		if(vos != null){
 			
@@ -65,8 +67,23 @@ public class SalaryStrategyMesTablePanel extends MyTablePanel{
 
 	@Override
 	public void updateTableMes() {
-		
-		
+		vos = bl.getsalary();
+if(vos != null){
+			
+			data = new String[vos.size()][COLUMN_NUM];
+			SalaryWayVO vo;
+			for (int i = 0; i < vos.size(); i++) {
+				vo = vos.get(i);
+				data[i][0] = vo.type.name();
+				data[i][1] =  vo.way.name();
+				data[i][2] = String.valueOf(vo.basicSalary);
+				data[i][3] = String.valueOf(vo.moreMoney);
+			}
+			
+			
+			
+		}
+table.getModel().setDataVector(data, columnName);
 	}
 
 }

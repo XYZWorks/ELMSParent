@@ -54,7 +54,7 @@ public class CostMesTable extends MyTablePanel {
 			columnNames = titlesForFrieght;
 			
 			
-			if(vos != null || vos.size() != 0){
+			if(vos != null && vos.size() != 0){
 				data = new String[vos.size()][columnNames.length];
 				FreightVO vo;
 				for (int i = 0; i < vos.size(); i++) {
@@ -73,7 +73,7 @@ public class CostMesTable extends MyTablePanel {
 		}else if(type == CostType.RENT){
 			columnNames = titlesForRent;
 			
-			if(vos != null || vos.size() != 0){
+			if(vos != null && vos.size() != 0){
 				data = new String[vos.size()][columnNames.length];
 				RentVO vo;
 				for (int i = 0; i < vos.size(); i++) {
@@ -92,7 +92,7 @@ public class CostMesTable extends MyTablePanel {
 		}else if(type == CostType.SALARY){
 			columnNames = titlesForSalary;
 			
-			if(vos != null || vos.size() != 0){
+			if(vos != null && vos.size() != 0){
 				data = new String[vos.size()][columnNames.length];
 				SalaryVO vo;
 				for (int i = 0; i < vos.size(); i++) {

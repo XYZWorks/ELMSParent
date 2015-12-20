@@ -66,7 +66,7 @@ public interface FinanceDataService extends DataserviceParent{
 	 * 查看cost信息
 	 * @return
 	 */
-	public ArrayList<CostPO> show(CostType type) throws RemoteException;
+	public ArrayList<? extends CostPO> show(CostType type) throws RemoteException;
 	/**
 	 * 增加cost信息
 	 * @param po

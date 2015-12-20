@@ -8,7 +8,7 @@ import util.MyDate;
  * @author ymc
  *
  */
-public abstract class CostVO {
+public class CostVO {
 	
 	public String ID;
 	/**

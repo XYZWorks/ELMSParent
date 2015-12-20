@@ -1,9 +1,10 @@
 package ui.storemanager.storeshow;
 
+import java.util.ArrayList;
+
 import org.dom4j.Element;
 
 import bl.storebl.StoreController;
-import ui.storemanager.StoreManagerController;
 import ui.storemanager.instore.InStoreTablePanel;
 import ui.storemanager.outstore.OutStoreTablePanel;
 import ui.tools.MyDatePicker;
@@ -15,12 +16,16 @@ import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
 import util.MyDate;
+import vo.store.InStoreDocVO;
+import vo.store.OutStoreDocVO;
+import vo.store.StoreMessageVO;
 
 /** 
  * @author ymc 
  * @version 创建时间：2015年12月12日 上午10:27:55 
  *
  */
+@SuppressWarnings("serial")
 public class StoreSingleShowPanel extends MyPanelWithScroller {
 	
 	protected StoreController bl;
@@ -54,6 +59,11 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 	protected OrderInfoTable orderTable;
 	protected InStoreTablePanel inTable;
 	protected OutStoreTablePanel outTable; 
+	
+	protected StoreMessageVO target;
+	protected ArrayList<InStoreDocVO> ins;
+	protected ArrayList<OutStoreDocVO> outs;
+	
 	public StoreSingleShowPanel(Element config, StoreController bl, PanelController controller) {
 		super(config);
 		this.bl = bl;
@@ -159,7 +169,18 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 	public void getInfo(String cen, String sto) {
 		center.setText(cen);
 		storeNum.setText(sto);
-		
+		for (StoreMessageVO vo : bl.show()) {
+			if (cen.equals(vo.location.getName()) && sto.equals(vo.storeLoc.getStoreLocation()))
+				target = vo;
+		}
+		if(target!=null){
+			nowNum.setText("   "+String.valueOf(target.number));
+			totalNum.setText("   "+String.valueOf(target.totalNum));
+			ins = target.inStoreDocs;
+			outs = target.outStoreDocs;
+			inTable.resetValue(ins);
+			outTable.resetValue(outs);
+		}
 	}
 
 }

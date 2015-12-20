@@ -77,18 +77,18 @@
 						normal="GeneralManager//InstManage" enter="GeneralManager//InstManage-enter"
 						clicked="GeneralManager//InstManage-clicked" />
 				</BUTTONS>
-			
+
 			</mainWindow>
 
 			<ApprovalPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
 					<approveMany x="590" y="560" width="89" height="40"
 						text="批量审批" type="cancel" />
-					<approveOne x="700" y="560" width="89" height="40"
-						text="单个审批" type="cancel" />
+					<approveOne x="700" y="560" width="89" height="40" text="单个审批"
+						type="cancel" />
 					<checkForMoreInfo x="700" y="53" width="89"
 						height="40" text="更多信息" type="confirm" />
-		
+
 				</BUTTONS>
 				<LABELS>
 					<choose x="45" y="45" width="115" height="40" text="选择单据类型"
@@ -121,21 +121,21 @@
 
 					<packageCost x="450" y="303" width="115" height="40"
 						text="包装费用" type="rectangle" />
-					<paper x="492" y="353" width="142" height="40" text="纸箱"/>
-					<wood x="492" y="403" width="142" height="40" text="木箱"  />
-					<plastic x="492" y="453" width="142" height="40" text="快递袋"/>
+					<paper x="492" y="353" width="142" height="40" text="纸箱" />
+					<wood x="492" y="403" width="142" height="40" text="木箱" />
+					<plastic x="492" y="453" width="142" height="40" text="快递袋" />
 
 					<ratios x="450" y="73" width="115" height="40" text="快递的价格比"
 						type="rectangle" />
-					<fast x="492" y="123" width="100" height="20" text="次晨特快"/>
-					<normal x="492" y="173" width="100" height="20" text="标准快递"/>
-					<ecnomic x="492" y="223" width="100" height="20" text="经济快递"/>
+					<fast x="492" y="123" width="100" height="20" text="次晨特快" />
+					<normal x="492" y="173" width="100" height="20" text="标准快递" />
+					<ecnomic x="492" y="223" width="100" height="20" text="经济快递" />
 
 				</LABELS>
 				<TEXTFIELDS>
-					<fast x="648" y="118" width="142" height="40"  />
+					<fast x="648" y="118" width="142" height="40" />
 					<normal x="648" y="168" width="142" height="40" />
-					<ecnomic x="648" y="218" width="142" height="40"  />
+					<ecnomic x="648" y="218" width="142" height="40" />
 
 					<instance x="245" y="168" width="142" height="40" />
 					<planeCost x="245" y="353" width="142" height="40" />
@@ -160,10 +160,9 @@
 
 			<StatisticPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
-					<detail x="700" y="53" width="89"
-						height="40" type="confirm" text="更多信息" />
-					<back x="0" y="0" width="53" height="53" type="back"
-						text="返回" />
+					<detail x="700" y="53" width="89" height="40" type="confirm"
+						text="更多信息" />
+					<back x="0" y="0" width="53" height="53" type="back" text="返回" />
 				</BUTTONS>
 				<stateFormPanel x="53" y="110" width="742" height="427"
 					column="序号 开始时间 结束时间 付款单总数 收款单总数" />
@@ -255,12 +254,14 @@
 						<TypeL x="200" y="310" width="115" height="40" text="职员类型" type="rectangle" />
 					</LABELS>
 					<TEXTFIELDS>
+
 						<InstID x="345" y="380" width="276" height="40" type="rectangle" />
 						<ID x="345" y="170" width="276" height="40" type="rectangle" />
 						<Name x="345" y="100" width="276" height="40" type="rectangle" />
 						<Phone x="345" y="240" width="276" height="40" type="rectangle" />
 					</TEXTFIELDS>	
 						<type x="345" y="310" width="276" height="40" strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理员 司机" />	
+
 				</addPeople>
 
 			</PeopleManagePanel>
@@ -536,10 +537,6 @@
 			</BankAccountManagePanel>
 			<CostManagePanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
-					<confirm x="560" y="560" width="89" height="40" text="确认"
-						type="confirm" />
-					<cancel x="707" y="560" width="89" height="40" text="取消"
-						type="cancel" />
 					<add x="560" y="560" width="89" height="40" text="增加" type="confirm" />
 					<delete x="707" y="560" width="89" height="40" text="删除"
 						type="cancel" />
@@ -549,17 +546,16 @@
 				<LABELS>
 					<title x="707" y="560" width="89" height="40" text="成本信息管理" />
 				</LABELS>
-				<costType x="560" y="560" width="89" height="40" text="增加"
-					type="confirm" />
-				<table x="560" y="560" width="89" height="40" />
+				<costType x="345" y="201" width="276" height="40" strings="薪水 运费 租金" />
+
+				<table x="50" y="50" width="250" height="300" />
 				<addCostPanel x="232" y="54" width="848" height="637">
 					<BUTTONS>
 						<confirm x="560" y="560" width="89" height="40" text="确认"
 							type="confirm" />
 						<cancel x="707" y="560" width="89" height="40" text="取消"
 							type="cancel" />
-						<back x="707" y="560" width="89" height="40" text="取消"
-							type="cancel" />
+						<back x="707" y="560" width="89" height="40" text="取消" type="cancel" />
 					</BUTTONS>
 					<TEXTFIELDS>
 						<money x="345" y="271" width="276" height="40" />
@@ -568,11 +564,11 @@
 					<LABELS>
 						<title x="48" y="36" width="200" height="28" text="增加成本信息"
 							fontName="华文细黑" size="26" />
-						<id x="200" y="341" width="115" height="40" text="ID"
-							type="rectangle" />
+						<id x="200" y="341" width="115" height="40" text="ID" type="rectangle" />
 						<startDate x="48" y="36" width="200" height="28" text="起始日期"
 							fontName="华文细黑" size="26" />
-						<endDate x="200" y="271" width="115" height="40" text="结束日期" type="rectangle" />
+						<endDate x="200" y="271" width="115" height="40" text="结束日期"
+							type="rectangle" />
 						<money x="200" y="201" width="115" height="40" text="金额"
 							type="rectangle" />
 						<costType x="48" y="36" width="200" height="28" text="成本类型"
@@ -580,12 +576,12 @@
 						<staffType x="200" y="271" width="115" height="40" text="员工类型"
 							type="rectangle" />
 					</LABELS>
-						<startDate x="345" y="201" width="276" height="40" />
-						<endDate x="345" y="201" width="276" height="40" />
-						<costType x="345" y="201" width="276" height="40" strings = "薪水 运费 租金" />
-						<staffType x="345" y="201" width="276" height="40" strings = ""/>	
+					<startDate x="345" y="201" width="276" height="40" />
+					<endDate x="345" y="201" width="276" height="40" />
+					<staffType x="345" y="201" width="276" height="40"
+						strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理人员 司机" />
+					<costType x="345" y="201" width="276" height="40" strings="薪水 运费 租金" />
 				</addCostPanel>
-
 
 
 			</CostManagePanel>
