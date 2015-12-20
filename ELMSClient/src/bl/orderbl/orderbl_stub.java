@@ -137,7 +137,8 @@ public class orderbl_stub implements Orderblservice{
 
 	@Override
 	public ArrayList<OrderVO> getOrderVO(MyDate date) {
-		// TODO Auto-generated method stub
+//		ArrayList<OrderVO> order =new ArrayList<OrderVO>();
+//		
 		return null;
 	}
 

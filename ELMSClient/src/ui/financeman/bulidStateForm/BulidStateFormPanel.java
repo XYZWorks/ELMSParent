@@ -157,12 +157,13 @@ public class BulidStateFormPanel extends MyPanel{
 
 	@Override
 	protected void addCompoment() {
+		add(addDepositPanel);
+		add(addOneDeposit);
+		add(deposits);add(pays);
 		add(start);add(startL);add(end);add(endL);add(confirm);add(cancel);add(addCostInComeOrState);
 		add(title);
 		//以下为经营状况表组件
-		add(deposits);add(pays);
-		add(addDepositPanel);
-		add(addOneDeposit);add(DepositDate);add(moneyT);add(depositMoney);
+		add(DepositDate);add(moneyT);add(depositMoney);
 		add(addPayPanel);
 		add(addOnePay);add(PayDate);add(payMoney);
 		add(payMoneyT);add(payType);add(payTypeT);

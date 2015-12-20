@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+package data.storedata;
+>>>>>>> origin/master
 
 package data.storedata;
 
@@ -26,9 +31,7 @@ import ds.storedataservice.StoreDataService;
  */
 public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	private static final String instoreDocTable = "InStoreDoc";

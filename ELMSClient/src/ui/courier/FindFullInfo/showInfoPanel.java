@@ -3,16 +3,25 @@ package ui.courier.FindFullInfo;
 import org.dom4j.Element;
 
 import blservice.orderblservice.Orderblservice;
+import ui.courier.inputInfoReceive.inputReceiveTablePanel;
 import ui.tools.MyPanel;
 import ui.tools.MyPanelWithScroller;
+import ui.util.CompomentType;
 
 public class showInfoPanel extends MyPanelWithScroller{
-
-	
+	private Orderblservice bl;
+	private showTable showTable;
 
 	public showInfoPanel(Element config,Orderblservice orderblservice) {
 		super(config);
-		// TODO Auto-generated constructor stub
+		this.bl=bl;
+		initButtons(config.element(CompomentType.BUTTONS.name()));
+		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
+		initOtherCompoment(config);
+		initLabels(config.element(CompomentType.LABELS.name()));
+		addCompoment();
+		addListener();
+		setVisible(true);
 	}
 
 	@Override
@@ -41,13 +50,13 @@ public class showInfoPanel extends MyPanelWithScroller{
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		// TODO Auto-generated method stub
+		showTable=new showTable(e.element("showTable"), bl);
 		
 	}
 
 	@Override
 	protected void addCompoment() {
-		// TODO Auto-generated method stub
+		this.add(showTable);
 		
 	}
 

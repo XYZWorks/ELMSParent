@@ -1,10 +1,5 @@
 package ui.courier;
 
-import java.awt.Component;
-import java.awt.Dimension;
-
-import javax.swing.JScrollPane;
-
 import org.dom4j.Element;
 
 import bl.BusinessLogicDataFactory;
@@ -15,7 +10,6 @@ import ui.courier.FindFullInfo.FindFullOrderInfoPanel;
 import ui.courier.FindFullInfo.showInfoPanel;
 import ui.courier.inputInfoReceive.InputReceiveInfoPanel;
 import ui.tools.MyPanel;
-import ui.tools.MyPictureButton;
 import ui.tools.MySideBarButton;
 import ui.util.ButtonState;
 import ui.util.CompomentType;
@@ -34,7 +28,7 @@ public class CourierController extends PanelController{
 	//初始化四个操作界面
 	private CourierMainPanel courierMainPanel;
 	private AddOrderPanel addOrderPanel;
-	private FindFullOrderInfoPanel findFullInfoPanel;
+	//private FindFullOrderInfoPanel findFullInfoPanel;
 	private InputReceiveInfoPanel inputReceiveInfoPanel;
 	private showInfoPanel showInfoPanel;
 	

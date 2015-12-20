@@ -4,14 +4,10 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import bl.orderbl.Order;
 import blservice.orderblservice.Orderblservice;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
-import util.MyDate;
 import vo.order.PreReceiveVO;
-import vo.personnel.InstVO;
-import vo.transport.ArriveYYDocVO;
 
 /**
 *
@@ -87,6 +83,7 @@ public class inputReceiveTablePanel extends MyTablePanel{
 //		
 	}
 
+	
 	@Override
 	public void updateTableMes() {
 		pre = bl.getPreReceive();

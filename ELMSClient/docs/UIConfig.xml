@@ -588,15 +588,15 @@
 				height="637">
 				<BUTTONS>
 					<jump x="400" y="560" width="200" height="40" text="转到成本收益表"
-						 type="cancel" />
+						 type="rectangle" />
 					<confirm x="560" y="560" width="89" height="40" text="确认"
 						type="confirm" />
 					<cancel x="707" y="560" width="89" height="40" text="取消"
 						type="cancel" />
-					<addOneDeposit x="560" y="100" width="89" height="40"
-						text="" type="confirm" />
-					<addOnePay x="707" y="100" width="89" height="40" text=""
-						type="cancel" />
+					<addOneDeposit x="707" y="280" width="40" height="40" 
+						type="add" />
+					<addOnePay x="707" y="480" width="40" height="40" 
+						type="add" />
 				</BUTTONS>
 				<TEXTFIELDS>
 					<moneyT x="345" y="271" width="276" height="40" />
@@ -606,30 +606,33 @@
 					<outComeT x="345" y="271" width="276" height="40" />
 				</TEXTFIELDS>
 				<LABELS>
+					<deposits x="595" y="53" width="200" height="40" text="付款单数量："
+						type="rectangle" />
+					<pays x="595" y="100" width="200" height="40" text="成本表数量："
+						type="rectangle" />
+						
 					<title x="48" y="36" width="200" height="28" text="经营状况表"
 						fontName="华文细黑" size="26" />
-					<start x="48" y="74" width="200" height="28" text="起始日期"
+						
+					<start x="53" y="74" width="200" height="28" text="起始日期:"
 						 />
-					<end x="200" y="74" width="115" height="40" text="结束日期" 
+					<end x="283" y="74" width="200" height="28" text="结束日期:" 
 						 />
-					<depositMoney x="200" y="341" width="115" height="40"
-						text="金额" type="rectangle" />
-					<payMoney x="200" y="201" width="115" height="40" text="金额"
+						 
+					<depositMoney x="53" y="150" width="115" height="40"
+						text="利润信息" type="rectangle" />
+					<payMoney x="53" y="350" width="115" height="40" text="收款信息"
 						type="rectangle" />
-					<payType x="48" y="36" width="200" height="28" text="成本类型"
+					<payType x="53" y="160" width="200" height="28" text="成本类型"
 						/>
-					<deposits x="200" y="271" width="115" height="40" text="付款单数量"
+					<income x="53" y="240" width="115" height="40" text="收入"
 						type="rectangle" />
-					<pays x="200" y="341" width="115" height="40" text="成本表数量"
-						type="rectangle" />
-					<income x="200" y="201" width="115" height="40" text="收入"
-						type="rectangle" />
-					<outCome x="48" y="36" width="200" height="28" text="支出"
+					<outCome x="53" y="200" width="200" height="28" text="支出"
 						 />
 				</LABELS>
 				<WHITEPANELS>
-					<Deposit x="53" y="150" width="742" height="200" />
-					<Pay x="53" y="370" width="742" height="200" />
+					<Deposit x="53" y="150" width="742" height="180" />
+					<Pay x="53" y="350" width="742" height="180" />
 				</WHITEPANELS>
 				<start x="53" y="100" width="200" height="40" />
 				<end x="283" y="100" width="200" height="40" />
