@@ -28,7 +28,7 @@
 				enter="element//min-enter" clicked="element//min-clicked" />
 		</BUTTONS>
 		<LABELS>
-		
+
 		</LABELS>
 	</commonFrame>
 
@@ -346,8 +346,9 @@
 					<company x="345" y="341" width="276" height="40" />
 				</TEXTFIELDS>
 				<LABELS>
-					<title x="48" y="36" width="200" height="28" text="交易审核" fontName="华文细黑" size="26"/>
-					
+					<title x="48" y="36" width="200" height="28" text="交易审核"
+						fontName="华文细黑" size="26" />
+
 					<money x="200" y="201" width="115" height="40" text="收款金额"
 						type="rectangle" />
 					<company x="200" y="341" width="115" height="40" text="收款方"
@@ -368,16 +369,19 @@
 						type="confirm" />
 					<cancel x="707" y="560" width="89" height="40" text="取消"
 						type="cancel" />
-					<add x="720" y="160" width="40" height="40" 
-						type="add" />
+					<add x="720" y="160" width="40" height="40" type="add" />
 				</BUTTONS>
 				<LABELS>
-					<title x="48" y="36" width="200" height="28" text="期初建账" fontName="华文细黑" size="26"/>
-					
-					<newInst x="725" y="190" width="115" height="40" text="增加" fontName="华文细黑" size="14"/>
-					<user x="48" y="100" width="115" height="40" text="经手人" type="rectangle"/>
-					<time x="410" y="100" width="115" height="40" text="建账日期" type="rectangle"/>
-					<message x="48" y="175" width="115" height="28" text="账单信息" fontName="华文细黑" size="26"/>
+					<title x="48" y="36" width="200" height="28" text="期初建账"
+						fontName="华文细黑" size="26" />
+
+					<newInst x="725" y="190" width="115" height="40" text="增加"
+						fontName="华文细黑" size="14" />
+					<user x="48" y="100" width="115" height="40" text="经手人" type="rectangle" />
+					<time x="410" y="100" width="115" height="40" text="建账日期"
+						type="rectangle" />
+					<message x="48" y="175" width="115" height="28" text="账单信息"
+						fontName="华文细黑" size="26" />
 				</LABELS>
 				<TEXTFIELDS>
 					<name x="200" y="100" width="160" height="40" />
@@ -388,24 +392,27 @@
 				</datePicker>
 				<table x="48" y="280" width="727" height="250"
 					column="机构ID 所在城市 类型 人员数目 车辆数目" />
-			
+
 				<addInst x="232" y="54" width="848" height="637">
 					<BUTTONS>
-					<confirm x="560" y="560" width="89" height="40" text="确认"
-						type="confirm" />
+						<confirm x="560" y="560" width="89" height="40" text="确认"
+							type="confirm" />
 						<cancel x="707" y="560" width="89" height="40" text="取消"
-						type="cancel" />
-						<back x="707" y="560" width="115" height="40" text="返回"
-							type="back" />
+							type="cancel" />
+						<back x="707" y="560" width="115" height="40" text="返回" type="back" />
 					</BUTTONS>
 					<TEXTFIELDS>
 						<instid x="345" y="201" width="276" height="40" />
 					</TEXTFIELDS>
 					<LABELS>
-						<title x="48" y="36" width="200" height="28" text="增加机构" fontName="华文细黑" size="26"/>
-						<instid x="200" y="201" width="115" height="40" text="机构ID" type="rectangle"/>
-						<type x="200" y="271" width="115" height="40" text="机构类型" type="rectangle"/>
-						<location x="200" y="341" width="115" height="40" text="城市" type="rectangle"/>
+						<title x="48" y="36" width="200" height="28" text="增加机构"
+							fontName="华文细黑" size="26" />
+						<instid x="200" y="201" width="115" height="40" text="机构ID"
+							type="rectangle" />
+						<type x="200" y="271" width="115" height="40" text="机构类型"
+							type="rectangle" />
+						<location x="200" y="341" width="115" height="40" text="城市"
+							type="rectangle" />
 					</LABELS>
 					<location x="345" y="341" width="276" height="40" strings="南京 北京 上海 广州" />
 					<type x="345" y="271" width="276" height="40" strings="中转中心 营业厅 总部" />
@@ -414,11 +421,10 @@
 				<addPeople x="232" y="54" width="848" height="637">
 					<BUTTONS>
 						<confirm x="560" y="560" width="89" height="40" text="确认"
-						type="confirm" />
+							type="confirm" />
 						<cancel x="707" y="560" width="89" height="40" text="取消"
-						type="cancel" />
-						<add x="715" y="210" width="40" height="40" text=""
-						type="add" />
+							type="cancel" />
+						<add x="715" y="210" width="40" height="40" text="" type="add" />
 
 					</BUTTONS>
 					<TEXTFIELDS>
@@ -427,28 +433,32 @@
 						<Phone x="188" y="150" width="200" height="40" />
 					</TEXTFIELDS>
 					<LABELS>
-						<title x="48" y="36" width="200" height="28" text="增加人员" fontName="华文细黑" size="26"/>
-						<message x="48" y="220" width="200" height="28" text="人员信息" fontName="华文细黑" size="26"/>
-						<addCar x="707" y="250" width="100" height="28" text="增加车辆" fontName="华文细黑" size="14"/>
-						
-						<Type x="435" y="150" width="200" height="40" text="职员类型" type="rectangle"/>
-						<ID x="435" y="90" width="200" height="40" text="ID" type="rectangle"/>
-						<Name x="48" y="90" width="200" height="40" text="姓名" type="rectangle"/>
-						<Phone x="48" y="150" width="200" height="40" text="手机号" type="rectangle"/>
+						<title x="48" y="36" width="200" height="28" text="增加人员"
+							fontName="华文细黑" size="26" />
+						<message x="48" y="220" width="200" height="28" text="人员信息"
+							fontName="华文细黑" size="26" />
+						<addCar x="707" y="250" width="100" height="28" text="增加车辆"
+							fontName="华文细黑" size="14" />
+
+						<Type x="435" y="150" width="200" height="40" text="职员类型"
+							type="rectangle" />
+						<ID x="435" y="90" width="200" height="40" text="ID" type="rectangle" />
+						<Name x="48" y="90" width="200" height="40" text="姓名" type="rectangle" />
+						<Phone x="48" y="150" width="200" height="40" text="手机号"
+							type="rectangle" />
 					</LABELS>
-					<Type x="575" y="150" width="200" height="40" 
+					<Type x="575" y="150" width="200" height="40"
 						strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理人员 司机" />
-					<table x="48" y="280" width="727" height="250" 
+					<table x="48" y="280" width="727" height="250"
 						column="机构ID 职员类型 ID 姓名 手机号" />
 				</addPeople>
-					<addCar x="232" y="54" width="848" height="637">
+				<addCar x="232" y="54" width="848" height="637">
 					<BUTTONS>
 						<confirm x="560" y="560" width="89" height="40" text="确认"
-						type="confirm" />
+							type="confirm" />
 						<cancel x="707" y="560" width="89" height="40" text="取消"
-						type="cancel" />
-						<back x="400" y="560" width="89" height="40" text="完成"
-						type="cancel" />
+							type="cancel" />
+						<back x="400" y="560" width="89" height="40" text="完成" type="cancel" />
 					</BUTTONS>
 					<TEXTFIELDS>
 						<ID x="188" y="90" width="200" height="40" />
@@ -456,54 +466,58 @@
 						<useYear x="188" y="150" width="200" height="40" />
 					</TEXTFIELDS>
 					<LABELS>
-						<title x="48" y="36" width="200" height="28" text="增加车辆" fontName="华文细黑" size="26"/>
-						<message x="48" y="220" width="200" height="28" text="车辆信息" fontName="华文细黑" size="26"/>
-						
-						<ID x="48" y="90" width="200" height="40" text="车辆ID" type = "rectangle"/>
-						<plateNum x="435" y="90" width="200" height="40" text="车牌号" type = "rectangle"/>
-						<useYear x="48" y="150" width="200" height="40" text="使用年份" type = "rectangle"/>
+						<title x="48" y="36" width="200" height="28" text="增加车辆"
+							fontName="华文细黑" size="26" />
+						<message x="48" y="220" width="200" height="28" text="车辆信息"
+							fontName="华文细黑" size="26" />
+
+						<ID x="48" y="90" width="200" height="40" text="车辆ID" type="rectangle" />
+						<plateNum x="435" y="90" width="200" height="40" text="车牌号"
+							type="rectangle" />
+						<useYear x="48" y="150" width="200" height="40" text="使用年份"
+							type="rectangle" />
 					</LABELS>
-					
+
 					<table x="48" y="280" width="727" height="250" column="车辆ID 车牌号 使用年份" />
 				</addCar>
 			</BulidBillPanel>
 			<BankAccountManagePanel x="232" y="54" width="848"
 				height="637">
-				
-				<BUTTONS>			
+
+				<BUTTONS>
 					<confirm x="560" y="560" width="89" height="40" text="确认"
 						type="confirm" />
 					<cancel x="707" y="560" width="89" height="40" text="取消"
 						type="cancel" />
-					<add x="642" y="65" width="40" height="40" 
-						 type="add" />
-					<delete x="758" y="65" width="40" height="40" 
-						type="delete" />
-					<modify x="700" y="65" width="40" height="40" 
-						type="modify" />
+					<add x="642" y="65" width="40" height="40" type="add" />
+					<delete x="758" y="65" width="40" height="40" type="delete" />
+					<modify x="700" y="65" width="40" height="40" type="modify" />
 				</BUTTONS>
 				<LABELS>
-					<title x="48" y="36" width="200" height="28" text="银行账户管理" fontName="华文细黑" size="26"/>
-					
-					<deleteL x="763" y="111" width="50" height="28" text="删除" fontName="华文细黑" size="16"/>
-					<modifyL x="703" y="111" width="50" height="28" text="修改" fontName="华文细黑" size="16"/>
-					<addL x="647" y="111" width="50" height="28" text="增加" fontName="华文细黑" size="16"/>
-					
-					<money x="200" y="271" width="115" height="40" type = "rectangle"/>
-					<password x="200" y="341" width="115" height="40" type = "rectangle" />
+					<title x="48" y="36" width="200" height="28" text="银行账户管理"
+						fontName="华文细黑" size="26" />
+
+					<deleteL x="763" y="111" width="50" height="28" text="删除"
+						fontName="华文细黑" size="16" />
+					<modifyL x="703" y="111" width="50" height="28" text="修改"
+						fontName="华文细黑" size="16" />
+					<addL x="647" y="111" width="50" height="28" text="增加"
+						fontName="华文细黑" size="16" />
+
+					<money x="200" y="271" width="115" height="40" type="rectangle" />
+					<password x="200" y="341" width="115" height="40" type="rectangle" />
 				</LABELS>
-				<table x="48" y="150" width="750" height="380" 
-				column="账户ID 密码 存款" />
+				<table x="48" y="150" width="750" height="380" column="账户ID 密码 存款" />
 				<addPanel x="232" y="54" width="848" height="637">
 					<BUTTONS>
 						<confirm x="560" y="560" width="89" height="40" text="确认"
-						type="confirm" />
+							type="confirm" />
 						<cancel x="707" y="560" width="89" height="40" text="取消"
-						type="cancel" />
+							type="cancel" />
 					</BUTTONS>
 					<LABELS>
 						<id x="200" y="201" width="115" height="40" text="ID" type="rectangle" />
-						<money x="200" y="271" width="115" height="40"  text="金额"
+						<money x="200" y="271" width="115" height="40" text="金额"
 							type="rectangle" />
 						<password x="200" y="341" width="115" height="40" text="密码"
 							type="rectangle" />
@@ -516,6 +530,59 @@
 				</addPanel>
 			</BankAccountManagePanel>
 			<CostManagePanel x="232" y="54" width="848" height="637">
+				<BUTTONS>
+					<confirm x="560" y="560" width="89" height="40" text="确认"
+						type="confirm" />
+					<cancel x="707" y="560" width="89" height="40" text="取消"
+						type="cancel" />
+					<add x="560" y="560" width="89" height="40" text="增加" type="confirm" />
+					<delete x="707" y="560" width="89" height="40" text="删除"
+						type="cancel" />
+					<modify x="400" y="560" width="200" height="40" text="修改"
+						type="cancel" />
+				</BUTTONS>
+				<LABELS>
+					<title x="707" y="560" width="89" height="40" text="成本信息管理" />
+				</LABELS>
+				<costType x="560" y="560" width="89" height="40" text="增加"
+					type="confirm" />
+				<table x="560" y="560" width="89" height="40" />
+				<addCostPanel x="232" y="54" width="848" height="637">
+					<BUTTONS>
+						<confirm x="560" y="560" width="89" height="40" text="确认"
+							type="confirm" />
+						<cancel x="707" y="560" width="89" height="40" text="取消"
+							type="cancel" />
+						<back x="707" y="560" width="89" height="40" text="取消"
+							type="cancel" />
+					</BUTTONS>
+					<TEXTFIELDS>
+						<money x="345" y="271" width="276" height="40" />
+						<id x="345" y="271" width="276" height="40" />
+					</TEXTFIELDS>
+					<LABELS>
+						<title x="48" y="36" width="200" height="28" text="增加成本信息"
+							fontName="华文细黑" size="26" />
+						<id x="200" y="341" width="115" height="40" text="ID"
+							type="rectangle" />
+						<startDate x="48" y="36" width="200" height="28" text="起始日期"
+							fontName="华文细黑" size="26" />
+						<endDate x="200" y="271" width="115" height="40" text="结束日期" type="rectangle" />
+						<money x="200" y="201" width="115" height="40" text="金额"
+							type="rectangle" />
+						<costType x="48" y="36" width="200" height="28" text="成本类型"
+							fontName="华文细黑" size="26" />
+						<staffType x="200" y="271" width="115" height="40" text="员工类型"
+							type="rectangle" />
+					</LABELS>
+						<startDate x="345" y="201" width="276" height="40" />
+						<endDate x="345" y="201" width="276" height="40" />
+						<costType x="345" y="201" width="276" height="40" strings = "薪水 运费 租金" />
+						<staffType x="345" y="201" width="276" height="40" strings = ""/>	
+				</addCostPanel>
+
+
+
 			</CostManagePanel>
 			<BulidStateFromPanel x="232" y="54" width="1080"
 				height="637">
@@ -526,8 +593,8 @@
 						type="confirm" />
 					<cancel x="707" y="560" width="89" height="40" text="取消"
 						type="cancel" />
-					<addOneDeposit x="560" y="560" width="89" height="40" text=""
-						type="confirm" />
+					<addOneDeposit x="560" y="560" width="89" height="40"
+						text="" type="confirm" />
 					<addOnePay x="707" y="560" width="89" height="40" text=""
 						type="cancel" />
 				</BUTTONS>
@@ -539,16 +606,25 @@
 					<outComeT x="345" y="271" width="276" height="40" />
 				</TEXTFIELDS>
 				<LABELS>
-					<title x="48" y="36" width="200" height="28" text="" fontName="华文细黑" size="26"/>
-					<start x="48" y="36" width="200" height="28" text="起始日期" fontName="华文细黑" size="26"/>
+					<title x="48" y="36" width="200" height="28" text=""
+						fontName="华文细黑" size="26" />
+					<start x="48" y="36" width="200" height="28" text="起始日期"
+						fontName="华文细黑" size="26" />
 					<end x="200" y="271" width="115" height="40" text="结束日期" type="rectangle" />
-					<depositMoney x="200" y="341" width="115" height="40" text="金额" type="rectangle" />
-					<payMoney x="200" y="201" width="115" height="40" text="金额" type="rectangle" />
-					<payType x="48" y="36" width="200" height="28" text="成本类型" fontName="华文细黑" size="26"/>
-					<deposits x="200" y="271" width="115" height="40" text="付款单数量" type="rectangle" />
-					<pays x="200" y="341" width="115" height="40" text="成本表数量" type="rectangle" />
-					<income x="200" y="201" width="115" height="40" text="收入" type="rectangle" />
-					<outCome x="48" y="36" width="200" height="28" text="支出" fontName="华文细黑" size="26"/>
+					<depositMoney x="200" y="341" width="115" height="40"
+						text="金额" type="rectangle" />
+					<payMoney x="200" y="201" width="115" height="40" text="金额"
+						type="rectangle" />
+					<payType x="48" y="36" width="200" height="28" text="成本类型"
+						fontName="华文细黑" size="26" />
+					<deposits x="200" y="271" width="115" height="40" text="付款单数量"
+						type="rectangle" />
+					<pays x="200" y="341" width="115" height="40" text="成本表数量"
+						type="rectangle" />
+					<income x="200" y="201" width="115" height="40" text="收入"
+						type="rectangle" />
+					<outCome x="48" y="36" width="200" height="28" text="支出"
+						fontName="华文细黑" size="26" />
 				</LABELS>
 				<WHITEPANELS>
 					<Deposit x="345" y="201" width="276" height="40" />
@@ -558,7 +634,7 @@
 				<end x="345" y="201" width="276" height="40" />
 				<PayDate x="345" y="201" width="276" height="40" />
 				<DepositDate x="345" y="201" width="276" height="40" />
-				
+
 			</BulidStateFromPanel>
 			<BulidPayPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
@@ -572,9 +648,12 @@
 					<money x="345" y="271" width="276" height="40" />
 				</TEXTFIELDS>
 				<LABELS>
-					<title x="48" y="36" width="200" height="28" text="新建付款单" fontName="华文细黑" size="26"/>
-					<money x="200" y="271" width="115" height="40" text="金额" type="rectangle" />
-					<password x="200" y="341" width="115" height="40" text="类型" type="rectangle" />
+					<title x="48" y="36" width="200" height="28" text="新建付款单"
+						fontName="华文细黑" size="26" />
+					<money x="200" y="271" width="115" height="40" text="金额"
+						type="rectangle" />
+					<password x="200" y="341" width="115" height="40" text="类型"
+						type="rectangle" />
 					<time x="200" y="201" width="115" height="40" text="时间" type="rectangle" />
 				</LABELS>
 				<type x="345" y="341" width="276" height="40" strings="1 2" />
@@ -687,52 +766,51 @@
 					width="848" height="637">
 					<BUTTONS>
 						<confirm x="560" y="560" width="89" height="40" text="确认"
-						type="confirm" />
+							type="confirm" />
 						<cancel x="707" y="560" width="89" height="40" text="取消"
-						type="cancel" />
-						<back x="0" y="0" width="53" height="53"  type="back" />
-						<addOrder x="748" y="120" width="40" height="40" 
-							type="add" />
+							type="cancel" />
+						<back x="0" y="0" width="53" height="53" type="back" />
+						<addOrder x="748" y="120" width="40" height="40" type="add" />
 					</BUTTONS>
 					<LABELS>
-					<id x="60" y="60" width="115" height="40"
-						text="ID" type="rectangle" />
-					<YYID x="60" y="120" width="115" height="40"
-						text="营业厅编号" type="rectangle" />
-					<loadDoc x="60" y="180" width="115" height="40"
-						text="汽运编号" type="rectangle" />
-					<arriveCity x="60" y="240" width="115" height="40" text="到达地" type="rectangle"/>
-					<car x="60" y="300" width="115" height="40"
-						text="车辆ID" type="rectangle" />
-					<supervisor x="60" y="360" width="115" height="40"
-						text="监运员" type="rectangle" />
-					<escort x="60" y="420" width="115" height="40"
-						text="押送员" type="rectangle" />
-					<order x="425" y="120" width="115" height="40"
-						text="订单号" type="rectangle" />
+						<id x="60" y="60" width="115" height="40" text="ID" type="rectangle" />
+						<YYID x="60" y="120" width="115" height="40" text="营业厅编号"
+							type="rectangle" />
+						<loadDoc x="60" y="180" width="115" height="40" text="汽运编号"
+							type="rectangle" />
+						<arriveCity x="60" y="240" width="115" height="40"
+							text="到达地" type="rectangle" />
+						<car x="60" y="300" width="115" height="40" text="车辆ID" type="rectangle" />
+						<supervisor x="60" y="360" width="115" height="40"
+							text="监运员" type="rectangle" />
+						<escort x="60" y="420" width="115" height="40" text="押送员"
+							type="rectangle" />
+						<order x="425" y="120" width="115" height="40" text="订单号"
+							type="rectangle" />
 					</LABELS>
 					<TEXTFIELDS>
-					<id x="200" y="60" width="200" height="40" />
-					<YYID x="200" y="120" width="200" height="40" />
-					<loadDoc x="200" y="180" width="200" height="40" />
-					<car x="200" y="300" width="200" height="40"/>
-					<supervisor x="200" y="360" width="200" height="40" />
-					<escort x="200" y="420" width="200" height="40" />
-					<order x="560" y="120" width="168" height="40"/>
+						<id x="200" y="60" width="200" height="40" />
+						<YYID x="200" y="120" width="200" height="40" />
+						<loadDoc x="200" y="180" width="200" height="40" />
+						<car x="200" y="300" width="200" height="40" />
+						<supervisor x="200" y="360" width="200" height="40" />
+						<escort x="200" y="420" width="200" height="40" />
+						<order x="560" y="120" width="168" height="40" />
 					</TEXTFIELDS>
 					<datepicker x="588" y="60" width="200" height="40" />
-					<arrive x="200" y="240" width="200" height="40" strings = "南京 北京 上海 广州"/>
-					<table x="425" y="180" width="363" height="280" column = "序号 ID"/>
+					<arrive x="200" y="240" width="200" height="40" strings="南京 北京 上海 广州" />
+					<table x="425" y="180" width="363" height="280" column="序号 ID" />
 				</loadDocShowpanelAddPanel>
-				
-				<addDoc x="700" y="80" width="40" height="40" 
-					type="add" />
-				<title x="48" y="36" width="200" height="28" text="装车单列表" fontName="华文细黑" size="26"/>
+
+				<addDoc x="700" y="80" width="40" height="40" type="add" />
+				<title x="48" y="36" width="200" height="28" text="装车单列表"
+					fontName="华文细黑" size="26" />
 				<search x="48" y="80" />
 				<datepicker x="758" y="80" width="40" height="40" />
-				<table x="48" y="150" width="750" height="420" column = "ID 日期 营业厅编号 汽运编号 到达地 车辆ID 监运员 押送员 订单数量"/>
+				<table x="48" y="150" width="750" height="420"
+					column="ID 日期 营业厅编号 汽运编号 到达地 车辆ID 监运员 押送员 订单数量" />
 				<searchButton x="380" y="80" width="115" height="40"
-					text="搜索"  type = "cancel"/>
+					text="搜索" type="cancel" />
 
 			</loadDocShowpanel>
 			<arriveYYDocShowPanel x="232" y="54" width="848"
@@ -744,42 +822,42 @@
 							type="confirm" />
 						<cancel x="700" y="560" width="89" height="40" text="取消"
 							type="cancel" />
-						<back x="0" y="0" width="53" height="53"  type="back" />
-						<addOrder x="748" y="120" width="40" height="40" 
-							type="add" />
+						<back x="0" y="0" width="53" height="53" type="back" />
+						<addOrder x="748" y="120" width="40" height="40" type="add" />
 					</BUTTONS>
 					<LABELS>
-					<id x="60" y="120" width="115" height="40"
-						text="ID" type="rectangle" />
-					<ZZID x="60" y="180" width="115" height="40"
-						text="中转中心编号" type="rectangle" />
-					<sendCity x="60" y="240" width="115" height="40"
-						text="出发地" type="rectangle" />
-					<goodState x="60" y="300" width="115" height="40" 
-					text="货物状态" type="rectangle"/>
-					<!--  --> 			
-					<order x="425" y="120" width="115" height="40"
-						text="订单号" type="rectangle" />
+						<id x="60" y="120" width="115" height="40" text="ID" type="rectangle" />
+						<ZZID x="60" y="180" width="115" height="40" text="中转中心编号"
+							type="rectangle" />
+						<sendCity x="60" y="240" width="115" height="40" text="出发地"
+							type="rectangle" />
+						<goodState x="60" y="300" width="115" height="40" text="货物状态"
+							type="rectangle" />
+						<!-- -->
+						<order x="425" y="120" width="115" height="40" text="订单号"
+							type="rectangle" />
 					</LABELS>
 					<TEXTFIELDS>
-					<id x="200" y="120" width="200" height="40" />
-					<ZZID x="200" y="180" width="200" height="40" />
-					<order x="560" y="120" width="168" height="40" />
+						<id x="200" y="120" width="200" height="40" />
+						<ZZID x="200" y="180" width="200" height="40" />
+						<order x="560" y="120" width="168" height="40" />
 					</TEXTFIELDS>
 					<datepicker x="588" y="60" width="200" height="40" />
-					<sendCity x="200" y="240" width="200" height="40" strings = "南京 北京 上海 广州"/>
-					<goodState x="200" y="300" width="200" height="40" strings = "完整 损坏 丢失"/>
-					<table x="425" y="180" width="363" height="280"  column = "序号 ID"/>
+					<sendCity x="200" y="240" width="200" height="40" strings="南京 北京 上海 广州" />
+					<goodState x="200" y="300" width="200" height="40"
+						strings="完整 损坏 丢失" />
+					<table x="425" y="180" width="363" height="280" column="序号 ID" />
 				</arriveYYDocShowPanelAddPanel>
-				
-				<addDoc x="700" y="80" width="40" height="40" 
-					type="add" />
-				<title x="48" y="36" width="200" height="28" text="接收单列表" fontName="华文细黑" size="26"/>
+
+				<addDoc x="700" y="80" width="40" height="40" type="add" />
+				<title x="48" y="36" width="200" height="28" text="接收单列表"
+					fontName="华文细黑" size="26" />
 				<search x="48" y="80" />
 				<datepicker x="758" y="80" width="40" height="40" />
-				<table x="48" y="150" width="750" height="420" column = "ID 日期 中转中心编号 出发地 货物状态 单据数量"/>
+				<table x="48" y="150" width="750" height="420"
+					column="ID 日期 中转中心编号 出发地 货物状态 单据数量" />
 				<searchButton x="380" y="80" width="115" height="40"
-					text="搜索"  type = "cancel"/>
+					text="搜索" type="cancel" />
 			</arriveYYDocShowPanel>
 			<sendGoodDocShowPanel x="232" y="54" width="848"
 				height="637">
@@ -793,31 +871,30 @@
 						<back x="0" y="0" width="53" height="53" text="返回" type="back" />
 					</BUTTONS>
 					<LABELS>
-					<id x="60" y="120" width="115" height="40"
-						text="ID" type="rectangle" />
-					<sendMan x="60" y="180" width="115" height="40"
-						text="快递员" type="rectangle" />
-					<orderBarCode x="60" y="240" width="115" height="40"
-						text="订单条形码" type="rectangle" />
-					<sendCity x="60" y="300" width="115" height="40"
-					    text="目的地" type="rectangle"/>
+						<id x="60" y="120" width="115" height="40" text="ID" type="rectangle" />
+						<sendMan x="60" y="180" width="115" height="40" text="快递员"
+							type="rectangle" />
+						<orderBarCode x="60" y="240" width="115" height="40"
+							text="订单条形码" type="rectangle" />
+						<sendCity x="60" y="300" width="115" height="40" text="目的地"
+							type="rectangle" />
 					</LABELS>
 					<TEXTFIELDS>
-					<id x="200" y="120" width="200" height="40" />
-					<sendMan x="200" y="180" width="200" height="40" />
-					<orderBarCode x="200" y="240" width="200" height="40" />
+						<id x="200" y="120" width="200" height="40" />
+						<sendMan x="200" y="180" width="200" height="40" />
+						<orderBarCode x="200" y="240" width="200" height="40" />
 					</TEXTFIELDS>
 					<datepicker x="588" y="60" width="200" height="40" />
-					<sendCity x="200" y="300" width="200" height="40" strings = "南京 北京 上海 广州"/>
+					<sendCity x="200" y="300" width="200" height="40" strings="南京 北京 上海 广州" />
 				</sendGoodDocShowPanelAddPanel>
-				<addDoc x="700" y="80" width="40" height="40" 
-					type="add" />
-				<title x="48" y="36" width="200" height="28" text="派送单列表" fontName="华文细黑" size="26"/>
+				<addDoc x="700" y="80" width="40" height="40" type="add" />
+				<title x="48" y="36" width="200" height="28" text="派送单列表"
+					fontName="华文细黑" size="26" />
 				<search x="48" y="80" />
 				<datepicker x="758" y="80" width="40" height="40" />
-				<table x="48" y="150" width="750" height="420" column = "ID 日期 送货员 订单号 到达地"/>
+				<table x="48" y="150" width="750" height="420" column="ID 日期 送货员 订单号 到达地" />
 				<searchButton x="380" y="80" width="115" height="40"
-					text="搜索"  type = "cancel"/>
+					text="搜索" type="cancel" />
 			</sendGoodDocShowPanel>
 			<payDocShowPanel x="232" y="54" width="848" height="637">
 				<payDocShowPanelAddPanel x="232" y="54"
@@ -830,32 +907,31 @@
 						<back x="0" y="0" width="53" height="53" text="返回" type="back" />
 					</BUTTONS>
 					<LABELS>
-					<id x="60" y="120" width="115" height="40"
-						text="ID" type="rectangle" />
-					<YYID x="60" y="180" width="115" height="40"
-						text="营业厅ID" type="rectangle" />
-					<money x="60" y="240" width="115" height="40"
-						text="金额" type="rectangle" />
-					<courierName x="60" y="300" width="115" height="40" 
-						text="快递员" type="rectangle"/>
+						<id x="60" y="120" width="115" height="40" text="ID" type="rectangle" />
+						<YYID x="60" y="180" width="115" height="40" text="营业厅ID"
+							type="rectangle" />
+						<money x="60" y="240" width="115" height="40" text="金额"
+							type="rectangle" />
+						<courierName x="60" y="300" width="115" height="40"
+							text="快递员" type="rectangle" />
 					</LABELS>
 					<TEXTFIELDS>
-					<id x="200" y="120" width="200" height="40" />
-					<YYID x="200" y="180" width="200" height="40" />
-					<money x="200" y="240" width="200" height="40" />
-					<courierName x="200" y="300" width="200" height="40" />
+						<id x="200" y="120" width="200" height="40" />
+						<YYID x="200" y="180" width="200" height="40" />
+						<money x="200" y="240" width="200" height="40" />
+						<courierName x="200" y="300" width="200" height="40" />
 					</TEXTFIELDS>
 					<datepicker x="588" y="60" width="200" height="40" />
-					<table x="425" y="180" width="363" height="280"  column = "序号 ID"/>
+					<table x="425" y="180" width="363" height="280" column="序号 ID" />
 				</payDocShowPanelAddPanel>
-				<addDoc x="700" y="80" width="40" height="40" 
-					type="add" />
-				<title x="48" y="36" width="200" height="28" text="收款单列表" fontName="华文细黑" size="26"/>
+				<addDoc x="700" y="80" width="40" height="40" type="add" />
+				<title x="48" y="36" width="200" height="28" text="收款单列表"
+					fontName="华文细黑" size="26" />
 				<search x="48" y="80" />
 				<datepicker x="758" y="80" width="40" height="40" />
-				<table x="48" y="150" width="750" height="420" column = "ID 日期 "/>
+				<table x="48" y="150" width="750" height="420" column="ID 日期 " />
 				<searchButton x="380" y="80" width="115" height="40"
-					text="搜索"  type = "cancel"/>
+					text="搜索" type="cancel" />
 			</payDocShowPanel>
 			<driverInfoManagePanel x="232" y="54" width="848"
 				height="637">
@@ -870,47 +946,46 @@
 					</BUTTONS>
 
 					<LABELS>
-					<id x="60" y="60" width="115" height="40"
-						text="ID" type="rectangle" />
-					<name x="60" y="120" width="115" height="40"
-						text="姓名" type="rectangle" />
-					<sex x="60" y="180" width="115" height="40"
-						text="性别" type="rectangle" />
-					<bornday x="60" y="240" width="115" height="40"
-						text="出生日期" type="rectangle" />
-					<idCard x="60" y="300" width="115" height="40"
-						text="身份证号" type="rectangle" />
-					<phone x="60" y="360" width="115" height="40"
-						text="手机号码" type="rectangle" />
-					<instid x="60" y="420" width="115" height="40"
-						text="机构ID" type="rectangle" />
-					<license x="60" y="480" width="115" height="40"
-						text="驾驶证期限" type="rectangle" />
+						<id x="60" y="60" width="115" height="40" text="ID" type="rectangle" />
+						<name x="60" y="120" width="115" height="40" text="姓名" type="rectangle" />
+						<sex x="60" y="180" width="115" height="40" text="性别" type="rectangle" />
+						<bornday x="60" y="240" width="115" height="40" text="出生日期"
+							type="rectangle" />
+						<idCard x="60" y="300" width="115" height="40" text="身份证号"
+							type="rectangle" />
+						<phone x="60" y="360" width="115" height="40" text="手机号码"
+							type="rectangle" />
+						<instid x="60" y="420" width="115" height="40" text="机构ID"
+							type="rectangle" />
+						<license x="60" y="480" width="115" height="40" text="驾驶证期限"
+							type="rectangle" />
 					</LABELS>
 					<TEXTFIELDS>
-						<id x="200" y="60" width="200" height="40"/>
+						<id x="200" y="60" width="200" height="40" />
 						<name x="200" y="120" width="200" height="40" />
-						<phone x="200" y="360" width="200" height="40"/>
-						<instid x="200" y="420" width="200" height="40"/>
+						<phone x="200" y="360" width="200" height="40" />
+						<instid x="200" y="420" width="200" height="40" />
 						<idCard x="200" y="300" width="200" height="40" />
-						<license x="200" y="480" width="200" height="40"/>
+						<license x="200" y="480" width="200" height="40" />
 					</TEXTFIELDS>
-					<borns x="200" y="240" width="200" height="40"/>
-					<sex x="200" y="180" width="200" height="40" strings = "男 女"/>
+					<borns x="200" y="240" width="200" height="40" />
+					<sex x="200" y="180" width="200" height="40" strings="男 女" />
 					<datepicker x="588" y="60" width="200" height="40" />
-				</driverInfoManagePanelAddPanel>			
-				<title x="48" y="36" width="200" height="28" text="司机信息列表" fontName="华文细黑" size="26"/>
-						
-				<addDoc x="700" y="80" width="40" height="40" 
-					type="add" />
+				</driverInfoManagePanelAddPanel>
+				<title x="48" y="36" width="200" height="28" text="司机信息列表"
+					fontName="华文细黑" size="26" />
+
+				<addDoc x="700" y="80" width="40" height="40" type="add" />
 				<search x="150" y="80" />
 				<datepicker x="758" y="80" width="40" height="40" />
-				<table x="48" y="150" width="750" height="420" column = "编号 姓名 性别 出生日期 身份证号 手机号码 机构ID 驾驶证期限"/>
+				<table x="48" y="150" width="750" height="420"
+					column="编号 姓名 性别 出生日期 身份证号 手机号码 机构ID 驾驶证期限" />
 				<searchButton x="475" y="80" width="115" height="40"
-					text="搜索"  type = "cancel"/>
-				<searchWay x="48" y="80" width="95" height="40" strings = "查找方式 按姓名查找 按ID查找 按机构ID查找"/>
+					text="搜索" type="cancel" />
+				<searchWay x="48" y="80" width="95" height="40"
+					strings="查找方式 按姓名查找 按ID查找 按机构ID查找" />
 			</driverInfoManagePanel>
-			
+
 			<truckInfoManagePanel x="232" y="54" width="848"
 				height="637">
 				<truckInfoManagePanelAddPanel x="232"
@@ -920,31 +995,30 @@
 							type="confirm" />
 						<cancel x="700" y="560" width="89" height="40" text="取消"
 							type="cancel" />
-						<back x="0" y="0" width="53" height="53"  type="back" />
+						<back x="0" y="0" width="53" height="53" type="back" />
 					</BUTTONS>
-					
+
 					<LABELS>
-					<id x="60" y="120" width="115" height="40"
-						text="ID" type="rectangle" />
-					<instid x="60" y="180" width="115" height="40"
-						text="机构ID" type="rectangle" />
-					<plateNum x="60" y="240" width="115" height="40"
-						text="车牌号" type="rectangle" />
-					<useYear x="60" y="300" width="115" height="40"
-						text="使用年份" type="rectangle" />
+						<id x="60" y="120" width="115" height="40" text="ID" type="rectangle" />
+						<instid x="60" y="180" width="115" height="40" text="机构ID"
+							type="rectangle" />
+						<plateNum x="60" y="240" width="115" height="40" text="车牌号"
+							type="rectangle" />
+						<useYear x="60" y="300" width="115" height="40" text="使用年份"
+							type="rectangle" />
 					</LABELS>
-					
+
 					<TEXTFIELDS>
-						<id x="200" y="120" width="200" height="40"   />
-						<instid x="200" y="180" width="200" height="40"   />
-						<plateNum x="200" y="240" width="200" height="40"/>
-						<useYear x="200" y="300" width="200" height="40"  />
+						<id x="200" y="120" width="200" height="40" />
+						<instid x="200" y="180" width="200" height="40" />
+						<plateNum x="200" y="240" width="200" height="40" />
+						<useYear x="200" y="300" width="200" height="40" />
 					</TEXTFIELDS>
 				</truckInfoManagePanelAddPanel>
-				<title x="48" y="36" width="200" height="28" text="车辆信息列表" fontName="华文细黑" size="26"/>
-						
-				<addDoc x="700" y="80" width="40" height="40" 
-					type="add" />
+				<title x="48" y="36" width="200" height="28" text="车辆信息列表"
+					fontName="华文细黑" size="26" />
+
+				<addDoc x="700" y="80" width="40" height="40" type="add" />
 				<search x="150" y="80" />
 				<datepicker x="758" y="80" width="40" height="40" />
 				<table x="48" y="150" width="750" height="420" column="ID 机构ID 车牌号 使用年份" />
@@ -953,8 +1027,8 @@
 				<searchButton x="475" y="80" width="115" height="40"
 					text="搜索" type="cancel" />
 			</truckInfoManagePanel>
-			
-			
+
+
 		</Salesman>
 
 

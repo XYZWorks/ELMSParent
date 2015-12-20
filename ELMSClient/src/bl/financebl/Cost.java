@@ -30,7 +30,7 @@ public class Cost {
 		this.financeData = financeDataService;
 	}
 
-	public ArrayList<CostVO> showCosts() {
+	public ArrayList<? extends CostVO> showCosts(CostType type) {
 		
 		ArrayList<CostVO> vos = null;
 		ArrayList<CostPO> pos = null;

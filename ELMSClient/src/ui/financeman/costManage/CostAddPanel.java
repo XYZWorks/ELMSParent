@@ -63,8 +63,6 @@ public class CostAddPanel extends MyPanel {
 		this.changePanel = changePanel;
 		this.panelManager = (CardLayout) changePanel.getLayout();
 		this.costService = costService;
-		this.type = type;
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

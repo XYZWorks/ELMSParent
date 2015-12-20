@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import ds.financedataservice.FinanceDataService;
 import po.finance.CostPO;
+import util.CostType;
 import util.ResultMessage;
 import vo.finance.CostVO;
 /**
@@ -45,10 +46,16 @@ public class CostService_Stub implements CostService {
 		return ResultMessage.SUCCESS;
 	}
 	private  CostVO getValue(CostPO po){
-		CostVO vo = new CostVO(null, null, null, po.getMoney(), po.getCostType());
+//		CostVO vo = new CostVO(null, null, null, po.getMoney(), po.getCostType());
 		
-		return vo;
+		return null;
 		
+	}
+
+	@Override
+	public ArrayList<? extends CostVO> showCosts(CostType type) {
+		// TODO Auto-generated method stub
+		return null;
 	} 
 
 }

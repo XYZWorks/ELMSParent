@@ -2,6 +2,7 @@ package po.finance;
 
 import util.CostType;
 import util.MyDate;
+import util.StaffType;
 
 
 
@@ -24,7 +25,7 @@ public class SalaryPO extends CostPO {
 	/**
 	 * 员工类型(driver,courier,workman)
 	 */
-	private String worker;
+	private StaffType worker;
 	
 	
 	
@@ -32,15 +33,15 @@ public class SalaryPO extends CostPO {
 
 	
 
-	public SalaryPO(String ID,MyDate startDate, MyDate endDate, int money,CostType costType, String worker) {
-		super(worker, startDate, endDate, money , costType);
+	public SalaryPO(String ID,MyDate startDate, MyDate endDate, int money,CostType costType, StaffType worker) {
+		super(ID, startDate, endDate, money , costType);
 		this.worker = worker;
 	}
 
-	public String getWorker() {
+	public StaffType getWorker() {
 		return worker;
 	}
-	public void setWorker(String worker) {
+	public void setWorker(StaffType worker) {
 		this.worker = worker;
 	}
 	

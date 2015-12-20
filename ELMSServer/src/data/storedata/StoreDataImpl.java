@@ -321,7 +321,7 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 
 	@Override
 	public OutStoreDocPO getOneOutStoreDoc(String ID) throws RemoteException {
-		findMes = findFromSQL(instoreDocTable, ID);
+		findMes = findFromSQL(outstoreDocTable, ID);
 		if (findMes == null) {
 			return null;
 		} else {

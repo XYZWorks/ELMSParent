@@ -28,7 +28,7 @@ public class CostManagePanel extends MyPanel {
 	JPanel changePanel;
 	CardLayout panelManager;
 	CostService costService;
-	final static String addCostPanelStr = "addRentPanel";
+	final static String addCostPanelStr = "addCostPanel";
 	final static String costManageStr = "CostManagePanel";
 
 	private CostAddPanel addCostPanel;
@@ -86,13 +86,13 @@ public class CostManagePanel extends MyPanel {
 	@Override
 	protected void initOtherCompoment(Element e) {
 		costType = new MyComboBox(e.element("costType"));
-		addCostPanel = new CostAddPanel(e.element("addRentPanel"), costService,
+		addCostPanel = new CostAddPanel(e.element(addCostPanelStr), costService,
 				changePanel);
-		freightTable = new CostMesTable(e.element("freightTable"),
+		freightTable = new CostMesTable(e.element("table"),
 				CostType.FREIGHT, costService);
-		rentTable = new CostMesTable(e.element("rentTable"), CostType.RENT,
+		rentTable = new CostMesTable(e.element("table"), CostType.RENT,
 				costService);
-		salaryTable = new CostMesTable(e.element("salaryTable"),
+		salaryTable = new CostMesTable(e.element("table"),
 				CostType.SALARY, costService);
 	}
 

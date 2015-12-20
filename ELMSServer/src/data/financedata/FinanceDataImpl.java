@@ -14,6 +14,7 @@ import po.finance.SalaryPO;
 import util.CostType;
 import util.MyDate;
 import util.ResultMessage;
+import util.StaffType;
 import dataSuper.DataSuperClass;
 import ds.financedataservice.FinanceDataService;
  /** 
@@ -125,8 +126,8 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 					costs.add(new SalaryPO(result.getString(1),MyDate.getDate(result.getString(2)),
 							MyDate.getDate(result.getString(3)), Integer
 									.parseInt(result.getString(4)), CostType
-									.valueOf(result.getString(5)), result
-									.getString(6)));
+									.valueOf(result.getString(5)), StaffType.valueOf(result
+											.getString(6))));
 				}
 				break;
 			default:
@@ -158,7 +159,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 			return addToSQL(salaryTable,spo.getID(), MyDate.toString(spo.getStartDate()),
 					MyDate.toString(spo.getEndDate()),
 					String.valueOf(spo.getMoney()), spo.getCostType().name(),
-					spo.getWorker());
+					StaffType.getName(spo.getWorker()));
 		default:
 			return ResultMessage.FAIL;
 		}
@@ -182,7 +183,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 			return modifyFromSQL(salaryTable, spo.getID(),MyDate.toString(spo.getStartDate()),
 					MyDate.toString(spo.getEndDate()),
 					String.valueOf(spo.getMoney()), spo.getCostType().name(),
-					spo.getWorker());
+					StaffType.getName(spo.getWorker()));
 		default:
 			return ResultMessage.FAIL;
 		}

@@ -2,6 +2,7 @@ package blservice.financeblservice;
 
 import java.util.ArrayList;
 
+import util.CostType;
 import vo.finance.CostVO;
 
 /** 
@@ -11,9 +12,9 @@ import vo.finance.CostVO;
 public class CostService_Driver {
 	public void drive(CostService cost) {
 
-		ArrayList<CostVO> vos;
+		ArrayList<? extends CostVO> vos;
 		System.out.println("显示信息");
-		vos=cost.showCosts();
+		vos=cost.showCosts(CostType.FREIGHT);
 		if(vos!=null){
 			for(CostVO vo:vos){
 				System.out.println(vo.money+" ");

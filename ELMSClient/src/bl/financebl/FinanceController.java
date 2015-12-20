@@ -3,6 +3,7 @@ package bl.financebl;
 import java.util.ArrayList;
 
 import net.RMIManage;
+import util.CostType;
 import util.DataServiceType;
 import util.ResultMessage;
 import vo.finance.BankAccountVO;
@@ -47,7 +48,10 @@ public class FinanceController implements BankAccountBusinessService, CostServic
 		return pay.create(vo);
 	}
  
-
+	public ArrayList<? extends CostVO> showCosts(CostType type) {
+		return cost.showCosts(type);
+	}
+	
 	public ResultMessage add(CostVO vo) {
 		return cost.add(vo);
 	}
@@ -60,9 +64,6 @@ public class FinanceController implements BankAccountBusinessService, CostServic
 		return cost.del(vo);
 	}
 
-	public ArrayList<CostVO> showCosts() {
-		return cost.showCosts();
-	}
 
 	public ArrayList<PayVO> showPays() {
 		return pay.showPays();
@@ -95,5 +96,8 @@ public class FinanceController implements BankAccountBusinessService, CostServic
 	public ResultMessage addAccount(BankAccountVO vo) {
 		return bankAccount.addAccount(vo);
 	}
+
+
+
 
 }
