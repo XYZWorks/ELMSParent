@@ -247,7 +247,7 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 		}
 		ArrayList<DocPO> pos = new ArrayList<>(50);
 		try {
-			sql = "SELECT * FROM  `" + tempTable + "` WHERE state = \"wait\" ";
+			sql = "SELECT * FROM `" + tempTable + "` WHERE state = \"wait\" ";
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			if (type == DocType.inStoreDoc) {
