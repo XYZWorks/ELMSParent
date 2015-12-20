@@ -27,7 +27,7 @@ public class GeneralManagerMain extends MyPanel {
 	
 	private PanelController controller;
 	
-	private MyDatePicker date;
+//	private MyDatePicker date;
 	
 	
 	public GeneralManagerMain(Element config , PanelController controller) {
@@ -65,7 +65,7 @@ public class GeneralManagerMain extends MyPanel {
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		date = new MyDatePicker(e.element("DatePicker"));
+//		date = new MyDatePicker(e.element("DatePicker"));
 		
 	}
 
@@ -78,7 +78,7 @@ public class GeneralManagerMain extends MyPanel {
 		this.add(salaryStrategySetButton);
 		this.add(peopleManageButton);
 		
-		this.add(date);
+//		this.add(date);
 //		date.setLocation(500, 300);
 	}
 

@@ -24,7 +24,7 @@ import blservice.approvalblservice.Approvalblservice;
 @SuppressWarnings("serial")
 public class ApprovalDocsPanel extends MyPanel{
 	
-	private MyPictureLabel chooseDocType;
+//	private MyPictureLabel chooseDocType;
 	private MyComboBox DocTypeChooseBox;
 	
 	private DocSimpleInfoTable table;
@@ -68,7 +68,7 @@ public class ApprovalDocsPanel extends MyPanel{
 
 	@Override
 	protected void initLabels(Element e) {
-		chooseDocType = new MyPictureLabel(e.element("choose"));
+//		chooseDocType = new MyPictureLabel(e.element("choose"));
 	}
 
 	@Override
@@ -84,7 +84,7 @@ public class ApprovalDocsPanel extends MyPanel{
 		add(approvalOne);
 		add(table);
 		add(checkForMoreInfo);
-		add(chooseDocType);
+//		add(chooseDocType);
 		
 	}
 

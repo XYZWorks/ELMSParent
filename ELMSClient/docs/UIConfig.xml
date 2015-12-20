@@ -77,94 +77,82 @@
 						normal="GeneralManager//InstManage" enter="GeneralManager//InstManage-enter"
 						clicked="GeneralManager//InstManage-clicked" />
 				</BUTTONS>
-				<DatePicker x="0" y="0" width="400" height="50">
-					<field x="0" y="0" width="350" height="50" />
-					<button x="350" y="0" width="50" height="50" type="rectangle" />
-				</DatePicker>
+			
 			</mainWindow>
 
 			<ApprovalPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
-					<approveMany x="550" y="560" width="115" height="40"
-						text="批量审批" type="rectangle" />
-					<approveOne x="700" y="560" width="115" height="40"
+					<approveMany x="590" y="560" width="89" height="40"
+						text="批量审批" type="cancel" />
+					<approveOne x="700" y="560" width="89" height="40"
 						text="单个审批" type="cancel" />
-					<checkForMoreInfo x="625" y="560" width="115"
+					<checkForMoreInfo x="700" y="53" width="89"
 						height="40" text="更多信息" type="confirm" />
+		
 				</BUTTONS>
 				<LABELS>
-					<choose x="45" y="45" width="100" height="45" text="选择单据类型"
+					<choose x="45" y="45" width="115" height="40" text="选择单据类型"
 						type="rectangle" />
 				</LABELS>
-				<table x="45" y="100" width="600" height="400"
+				<table x="53" y="110" width="742" height="427"
 					column="选择 单据ID 单据类型 创建日期 单据状态" />
-				<type x="205" y="45" width="200" height="45"
+				<type x="53" y="53" width="200" height="40"
 					strings="订单 入库单 出库单 派送单 到达单 装车单 接收单 中转单" />
 			</ApprovalPanel>
 
 			<ConstSetPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
-					<modify x="625" y="560" width="115" height="40" text="修改"
+					<modify x="700" y="560" width="115" height="40" text="修改"
 						type="confirm" />
 					<confirm x="550" y="560" width="115" height="40" text="确认"
-						type="rectangle" />
+						type="confirm" />
 					<cancel x="700" y="560" width="115" height="40" text="取消"
 						type="cancel" />
 				</BUTTONS>
 				<LABELS>
-					<transportWay x="45" y="200" width="200" height="45"
+					<transportWay x="45" y="303" width="115" height="40"
 						text="交通方式运费" type="rectangle" />
-					<plane x="45" y="260" width="120" height="45" text="飞机"
-						type="rectangle" />
-					<truck x="45" y="320" width="120" height="45" text="汽车"
-						type="rectangle" />
-					<train x="45" y="380" width="120" height="45" text="火车"
-						type="rectangle" />
+					<plane x="85" y="353" width="120" height="40" text="飞机" />
+					<truck x="85" y="403" width="120" height="40" text="汽车" />
+					<train x="85" y="453" width="120" height="40" text="火车" />
 
-					<instanceInCity x="45" y="45" width="200" height="50"
+					<instanceInCity x="45" y="73" width="115" height="40"
 						text="城市间的距离" type="rectangle" />
 
-					<packageCost x="500" y="200" width="200" height="45"
-						text="包装费" type="rectangle" />
-					<paper x="500" y="260" width="120" height="45" text="纸箱"
-						type="rectangle" />
-					<wood x="500" y="320" width="120" height="45" text="木箱" type="rectangle" />
-					<plastic x="500" y="380" width="120" height="45" text="快递袋"
-						type="rectangle" />
+					<packageCost x="450" y="303" width="115" height="40"
+						text="包装费用" type="rectangle" />
+					<paper x="492" y="353" width="142" height="40" text="纸箱"/>
+					<wood x="492" y="403" width="142" height="40" text="木箱"  />
+					<plastic x="492" y="453" width="142" height="40" text="快递袋"/>
 
-					<ratios x="45" y="500" width="200" height="45" text="价格比"
+					<ratios x="450" y="73" width="115" height="40" text="快递的价格比"
 						type="rectangle" />
-					<fast x="240" y="500" width="100" height="45" text="次晨特快"
-						type="rectangle" />
-					<normal x="360" y="500" width="100" height="45" text="标准快递"
-						type="rectangle" />
-					<ecnomic x="490" y="500" width="100" height="45" text="经济快递"
-						type="rectangle" />
+					<fast x="492" y="123" width="100" height="20" text="次晨特快"/>
+					<normal x="492" y="173" width="100" height="20" text="标准快递"/>
+					<ecnomic x="492" y="223" width="100" height="20" text="经济快递"/>
 
 				</LABELS>
 				<TEXTFIELDS>
-					<fast x="240" y="570" width="100" height="45" text="价格比" type="rectangle" />
-					<normal x="360" y="570" width="100" height="45" text="价格比"
-						type="rectangle" />
-					<ecnomic x="490" y="570" width="100" height="45" text="价格比"
-						type="rectangle" />
+					<fast x="648" y="118" width="142" height="40"  />
+					<normal x="648" y="168" width="142" height="40" />
+					<ecnomic x="648" y="218" width="142" height="40"  />
 
-					<instance x="600" y="100" width="150" height="45" />
-					<planeCost x="200" y="260" width="150" height="45" />
-					<trainCost x="200" y="320" width="150" height="45" />
-					<truckCost x="200" y="380" width="150" height="45" />
-					<paperCost x="650" y="260" width="150" height="45" />
-					<woodCost x="650" y="320" width="150" height="45" />
-					<plasticCost x="650" y="380" width="150" height="45" />
+					<instance x="255" y="168" width="142" height="40" />
+					<planeCost x="255" y="353" width="142" height="40" />
+					<trainCost x="255" y="403" width="142" height="40" />
+					<truckCost x="255" y="453" width="142" height="40" />
+					<paperCost x="648" y="353" width="142" height="40" />
+					<woodCost x="648" y="403" width="142" height="40" />
+					<plasticCost x="648" y="453" width="142" height="40" />
 				</TEXTFIELDS>
-				<startCity x="45" y="100" width="240" height="30" strings="南京 北京 广州 上海" />
-				<arriveCity x="300" y="100" width="240" height="30"
+				<startCity x="55" y="143" width="160" height="40" strings="南京 北京 广州 上海" />
+				<arriveCity x="55" y="193" width="160" height="40"
 					strings="南京 北京 广州 上海" />
 				<WHITEPANELS>
-					<instance x="30" y="30" width="770" height="140" />
-					<transport x="38" y="200" width="380" height="270" />
-					<package x="483" y="194" width="370" height="300" />
-					<ratio x="40" y="474" width="582" height="174" />
+					<instance x="45" y="73" width="362" height="200" />
+					<transport x="45" y="303" width="362" height="220" />
+					<package x="450" y="303" width="362" height="220" />
+					<ratio x="450" y="73" width="362" height="200" />
 				</WHITEPANELS>
 
 			</ConstSetPanel>
@@ -172,17 +160,17 @@
 
 			<StatisticPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
-					<detail x="625" y="560" width="100" height="40" type="rectangle"
-						text="更多信息" />
-					<back x="750" y="560" width="100" height="40" type="cancel"
+					<detail x="700" y="53" width="89"
+						height="40" type="confirm" text="更多信息" />
+					<back x="0" y="0" width="53" height="53" type="back"
 						text="返回" />
 				</BUTTONS>
-				<stateFormPanel x="100" y="100" width="770" height="400"
+				<stateFormPanel x="53" y="110" width="742" height="427"
 					column="序号 开始时间 结束时间 付款单总数 收款单总数" />
-				<costFormPanel x="100" y="100" width="770" height="400"
+				<costFormPanel x="53" y="110" width="742" height="427"
 					column="开始时间 结束时间 总收入 总支出" />
-				<type x="30" y="30" width="100" height="40" strings="经营状况表 成本收益表" />
-				<detailPanel x="100" y="100" width="770" height="400"
+				<type x="53" y="53" width="200" height="40" strings="经营状况表 成本收益表" />
+				<detailPanel x="53" y="53" width="200" height="40"
 					strings="经营状况表 成本收益表" />
 			</StatisticPanel>
 
