@@ -12,6 +12,7 @@ import ui.table.MyTablePanel;
 import util.DocType;
 import util.MyDate;
 import vo.store.InStoreDocVO;
+import vo.store.OutStoreDocVO;
 
 /** 
  * @author ymc 
@@ -74,7 +75,12 @@ public class InStoreTablePanel extends MyTablePanel {
 
 	@Override
 	protected void initTable() {
-		table = new MyTable(columnNames, data);
+		table = new MyTable(columnNames, data){
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
 //		table.setBounds(0, 0, 500,700);
 //		setRowAndColumnLen(rowLen, columnLen);
 		table.setFont(GraphicsUtils.getFont(null));
@@ -84,12 +90,10 @@ public class InStoreTablePanel extends MyTablePanel {
 	@Override
 	protected void initialTitleAndColumn(Element config,MyDate date) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void updateTableMes() {
-//		System.out.println("invoke inpanel table");
 		
 		setDataValue();
 		//将增加table的行数
@@ -103,6 +107,26 @@ public class InStoreTablePanel extends MyTablePanel {
 				table.setValueAt(data[i][j], i, j);
 		}
 		
+	}
+	/**
+	 * 根据传入的vos重设table的值
+	 * @param vos
+	 */
+	public void resetValue(ArrayList<InStoreDocVO> vos) {
+		if(vos==null){
+			return;
+		}
+		data = new String[vos.size()][COLUMN_NUM];
+		InStoreDocVO vo;
+		for (int i = 0; i < vos.size(); i++) {
+			vo = vos.get(i);
+			data[i][0] = DocType.getName(vo.type);
+			data[i][1] = vo.ID;
+			data[i][2] = MyDate.toString(vo.date);
+			data[i][3] = vo.loc.getName();
+			data[i][4] = UserfulMethod.orderArrayToString(vo.orders);
+			
+		}
 	}
 
 }

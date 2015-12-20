@@ -468,7 +468,7 @@
 						<transferDoc  x="50" y="290" width="200" height="100"  
 						text="中转单编号" type="rectangle"/>
 			 			<shipWay  x="420" y="290" width="200" height="100"  
-						text="中转单编号" type="rectangle"/>
+						text="装运形式" type="rectangle"/>
 						
 			 		</LABELS>
 	

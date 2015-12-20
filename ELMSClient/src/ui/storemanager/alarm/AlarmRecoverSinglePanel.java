@@ -4,6 +4,7 @@ import org.dom4j.Element;
 
 import bl.storebl.StoreController;
 import po.store.StoreMessagePO;
+import ui.config.UserfulMethod;
 import ui.storemanager.StoreManagerController;
 import ui.storemanager.alarm.AlarmSetSinglePanel.ModifyListener;
 import ui.tools.MyButton;
@@ -13,6 +14,7 @@ import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
 import ui.util.ConfirmListener;
 import ui.util.TipsDialog;
+import util.FormatMes;
 import util.ResultMessage;
 import vo.store.StoreMessageVO;
 
@@ -111,13 +113,13 @@ public class AlarmRecoverSinglePanel extends AlarmSetSinglePanel {
 
 		@Override
 		protected boolean checkDataValid() {
-			modifyNum = Integer.parseInt(addNumT.getText());
-			if(modifyNum>0){
-				return true;
+			if(UserfulMethod.checkPositiveNum(addNumT.getText())!=FormatMes.CORRECT){
+				new TipsDialog("输入格式有误");
+				return false;
 			}
 			else {
-				new TipsDialog("库存容量未增加");
-				return false;
+				modifyNum = Integer.parseInt(addNumT.getText());
+				return true;
 			}
 		}
 

@@ -59,7 +59,12 @@ public class ShowLocTablePanel extends MyTablePanel {
 	@Override
 	protected void initTable() {
 		// TODO Auto-generated method stub
-		table = new MyTable(columnNames, data);
+		table = new MyTable(columnNames, data){
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
 
 	}
 
