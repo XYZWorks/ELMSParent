@@ -587,7 +587,7 @@
 			<BulidStateFromPanel x="232" y="54" width="848"
 				height="637">
 				<BUTTONS>
-					<jump x="400" y="560" width="200" height="40" text="转换到经营状况表"
+					<jump x="400" y="560" width="200" height="40" text="转到成本收益表"
 						fontName="华文细黑" size="16" color="87,184,212"/>
 					<confirm x="560" y="560" width="89" height="40" text="确认"
 						type="confirm" />
@@ -606,7 +606,7 @@
 					<outComeT x="345" y="271" width="276" height="40" />
 				</TEXTFIELDS>
 				<LABELS>
-					<title x="48" y="36" width="200" height="28" text="经营状况表详情"
+					<title x="48" y="36" width="200" height="28" text="经营状况表"
 						fontName="华文细黑" size="26" />
 					<start x="48" y="74" width="200" height="28" text="起始日期"
 						 />
