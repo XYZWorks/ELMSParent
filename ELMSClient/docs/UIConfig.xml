@@ -537,54 +537,53 @@
 			</BankAccountManagePanel>
 			<CostManagePanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
-					<add x="560" y="560" width="89" height="40" text="增加" type="confirm" />
-					<delete x="707" y="560" width="89" height="40" text="删除"
-						type="cancel" />
-					<modify x="400" y="560" width="200" height="40" text="修改"
-						type="cancel" />
+					<add x="642" y="86" width="40" height="40" type="add" />
+					<delete x="758" y="86" width="40" height="40" type="delete" />
+					<modify x="700" y="86" width="40" height="40" type="modify" />
 				</BUTTONS>
 				<LABELS>
-					<title x="707" y="560" width="89" height="40" text="成本信息管理" />
+					<title x="48" y="36" width="200" height="28" text="成本信息管理" fontName="华文细黑" size="26"/>
 				</LABELS>
-				<costType x="345" y="201" width="276" height="40" strings="薪水 运费 租金" />
+				<costType x="48" y="86" width="150" height="40" strings="薪水 运费 租金" />
 
-				<table x="50" y="50" width="250" height="300" />
+				<table x="48" y="136" width="750" height="394" />
+				
 				<addCostPanel x="232" y="54" width="848" height="637">
 					<BUTTONS>
 						<confirm x="560" y="560" width="89" height="40" text="确认"
 							type="confirm" />
 						<cancel x="707" y="560" width="89" height="40" text="取消"
 							type="cancel" />
-						<back x="707" y="560" width="89" height="40" text="取消" type="cancel" />
+						<back x="0" y="0" width="48" height="48"  type="back" />
 					</BUTTONS>
 					<TEXTFIELDS>
-						<money x="345" y="271" width="276" height="40" />
-						<id x="345" y="271" width="276" height="40" />
+						<money x="345" y="340" width="230" height="40" />
+						<id x="345" y="270" width="230" height="40" />
 					</TEXTFIELDS>
 					<LABELS>
 						<title x="48" y="36" width="200" height="28" text="增加成本信息"
 							fontName="华文细黑" size="26" />
-						<id x="200" y="341" width="115" height="40" text="ID" type="rectangle" />
-						<startDate x="48" y="36" width="200" height="28" text="起始日期"
-							fontName="华文细黑" size="26" />
-						<endDate x="200" y="271" width="115" height="40" text="结束日期"
+						<id x="200" y="270" width="115" height="40" text="ID" 
 							type="rectangle" />
-						<money x="200" y="201" width="115" height="40" text="金额"
+						<startDate x="48" y="100" width="115" height="40" text="起始日期" 
+							type="rectangle"/>
+						<endDate x="460" y="100" width="115" height="40" text="结束日期"
 							type="rectangle" />
-						<costType x="48" y="36" width="200" height="28" text="成本类型"
-							fontName="华文细黑" size="26" />
-						<staffType x="200" y="271" width="115" height="40" text="员工类型"
+						<money x="200" y="340" width="115" height="40" text="金额"
+							type="rectangle" />
+						<costType x="48" y="170" width="115" height="40" text="成本类型"
+							type="rectangle"/>
+						<staffType x="460" y="170" width="115" height="40" text="员工类型"
 							type="rectangle" />
 					</LABELS>
-					<startDate x="345" y="201" width="276" height="40" />
-					<endDate x="345" y="201" width="276" height="40" />
-					<staffType x="345" y="201" width="276" height="40"
+					<startDate x="200" y="100" width="200" height="40" />
+					<endDate x="610" y="100" width="200" height="40" />
+					<staffType x="610" y="170" width="200" height="40"
 						strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理人员 司机" />
-					<costType x="345" y="201" width="276" height="40" strings="薪水 运费 租金" />
+					<costType x="200" y="170" width="200" height="40" strings="薪水 运费 租金" />
 				</addCostPanel>
-
-
 			</CostManagePanel>
+			
 			<BulidStateFromPanel x="232" y="54" width="1080"
 				height="637">
 				<BUTTONS>
