@@ -2,6 +2,7 @@ package ui.financeman.costManage;
 
 import org.dom4j.Element;
 
+import blservice.financeblservice.CostService;
 import ui.table.MyTablePanel;
 import util.CostType;
  /** 
@@ -11,10 +12,15 @@ import util.CostType;
  */
 @SuppressWarnings("serial")
 public class CostMesTable extends MyTablePanel {
+	
+	private CostService costService;
+	
+	
+	
 
-	public CostMesTable(Element config, CostType freight) {
+	public CostMesTable(Element config, CostType freight, CostService costService) {
 		super(config);
-		// TODO Auto-generated constructor stub
+		this.costService = costService;
 	}
 
 	@Override
@@ -34,5 +40,9 @@ public class CostMesTable extends MyTablePanel {
 		// TODO Auto-generated method stub
 
 	}
-
+	
+	
+	void setCostService(CostService costService) {
+		this.costService = costService;
+	}
 }

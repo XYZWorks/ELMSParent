@@ -45,13 +45,13 @@ public class FinanceController extends PanelController {
 	private MyPanel bulidStateFromPanel;
 	private MyPanel bulidPayPanel;
 	
-	private final String financeMainStr = StaticMessage.MAIN_WINDOW;
-	private final String finaceApprovalStr = "FinanceApprovalPanel";
-	private final String bulidBillStr = "BulidBillPanel";
-	private final String bankAccountStr = "BankAccountManagePanel";
-	private final String costManageStr = "CostManagePanel";
-	private final String bulidStateFormStr = "BulidStateFromPanel";
-	private final String bulidPayStr = "BulidPayPanel";
+	private final static String financeMainStr = StaticMessage.MAIN_WINDOW;
+	private final static String finaceApprovalStr = "FinanceApprovalPanel";
+	private final static String bulidBillStr = "BulidBillPanel";
+	private final static String bankAccountStr = "BankAccountManagePanel";
+	private final static String costManageStr = "CostManagePanel";
+	private final static String bulidStateFormStr = "BulidStateFromPanel";
+	private final static String bulidPayStr = "BulidPayPanel";
 	
 	private BankAccountBusinessService bankAccountService;
 	private CostService costService;
@@ -92,7 +92,7 @@ public class FinanceController extends PanelController {
 		financeApprovalPanel = new FinanceApprovalPanel(e.element(finaceApprovalStr));
 		bulidBillPanel = new BulidBillPanel(e.element(bulidBillStr) , statisticblservice , changePanel);
 		bankAccountManagePanel = new BankAccountManagePanel(e.element(bankAccountStr) , bankAccountService , changePanel);
-		costManagePanel = new CostManagePanel(e.element(costManageStr) , costService);
+		costManagePanel = new CostManagePanel(e.element(costManageStr) , costService, changePanel , costManageStr);
 		bulidStateFromPanel = new BulidStateFormPanel(e.element(bulidStateFormStr) , statisticblservice);
 		bulidPayPanel = new BulidPayPanel(e.element(bulidPayStr) , payService);
 	}

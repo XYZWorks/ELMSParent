@@ -122,7 +122,7 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 
 	@Override
 	public ArrayList<StoreMessagePO> getStoreMessages() throws RemoteException {
-		ArrayList<StoreMessagePO> pos = new ArrayList<>(20);
+		ArrayList<StoreMessagePO> pos = new ArrayList<>(12);
 		Object ob = null;
 		for (City city : City.values()) {
 			for (TransferWay storeLoc : TransferWay.values()) {

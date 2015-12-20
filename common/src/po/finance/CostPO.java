@@ -20,7 +20,9 @@ public class CostPO implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * ID编号
+	 */
 	private String ID;
 	/**
 	 * 创建时间
@@ -30,7 +32,6 @@ public class CostPO implements Serializable{
 	 * 结束时间
 	 */
 	private MyDate endDate;
-	
 	/**
 	 * 金额
 	 */
