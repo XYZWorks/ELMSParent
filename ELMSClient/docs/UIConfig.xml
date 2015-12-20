@@ -588,14 +588,14 @@
 				height="637">
 				<BUTTONS>
 					<jump x="400" y="560" width="200" height="40" text="转到成本收益表"
-						fontName="华文细黑" size="16" color="87,184,212"/>
+						 type="cancel" />
 					<confirm x="560" y="560" width="89" height="40" text="确认"
 						type="confirm" />
 					<cancel x="707" y="560" width="89" height="40" text="取消"
 						type="cancel" />
-					<addOneDeposit x="560" y="560" width="89" height="40"
+					<addOneDeposit x="560" y="100" width="89" height="40"
 						text="" type="confirm" />
-					<addOnePay x="707" y="560" width="89" height="40" text=""
+					<addOnePay x="707" y="100" width="89" height="40" text=""
 						type="cancel" />
 				</BUTTONS>
 				<TEXTFIELDS>
