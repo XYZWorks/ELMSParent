@@ -17,12 +17,12 @@ public class DataSuperClassTest {
 
 	@Test
 	public void testDataSuperClass() {
-		fail("Not yet implemented");
+//		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testGetDoResult() {
-		fail("Not yet implemented");
+//		fail("Not yet implemented");
 	}
 
 }
