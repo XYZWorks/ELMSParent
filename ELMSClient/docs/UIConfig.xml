@@ -64,7 +64,7 @@
 					<Statistic text="" x="352" y="153" width="131" height="160"
 						normal="GeneralManager//Statistic" enter="GeneralManager//Statistic-enter"
 						clicked="GeneralManager//Statistic-clicked" />
-					<ConstSet text="" x="661" y="153" width="111" height="160"
+					<ConstSet text="" x="661" y="156" width="111" height="160"
 						normal="GeneralManager//ConstSet" enter="GeneralManager//ConstSet-enter"
 						clicked="GeneralManager//ConstSet-clicked" />
 					<SalaryStrategySet text="" x="48" y="368" width="131"
@@ -73,7 +73,7 @@
 					<PeopleManage text="" x="352" y="354" width="131"
 						height="165" normal="GeneralManager//PeopleManage" enter="GeneralManager//PeopleManage-enter"
 						clicked="GeneralManager//PeopleManage-clicked" />
-					<InstManage text="" x="661" y="350" width="138" height="170"
+					<InstManage text="" x="650" y="361" width="138" height="170"
 						normal="GeneralManager//InstManage" enter="GeneralManager//InstManage-enter"
 						clicked="GeneralManager//InstManage-clicked" />
 				</BUTTONS>
@@ -137,10 +137,10 @@
 					<normal x="648" y="168" width="142" height="40" />
 					<ecnomic x="648" y="218" width="142" height="40"  />
 
-					<instance x="255" y="168" width="142" height="40" />
-					<planeCost x="255" y="353" width="142" height="40" />
-					<trainCost x="255" y="403" width="142" height="40" />
-					<truckCost x="255" y="453" width="142" height="40" />
+					<instance x="245" y="168" width="142" height="40" />
+					<planeCost x="245" y="353" width="142" height="40" />
+					<trainCost x="245" y="403" width="142" height="40" />
+					<truckCost x="245" y="453" width="142" height="40" />
 					<paperCost x="648" y="353" width="142" height="40" />
 					<woodCost x="648" y="403" width="142" height="40" />
 					<plasticCost x="648" y="453" width="142" height="40" />
@@ -176,47 +176,47 @@
 
 			<InstManagePanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
-					<addInst x="550" y="600" width="50" height="40" text="增加"
-						type="rectangle" />
-					<modify x="650" y="600" width="50" height="40" text="修改"
-						type="rectangle" />
-					<delete x="750" y="600" width="50" height="40" text="删除"
-						type="rectangle" />
-					<confirm x="550" y="600" width="50" height="40" text="确认"
+					<addInst x="642" y="53" width="40" height="40" 
+						type="add" />
+					<modify x="758" y="53" width="40" height="40"  
+						type="modify" />
+					<delete x="700" y="53" width="40" height="40"  
+						type="delete" />
+					<confirm x="560" y="560" width="89" height="40" text="确认"
 						type="confirm" />
-					<cancel x="45650" y="600" width="50" height="40" text="取消"
+					<cancel x="707" y="560" width="89" height="40" text="取消"
 						type="cancel" />
 				</BUTTONS>
+				
 				<LABELS>
-					<type x="45" y="500" width="50" height="40" text="职员类型" />
-					<location x="300" y="500" width="50" height="40" text="城市" />
+					<title x="53" y="53" width="200" height="28" text="机构列表" fontName="华文细黑" size="26"/>
+					<type x="53" y="53" width="80" height="40" text="机构类型" />
+					<location x="333" y="53" width="50" height="40" text="城市" />
 				</LABELS>
-				<type x="45" y="580" width="100" height="40" strings="中转中心 营业厅 总部" />
-				<location x="300" y="580" width="100" height="40" strings="南京 北京 上海 广州" />
+				<type x="143" y="53" width="150" height="40" strings="中转中心 营业厅 总部" />
+				<location x="393" y="53" width="150" height="40" strings="南京 北京 上海 广州" />
+				<table x="53" y="110" width="745" height="380"  column="ID 机构类型 所在地" />
 				<addInstPanel x="232" y="54" width="1080" height="637">
 					<BUTTONS>
-						<confirm x="550" y="600" width="50" height="40" text="确认"
-							type="confirm" />
-						<cancel x="45650" y="600" width="50" height="40" text="取消"
-							type="cancel" />
+						<confirm x="560" y="560" width="89" height="40" text="确认"
+						type="confirm" />
+						<cancel x="707" y="560" width="89" height="40" text="取消"
+						type="cancel" />
 					</BUTTONS>
 					<TEXTFIELDS>
-						<instid x="550" y="600" width="50" height="40" />
+						<instid x="345" y="201" width="276" height="40" />
 					</TEXTFIELDS>
 					<LABELS>
-						<instid x="45" y="500" width="50" height="40" text="职员ID" />
-						<type x="45" y="500" width="50" height="40" text="职员类型" />
-						<location x="300" y="500" width="50" height="40" text="城市" />
+						<instid x="200" y="201" width="50" height="40" text="机构ID" />
+						<type x="200" y="271" width="50" height="40" text="机构类型" />
+						<location x="200" y="341" width="50" height="40" text="城市" />
 					</LABELS>
-					<location x="300" y="580" width="100" height="40" strings="南京 北京 上海 广州" />
-					<type x="45" y="580" width="100" height="40" strings="中转中心 营业厅 总部" />
-
+					<location x="345" y="341" width="276" height="40" strings="南京 北京 上海 广州" />
+					<type x="345" y="271" width="276" height="40" strings="中转中心 营业厅 总部" />
 				</addInstPanel>
-				<table x="45" y="45" width="400" height="400" column="ID 机构类型 所在地" />
 			</InstManagePanel>
 
-			<PeopleManagePanel x="232" y="54" width="848"
-				height="637">
+			<PeopleManagePanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
 					<add x="600" y="100" width="200" height="50" text="增加" type="rectangle" />
 					<search x="600" y="45" width="200" height="50" text="查询"

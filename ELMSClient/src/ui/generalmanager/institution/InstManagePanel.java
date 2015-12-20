@@ -47,6 +47,7 @@ public class InstManagePanel extends MyPanel{
 	
 	private MyLabel newType;
 	private MyLabel newLoc;
+	private MyLabel title;
 	
 	private MyComboBox type;
 	private MyComboBox location;
@@ -84,6 +85,7 @@ public class InstManagePanel extends MyPanel{
 	protected void initLabels(Element e) {
 		newType = new MyLabel(e.element("type"));
 		newLoc = new MyLabel(e.element("location"));
+		title = new MyLabel(e.element("title"));
 	}
 
 	@Override
@@ -106,6 +108,7 @@ public class InstManagePanel extends MyPanel{
 		add(delete);
 		add(confirm);
 		add(cancel);
+		add(title);
 		changePanel.add(addInstPanel, addInstPanelStr);
 	}
 	
@@ -114,12 +117,21 @@ public class InstManagePanel extends MyPanel{
 		newType.setVisible(flag);
 		type.setVisible(flag);
 		location.setVisible(flag);
+		title.setVisible(!flag);
 		modify.setVisible(!flag);
 		isModify = flag;
 	}
 	
 	@Override
 	protected void addListener() {
+		modify.addMouseListener(new MyPictureButtonListener(modify){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				super.mouseClicked(e);
+				ismodify(true);
+			}
+		});
 		addInst.addMouseListener(new MyPictureButtonListener(addInst){
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -169,7 +181,7 @@ public class InstManagePanel extends MyPanel{
 				
 			}
 		});
-		delete.addMouseListener(new MyPictureButtonListener(cancel){
+		delete.addMouseListener(new MyPictureButtonListener(delete){
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
