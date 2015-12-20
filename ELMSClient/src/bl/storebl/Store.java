@@ -7,7 +7,12 @@ import po.store.StoreCheckPO;
 import po.store.StoreMessagePO;
 import test.java.other.VOPOchange;
 import util.City;
+import util.DocType;
 import util.ResultMessage;
+import util.TransferWay;
+import vo.DocVO;
+import vo.store.InStoreDocVO;
+import vo.store.OutStoreDocVO;
 import vo.store.StoreCheckVO;
 import vo.store.StoreMessageVO;
 import ds.storedataservice.StoreDataService;
@@ -94,6 +99,35 @@ public class Store {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public ResultMessage updateStore(City loc, TransferWay way,DocVO tmp) {
+		ArrayList<StoreMessageVO> vos = show();
+		StoreMessageVO target = null;
+		for(StoreMessageVO vo : vos){
+			if(vo.location==loc&&vo.storeLoc==way){
+				target = vo;
+				break;
+			}
+		}
+		if(target==null){
+			return ResultMessage.FAIL;
+			
+		}
+		if(DocType.inStoreDoc==tmp.type){
+			InStoreDocVO vo = (InStoreDocVO)tmp;
+			target.inStoreDocs.add(vo);
+			int addNum = vo.orders.size();
+			target.number = target.number+addNum;
+			
+		}
+		else if(DocType.outStoreDoc==tmp.type){
+			OutStoreDocVO vo = (OutStoreDocVO)tmp;
+			target.OutStoreDocs.add(vo);
+			int delNum = vo.orders.size();
+			target.number = target.number-delNum;
+		}
+		return update(target);
 	}
 
 }

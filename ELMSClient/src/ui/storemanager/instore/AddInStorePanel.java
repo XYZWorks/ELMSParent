@@ -21,6 +21,7 @@ import ui.util.PanelController;
 import ui.util.TipsDialog;
 import util.City;
 import util.ResultMessage;
+import util.TransferWay;
 import vo.store.InStoreDocVO;
 
 /**
@@ -118,7 +119,7 @@ public class AddInStorePanel extends MyPanel {
 	@Override
 	protected void addListener() {
 		confirmButton.addMouseListener(new AddInStoreListener(confirmButton));
-		returnButton.addMouseListener(new MyJumpListener(returnButton, "InStorePanel", controller,true));
+		returnButton.addMouseListener(new MyJumpListener(returnButton, "InStorePanel", controller, true));
 
 	}
 
@@ -157,8 +158,11 @@ public class AddInStorePanel extends MyPanel {
 			ResultMessage result = bl.generate(vo);
 
 			if (result == ResultMessage.SUCCESS) {
-//				reInitial();
+
+				// reInitial();
 				new TipsDialog("生成入库单成功");
+				bl.updateStore(vo.loc, TransferWay.getStoreLocation(vo.location.get(0).substring(0, 2)), vo.ID,
+						vo.type );
 
 			}
 			return true;

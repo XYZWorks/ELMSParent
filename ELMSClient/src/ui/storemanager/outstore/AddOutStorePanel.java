@@ -181,6 +181,7 @@ public class AddOutStorePanel extends MyPanel {
 //				reInitial();
 				
 				new TipsDialog("生成出库单成功");
+				bl.updateStore(out.loc, out.shipWay,out.ID,out.type);
 			}
 			return true;
 

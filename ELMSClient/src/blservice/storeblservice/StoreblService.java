@@ -6,7 +6,9 @@ package blservice.storeblservice;
 import java.util.ArrayList;
 
 import util.City;
+import util.DocType;
 import util.ResultMessage;
+import util.TransferWay;
 import vo.store.StoreCheckVO;
 import vo.store.StoreMessageVO;
 /**
@@ -49,6 +51,9 @@ public interface StoreblService {
 	 * @return
 	 */
 	public String getAlarmValue(City city);
-
+	/**
+	 * 同步storemessage信息
+	 */
+	public ResultMessage updateStore(City loc, TransferWay way,String ID,DocType type);
 
 }

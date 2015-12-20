@@ -8,6 +8,7 @@ import util.DataServiceType;
 import util.DocState;
 import util.DocType;
 import util.ResultMessage;
+import util.TransferWay;
 import vo.DocVO;
 import vo.store.InStoreDocVO;
 import vo.store.OutStoreDocVO;
@@ -124,6 +125,11 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 		}
 		
 				
+	}
+	public ResultMessage updateStore(City loc, TransferWay way,String ID , DocType type) {
+		DocVO tmp = getByID(ID, type);
+		return store.updateStore(loc,way,tmp);
+		
 	}
 
 }
