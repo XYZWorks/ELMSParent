@@ -64,7 +64,6 @@ public class InputReceiveInfoPanel extends MyPanel{
 		this.add(cancel);
 		this.add(modify);
 		this.add(table);
-		this.add(table);
 		
 	}
 

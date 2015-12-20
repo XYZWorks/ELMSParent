@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 package data.storedata;
 
 import java.rmi.RemoteException;
@@ -363,9 +363,7 @@ import ds.storedataservice.StoreDataService;
  */
 public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	private static final String instoreDocTable = "InStoreDoc";
@@ -672,4 +670,4 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 	}
 
 }
->>>>>>> Stashed changes
+
