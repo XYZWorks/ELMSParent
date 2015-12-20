@@ -71,8 +71,14 @@ public interface Orderblservice extends DocApprovalService{
 	 */
 	public ArrayList<PreReceiveVO> getPreReceive() ;
 		
-	
-	
+	/**
+	 * d
+	 * 
+	 */
+//	public ArrayList<OrderVO> getDayOrderVOs(){
+//		
+//	}
+//	
 	
 	
 }

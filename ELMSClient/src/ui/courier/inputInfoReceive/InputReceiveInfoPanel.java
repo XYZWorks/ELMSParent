@@ -1,4 +1,4 @@
-package ui.courier;
+package ui.courier.inputInfoReceive;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;

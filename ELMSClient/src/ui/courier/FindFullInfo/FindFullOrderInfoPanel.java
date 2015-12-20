@@ -1,4 +1,4 @@
-package ui.courier;
+package ui.courier.FindFullInfo;
 
 import java.util.ArrayList;
 
@@ -344,7 +344,7 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 
 	public void readInfo() {
 		// 依次读取物流信息：地点＋时间
-		ArrayList<OrderSimpleInfoVO> info = orderblservice.getFullInfo(orderBarCode);
+		ArrayList<OrderSimpleInfoVO> info = orderblservice.getFullInfo(orderBarCodeLabel.getText());
 		int length = info.size();
 
 		MyLabel[] place = { one, two, three, four, five, six, seven, eight, nine, ten };

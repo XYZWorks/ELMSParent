@@ -308,104 +308,150 @@
 
 			</addOrderPanel>
 
+			<showInfoPanel x="232" y="54" width="1080" height="1200">
+				<showInfoTable x="49" y="114" width="727"
+					height="500" column="订单号 收件人 收件地址 寄件人 寄件地址 运费" />
 
-			<findFullInfoPanel x="232" y="54" width="1080"
-				height="1000">
+				<findFullInfoPanel x="232" y="54" width="1080"
+					height="1200">
 
-				<WHITEPANELS>
-					<senderInfoPanel x="49" y="114" width="365" height="295" />
-					<receiverInfoPanel x="434" y="114" width="365"
-						height="295" />
-					<goodInfoPanel x="49" y="433" width="748" height="220" />
-					<transferInfoPanel x="49" y="680" width="748"
-						height="220" />
-				</WHITEPANELS>
-				<BUTTONS>
-					<delete x="48" y="76" width="137" height="19" normal="element//min"
-					enter="element//min-enter" clicked="element//min-clicked" />
-				</BUTTONS>
-				<LABELS>
-					<orderBarCode text="订单号" x="48" y="40" width="150"
-						height="40" size="36" color="26,188,156" />
-					<orderBarCodeLabel text="" x="48" y="76" width="137"
-						height="19" />
+					<WHITEPANELS>
+						<senderInfoPanel x="49" y="114" width="365"
+							height="295" />
+						<receiverInfoPanel x="434" y="114" width="365"
+							height="295" />
+						<goodInfoPanel x="49" y="433" width="748" height="220" />
+						<transferInfoPanel x="49" y="680" width="775"
+							height="360" />
+					</WHITEPANELS>
+					<BUTTONS>
+						<delete x="48" y="76" width="137" height="19" normal="element//min"
+							enter="element//min-enter" clicked="element//min-clicked" />
+					</BUTTONS>
+					<LABELS>
+						<orderBarCode text="订单号" x="48" y="40" width="150"
+							height="40" size="36" color="26,188,156" />
+						<orderBarCodeLabel text="" x="48" y="76" width="137"
+							height="19" />
 
-					<senderInfo text="寄件人" x="0" y="0" width="114" height="40"
-						type="rectangle" />
-					<senderNameLabel text="姓名" x="20" y="63" width="36"
-						height="20" />
-					<senderPhoneLabel text="手机" x="20" y="110" width="36"
-						height="20" />
-					<senderAddressLabel text="地址" x="20" y="156"
-						width="36" height="20" />
-					<senderUnitLabel text="单位" x="20" y="249" width="36"
-						height="20" />
+						<senderInfo text="寄件人" x="0" y="0" width="114" height="40"
+							type="rectangle" />
+						<senderNameLabel text="姓名" x="20" y="63" width="36"
+							height="20" />
+						<senderPhoneLabel text="手机" x="20" y="110" width="36"
+							height="20" />
+						<senderAddressLabel text="地址" x="20" y="156"
+							width="36" height="20" />
+						<senderUnitLabel text="单位" x="20" y="249" width="36"
+							height="20" />
 
-					<senderNameText x="112" y="171" width="276" height="29" />
-					<senderPhoneText x="112" y="217" width="276"
-						height="29" />
-					<senderAddressText x="112" y="309" width="276"
-						height="29" />
-					<senderUnitText x="112" y="355" width="276" height="29" />
+						<senderNameText x="112" y="171" width="276" height="29" />
+						<senderPhoneText x="112" y="217" width="276"
+							height="29" />
+						<senderAddressText x="112" y="309" width="276"
+							height="29" />
+						<senderUnitText x="112" y="355" width="276" height="29" />
 
-					<receiverInfo text="收件人" x="0" y="0" width="114"
-						height="40" type="rectangle" />
-					<receiverNameLabel text="姓名" x="20" y="63" width="36"
-						height="20" />
-					<receiverPhoneLabel text="手机" x="20" y="110"
-						width="36" height="20" />
-					<receiverAddressLabel text="地址" x="20" y="156"
-						width="36" height="20" />
-					<receiverUnitLabel text="单位" x="20" y="249"
-						width="36" height="20" />
+						<receiverInfo text="收件人" x="0" y="0" width="114"
+							height="40" type="rectangle" />
+						<receiverNameLabel text="姓名" x="20" y="63"
+							width="36" height="20" />
+						<receiverPhoneLabel text="手机" x="20" y="110"
+							width="36" height="20" />
+						<receiverAddressLabel text="地址" x="20" y="156"
+							width="36" height="20" />
+						<receiverUnitLabel text="单位" x="20" y="249"
+							width="36" height="20" />
 
 
-					<receiverNameText x="497" y="171" width="276"
-						height="29" />
-					<receiverPhoneText x="497" y="217" width="276"
-						height="29" />
-					<receiverAddressText x="497" y="309" width="276"
-						height="29" />
-					<receiverUnitText x="497" y="355" width="276"
-						height="29" />
+						<receiverNameText x="497" y="171" width="276"
+							height="29" />
+						<receiverPhoneText x="497" y="217" width="276"
+							height="29" />
+						<receiverAddressText x="497" y="309" width="276"
+							height="29" />
+						<receiverUnitText x="497" y="355" width="276"
+							height="29" />
 
-					<goodsInfo text="货物信息" x="0" y="0" width="114" height="40"
-						type="rectangle" />
-					<goodNameLabel text="商品名称" x="22" y="60" width="65"
-						height="20" />
-					<goodWeightLabel text="实际重量" x="395" y="105" width="65"
-						height="20" />
-					<goodNumLabel text="件数" x="395" y="60" width="36"
-						height="20" />
-					<goodVolumLabel text="体积" x="22" y="105" width="36"
-						height="20" />
-					<goodPackLabel text="包装费用" x="22" y="145" width="65"
-						height="20" />
-					<orderFormLabel text="快递形式" x="22" y="178" width="65"
-						height="20" />
+						<goodsInfo text="货物信息" x="0" y="0" width="114" height="40"
+							type="rectangle" />
+						<goodNameLabel text="商品名称" x="22" y="60" width="65"
+							height="20" />
+						<goodWeightLabel text="实际重量" x="395" y="105"
+							width="65" height="20" />
+						<goodNumLabel text="件数" x="395" y="60" width="36"
+							height="20" />
+						<goodVolumLabel text="体积" x="22" y="105" width="36"
+							height="20" />
+						<goodPackLabel text="包装费用" x="22" y="145" width="65"
+							height="20" />
+						<orderFormLabel text="快递形式" x="22" y="178" width="65"
+							height="20" />
 
-					<goodNameText x="141" y="487" width="254" height="29" />
-					<goodWeightText x="515" y="533" width="85" height="29" />
-					<goodLongText x="141" y="533" width="85" height="29" />
-					<goodWidthText x="229" y="533" width="85" height="29" />
-					<goodHeightText x="319" y="533" width="85" height="29" />
+						<goodNameText x="141" y="487" width="254" height="29" />
+						<goodWeightText x="515" y="533" width="85" height="29" />
+						<goodLongText x="141" y="533" width="85" height="29" />
+						<goodWidthText x="229" y="533" width="85" height="29" />
+						<goodHeightText x="319" y="533" width="85" height="29" />
 
-					<transferInfo text="物流信息" x="0" y="0" width="114"
-						height="40" type="rectangle" />
-					<estimateTime text="" x="49" y="920" width="189"
-						height="65" one="element//estimateTime" />
+						<estimateTime text="" x="49" y="1080" width="189"
+							height="65" one="element//estimateTime" />
 
-					<cost text="" x="300" y="920" width="189" height="65"
-						one="element//cost" />
+						<cost text="" x="300" y="1080" width="189" height="65"
+							one="element//cost" />
 
-				</LABELS>
-				<TEXTFIELDS>
-				</TEXTFIELDS>
-				<DatePicker x="596" y="38" width="200" height="40">
-					<field x="596" y="38" width="150" height="40" />
-					<button x="746" y="38" width="50" height="40" type="rectangle" />
-				</DatePicker>
-			</findFullInfoPanel>
+						<transferInfo text="物流信息" x="0" y="0" width="114"
+							height="40" type="rectangle" />
+
+						<LineLeft x="18" y="60" width="13" height="264"
+							one="element//timeAxis" />
+						<LineRight x="403" y="60" width="13" height="264"
+							one="element//timeAxis" />
+
+						<One x="48" y="54" width="326" height="32" />
+						<Two x="48" y="106" width="326" height="32" />
+						<Three x="48" y="158" width="326" height="32" />
+						<Four x="48" y="212" width="326" height="32" />
+						<Five x="48" y="266" width="326" height="32" />
+						<Six x="433" y="54" width="326" height="32" />
+						<Seven x="433" y="106" width="326" height="32" />
+						<Eight x="433" y="158" width="326" height="32" />
+						<Nine x="433" y="212" width="326" height="32" />
+						<Ten x="433" y="266" width="326" height="32" />
+
+						<OneText x="48" y="78" width="276" height="16" color="26,188,156"
+							size="14" />
+						<TwoText x="48" y="130" width="276" height="16" color="26,188,156"
+							size="14" />
+						<ThreeText x="48" y="188" width="276" height="16"
+							color="26,188,156" size="14" />
+						<FourText x="48" y="240" width="276" height="16" color="26,188,156"
+							size="14" />
+						<FiveText x="48" y="290" width="276" height="16" color="26,188,156"
+							size="14" />
+						<SixText x="433" y="78" width="276" height="16" color="26,188,156"
+							size="14" />
+						<SevenText x="433" y="130" width="276" height="16"
+							color="26,188,156" size="14" />
+						<EightText x="433" y="188" width="276" height="16"
+							color="26,188,156" size="14" />
+						<NineText x="433" y="240" width="276" height="16" color="26,188,156"
+							size="14" />
+						<TenText x="433" y="290" width="276" height="16" color="26,188,156"
+							size="14" />
+
+					</LABELS>
+					<TEXTFIELDS>
+					</TEXTFIELDS>
+					<DatePicker x="596" y="38" width="200" height="40">
+						<field x="596" y="38" width="150" height="40" />
+						<button x="746" y="38" width="50" height="40" type="rectangle" />
+					</DatePicker>
+				</findFullInfoPanel>
+
+
+			</showInfoPanel>
+
 			<inputReceiveInfoPanel x="232" y="54" width="1080"
 				height="637">
 				<BUTTONS>
@@ -419,8 +465,8 @@
 				</LABELS>
 				<TEXTFIELDS>
 				</TEXTFIELDS>
-				<inputReceiveTable x="232" y="54" width="1080"
-					height="637" column="订单号 收件地址 收件人 实际收件人 收件时间" />
+				<inputReceiveTable x="49" y="114" width="727"
+					height="500" column="订单号 收件地址 收件人 实际收件人 收件时间" />
 
 			</inputReceiveInfoPanel>
 

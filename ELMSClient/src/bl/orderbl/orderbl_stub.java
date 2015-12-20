@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import blservice.orderblservice.Orderblservice;
 import util.DocState;
 import util.DocType;
+import util.MyDate;
 import util.ResultMessage;
 import vo.DocVO;
 import vo.order.OrderSimpleInfoVO;
@@ -120,8 +121,12 @@ public class orderbl_stub implements Orderblservice{
 
 	@Override
 	public ArrayList<PreReceiveVO> getPreReceive() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<PreReceiveVO> list=new ArrayList<PreReceiveVO>();
+		PreReceiveVO one=new PreReceiveVO("1234567890", "南京大学2栋 axxx", "王二",null, null);
+		PreReceiveVO two=new PreReceiveVO("1234567899", "复旦大学2栋 axxx", "凯二",null, null);
+		list.add(one);
+		list.add(two);
+		return list;
 	}
 
 	@Override

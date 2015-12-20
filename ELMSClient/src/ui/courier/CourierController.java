@@ -11,6 +11,8 @@ import bl.BusinessLogicDataFactory;
 import blservice.orderblservice.Orderblservice;
 import blservice.strategyblservice.StrategyblService;
 import config.StaticMessage;
+import ui.courier.FindFullInfo.FindFullOrderInfoPanel;
+import ui.courier.inputInfoReceive.InputReceiveInfoPanel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MySideBarButton;
