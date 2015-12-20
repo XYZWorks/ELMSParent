@@ -1,5 +1,6 @@
 package ui.generalmanager.salary;
 
+import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
@@ -7,6 +8,9 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
 import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -16,6 +20,7 @@ import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
 import ui.util.TextFieldsManage;
+import ui.util.TipsDialog;
 import util.ResultMessage;
 import util.StaffType;
 import util.WageStrategy;
@@ -127,7 +132,7 @@ public class SalaryStrategySetPanel extends MyPanel implements TextFieldsManage 
 		staffTypeBox = new MyComboBox(e.element("StaffTypeBox"));
 		wageStrategyBox = new MyComboBox(e.element("WageStrategyBox"));
 		table = new SalaryStrategyMesTablePanel(e.element("table"),
-				bl.getsalary());
+				bl);
 
 	}
 
@@ -213,22 +218,28 @@ public class SalaryStrategySetPanel extends MyPanel implements TextFieldsManage 
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
-			// TODO 检查数据合法性、保存至数据库
+			
 
 			StaffType type = StaffType.getType((String) staffTypeBox
 					.getSelectedItem());
 			WageStrategy wageStrategy = WageStrategy
 					.getType((String) wageStrategyBox.getSelectedItem());
-			int basic = Integer.parseInt(basicMoneyField.getText());
-			int more = Integer.parseInt((moreMoneyField.getText()));
-
-			result = bl.setSalary(new SalaryWayVO(type, basic, more,
-					wageStrategy));
+			String basic = basicMoneyField.getText();
+			String more = moreMoneyField.getText();
+			
+			SimpleDataFormat[] datas = {new SimpleDataFormat(basic, DataType.PositiveNum, "基础工资" ) , new SimpleDataFormat(more, DataType.PositiveNum, "提成")};
+			if(UserfulMethod.dealWithData(datas)){
+				result = bl.setSalary(new SalaryWayVO(type, Integer.parseInt(basic), Integer.parseInt(more),
+						wageStrategy));
+			}
+			
+			
 
 			if (result == ResultMessage.SUCCESS) {
-
+				new TipsDialog("成功修改信息", Color.GREEN);
 			} else {
-
+				new TipsDialog("未成功修改信息，请重试");
+				return;
 			}
 
 			showInTable.setVisible(true);
@@ -237,6 +248,7 @@ public class SalaryStrategySetPanel extends MyPanel implements TextFieldsManage 
 			cancel.setVisible(false);
 			allowTextFieldToModify(false);
 			wageStrategyBox.setEnabled(false);
+			showInTable.setEnabled(true);
 		}
 
 	}
@@ -257,6 +269,7 @@ public class SalaryStrategySetPanel extends MyPanel implements TextFieldsManage 
 			cancel.setVisible(false);
 			allowTextFieldToModify(false);
 			wageStrategyBox.setEnabled(false);
+			showInTable.setEnabled(true);
 		}
 	}
 
@@ -268,7 +281,6 @@ public class SalaryStrategySetPanel extends MyPanel implements TextFieldsManage 
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
-			// TODO 显示表格
 			table.setVisible(true);
 			setModifyCompVisiable(false);
 			showInTable.setEnabled(false);
@@ -293,7 +305,7 @@ public class SalaryStrategySetPanel extends MyPanel implements TextFieldsManage 
 			confirm.setVisible(true);
 			cancel.setVisible(true);
 			wageStrategyBox.setEnabled(true);
-			
+			showInTable.setEnabled(true);
 			
 		}
 
