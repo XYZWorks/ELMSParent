@@ -3,8 +3,14 @@ package ui.courier.FindFullInfo;
 import java.util.ArrayList;
 
 import org.dom4j.Element;
+import org.omg.CORBA.PUBLIC_MEMBER;
+import org.omg.CORBA.portable.ValueBase;
 
 import blservice.orderblservice.Orderblservice;
+import po.order.GoodMes;
+import po.order.OtherOrderMes;
+import po.order.PeopleMes;
+import po.order.TransferDocs;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyLabel;
@@ -15,6 +21,7 @@ import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
 import util.DocType;
 import vo.order.OrderSimpleInfoVO;
+import vo.order.OrderVO;
 
 @SuppressWarnings("serial")
 public class FindFullOrderInfoPanel extends MyPanelWithScroller {
@@ -39,9 +46,9 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 	// 日历
 	private MyDatePicker DatePicker;
 
-	//删除
+	// 删除
 	private MyPictureButton delete;
-	
+
 	// 寄件人信息
 	private MyPictureLabel senderInfo;
 	private MyLabel senderNameLabel;
@@ -76,6 +83,7 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 	private MyLabel orderFormLabel;// 快递形式
 
 	private MyLabel goodNameText;
+	private MyLabel goodNumText;
 	private MyLabel goodWeightText;
 	private MyLabel goodLongText;
 	private MyLabel goodWidthText;
@@ -89,10 +97,11 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 
 	// 包装形式
 	private MyLabel goodPack;
+	private MyLabel goodPackText;
 	// 快递形式
 	private MyLabel orderForm;
+	private MyLabel orderFormText;
 
-	
 	// 标题栏：物流信息
 	private MyPictureLabel transferInfo;
 	// 左右两边的物流线
@@ -122,6 +131,14 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 	private MyLabel nineText;
 	private MyLabel tenText;
 
+	// 从逻辑层得到的数据
+	private OrderVO orderVO;
+	private PeopleMes sender;
+	private PeopleMes receiver;
+	private GoodMes goodMes;
+	private OtherOrderMes otherMes;
+	private TransferDocs transferDocs;
+
 	public FindFullOrderInfoPanel(Element config, Orderblservice orderblservice) {
 		super(config);
 		this.orderblservice = orderblservice;
@@ -139,7 +156,7 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 
 	@Override
 	protected void initButtons(Element e) {
-		delete=new MyPictureButton(e.element("delete"));
+		delete = new MyPictureButton(e.element("delete"));
 
 	}
 
@@ -186,18 +203,24 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		orderFormLabel = new MyLabel(e.element("orderFormLabel"));
 
 		goodNameText = new MyLabel(e.element("goodNameText"));
+		goodNumText=new MyLabel(e.element("goodNumText"));
 		goodWeightText = new MyLabel(e.element("goodWeightText"));
 		goodLongText = new MyLabel(e.element("goodLongText"));
 		goodWidthText = new MyLabel(e.element("goodWidthText"));
 		goodHeightText = new MyLabel(e.element("goodHeightText"));
+		
+		//其他信息
+		goodPack=new MyLabel(e.element("goodPack"));
+		goodPackText=new MyLabel(e.element("goodPackText"));
+		orderForm=new MyLabel(e.element("orderForm"));
+		orderFormText=new MyLabel(e.element("orderFormText"));
 
 		// 预计时间
 		estimateTime = new MyPictureLabel(e.element("estimateTime"));
 
 		// 费用
 		cost = new MyPictureLabel(e.element("cost"));
-		
-		
+
 		// 流转信息
 		transferInfo = new MyPictureLabel(e.element("transferInfo"));
 		transferInfo = new MyPictureLabel(e.element("transferInfo"));
@@ -261,7 +284,7 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		this.add(DatePicker);
 
 		this.add(delete);
-		
+
 		senderInfoPanel.add(senderInfo);
 		senderInfoPanel.add(senderPhoneLabel);
 		senderInfoPanel.add(senderNameLabel);
@@ -298,7 +321,7 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		goodInfoPanel.add(goodHeightText);
 
 		transferInfoPanel.add(transferInfo);
-		
+
 		transferInfoPanel.add(LineLeft);
 		transferInfoPanel.add(LineRight);
 
@@ -324,7 +347,6 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		transferInfoPanel.add(nineText);
 		transferInfoPanel.add(tenText);
 
-
 		this.add(estimateTime);
 		this.add(cost);
 
@@ -342,67 +364,101 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 
 	}
 
-	public void readInfo() {
-		// 依次读取物流信息：地点＋时间
-		ArrayList<OrderSimpleInfoVO> info = orderblservice.getFullInfo(orderBarCodeLabel.getText());
-		int length = info.size();
+	public void getData() {
+		orderVO = orderblservice.getFullInfo(orderBarCodeLabel.getText());
+		sender = orderVO.sender;
+		receiver = orderVO.receiver;
+		goodMes=orderVO.goodMes;
+		otherMes = orderVO.otherMes;
+		transferDocs = orderVO.transferDocs;
 
-		MyLabel[] place = { one, two, three, four, five, six, seven, eight, nine, ten };
-		MyLabel[] time = { oneText, twoText, threeText, fourText, fiveText, sixText, sevenText, eightText, nineText,
-				tenText };
-		for (int i = 0; i < length; i++) {
-			place[i].setText(processPlace(info.get(i).place, info.get(i).type, i));
-			
-			time[i].setText(processTime(info.get(i).time));
-		}
+	}
 
-		// 如果流转信息不超过5个，右边栏点点不会出现
-		if (length <= 5) {
-			LineRight.setVisible(false);
-		} else {
-			LineRight.setVisible(true);
-		}
+	public void readData() {
+		// 读取收件人信息
+		senderNameText.setText(sender.getName());
+		senderPhoneText.setText(sender.getPhone());
+		senderAddressText.setText(sender.getPhone());
+		senderUnitText.setText(sender.getCompany());
+
+		// 读取寄件人信息
+		receiverNameText.setText(receiver.getName());
+		receiverPhoneText.setText(receiver.getPhone());
+		receiverAddressText.setText(receiver.getPhone());
+		receiverUnitText.setText(receiver.getCompany());
+
+		//读取货物信息
+		goodNameText.setText(goodMes.getGoodName());
+		goodNumText.setText(String.valueOf(goodMes.getGoodNum()));
+		goodWeightText.setText(String.valueOf(goodMes.getGoodWeight()));
+		goodLongText.setText(String.valueOf(goodMes.getGoodLong()));
+		goodWidthText.setText(String.valueOf(goodMes.getGoodWidth()));
+		goodHeightText.setText(String.valueOf(goodMes.getGoodHeight()));
 		
+		//读取其他信息
+		goodPackText.setText(otherMes.getGoodPack());
+		orderFormText.setText(otherMes.getOrderForm());
 	}
 
-	private String processPlace(String place, DocType type, int i) {
-		String result = null;
-		switch (type) {
-		// 装车单
-		case loadDoc:
-			result = "快件已被成功装车，送往"+place+"中转中心";
-			break;
-		// 中转中心到达单
-		case arriveZZDoc:
-			result = "快递已到达["+place+"中转中心]";
-			break;
-		// 入库单
-		case inStoreDoc:
-			result = "快递已入库["+place+"中转中心]";
-			break;
-		// 出库单
-		case outStoreDoc:
-			result = "快递已出库["+place+"中转中心]";
-			break;
-		// 接受单
-		case arriveYYDoc:
-			result = "快件已到达[" +place+"营业厅]";
-			break;
-		// 派送单
-		case sendGoodDoc:
-			result = "快递正在被快递员："+place+" 派送";
-			break;
-		default:
-			break;
-		}
-		return result;
-	}
-
-	private String processTime(String time) {
-		String[] origin = time.split("-");
-		// 转化格式：年－月－日 时：分：秒
-		String after = origin[0] + "-" + origin[1] + "-" + origin[2] + "  " + origin[3] + ":" + origin[4] + ":"
-				+ origin[5];
-		return after;
-	}
+	// MyLabel[] place = { one, two, three, four, five, six, seven, eight, nine,
+	// ten };
+	// MyLabel[] time = { oneText, twoText, threeText, fourText, fiveText,
+	// sixText, sevenText, eightText, nineText,
+	// tenText };
+	// for (int i = 0; i < length; i++) {
+	// place[i].setText(processPlace(info.get(i).place, info.get(i).type, i));
+	//
+	// time[i].setText(processTime(info.get(i).time));
+	// }
+	//
+	// // 如果流转信息不超过5个，右边栏点点不会出现
+	// if (length <= 5) {
+	// LineRight.setVisible(false);
+	// } else {
+	// LineRight.setVisible(true);
+	// }
+	//
+	// }
+	//
+	// private String processPlace(String place, DocType type, int i) {
+	// String result = null;
+	// switch (type) {
+	// // 装车单
+	// case loadDoc:
+	// result = "快件已被成功装车，送往"+place+"中转中心";
+	// break;
+	// // 中转中心到达单
+	// case arriveZZDoc:
+	// result = "快递已到达["+place+"中转中心]";
+	// break;
+	// // 入库单
+	// case inStoreDoc:
+	// result = "快递已入库["+place+"中转中心]";
+	// break;
+	// // 出库单
+	// case outStoreDoc:
+	// result = "快递已出库["+place+"中转中心]";
+	// break;
+	// // 接受单
+	// case arriveYYDoc:
+	// result = "快件已到达[" +place+"营业厅]";
+	// break;
+	// // 派送单
+	// case sendGoodDoc:
+	// result = "快递正在被快递员："+place+" 派送";
+	// break;
+	// default:
+	// break;
+	// }
+	// return result;
+	// }
+	//
+	// private String processTime(String time) {
+	// String[] origin = time.split("-");
+	// // 转化格式：年－月－日 时：分：秒
+	// String after = origin[0] + "-" + origin[1] + "-" + origin[2] + " " +
+	// origin[3] + ":" + origin[4] + ":"
+	// + origin[5];
+	// return after;
+	// }
 }

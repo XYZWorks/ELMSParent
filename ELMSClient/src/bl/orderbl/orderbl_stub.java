@@ -135,4 +135,10 @@ public class orderbl_stub implements Orderblservice{
 		return null;
 	}
 
+	@Override
+	public ArrayList<OrderVO> getOrderVO(MyDate date) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

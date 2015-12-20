@@ -30,7 +30,12 @@ public class testframeforxc extends MyFrame {
 		public testframeforxc(Element e , AccountType type) {
 			super(e);
 			
-			
+			try {
+				org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			/**
 			 * 整个过程中不动的界面，底色
 			 */

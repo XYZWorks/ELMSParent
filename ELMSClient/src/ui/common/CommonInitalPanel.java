@@ -149,7 +149,7 @@ public class CommonInitalPanel extends MyPanel{
 				
 				//获得输入的条形码
 				String barcode=searchBox.getMyText();
-				System.out.println("commoninitalP"+barcode);
+				//System.out.println("commoninitalP"+barcode);
 				//判断条形码格式是否正确
 				FormatMes result=UserfulMethod.checkBarCode(barcode);
 				if(result==FormatMes.WRONG_LENGTH){

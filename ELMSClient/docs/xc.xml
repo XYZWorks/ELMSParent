@@ -229,12 +229,18 @@
 					<Width text="cm" x="242" y="100" width="85" height="32" />
 					<Height text="cm" x="333" y="100" width="85" height="32" />
 
+					<goodPack text="" x="153" y="100" width="40" height="32" />
+					<goodPackText text="" x="153" y="100" width="40"
+						height="32" />
+					<orderForm text="" x="153" y="100" width="40" height="32" />
+					<orderFormText text="" x="153" y="100" width="40"
+						height="32" />
+						
+					<estimateTime text="" x="49" y="668" width="225"
+						height="65" one="courier//estimateTime" fontName="Microsoft YaHei" />
 
-					<estimateTime text="" x="49" y="668" width="189"
-						height="65" one="element//estimateTime" fontName="Microsoft YaHei" />
-
-					<cost text="" x="300" y="668" width="189" height="65"
-						one="element//cost" fontName="Microsoft YaHei" />
+					<cost text="" x="300" y="668" width="225" height="65"
+						one="courier//cost" fontName="Microsoft YaHei" />
 				</LABELS>
 
 
@@ -309,8 +315,8 @@
 			</addOrderPanel>
 
 			<showInfoPanel x="232" y="54" width="1080" height="1200">
-				<showInfoTable x="49" y="114" width="727"
-					height="500" column="订单号 收件人 收件地址 寄件人 寄件地址 运费" />
+				<showInfoTable x="49" y="114" width="727" height="500"
+					column="订单号 收件人 收件地址 寄件人 寄件地址 运费" />
 
 				<findFullInfoPanel x="232" y="54" width="1080"
 					height="1200">
@@ -377,10 +383,10 @@
 							type="rectangle" />
 						<goodNameLabel text="商品名称" x="22" y="60" width="65"
 							height="20" />
-						<goodWeightLabel text="实际重量" x="395" y="105"
-							width="65" height="20" />
 						<goodNumLabel text="件数" x="395" y="60" width="36"
 							height="20" />
+						<goodWeightLabel text="实际重量" x="395" y="105"
+							width="65" height="20" />
 						<goodVolumLabel text="体积" x="22" y="105" width="36"
 							height="20" />
 						<goodPackLabel text="包装费用" x="22" y="145" width="65"
@@ -389,6 +395,7 @@
 							height="20" />
 
 						<goodNameText x="141" y="487" width="254" height="29" />
+						<goodNumText text="" x="395" y="60" width="36" height="20" />
 						<goodWeightText x="515" y="533" width="85" height="29" />
 						<goodLongText x="141" y="533" width="85" height="29" />
 						<goodWidthText x="229" y="533" width="85" height="29" />

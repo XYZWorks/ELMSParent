@@ -12,6 +12,7 @@ import blservice.orderblservice.Orderblservice;
 import blservice.strategyblservice.StrategyblService;
 import config.StaticMessage;
 import ui.courier.FindFullInfo.FindFullOrderInfoPanel;
+import ui.courier.FindFullInfo.showInfoPanel;
 import ui.courier.inputInfoReceive.InputReceiveInfoPanel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
@@ -35,6 +36,7 @@ public class CourierController extends PanelController{
 	private AddOrderPanel addOrderPanel;
 	private FindFullOrderInfoPanel findFullInfoPanel;
 	private InputReceiveInfoPanel inputReceiveInfoPanel;
+	private showInfoPanel showInfoPanel;
 	
 	//左侧栏
 	private MySideBarButton addOrderButton;
@@ -43,7 +45,7 @@ public class CourierController extends PanelController{
 	
 	private final String courierMainPanelStr = StaticMessage.MAIN_WINDOW;
 	private final String addOrderPanelStr = "addOrderPanel";
-	private final String findFullInfoPanelStr="findFullInfoPanel";
+	private final String showInfoPanelStr="showInfoPanel";
 	private final String inputReceiveInfoPanelStr="inputReceiveInfoPanel";
 	
 	public CourierController(MyPanel initialPanel, Element e) {
@@ -65,7 +67,7 @@ public class CourierController extends PanelController{
 	protected void initPanel(Element e) {
 		courierMainPanel=new CourierMainPanel(e.element(courierMainPanelStr),this);
 		addOrderPanel=new AddOrderPanel(e.element(addOrderPanelStr),orderblservice,strategyblService);
-		findFullInfoPanel=new FindFullOrderInfoPanel(e.element(findFullInfoPanelStr),orderblservice);
+		showInfoPanel=new showInfoPanel(e.element(showInfoPanelStr),orderblservice);
 		inputReceiveInfoPanel=new InputReceiveInfoPanel(e.element(inputReceiveInfoPanelStr),orderblservice);
 
 	}
@@ -90,15 +92,16 @@ public class CourierController extends PanelController{
 	protected void addPanels() {
 		changePanel.add(courierMainPanel , courierMainPanelStr);
 		changePanel.add(addOrderPanel , addOrderPanelStr);
-		changePanel.add(findFullInfoPanel , findFullInfoPanelStr);
+		//changePanel.add(findFullInfoPanel , findFullInfoPanelStr);
+		changePanel.add(showInfoPanel, showInfoPanelStr);
 		changePanel.add(inputReceiveInfoPanel , inputReceiveInfoPanelStr);
-		
 	}
 
 	@Override
 	protected void addListeners() {
 		addOrderButton.addMouseListener(new MySideBarListener(addOrderButton, this, addOrderPanelStr));
-		findFullInfoButton.addMouseListener(new MySideBarListener(findFullInfoButton, this, findFullInfoPanelStr));
+		//findFullInfoButton.addMouseListener(new MySideBarListener(findFullInfoButton, this, findFullInfoPanelStr));
+		findFullInfoButton.addMouseListener(new MySideBarListener(findFullInfoButton, this, showInfoPanelStr));
 		inputReceiveInfoButton.addMouseListener(new MySideBarListener(inputReceiveInfoButton, this, inputReceiveInfoPanelStr));
 		
 		
@@ -121,7 +124,8 @@ public class CourierController extends PanelController{
 	@Override
 	protected void addToMap() {
 		buttonMap.put(addOrderPanelStr,addOrderButton);
-		buttonMap.put(findFullInfoPanelStr, findFullInfoButton);
+		//buttonMap.put(findFullInfoPanelStr, findFullInfoButton);
+		buttonMap.put(showInfoPanelStr, findFullInfoButton);
 		buttonMap.put(inputReceiveInfoPanelStr, inputReceiveInfoButton);
 		
 	}

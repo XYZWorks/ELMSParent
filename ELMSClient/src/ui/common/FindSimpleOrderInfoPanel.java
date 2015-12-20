@@ -100,10 +100,12 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		initOtherCompoment(config);
 
 		addCompoment();
+
 		addListener();
 	
 		readInfo();
 
+		addListener();	
 		setVisible(true);
 		validate();
 		repaint();

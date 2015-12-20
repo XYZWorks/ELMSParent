@@ -40,7 +40,7 @@ public class inputReceiveTablePanel extends MyTablePanel{
 	protected void initialTitleAndColumn(Element config) {
 		columnNames = MyTablePanel.getColumnName(config
 				.attributeValue("column"));
-		pre = bl.getPreReceive();
+	//	pre = bl.getPreReceive();
 
 		ArrayList<PreReceiveVO> pre=new ArrayList<PreReceiveVO>();
 		PreReceiveVO one=new PreReceiveVO("1234567890", "南京大学2栋 axxx", "王二",null, null);
@@ -70,10 +70,21 @@ public class inputReceiveTablePanel extends MyTablePanel{
 
 	@Override
 	protected void initTable() {
-		table = new MyTable(columnNames, data);
+		table = new MyTable(columnNames, data){
+		@Override
+		public boolean isCellEditable(int row, int column) {
+			if((column==0)||(column==1)){
+				return false;
+			}
+			return true;
+		}
+		};
 		int[] columnLen = { 100, 300, 100, 100,100};
 		setRowAndColumnLen(40, columnLen);
-		
+//		
+//		getSelectedRow();
+//		getValueAt(row, col)
+//		
 	}
 
 	@Override

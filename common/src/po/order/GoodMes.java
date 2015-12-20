@@ -17,14 +17,14 @@ public class GoodMes {
 	/**
 	 * 货物重量
 	 */
-	private int goodWeight;
+	private double goodWeight;
 	
 	/**
 	 * 货物体积
 	 */
-	private int goodLong;
-	private int goodWidth;
-	private int goodHeight;
+	private double goodLong;
+	private double goodWidth;
+	private double goodHeight;
 	public GoodMes(int goodNum, String goodName, int goodWeight, int goodLong,
 			int goodWidth, int goodHeight) {
 		super();
@@ -47,25 +47,25 @@ public class GoodMes {
 	public void setGoodName(String goodName) {
 		this.goodName = goodName;
 	}
-	public int getGoodWeight() {
+	public double getGoodWeight() {
 		return goodWeight;
 	}
 	public void setGoodWeight(int goodWeight) {
 		this.goodWeight = goodWeight;
 	}
-	public int getGoodLong() {
+	public double getGoodLong() {
 		return goodLong;
 	}
 	public void setGoodLong(int goodLong) {
 		this.goodLong = goodLong;
 	}
-	public int getGoodWidth() {
+	public double getGoodWidth() {
 		return goodWidth;
 	}
 	public void setGoodWidth(int goodWidth) {
 		this.goodWidth = goodWidth;
 	}
-	public int getGoodHeight() {
+	public double getGoodHeight() {
 		return goodHeight;
 	}
 	public void setGoodHeight(int goodHeight) {

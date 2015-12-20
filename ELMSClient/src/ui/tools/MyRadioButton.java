@@ -1,5 +1,7 @@
 package ui.tools;
 
+import java.awt.Color;
+
 import javax.swing.JRadioButton;
 
 import org.dom4j.Element;
@@ -20,5 +22,6 @@ public class MyRadioButton extends JRadioButton{
 		this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));
 		this.setText(config.attributeValue("text"));
 		this.setVisible(true);
+		this.setBackground(Color.WHITE );
 	}
 }

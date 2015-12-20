@@ -2,6 +2,7 @@ package blservice.orderblservice;
 
 import java.util.ArrayList;
 
+import util.MyDate;
 import util.ResultMessage;
 import vo.DocVO;
 import vo.order.OrderSimpleInfoVO;
@@ -72,13 +73,10 @@ public interface Orderblservice extends DocApprovalService{
 	public ArrayList<PreReceiveVO> getPreReceive() ;
 		
 	/**
-	 * d
+	 * 输入对应的日期 返回当天所有生成的ordervo
 	 * 
 	 */
-//	public ArrayList<OrderVO> getDayOrderVOs(){
-//		
-//	}
-//	
+	public ArrayList<OrderVO> getOrderVO(MyDate date);
 	
 	
 }
