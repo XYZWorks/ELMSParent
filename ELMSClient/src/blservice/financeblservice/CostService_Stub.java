@@ -19,7 +19,7 @@ public class CostService_Stub implements CostService {
 	public ArrayList<CostVO> showCosts() {
 		ArrayList<CostVO> vos = null;
 		try {
-			ArrayList<CostPO> pos=financeDS.show(null);
+			ArrayList<CostPO> pos=(ArrayList<CostPO>) financeDS.show(null);
 			vos = new ArrayList<CostVO>();
 			if(pos!=null)
 				for(CostPO po:pos){

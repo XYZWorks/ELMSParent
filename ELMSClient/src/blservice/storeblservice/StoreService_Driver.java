@@ -31,7 +31,7 @@ public class StoreService_Driver {
 		System.out.println("显示库存信息");
 		ArrayList<StoreMessageVO> vos=store.show();
 		for(StoreMessageVO vo:vos){
-			System.out.println(vo.location+" "+vo.number+" "+vo.inStoreDocs+" "+vo.OutStoreDocs);
+			System.out.println(vo.location+" "+vo.number+" "+vo.inStoreDocs+" "+vo.outStoreDocs);
 		}
 		
 

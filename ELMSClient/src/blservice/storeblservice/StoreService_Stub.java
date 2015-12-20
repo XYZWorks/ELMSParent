@@ -3,7 +3,9 @@ package blservice.storeblservice;
 import java.util.ArrayList;
 
 import util.City;
+import util.DocType;
 import util.ResultMessage;
+import util.TransferWay;
 import vo.store.StoreCheckVO;
 import vo.store.StoreMessageVO;
 /**
@@ -66,6 +68,12 @@ public class StoreService_Stub implements StoreblService {
 
 	@Override
 	public String getAlarmValue(City city) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage updateStore(City loc, TransferWay way, String ID, DocType type) {
 		// TODO Auto-generated method stub
 		return null;
 	}
