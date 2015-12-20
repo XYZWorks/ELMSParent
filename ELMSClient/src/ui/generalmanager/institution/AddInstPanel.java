@@ -11,6 +11,7 @@ import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
+import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
@@ -26,9 +27,9 @@ public class AddInstPanel extends MyPanel {
 	private JPanel changePanel;
 	
 	
-	private MyLabel instid;
-	private MyLabel location;
-	private MyLabel type;
+	private MyPictureLabel instid;
+	private MyPictureLabel location;
+	private MyPictureLabel type;
 	private MyTextField instidT;
 	private MyComboBox locationB;
 	private MyComboBox typeB;
@@ -62,9 +63,9 @@ public class AddInstPanel extends MyPanel {
 
 	@Override
 	protected void initLabels(Element e) {
-		instid = new MyLabel(e.element("instid"));
-		location = new MyLabel(e.element("location"));
-		type = new MyLabel(e.element("type"));
+		instid =  new MyPictureLabel(e.element("instid"));
+		location = new MyPictureLabel(e.element("location"));
+		type = new MyPictureLabel(e.element("type"));
 	}
 
 	@Override

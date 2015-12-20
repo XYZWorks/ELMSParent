@@ -11,9 +11,11 @@ import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
 import ui.table.MyTable;
 import ui.tools.MyComboBox;
+import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
+import ui.tools.MySearchBox;
 import ui.tools.MyTextField;
 import ui.util.ButtonState;
 import ui.util.CompomentType;
@@ -27,11 +29,20 @@ import ui.util.TipsDialog;
  */
 @SuppressWarnings("serial")
 public class PeopleManagePanel extends MyPanel{
-	
+
+	private MyComboBox searchway;
+	private MySearchBox searchBox;
 	
 	private MyPictureButton search;
-	private MyTextField searchT;
-	private MyComboBox searchway;
+	private MyPictureButton add;
+	private MyPictureButton modify;
+	private MyPictureButton confirm;
+	private MyPictureButton cancel;
+	private MyPictureButton delete;
+	
+	private MyLabel title;
+	
+	private boolean isModify = false;
 	
 	private CardLayout panelManager;
 	
@@ -43,7 +54,6 @@ public class PeopleManagePanel extends MyPanel{
 	 */
 	private AddPeoplePanel addpeople;
 	
-	private MyPictureButton addButton;
 	
 	public PeopleManagePanel(Element config , CardLayout panelManager ,Personnelblservice bl) {
 		super(config);
@@ -65,17 +75,22 @@ public class PeopleManagePanel extends MyPanel{
 	@Override
 	protected void initButtons(Element e) {
 		search = new MyPictureButton(e.element("search"));
-		addButton = new MyPictureButton(e.element("add"));
+		add = new MyPictureButton(e.element("add"));
+		confirm = new MyPictureButton(e.element("confirm"));
+		cancel = new MyPictureButton(e.element("cancel"));
+		modify = new MyPictureButton(e.element("modify"));
+		delete = new MyPictureButton(e.element("delete"));
 	}
 
 	@Override
 	protected void initTextFields(Element e) {
-		searchT = new MyTextField(e.element("search"));
+//		search = new MyTextField(e.element("search"));
 		
 	}
 
 	@Override
 	protected void initLabels(Element e) {
+		title = new MyLabel(e.element("title"));
 		
 	}
 
@@ -84,6 +99,7 @@ public class PeopleManagePanel extends MyPanel{
 		searchway = new MyComboBox(e.element("search"));
 		addpeople = new AddPeoplePanel(e.element("addPeople"), this, bl);
 		peopleMesTable = new PeopleMesPanel(e.element("peopleMes"), bl);
+		searchBox = new MySearchBox(e.element("searchBox"));
 	}
 	
 	
@@ -92,17 +108,21 @@ public class PeopleManagePanel extends MyPanel{
 	protected void addCompoment() {
 		add(addpeople);
 		add(peopleMesTable);
-		
+//		add(title);
 		add(search);
-		add(searchT);
+		add(searchBox);
 		add(searchway);
-		add(addButton);
+		add(add);
+		add(modify);
+		add(delete);
+		add(confirm);
+		add(cancel);
 	}
 
 	@Override
 	protected void addListener() {
 		search.addMouseListener(new MySearchListener(search));
-		addButton.addMouseListener(new MyAddButtonListener(addButton));
+		add.addMouseListener(new MyAddButtonListener(add));
 	}
 
 	@Override
@@ -113,14 +133,17 @@ public class PeopleManagePanel extends MyPanel{
 	void changeADDPanel( boolean flag){
 		addpeople.setVisible(flag);
 		
-		addButton.setVisible(!flag);
+		add.setVisible(!flag);
 		search.setVisible(!flag);
-		searchT.setVisible(!flag);
+		searchBox.setVisible(!flag);
 		searchway.setVisible(!flag);
 		peopleMesTable.setVisible(!flag);
-		
+		confirm.setVisible(flag);
+		cancel.setVisible(flag);
 		peopleMesTable.myInit();
 	}
+	
+	
 	
 	class MyAddButtonListener extends MyPictureButtonListener{
 
@@ -148,7 +171,7 @@ public class PeopleManagePanel extends MyPanel{
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
 			
-			String input = searchT.getText();
+			String input = searchBox.getText();
 			
 			String temp = (String) searchway.getSelectedItem();
 			if(temp.equals("按姓名查找")){

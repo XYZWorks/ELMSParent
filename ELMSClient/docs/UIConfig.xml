@@ -195,7 +195,8 @@
 				</LABELS>
 				<type x="143" y="53" width="150" height="40" strings="中转中心 营业厅 总部" />
 				<location x="393" y="53" width="150" height="40" strings="南京 北京 上海 广州" />
-				<table x="53" y="110" width="745" height="380"  column="ID 机构类型 所在地" />
+				<table x="53" y="110" width="742" height="427"  column="ID 机构类型 所在地" />
+			
 				<addInstPanel x="232" y="54" width="1080" height="637">
 					<BUTTONS>
 						<confirm x="560" y="560" width="89" height="40" text="确认"
@@ -207,9 +208,9 @@
 						<instid x="345" y="201" width="276" height="40" />
 					</TEXTFIELDS>
 					<LABELS>
-						<instid x="200" y="201" width="50" height="40" text="机构ID" />
-						<type x="200" y="271" width="50" height="40" text="机构类型" />
-						<location x="200" y="341" width="50" height="40" text="城市" />
+						<instid x="200" y="201" width="115" height="40" text="机构ID" type="rectangle"/>
+						<type x="200" y="271" width="115" height="40" text="机构类型" type="rectangle"/>
+						<location x="200" y="341" width="115" height="40" text="城市" type="rectangle"/>
 					</LABELS>
 					<location x="345" y="341" width="276" height="40" strings="南京 北京 上海 广州" />
 					<type x="345" y="271" width="276" height="40" strings="中转中心 营业厅 总部" />
@@ -217,46 +218,50 @@
 			</InstManagePanel>
 
 			<PeopleManagePanel x="232" y="54" width="848" height="637">
+			
 				<BUTTONS>
-					<add x="600" y="100" width="200" height="50" text="增加" type="rectangle" />
-					<search x="600" y="45" width="200" height="50" text="查询"
-						type="rectangle" />
+					<add x="642" y="53" width="40" height="40" type="add" />
+					<modify x="758" y="53" width="40" height="40"  
+						type="modify" />
+					<delete x="700" y="53" width="40" height="40"  
+						type="delete" />
+					<search x="523" y="53" width="89" height="40" text="查询"
+						type="cancel" />
+					<confirm x="560" y="560" width="89" height="40" text="确认"
+						type="confirm" />
+					<cancel x="707" y="560" width="89" height="40" text="取消"
+						type="cancel" />
 				</BUTTONS>
-				<TEXTFIELDS>
-					<search x="350" y="45" width="200" height="50" />
-				</TEXTFIELDS>
-
-				<search x="45" y="45" width="200" height="50" strings="按姓名查找 按ID查找 按机构查找" />
-				<peopleMes x="45" y="150" width="600" height="600" />
-
+				<LABELS>
+				<title x="53" y="53" width="80" height="28" text="查询方式"/>
+				</LABELS>
+				<search x="53" y="53" width="150" height="40" strings="按姓名查找 按ID查找 按机构查找" />
+				<peopleMes x="53" y="110" width="742" height="427" 
+						strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理人员 司机" />
+				<searchBox x="213" y="53" />	
+				
 				<addPeople x="0" y="0" width="1080" height="637">
 					<BUTTONS>
-						<Confirm x="625" y="500" width="115" height="40" text="确认"
-							type="rectangle" />
-						<Cancel x="550" y="500" width="115" height="40" text="取消"
-							type="rectangle" />
+						<confirm x="560" y="560" width="89" height="40" text="确认"
+						type="confirm" />
+						<cancel x="707" y="560" width="89" height="40" text="取消"
+						type="cancel" />
 					</BUTTONS>
 					<LABELS>
-						<InstID x="45" y="45" width="100" height="50" text="机构ID"
-							type="rectangle" />
-						<ID x="450" y="45" width="100" height="50" text="ID" type="rectangle" />
-						<Name x="45" y="125" width="100" height="50" text="姓名" type="rectangle" />
-						<Phone x="45" y="255" width="100" height="50" text="电话号码"
-							type="rectangle" />
-						<Type x="450" y="125" width="100" height="50" text="职员类型"
-							type="rectangle" />
-
+						<InstIDL x="200" y="380" width="115" height="40" text="机构ID" type="rectangle" />
+						<IDL x="200" y="170" width="115" height="40" text="ID" type="rectangle" />
+						<NameL x="200" y="100" width="115" height="40" text="姓名" type="rectangle" />
+						<PhoneL x="200" y="240" width="115" height="40" text="电话号码" type="rectangle" />
+						<TypeL x="200" y="310" width="115" height="40" text="职员类型" type="rectangle" />
 					</LABELS>
 					<TEXTFIELDS>
-						<InstID x="135" y="45" width="200" height="50" type="rectangle" />
-						<ID x="600" y="45" width="200" height="50" type="rectangle" />
-						<Name x="135" y="125" width="200" height="50" type="rectangle" />
-						<Phone x="135" y="255" width="200" height="50" type="rectangle" />
-					</TEXTFIELDS>
-					<Type x="600" y="125" width="200" height="50" text="确认"
-						strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理人员 司机" />
+						<InstID x="345" y="380" width="276" height="40" type="rectangle" />
+						<ID x="345" y="170" width="276" height="40" type="rectangle" />
+						<Name x="345" y="100" width="276" height="40" type="rectangle" />
+						<Phone x="345" y="240" width="276" height="40" type="rectangle" />
+					</TEXTFIELDS>	
+						<type x="345" y="310" width="276" height="40" strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理员 司机" />	
 				</addPeople>
-
 
 			</PeopleManagePanel>
 
@@ -264,36 +269,36 @@
 				height="637">
 				<BUTTONS>
 					<ShowInTable x="500" y="560" width="115" height="40"
-						text="列表显示" type="rectangle" />
+						text="列表显示" type="confirm" />
 					<Modify x="650" y="560" width="115" height="40" text="修改"
-						type="rectangle" />
+						type="confirm" />
 					<Confirm x="500" y="560" width="115" height="40" text="确认"
-						type="rectangle" />
+						type="confirm" />
 					<Cancel x="650" y="560" width="115" height="40" text="取消"
-						type="rectangle" />
+						type="cancel" />
 				</BUTTONS>
 				<LABELS>
-					<StaffTypeLabel x="45" y="100" width="100" height="45"
+					<StaffTypeLabel x="200" y="170" width="115" height="40"
 						text="职员类型" type="rectangle" />
-					<WageStrategyLabel x="45" y="180" width="100"
-						height="45" text="薪水策略" type="rectangle" />
-					<BasicMoneyLabel x="45" y="300" width="100" height="45"
+					<WageStrategyLabel x="200" y="240" width="115" height="40" 
+						text="薪水策略" type="rectangle" />
+					<BasicMoneyLabel x="200" y="310" width="115" height="40"
 						text="工资" type="rectangle" />
-					<MoreMoneyLabel x="400" y="300" width="200" height="45"
+					<MoreMoneyLabel x="200" y="380" width="115" height="40"
 						text="提成" type="rectangle" />
 
 				</LABELS>
 				<TEXTFIELDS>
-					<BasicMoneyField x="200" y="300" width="200"
-						height="45" />
-					<MoreMoneyField x="605" y="300" width="200" height="45" />
+					<BasicMoneyField x="345" y="310" width="276"
+						height="40" />
+					<MoreMoneyField x="345" y="380" width="276" height="40" />
 
 				</TEXTFIELDS>
-				<StaffTypeBox x="300" y="100" width="240" height="30"
+				<StaffTypeBox x="345" y="170" width="276" height="40"
 					strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理员 司机" />
-				<WageStrategyBox x="300" y="180" width="240" height="30"
+				<WageStrategyBox x="345" y="240" width="276" height="40"
 					strings="按月计费 按次计费 提成制" />
-				<table x="100" y="100" width="400" height="400" />
+				<table x="53" y="53" width="742" height="484" />
 			</SalaryStrategySetPanel>
 
 		</GeneralManager>

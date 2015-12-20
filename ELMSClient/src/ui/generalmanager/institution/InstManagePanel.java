@@ -120,6 +120,8 @@ public class InstManagePanel extends MyPanel{
 		title.setVisible(!flag);
 		modify.setVisible(!flag);
 		isModify = flag;
+		cancel.setVisible(flag);
+		confirm.setVisible(flag);
 	}
 	
 	@Override

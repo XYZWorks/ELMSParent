@@ -11,6 +11,8 @@ import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
+import ui.tools.MyPictureLabel;
+import ui.tools.MySearchBox;
 import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
@@ -28,11 +30,11 @@ import blservice.personnelblservice.Personnelblservice;
 @SuppressWarnings("serial")
 public class AddPeoplePanel extends MyPanel{
 	
-	private MyLabel instIDL;
-	private MyLabel IDL;
-	private MyLabel nameL;
-	private MyLabel phoneL;
-	private MyLabel typeL;
+	private MyPictureLabel instIDL;
+	private MyPictureLabel IDL;
+	private MyPictureLabel nameL;
+	private MyPictureLabel phoneL;
+	private MyPictureLabel typeL;
 	
 	private MyTextField instID;
 	private MyTextField ID;
@@ -60,8 +62,8 @@ public class AddPeoplePanel extends MyPanel{
 
 	@Override
 	protected void initButtons(Element e) {
-		confirm = new MyPictureButton(e.element("Confirm"));
-		cancel = new MyPictureButton(e.element("Cancel"));
+		confirm = new MyPictureButton(e.element("confirm"));
+		cancel = new MyPictureButton(e.element("cancel"));
 	}
 
 	@Override
@@ -74,16 +76,16 @@ public class AddPeoplePanel extends MyPanel{
 
 	@Override
 	protected void initLabels(Element e) {
-		instIDL = new MyLabel(e.element("InstID"));
-		IDL = new MyLabel(e.element("ID"));
-		nameL = new MyLabel(e.element("Name"));
-		phoneL = new MyLabel(e.element("Phone"));
-		typeL = new MyLabel(e.element("Type"));
+		instIDL = new MyPictureLabel(e.element("InstIDL"));
+		IDL = new MyPictureLabel(e.element("IDL"));
+		nameL = new MyPictureLabel(e.element("NameL"));
+		phoneL = new MyPictureLabel(e.element("PhoneL"));
+		typeL = new MyPictureLabel(e.element("TypeL"));
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		type = new MyComboBox(e.element("Type"));
+		type = new MyComboBox(e.element("type"));
 		
 	}
 
