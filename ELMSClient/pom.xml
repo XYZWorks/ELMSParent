@@ -20,6 +20,11 @@
 			<artifactId>common</artifactId>
 			<version>0.0.1</version>
 		</dependency>
+		<dependency>
+			<groupId>AXIS</groupId>
+			<artifactId>ELMSServer</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>
 

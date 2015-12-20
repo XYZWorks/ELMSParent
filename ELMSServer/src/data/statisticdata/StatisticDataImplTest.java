@@ -1,6 +1,6 @@
 package data.statisticdata;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -9,7 +9,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import po.statistic.StateFormPO;
-import test.java.other.DataTool;
 import util.ResultMessage;
  /** 
  * 
@@ -25,9 +24,9 @@ public class StatisticDataImplTest {
 	@Test
 	public void testBulidStateForm() throws RemoteException {
 		
-		if(test.bulidStateForm(DataTool.getStateFormPO()) == ResultMessage.SUCCESS){
-			return;
-		}
+//		if(test.bulidStateForm(DataTool.getStateFormPO()) == ResultMessage.SUCCESS){
+//			return;
+//		}
 		
 		fail();
 	}
