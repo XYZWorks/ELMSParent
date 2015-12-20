@@ -35,7 +35,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	
 	private static final String payTable = "pay";
 	
-	private static final String frieghtTable = "frieght";
+	private static final String freightTable = "freight";
 	
 	private static final String rentTable = "rent";
 	
@@ -88,12 +88,12 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 		return addToSQL(payTable, "0" , MyDate.toString(po.getTime()) , String.valueOf(po.getMoney()) , po.getType());
 	}
 
-	public ArrayList<CostPO> show(CostType type) throws RemoteException {
+	public ArrayList<? extends CostPO> show(CostType type) throws RemoteException {
 		ArrayList<CostPO> costs = new ArrayList<CostPO>(40);
 		try {
 			switch (type) {
 			case FREIGHT:
-				sql = "SELECT * FROM " + frieghtTable;
+				sql = "SELECT * FROM " + freightTable;
 
 				preState = conn.prepareStatement(sql);
 				result = preState.executeQuery();
@@ -146,7 +146,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 		switch (po.getCostType()) {
 		case FREIGHT:
 			FreightPO fpo = (FreightPO) po;
-			return addToSQL(frieghtTable,fpo.getID(), MyDate.toString(fpo.getStartDate()),
+			return addToSQL(freightTable,fpo.getID(), MyDate.toString(fpo.getStartDate()),
 					MyDate.toString(fpo.getEndDate()),
 					String.valueOf(fpo.getMoney()), fpo.getCostType().name());
 		case RENT:
@@ -170,7 +170,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 		switch (po.getCostType()) {
 		case FREIGHT:
 			FreightPO fpo = (FreightPO) po;
-			return modifyFromSQL(frieghtTable,fpo.getID(), MyDate.toString(fpo.getStartDate()),
+			return modifyFromSQL(freightTable,fpo.getID(), MyDate.toString(fpo.getStartDate()),
 					MyDate.toString(fpo.getEndDate()),
 					String.valueOf(fpo.getMoney()), fpo.getCostType().name());
 		case RENT:
@@ -192,7 +192,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	public ResultMessage del(String ID , CostType type) throws RemoteException {
 		switch (type) {
 		case FREIGHT:
-			return delFromSQL(frieghtTable, ID);
+			return delFromSQL(freightTable, ID);
 			
 		case RENT:
 			return delFromSQL(rentTable, ID);

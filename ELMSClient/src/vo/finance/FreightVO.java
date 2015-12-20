@@ -10,7 +10,6 @@ import util.MyDate;
  */
 public class FreightVO extends CostVO {
 	public FreightVO() {
-		// TODO Auto-generated constructor stub
 	}
 
 	

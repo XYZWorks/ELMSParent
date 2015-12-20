@@ -1,6 +1,7 @@
 package ui.financeman.costManage;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
@@ -13,8 +14,12 @@ import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
+import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
+import ui.util.TipsDialog;
 import util.CostType;
+import util.ResultMessage;
+import vo.finance.CostVO;
 import blservice.financeblservice.CostService;
 
 /**
@@ -35,6 +40,7 @@ public class CostManagePanel extends MyPanel {
 	private CostMesTable freightTable;
 	private CostMesTable rentTable;
 	private CostMesTable salaryTable;
+	private CostMesTable nowTable;
 	// 成本信息管理标题
 	private MyLabel title;
 
@@ -44,8 +50,6 @@ public class CostManagePanel extends MyPanel {
 	private MyPictureButton add;
 	private MyPictureButton delete;
 	private MyPictureButton modify;
-	private MyPictureButton confirm;
-	private MyPictureButton cancel;
 
 	public CostManagePanel(Element config, CostService costService,
 			JPanel changePanel, String costManageStr) {
@@ -53,13 +57,19 @@ public class CostManagePanel extends MyPanel {
 		this.costService = costService;
 		this.changePanel = changePanel;
 		this.panelManager = (CardLayout) changePanel.getLayout();
-		// TODO Auto-generated constructor stub
+		initButtons(config.element(CompomentType.BUTTONS.name()));
+		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
+		initOtherCompoment(config);
+		initLabels(config.element(CompomentType.LABELS.name()));
+		addCompoment();
+		addListener();
 		
 		
 		myInit();
 	}
 
 	private void myInit() {
+		nowTable = salaryTable;
 		showTable(CostType.SALARY);
 		panelManager.show(changePanel, costManageStr);
 	}
@@ -70,8 +80,6 @@ public class CostManagePanel extends MyPanel {
 		add = new MyPictureButton(e.element("add"));
 		delete = new MyPictureButton(e.element("delete"));
 		modify = new MyPictureButton(e.element("modify"));
-		confirm = new MyPictureButton(e.element("confirm"));
-		cancel = new MyPictureButton(e.element("cancel"));
 	}
 
 	@Override
@@ -100,8 +108,6 @@ public class CostManagePanel extends MyPanel {
 	protected void addCompoment() {
 		add(add);
 		add(costType);
-		add(confirm);
-		add(cancel);
 		add(modify);
 		add(delete);
 		add(title);
@@ -119,30 +125,39 @@ public class CostManagePanel extends MyPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
+				panelManager.show(changePanel, addCostPanelStr);
+				addCostPanel.setModifyState(false, null, null);
 			}
 		});
 		modify.addMouseListener(new MyPictureButtonListener(modify) {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
+				int n = nowTable.getSelectedRow();
+				if(n == -1){
+					new TipsDialog("您未选中任何一行");
+				}else{
+					panelManager.show(changePanel, addCostPanelStr);
+					addCostPanel.setModifyState(true ,(String) nowTable.getValueAt(n, 0) , (String) nowTable.getValueAt(n, 1));
+				}
 			}
 		});
 		delete.addMouseListener(new MyPictureButtonListener(delete) {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
-			}
-		});
-		confirm.addMouseListener(new MyPictureButtonListener(confirm) {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				super.mouseClicked(e);
-			}
-		});
-		cancel.addMouseListener(new MyPictureButtonListener(confirm) {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				super.mouseClicked(e);
+				int n = nowTable.getSelectedRow();
+				if(n == -1){
+					new TipsDialog("您未选中任何一行");
+				}else{
+					result = costService.del(new CostVO((String) nowTable.getValueAt(n, 0), null, null, 0, nowType));
+					if(result == ResultMessage.SUCCESS){
+						new TipsDialog("成功删除一条信息"  , Color.GREEN);
+						nowTable.removeRow(n);
+					}else{
+						new TipsDialog("未成功删除一条信息");
+					}
+				}
 			}
 		});
 		costType.addItemListener(new ItemListener() {
@@ -158,16 +173,19 @@ public class CostManagePanel extends MyPanel {
 	private void showTable(CostType type) {
 		switch (type) {
 		case FREIGHT:
+			nowTable = freightTable;
 			freightTable.setVisible(true);
 			rentTable.setVisible(false);
 			salaryTable.setVisible(false);
 			break;
 		case RENT:
+			nowTable = rentTable;
 			freightTable.setVisible(false);
 			rentTable.setVisible(true);
 			salaryTable.setVisible(false);
 			break;
 		case SALARY:
+			nowTable = salaryTable;
 			freightTable.setVisible(false);
 			rentTable.setVisible(false);
 			salaryTable.setVisible(true);
