@@ -74,5 +74,9 @@ public class AccountControllerTest {
 			fail("can not modify an account");
 		}
 	}
-
+	
+	@Test
+	public void testShow() {
+	}
+	
 }

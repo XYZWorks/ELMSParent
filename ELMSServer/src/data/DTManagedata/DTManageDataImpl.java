@@ -178,7 +178,7 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 	public ArrayList<String> getPlateNums() throws RemoteException {
 		ArrayList<String> reStrings = new ArrayList<>(100);
 		try {
-			sql = "SELECT `plateNum` FROM　" + carTable ;
+			sql = "SELECT `plateNum` FROM " + carTable ;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {
