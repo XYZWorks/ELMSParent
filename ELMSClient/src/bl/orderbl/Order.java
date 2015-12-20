@@ -74,8 +74,10 @@ public class Order {
 		try {
 			pos = orderData.getDayOrderPO(date);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		if(pos==null){
+			return null;
 		}
 		ArrayList<OrderVO> vos = new ArrayList<OrderVO>(pos.size());
 

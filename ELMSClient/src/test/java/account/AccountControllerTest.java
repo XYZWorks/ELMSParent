@@ -1,16 +1,15 @@
 package test.java.account;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import bl.accountbl.AccountController;
+import blservice.accountblservice.Accountblservice;
 import util.AccountType;
 import util.ResultMessage;
 import vo.account.AccountVO;
-import bl.accountbl.AccountController;
-import blservice.accountblservice.Accountblservice;
-import junit.framework.TestCase;
 
 
 /**
