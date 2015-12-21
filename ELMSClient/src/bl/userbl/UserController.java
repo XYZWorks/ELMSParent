@@ -1,7 +1,5 @@
 package bl.userbl;
 
-import java.rmi.server.RMIClassLoader;
-
 import net.RMIManage;
 import util.DataServiceType;
 import util.ResultMessage;
@@ -14,10 +12,12 @@ import ds.accountdataservice.AccountDataService;
  * @version 2015年11月15日 上午9:27:39 
  */
 public class UserController implements UserMesblservice{
-	private AccountDataService accountds = (AccountDataService) RMIManage.getDataService(DataServiceType.AccountDataService);
+	private AccountDataService accountds;
 	private UserMes userMes ;
 	
 	public UserController() {
+		accountds = (AccountDataService) RMIManage.getDataService(DataServiceType.AccountDataService);
+
 		userMes = new UserMes(accountds);
 	}
 	public AccountVO login(AccountVO vo) {

@@ -24,7 +24,7 @@ import ds.financedataservice.FinanceDataService;
  */
 public class FinanceController implements BankAccountBusinessService, CostService, PayService , ProfitService,DepositService{
 	
-	FinanceDataService financeDataService = (FinanceDataService) RMIManage.getDataService(DataServiceType.FinanceDataService);
+	FinanceDataService financeDataService;
 	private BankAccount bankAccount ;
 	private Pay pay;
 	private Cost cost;
@@ -32,6 +32,8 @@ public class FinanceController implements BankAccountBusinessService, CostServic
 	private Deposit deposit;
 	
 	public FinanceController() {
+		financeDataService= (FinanceDataService) RMIManage.getDataService(DataServiceType.FinanceDataService);
+
 		bankAccount = new BankAccount(financeDataService);
 		pay = new Pay(financeDataService);
 		cost = new Cost(financeDataService);

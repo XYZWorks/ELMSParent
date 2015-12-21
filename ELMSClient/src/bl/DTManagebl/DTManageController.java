@@ -17,10 +17,12 @@ import ds.DTManagedataservice.DTManagedataservice;
 public class DTManageController implements DTManageblservice{
 	
 	private DTManage dtm;
-	private DTManagedataservice manageData = (DTManagedataservice) RMIManage.getDataService(DataServiceType.DTManageDataService);
+	private DTManagedataservice manageData ;
 	
 	public DTManageController() {
+		manageData = (DTManagedataservice) RMIManage.getDataService(DataServiceType.DTManageDataService);
 		dtm = new DTManage(manageData);
+		
 	}
 	@Override
 	public ResultMessage addDriver(DriverVO vo) {

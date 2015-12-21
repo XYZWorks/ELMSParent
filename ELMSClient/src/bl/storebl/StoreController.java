@@ -33,9 +33,10 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 	
 	private OutStoreDocImpl outStoreDocImpl;
 	
-	private StoreDataService storeDataService = (StoreDataService) RMIManage.getDataService(DataServiceType.StoreDataService);
+	private StoreDataService storeDataService ;
 	
 	public StoreController() {
+		storeDataService = (StoreDataService) RMIManage.getDataService(DataServiceType.StoreDataService);
 		store = new Store(storeDataService);
 		inStoreDocImpl = new InStoreDocImpl(storeDataService);
 		outStoreDocImpl = new OutStoreDocImpl(storeDataService);

@@ -4,7 +4,6 @@ import bl.DTManagebl.DTManageController;
 import bl.accountbl.AccountController;
 import bl.approvalbl.ApprovalController;
 import bl.financebl.FinanceController;
-import bl.orderbl.OrderController;
 import bl.orderbl.orderbl_stub;
 import bl.personnelbl.PersonnelController;
 import bl.statisticbl.StatisticController;
@@ -43,72 +42,59 @@ public class BusinessLogicDataFactory {
 	
 	private BusinessLogicDataFactory() {}
 	
-	private FinanceController financeController = new FinanceController();
-	private StoreController storeController = new StoreController();
-	private AccountController accountController = new AccountController();
-	
-	private DTManageController dtManageController = new DTManageController();
-	private UserController userController = new UserController();
-	private StrategyController strategyController = new StrategyController();
-	private PersonnelController personnelController = new PersonnelController();
-	private StatisticController statisticController = new StatisticController();
-	private TransportController transportController = new TransportController();
-	private ApprovalController approvalController =new ApprovalController();
 	public static BusinessLogicDataFactory getFactory(){
 		if(factory == null){
 			factory = new BusinessLogicDataFactory();
 			//因为持有其他的引用，必须先初始化工厂后才能启动approval内的初始化
-			factory.approvalController.myInit();
-			factory.transportController.myInit();
 		}
 		
 		return factory;
 	}
 	
 	public BankAccountBusinessService getBankAccountService(){
-		return financeController;
+		return new FinanceController();
 	}
 	public CostService getCostService() {
-		return financeController;
+		return new FinanceController();
 	}
 	public DepositService getDepositService() {
-		return financeController;
+		return new FinanceController();
 	}
 	public PayService getPayService(){
-		return financeController;
+		return new FinanceController();
 	}
 	public ProfitService getProfitService(){
-		return financeController;
+		return new FinanceController();
 	}
 	
 	public Accountblservice getAccountBusinessLogic(){
-		return accountController;
+		return new AccountController();
 	}
 	
 	public Approvalblservice getApprovalBusinessLogic(){
-		return approvalController;
+		return new ApprovalController();
 	}
 	
 	public DTManageblservice getDTManageBusinessLogic(){
-		return dtManageController;
+		return new DTManageController();
 	}
 	
 	public UserMesblservice getUserMesBusinessLogic(){
-		return userController;
+		return new UserController();
 		
 		
 	}
 	
 	public StrategyblService getStrategyBusinessLogic(){
-		return strategyController;
+		return new  StrategyController();
 	}
 	
 	public Personnelblservice getPersonnelBusinessLogic(){
-		return personnelController;
+		return new PersonnelController();
 	}
 	
 	public Statisticblservice getStatisticBusinessLogic(){
-		return statisticController;
+		return new StatisticController();
 	}
 	
 
@@ -119,21 +105,21 @@ public class BusinessLogicDataFactory {
 	}
 	
 	public StrategyblService getStrategyBussinessLogic(){
-		return strategyController;
+		return new StrategyController();
 	}
 
 	public Transportblservice getTransportblservice(){
-		return transportController;
+		return new TransportController();
 	}
 	
 	public InStoreDocService getInstoreService(){
-		return storeController;
+		return new StoreController();
 	}
 	public OutStoreDocService getOutStoreService(){
-		return storeController;
+		return new StoreController();
 	}
 	public StoreblService getStoreBlService(){
-		return storeController;
+		return new StoreController();
 	}
 
 	

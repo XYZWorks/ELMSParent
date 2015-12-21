@@ -16,8 +16,10 @@ import blservice.accountblservice.Accountblservice;
 public class AccountController implements Accountblservice{
 	
 	private Account account;
-	private AccountDataService accountDataService = (AccountDataService) RMIManage.getDataService(DataServiceType.AccountDataService);
+	private AccountDataService accountDataService ;
 	public AccountController(){
+		
+		accountDataService = (AccountDataService) RMIManage.getDataService(DataServiceType.AccountDataService);
 		account=new Account(accountDataService);
 	}
 	

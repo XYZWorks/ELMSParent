@@ -6,6 +6,8 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JOptionPane;
 
+import net.RMIManage;
+
 import org.dom4j.Element;
 
 import ui.common.CommonFrame;
@@ -58,7 +60,11 @@ public class LoginFrame extends MyFrame{
 	public LoginFrame(Element config) {
 		super(config);
 		this.config = config;
-		bl = BusinessLogicDataFactory.getFactory().getUserMesBusinessLogic();
+		
+		if(RMIManage.netInit()){
+			bl = BusinessLogicDataFactory.getFactory().getUserMesBusinessLogic();
+		}
+		
 		mainpanel = new LoginPanel();
 		this.setBackground(new Color(0, 0, 0, 0));
 
@@ -126,7 +132,14 @@ public class LoginFrame extends MyFrame{
 class findOrderListener extends MouseAdapter{
 	@Override
 	 public void mouseClicked(MouseEvent e) {
-	 //单独开启 普通查询人员的 frame
+		//服务器未开启提示
+		if(RMIManage.netInit()){
+			bl = BusinessLogicDataFactory.getFactory().getUserMesBusinessLogic();
+		}else{
+			return;
+		}
+		
+		 //单独开启 普通查询人员的 frame
 		CommonFrame commonFrame=new CommonFrame(config.element("commonFrame"));
 	}
 }
@@ -136,7 +149,6 @@ class findOrderListener extends MouseAdapter{
 class MyLoginListener extends MouseAdapter{
 	@Override
 	 public void mouseClicked(MouseEvent e) {
-//		mainpanel.bg
 		mainpanel.changeBG(6);
 		
 		String id = userName.getText();
@@ -152,8 +164,23 @@ class MyLoginListener extends MouseAdapter{
 			return;
 			
 		}
+		
+		if(RMIManage.netInit()){
+			bl = BusinessLogicDataFactory.getFactory().getUserMesBusinessLogic();
+		}else{
+			return;
+		}
+		
+		
 		AccountVO vo;
-		 vo = bl.login(new AccountVO(id, passwords, null));
+		vo = bl.login(new AccountVO(id, passwords, null));
+		 
+		
+		 
+		 
+		 
+		 
+		 
 		if( vo == null){
 			new MyOptionPane(frame, "用户名或密码错误，请您重新输入");
 		}else{

@@ -24,9 +24,10 @@ import blservice.orderblservice.Orderblservice;
 public class OrderController implements Orderblservice{
 
 	private TransportController transportController;
-	private OrderDataService orderData = (OrderDataService) RMIManage.getDataService(DataServiceType.OrderDataService);
+	private OrderDataService orderData;
 	private Order order ;
 	public OrderController() {
+		orderData  = (OrderDataService) RMIManage.getDataService(DataServiceType.OrderDataService);
 		order = new Order(orderData);
 		transportController = new TransportController();
 	}

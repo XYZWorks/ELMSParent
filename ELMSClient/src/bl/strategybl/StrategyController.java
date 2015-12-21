@@ -18,8 +18,9 @@ import blservice.strategyblservice.StrategyblService;
 public class StrategyController implements StrategyblService{
 	
 	private Strategy strategy ;
-	private StrategyDataService strategyData = (StrategyDataService) RMIManage.getDataService(DataServiceType.StrategyDataService);
+	private StrategyDataService strategyData ;
 	public StrategyController() {
+		strategyData = (StrategyDataService) RMIManage.getDataService(DataServiceType.StrategyDataService);
 		strategy = new Strategy(strategyData);
 	}
 	

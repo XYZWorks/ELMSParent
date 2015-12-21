@@ -26,10 +26,12 @@ import ds.transportdataservice.Transportdataservice;
 public class TransportController implements Transportblservice{
 
 	private Transport transport ;
-	private Transportdataservice transportData = (Transportdataservice) RMIManage.getDataService(DataServiceType.TransportDataService);
+	private Transportdataservice transportData;
 	public TransportController() {
 	}
 	public void myInit(){
+		transportData  = (Transportdataservice) RMIManage.getDataService(DataServiceType.TransportDataService);
+
 		transport = new Transport(transportData , BusinessLogicDataFactory.getFactory().getOrderBussinessLogic() , BusinessLogicDataFactory.getFactory().getStrategyBusinessLogic());
 	}
 	public ResultMessage add(LoadDocVO vo) {
