@@ -2,7 +2,6 @@ package vo.store;
 
 import java.util.ArrayList;
 
-import ui.inital.initialPanel3;
 import util.City;
 import util.TransferWay;
 
@@ -38,7 +37,6 @@ public class StoreMessageVO {
 	 */
 	public ArrayList<OutStoreDocVO> outStoreDocs;
 	public StoreMessageVO() {
-		// TODO Auto-generated constructor stub
 	}
 	public StoreMessageVO(City location, TransferWay storeLoc, int number,int totalNum,ArrayList<InStoreDocVO> inStoreDocs,
 
