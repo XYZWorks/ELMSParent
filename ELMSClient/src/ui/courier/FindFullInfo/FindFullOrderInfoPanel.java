@@ -16,6 +16,7 @@ import ui.tools.MyLabel;
 import ui.tools.MyPanelWithScroller;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
+import ui.tools.MyTextArea;
 import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
 import ui.util.TipsDialog;
@@ -52,14 +53,14 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 	private MyPictureLabel senderInfo;
 	private MyLabel senderNameLabel;
 	private MyLabel senderPhoneLabel;
-	private MyLabel senderAddressLabel;
 	private MyLabel senderUnitLabel;
-
+	private MyLabel senderAddressLabel;
+	
 	private MyLabel senderNameText;
 	private MyLabel senderPhoneText;
-	private MyLabel senderAddressText;
 	private MyLabel senderUnitText;
-
+	private MyTextArea senderAddressText;
+	
 	// 收件人信息
 	private MyPictureLabel receiverInfo;
 	private MyLabel receiverNameLabel;
@@ -69,8 +70,8 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 
 	private MyLabel receiverNameText;
 	private MyLabel receiverPhoneText;
-	private MyLabel receiverAddressText;
 	private MyLabel receiverUnitText;
+	private MyTextArea receiverAddressText;
 
 	// 货物信息
 	private MyPictureLabel goodsInfo;
@@ -180,8 +181,8 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 
 		senderNameText = new MyLabel(e.element("senderNameText"));
 		senderPhoneText = new MyLabel(e.element("senderPhoneText"));
-		senderAddressText = new MyLabel(e.element("senderAddressText"));
 		senderUnitText = new MyLabel(e.element("senderUnitText"));
+		senderAddressText = new MyTextArea(e.element("senderAddressText"));
 
 		// 收件人信息
 		receiverInfo = new MyPictureLabel(e.element("receiverInfo"));
@@ -192,8 +193,8 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 
 		receiverNameText = new MyLabel(e.element("receiverNameText"));
 		receiverPhoneText = new MyLabel(e.element("receiverPhoneText"));
-		receiverAddressText = new MyLabel(e.element("receiverAddressText"));
 		receiverUnitText = new MyLabel(e.element("receiverUnitText"));
+		receiverAddressText = new MyTextArea(e.element("receiverAddressText"));
 
 		// 货物信息
 		goodsInfo = new MyPictureLabel(e.element("goodsInfo"));
@@ -417,6 +418,9 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		orderFormText.setText(otherMes.getOrderForm());
 		
 		//读取流转信息
+		
+		
+		
 	}
 
 	// MyLabel[] place = { one, two, three, four, five, six, seven, eight, nine,

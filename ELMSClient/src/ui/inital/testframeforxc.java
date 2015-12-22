@@ -1,8 +1,5 @@
 package ui.inital;
 
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-
 import org.dom4j.Element;
 
 import ui.config.ParseXML;

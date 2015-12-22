@@ -355,16 +355,16 @@
 						height="20" />
 					<senderPhoneLabel text="手机:" x="20" y="110" width="40"
 						height="20" />
-					<senderAddressLabel text="地址:" x="20" y="156"
+					<senderUnitLabel text="单位:" x="20" y="156"
 						width="40" height="20" />
-					<senderUnitLabel text="单位:" x="20" y="249" width="40"
+					<senderAddressLabel text="地址:" x="20" y="200" width="40"
 						height="20" />
 
 					<senderNameText x="63" y="63" width="276" height="20" />
 					<senderPhoneText x="63" y="110" width="276" height="20" />
-					<senderAddressText x="63" y="156" width="276"
+					<senderUnitText x="63" y="156" width="276"
 						height="20" />
-					<senderUnitText x="63" y="249" width="276" height="20" />
+					<senderAddressText x="63" y="200" width="276" height="80" size="18" />
 
 
 					<receiverInfo text="收件人" x="0" y="0" width="114"
@@ -373,9 +373,9 @@
 						height="20" />
 					<receiverPhoneLabel text="手机:" x="20" y="110"
 						width="40" height="20" />
-					<receiverAddressLabel text="地址:" x="20" y="156"
+					<receiverUnitLabel text="单位:"  x="20" y="156"
 						width="40" height="20" />
-					<receiverUnitLabel text="单位:" x="20" y="249"
+					<receiverAddressLabel text="地址:" x="20" y="200"
 						width="40" height="20" />
 
 
@@ -383,10 +383,10 @@
 						height="20" />
 					<receiverPhoneText x="63" y="110" width="276"
 						height="20" />
-					<receiverAddressText x="63" y="156" width="276"
+					<receiverUnitText x="63" y="156" width="276"
 						height="20" />
-					<receiverUnitText x="63" y="249" width="276"
-						height="20" />
+					<receiverAddressText x="63" y="200" width="276"
+						height="40" size="18"/>
 
 					<goodsInfo text="货物信息" x="0" y="0" width="114" height="40"
 						type="rectangle" />

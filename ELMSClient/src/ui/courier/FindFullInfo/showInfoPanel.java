@@ -71,10 +71,7 @@ public class showInfoPanel extends MyPanelWithScroller {
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		if (orderblservice == null) {
-			System.out.println("ShowInfoPanle---null");
-		}
-		showTable = new showTable(e.element("showTable"), orderblservice);
+		showTable = new showTable(e.element("showTable"), orderblservice,controller,findFullOrderInfoPanel);
 		datePicker = new MyDatePicker(e.element("datePicker"));
 		searchBox = new MySearchBox(e.element("searchBox"));
 	}
