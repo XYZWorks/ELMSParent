@@ -6,6 +6,7 @@ import org.dom4j.Element;
 
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
+import util.StaffType;
 import vo.personnel.InstVO;
 import blservice.personnelblservice.Personnelblservice;
 
@@ -54,7 +55,30 @@ public class InstTablePanel extends MyTablePanel {
 		int[] columnLen = { 100, 100, 100 };
 		setRowAndColumnLen(30, columnLen);
 	}
-
+	@Override
+	public void addOneData(Object o, int type) {
+		InstVO vo = (InstVO) o;
+		if(type != 0){
+			vos.add(vo);
+		}else if(type == 1){
+			String[] temp = new String[3];
+			temp[0] = vo.ID;
+			temp[1] = vo.type.getName();
+			temp[2] = vo.location.name();
+			addOneRow(temp);
+		}else{
+			int row = getSelectedRow();
+			if(((String)table.getValueAt(row, 1)).equals(vo.ID)){
+				table.setValueAt(vo.ID, row, 0);
+				table.setValueAt(vo.type.getName(), row, 1);
+				table.setValueAt(vo.location.name(), row, 2);
+			}
+			
+		}
+		
+		
+		
+	}
 	@Override
 	public void updateTableMes() {
 		vos = bl.getInst();

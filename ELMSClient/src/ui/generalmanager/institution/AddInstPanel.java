@@ -1,12 +1,17 @@
 package ui.generalmanager.institution;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import blservice.personnelblservice.Personnelblservice;
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
 import ui.tools.MyComboBox;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
@@ -15,6 +20,11 @@ import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
+import ui.util.TipsDialog;
+import util.City;
+import util.InstType;
+import util.ResultMessage;
+import vo.personnel.InstVO;
  /** 
  * 增加机构界面
  * @author czq 
@@ -24,8 +34,8 @@ import ui.util.MyPictureButtonListener;
 public class AddInstPanel extends MyPanel {
 	
 	private JPanel changePanel;
-	
-	
+	Personnelblservice bl;
+	private InstManagePanel instManagePanel;
 	private MyPictureLabel instid;
 	private MyPictureLabel location;
 	private MyPictureLabel type;
@@ -36,9 +46,11 @@ public class AddInstPanel extends MyPanel {
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
 	
-	public AddInstPanel(Element config , JPanel changePanel) {
+	public AddInstPanel(Element config , JPanel changePanel , Personnelblservice bl , InstManagePanel instManagePanel) {
 		super(config);
 		this.changePanel = changePanel;
+		this.bl = bl;
+		this.instManagePanel = instManagePanel;
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
@@ -88,61 +100,70 @@ public class AddInstPanel extends MyPanel {
 
 	@Override
 	protected void addListener() {
-		confirm.addMouseListener(new MyCancelButtonListener(confirm));
-		cancel.addMouseListener(new MyConfirmButtonListner(cancel));
+		confirm.addMouseListener(new ConfirmListener(confirm) {
+			String instid;
+			City location;
+			InstType type;
+			InstVO vo;
+			@Override
+			protected boolean checkDataValid() {
+				instid = instidT.getText();
+				location = City.toCity((String) locationB.getSelectedItem());
+				type = InstType.toInst((String) typeB.getSelectedItem());
+				
+				return UserfulMethod.dealWithData(new SimpleDataFormat(instid , DataType.ID , "ID"));
+			}
+
+			@Override
+			protected boolean saveToSQL() {
+				result = bl.addInst(vo = new InstVO(instid, location, type));
+				if(result== ResultMessage.SUCCESS){
+					new TipsDialog("成功增加一个机构" , Color.GREEN);
+					return true;
+				}else{
+					System.err.println(result);
+					new  TipsDialog("未成功增加机构");
+				}
+				
+				
+				return false;
+				
+			}
+
+			@Override
+			protected void reInitial() {
+				myInit();
+				((CardLayout)changePanel.getLayout() ).show(changePanel, "InstManagePanel");
+			}
+
+			@Override
+			protected void updateMes() {
+				instManagePanel.table.addOneData(vo, 1);
+			}
+
+		});
+		cancel.addMouseListener(new MyCancelButtonListener(cancel));
 		
 	}
 
 	@Override
 	protected void initWhitePanels(Element e) {}
 	
-	class MyConfirmButtonListner extends ConfirmListener{
-
-		public MyConfirmButtonListner(MyPictureButton button) {
-			super(button);
-		}
-		@Override
-		protected boolean checkDataValid() {
-			// TODO Auto-generated method stub
-			return false;
-		}
-
-		@Override
-		protected boolean saveToSQL() {
-			return false;
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		protected void reInitial() {
-			((CardLayout)changePanel.getLayout() ).show(changePanel, "InstManagePanel");
-			
-		}
-
-		@Override
-		protected void updateMes() {
-			// TODO Auto-generated method stub
-			
-		}
-
-	}
 	
 	class MyCancelButtonListener extends MyPictureButtonListener{
 		public MyCancelButtonListener(MyPictureButton button) {
 			super(button);
 		}
-		
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
-			//TODO 清空数据
-			
-			
+			myInit();
 			((CardLayout)changePanel.getLayout() ).show(changePanel, "InstManagePanel");
 		}
 	}
-	
+	private void myInit() {
+		instidT.setText("");typeB.setSelectedIndex(0);locationB.setSelectedIndex(0);
+	}
 	
 
 }

@@ -31,7 +31,7 @@ import blservice.personnelblservice.Personnelblservice;
 @SuppressWarnings("serial")
 public class InstManagePanel extends MyPanel{
 	
-	private InstTablePanel table;
+	InstTablePanel table;
 	private JPanel changePanel;
 	private AddInstPanel addInstPanel;
 	private final static String addInstPanelStr = "addInstPanel";
@@ -92,7 +92,7 @@ public class InstManagePanel extends MyPanel{
 	protected void initOtherCompoment(Element e) {
 		type = new MyComboBox(e.element("type"));
 		location = new MyComboBox(e.element("location"));
-		addInstPanel = new AddInstPanel(e.element(addInstPanelStr), changePanel);
+		addInstPanel = new AddInstPanel(e.element(addInstPanelStr), changePanel, bl, this);
 		table = new InstTablePanel(e.element("table") , bl);
 	}
 
@@ -129,8 +129,11 @@ public class InstManagePanel extends MyPanel{
 		modify.addMouseListener(new MyPictureButtonListener(modify){
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
 				super.mouseClicked(e);
+				if(table.getSelectedRow() == -1){
+					new TipsDialog("请选择一行数据", Color.GREEN);
+					return;
+				}
 				ismodify(true);
 			}
 		});
@@ -157,8 +160,9 @@ public class InstManagePanel extends MyPanel{
 						table.getTable().setValueAt((String) location.getSelectedItem(), temp, 1);
 						table.getTable().setValueAt((String) type.getSelectedItem(), temp, 2);
 					}
+					
 				}
-				
+				ismodify(false);
 				
 				return false;
 				
