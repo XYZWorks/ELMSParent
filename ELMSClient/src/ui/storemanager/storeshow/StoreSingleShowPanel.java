@@ -170,7 +170,7 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 		center.setText(cen);
 		storeNum.setText(sto);
 		for (StoreMessageVO vo : bl.show()) {
-			if (cen.equals(vo.location.getName()) && sto.equals(vo.storeLoc.getStoreLocation()))
+			if (cen.equals(vo.location.getName()) && sto.equals(vo.storeLoc.getStoreLocation()+"区"))
 				target = vo;
 		}
 		if(target!=null){
@@ -179,6 +179,7 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 			ins = target.inStoreDocs;
 			outs = target.outStoreDocs;
 			inTable.resetValue(ins);
+			
 			outTable.resetValue(outs);
 		}
 	}
