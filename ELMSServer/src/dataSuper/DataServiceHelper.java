@@ -252,10 +252,14 @@ public class DataServiceHelper {
 				e.printStackTrace();
 			}
 			e1.printStackTrace();
-		} catch (IOException e1) {
-			e1.printStackTrace();
 		}
-
+		catch (IOException e1) {
+			e1.printStackTrace();
+			return null;
+		} 
+		
+		
+		
 		try {
 			input.close();
 		} catch (IOException e) {

@@ -141,10 +141,10 @@ public class ArriveYYDocAddPanel extends AddDocPanel {
 			String ID;
 			GoodsState goodState;
 			ArrayList<String> orderBarCodes;
-
+			ArriveYYDocVO vo;
 			@Override
 			protected boolean saveToSQL() {
-				result = bl.add(new ArriveYYDocVO(ID, myDate, ZZID, sendCity, goodState,
+				result = bl.add(vo = new ArriveYYDocVO(ID, myDate, ZZID, sendCity, goodState,
 						orderBarCodes)) ;
 				if(result == ResultMessage.SUCCESS){
 					new TipsDialog("成功新增接收单", Color.GREEN);
@@ -179,10 +179,7 @@ public class ArriveYYDocAddPanel extends AddDocPanel {
 
 			@Override
 			protected void updateMes() {
-				String[] data = { ID, MyDate.toString(myDate), ZZID,
-						sendCity.name(), goodState.name(),
-						String.valueOf(orderBarCodes.size()) };
-				messageTable.addOneRow(data);
+				messageTable.addOneData(vo, 1);
 
 			}
 		});

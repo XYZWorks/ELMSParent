@@ -28,12 +28,12 @@ public class TransportController implements Transportblservice{
 	private Transport transport ;
 	private Transportdataservice transportData;
 	public TransportController() {
-	}
-	public void myInit(){
 		transportData  = (Transportdataservice) RMIManage.getDataService(DataServiceType.TransportDataService);
 
 		transport = new Transport(transportData , BusinessLogicDataFactory.getFactory().getOrderBussinessLogic() , BusinessLogicDataFactory.getFactory().getStrategyBusinessLogic());
+
 	}
+	
 	public ResultMessage add(LoadDocVO vo) {
 		return transport.add(vo);
 	}

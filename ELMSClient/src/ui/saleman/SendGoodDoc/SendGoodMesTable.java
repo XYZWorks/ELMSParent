@@ -33,7 +33,10 @@ public class SendGoodMesTable extends MyTablePanel {
 		// TODO Auto-generated method stub
 
 	}
-
+	
+	
+	
+	
 	@Override
 	protected void initialTitleAndColumn(Element config) {
 		columnNames = MyTablePanel.getColumnName(config.attributeValue(columnStr));
@@ -41,6 +44,7 @@ public class SendGoodMesTable extends MyTablePanel {
 		vos = bl.getDaySendDocs(MyDate.getNowTime());
 		
 		if(vos == null || vos.isEmpty()){
+			vos = new ArrayList<>();
 			return;
 		}
 		
@@ -58,11 +62,33 @@ public class SendGoodMesTable extends MyTablePanel {
 		}
 
 	}
-
+	
+	@Override
+	public void searchID(String id) {
+		super.searchID(id);
+		removeAllRows();
+		for (int i = 0; i < vos.size(); i++) {
+			if(vos.get(i).ID.equals(id)){
+				addOneData(vos.get(i) , 0);
+				break;
+			}
+		}
+	}
+	
+	@Override
+	public void addOneData(Object o , int type) {
+		SendGoodDocVO vo = (SendGoodDocVO) o;
+		String[] temp = new String[COLUMN_NUM];
+		temp[0] = vo.ID;
+		temp[1] = MyDate.toString(vo.date);
+		temp[2] = vo.sendMan;
+		temp[3] = vo.orderBarCode;
+		temp[4] = vo.sendCity.getName();
+		addOneRow(temp);;
+	}
 	@Override
 	protected void initTable() {
-	table = new MyTable(columnNames, data);
-
+		table = new MyTable(columnNames, data);
 	}
 
 }

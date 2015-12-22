@@ -101,6 +101,7 @@ public class SendGoodDocAddPanel extends AddDocPanel{
 			String sendMan;
 			String orderBarCode;
 			City sendCity;
+			SendGoodDocVO vo;
 			@Override
 			protected boolean checkDataValid() {
 				id = idT.getText();
@@ -113,13 +114,12 @@ public class SendGoodDocAddPanel extends AddDocPanel{
 			}
 			@Override
 			protected void updateMes() {
-				String[] data = {id, MyDate.toString(myDate), sendMan, orderBarCode,sendCity.getName()};
-				messageTable.addOneRow(data);
+				messageTable.addOneData(vo, 1);
 			}
 			
 			@Override
 			protected boolean saveToSQL() {
-				result = bl.add(new SendGoodDocVO(id, myDate, sendMan, orderBarCode, sendCity));
+				result = bl.add(vo = new SendGoodDocVO(id, myDate, sendMan, orderBarCode, sendCity));
 				if(result ==ResultMessage.SUCCESS){
 					new TipsDialog("成功生成送货单~"  , Color.GREEN);
 					return true;

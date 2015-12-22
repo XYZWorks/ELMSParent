@@ -111,19 +111,22 @@ public abstract class MyTablePanel extends JPanel {
 		}
 	}
 
-//	public void setRowEdit(boolean flag, int row) {
-//		table.setRowEditable(flag, row);
-//	}
-
-//	/**
-//	 * 设置某一列可修改
-//	 * 
-//	 * @param flag
-//	 * @param column
-//	 */
-//	public void setColumnEdit(boolean flag, int column) {
-//		table.setColEditable(flag, column);
-//	}
+	/**
+	 * 通过ID查找信息
+	 * @param id
+	 */
+	public void searchID(String id){
+		
+	}
+	/**
+	 * 表格增加一行信息
+	 * @param type 0表示查找时使用的方法，不向vos中增加数据，非0时则是addPanel增加数据一条，向vo中增加
+	 */
+	public void addOneData(Object o , int type){
+		
+	}
+	
+	
 
 	public MyTableModel getDtm() {
 		return dtm;
@@ -145,7 +148,6 @@ public abstract class MyTablePanel extends JPanel {
 	 * @param data
 	 */
 	public void addOneRow(Object[] data) {
-//		table.getModel().setRowCount(table.getModel().getRowCount() + 1);
 		table.getModel().addRow(data);
 		
 	}

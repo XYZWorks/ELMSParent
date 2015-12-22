@@ -78,7 +78,7 @@ public class InitalPanel extends MyPanel {
 	 * @param vo
 	 */
 	private void addOtherPanel(Element e) {
-		AccountType type = vo.type;
+//		AccountType type = vo.type;
 //		controller=new CourierController(this, e.element("Courier"));
 		controller = new SaleManController(this, e.element("Salesman"));
 //		return;
@@ -86,35 +86,35 @@ public class InitalPanel extends MyPanel {
 
 		//controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
 		
-		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
-
-		controller = new FinanceController(this, e.element("Financeman"));
-		controller = new AdminstratorController(this, e.element("Adminstrator"));
-		switch (type) {
-		case Adminstrator:
-			controller = new AdminstratorController(this, e.element("Adminstrator"));
-			break;
-		case courier:
-			controller = new CourierController(this, e.element("Courier"));
-			break;
-		case financeman:
-			controller = new FinanceController(this, e.element("Financeman"));
-			break;
-		case manager:
-			controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
-			break;
-		case saleman:
-			controller = new SaleManController(this, e.element("Salesman"));
-			break;
-		case storeman:
-			controller = new StoreManController(this, e.element("Storeman"));
-			break;
-		case storemanager:
-			controller = new StoreManController(this, e.element("Storemanager"));
-			break;
-		default:
-			break;
-		}
+//		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
+//
+//		controller = new FinanceController(this, e.element("Financeman"));
+//		controller = new AdminstratorController(this, e.element("Adminstrator"));
+//		switch (type) {
+//		case Adminstrator:
+//			controller = new AdminstratorController(this, e.element("Adminstrator"));
+//			break;
+//		case courier:
+//			controller = new CourierController(this, e.element("Courier"));
+//			break;
+//		case financeman:
+//			controller = new FinanceController(this, e.element("Financeman"));
+//			break;
+//		case manager:
+//			controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
+//			break;
+//		case saleman:
+//			controller = new SaleManController(this, e.element("Salesman"));
+//			break;
+//		case storeman:
+//			controller = new StoreManController(this, e.element("Storeman"));
+//			break;
+//		case storemanager:
+//			controller = new StoreManController(this, e.element("Storemanager"));
+//			break;
+//		default:
+//			break;
+//		}
 
 	}
 

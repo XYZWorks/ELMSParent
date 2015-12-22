@@ -1,12 +1,17 @@
 package ui.tools;
 
 import java.awt.CardLayout;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
 import ui.table.MyTablePanel;
 import ui.util.MyPictureButtonListener;
  /** 
@@ -133,6 +138,28 @@ public abstract class CheckDocPanel extends JPanel{
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
 				jumpToADD();
+			}
+		});
+		searchBox.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				super.keyPressed(e);
+				if(e.getKeyCode() == KeyEvent.VK_ENTER){
+					if(UserfulMethod.dealWithData(new SimpleDataFormat(searchBox.getMyText() , DataType.ID , "ID"))){
+						messageTable.searchID(searchBox.getMyText());
+					}
+				}
+				
+			}
+		});
+		
+		search.addMouseListener(new MyPictureButtonListener(search){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				if(UserfulMethod.dealWithData(new SimpleDataFormat(searchBox.getMyText() , DataType.ID , "ID"))){
+					messageTable.searchID(searchBox.getMyText());
+				}
 			}
 		});
 	}

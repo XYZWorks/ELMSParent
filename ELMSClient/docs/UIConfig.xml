@@ -983,7 +983,7 @@
 				<search x="150" y="80" />
 				<datepicker x="758" y="80" width="40" height="40" />
 				<table x="48" y="150" width="750" height="420"
-					column="编号 姓名 性别 出生日期 身份证号 手机号码 机构ID 驾驶证期限" />
+					column="编号 姓名 机构ID 出生日期 身份证号 手机号码 性别 驾驶证期限" />
 				<searchButton x="475" y="80" width="115" height="40"
 					text="搜索" type="cancel" />
 				<searchWay x="48" y="80" width="95" height="40"
