@@ -73,7 +73,7 @@ public class CourierMainPanel extends MyPanel {
 	@Override
 	protected void addListener() {
 		addOrderButton.addMouseListener(new MyMainPanelButtonListener(addOrderButton, "addOrderPanel",controller));
-		findFullInfoButton.addMouseListener(new MyMainPanelButtonListener(findFullInfoButton, "findFullInfoPanel",controller));
+		findFullInfoButton.addMouseListener(new MyMainPanelButtonListener(findFullInfoButton, "showInfoPanel",controller));
 		inputReceiveButton.addMouseListener(new MyMainPanelButtonListener(inputReceiveButton, "inputReceiveInfoPanel",controller));
 		
 	}

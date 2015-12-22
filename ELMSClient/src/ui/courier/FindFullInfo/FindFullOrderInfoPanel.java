@@ -78,8 +78,7 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 	private MyLabel goodWeightLabel;
 	private MyLabel goodNumLabel;
 	private MyLabel goodVolumLabel;// 体积
-	private MyLabel goodPackLabel;// 包装形式
-	private MyLabel orderFormLabel;// 快递形式
+	
 
 	private MyLabel goodNameText;
 	private MyLabel goodNumText;
@@ -95,10 +94,10 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 	private MyPictureLabel cost;
 
 	// 包装形式
-	private MyLabel goodPack;
+	private MyLabel goodPackLabel;
 	private MyLabel goodPackText;
 	// 快递形式
-	private MyLabel orderForm;
+	private MyLabel orderFormLabel;
 	private MyLabel orderFormText;
 
 	// 标题栏：物流信息
@@ -138,7 +137,7 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 	private OtherOrderMes otherMes;
 	private TransferDocs transferDocs;
 
-	public FindFullOrderInfoPanel(Element config, Orderblservice orderblservice, String BarCode) {
+	public FindFullOrderInfoPanel(Element config, Orderblservice orderblservice) {
 		super(config);
 
 		this.orderblservice = orderblservice;
@@ -148,19 +147,14 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initOtherCompoment(config);
 		initLabels(config.element(CompomentType.LABELS.name()));
-		
-		this.BarCode = BarCode;
-		orderBarCodeLabel.setText(BarCode);
 
-		getData();
-		readData();
-		
 		addCompoment();
 		addListener();
 		setVisible(true);
 		
 		
 	}
+	
 
 	@Override
 	protected void initButtons(Element e) {
@@ -207,8 +201,6 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		goodWeightLabel = new MyLabel(e.element("goodWeightLabel"));
 		goodNumLabel = new MyLabel(e.element("goodNumLabel"));
 		goodVolumLabel = new MyLabel(e.element("goodVolumLabel"));
-		goodPackLabel = new MyLabel(e.element("goodPackLabel"));
-		orderFormLabel = new MyLabel(e.element("orderFormLabel"));
 
 		goodNameText = new MyLabel(e.element("goodNameText"));
 		goodNumText = new MyLabel(e.element("goodNumText"));
@@ -218,9 +210,9 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		goodHeightText = new MyLabel(e.element("goodHeightText"));
 
 		// 其他信息
-		goodPack = new MyLabel(e.element("goodPack"));
+		goodPackLabel = new MyLabel(e.element("goodPackLabel"));
+		orderFormLabel = new MyLabel(e.element("orderFormLabel"));
 		goodPackText = new MyLabel(e.element("goodPackText"));
-		orderForm = new MyLabel(e.element("orderForm"));
 		orderFormText = new MyLabel(e.element("orderFormText"));
 
 		// 预计时间
@@ -321,11 +313,14 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		goodInfoPanel.add(orderFormLabel);
 
 		goodInfoPanel.add(goodNameText);
+		goodInfoPanel.add(goodNumText);
 		goodInfoPanel.add(goodWeightText);
 		goodInfoPanel.add(goodLongText);
 		goodInfoPanel.add(goodWidthText);
 		goodInfoPanel.add(goodHeightText);
-
+		goodInfoPanel.add(orderFormText);
+		goodInfoPanel.add(goodPackText);
+		
 		transferInfoPanel.add(transferInfo);
 
 		transferInfoPanel.add(LineLeft);
@@ -376,9 +371,18 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		});
 
 	}
-
-	public void getData() {
-		orderVO = orderblservice.getFullInfo(orderBarCodeLabel.getText());
+	
+	public void readInfo(String BarCode){
+		this.BarCode=BarCode;
+		orderBarCodeLabel.setText(BarCode);
+		System.out.println("barcode"+BarCode);
+		
+		getData(BarCode);
+		readData();
+	}
+	public void getData(String BarCode) {
+		
+		orderVO = orderblservice.getFullInfo(BarCode);
 		sender = orderVO.sender;
 		receiver = orderVO.receiver;
 		goodMes = orderVO.goodMes;
@@ -391,26 +395,28 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		// 读取收件人信息
 		senderNameText.setText(sender.getName());
 		senderPhoneText.setText(sender.getPhone());
-		senderAddressText.setText(sender.getPhone());
+		senderAddressText.setText(sender.getAddress());
 		senderUnitText.setText(sender.getCompany());
 
 		// 读取寄件人信息
 		receiverNameText.setText(receiver.getName());
 		receiverPhoneText.setText(receiver.getPhone());
-		receiverAddressText.setText(receiver.getPhone());
+		receiverAddressText.setText(receiver.getAddress());
 		receiverUnitText.setText(receiver.getCompany());
 
 		// 读取货物信息
 		goodNameText.setText(goodMes.getGoodName());
 		goodNumText.setText(String.valueOf(goodMes.getGoodNum()));
-		goodWeightText.setText(String.valueOf(goodMes.getGoodWeight()));
-		goodLongText.setText(String.valueOf(goodMes.getGoodLong()));
-		goodWidthText.setText(String.valueOf(goodMes.getGoodWidth()));
-		goodHeightText.setText(String.valueOf(goodMes.getGoodHeight()));
+		goodWeightText.setText(String.valueOf(goodMes.getGoodWeight())+"kg");
+		goodLongText.setText("长"+String.valueOf(goodMes.getGoodLong())+"cm");
+		goodWidthText.setText("宽"+String.valueOf(goodMes.getGoodWidth())+"cm");
+		goodHeightText.setText("高"+String.valueOf(goodMes.getGoodHeight())+"cm");
 
 		// 读取其他信息
 		goodPackText.setText(otherMes.getGoodPack());
 		orderFormText.setText(otherMes.getOrderForm());
+		
+		//读取流转信息
 	}
 
 	// MyLabel[] place = { one, two, three, four, five, six, seven, eight, nine,

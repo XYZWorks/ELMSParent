@@ -76,7 +76,7 @@ public class showTable extends MyTablePanel {
 				return true;
 			}
 		};
-		int[] columnLen = { 100, 300, 100, 100, 100, 100 };
+		int[] columnLen = {80, 50, 200, 50, 200, 50 };
 		setRowAndColumnLen(40, columnLen);
 
 	}
