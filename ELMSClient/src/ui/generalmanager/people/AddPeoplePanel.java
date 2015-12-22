@@ -8,11 +8,9 @@ import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
 import ui.tools.MyComboBox;
-import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
-import ui.tools.MySearchBox;
 import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
@@ -48,6 +46,10 @@ public class AddPeoplePanel extends MyPanel{
 	
 	private PeopleManagePanel managePanel;
 	private Personnelblservice bl;
+	
+	private boolean isModify = false;
+	
+	
 	public AddPeoplePanel(Element config ,PeopleManagePanel managePanel , Personnelblservice bl) {
 		super(config);
 		this.managePanel = managePanel;
@@ -59,7 +61,16 @@ public class AddPeoplePanel extends MyPanel{
 		addCompoment();
 		addListener();
 	}
-
+	
+	void setModifyState(boolean isModify , String id) {
+		this.isModify = isModify;
+		ID.setEditable(!isModify);
+		if(isModify){
+			ID.setText(id);
+		}
+	}
+	
+	
 	@Override
 	protected void initButtons(Element e) {
 		confirm = new MyPictureButton(e.element("confirm"));
@@ -113,20 +124,39 @@ public class AddPeoplePanel extends MyPanel{
 			String idc;
 			StaffType typec;
 			String phonec;
+			PersonVO vo;
 			@Override
 			protected void updateMes() {
-				
+				if(isModify){
+					managePanel.peopleMesTable.addOneData(vo, 2);
+				}else{
+					managePanel.peopleMesTable.addOneData(vo, 1);
+				}
 				
 			}
 			
 			@Override
 			protected boolean saveToSQL() {
-				result = bl.addPeople(new PersonVO(instidc, idc, namec, typec, phonec));
+				if(isModify){
+					result = bl.modifyPerson(vo  = new PersonVO(instidc, idc, namec, typec, phonec));
+					if(result == ResultMessage.SUCCESS){
+						new TipsDialog("成功修改一条人员信息", Color.GREEN);
+						return true;
+					}else{
+						new TipsDialog("修改人员信息出错");
+						System.err.println(result);
+						return false;
+					}
+				}
+				
+				
+				result = bl.addPeople(vo = new PersonVO(instidc, idc, namec, typec, phonec));
 				if(result == ResultMessage.SUCCESS){
 					new TipsDialog("成功增加一条人员信息", Color.GREEN);
 					return true;
 				}else{
 					new TipsDialog("增加人员信息出错");
+					System.err.println(result);
 					return false;
 				}
 			}

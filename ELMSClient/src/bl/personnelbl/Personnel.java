@@ -188,5 +188,13 @@ public class Personnel {
 		}
 		return ResultMessage.FAIL;
 	}
+	public ResultMessage modifyPerson(PersonVO vo) {
+		try {
+			return personnelData.modifyPerson((PersonPO) VOPOchange.VOtoPO(vo));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
+	}
 
 }

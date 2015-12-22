@@ -72,4 +72,5 @@ public interface PersonnelDataService extends DataserviceParent{
 	 * 
 	 */
 	public ResultMessage modifyInst(InstPO po) throws RemoteException;
+	public ResultMessage modifyPerson(PersonPO po) throws RemoteException;
 }

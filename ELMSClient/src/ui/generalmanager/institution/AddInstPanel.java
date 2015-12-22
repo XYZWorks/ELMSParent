@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import org.dom4j.Element;
 
 import ui.tools.MyComboBox;
-import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
