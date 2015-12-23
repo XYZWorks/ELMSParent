@@ -40,10 +40,10 @@ public class Store {
 		try {
 			pos = storeData.getStoreMessages();
 //			System.out.println("pos size ------"+pos.size());
-//			if(pos.size()==0){
-//				initial();
-//				pos = storeData.getStoreMessages();
-//			}
+			if(pos.size()==0){
+				initial();
+				pos = storeData.getStoreMessages();
+			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -144,6 +144,7 @@ public class Store {
 		else if(DocType.outStoreDoc==tmp.type){
 			OutStoreDocVO vo = (OutStoreDocVO)tmp;
 			target.outStoreDocs.add(vo);
+			System.err.println(vo.loc);
 			int delNum = vo.orders.size();
 			target.number = target.number-delNum;
 		}

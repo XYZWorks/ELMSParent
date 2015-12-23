@@ -188,16 +188,11 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 			orderBars = new ArrayList<>();
 			locs = new ArrayList<>();
 			
-			for(InStoreDocVO in : ins){
-				for(String order : in.orders)
-					orderBars.add(order);
-				for(String loc : in.location)
-					locs.add(loc);
-			}
+			
 			
 			inTable.resetValue(ins);			
 			outTable.resetValue(outs);
-			orderTable.resetValue(orderBars,locs);
+			orderTable.resetValue(ins,outs);
 		}
 	}
 
