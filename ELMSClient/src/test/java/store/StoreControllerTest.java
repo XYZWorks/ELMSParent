@@ -59,7 +59,7 @@ public class StoreControllerTest {
 
 	@Test
 	public void testExportExcel() {
-		result=bl.exportExcel("D:\\exportForm");
+//		result=bl.exportExcel("D:\\exportForm");
 //		if(result!=ResultMessage.SUCCESS)
 //			fail("fail to export");
 	}

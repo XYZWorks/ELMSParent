@@ -8,6 +8,7 @@ import javax.sound.midi.Synthesizer;
 import po.store.StoreCheckPO;
 import po.store.StoreMessagePO;
 import test.java.other.DataTool;
+import test.java.other.ExportExcel;
 import test.java.other.VOPOchange;
 import ui.generalmanager.salary.SalaryStrategyMesTablePanel;
 import ui.inital.initialPanel3;
@@ -20,6 +21,7 @@ import vo.store.InStoreDocVO;
 import vo.store.OutStoreDocVO;
 import vo.store.StoreCheckVO;
 import vo.store.StoreMessageVO;
+import vo.store.StoreShowVO;
 import ds.storedataservice.StoreDataService;
 
 /** 
@@ -86,11 +88,56 @@ public class Store {
 		return vos;
 	}
 
-	public ResultMessage exportExcel(String path) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultMessage exportExcel(String path,StoreMessageVO vo) {
+		StoreShowVO storevo = new StoreShowVO();
+		
+		storevo.location = vo.location;
+		storevo.number = vo.number;
+		storevo.totalNum = vo.totalNum;
+		storevo.storeLoc = vo.storeLoc;
+		for (int i = 0; i < vo.inStoreDocs.size(); i++) {
+			storevo.inStoreDocs.add(vo.inStoreDocs.get(i).ID);
+		}
+		for (int i = 0; i < vo.outStoreDocs.size(); i++) {
+			storevo.outStoreDocs.add(vo.outStoreDocs.get(i).ID);
+		}
+		getOrders(vo.inStoreDocs, vo.outStoreDocs, storevo);
+		return ExportExcel.exportExcel(path, storevo);
 	}
-
+	
+	private boolean hasOut(String ord,ArrayList<String> ordertmp) {
+		
+		for(String tmp : ordertmp){
+			if(ord.equals(tmp)){
+				return true;
+			}
+		}
+			
+		return false;
+	}
+	
+	public void getOrders(ArrayList<InStoreDocVO> ins,ArrayList<OutStoreDocVO> outs,StoreShowVO storevo){
+		ArrayList<String> ordertmp = new ArrayList<>();
+		//得到出库单中的订单号
+		for(OutStoreDocVO out : outs){
+			for(String order : out.orders)
+				ordertmp.add(order);
+		}
+		
+		//将已经出库的订单从订单列表删除
+		for(InStoreDocVO in : ins){
+			for(int i =0;i<in.orders.size();i++){
+				if(hasOut(in.orders.get(i),ordertmp)){
+					continue;
+				}
+				
+				storevo.orders.add(in.orders.get(i));
+				storevo.locs.add(in.location.get(i));
+				
+			}
+		}
+	}
+	
 	public ResultMessage update(StoreMessageVO vo) {
 		StoreMessagePO po = (StoreMessagePO) VOPOchange.VOtoPO(vo);
 		

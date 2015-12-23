@@ -19,6 +19,8 @@ import ui.tools.MyFrame;
 public class testPanelforymc extends MyFrame{
 
 	public testPanelforymc(Element e) {
+		
+	
 		super(e);
 		
 

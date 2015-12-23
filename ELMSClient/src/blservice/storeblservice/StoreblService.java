@@ -33,7 +33,7 @@ public interface StoreblService {
 	 * @param path
 	 * @return
 	 */
-	public ResultMessage exportExcel(String path);
+	public ResultMessage exportExcel(String path,StoreMessageVO vo);
 	/**
 	 * 更新库存信息
 	 * @param vo

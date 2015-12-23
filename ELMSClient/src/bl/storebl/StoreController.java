@@ -16,6 +16,7 @@ import vo.store.InStoreDocVO;
 import vo.store.OutStoreDocVO;
 import vo.store.StoreCheckVO;
 import vo.store.StoreMessageVO;
+import vo.store.StoreShowVO;
 import blservice.storeblservice.InStoreDocService;
 import blservice.storeblservice.OutStoreDocService;
 import blservice.storeblservice.StoreblService;
@@ -54,15 +55,17 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 		return store.showCheck();
 	}
 
-	public ResultMessage exportExcel(String path) {
-		return store.exportExcel(path);
+	public ResultMessage exportExcel(String path,StoreMessageVO vo) {
+		return store.exportExcel(path,vo);
 	}
 
 	public ResultMessage update(StoreMessageVO vo) {
 		return store.update(vo);
 	}
 
-
+	public void getOrders(ArrayList<InStoreDocVO> ins,ArrayList<OutStoreDocVO> outs,StoreShowVO storevo) {
+		 store.getOrders(ins, outs, storevo);
+	}
 	public ArrayList<? extends DocVO> getDocLists(DocType type) {
 		switch (type) {
 		case inStoreDoc:
