@@ -14,6 +14,7 @@ import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.util.PanelController;
 import util.MyDate;
+import vo.store.StoreMessageVO;
 
 /** 
  * @author ymc 
@@ -93,6 +94,27 @@ public class StoreCheckInfoPanel extends StoreSingleShowPanel {
 		
 		returnButton.addMouseListener(new MyJumpListener(returnButton, "StoreCheckPanel", controller,true));
 
+	}
+	
+	@Override
+	public void getInfo(String cen, String sto) {
+		center.setText(cen);
+		storeNum.setText(sto);
+		for (StoreMessageVO vo : bl.show()) {
+			if (cen.equals(vo.location.getName()) && sto.equals(vo.storeLoc.getStoreLocation()+"区")){
+				target = vo;
+				break;
+			}
+				
+		}
+		if(target!=null){
+			nowNum.setText("   "+String.valueOf(target.number));
+			ins = target.inStoreDocs;
+			outs = target.outStoreDocs;
+			inTable.resetValue(ins);
+			
+			outTable.resetValue(outs);
+		}
 	}
 
 }

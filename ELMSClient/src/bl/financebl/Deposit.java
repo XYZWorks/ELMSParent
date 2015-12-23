@@ -1,10 +1,12 @@
 package bl.financebl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import blservice.financeblservice.DepositService;
 import blservice.orderblservice.Orderblservice;
 import ds.financedataservice.FinanceDataService;
+import po.finance.DepositPO;
+import test.java.other.VOPOchange;
 import util.ResultMessage;
 import vo.finance.DepositVO;
 
@@ -21,13 +23,31 @@ public class Deposit {
 	}
 
 	public ResultMessage create(DepositVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		DepositPO po = (DepositPO) VOPOchange.VOtoPO(vo);
+		try {
+			return financeData.addDeposit(po);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
 	} 
 
 	public ArrayList<DepositVO> show() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<DepositPO> pos = new ArrayList<>();
+		ArrayList<DepositVO> vos = null;
+		try {
+			pos = financeData.getDepositPO();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		
+		if(pos!=null){
+			vos = new ArrayList<>(pos.size());
+			for(DepositPO po: pos){
+				vos.add((DepositVO)VOPOchange.POtoVO(po));
+			}
+		}
+		return vos;
 	}
 
 }

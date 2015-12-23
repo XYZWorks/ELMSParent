@@ -27,7 +27,7 @@ public class MyTable extends JTable{
 		DefaultTableCellRenderer   r   =   new   DefaultTableCellRenderer();   
 		r.setHorizontalAlignment(JLabel.CENTER);   
 		setDefaultRenderer(String.class,   r);
-
+		
 		
 		
 		//不允许修改列宽

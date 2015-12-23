@@ -124,6 +124,8 @@ public abstract class PanelController {
 		setTheRelatedButton(panelName);
 	}
 	
+
+	
 	/**
 	 * 使得与该界面对应的按钮亮起
 	 */
