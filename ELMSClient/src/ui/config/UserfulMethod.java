@@ -46,6 +46,8 @@ public class UserfulMethod {
 			return FormatMesHandler(checkPositiveNum(message), chineseName);
 		case PlateNum:
 			return FormatMesHandler(checkPlateNum(message), chineseName);
+		case bankAccount:
+			return FormatMesHandler(checkBankAccount(message), chineseName);
 		default:
 			break;
 		}
@@ -68,6 +70,20 @@ public class UserfulMethod {
 		}
 		return false;
 	}
+	
+	public static final FormatMes checkBankAccount(String ID){
+		if(ID.length() < 6){
+			return FormatMes.WRONG_LENGTH;
+		}
+		
+		for (int i = 0; i < ID.length(); i++) {
+			if(!isNum(ID.charAt(i))){
+				return FormatMes.ILEGAL_CHAR;
+			}
+		}
+		return FormatMes.CORRECT;
+	}
+	
 	
 	/**
 	 * 检查ID是否有误，返回有关信息

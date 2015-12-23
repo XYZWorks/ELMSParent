@@ -22,6 +22,7 @@ import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.ConfirmListener;
+import ui.util.DocPanelForApproval;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
 import util.City;
@@ -38,7 +39,7 @@ import blservice.transportblservice.Transportblservice;
  *
  */
 @SuppressWarnings("serial")
-public class ArriveYYDocAddPanel extends AddDocPanel {
+public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForApproval{
 
 	private MyLabel id;
 	private MyDatePicker date;
@@ -196,5 +197,38 @@ public class ArriveYYDocAddPanel extends AddDocPanel {
 		idT.setText("");ZZIDT.setText("");order.setText("");
 		
 		ordersTable.clearOrders();
+	}
+
+	@Override
+	public void setAllCompUneditOrUnVisiable() {
+		idT.setEditable(false);
+		ZZIDT.setEditable(false);
+		sendCityB.setEditable(false);
+		goodStateB.setEditable(false);
+		
+		order.setVisible(false);
+		addOneOrder.setVisible(false);
+	}
+
+	@Override
+	public void addBackButton() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setMessage(Object o) {
+		if(o == null){
+			return;
+		}
+		ArriveYYDocVO vo = (ArriveYYDocVO) o;
+		idT.setText(vo.ID);
+		ZZIDT.setText(vo.ZZID);
+		sendCityB.setSelectedItem(vo.sendCity.getName());
+		goodStateB.setSelectedItem(vo.goodState.getName());
+		for (String orders : vo.orderBarCodes) {
+			ordersTable.addAOrder(orders);
+		}
+		
 	}
 }

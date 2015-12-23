@@ -100,6 +100,13 @@ public class FinanceController implements BankAccountBusinessService, CostServic
 	}
 
 
+	@Override
+	public ResultMessage checkAccount(String ID, int money) {
+		
+		return bankAccount.checkAccount(ID, money);
+	}
+
+
 
 
 }

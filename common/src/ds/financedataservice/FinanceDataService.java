@@ -39,7 +39,7 @@ public interface FinanceDataService extends DataserviceParent{
 	 */
 	public ResultMessage addAccount(BankAccountPO vo) throws RemoteException;
 	
-	
+	public ResultMessage checkAccount(String iD, int money) throws RemoteException;
 	/**
 	 * 收款信息PO
 	 * @return
@@ -85,4 +85,5 @@ public interface FinanceDataService extends DataserviceParent{
 	 * @return
 	 */
 	public ResultMessage del(String ID , CostType type) throws RemoteException;
+	
 }

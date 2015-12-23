@@ -35,4 +35,10 @@ public class BankAccountService_Stub implements BankAccountBusinessService{
 		return null;
 	}
 
+	@Override
+	public ResultMessage checkAccount(String ID, int money) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

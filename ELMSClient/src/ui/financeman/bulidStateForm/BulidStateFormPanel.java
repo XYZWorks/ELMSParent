@@ -24,7 +24,7 @@ import ui.util.TipsDialog;
 import util.MyDate;
 import util.ResultMessage;
 import vo.finance.DepositVO;
-import vo.finance.PayVO;
+import vo.finance.FormPayVO;
 import vo.statistic.CostIncomeVO;
 import vo.statistic.StateFormVO;
 import blservice.statisticblservice.Statisticblservice;
@@ -91,7 +91,7 @@ public class BulidStateFormPanel extends MyPanel{
 	private MyTextField outComeT;
 	
 	private ArrayList<DepositVO> depositVOs = new ArrayList<>();
-	private ArrayList<PayVO> payVOs = new ArrayList<>();
+	private ArrayList<FormPayVO> payVOs = new ArrayList<>();
 	
 	
 	
@@ -291,7 +291,7 @@ public class BulidStateFormPanel extends MyPanel{
 				money = payMoneyT.getText();
 				type = payTypeT.getText();
 				if(UserfulMethod.dealWithData(new SimpleDataFormat(money, DataType.PositiveNum, "金额"))){
-					payVOs.add(new PayVO(time, Integer.parseInt(money), type));
+					payVOs.add(new FormPayVO(time, Integer.parseInt(money), type));
 					new TipsDialog("成功增加成本单", Color.GREEN);
 					pays.setText(payStr + payVOs.size());
 					
