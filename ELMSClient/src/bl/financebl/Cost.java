@@ -3,11 +3,6 @@ package bl.financebl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import blservice.financeblservice.CostService;
-import blservice.personnelblservice.Personnelblservice;
-import blservice.strategyblservice.StrategyblService;
-import blservice.transportblservice.Transportblservice;
-import ds.financedataservice.FinanceDataService;
 import po.finance.CostPO;
 import po.finance.FreightPO;
 import po.finance.RentPO;
@@ -19,6 +14,10 @@ import vo.finance.CostVO;
 import vo.finance.FreightVO;
 import vo.finance.RentVO;
 import vo.finance.SalaryVO;
+import blservice.personnelblservice.Personnelblservice;
+import blservice.strategyblservice.StrategyblService;
+import blservice.transportblservice.Transportblservice;
+import ds.financedataservice.FinanceDataService;
 
 /**
  * @author ymc
@@ -73,14 +72,15 @@ public class Cost {
 				}
 				break;
 			case SALARY:
-				pos = financeData.show(CostType.RENT);
-				SalaryPO spo;
-				SalaryVO svo;
+				pos = financeData.show(CostType.SALARY);
+				SalaryPO spo = null;
+				SalaryVO svo = null;
 				if (pos != null) {
 					vos = new ArrayList<CostVO>(pos.size());
 					for (int i = 0; i < pos.size(); i++) {
 						spo = (SalaryPO) pos.get(i);
 						svo = (SalaryVO) VOPOchange.POtoVO(spo);
+						System.err.println(svo.ID);
 						vos.add(svo);
 					}
 
@@ -98,6 +98,7 @@ public class Cost {
 	public ResultMessage add(CostVO vo) {
 		CostPO po = null;
 		switch (vo.costType) {
+		
 		case FREIGHT:
 			po = (FreightPO) VOPOchange.VOtoPO((FreightVO)vo);
 			break;
@@ -110,8 +111,6 @@ public class Cost {
 		default:
 			return ResultMessage.FAIL;
 		}
-		
-		
 		ResultMessage result = null;
 		try {
 			result = financeData.add(po);

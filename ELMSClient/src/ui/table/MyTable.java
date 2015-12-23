@@ -44,7 +44,10 @@ public class MyTable extends JTable{
 		
 		
 	}
-	
+	@Override
+	public boolean isCellEditable(int row, int column) {
+		return false;
+	}
 	
 //	public void setColEditable(boolean flag ,int column){
 //		model.setCellInColumEdit(flag, column);

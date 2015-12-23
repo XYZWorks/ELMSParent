@@ -28,6 +28,7 @@ import util.CostType;
 import util.MyDate;
 import util.ResultMessage;
 import util.StaffType;
+import vo.finance.CostVO;
 import vo.finance.FreightVO;
 import vo.finance.RentVO;
 import vo.finance.SalaryVO;
@@ -42,6 +43,7 @@ public class CostAddPanel extends MyPanel {
 	private CostService costService;
 	private JPanel changePanel;
 	private CardLayout panelManager;
+	private CostManagePanel costManagePanel;
 	private boolean modifyState = false;
 	
 	/*
@@ -71,11 +73,12 @@ public class CostAddPanel extends MyPanel {
 	
 	
 	
-	public CostAddPanel(Element config , CostService costService, JPanel changePanel) {
+	public CostAddPanel(Element config , CostService costService, JPanel changePanel, CostManagePanel costManagePanel) {
 		super(config);
 		this.changePanel = changePanel;
 		this.panelManager = (CardLayout) changePanel.getLayout();
 		this.costService = costService;
+		this.costManagePanel = costManagePanel;
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
@@ -141,29 +144,45 @@ public class CostAddPanel extends MyPanel {
 			private MyDate end;
 			private String money;
 			private StaffType staffType;
+			CostVO vo;
 			@Override
 			protected void updateMes() {
-				//TODO
+				if(modifyState){
+					if(type == CostType.FREIGHT){
+						costManagePanel.freightTable.myInit();
+					}else if(type == CostType.RENT){
+						costManagePanel.rentTable.myInit();
+					}else{
+						costManagePanel.salaryTable.myInit();
+					}
+				}else{
+					if(type == CostType.FREIGHT){
+						costManagePanel.freightTable.addOneData(vo, 1);
+					}else if(type == CostType.RENT){
+						costManagePanel.rentTable.addOneData(vo, 1);
+					}else{
+						costManagePanel.salaryTable.addOneData(vo, 1);
+					}
+				}
 			}
 			
 			@Override
 			protected boolean saveToSQL() {
-				
 				if(modifyState){
 					if(type == CostType.FREIGHT){
-						result = costService.modify(new FreightVO(id, start, end, Integer.parseInt(money), type));
+						result = costService.modify(vo = new FreightVO(id, start, end, Integer.parseInt(money), type));
 					}else if(type == CostType.RENT){
-						result = costService.modify(new RentVO(id, start, end, Integer.parseInt(money), type));
+						result = costService.modify(vo = new RentVO(id, start, end, Integer.parseInt(money), type));
 					}else{
-						result = costService.modify(new SalaryVO(id, start, end, Integer.parseInt(money), type , staffType));
+						result = costService.modify(vo = new SalaryVO(id, start, end, Integer.parseInt(money), type , staffType));
 					}
 				}else{
 					if(type == CostType.FREIGHT){
-						result = costService.add(new FreightVO(id, start, end, Integer.parseInt(money), type));
+						result = costService.add(vo = new FreightVO(id, start, end, Integer.parseInt(money), type));
 					}else if(type == CostType.RENT){
-						result = costService.add(new RentVO(id, start, end, Integer.parseInt(money), type));
+						result = costService.add(vo = new RentVO(id, start, end, Integer.parseInt(money), type));
 					}else{
-						result = costService.add(new SalaryVO(id, start, end, Integer.parseInt(money), type , staffType));
+						result = costService.add(vo = new SalaryVO(id, start, end, Integer.parseInt(money), type , staffType));
 					}
 				}
 				
@@ -172,6 +191,7 @@ public class CostAddPanel extends MyPanel {
 					return true;
 				}else{
 					new TipsDialog("未成功增加一条信息");
+					System.err.println(result);
 					return false;
 				}
 			}

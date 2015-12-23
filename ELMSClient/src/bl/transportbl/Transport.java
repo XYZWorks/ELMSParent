@@ -7,6 +7,7 @@ import po.DocPO;
 import po.transport.ArriveYYDocPO;
 import po.transport.ArriveZZDocPO;
 import po.transport.LoadDocPO;
+import po.transport.PayDocPO;
 import po.transport.SendGoodDocPO;
 import po.transport.TransferDocPO;
 import test.java.other.DataTool;
@@ -20,6 +21,7 @@ import vo.strategy.ConstVO;
 import vo.transport.ArriveYYDocVO;
 import vo.transport.ArriveZZDocVO;
 import vo.transport.LoadDocVO;
+import vo.transport.PayDocVO;
 import vo.transport.SendGoodDocVO;
 import vo.transport.TransferDocVO;
 import blservice.orderblservice.Orderblservice;
@@ -301,6 +303,37 @@ public class Transport {
 		ConstVO vo = strategybl.getConst();
 
 		return 0;
+	}
+
+	public ResultMessage addOnePay(PayDocVO vo) {
+		PayDocPO po = (PayDocPO) VOPOchange.VOtoPO(vo);
+		ResultMessage result = null;
+
+		try {
+			result = transportData.addPayDoc(po);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public ArrayList<PayDocVO> getPays() {
+		ArrayList<PayDocPO> pos = null;
+		try {
+			pos = transportData.getPays();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		if(pos != null){
+			ArrayList<PayDocVO> vos = new ArrayList<>(pos.size());
+			for (PayDocPO payDocPO : pos) {
+				vos.add((PayDocVO) VOPOchange.POtoVO(payDocPO));
+			}
+			return vos.isEmpty()?null:vos;
+		}
+		
+		
+		return null;
 	}
 
 }

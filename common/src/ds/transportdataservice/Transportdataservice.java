@@ -1,10 +1,12 @@
 package ds.transportdataservice;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import po.transport.ArriveYYDocPO;
 import po.transport.ArriveZZDocPO;
 import po.transport.LoadDocPO;
+import po.transport.PayDocPO;
 import po.transport.SendGoodDocPO;
 import po.transport.TransferDocPO;
 import util.ResultMessage;
@@ -94,4 +96,7 @@ public interface Transportdataservice  extends DocApprovalDataService{
 	 */
 	public ResultMessage addArriveYYDocPO(ArriveYYDocPO po) throws RemoteException;
 	
+	public ResultMessage addPayDoc(PayDocPO po) throws RemoteException;
+	
+	public ArrayList<PayDocPO> getPays() throws RemoteException;
 }

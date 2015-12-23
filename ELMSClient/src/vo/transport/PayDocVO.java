@@ -1,5 +1,7 @@
 package vo.transport;
 
+import java.util.ArrayList;
+
 import util.MyDate;
  /** 
  * 付款單VO類
@@ -17,18 +19,22 @@ public class PayDocVO {
 	
 	public String courierName;
 	
+	public ArrayList<String> orders;
+	
 	public PayDocVO() {
 	}
-	
+
 	public PayDocVO(String iD, int money, String yYID, MyDate date,
-			String courierName) {
+			String courierName, ArrayList<String> orders) {
 		super();
-		this.ID = iD;
+		ID = iD;
 		this.money = money;
-		this.YYID = yYID;
+		YYID = yYID;
 		this.date = date;
 		this.courierName = courierName;
+		this.orders = orders;
 	}
+	
 	
 	
 }

@@ -5,6 +5,8 @@ import javax.swing.JPanel;
 import org.dom4j.Element;
 
 import blservice.transportblservice.Transportblservice;
+import ui.saleman.ArriveYYDoc.ArriveYYDocAddPanel;
+import ui.saleman.ArriveYYDoc.ArriveYYDocMesTable;
 import ui.tools.CheckDocPanel;
 import ui.tools.MyLabel;
  /** 
@@ -16,10 +18,19 @@ import ui.tools.MyLabel;
 public class PayDocCheckPanel extends CheckDocPanel{
 	
 	private MyLabel title;
+	
+	PayDocMesTable myTable;
+	PayDocAddPanel addPanel;
+	Transportblservice bl;
 	public PayDocCheckPanel(Element config, JPanel changePanel , String checkDocName , String addDocName, Transportblservice transportblservice) {
 		super(config, changePanel , checkDocName , addDocName);
-
-		// TODO Auto-generated constructor stub
+		this.bl = transportblservice;
+		myTable = (PayDocMesTable) messageTable;
+		myTable.bl = this.bl;
+		addPanel = (PayDocAddPanel) addDocPanel;
+		addPanel.bl = this.bl;
+		initTableContent();
+		
 	}
 
 	@Override

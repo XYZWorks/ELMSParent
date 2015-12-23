@@ -35,6 +35,7 @@ public class CostVO {
 	public CostVO(String ID ,MyDate startDate, MyDate endDate, int money, 
 			CostType costType) {
 		super();
+		this.ID = ID;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.money = money;

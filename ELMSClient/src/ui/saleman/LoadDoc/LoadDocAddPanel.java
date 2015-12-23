@@ -67,7 +67,6 @@ public class LoadDocAddPanel extends AddDocPanel{
 	
 	public LoadDocAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable) {
 		super(config , changePanel , checkDocPanelStr,  messageTable);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

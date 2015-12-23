@@ -37,9 +37,9 @@ public class CostManagePanel extends MyPanel {
 	final static String costManageStr = "CostManagePanel";
 
 	private CostAddPanel addCostPanel;
-	private CostMesTable freightTable;
-	private CostMesTable rentTable;
-	private CostMesTable salaryTable;
+	CostMesTable freightTable;
+	CostMesTable rentTable;
+	CostMesTable salaryTable;
 	private CostMesTable nowTable;
 	// 成本信息管理标题
 	private MyLabel title;
@@ -95,7 +95,7 @@ public class CostManagePanel extends MyPanel {
 	protected void initOtherCompoment(Element e) {
 		costType = new MyComboBox(e.element("costType"));
 		addCostPanel = new CostAddPanel(e.element(addCostPanelStr), costService,
-				changePanel);
+				changePanel , this);
 		freightTable = new CostMesTable(e.element("table"),
 				CostType.FREIGHT, costService);
 		rentTable = new CostMesTable(e.element("table"), CostType.RENT,
