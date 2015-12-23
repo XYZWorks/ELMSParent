@@ -16,6 +16,7 @@ import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
 import util.MyDate;
+import vo.order.OrderVO;
 import vo.store.InStoreDocVO;
 import vo.store.OutStoreDocVO;
 import vo.store.StoreMessageVO;
@@ -63,6 +64,8 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 	protected StoreMessageVO target;
 	protected ArrayList<InStoreDocVO> ins;
 	protected ArrayList<OutStoreDocVO> outs;
+	protected ArrayList<String> orderBars;
+	protected ArrayList<String> locs;
 	
 	public StoreSingleShowPanel(Element config, StoreController bl, PanelController controller) {
 		super(config);
@@ -177,13 +180,24 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 				
 		}
 		if(target!=null){
+			
 			nowNum.setText("   "+String.valueOf(target.number));
 			totalNum.setText("   "+String.valueOf(target.totalNum));
 			ins = target.inStoreDocs;
 			outs = target.outStoreDocs;
-			inTable.resetValue(ins);
+			orderBars = new ArrayList<>();
+			locs = new ArrayList<>();
 			
+			for(InStoreDocVO in : ins){
+				for(String order : in.orders)
+					orderBars.add(order);
+				for(String loc : in.location)
+					locs.add(loc);
+			}
+			
+			inTable.resetValue(ins);			
 			outTable.resetValue(outs);
+			orderTable.resetValue(orderBars,locs);
 		}
 	}
 

@@ -112,7 +112,7 @@ public class Store {
 	}
 	
 	public String getAlarmValue(City city) {
-		
+
 		try {
 			return storeData.getAlarmValue(city);
 		} catch (RemoteException e) {

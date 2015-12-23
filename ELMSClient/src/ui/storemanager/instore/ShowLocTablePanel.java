@@ -22,13 +22,13 @@ import vo.store.InStoreDocVO;
  */
 public class ShowLocTablePanel extends MyTablePanel {
 	
-	private static final int COLUMN_NUM = 5;
+	protected static final int COLUMN_NUM = 5;
 
 //	private static final int ROW_NUM = 15;
 	
-	ArrayList<String> orders;
+	protected ArrayList<String> orders;
 	
-	ArrayList<String> locs;
+	protected ArrayList<String> locs;
 	
 	public ShowLocTablePanel(Element config) {
 		
@@ -70,10 +70,11 @@ public class ShowLocTablePanel extends MyTablePanel {
 
 	public void reset() {
 		//清空table
-		for(int i = 0;i<table.getRowCount();i++){
-			for(int j = 0;j<COLUMN_NUM ; j++)
-				table.setValueAt("", i, j);
-		}
+//		for(int i = 0;i<table.getRowCount();i++){
+//			for(int j = 0;j<COLUMN_NUM ; j++)
+//				table.setValueAt("", i, j);
+//		}
+		removeAllRows();
 		
 		//将增加table的行数
 		Object[] tmp = {"","","","",""};	

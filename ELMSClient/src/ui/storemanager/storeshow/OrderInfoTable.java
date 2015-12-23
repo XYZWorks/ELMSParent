@@ -1,7 +1,10 @@
 package ui.storemanager.storeshow;
 
+import java.util.ArrayList;
+
 import org.dom4j.Element;
 
+import po.order.OrderSimpleInfoPO;
 import ui.storemanager.instore.ShowLocTablePanel;
 
 /** 
@@ -14,6 +17,13 @@ public class OrderInfoTable extends ShowLocTablePanel {
 	public OrderInfoTable(Element config) {
 		super(config);
 		// TODO Auto-generated constructor stub
+	}
+
+	public void resetValue(ArrayList<String> orderBars, ArrayList<String> locs) {
+		orders = orderBars;
+		this.locs = locs;
+		reset();
+		
 	}
 
 
