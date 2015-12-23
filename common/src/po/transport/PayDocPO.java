@@ -1,6 +1,7 @@
 package po.transport;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import util.MyDate;
 /** 
@@ -36,18 +37,32 @@ public class PayDocPO implements Serializable{
 	 */
 	private String courierName;
 	
+	
+	private ArrayList<String> orders;
+	
 	public PayDocPO() {
 	}
 
+	
+
+	public ArrayList<String> getOrders() {
+		return orders;
+	}
+
+
+
 	public PayDocPO(String iD, int money, String yYID, MyDate date,
-			String courierName) {
+			String courierName, ArrayList<String> orders) {
 		super();
 		ID = iD;
 		this.money = money;
 		YYID = yYID;
 		this.date = date;
 		this.courierName = courierName;
+		this.orders = orders;
 	}
+
+
 
 	public String getID() {
 		return ID;

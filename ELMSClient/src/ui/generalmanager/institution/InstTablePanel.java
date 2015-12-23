@@ -37,12 +37,13 @@ public class InstTablePanel extends MyTablePanel {
 				.attributeValue("column"));
 
 		vos = bl.getInst();
-
+		
 		if (vos != null) {
+			data = new String[vos.size()][3];
 			for (int i = 0; i < vos.size(); i++) {
 				data[i][0] = vos.get(i).ID;
 				data[i][1] = vos.get(i).type.getName();
-				data[i][2] = vos.get(i).location.name();
+				data[i][2] = vos.get(i).location.getName();
 			}
 		}
 
@@ -54,7 +55,32 @@ public class InstTablePanel extends MyTablePanel {
 		int[] columnLen = { 100, 100, 100 };
 		setRowAndColumnLen(30, columnLen);
 	}
-
+	@Override
+	public void addOneData(Object o, int type) {
+		InstVO vo = (InstVO) o;
+		if(type == 1){
+			vos.add(vo);
+		}
+		
+		if(type == 1){
+			String[] temp = new String[3];
+			temp[0] = vo.ID;
+			temp[1] = vo.type.getName();
+			temp[2] = vo.location.name();
+			addOneRow(temp);
+		}else if(type == 2){
+			int row = getSelectedRow();
+			if(((String)table.getValueAt(row, 1)).equals(vo.ID)){
+				table.setValueAt(vo.ID, row, 0);
+				table.setValueAt(vo.type.getName(), row, 1);
+				table.setValueAt(vo.location.getName(), row, 2);
+			}
+			
+		}
+		
+		
+		
+	}
 	@Override
 	public void updateTableMes() {
 		vos = bl.getInst();
@@ -68,7 +94,7 @@ public class InstTablePanel extends MyTablePanel {
 			vo = vos.get(i);
 			table.setValueAt(vo.ID, i, 0);
 			table.setValueAt(vo.type.getName(), i, 1);
-			table.setValueAt(vo.location.name(), i, 2);
+			table.setValueAt(vo.location.getName(), i, 2);
 
 		}
 

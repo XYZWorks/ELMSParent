@@ -128,6 +128,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 									.parseInt(result.getString(4)), CostType
 									.valueOf(result.getString(5)), StaffType.valueOf(result
 											.getString(6))));
+					
 				}
 				break;
 			default:
@@ -137,7 +138,11 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 			e.printStackTrace();
 			return null;
 		}
-
+		costs.trimToSize();
+		System.err.println(costs.size());
+		for (CostPO costPO : costs) {
+			System.err.println(costPO.getID());
+		}
 		return costs.isEmpty() ? null : costs;
 
 	}
@@ -159,7 +164,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 			return addToSQL(salaryTable,spo.getID(), MyDate.toString(spo.getStartDate()),
 					MyDate.toString(spo.getEndDate()),
 					String.valueOf(spo.getMoney()), spo.getCostType().name(),
-					StaffType.getName(spo.getWorker()));
+					spo.getWorker().name());
 		default:
 			return ResultMessage.FAIL;
 		}
@@ -183,7 +188,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 			return modifyFromSQL(salaryTable, spo.getID(),MyDate.toString(spo.getStartDate()),
 					MyDate.toString(spo.getEndDate()),
 					String.valueOf(spo.getMoney()), spo.getCostType().name(),
-					StaffType.getName(spo.getWorker()));
+					spo.getWorker().name());
 		default:
 			return ResultMessage.FAIL;
 		}

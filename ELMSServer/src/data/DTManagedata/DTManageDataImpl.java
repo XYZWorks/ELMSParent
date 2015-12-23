@@ -119,7 +119,7 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 	public ArrayList<CarPO> getAllCars()  throws RemoteException{
 		ArrayList<CarPO> pos = new ArrayList<CarPO>(50);
 		try {
-			sql = "SELECT * FROM `" + driverTable ;
+			sql = "SELECT * FROM " + carTable ;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {
@@ -138,7 +138,7 @@ public class DTManageDataImpl extends DataSuperClass implements DTManagedataserv
 	public ArrayList<DriverPO> getAllDrivers() throws RemoteException {
 		ArrayList<DriverPO> pos = new ArrayList<DriverPO>(50);
 		try {
-			sql = "SELECT * FROM `" + driverTable ;
+			sql = "SELECT * FROM " + driverTable ;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {

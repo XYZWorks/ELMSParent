@@ -26,36 +26,7 @@ public class CarMesTable extends MyTablePanel{
 		super(config);
 		this.bl = bl;
 	}
-	/**
-	 * 根据车派号 ID查找车辆信息
-	 * @param identifier
-	 * @param type
-	 */
-	void checkByIDOrPlate(String identifier , int type){
-		String[][] result = new String[1][4];
-		boolean find = false;
-		for (int i = 0; i < table.getRowCount(); i++) {
-			if( ((String)table.getValueAt(i, type)).equals(identifier)){
-				result[0][0] = (String) table.getValueAt(i, 0);
-				result[0][1] = (String) table.getValueAt(i, 1);
-				result[0][2] = (String) table.getValueAt(i, 2);
-				result[0][3] = (String) table.getValueAt(i, 3);
-				find = true;
-				break;
-			}
-		}
-		
-		if(find){
-			table.getModel().setDataVector( result, columnNames);
-		}else{
-			if(type == 0){
-				new TipsDialog("没有找到该ID对应的车辆", Color.red);
-			}else{
-				new TipsDialog("没有找到该车牌号对应的车辆", Color.red);
-			}
-			
-		}
-	}
+	
 	
 	
 	
@@ -74,6 +45,7 @@ public class CarMesTable extends MyTablePanel{
 		vos = bl.getAllCars();
 		
 		if(vos == null){
+			vos = new ArrayList<>();
 			return;
 		}
 		
@@ -90,7 +62,46 @@ public class CarMesTable extends MyTablePanel{
 		
 		
 	}
-
+	@Override
+	public void addOneData(Object o, int type) {
+		CarVO vo = (CarVO) o;
+		if(type != 0){
+			vos.add(vo);
+		}
+		String[] temp = new String[4];
+		temp[0] = vo.ID;
+		temp[1] = vo.instID;
+		temp[2] = vo.plateNum;
+		temp[3] = String.valueOf(vo.useYear);
+		addOneRow(temp);
+		
+	}
+	@Override
+	public void searchID(String id) {
+		removeAllRows();
+		for (int i = 0; i < vos.size(); i++) {
+			if(vos.get(i).ID.equals(id)){
+				addOneData(vos.get(i) , 0 );
+				new TipsDialog("成功找到一条信息", Color.GREEN);
+				return;
+			}
+		}
+		new TipsDialog("未找到任何一条信息");
+	}
+	public void searchPlateNum(String PlateNum){
+		removeAllRows();
+		for (int i = 0; i < vos.size(); i++) {
+			if(vos.get(i).plateNum.equals(PlateNum)){
+				addOneData(vos.get(i) , 0);
+				new TipsDialog("成功找到一条信息", Color.GREEN);
+				return;
+			}
+		}
+		new TipsDialog("未找到任何一条信息");
+	}
+	
+	
+	
 	@Override
 	protected void initTable() {
 		table = new MyTable(columnNames, data);

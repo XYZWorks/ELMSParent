@@ -16,6 +16,7 @@ import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
 import util.MyDate;
+import vo.order.OrderVO;
 import vo.store.InStoreDocVO;
 import vo.store.OutStoreDocVO;
 import vo.store.StoreMessageVO;
@@ -63,6 +64,8 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 	protected StoreMessageVO target;
 	protected ArrayList<InStoreDocVO> ins;
 	protected ArrayList<OutStoreDocVO> outs;
+	protected ArrayList<String> orderBars;
+	protected ArrayList<String> locs;
 	
 	public StoreSingleShowPanel(Element config, StoreController bl, PanelController controller) {
 		super(config);
@@ -170,17 +173,26 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 		center.setText(cen);
 		storeNum.setText(sto);
 		for (StoreMessageVO vo : bl.show()) {
-			if (cen.equals(vo.location.getName()) && sto.equals(vo.storeLoc.getStoreLocation()+"区"))
+			if (cen.equals(vo.location.getName()) && sto.equals(vo.storeLoc.getStoreLocation()+"区")){
 				target = vo;
+				break;
+			}
+				
 		}
 		if(target!=null){
+			
 			nowNum.setText("   "+String.valueOf(target.number));
 			totalNum.setText("   "+String.valueOf(target.totalNum));
 			ins = target.inStoreDocs;
 			outs = target.outStoreDocs;
-			inTable.resetValue(ins);
+			orderBars = new ArrayList<>();
+			locs = new ArrayList<>();
 			
+			
+			
+			inTable.resetValue(ins);			
 			outTable.resetValue(outs);
+			orderTable.resetValue(ins,outs);
 		}
 	}
 

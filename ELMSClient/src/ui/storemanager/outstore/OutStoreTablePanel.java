@@ -117,10 +117,11 @@ public class OutStoreTablePanel extends MyTablePanel {
 	}
 	
 	/**
-	 * 根据传入的vos重设table的值
-	 * @param vos
+	 * 根据传入的vosout重设table的值
+	 * @param vosout
 	 */
-	public void resetValue(ArrayList<OutStoreDocVO> vos) {
+	public void resetValue(ArrayList<OutStoreDocVO> vosout) {
+		vos = vosout;
 		if(vos==null){
 			return;
 		}
@@ -137,5 +138,17 @@ public class OutStoreTablePanel extends MyTablePanel {
 			data[i][6] = UserfulMethod.orderArrayToString(vo.orders);
 			
 		}
+		removeAllRows();
+		Object[] tmp = {"","","","","","",""};
+		
+		for(int i = table.getRowCount();i<vos.size();i++)
+			addOneRow(tmp);
+		
+		for(int i = 0;i<vos.size();i++){
+			for(int j = 0;j<COLUMN_NUM;j++)
+				table.setValueAt(data[i][j], i, j);
+		}
 	}
+	
+	
 }

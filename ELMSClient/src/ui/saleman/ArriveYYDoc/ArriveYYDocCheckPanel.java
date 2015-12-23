@@ -1,11 +1,20 @@
 package ui.saleman.ArriveYYDoc;
 
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+
 import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
 import ui.tools.CheckDocPanel;
 import ui.tools.MyLabel;
+import ui.util.MyPictureButtonListener;
 import blservice.transportblservice.Transportblservice;
 /**
  * 接收单查看界面
@@ -38,7 +47,6 @@ public class ArriveYYDocCheckPanel extends CheckDocPanel{
 	@Override
 	protected void addListener() {
 		super.addListener();
-		
 	}
 
 	@Override
@@ -60,7 +68,7 @@ public class ArriveYYDocCheckPanel extends CheckDocPanel{
 
 	@Override
 	protected void addDifferComp() {
-		add(title);// TODO Auto-generated method stub
+		add(title);
 		
 	}
 

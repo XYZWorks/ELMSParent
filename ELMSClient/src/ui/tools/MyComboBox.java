@@ -1,7 +1,5 @@
 package ui.tools;
 
-import java.awt.Window.Type;
-
 import javax.swing.JComboBox;
 
 import org.dom4j.Element;
@@ -19,6 +17,7 @@ public class MyComboBox extends JComboBox<String> {
 				Integer.parseInt(config.attributeValue("y")),
 				Integer.parseInt(config.attributeValue("width")),
 				Integer.parseInt(config.attributeValue("height")));
+		this.setEditable(false);
 		String[] strs = config.attributeValue("strings").split(" ");
 		for (String string : strs) {
 			this.addItem(string);

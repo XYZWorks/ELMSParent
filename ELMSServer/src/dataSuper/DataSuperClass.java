@@ -75,7 +75,7 @@ public abstract class DataSuperClass extends UnicastRemoteObject {
 		SQLmap.put("InStoreDoc", helper.bulidSQL("InStoreDoc", 7, "id", "type" , "date", "state" , "orderPOs" , "loc" ,"location" ));
 		SQLmap.put("OutStoreDoc", helper.bulidSQL("OutStoreDoc", 8, "id", "type" , "date", "state" , "orderPOs" , "loc" ,"transferDoc" ,"shipWay" ));
 		SQLmap.put("BankAccount", helper.bulidSQL("BankAccount", 3, "id" , "password" , "money"));
-		
+		SQLmap.put("PayDoc", helper.bulidSQL("PayDoc", 6, "id" , "date" , "yyid" , "money" ,"courier" ,"orders"));
 		
 		SQLmap.put("StateForm", helper.bulidSQL("StateForm", 4, "startDate" , "endDate" , "deposits" ,"pays"));
 		SQLmap.put("CostIncomeForm", helper.bulidSQL("CostIncomeForm", 4, "income" , "expense" , "startDate" , "endDate"));
@@ -83,7 +83,7 @@ public abstract class DataSuperClass extends UnicastRemoteObject {
 		SQLmap.put("deposit", helper.bulidSQL("deposit", 3, "id" ,"date" , "money"));
 		SQLmap.put("pay", helper.bulidSQL("pay", 4 , "id" , "time" , "money" , "type"));
 		SQLmap.put("rent", helper.bulidSQL("rent", 5, "id","startDate" , "endDate" , "money" , "type" ,"costType"));
-		SQLmap.put("frieght", helper.bulidSQL("frieght", 5, "id","startDate" , "endDate" , "money"  ,"costType"));
+		SQLmap.put("freight", helper.bulidSQL("freight", 5, "id","startDate" , "endDate" , "money"  ,"costType"));
 		SQLmap.put("salarycost", helper.bulidSQL("salarycost", 6,"id", "startDate" , "endDate" , "money"  ,"costType" , "worker"));
 		SQLmap.put("StoreCheck", helper.bulidSQL("StoreCheck", 6, "date" , "location" , "storeLoc" , "number" , "total", "inStoreDocs" ,"outStoreDocs"));
 		SQLmap.put("alarm", helper.bulidSQL("alarm", 2, "city" , "value"));
@@ -117,6 +117,7 @@ public abstract class DataSuperClass extends UnicastRemoteObject {
 			}
 			affectRows = preState.executeUpdate();
 		} catch(MySQLIntegrityConstraintViolationException e){
+			e.printStackTrace();
 			return ResultMessage.hasExist;
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -72,8 +72,8 @@ public class SaleManController extends PanelController {
 	@Override
 	protected void initialBL() {
 		transportblservice = BusinessLogicDataFactory.getFactory().getTransportblservice();
-//		dtManageblservice = BusinessLogicDataFactory.getFactory().getDTManageBusinessLogic();
-		dtManageblservice = new DTManageblservice_Stub();
+		dtManageblservice = BusinessLogicDataFactory.getFactory().getDTManageBusinessLogic();
+//		dtManageblservice = new DTManageblservice_Stub();
 	}
 	
 	

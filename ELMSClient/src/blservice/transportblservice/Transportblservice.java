@@ -10,6 +10,7 @@ import vo.store.OutStoreDocVO;
 import vo.transport.ArriveYYDocVO;
 import vo.transport.ArriveZZDocVO;
 import vo.transport.LoadDocVO;
+import vo.transport.PayDocVO;
 import vo.transport.SendGoodDocVO;
 import vo.transport.TransferDocVO;
 import blservice.DocApprovalService;
@@ -20,6 +21,17 @@ import blservice.DocApprovalService;
  *
  */
 public interface Transportblservice extends DocApprovalService{
+	/**
+	 * 增加一个付款单
+	 * @param vo
+	 * @return
+	 */
+	public ResultMessage addOnePay(PayDocVO vo);
+	/**
+	 * 获得当日所有付款单
+	 * @return
+	 */
+	public ArrayList<PayDocVO> getPays();
 	/**
 	 * 增加装车单
 	 * @param vo

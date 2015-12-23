@@ -1,6 +1,7 @@
 package ui.generalmanager.people;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
@@ -21,6 +22,7 @@ import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
+import util.ResultMessage;
 
 /**
  * 人员管理，主要进入人员查看界面
@@ -48,7 +50,7 @@ public class PeopleManagePanel extends MyPanel{
 	
 	private Personnelblservice bl;
 	
-	private PeopleMesPanel peopleMesTable;
+	PeopleMesPanel peopleMesTable;
 	/**
 	 * 增加人员界面
 	 */
@@ -123,6 +125,46 @@ public class PeopleManagePanel extends MyPanel{
 	protected void addListener() {
 		search.addMouseListener(new MySearchListener(search));
 		add.addMouseListener(new MyAddButtonListener(add));
+		modify.addMouseListener(new MyPictureButtonListener(modify){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				int row = peopleMesTable.getSelectedRow();
+				if( row == -1){
+					new TipsDialog("请选择一行信息");
+				}else{
+					changeADDPanel(true);
+					addpeople.setModifyState(true, (String) peopleMesTable.getValueAt(row, 1));
+				}
+				
+			}
+		});
+		delete.addMouseListener(new MyPictureButtonListener(delete){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				int row = peopleMesTable.getSelectedRow();
+				if( row == -1){
+					new TipsDialog("请选择一行信息");
+				}else{
+					
+					result = bl.delPeople((String) peopleMesTable.getValueAt(row, 1));
+					if(result == ResultMessage.SUCCESS){
+						peopleMesTable.removeRow(peopleMesTable.getSelectedRow());
+						new TipsDialog("成功删除数据", Color.GREEN);
+					}else{
+						new TipsDialog("未成功删除数据");
+						System.err.println(result);
+					}
+				
+					
+					
+				}
+				
+			}
+			
+			
+		});
 	}
 
 	@Override
@@ -153,8 +195,8 @@ public class PeopleManagePanel extends MyPanel{
 		@Override
 		public void mouseClicked(MouseEvent   e) {
 			super.mouseClicked(e);
-			
 			changeADDPanel(true);
+			addpeople.setModifyState(false, null);
 		}
 		
 		
@@ -171,19 +213,18 @@ public class PeopleManagePanel extends MyPanel{
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
 			
-			String input = searchBox.getText();
+			String input = searchBox.getMyText();
 			
 			String temp = (String) searchway.getSelectedItem();
 			if(temp.equals("按姓名查找")){
-				
-				checkByName(input);
+				peopleMesTable.searchName(input);
 			}else if(temp.equals("按ID查找")){
-				if(UserfulMethod.dealWithData( new SimpleDataFormat(input, DataType.ID, "ID"))){
-					checkByID(input);
+				if(UserfulMethod.dealWithData( new SimpleDataFormat(input, DataType.ID, "ID")))
+					peopleMesTable.searchID(input);
 				
 			}else{
 				if(UserfulMethod.dealWithData( new SimpleDataFormat(input, DataType.ID, "ID"))){
-					checkByInst(input);
+					peopleMesTable.searchInstID(input);
 				}	
 			}
 			
@@ -194,14 +235,5 @@ public class PeopleManagePanel extends MyPanel{
 		
 	}
 	
-	private void checkByID(String ID){
-		peopleMesTable.changeMes(bl.getPeopleByID(ID));;
-	}
-	private void checkByInst(String ID) {
-		peopleMesTable.changeMes(bl.getPeopleByInst(ID));
-	}
-	private void checkByName(String name) {
-		peopleMesTable.changeMes(bl.getPeopleByName(name));
-	}
 }
-}
+

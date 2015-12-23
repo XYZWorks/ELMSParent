@@ -67,7 +67,6 @@ public class LoadDocAddPanel extends AddDocPanel{
 	
 	public LoadDocAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable) {
 		super(config , changePanel , checkDocPanelStr,  messageTable);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -139,15 +138,15 @@ public class LoadDocAddPanel extends AddDocPanel{
 			String supervisor;
 			String escort;
 			ArrayList<String> orderBarCodes;
+			LoadDocVO vo;
 			@Override
 			protected void updateMes() {
-				String[] data = {id, MyDate.toString(myDate), yyID, loadDocID,arriveCity.getName(), carID, supervisor, escort, String.valueOf(orderBarCodes.size())};
-				messageTable.addOneRow(data);
+				messageTable.addOneData(vo, 1);
 			}
 			
 			@Override
 			protected boolean saveToSQL() {
-				if(bl.add(new LoadDocVO(id, myDate, yyID, loadDocID, arriveCity, carID, supervisor, escort, orderBarCodes)) == ResultMessage.SUCCESS){
+				if(bl.add(vo = new LoadDocVO(id, myDate, yyID, loadDocID, arriveCity, carID, supervisor, escort, orderBarCodes)) == ResultMessage.SUCCESS){
 					new TipsDialog("成功新增装车单" , Color.GREEN);
 					return true;
 				}else{

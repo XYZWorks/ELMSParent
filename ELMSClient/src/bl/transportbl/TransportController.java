@@ -13,6 +13,7 @@ import vo.store.OutStoreDocVO;
 import vo.transport.ArriveYYDocVO;
 import vo.transport.ArriveZZDocVO;
 import vo.transport.LoadDocVO;
+import vo.transport.PayDocVO;
 import vo.transport.SendGoodDocVO;
 import vo.transport.TransferDocVO;
 import bl.BusinessLogicDataFactory;
@@ -28,12 +29,12 @@ public class TransportController implements Transportblservice{
 	private Transport transport ;
 	private Transportdataservice transportData;
 	public TransportController() {
-	}
-	public void myInit(){
 		transportData  = (Transportdataservice) RMIManage.getDataService(DataServiceType.TransportDataService);
 
 		transport = new Transport(transportData , BusinessLogicDataFactory.getFactory().getOrderBussinessLogic() , BusinessLogicDataFactory.getFactory().getStrategyBusinessLogic());
+
 	}
+	
 	public ResultMessage add(LoadDocVO vo) {
 		return transport.add(vo);
 	}
@@ -98,6 +99,17 @@ public class TransportController implements Transportblservice{
 	}
 	public DocVO getByID(String ID , DocType type) {
 		return transport.getDocByID(ID , type);
+	}
+
+	@Override
+	public ResultMessage addOnePay(PayDocVO vo) {
+		
+		return transport.addOnePay(vo);
+	}
+
+	@Override
+	public ArrayList<PayDocVO> getPays() {
+		return transport.getPays();
 	}
 	
 	

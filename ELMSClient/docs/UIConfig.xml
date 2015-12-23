@@ -340,34 +340,48 @@
 
 			<FinanceApprovalPanel x="232" y="54" width="848"
 				height="637">
-				<BUTTONS>
-					<confirm x="599" y="560" width="89" height="37" text="确认"
-						type="confirm" />
-					<cancel x="707" y="560" width="89" height="37" text="取消"
+				<payDocShowPanelAddPanel x="232" y="54"
+					width="1080" height="637">
+					<BUTTONS>
+						<confirm x="550" y="560" width="89" height="40" text="确认"
+							type="confirm" />
+						<cancel x="700" y="560" width="89" height="40" text="取消"
+							type="cancel" />
+						<back x="0" y="0" width="53" height="53" text="返回" type="back" />
+						<addOrder x="748" y="120" width="40" height="40" type="add" />
+					</BUTTONS>
+					<LABELS>
+						<id x="60" y="120" width="115" height="40" text="ID" type="rectangle" />
+						<YYID x="60" y="180" width="115" height="40" text="营业厅ID"
+							type="rectangle" />
+						<money x="60" y="240" width="115" height="40" text="金额"
+							type="rectangle" />
+						<courierName x="60" y="300" width="115" height="40"
+							text="快递员" type="rectangle" />
+						<order x="425" y="120" width="115" height="40" text="订单号"
+							type="rectangle" />
+					</LABELS>
+					<TEXTFIELDS>
+						<id x="200" y="120" width="200" height="40" />
+						<YYID x="200" y="180" width="200" height="40" />
+						<money x="200" y="240" width="200" height="40" />
+						<courierName x="200" y="300" width="200" height="40" />
+						<order x="560" y="120" width="168" height="40" />
+					</TEXTFIELDS>
+					<datepicker x="588" y="60" width="200" height="40" />
+					<table x="425" y="180" width="363" height="280" column="序号 ID" />
+				</payDocShowPanelAddPanel>
+				<datepicker x="758" y="80" width="40" height="40" />
+				<searchButton x="380" y="80" width="115" height="40"
+					text="搜索" type="cancel" />
+					<approval x="707" y="560" width="89" height="37" text="取消"
 						type="cancel" />
-				</BUTTONS>
-				<TEXTFIELDS>
-					<name x="345" y="271" width="276" height="40" />
-					<money x="345" y="201" width="276" height="40" />
-					<company x="345" y="341" width="276" height="40" />
-				</TEXTFIELDS>
-				<LABELS>
 					<title x="48" y="36" width="200" height="28" text="交易审核"
 						fontName="华文细黑" size="26" />
-
-					<money x="200" y="201" width="115" height="40" text="收款金额"
-						type="rectangle" />
-					<company x="200" y="341" width="115" height="40" text="收款方"
-						type="rectangle" />
-					<time x="200" y="131" width="115" height="40" text="收款时间"
-						type="rectangle" />
-					<person x="200" y="271" width="115" height="40" text="收款人"
-						type="rectangle" />
-				</LABELS>
-				<date x="345" y="131" width="276" height="40">
-					<field x="345" y="131" width="236" height="40" />
-					<button x="581" y="131" width="40" height="40" type="rectangle" />
-				</date>
+				<date x="345" y="131" width="276" height="40" />
+				<search x="48" y="80" />
+				<addDoc x="748" y="120" width="40" height="40" type="add" />
+				<table x="48" y="150" width="750" height="420" column="ID 日期 营业厅ID 金额 快递员 订单数量" />
 			</FinanceApprovalPanel>
 			<BulidBillPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
@@ -909,6 +923,7 @@
 						<cancel x="700" y="560" width="89" height="40" text="取消"
 							type="cancel" />
 						<back x="0" y="0" width="53" height="53" text="返回" type="back" />
+						<addOrder x="748" y="120" width="40" height="40" type="add" />
 					</BUTTONS>
 					<LABELS>
 						<id x="60" y="120" width="115" height="40" text="ID" type="rectangle" />
@@ -918,12 +933,15 @@
 							type="rectangle" />
 						<courierName x="60" y="300" width="115" height="40"
 							text="快递员" type="rectangle" />
+						<order x="425" y="120" width="115" height="40" text="订单号"
+							type="rectangle" />
 					</LABELS>
 					<TEXTFIELDS>
 						<id x="200" y="120" width="200" height="40" />
 						<YYID x="200" y="180" width="200" height="40" />
 						<money x="200" y="240" width="200" height="40" />
 						<courierName x="200" y="300" width="200" height="40" />
+						<order x="560" y="120" width="168" height="40" />
 					</TEXTFIELDS>
 					<datepicker x="588" y="60" width="200" height="40" />
 					<table x="425" y="180" width="363" height="280" column="序号 ID" />
@@ -933,7 +951,7 @@
 					fontName="华文细黑" size="26" />
 				<search x="48" y="80" />
 				<datepicker x="758" y="80" width="40" height="40" />
-				<table x="48" y="150" width="750" height="420" column="ID 日期 " />
+				<table x="48" y="150" width="750" height="420" column="ID 日期 营业厅ID 金额 快递员 订单数量" />
 				<searchButton x="380" y="80" width="115" height="40"
 					text="搜索" type="cancel" />
 			</payDocShowPanel>
@@ -983,7 +1001,7 @@
 				<search x="150" y="80" />
 				<datepicker x="758" y="80" width="40" height="40" />
 				<table x="48" y="150" width="750" height="420"
-					column="编号 姓名 性别 出生日期 身份证号 手机号码 机构ID 驾驶证期限" />
+					column="编号 姓名 机构ID 出生日期 身份证号 手机号码 性别 驾驶证期限" />
 				<searchButton x="475" y="80" width="115" height="40"
 					text="搜索" type="cancel" />
 				<searchWay x="48" y="80" width="95" height="40"

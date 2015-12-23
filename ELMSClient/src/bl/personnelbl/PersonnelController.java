@@ -61,5 +61,10 @@ public class PersonnelController implements Personnelblservice{
 		
 		return per.modifyInst(vo);
 	}
+	@Override
+	public ResultMessage modifyPerson(PersonVO vo) {
+		
+		return per.modifyPerson(vo);
+	}
 
 }

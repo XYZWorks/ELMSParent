@@ -1,12 +1,15 @@
 package ui.saleman.LoadDoc;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import org.dom4j.Element;
 
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
+import ui.util.TipsDialog;
 import util.MyDate;
+import vo.transport.ArriveYYDocVO;
 import vo.transport.LoadDocVO;
 import blservice.transportblservice.Transportblservice;
  /** 
@@ -18,7 +21,7 @@ import blservice.transportblservice.Transportblservice;
 public class LoadDocMesTable extends MyTablePanel {
 	Transportblservice bl;
 	
-	ArrayList<LoadDocVO> vos;
+	ArrayList<LoadDocVO> vos = new ArrayList<>();
 	
 	String[] oneData = new String[COLUMN_NUM];
  	private static final int COLUMN_NUM = 9;
@@ -32,11 +35,11 @@ public class LoadDocMesTable extends MyTablePanel {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	void addOneLoadDoc(LoadDocVO vo){
-		
-		if(vos == null){
-			vos = new ArrayList<>();
+	@Override
+	public void addOneData(Object o , int type) {
+		LoadDocVO vo = (LoadDocVO) o;
+		if(type != 0){
+			vos.add(vo);
 		}
 		
 		vos.add(vo);
@@ -50,9 +53,7 @@ public class LoadDocMesTable extends MyTablePanel {
 		oneData[7] = vo.escort;
 		oneData[8] = String.valueOf(vo.orderBarCodes.size());
 		addOneRow(oneData);
-		
 	}
-	
 	
 	
 	@Override
@@ -61,6 +62,7 @@ public class LoadDocMesTable extends MyTablePanel {
 		vos = bl.getDayLoadDocs(MyDate.getNowTime());
 		
 		if(vos == null || vos.isEmpty()){
+			vos = new ArrayList<>();
 			return;
 		}
 		
@@ -83,7 +85,8 @@ public class LoadDocMesTable extends MyTablePanel {
 		
 		
 	}
-
+	
+	
 	@Override
 	protected void initTable() {
 //		int[] columnLen = {};
@@ -91,5 +94,18 @@ public class LoadDocMesTable extends MyTablePanel {
 //		setRowAndColumnLen(rowLen, columnLen);
 		
 	}
-
+	
+	@Override
+	public void searchID(String id) {
+		super.searchID(id);
+		removeAllRows();
+		for (int i = 0; i < vos.size(); i++) {
+			if(vos.get(i).ID.equals(id)){
+				addOneData(vos.get(i) , 0);
+				break;
+			}
+			
+		}
+	}
+	
 }

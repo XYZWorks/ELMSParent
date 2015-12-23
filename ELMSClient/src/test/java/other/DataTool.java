@@ -168,9 +168,9 @@ public class DataTool {
 			al.add(new LoadDocVO("ZCD1511140000001", d4, "02504", "02501511120000006", City.SHANGHAI, "009", null, null,orderID));
 			break;
 		case inStoreDoc:
-			al.add(new InStoreDocVO("RKD1511120000001", d2, orderID, City.NANJING, locs));
-			al.add(new InStoreDocVO("RKD1511150000001", d5, orderID, City.GUANGZHOU, locs));
-			al.add(new InStoreDocVO("RKD1511140000321", d4, orderID, City.BEIJING, locs));
+			al.add(new InStoreDocVO("RKD1512230000001", d2, orderID, City.NANJING, locs));
+			al.add(new InStoreDocVO("RKD1512230000001", d5, orderID, City.GUANGZHOU, locs));
+			al.add(new InStoreDocVO("RKD1512230000321", d4, orderID, City.BEIJING, locs));
 			break;
 		case order:
 			for (int i = 0; i < orders.size(); i++) {
@@ -178,9 +178,9 @@ public class DataTool {
 			}
 			break;
 		case outStoreDoc:
-			al.add(new OutStoreDocVO("CKD1511120000001", d2, orderID, City.BEIJING,"ZZD1511120000001",TransferWay.plane));
-			al.add(new OutStoreDocVO("CKD1511120000002", d2, orderID, City.GUANGZHOU,"ZZD1511120000002",TransferWay.train));
-			al.add(new OutStoreDocVO("CKD1511140000001", d4, orderID, City.SHANGHAI,"ZZD1511140000001",TransferWay.car));
+			al.add(new OutStoreDocVO("CKD1512230000001", d2, orderID, City.BEIJING,"ZZD1511120000001",TransferWay.plane));
+			al.add(new OutStoreDocVO("CKD1512230000002", d2, orderID, City.GUANGZHOU,"ZZD1511120000002",TransferWay.train));
+			al.add(new OutStoreDocVO("CKD1512230000001", d4, orderID, City.SHANGHAI,"ZZD1511140000001",TransferWay.car));
 			break;
 		case sendGoodDoc:
 			al.add(new SendGoodDocVO("PSD1511120000001", d2, "moxigan","3213640812",City.BEIJING));
@@ -204,7 +204,7 @@ public class DataTool {
 		StoreMessageVO vo ;
 		for(int i = 0;i<cities.size();i++){
 			for(int j = 0;j<ways.size();j++){
-				vo = new StoreMessageVO(cities.get(i),ways.get(j),0,300,(ArrayList<InStoreDocVO>)getDocList(DocType.inStoreDoc),(ArrayList<OutStoreDocVO>)getDocList(DocType.outStoreDoc));
+				vo = new StoreMessageVO(cities.get(i),ways.get(j),0,300,new ArrayList<InStoreDocVO>(),new ArrayList<OutStoreDocVO>());
 				vos.add(vo);
 			}
 		}

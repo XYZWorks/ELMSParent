@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import po.statistic.StateFormPO;
+import util.MyDate;
 import util.ResultMessage;
  /** 
  * 
@@ -24,9 +25,9 @@ public class StatisticDataImplTest {
 	@Test
 	public void testBulidStateForm() throws RemoteException {
 		
-//		if(test.bulidStateForm(DataTool.getStateFormPO()) == ResultMessage.SUCCESS){
-//			return;
-//		}
+		if(test.bulidStateForm(new StateFormPO(MyDate.getNowTime(), MyDate.getNowTime(), null, null)) == ResultMessage.SUCCESS){
+			return;
+		}
 		
 		fail();
 	}

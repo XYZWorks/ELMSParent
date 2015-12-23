@@ -69,4 +69,7 @@ public interface Personnelblservice {
 	 * 
 	 */
 	public ResultMessage modifyInst(InstVO vo);
+	
+	
+	public ResultMessage modifyPerson(PersonVO vo);
 }

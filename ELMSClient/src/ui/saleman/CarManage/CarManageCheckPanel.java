@@ -6,6 +6,9 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
 import ui.tools.CheckDocPanel;
 import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
@@ -55,15 +58,18 @@ public class CarManageCheckPanel extends CheckDocPanel{
 					return;
 				}
 				
-				
-				//TODO searchbox數據檢查
-				
-				
 				String type = (String) searchWay.getSelectedItem();
+				String text = searchBox.getMyText();
+				
 				if(type.equals("ID")){
-					myTable.checkByIDOrPlate(searchBox.getMyText(), 0);
+					if(UserfulMethod.dealWithData(new SimpleDataFormat(text, DataType.ID, "ID"))){
+						myTable.searchID(text);
+					}
 				}else{
-					myTable.checkByIDOrPlate(searchBox.getMyText(), 1);
+					if(UserfulMethod.dealWithData(new SimpleDataFormat(text, DataType.PlateNum, "车牌号"))){
+						myTable.searchPlateNum(text);
+					}
+					
 				}
 			}
 		});

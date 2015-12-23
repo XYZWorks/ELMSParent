@@ -165,6 +165,11 @@ public class PersonnelDataServiceImpl extends DataSuperClass implements
 		return modifyFromSQL(instTable, po.getID() , po.getLocation().name(), po.getType().name() );
 	}
 
+	@Override
+	public ResultMessage modifyPerson(PersonPO po) throws RemoteException {
+		return modifyFromSQL(personTable, po.getID() , po.getInstID() , po.getName() , po.getType().name() , po.getPhoneNum());
+	}
+
 	
 	
 //	public static void main(String[] args) throws RemoteException {

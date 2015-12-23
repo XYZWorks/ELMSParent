@@ -3,6 +3,8 @@ package bl.storebl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import javax.sound.midi.Synthesizer;
+
 import po.store.StoreCheckPO;
 import po.store.StoreMessagePO;
 import test.java.other.DataTool;
@@ -38,17 +40,17 @@ public class Store {
 		try {
 			pos = storeData.getStoreMessages();
 //			System.out.println("pos size ------"+pos.size());
-//			if(pos.size()==0){
-//				initial();
-//				pos = storeData.getStoreMessages();
-//			}
+			if(pos.size()==0){
+				initial();
+				pos = storeData.getStoreMessages();
+			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 		
-		ArrayList<StoreMessageVO> vos = null;
+		ArrayList<StoreMessageVO> vos = new ArrayList<>();
 		if(pos!=null){
-			vos = new ArrayList<>(pos.size());
+			
 //			System.err.println(pos.get(0).getTotalNum());
 			for(StoreMessagePO po:pos)
 				vos.add((StoreMessageVO)VOPOchange.POtoVO(po));
@@ -110,7 +112,7 @@ public class Store {
 	}
 	
 	public String getAlarmValue(City city) {
-		
+
 		try {
 			return storeData.getAlarmValue(city);
 		} catch (RemoteException e) {
@@ -129,7 +131,7 @@ public class Store {
 			}
 		}
 		if(target==null){
-			return ResultMessage.FAIL;
+			target = new StoreMessageVO(loc,way,0,300,new ArrayList<InStoreDocVO>(),new ArrayList<OutStoreDocVO>());
 			
 		}
 		if(DocType.inStoreDoc==tmp.type){
@@ -142,9 +144,11 @@ public class Store {
 		else if(DocType.outStoreDoc==tmp.type){
 			OutStoreDocVO vo = (OutStoreDocVO)tmp;
 			target.outStoreDocs.add(vo);
+			System.err.println(vo.loc);
 			int delNum = vo.orders.size();
 			target.number = target.number-delNum;
 		}
+		
 		return update(target);
 	}
 

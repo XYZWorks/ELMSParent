@@ -1,12 +1,16 @@
 package ui.generalmanager.people;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import org.dom4j.Element;
 
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
+import ui.util.TipsDialog;
+import util.MyDate;
 import util.StaffType;
+import vo.DTManage.DriverVO;
 import vo.personnel.PersonVO;
 import blservice.personnelblservice.Personnelblservice;
  /** 
@@ -51,6 +55,7 @@ public class PeopleMesPanel extends MyTablePanel{
 		vos = bl.getPersons();
 		
 		if (vos == null) {
+			vos = new ArrayList<>();
 			return ;
 		}
 		
@@ -62,15 +67,85 @@ public class PeopleMesPanel extends MyTablePanel{
 			data[i][2] = vo.name;
 			data[i][3] = StaffType.getName(vo.type);
 			data[i][4] = vo.phoneNum;
+			i++;
 		}
 		
 		
 		
 		
 	}
-	
-	
-	
+	/**
+	 * 这里如果type为2，表示修改一条数据
+	 */
+	@Override
+	public void addOneData(Object o, int type) {
+		PersonVO vo = (PersonVO) o;
+		if(type != 0){
+			vos.add(vo);
+		}else if(type == 1){
+			String[] temp = new String[5];
+			temp[0] = vo.instID;
+			temp[1] = vo.ID;
+			temp[2] = vo.name;
+			temp[3] = StaffType.getName(vo.type);
+			temp[4] = vo.phoneNum;
+			addOneRow(temp);
+		}else{
+			int row = getSelectedRow();
+			if(((String)table.getValueAt(row, 1)).equals(vo.ID)){
+				table.setValueAt(vo.instID, row, 0);
+				table.setValueAt(vo.name, row, 2);
+				table.setValueAt(StaffType.getName(vo.type), row, 3);
+				table.setValueAt(vo.phoneNum, row, 4);
+			}
+			
+		}
+		
+	}
+	@Override
+	public void searchID(String id) {
+		removeAllRows();
+		for (int i = 0; i < vos.size(); i++) {
+			if(vos.get(i).ID.equals(id)){
+				addOneData(vos.get(i) , 0);
+				new TipsDialog("成功找到一条信息", Color.GREEN);
+				return;
+			}
+		}
+		new TipsDialog("未找到任何一条信息");
+	}
+	public void searchInstID(String instid){
+		removeAllRows();
+		int count = 0;
+		for (int i = 0; i < vos.size(); i++) {
+			if(vos.get(i).instID.equals(instid)){
+				addOneData(vos.get(i) , 0);
+				count++;
+			}
+		}
+		if(count > 0){
+			new TipsDialog("成功找到" + count + "条信息", Color.GREEN);
+		}else{
+			new TipsDialog("未找到任何一条信息");
+		}
+	}
+	public void searchName(String  name) {
+		removeAllRows();
+		ArrayList<PersonVO> vos = bl.getPeopleByName(name);
+		int count = 0;
+		for (PersonVO personVO : vos) {
+			addOneData(personVO , 0);
+			count++;
+			
+		}
+		if(count > 0){
+			new TipsDialog("成功找到" + count + "条信息", Color.GREEN);
+		}else{
+			new TipsDialog("未找到任何一条信息");
+		}
+		
+		
+	}
 	
 	@Override
 	protected void initTable() {

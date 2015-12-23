@@ -60,7 +60,14 @@ public class VOPOchange {
 			
 			
 		}
-	
+		if(poClass.getSuperclass().toString().endsWith("CostPO")){
+			setSuperField(vo, o, "ID");
+			setSuperField(vo, o, "startDate");
+			setSuperField(vo, o, "endDate");
+			setSuperField(vo, o, "money");
+			setSuperField(vo, o, "costType");
+			
+		}
 		
 		for(Field f : fields){
 			Field tmp = null;
@@ -194,11 +201,16 @@ public class VOPOchange {
 			setSuperField(po, o, "type");
 			setSuperField(po, o, "date");
 			setSuperField(po, o, "state");
-			
-			
 		}
 		
-		
+		if(voClass.getSuperclass().toString().endsWith("CostVO")){
+			setSuperField(po, o, "ID");
+			setSuperField(po, o, "startDate");
+			setSuperField(po, o, "endDate");
+			setSuperField(po, o, "money");
+			setSuperField(po, o, "costType");
+			
+		}
 		for(int i= 0 ; i<field.length;i++){
 			if(field[i].getType().toString().endsWith("ArrayList")&&!field[i].getGenericType().toString().endsWith("String>")){
 				
