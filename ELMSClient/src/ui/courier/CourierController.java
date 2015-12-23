@@ -132,7 +132,7 @@ public class CourierController extends PanelController{
 	@Override
 	protected void initialBL() {
 		orderblservice=BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
-	//	strategyblService=BusinessLogicDataFactory.getFactory().getStrategyBusinessLogic();
+		strategyblService=BusinessLogicDataFactory.getFactory().getStrategyBusinessLogic();
 		
 	}
 	

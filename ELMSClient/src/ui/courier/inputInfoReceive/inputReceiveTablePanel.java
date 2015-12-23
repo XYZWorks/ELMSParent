@@ -37,13 +37,7 @@ public class inputReceiveTablePanel extends MyTablePanel {
 	@Override
 	protected void initialTitleAndColumn(Element config) {
 		columnNames = MyTablePanel.getColumnName(config.attributeValue("column"));
-		// pre = bl.getPreReceive();
-
-		ArrayList<PreReceiveVO> pre = new ArrayList<PreReceiveVO>();
-		PreReceiveVO one = new PreReceiveVO("1234567890", "南京大学2栋 axxx", "王二", null, null);
-		PreReceiveVO two = new PreReceiveVO("1234567899", "复旦大学2栋 axxx", "凯二", null, null);
-		pre.add(one);
-		pre.add(two);
+		 pre = bl.getPreReceive();
 
 		if (pre == null || pre.isEmpty()) {
 			return;
@@ -68,7 +62,7 @@ public class inputReceiveTablePanel extends MyTablePanel {
 		table = new MyTable(columnNames, data){
 		@Override
 		public boolean isCellEditable(int row, int column) {
-			if((column==0)||(column==1)){
+			if((column>=0)&&(column<=2)){
 				return false;
 			}
 			return true;
@@ -79,15 +73,16 @@ public class inputReceiveTablePanel extends MyTablePanel {
 		setRowAndColumnLen(40, columnLen);
 
 		
-		table.addMouseListener(new MouseAdapter() {
-			  public void mouseClicked(MouseEvent e) {
-				  int index=e.getClickCount();
-				  if(index==2){
-					  int row=getSelectedRow();
-				  }
-			  }
-		});
-		
+//		table.addMouseListener(new MouseAdapter() {
+//			  public void mouseClicked(MouseEvent e) {
+//				  int index=e.getClickCount();
+//				  if(index==2){
+//					  int row=getSelectedRow();
+//					  
+//				  }
+//			  }
+//		});
+//		
 	}
 
 	@Override

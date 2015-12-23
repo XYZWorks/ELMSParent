@@ -9,6 +9,7 @@ import bl.personnelbl.PersonnelController;
 import bl.statisticbl.StatisticController;
 import bl.storebl.StoreController;
 import bl.strategybl.StrategyController;
+import bl.strategybl.strategybl_stub;
 import bl.transportbl.TransportController;
 import bl.userbl.UserController;
 import blservice.DTManageblservice.DTManageblservice;
@@ -86,7 +87,8 @@ public class BusinessLogicDataFactory {
 	}
 	
 	public StrategyblService getStrategyBusinessLogic(){
-		return new  StrategyController();
+		//return new  StrategyController();
+		return new strategybl_stub();
 	}
 	
 	public Personnelblservice getPersonnelBusinessLogic(){

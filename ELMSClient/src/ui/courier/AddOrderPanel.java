@@ -178,7 +178,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		super(config);
 		this.orderblservice = orderblservice;
 		this.strategyblService = strategyblService;
-		// constVO = strategyblService.getConst();
+	    constVO = strategyblService.getConst();
 
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
@@ -671,7 +671,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 	public void setTime() {
 		if ((senderChose != 0) && (receiverChose != 0)) {
 			// TODO 获得时间 单独建立方法
-
+		
 			estimateTime.setForeground(new Color(26, 188, 156));
 			estimateTime.setText("");
 		}
@@ -719,6 +719,7 @@ public class AddOrderPanel extends MyPanelWithScroller {
 				miles = constVO.mileINSG;// 上海＋广州
 			}
 		}
+		
 		return miles;
 	}
 
@@ -730,13 +731,9 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		double transferCost = getMiles() / 1000 * 23 * goodweight;
 
 		total = formMoney + transferCost;
-		setCost(total);
-	}
-
-	/**
-	 * 根据计算的运费 绘制到label上 (可能出现问题：：小数问题）
-	 */
-	public void setCost(double total) {
+		
+		//绘制label上字的颜色
+		System.out.println("total"+total);
 		cost.setForeground(new Color(255, 138, 0));
 		cost.setText(String.valueOf(total));
 

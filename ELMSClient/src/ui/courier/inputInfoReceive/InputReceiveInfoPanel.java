@@ -5,18 +5,34 @@ import java.awt.event.MouseListener;
 
 import org.dom4j.Element;
 
+import com.eltima.components.ui.DatePicker;
+
 import bl.orderbl.Order;
 import blservice.orderblservice.Orderblservice;
+import ui.tools.MyDatePicker;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
+import ui.tools.MySearchBox;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 
 @SuppressWarnings("serial")
 public class InputReceiveInfoPanel extends MyPanel{
-	private MyPictureButton modify;
+	
+	/**
+	 * 确认修改的按钮 如果点击确认修改 则更新所有改动数据
+	 */
+	private MyPictureButton confirm;
+	
+	/**
+	 * 取消修改的按钮 如果点击取消 则撤销本次的所有改动
+	 */
 	private MyPictureButton cancel;
+	
+	private MyDatePicker datePicker;
+	private MySearchBox searchBox;
+	
 	private inputReceiveTablePanel table;
 	private Orderblservice bl;
 	
@@ -36,7 +52,7 @@ public class InputReceiveInfoPanel extends MyPanel{
 
 	@Override
 	protected void initButtons(Element e) {
-		modify=new MyPictureButton(e.element("modify"));
+		confirm=new MyPictureButton(e.element("confirm"));
 		cancel=new MyPictureButton(e.element("cancel"));
 	}
 
@@ -54,6 +70,8 @@ public class InputReceiveInfoPanel extends MyPanel{
 
 	@Override
 	protected void initOtherCompoment(Element e) {
+		datePicker=new MyDatePicker(e.element("datePicker"));
+		searchBox=new MySearchBox(e.element("searchBox"));
 		//initTabel
 		table=new inputReceiveTablePanel(e.element("inputReceiveTable"), bl);
 		
@@ -62,8 +80,10 @@ public class InputReceiveInfoPanel extends MyPanel{
 	@Override
 	protected void addCompoment() {
 		this.add(cancel);
-		this.add(modify);
+		this.add(confirm);
 		this.add(table);
+		this.add(datePicker);
+		this.add(searchBox);
 		
 	}
 
@@ -73,11 +93,12 @@ public class InputReceiveInfoPanel extends MyPanel{
 
 			@Override
 			public void resetMes() {
-				//重新加载表格
+				//TODO 重新读取数据
+				
 			}
 		});
 		
-		modify.addMouseListener(new ConfirmListener(modify) {
+		confirm.addMouseListener(new ConfirmListener(confirm) {
 
 			@Override
 			protected boolean saveToSQL() {

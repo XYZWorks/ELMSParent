@@ -30,7 +30,7 @@ import ui.util.MyPictureButtonListener;
 public abstract class AddDocPanel extends MyPanel{
 	
 	protected MyPictureButton confirm;
-	protected MyPictureButton cancel;
+	protected MyPictureButton cancel;											
 	private MyPictureButton back;
 	
 	private String checkDocPanelStr = "CheckDocPanel";
