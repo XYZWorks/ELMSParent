@@ -170,8 +170,11 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 		center.setText(cen);
 		storeNum.setText(sto);
 		for (StoreMessageVO vo : bl.show()) {
-			if (cen.equals(vo.location.getName()) && sto.equals(vo.storeLoc.getStoreLocation()+"区"))
+			if (cen.equals(vo.location.getName()) && sto.equals(vo.storeLoc.getStoreLocation()+"区")){
 				target = vo;
+				break;
+			}
+				
 		}
 		if(target!=null){
 			nowNum.setText("   "+String.valueOf(target.number));

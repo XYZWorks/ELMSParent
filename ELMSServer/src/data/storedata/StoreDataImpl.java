@@ -311,7 +311,7 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 			return new InStoreDocPO(findMes.get(0), DocType.inStoreDoc,
 					MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes
 							.get(3)), helper.tranFromStringToArrayList(findMes
-							.get(4)), City.toCity(findMes.get(5)),
+							.get(4)), City.valueOf(findMes.get(5)),
 					helper.tranFromStringToArrayList(findMes.get(6)));
 		}
 
@@ -326,7 +326,7 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 			return new OutStoreDocPO(findMes.get(0), DocType.outStoreDoc,
 					MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes
 							.get(3)), helper.tranFromStringToArrayList(findMes
-							.get(4)), City.toCity(findMes.get(5)),
+							.get(4)), City.valueOf(findMes.get(5)),
 					findMes.get(6), TransferWay.valueOf(findMes.get(7)));
 		}
 	}

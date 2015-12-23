@@ -104,10 +104,14 @@ public class InStoreDocImpl  {
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
+		
+		
 		if(po == null){
 			return null;
 		}else{
-			return (DocVO) VOPOchange.POtoVO(po);
+			InStoreDocVO test = (InStoreDocVO) VOPOchange.POtoVO(po);
+			
+			return (DocVO) test;
 		}
 	}
 
