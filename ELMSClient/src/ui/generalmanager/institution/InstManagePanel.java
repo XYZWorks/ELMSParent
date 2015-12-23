@@ -198,8 +198,10 @@ public class InstManagePanel extends MyPanel{
 					result = bl.delInst((String) table.getValueAt(table.getSelectedRow(), 0));
 					if(result == ResultMessage.SUCCESS){
 						new TipsDialog("成功删除一条数据" , Color.GREEN);
+						table.updateTableMes();
 					}else{
 						new TipsDialog("未成功删除数据");
+						System.out.println(result);
 					}
 				}
 			}

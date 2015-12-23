@@ -92,11 +92,26 @@ public class Cost {
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-		return  vos;
+		return vos;
 	}
 
 	public ResultMessage add(CostVO vo) {
-		CostPO po = (CostPO) VOPOchange.VOtoPO(vo);
+		CostPO po = null;
+		switch (vo.costType) {
+		case FREIGHT:
+			po = (FreightPO) VOPOchange.VOtoPO((FreightVO)vo);
+			break;
+		case RENT:
+			po = (RentPO) VOPOchange.VOtoPO((RentVO)vo);
+			break;
+		case SALARY:
+			po = (SalaryPO) VOPOchange.VOtoPO((SalaryVO)vo);
+			break;
+		default:
+			return ResultMessage.FAIL;
+		}
+		
+		
 		ResultMessage result = null;
 		try {
 			result = financeData.add(po);

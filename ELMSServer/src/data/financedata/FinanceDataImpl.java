@@ -143,6 +143,13 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	}
 
 	public ResultMessage add(CostPO po) throws RemoteException {
+		if(po == null){
+			System.err.println("122222222");
+		}
+		System.err.println(po.getMoney());
+		if(po.getCostType() == null){
+			System.err.println("2qewdasd");
+		}
 		switch (po.getCostType()) {
 		case FREIGHT:
 			FreightPO fpo = (FreightPO) po;

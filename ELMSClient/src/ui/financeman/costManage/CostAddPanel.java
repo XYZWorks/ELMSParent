@@ -148,6 +148,7 @@ public class CostAddPanel extends MyPanel {
 			
 			@Override
 			protected boolean saveToSQL() {
+				
 				if(modifyState){
 					if(type == CostType.FREIGHT){
 						result = costService.modify(new FreightVO(id, start, end, Integer.parseInt(money), type));
@@ -188,7 +189,6 @@ public class CostAddPanel extends MyPanel {
 				end = endDate.getMyDate();
 				type = CostType.toCostType((String) costTypeB.getSelectedItem());
 				staffType = StaffType.getType((String) staffTypeB.getSelectedItem());
-				
 				SimpleDataFormat[] datas = {new SimpleDataFormat(id, DataType.ID, "ID") , new SimpleDataFormat(money, DataType.PositiveNum, "金额")};
 				return UserfulMethod.dealWithData(datas);
 			}
