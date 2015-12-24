@@ -68,19 +68,13 @@ public class OrderController implements Orderblservice{
 		return null;
 	}
 
-
+	@Override
 	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
-		// TODO Auto-generated method stub
-		return null;
+		return order.changeDocsState(docsID , type , state);
 	}
-
+	@Override
 	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	public DocVO getByID(String ID) {
-		// TODO Auto-generated method stub
-		return null;
+		return order.changeOneDocState(docID , type , state);
 	}
 	@Override
 	public ArrayList<PreReceiveVO> getPreReceive() {
@@ -88,8 +82,7 @@ public class OrderController implements Orderblservice{
 	}
 	@Override
 	public DocVO getByID(String ID, DocType type) {
-		// TODO Auto-generated method stub
-		return null;
+		return getFullInfo(ID);
 	}
 	
 }

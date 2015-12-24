@@ -7,6 +7,7 @@ import po.DocPO;
 import po.order.OrderPO;
 import po.order.ReceivePO;
 import test.java.other.VOPOchange;
+import util.DocState;
 import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
@@ -58,7 +59,6 @@ public class Order {
 		try {
 			po = orderData.getSingleOrderPO(orderBarCode);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if (po == null)
@@ -194,7 +194,6 @@ public class Order {
 		try {
 			po = orderData.getSingleOrderPO(orderBarCode);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try{
@@ -212,7 +211,6 @@ public class Order {
 		try {
 			return orderData.receiveInfo(po, orderBarCode);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return ResultMessage.FAIL;
@@ -245,6 +243,27 @@ public class Order {
 			}
 		}
 		return pres;
+	}
+
+	public ResultMessage changeDocsState(ArrayList<String> docsID,
+			DocType type, DocState state) {
+		try {
+			return orderData.changeDocsState(docsID, type, state);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.SQL_ERROR;
+	}
+
+	public ResultMessage changeOneDocState(String docID, DocType type,
+			DocState state) {
+		try {
+			return orderData.changeOneDocState(docID, type, state);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ResultMessage.SQL_ERROR;
 	}
 
 }
