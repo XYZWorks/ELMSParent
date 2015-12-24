@@ -1,4 +1,4 @@
-package ui.courier;
+package ui.courier.AddOrder;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -7,22 +7,17 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseListener;
-import java.text.DecimalFormat;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import config.StaticMessage;
 import blservice.orderblservice.Orderblservice;
 import blservice.strategyblservice.StrategyblService;
 import po.order.GoodMes;
 import po.order.OtherOrderMes;
 import po.order.PeopleMes;
-import po.order.TransferDocs;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
@@ -38,7 +33,6 @@ import ui.util.ConfirmListener;
 import ui.util.DocPanelForApproval;
 import util.DocState;
 import util.DocType;
-import util.MyDate;
 import vo.order.OrderVO;
 import vo.strategy.ConstVO;
 import vo.strategy.EstiDateVO;
@@ -437,7 +431,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 						Integer.parseInt(goodWeightText.getText()), Integer.parseInt(goodLongText.getText()),
 						Integer.parseInt(goodWidthText.getText()), Integer.parseInt(goodHeightText.getText()));
 
-				OtherOrderMes otherMes = new OtherOrderMes(packChose, FormChose,
+				OtherOrderMes otherMes = new OtherOrderMes(packChose, FormChose,DatePicker.getMyDate(),
 						Integer.parseInt(estimateTime.getText()), total, null, null);
 
 				
@@ -455,7 +449,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 			@Override
 			protected boolean checkDataValid() {
 				// 检查订单所有属性是否填写完整
-				// checkDataValid checkDataValid = new checkDataValid();
+//				 checkDataValid checkDataValid = new checkDataValid();
 				// return checkDataValid.isValid();
 				return true;
 			}
@@ -505,15 +499,15 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 			double miles = getMiles();
 			double transferCost = miles / 1000 * 23 * goodweight;
 			total = packMoney + transferCost;
-			
-			System.out.println("total" + total);
+		
+			System.out.println("Before-total" + total);
 			//经济快递
 			if (FormChose.equals("economicOrder")) {
 				total=total/ratios[1]*ratios[0];
 			} else if (FormChose.equals("quickOrder")) {
 				total=total/ratios[1]*ratios[2];
 			}
-			System.out.println("Pretotal" + total);
+			System.out.println("After-total" + total);
 			
 			// 测试各项数据的准确性
 			System.out.println("miles" + miles);

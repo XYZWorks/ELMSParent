@@ -102,9 +102,10 @@ public class InputReceiveInfoPanel extends MyPanel{
 
 			@Override
 			protected boolean saveToSQL() {
-				return false;
-				// TODO Auto-generated method stub
+				//直接读到数据库里
 
+				
+				return true;
 			}
 
 			@Override
