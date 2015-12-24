@@ -20,6 +20,7 @@ import vo.order.OrderVO;
 import vo.store.InStoreDocVO;
 import vo.store.OutStoreDocVO;
 import vo.store.StoreMessageVO;
+import vo.store.StoreShowVO;
 
 /** 
  * @author ymc 
@@ -192,7 +193,8 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 			
 			inTable.resetValue(ins);			
 			outTable.resetValue(outs);
-			orderTable.resetValue(ins,outs);
+			StoreShowVO show = StoreShowVO.getStoreShow(target);
+			orderTable.resetValue(show);
 		}
 	}
 

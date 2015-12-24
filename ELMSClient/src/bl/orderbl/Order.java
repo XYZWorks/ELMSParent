@@ -3,10 +3,17 @@ package bl.orderbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessLogicDataFactory;
+import bl.storebl.StoreController;
+import bl.strategybl.StrategyController;
+import bl.transportbl.TransportController;
+import blservice.strategyblservice.StrategyblService;
+import ds.orderdataservice.OrderDataService;
 import po.DocPO;
 import po.order.OrderPO;
 import po.order.ReceivePO;
 import test.java.other.VOPOchange;
+import util.City;
 import util.DocState;
 import util.DocType;
 import util.MyDate;
@@ -18,16 +25,12 @@ import vo.order.PreReceiveVO;
 import vo.order.ReceiveVO;
 import vo.store.InStoreDocVO;
 import vo.store.OutStoreDocVO;
+import vo.strategy.EstiDateVO;
 import vo.transport.ArriveYYDocVO;
 import vo.transport.ArriveZZDocVO;
 import vo.transport.LoadDocVO;
 import vo.transport.SendGoodDocVO;
 import vo.transport.TransferDocVO;
-import bl.BusinessLogicDataFactory;
-import bl.storebl.StoreController;
-import bl.transportbl.TransportController;
-import blservice.strategyblservice.StrategyblService;
-import ds.orderdataservice.OrderDataService;
 
 /**
  * @author ymc
@@ -42,6 +45,7 @@ public class Order {
 	
 	public Order(OrderDataService orderData) {
 		this.orderData = orderData;
+		strategybl = new StrategyController();
 	}
 
 	public ResultMessage add(OrderVO vo) {
@@ -245,6 +249,57 @@ public class Order {
 		return pres;
 	}
 
+
+	public double getEstiDate(City one,City two) {
+		EstiDateVO vo = strategybl.getEstiDateVO();
+		double[] map = new double[6];
+		map[0] = vo.dayInBG;
+		map[1] = vo.dayInBN;
+		map[2] = vo.dayInBS;
+		map[3] = vo.dayInNG;
+		map[4] = vo.dayInNS;
+		map[5] = vo.dayInSG;
+		if(twoPlace(City.BEIJING, City.GUANGZHOU, one, two))
+			return map[0];
+		else if(twoPlace(City.BEIJING, City.NANJING, one, two))
+			return map[1];
+		else if(twoPlace(City.BEIJING, City.SHANGHAI, one, two))
+			return map[2];
+		else if(twoPlace(City.NANJING, City.GUANGZHOU, one, two))
+			return map[3];
+		else if(twoPlace(City.NANJING, City.SHANGHAI, one, two))
+			return map[4];
+		else if(twoPlace(City.SHANGHAI, City.GUANGZHOU, one, two))
+			return map[5];
+					 
+		return 0;
+	}
+	private boolean twoPlace(City target1,City target2,City one , City two) {
+		if(target1==one&&target2==two)
+			return true;
+		
+		if(target1==two&&target2==one)
+			return true;
+		
+		return false;
+	}
+	public ResultMessage setEstiDate(double day,City one,City two) {
+		EstiDateVO vo =strategybl.getEstiDateVO();
+		if(twoPlace(City.BEIJING, City.GUANGZHOU, one, two))
+			vo.dayInBG =( vo.dayInBG+day)/2;
+		else if(twoPlace(City.BEIJING, City.NANJING, one, two))
+			vo.dayInBN =( vo.dayInBN+day)/2;
+		else if(twoPlace(City.BEIJING, City.SHANGHAI, one, two))
+			vo.dayInBS =( vo.dayInBS+day)/2;
+		else if(twoPlace(City.NANJING, City.GUANGZHOU, one, two))
+			vo.dayInNG =( vo.dayInNG+day)/2;
+		else if(twoPlace(City.NANJING, City.SHANGHAI, one, two))
+			vo.dayInNS =( vo.dayInNS+day)/2;
+		else if(twoPlace(City.SHANGHAI, City.GUANGZHOU, one, two))
+			vo.dayInSG =( vo.dayInSG+day)/2;
+		return strategybl.setEstiDateVO(vo);
+	}
+	
 	public ResultMessage changeDocsState(ArrayList<String> docsID,
 			DocType type, DocState state) {
 		try {
@@ -264,6 +319,7 @@ public class Order {
 			e.printStackTrace();
 		}
 		return ResultMessage.SQL_ERROR;
+
 	}
 
 }

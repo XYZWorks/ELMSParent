@@ -4,11 +4,13 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import po.strategy.ConstPO;
+import po.strategy.EstiDatePO;
 import po.strategy.SalaryWayPO;
 import test.java.other.VOPOchange;
 import util.ResultMessage;
 import util.StaffType;
 import vo.strategy.ConstVO;
+import vo.strategy.EstiDateVO;
 import vo.strategy.SalaryWayVO;
 import ds.strategydataservice.StrategyDataService;
 
@@ -92,6 +94,29 @@ public class Strategy {
 			e.printStackTrace();
 		}
 		return resultMessage;
+	}
+	public EstiDateVO getEstiDateVO() {
+		
+		EstiDatePO po = null;
+		try {
+			po = strategyData.getEstiDatePO();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		EstiDateVO vo = (EstiDateVO) VOPOchange.POtoVO(po);
+		return vo;
+	}
+	public ResultMessage setEstiDateVO(EstiDateVO vo) {
+		EstiDatePO po = (EstiDatePO) VOPOchange.VOtoPO(vo);
+		try {
+			return strategyData.setEstiDatePO(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
 	}
 
 }

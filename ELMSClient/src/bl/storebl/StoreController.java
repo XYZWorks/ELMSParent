@@ -63,9 +63,7 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 		return store.update(vo);
 	}
 
-	public void getOrders(ArrayList<InStoreDocVO> ins,ArrayList<OutStoreDocVO> outs,StoreShowVO storevo) {
-		 store.getOrders(ins, outs, storevo);
-	}
+	
 	public ArrayList<? extends DocVO> getDocLists(DocType type) {
 		switch (type) {
 		case inStoreDoc:

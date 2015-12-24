@@ -6,6 +6,7 @@ import util.ResultMessage;
 import util.StaffType;
 import util.WageStrategy;
 import vo.strategy.ConstVO;
+import vo.strategy.EstiDateVO;
 import vo.strategy.SalaryWayVO;
  /** * @author czq @version 创建时间：2015年10月25日 下午4:25:54 * 简单说明 */
 public class Strategyblservice_Stub implements StrategyblService{
@@ -32,6 +33,18 @@ public class Strategyblservice_Stub implements StrategyblService{
 
 	public ResultMessage setSalary(SalaryWayVO way) {
 		return ResultMessage.SUCCESS;
+	}
+
+	@Override
+	public EstiDateVO getEstiDateVO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage setEstiDateVO(EstiDateVO vo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

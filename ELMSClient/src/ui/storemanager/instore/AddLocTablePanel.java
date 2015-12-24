@@ -45,7 +45,7 @@ public class AddLocTablePanel extends MyTablePanel {
 //			this.setColumnEdit(true, i);
 //		}
 	}
-
+	
 	@Override
 	public void updateTableMes() {
 		// TODO Auto-generated method stub
