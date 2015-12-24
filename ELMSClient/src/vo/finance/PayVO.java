@@ -1,5 +1,6 @@
 package vo.finance;
 
+import util.DocState;
 import util.MyDate;
 
 /**
@@ -43,9 +44,24 @@ public class PayVO {
 	 * 工资
 	 */
 	public int salary;
+	
+	public DocState state;
 	public PayVO() {}
+//	public PayVO(String iD, MyDate time, String account, int money,
+//			String person, int rent, int freight, int salary) {
+//		super();
+//		ID = iD;
+//		this.time = time;
+//		this.account = account;
+//		this.money = money;
+//		this.person = person;
+//		this.rent = rent;
+//		this.freight = freight;
+//		this.salary = salary;
+//		state = DocState.wait;
+//	}
 	public PayVO(String iD, MyDate time, String account, int money,
-			String person, int rent, int freight, int salary) {
+			String person, int rent, int freight, int salary, DocState state) {
 		super();
 		ID = iD;
 		this.time = time;
@@ -55,6 +71,7 @@ public class PayVO {
 		this.rent = rent;
 		this.freight = freight;
 		this.salary = salary;
+		this.state = state;
 	}
 	
 	

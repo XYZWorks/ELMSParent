@@ -12,6 +12,7 @@ import po.finance.PayPO;
 import po.finance.RentPO;
 import po.finance.SalaryPO;
 import util.CostType;
+import util.DocState;
 import util.MyDate;
 import util.ResultMessage;
 import util.StaffType;
@@ -72,7 +73,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while(result.next()){
-				pos.add(new PayPO(result.getString(1), MyDate.getDate(result.getString(2)), result.getString(3), Integer.parseInt(result.getString(4)), result.getString(5), Integer.parseInt(result.getString(6)), Integer.parseInt(result.getString(7)), Integer.parseInt(result.getString(8))));
+				pos.add(new PayPO(result.getString(1), MyDate.getDate(result.getString(2)), result.getString(3), Integer.parseInt(result.getString(4)), result.getString(5), Integer.parseInt(result.getString(6)), Integer.parseInt(result.getString(7)), Integer.parseInt(result.getString(8)) , DocState.valueOf(result.getString(9))));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -85,7 +86,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	}
 
 	public ResultMessage addPay(PayPO po) throws RemoteException {
-		return addToSQL(payTable, po.getID()  , MyDate.toString(po.getTime()) , po.getAccount() , String.valueOf(po.getMoney()), String.valueOf(po.getMoney()) , po.getPerson() ,String.valueOf(po.getRent()) , String.valueOf(po.getFreight()) , String.valueOf(po.getSalary()));
+		return addToSQL(payTable, po.getID()  , MyDate.toString(po.getTime()) , po.getAccount() , String.valueOf(po.getMoney()), String.valueOf(po.getMoney()) , po.getPerson() ,String.valueOf(po.getRent()) , String.valueOf(po.getFreight()) , String.valueOf(po.getSalary()) , po.getState().name());
 	}
 
 	public ArrayList<? extends CostPO> show(CostType type) throws RemoteException {

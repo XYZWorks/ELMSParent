@@ -17,6 +17,7 @@ import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.TipsDialog;
+import util.DocState;
 import util.MyDate;
 import util.ResultMessage;
 import vo.finance.PayVO;
@@ -160,7 +161,7 @@ public class BulidPayPanel extends MyPanel {
 					new TipsDialog("余额不足！请您重新输入银行账户");
 					return false;
 				}else{
-					result = payService.create(vo = new PayVO(id, date, account, Integer.parseInt(money), person, Integer.parseInt(rent), Integer.parseInt(freight), Integer.parseInt(salary)));
+					result = payService.create(vo = new PayVO(id, date, account, Integer.parseInt(money), person, Integer.parseInt(rent), Integer.parseInt(freight), Integer.parseInt(salary) , DocState.wait));
 					if(result == ResultMessage.SUCCESS){
 						new TipsDialog("成功增加新增付款单", Color.GREEN);
 						return true;

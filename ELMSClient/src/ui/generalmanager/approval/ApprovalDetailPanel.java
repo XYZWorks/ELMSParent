@@ -62,8 +62,8 @@ public class ApprovalDetailPanel{
 		arriveZZPanel = new ArriveZZDocAdd(e.element("AddArriveZZPanel"), null, null);
 		inStorePanel = new AddInStorePanel(e.element("AddInStorePanel"), null, null);
 		outStorePanel = new AddOutStorePanel(e.element("AddOutStorePanel"), null, null);
-		orderPanel = new AddOrderPanel(e.element(""), null, null);
-		transportPanel = new AddTransportPanel(e.element(""), null, null);
+//		orderPanel = new AddOrderPanel(e.element(""), null, null);
+		transportPanel = new AddTransportPanel(e.element("AddTransportPanel"), null, null);
 	}
 	
 	/**
@@ -86,7 +86,7 @@ public class ApprovalDetailPanel{
 		docsPanels.put(DocType.arriveZZDoc, arriveZZPanel);
 		docsPanels.put(DocType.inStoreDoc, inStorePanel);
 		docsPanels.put(DocType.outStoreDoc, outStorePanel);
-		docsPanels.put(DocType.order, orderPanel);
+//		docsPanels.put(DocType.order, orderPanel);
 		docsPanels.put(DocType.transferDoc, transportPanel);
 	}
 	/**

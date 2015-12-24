@@ -60,7 +60,6 @@ public class FinanceApprovalPanel extends CheckDocPanel{
 
 	@Override
 	protected void addListener() {
-		super.addListener();
 		addDoc.addMouseListener(new MyPictureButtonListener(addDoc){
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -68,9 +67,11 @@ public class FinanceApprovalPanel extends CheckDocPanel{
 				if(myTable.getSelectedRow() == -1){
 					new TipsDialog("请选择一行数据", Color.GREEN);
 					return;
+				}else{
+					myAddPanel.setMessage(myTable.getARowMes(myTable.getSelectedRow()));
+					jumpToADD();
 				}
-				myAddPanel.setMessage(myTable.getARowMes(myTable.getSelectedRow()));
-				jumpToADD();
+				
 			}
 		});
 		searchBox.addKeyListener(new KeyAdapter() {
