@@ -20,27 +20,27 @@ public class ConstPO implements Serializable{
 	/**
 	 * 北京、南京距离
 	 */
-	private int mileInBN;
+	private double mileInBN;
 	/**
 	 * 北京、上海距离
 	 */
-	private int mileInBS;
+	private double mileInBS;
 	/**
 	 * 北京、广州距离
 	 */
-	private int mileInBG;
+	private double mileInBG;
 	/**
 	 * 南京、上海距离
 	 */
-	private int mileInNS;
+	private double mileInNS;
 	/**
 	 * 南京、广州距离
 	 */
-	private int mileInNG;
+	private double mileInNG;
 	/**
 	 * 上海、广州距离
 	 */
-	private int mileINSG;
+	private double mileINSG;
 	/**
 	 * 飞机每公里价格
 	 */
@@ -73,8 +73,8 @@ public class ConstPO implements Serializable{
 	
 	
 	
-	public ConstPO(int mileInBN, int mileInBS, int mileInBG, int mileInNS,
-			int mileInNG, int mileINSG, double plane, double train,
+	public ConstPO(double mileInBN, double mileInBS, double mileInBG, double mileInNS,
+			double mileInNG, double mileINSG, double plane, double train,
 			double truck, int paperBox, int woodBox, int plasticBag, int[] ratio) {
 		super();
 		this.mileInBN = mileInBN;
@@ -91,37 +91,37 @@ public class ConstPO implements Serializable{
 		this.plasticBag = plasticBag;
 		this.ratios = ratio;
 	}
-	public int getMileInBN() {
+	public double getMileInBN() {
 		return mileInBN;
 	}
 	public void setMileInBN(int mileInBN) {
 		this.mileInBN = mileInBN;
 	}
-	public int getMileInBS() {
+	public double getMileInBS() {
 		return mileInBS;
 	}
 	public void setMileInBS(int mileInBS) {
 		this.mileInBS = mileInBS;
 	}
-	public int getMileInBG() {
+	public double getMileInBG() {
 		return mileInBG;
 	}
 	public void setMileInBG(int mileInBG) {
 		this.mileInBG = mileInBG;
 	}
-	public int getMileInNS() {
+	public double getMileInNS() {
 		return mileInNS;
 	}
 	public void setMileInNS(int mileInNS) {
 		this.mileInNS = mileInNS;
 	}
-	public int getMileInNG() {
+	public double getMileInNG() {
 		return mileInNG;
 	}
 	public void setMileInNG(int mileInNG) {
 		this.mileInNG = mileInNG;
 	}
-	public int getMileINSG() {
+	public double getMileINSG() {
 		return mileINSG;
 	}
 	public void setMileINSG(int mileINSG) {

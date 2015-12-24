@@ -7,6 +7,7 @@ import po.order.GoodMes;
 import po.order.OtherOrderMes;
 import po.order.PeopleMes;
 import po.order.TransferDocs;
+import util.City;
 import util.DocState;
 import util.DocType;
 import util.MyDate;
@@ -111,7 +112,7 @@ public class orderbl_stub implements Orderblservice{
 		PeopleMes sender1=new PeopleMes("王二","13390949086","复旦大学", "上海市杨浦区23花园230xxxxxxxxxxxxxxxxxxxxfsdfsdfsxxxxxxxxxx");
 		PeopleMes receiver1=new PeopleMes("李四","13049030987","南京大学", "南京市鼓楼区34花园394");
         GoodMes goodMes1=new GoodMes(1, "服装", 0.2, 20, 20, 20);
-        OtherOrderMes otherMes1=new OtherOrderMes("快递袋", "普通快递", 2, 10,null, null);
+        OtherOrderMes otherMes1=new OtherOrderMes("快递袋", "普通快递",new MyDate(2015, 10, 15), 2, 10,null, null);
         TransferDocs transferDocs1=new TransferDocs(null, null, null, null, null, null, null, null, null);
 		OrderVO one=new OrderVO("1234567890",DocType.order,new MyDate(2015, 12, 21),DocState.wait,sender1,receiver1,goodMes1,otherMes1,transferDocs1);
 		return one;
@@ -154,20 +155,32 @@ public class orderbl_stub implements Orderblservice{
 		PeopleMes sender1=new PeopleMes("王二","13390949086","复旦大学", "上海市杨浦区23花园230");
 		PeopleMes receiver1=new PeopleMes("李四","13049030987","南京大学", "南京市鼓楼区34花园394");
         GoodMes goodMes1=new GoodMes(1, "服装", 0.2, 20, 20, 20);
-        OtherOrderMes otherMes1=new OtherOrderMes("快递袋", "普通快递", 2, 10,null, null);
+        OtherOrderMes otherMes1=new OtherOrderMes("快递袋", "普通快递",new MyDate(2015, 10, 15), 2, 10,null, null);
         TransferDocs transferDocs1=new TransferDocs(null, null, null, null, null, null, null, null, null);
 		OrderVO one=new OrderVO("1234567890",DocType.order,new MyDate(2015, 12, 21),DocState.wait,sender1,receiver1,goodMes1,otherMes1,transferDocs1);
 		
 		PeopleMes sender=new PeopleMes("王二","13390949086","复旦大学", "上海市杨浦区23花园230");
 		PeopleMes receiver=new PeopleMes("李四","13049030987","南京大学", "南京市鼓楼区34花园394");
         GoodMes goodMes=new GoodMes(1, "服装", 0.2, 20, 20, 20);
-        OtherOrderMes otherMes=new OtherOrderMes("快递袋", "普通快递", 2, 10,null, null);
+        OtherOrderMes otherMes=new OtherOrderMes("快递袋", "普通快递", new MyDate(2015, 10, 25),2, 10,null, null);
         TransferDocs transferDocs=new TransferDocs(null, null, null, null, null, null, null, null, null);
 		OrderVO two=new OrderVO("1234567899",DocType.order,new MyDate(2015, 12, 23),DocState.wait,sender,receiver,goodMes,otherMes,transferDocs);
 	
 		order.add(one);
 		order.add(two);
 		return order;
+	}
+
+	@Override
+	public double getEstiDate(City one, City two) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public ResultMessage setEstiDate(double day, City one, City two) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

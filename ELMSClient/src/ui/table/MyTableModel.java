@@ -19,7 +19,7 @@ public class MyTableModel extends DefaultTableModel {
 
 	public MyTableModel(Object[] headers, Object[][] data) {
 		super(data, headers);
-
+		setDataVector(dataVector, columnIdentifiers);
 		if(data == null||data.length==0){
 			return;
 		}

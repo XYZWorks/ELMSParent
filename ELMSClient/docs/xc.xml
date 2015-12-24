@@ -241,6 +241,8 @@
 
 					<cost text="" x="300" y="668" width="225" height="65"
 						one="courier//cost" fontName="Microsoft YaHei" />
+						
+					<costText text="" x="390" y="668" width="225" height="65" size="38"/>
 				</LABELS>
 
 
