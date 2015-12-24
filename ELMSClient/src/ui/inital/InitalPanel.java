@@ -81,15 +81,12 @@ public class InitalPanel extends MyPanel {
 	private void addOtherPanel(Element e) {
 		AccountType type = vo.type;
 //		controller=new CourierController(this, e.element("Courier"));
-<<<<<<< HEAD
-	//	controller = new SaleManController(this, e.element("Salesman"));
-=======
-//		controller = new SaleManController(this, e.element("Salesman"));
->>>>>>> origin/master
-//		return;
-		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
 
-		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
+	//	controller = new SaleManController(this, e.element("Salesman"));
+
+//		controller = new SaleManController(this, e.element("Salesman"));
+
+	//	controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
 		
 //		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
 //
@@ -100,7 +97,7 @@ public class InitalPanel extends MyPanel {
 			controller = new AdminstratorController(this, e.element("Adminstrator"));
 			break;
 		case courier:
-			controller = new CourierController(this, e.element("Courier"));
+			controller = new CourierController(this, e.element("CourierManager"));
 			break;
 		case financeman:
 			controller = new FinanceController(this, e.element("Financeman"));
