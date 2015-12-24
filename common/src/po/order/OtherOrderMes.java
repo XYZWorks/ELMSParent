@@ -16,7 +16,10 @@ public class OtherOrderMes {
 	 * 订单的快递形式（经济快递、标准快递、特快快递）
 	 */
 	private String orderForm;
-
+	/**
+	 * 起始时间
+	 */
+	private MyDate orderStartDate;
 	/**
 	 * 预计订单于几天内送达
 	 */
@@ -86,7 +89,7 @@ public class OtherOrderMes {
 	}
 
 	public OtherOrderMes(String goodPack, String orderForm, int orderEestiTime,
-			double total, String realReceiver, MyDate orderReceiveDate) {
+			double total, String realReceiver, MyDate orderStartDate, MyDate orderReceiveDate) {
 		super();
 		this.goodPack = goodPack;
 		this.orderForm = orderForm;
@@ -94,6 +97,7 @@ public class OtherOrderMes {
 		this.orderCost = total;
 		this.realReceiver = realReceiver;
 		this.orderReceiveDate = orderReceiveDate;
+		this.orderStartDate = orderStartDate;
 	}
 	
 	
