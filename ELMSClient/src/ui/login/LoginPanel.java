@@ -31,7 +31,7 @@ public class LoginPanel extends JPanel {
 	private Image bglogin1;
 	private Image bglogin2;
 	
-	private final String pre = "login\\";
+	private final String pre = "login//";
 	
 	public LoginPanel() {
 		bg = GraphicsUtils.getImage(pre +"bg");
