@@ -12,6 +12,7 @@ import po.transport.SendGoodDocPO;
 import po.transport.TransferDocPO;
 import test.java.other.DataTool;
 import test.java.other.VOPOchange;
+import util.DocState;
 import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
@@ -334,6 +335,77 @@ public class Transport {
 		
 		
 		return null;
+	}
+
+	public ArrayList<? extends DocVO> getDocLists(DocType type) {
+		ArrayList<DocVO> docVOs = new ArrayList<>();
+		ArrayList<DocPO> docPOs;
+		
+		try {
+			docPOs = (ArrayList<DocPO>) transportData.getDocLists(type);
+			if(docPOs == null || docPOs.isEmpty()){
+				return null;
+			}
+			
+			docVOs = new ArrayList<>(docPOs.size());
+			switch (type) {
+			case arriveYYDoc:
+				for (DocPO docPO : docPOs) {
+					docVOs.add((ArriveYYDocVO) VOPOchange.POtoVO((ArriveYYDocPO)docPO));
+				}
+				break;
+			case loadDoc:
+				for (DocPO docPO : docPOs) {
+					docVOs.add((LoadDocVO) VOPOchange.POtoVO((LoadDocPO)docPO));
+				}
+				break;
+			case sendGoodDoc:
+				for (DocPO docPO : docPOs) {
+					docVOs.add((SendGoodDocVO) VOPOchange.POtoVO((SendGoodDocPO)docPO));
+				}
+				break;
+			case transferDoc:
+				for (DocPO docPO : docPOs) {
+					docVOs.add((TransferDocVO) VOPOchange.POtoVO((TransferDocPO)docPO));
+				}
+				break;
+			case arriveZZDoc:
+				for (DocPO docPO : docPOs) {
+					docVOs.add((ArriveZZDocVO) VOPOchange.POtoVO((ArriveZZDocPO)docPO));
+				}
+				break;
+			default:
+				System.err.println("类型传递错误，transport不应有其他单据类型！");
+				return null;
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return docVOs;
+	}
+
+	public ResultMessage changeDocsState(ArrayList<String> docsID,
+			DocType type, DocState state) {
+		
+		try {
+			return transportData.changeDocsState(docsID, type, state);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.SQL_ERROR;
+	}
+
+	public ResultMessage changeOneDocState(String docID, DocType type,
+			DocState state) {
+		try {
+			return transportData.changeOneDocState(docID, type, state);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.SQL_ERROR;
 	}
 
 }

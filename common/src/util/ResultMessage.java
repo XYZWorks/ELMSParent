@@ -25,7 +25,7 @@ public enum ResultMessage {
 	 */
 	NOT_EXIST,
 	
-	
+	SQL_ERROR,
 	
 	MONEY_NOT_ENOUGH;
 	

@@ -212,12 +212,12 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage {
 		protected boolean saveToSQL() {
 			
 			switch (tempI) {
-			case 0:consts.mileInBN = Integer.parseInt(instancec);break;
-			case 1:consts.mileInBS = Integer.parseInt(instancec);break;
-			case 2:consts.mileInBG = Integer.parseInt(instancec);break;
-			case 3:consts.mileInNS = Integer.parseInt(instancec);break;
-			case 4:consts.mileInNG = Integer.parseInt(instancec);break;
-			case 5:consts.mileINSG = Integer.parseInt(instancec);break;
+			case 0:consts.mileInBN = Double.parseDouble(instancec);break;
+			case 1:consts.mileInBS = Double.parseDouble(instancec);break;
+			case 2:consts.mileInBG = Double.parseDouble(instancec);break;
+			case 3:consts.mileInNS = Double.parseDouble(instancec);break;
+			case 4:consts.mileInNG = Double.parseDouble(instancec);break;
+			case 5:consts.mileINSG = Double.parseDouble(instancec);break;
 			default:break;
 			}
 			
@@ -417,7 +417,7 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage {
 		arriveCity.addItemListener(aListener);
 	}
 
-	private int instanceBetweenCity(String start, String end) {
+	private double instanceBetweenCity(String start, String end) {
 
 		for(int i = 0 ; i < 2 ; i++){
 			switch (start) {

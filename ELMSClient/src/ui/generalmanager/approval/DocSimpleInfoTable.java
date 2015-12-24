@@ -108,10 +108,7 @@ public class DocSimpleInfoTable extends MyTablePanel{
 	 * @param type
 	 */
 	public void changeDocType(DocType type){
-		initialMes();
 		this.type = type;
-		
-		vos = bl.getBills(type);
 		initialMes();
 		MyTableModel dtm = new MyTableModel(columnNames, data){
 			@Override
@@ -155,6 +152,10 @@ public class DocSimpleInfoTable extends MyTablePanel{
 	
 	private void initialMes(){
 		vos =  bl.getBills(type);
+		System.err.println(type);
+		if(vos != null){
+			System.err.println(vos.size());
+		}
 		
 		if(vos==null){
 			return;
