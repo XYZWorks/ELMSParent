@@ -2,6 +2,8 @@ package ui.storeman.arrivezz;
 
 import java.util.ArrayList;
 
+import javax.swing.JPanel;
+
 import org.dom4j.Element;
 
 import ui.config.UserfulMethod;
@@ -14,6 +16,8 @@ import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
+import ui.util.DocPanelForApproval;
+import ui.util.MyBackListener;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
 import util.City;
@@ -30,7 +34,7 @@ import blservice.transportblservice.Transportblservice;
  *
  */
 @SuppressWarnings("serial")
-public class ArriveZZDocAdd extends MyPanel {
+public class ArriveZZDocAdd extends MyPanel implements DocPanelForApproval{
 
 	
 	private MyPictureButton confirmButton;
@@ -55,6 +59,7 @@ public class ArriveZZDocAdd extends MyPanel {
 	private MyDatePicker picker;
 	PanelController controller;
 	Transportblservice bl;
+	
 
 	public ArriveZZDocAdd(Element config, Transportblservice bl, PanelController controller) {
 		super(config);
@@ -67,6 +72,11 @@ public class ArriveZZDocAdd extends MyPanel {
 
 		initOtherCompoment(config);
 		addCompoment();
+		//单据审批界面传进来的是空指针= =
+		if(controller == null){
+			return;
+		}
+		
 		addListener();
 	}
 
@@ -195,5 +205,40 @@ public class ArriveZZDocAdd extends MyPanel {
 			ArriveZZPanel aPanel = (ArriveZZPanel) controller.getPanelMap().get("ArriveZZPanel");
 			aPanel.arriveZZTablePanel.updateTableMes();
 		}
+	}
+
+	@Override
+	public void setAllCompUneditOrUnVisiable() {
+		IDT.setEditable(false);
+		centerT.setEditable(false);
+		goodStateC.setEnabled(false);
+		sendCityC.setEnabled(false);
+		ordersT.setEnabled(false);
+		
+		confirmButton.setVisible(false);
+		returnButton.setVisible(false);
+		
+	}
+
+	@Override
+	public void addBackButton(JPanel changePanel, String backStr) {
+		MyPictureButton back = new MyPictureButton();
+		add(back);
+		back.addMouseListener(new MyBackListener(back, changePanel, backStr));
+	}
+	
+	@Override
+	public void setMessage(Object o) {
+		if(o == null){
+			return;
+		}
+		ArriveZZDocVO vo = (ArriveZZDocVO) o;
+		IDT.setText(vo.ID);
+		centerT.setText(vo.zZID);
+		goodStateC.setSelectedItem(vo.goodState.getName());
+		sendCityC.setSelectedItem(vo.sendCity.getName());
+		picker.setTime(vo.date);
+		ordersT.setText(UserfulMethod.orderArrayToString(vo.orderBarCodes));
+		
 	}
 }

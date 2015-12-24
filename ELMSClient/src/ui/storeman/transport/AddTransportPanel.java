@@ -1,15 +1,11 @@
 package ui.storeman.transport;
 
-import java.awt.event.MouseEvent;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+import javax.swing.JPanel;
+
 import org.dom4j.Element;
-import org.omg.PortableInterceptor.SUCCESSFUL;
 
-import com.eltima.components.ui.r;
-
-import blservice.transportblservice.Transportblservice;
 import ui.config.UserfulMethod;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
@@ -20,20 +16,24 @@ import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
-import ui.util.MyPictureButtonListener;
+import ui.util.DocPanelForApproval;
+import ui.util.MyBackListener;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
 import util.City;
 import util.MyDate;
 import util.ResultMessage;
+import vo.transport.ArriveZZDocVO;
 import vo.transport.TransferDocVO;
+import blservice.transportblservice.Transportblservice;
 
 /** 
  * @author ymc 
  * @version 创建时间：2015年12月5日 下午5:05:44 
  *
  */
-public class AddTransportPanel extends MyPanel {
+@SuppressWarnings("serial")
+public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
 
 	private MyPictureButton confirmButton;
 	private MyPictureButton returnButton;
@@ -198,6 +198,36 @@ public class AddTransportPanel extends MyPanel {
 			tPanel.table.updateTableMes();
 
 		}
+	}
+
+	@Override
+	public void setAllCompUneditOrUnVisiable() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addBackButton(JPanel changePanel, String backStr) {
+		MyPictureButton back = new MyPictureButton();
+		add(back);
+		back.addMouseListener(new MyBackListener(back, changePanel, backStr));
+	}
+
+	@Override
+	public void setMessage(Object o) {
+		if(o == null){
+			return;
+		}
+		TransferDocVO vo = (TransferDocVO) o;
+		IDT.setText(vo.ID);
+		containerT.setText(String.valueOf(vo.containerNum));
+		LoadManNameT.setText(vo.loadManName);
+		
+		numberT.setText(String.valueOf(vo.containerNum));
+		sendCityC.setSelectedItem(vo.sendCity.getName());
+		picker.setTime(vo.date);
+		ordersT.setText(UserfulMethod.orderArrayToString(vo.orderBarCode));
+		
 	}
 
 }

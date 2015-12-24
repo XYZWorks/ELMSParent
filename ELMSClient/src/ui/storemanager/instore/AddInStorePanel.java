@@ -1,13 +1,10 @@
 package ui.storemanager.instore;
 
-import java.util.ArrayList;
+import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import bl.storebl.StoreController;
-import ui.inital.initialPanel3;
 import ui.storemanager.StoreManagerController;
-import ui.table.MyTablePanel;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyJumpListener;
@@ -17,19 +14,23 @@ import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
+import ui.util.DocPanelForApproval;
+import ui.util.MyBackListener;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
 import util.City;
 import util.ResultMessage;
 import util.TransferWay;
 import vo.store.InStoreDocVO;
+import bl.storebl.StoreController;
 
 /**
  * @author ymc
  * @version 创建时间：2015年12月6日 下午2:27:17
  *
  */
-public class AddInStorePanel extends MyPanel {
+@SuppressWarnings("serial")
+public class AddInStorePanel extends MyPanel implements DocPanelForApproval{
 
 	MyPictureButton confirmButton;
 	MyPictureButton returnButton;
@@ -60,6 +61,11 @@ public class AddInStorePanel extends MyPanel {
 
 		initOtherCompoment(config);
 		addCompoment();
+		//一切为了单据审批= =
+		if(controller == null){
+			return;
+		}
+		
 		addListener();
 	}
 
@@ -176,6 +182,33 @@ public class AddInStorePanel extends MyPanel {
 
 		}
 
+	}
+
+	@Override
+	public void setAllCompUneditOrUnVisiable() {
+		
+		
+	}
+
+	@Override
+	public void addBackButton(JPanel changePanel, String backStr) {
+		MyPictureButton back = new MyPictureButton();
+		add(back);
+		back.addMouseListener(new MyBackListener(back, changePanel, backStr));
+		
+	}
+
+	@Override
+	public void setMessage(Object o) {
+		if(o == null){
+			return;
+		}
+		InStoreDocVO vo = (InStoreDocVO) o;
+		IDT.setText(vo.ID);
+		
+		picker.setTime(vo.date);
+		sendCityC.setSelectedItem(vo.loc.getName());
+		
 	}
 
 }

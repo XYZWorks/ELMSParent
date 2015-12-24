@@ -1,8 +1,10 @@
 package ui.generalmanager.approval;
 
 import java.awt.CardLayout;
+import java.awt.Component;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.swing.JPanel;
 
@@ -12,9 +14,8 @@ import ui.saleman.ArriveYYDoc.ArriveYYDocAddPanel;
 import ui.saleman.LoadDoc.LoadDocAddPanel;
 import ui.saleman.SendGoodDoc.SendGoodDocAddPanel;
 import ui.storeman.arrivezz.ArriveZZDocAdd;
-import ui.storeman.arrivezz.ArriveZZPanel;
-import ui.tools.MyPanel;
-import ui.tools.MyPictureButton;
+import ui.storemanager.instore.AddInStorePanel;
+import ui.storemanager.outstore.AddOutStorePanel;
 import ui.util.DocPanelForApproval;
 import util.DocType;
 
@@ -34,10 +35,11 @@ public class ApprovalDetailPanel{
 	
 	private ArriveYYDocAddPanel arriveYYDocPanel;
 	private LoadDocAddPanel loadDocPanel;
-	
 	private ArriveZZDocAdd arriveZZPanel;
 	private SendGoodDocAddPanel sendGoodDocPanel;
-//	private Transfer
+	private AddInStorePanel inStorePanel;
+	private AddOutStorePanel outStorePanel;
+//	private TransferD
 	private Map<DocType, DocPanelForApproval> docsPanels = new HashMap<>(15);
 	
 	
@@ -55,7 +57,6 @@ public class ApprovalDetailPanel{
 		this.panelManager = (CardLayout) changePanel.getLayout();
 		
 		myInit(config);
-		addToChangePanel();
 		addToMap();
 		setPanelState();
 	}
@@ -65,25 +66,26 @@ public class ApprovalDetailPanel{
 		
 		arriveYYDocPanel = new ArriveYYDocAddPanel(e.element("arriveYYDocShowPanelAddPanel"), changePanel, ApprovalDocsPanel.approvalPanelStr, null);
 		loadDocPanel = new LoadDocAddPanel(e.element("loadDocShowpanelAddPanel"), changePanel, ApprovalDocsPanel.approvalPanelStr, null);
-		sendGoodDocPanel = new SendGoodDocAddPanel(e.element(""), changePanel, ApprovalDocsPanel.approvalPanelStr, null);
+		sendGoodDocPanel = new SendGoodDocAddPanel(e.element("sendGoodDocShowPanelAddPanel"), changePanel, ApprovalDocsPanel.approvalPanelStr, null);
+		arriveZZPanel = new ArriveZZDocAdd(e.element("AddArriveZZPanel"), null, null);
+		inStorePanel = new AddInStorePanel(e.element("AddInStorePanel"), null, null);
+		outStorePanel = new AddOutStorePanel(e.element("AddOutStorePanel"), null, null);
+	
 	}
 	
-	private void addToChangePanel(){
-		changePanel.add(arriveYYDocPanel, DocType.arriveYYDoc.name());
-		changePanel.add(loadDocPanel , DocType.loadDoc.name());
-		changePanel.add(sendGoodDocPanel , DocType.sendGoodDoc.name());
-	}
 	private void addToMap(){
 		docsPanels.put(DocType.arriveYYDoc, arriveYYDocPanel);
 		docsPanels.put(DocType.loadDoc, loadDocPanel);
 		docsPanels.put(DocType.sendGoodDoc, sendGoodDocPanel);
+		docsPanels.put(DocType.arriveZZDoc, arriveZZPanel);
+		docsPanels.put(DocType.inStoreDoc, inStorePanel);
+		docsPanels.put(DocType.outStoreDoc, outStorePanel);
 	}
 	private void setPanelState(){
-		arriveYYDocPanel.setAllCompUneditOrUnVisiable();
-		arriveYYDocPanel.addBackButton(changePanel, ApprovalDocsPanel.approvalPanelStr);
-		loadDocPanel.setAllCompUneditOrUnVisiable();
-		loadDocPanel.addBackButton(changePanel, ApprovalDocsPanel.approvalPanelStr);
-		sendGoodDocPanel.setAllCompUneditOrUnVisiable();
-		sendGoodDocPanel.addBackButton(changePanel, ApprovalDocsPanel.approvalPanelStr);
+		for (Entry<DocType, DocPanelForApproval> docPanel : docsPanels.entrySet()) {
+			docPanel.getValue().setAllCompUneditOrUnVisiable();
+			docPanel.getValue().addBackButton(changePanel, ApprovalDocsPanel.approvalPanelStr);
+			changePanel.add((Component) docPanel.getValue(), docPanel.getKey().name());
+		}
 	}
 }

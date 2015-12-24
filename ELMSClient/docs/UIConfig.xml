@@ -81,6 +81,186 @@
 			</mainWindow>
 
 			<ApprovalPanel x="232" y="54" width="848" height="637">
+					<AddInStorePanel x="232" y="54" width="848" height="637">
+			 	
+			 		<BUTTONS>
+			 			<confirm x="500" y="500" width="150" height="100" text="确认"
+						type="rectangle"/>
+						<return x="700" y="500" width="150" height="100" text="返回"
+						type="rectangle"/>
+			 		</BUTTONS>
+			 		
+			 		<LABELS>
+						<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="35"
+						text="入库单" type="rectangle"/>
+			 			<ID  x="420" y="150" width="200" height="100"  
+						text="入库单编号" type="rectangle"/>
+						<date  x="420" y="20" width="200" height="100"  
+						text="生成时间" type="rectangle"/>
+						
+						<sendCity  x="50" y="150" width="200" height="100"  
+						text="目的地" type="rectangle"/>	
+						<locInfo  x="50" y="240" width="200" height="100"  
+						text="订单及其位置" type="rectangle"/>
+						
+			 			
+						
+			 		</LABELS>
+	
+			 		
+			 		<TEXTFIELDS>
+			 			<ID x="550" y="180" width="200" height="45"/>
+			 			
+			 			
+			 		
+			 		</TEXTFIELDS>
+			 		
+			 		<sendCityC x="150" y="187" width="240" height="30"
+					strings="南京 广州 上海 北京" />
+					
+					
+			 		
+			 		<DatePicker x="550" y="50" width="200" height="50">
+						<field   x="100" y="0" width="350" height="50"      />
+						<button    x="350" y="0" width="50" height="50"  />
+					
+					</DatePicker>
+					
+					<table x="62" y="325" width="730" height="180"  columnName="订单号 区号 排号 架号 位号"/>
+			 	</AddInStorePanel>
+			 	<AddOutStorePanel x="232" y="54" width="848" height="637">
+			 	
+			 		<BUTTONS>
+			 			<confirm x="500" y="500" width="150" height="100" text="确认"
+						type="rectangle"/>
+						<return x="700" y="500" width="150" height="100" text="返回"
+						type="rectangle"/>
+			 		</BUTTONS>
+			 		
+			 		<LABELS>
+						<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="35"
+						text="出库单" type="rectangle"/>
+			 			<ID  x="50" y="150" width="200" height="100"  
+						text="出库单编号" type="rectangle"/>
+						<date  x="420" y="20" width="200" height="100"  
+						text="生成时间" type="rectangle"/>
+						
+						<sendCity  x="420" y="150" width="200" height="100"  
+						text="目的地" type="rectangle"/>	
+						<order  x="50" y="420" width="200" height="100"  
+						text="订单编号" type="rectangle"/>
+						<transferDoc  x="50" y="290" width="200" height="100"  
+						text="中转单编号" type="rectangle"/>
+			 			<shipWay  x="420" y="290" width="200" height="100"  
+						text="装运形式" type="rectangle"/>
+						
+			 		</LABELS>
+	
+			 		
+			 		<TEXTFIELDS>
+			 			<ID x="180" y="180" width="200" height="45"/>
+			 			<order x="180" y="450" width="500" height="45" />
+			 			<transferDoc x="180" y="320" width="200" height="45" />
+			 		</TEXTFIELDS>
+			 			
+			 			
+			 		
+			 		
+			 		
+			 		<sendCityC x="520" y="187" width="240" height="30"
+					strings="南京 广州 上海 北京" />
+					<shipWayC x="520" y="327" width="240" height="30"
+					strings="飞机 火车 汽车" />
+					
+			 		
+			 		<DatePicker x="550" y="50" width="200" height="50">
+						<field   x="100" y="0" width="350" height="50"      />
+						<button    x="350" y="0" width="50" height="50"  />
+					
+					</DatePicker>
+					
+					<table x="62" y="325" width="730" height="180"  columnName="订单号 区号 排号 架号 位号"/>
+			 	</AddOutStorePanel>
+				
+				<AddArriveZZPanel x="232" y="54" width="848" height="637">
+			 	
+			 		<BUTTONS>
+			 			<confirm x="500" y="500" width="150" height="100" text="确认"
+						type="rectangle"/>
+						<return x="700" y="500" width="150" height="100" text="返回"
+						type="rectangle"/>
+			 		</BUTTONS>
+			 		
+			 		<LABELS>
+						<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="35"
+						text="到达单" type="rectangle"/>
+			 			<ID  x="420" y="150" width="200" height="100"  
+						text="到达单编号" type="rectangle"/>
+						<date  x="420" y="20" width="200" height="100"  
+						text="生成时间" type="rectangle"/>
+						<center  x="50" y="150" width="200" height="100"  
+						text="中转中心编号" type="rectangle"/>
+						<sendCity  x="50" y="300" width="200" height="100"  
+						text="到达地" type="rectangle"/>
+						<goodState  x="420" y="300" width="200" height="100"  
+						text="货物状态" type="rectangle"/>
+						<orders  x="50" y="450" width="200" height="100"  
+						text="所含订单编号" type="rectangle"/>
+						<tip  x="100" y="500" width="500" height="100" name="华文细黑" size="15"
+						text="多个订单号以逗号隔开" type="rectangle"/>
+			 			
+						
+			 		</LABELS>
+	
+			 		
+			 		<TEXTFIELDS>
+			 			<ID x="550" y="180" width="200" height="45"/>
+			 			
+			 			<center x="200" y="180" width="200" height="45"/>
+			 			<orders x="200" y="480" width="600" height="45"/>
+			 		
+			 		</TEXTFIELDS>
+			 		
+			 		<sendCityC x="170" y="335" width="240" height="30"
+					strings="南京 广州 上海 北京" />
+					
+					<goodStateC x="550" y="335" width="240" height="30"
+					strings="完整 损坏 丢失" />
+			 		
+			 		<DatePicker x="550" y="50" width="200" height="50">
+						<field   x="100" y="0" width="350" height="50"      />
+						<button    x="350" y="0" width="50" height="50"  />
+					
+					</DatePicker>
+			 	</AddArriveZZPanel>
+				
+				<sendGoodDocShowPanelAddPanel x="232"
+					y="54" width="1080" height="637">
+					<BUTTONS>
+						<confirm x="550" y="560" width="89" height="40" text="确认"
+							type="confirm" />
+						<cancel x="700" y="560" width="89" height="40" text="取消"
+							type="cancel" />
+						<back x="0" y="0" width="53" height="53" text="返回" type="back" />
+					</BUTTONS>
+					<LABELS>
+						<id x="60" y="120" width="115" height="40" text="ID" type="rectangle" />
+						<sendMan x="60" y="180" width="115" height="40" text="快递员"
+							type="rectangle" />
+						<orderBarCode x="60" y="240" width="115" height="40"
+							text="订单条形码" type="rectangle" />
+						<sendCity x="60" y="300" width="115" height="40" text="目的地"
+							type="rectangle" />
+					</LABELS>
+					<TEXTFIELDS>
+						<id x="200" y="120" width="200" height="40" />
+						<sendMan x="200" y="180" width="200" height="40" />
+						<orderBarCode x="200" y="240" width="200" height="40" />
+					</TEXTFIELDS>
+					<datepicker x="588" y="60" width="200" height="40" />
+					<sendCity x="200" y="300" width="200" height="40" strings="南京 北京 上海 广州" />
+				</sendGoodDocShowPanelAddPanel>
+				
 				<loadDocShowpanelAddPanel x="232" y="54"
 					width="848" height="637">
 					<BUTTONS>

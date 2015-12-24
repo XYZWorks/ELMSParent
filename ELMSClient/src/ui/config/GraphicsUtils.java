@@ -51,7 +51,7 @@ public class GraphicsUtils {
 	public static final ButtonOrLabelPicture getButtonLabelPic(String type){
 		ButtonOrLabelPicture pics  = labelPictureMap.get(type);
 		if(pics == null){
-			return labelPictureMap.get(1);
+			return labelPictureMap.get("rectangle");
 		}
 		return pics;
 		

@@ -57,8 +57,21 @@ public class MyPictureButton extends JLabel {
 		this.repaint();
 		this.setVisible(true);
 	}
-	
-	
+	/**
+	 * 用于返回按钮
+	 */
+	public MyPictureButton(){
+		ButtonOrLabelPicture pics = GraphicsUtils.getButtonLabelPic("back");
+		normal = pics.getNormal();
+		clicked = pics.getClicked();
+		entered = pics.getEnter();
+		this.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		this.setIcon(normal);
+		
+		this.setBounds(0 , 0  , 50 , 50);
+		this.repaint();
+		this.setVisible(true);
+	}
 	
 	
 	public void setMyIcon(ButtonState state) {
