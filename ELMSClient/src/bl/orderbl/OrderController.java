@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import net.RMIManage;
 import ds.orderdataservice.OrderDataService;
+import util.City;
 import util.DataServiceType;
 import util.DocState;
 import util.DocType;
@@ -90,6 +91,15 @@ public class OrderController implements Orderblservice{
 	public DocVO getByID(String ID, DocType type) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public double getEstiDate(City one,City two) {
+		return order.getEstiDate(one,two);
+	}
+	@Override
+	public ResultMessage setEstiDate(double day,City one,City two) {
+		
+		return order.setEstiDate(day,one,two);
 	}
 	
 }

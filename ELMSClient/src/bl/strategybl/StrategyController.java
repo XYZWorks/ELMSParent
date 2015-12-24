@@ -8,6 +8,7 @@ import util.DataServiceType;
 import util.ResultMessage;
 import util.StaffType;
 import vo.strategy.ConstVO;
+import vo.strategy.EstiDateVO;
 import vo.strategy.SalaryWayVO;
 import blservice.strategyblservice.StrategyblService;
  /** 
@@ -43,6 +44,16 @@ public class StrategyController implements StrategyblService{
 
 	public ResultMessage setSalary(SalaryWayVO way) {
 		return strategy.setSalary(way);
+	}
+
+	@Override
+	public EstiDateVO getEstiDateVO() {	
+		return strategy.getEstiDateVO();
+	}
+
+	@Override
+	public ResultMessage setEstiDateVO(EstiDateVO vo) {
+		return strategy.setEstiDateVO(vo);
 	}
 
 }

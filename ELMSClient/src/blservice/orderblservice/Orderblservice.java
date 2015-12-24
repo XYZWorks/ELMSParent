@@ -2,6 +2,7 @@ package blservice.orderblservice;
 
 import java.util.ArrayList;
 
+import util.City;
 import util.MyDate;
 import util.ResultMessage;
 import vo.DocVO;
@@ -9,6 +10,7 @@ import vo.order.OrderSimpleInfoVO;
 import vo.order.OrderVO;
 import vo.order.PreReceiveVO;
 import vo.order.ReceiveVO;
+import vo.strategy.EstiDateVO;
 import blservice.DocApprovalService;
 
 /**
@@ -77,6 +79,15 @@ public interface Orderblservice extends DocApprovalService{
 	 * 
 	 */
 	public ArrayList<OrderVO> getOrderVO(MyDate date);
-	
+	/**
+	 * 得到预计时间
+	 * @return
+	 */
+	public double getEstiDate(City one,City two);
+	/**
+	 * 设置预计时间
+	 * @return
+	 */
+	public ResultMessage setEstiDate(double day,City one,City two);
 	
 }
