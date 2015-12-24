@@ -98,14 +98,25 @@ public class Strategy {
 	public EstiDateVO getEstiDateVO() {
 		
 		EstiDatePO po = null;
-		po = strategyData.getEstiDatePO();
+		try {
+			po = strategyData.getEstiDatePO();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		EstiDateVO vo = (EstiDateVO) VOPOchange.POtoVO(po);
 		return vo;
 	}
 	public ResultMessage setEstiDateVO(EstiDateVO vo) {
 		EstiDatePO po = (EstiDatePO) VOPOchange.VOtoPO(vo);
-		return strategyData.setEstiDatePO(po);
+		try {
+			return strategyData.setEstiDatePO(po);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
 	}
 
 }

@@ -6,6 +6,7 @@ import blservice.strategyblservice.StrategyblService;
 import util.ResultMessage;
 import util.StaffType;
 import vo.strategy.ConstVO;
+import vo.strategy.EstiDateVO;
 import vo.strategy.SalaryWayVO;
 
 /**
@@ -47,6 +48,18 @@ public class strategybl_stub implements StrategyblService {
 
 	@Override
 	public ResultMessage setSalary(SalaryWayVO way) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public EstiDateVO getEstiDateVO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage setEstiDateVO(EstiDateVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
