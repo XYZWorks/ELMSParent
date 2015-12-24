@@ -2,6 +2,7 @@ package ui.courier.inputInfoReceive;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 import org.dom4j.Element;
 
@@ -16,6 +17,9 @@ import ui.tools.MySearchBox;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
+import util.MyDate;
+import vo.order.PreReceiveVO;
+import vo.order.ReceiveVO;
 
 @SuppressWarnings("serial")
 public class InputReceiveInfoPanel extends MyPanel{
@@ -73,7 +77,8 @@ public class InputReceiveInfoPanel extends MyPanel{
 		datePicker=new MyDatePicker(e.element("datePicker"));
 		searchBox=new MySearchBox(e.element("searchBox"));
 		//initTabel
-		table=new inputReceiveTablePanel(e.element("inputReceiveTable"), bl);
+		table=new inputReceiveTablePanel(e.element("inputReceiveTable"), bl,this);
+		
 		
 	}
 
@@ -102,8 +107,17 @@ public class InputReceiveInfoPanel extends MyPanel{
 
 			@Override
 			protected boolean saveToSQL() {
-				//直接读到数据库里
-
+				//直接读到
+				ArrayList<PreReceiveVO>preReceiveVOs=table.getPreReceive();
+				for(int i=0;i<preReceiveVOs.size();i++){
+//					try{
+						table.getValueAt(i, 4);
+//					}catch{
+//						
+//					}
+					ReceiveVO receiveVO=new ReceiveVO(preReceiveVOs.get(i).barCode,vodate,(String)table.getValueAt(i,3));
+					bl.receiveInfo(receiveVO);
+				}
 				
 				return true;
 			}
