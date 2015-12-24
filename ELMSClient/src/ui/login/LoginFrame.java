@@ -247,7 +247,7 @@ class MyCheckOrderListener extends MouseAdapter{
 
 public static void main(String[] args) {
 	//
-	ParseXML xmlReader = new ParseXML("xc.xml");
+	ParseXML xmlReader = new ParseXML("UIConfig.xml");
 	new LoginFrame(xmlReader.getConfig("loginframe"));
 }	
 }

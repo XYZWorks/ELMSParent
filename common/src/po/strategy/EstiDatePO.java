@@ -30,7 +30,6 @@ public class EstiDatePO {
 	 * 上海、广州预计时间
 	 */
 	private double dayInSG;
-	
 	/**
 	 * 同城 预计时间
 	 */
