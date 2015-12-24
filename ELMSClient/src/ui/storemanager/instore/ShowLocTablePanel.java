@@ -3,6 +3,7 @@ package ui.storemanager.instore;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import org.dom4j.Element;
@@ -12,6 +13,9 @@ import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import ui.tools.MyButton;
 import ui.tools.MyLabel;
+import ui.tools.MyPictureButton;
+import ui.util.DocPanelForApproval;
+import ui.util.MyBackListener;
 import util.MyDate;
 import vo.store.InStoreDocVO;
 
@@ -20,7 +24,7 @@ import vo.store.InStoreDocVO;
  * @version 创建时间：2015年12月8日 上午11:12:09 
  *
  */
-public class ShowLocTablePanel extends MyTablePanel {
+public class ShowLocTablePanel extends MyTablePanel{
 	
 	protected static final int COLUMN_NUM = 5;
 
@@ -98,5 +102,7 @@ public class ShowLocTablePanel extends MyTablePanel {
 		}
 		
 	}
+
+	
 
 }

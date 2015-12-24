@@ -50,6 +50,16 @@ public class TransferDocVO extends DocVO{
 		this.orderBarCode = orderBarCode;
 	}
 	
+	public TransferDocVO(String iD,  MyDate date,
+			String transferWayID, City sendCity, int containerNum,
+			String loadManName, ArrayList<String> orderBarCode) {
+		super(iD, DocType.transferDoc, date, DocState.wait);
+		this.transferWayID = transferWayID;
+		this.sendCity = sendCity;
+		this.containerNum = containerNum;
+		this.loadManName = loadManName;
+		this.orderBarCode = orderBarCode;
+	}
 	
 	
 	

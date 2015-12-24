@@ -1,5 +1,7 @@
 package ui.storemanager.storecheck;
 
+import java.awt.event.MouseEvent;
+
 import org.dom4j.Element;
 
 import bl.storebl.StoreController;
@@ -12,8 +14,11 @@ import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
+import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
+import ui.util.TipsDialog;
 import util.MyDate;
+import util.ResultMessage;
 import vo.store.StoreMessageVO;
 
 /** 
@@ -91,11 +96,31 @@ public class StoreCheckInfoPanel extends StoreSingleShowPanel {
 
 	@Override
 	protected void addListener() {
-		
+		confirmButton.addMouseListener(new ExportListener(confirmButton));
 		returnButton.addMouseListener(new MyJumpListener(returnButton, "StoreCheckPanel", controller,true));
 
 	}
 	
+	class ExportListener extends MyPictureButtonListener{
+
+		public ExportListener(MyPictureButton button) {
+			super(button);
+			
+		}
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			super.mouseClicked(e);
+			ResultMessage result = bl.exportExcel("库存快照"+MyDate.toString(MyDate.getNowTime())+" "+center.getText()+storeNum.getText(), target);
+//			ResultMessage result = bl.exportExcel("库存快照"+MyDate.toString(MyDate.getNowTime()), target);
+
+			if(result==ResultMessage.SUCCESS)
+				new TipsDialog("导出excel成功");
+			else {
+				new TipsDialog("导出excel失败");
+			}
+		}
+		
+	}
 	@Override
 	public void getInfo(String cen, String sto) {
 		center.setText(cen);

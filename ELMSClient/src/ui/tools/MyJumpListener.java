@@ -24,8 +24,10 @@ public class MyJumpListener extends MyPictureButtonListener{
 	public MyJumpListener(MyPictureButton button, String toPanel, PanelController controller,boolean isVisable) {
 		super(button);
 		this.toPanel = toPanel;
-		this.controller = controller;
-		this.layout = controller.getCardLayout();
+		if(controller!=null){
+			this.controller = controller;
+			this.layout = controller.getCardLayout();
+		}
 		this.isVisable = isVisable;
 	}
 	
