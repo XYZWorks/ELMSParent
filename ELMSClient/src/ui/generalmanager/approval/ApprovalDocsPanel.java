@@ -1,6 +1,5 @@
 package ui.generalmanager.approval;
 
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -27,7 +26,6 @@ import blservice.approvalblservice.Approvalblservice;
 @SuppressWarnings("serial")
 public class ApprovalDocsPanel extends MyPanel{
 	
-//	private MyPictureLabel chooseDocType;
 	private MyComboBox DocTypeChooseBox;
 	
 	private DocSimpleInfoTable table;
@@ -47,13 +45,11 @@ public class ApprovalDocsPanel extends MyPanel{
 	private Approvalblservice bl;
 	private ApprovalDetailPanel approvalDetailPanel;
 	private JPanel changePanel;
-	private CardLayout panelManager;
 	
 	public ApprovalDocsPanel(Element config  , Approvalblservice bl, String approvalpanelstr , JPanel changePanel ) {
 		super(config);
 		this.bl = bl;
 		this.changePanel = changePanel;
-		this.panelManager = (CardLayout) changePanel.getLayout();
 		approvalPanelStr = approvalpanelstr;
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
@@ -78,14 +74,13 @@ public class ApprovalDocsPanel extends MyPanel{
 
 	@Override
 	protected void initLabels(Element e) {
-//		chooseDocType = new MyPictureLabel(e.element("choose"));
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
 		table = new DocSimpleInfoTable(e.element("table"), bl , DocType.order);
 		DocTypeChooseBox = new MyComboBox(e.element("type"));
-		approvalDetailPanel = new ApprovalDetailPanel(e, changePanel, this);
+		approvalDetailPanel = new ApprovalDetailPanel(e, changePanel);
 	}
 
 	@Override
@@ -95,8 +90,6 @@ public class ApprovalDocsPanel extends MyPanel{
 		add(approvalOne);
 		add(table);
 		add(checkForMoreInfo);
-//		add(chooseDocType);
-		
 	}
 
 	@Override

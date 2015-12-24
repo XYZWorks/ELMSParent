@@ -12,6 +12,7 @@ import java.awt.event.MouseListener;
 import java.text.DecimalFormat;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
@@ -34,6 +35,7 @@ import ui.tools.MyWhitePanel;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
+import ui.util.DocPanelForApproval;
 import util.DocState;
 import util.DocType;
 import util.MyDate;
@@ -47,7 +49,7 @@ import vo.strategy.ConstVO;
  * 
  */
 @SuppressWarnings("serial")
-public class AddOrderPanel extends MyPanelWithScroller {
+public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApproval{
 
 	// bl
 	private Orderblservice orderblservice;
@@ -862,6 +864,24 @@ public class AddOrderPanel extends MyPanelWithScroller {
 		goodLongText.setText("");
 		goodWidthText.setText("");
 		goodHeightText.setText("");
+	}
+
+	@Override
+	public void setAllCompUneditOrUnVisiable() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addBackButton(JPanel changePanel, String backStr) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setMessage(Object vo) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

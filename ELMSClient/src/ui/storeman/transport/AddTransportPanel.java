@@ -23,7 +23,6 @@ import ui.util.TipsDialog;
 import util.City;
 import util.MyDate;
 import util.ResultMessage;
-import vo.transport.ArriveZZDocVO;
 import vo.transport.TransferDocVO;
 import blservice.transportblservice.Transportblservice;
 
@@ -71,6 +70,11 @@ public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
 
 		initOtherCompoment(config);
 		addCompoment();
+		
+		if(controller == null){
+			return;
+		}
+		
 		addListener();
 	}
 

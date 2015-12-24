@@ -10,10 +10,12 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.courier.AddOrderPanel;
 import ui.saleman.ArriveYYDoc.ArriveYYDocAddPanel;
 import ui.saleman.LoadDoc.LoadDocAddPanel;
 import ui.saleman.SendGoodDoc.SendGoodDocAddPanel;
 import ui.storeman.arrivezz.ArriveZZDocAdd;
+import ui.storeman.transport.AddTransportPanel;
 import ui.storemanager.instore.AddInStorePanel;
 import ui.storemanager.outstore.AddOutStorePanel;
 import ui.util.DocPanelForApproval;
@@ -29,9 +31,6 @@ public class ApprovalDetailPanel{
 	
 	private JPanel changePanel;
 	private CardLayout panelManager;
-	private ApprovalDocsPanel approvalDocsPanel;
-	
-	private DocType type;
 	
 	private ArriveYYDocAddPanel arriveYYDocPanel;
 	private LoadDocAddPanel loadDocPanel;
@@ -39,20 +38,14 @@ public class ApprovalDetailPanel{
 	private SendGoodDocAddPanel sendGoodDocPanel;
 	private AddInStorePanel inStorePanel;
 	private AddOutStorePanel outStorePanel;
-//	private TransferD
-	private Map<DocType, DocPanelForApproval> docsPanels = new HashMap<>(15);
+	private AddTransportPanel transportPanel;
+	private AddOrderPanel orderPanel;
+	private Map<DocType, DocPanelForApproval> docsPanels = new HashMap<>(12);
 	
 	
-	void jumpToDocPanel(Object message , DocType type){
-		System.out.println(type);
-		docsPanels.get(type).setMessage(message);
+	
+	public ApprovalDetailPanel(Element config , JPanel changePanel ) {
 		
-		panelManager.show(changePanel, type.name());
-	}
-	
-	public ApprovalDetailPanel(Element config , JPanel changePanel , ApprovalDocsPanel approvalDocsPanel) {
-		
-		this.approvalDocsPanel = approvalDocsPanel;
 		this.changePanel = changePanel;
 		this.panelManager = (CardLayout) changePanel.getLayout();
 		
@@ -62,7 +55,6 @@ public class ApprovalDetailPanel{
 	}
 	
 	private void myInit(Element e) {
-//		back = new MyPictureButton(e.element("back"));
 		
 		arriveYYDocPanel = new ArriveYYDocAddPanel(e.element("arriveYYDocShowPanelAddPanel"), changePanel, ApprovalDocsPanel.approvalPanelStr, null);
 		loadDocPanel = new LoadDocAddPanel(e.element("loadDocShowpanelAddPanel"), changePanel, ApprovalDocsPanel.approvalPanelStr, null);
@@ -70,8 +62,22 @@ public class ApprovalDetailPanel{
 		arriveZZPanel = new ArriveZZDocAdd(e.element("AddArriveZZPanel"), null, null);
 		inStorePanel = new AddInStorePanel(e.element("AddInStorePanel"), null, null);
 		outStorePanel = new AddOutStorePanel(e.element("AddOutStorePanel"), null, null);
-	
+		orderPanel = new AddOrderPanel(e.element(""), null, null);
+		transportPanel = new AddTransportPanel(e.element(""), null, null);
 	}
+	
+	/**
+	 * 跳转至单据详细信息界面
+	 * @param message 作为信息传入单据界面
+	 * @param type
+	 */
+	void jumpToDocPanel(Object message , DocType type){
+		System.out.println(type);
+		docsPanels.get(type).setMessage(message);
+		
+		panelManager.show(changePanel, type.name());
+	}
+	
 	
 	private void addToMap(){
 		docsPanels.put(DocType.arriveYYDoc, arriveYYDocPanel);
@@ -80,7 +86,12 @@ public class ApprovalDetailPanel{
 		docsPanels.put(DocType.arriveZZDoc, arriveZZPanel);
 		docsPanels.put(DocType.inStoreDoc, inStorePanel);
 		docsPanels.put(DocType.outStoreDoc, outStorePanel);
+		docsPanels.put(DocType.order, orderPanel);
+		docsPanels.put(DocType.transferDoc, transportPanel);
 	}
+	/**
+	 * 将所有panel的无关组件设置为不可见或不可修改
+	 */
 	private void setPanelState(){
 		for (Entry<DocType, DocPanelForApproval> docPanel : docsPanels.entrySet()) {
 			docPanel.getValue().setAllCompUneditOrUnVisiable();

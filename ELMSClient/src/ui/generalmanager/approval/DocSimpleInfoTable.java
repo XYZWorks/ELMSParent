@@ -4,15 +4,14 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import blservice.approvalblservice.Approvalblservice;
 import ui.table.MyTable;
-import ui.table.MyTableModel;
 import ui.table.MyTablePanel;
 import util.DocState;
 import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
 import vo.DocVO;
+import blservice.approvalblservice.Approvalblservice;
  /** 
  * 单据简要信息表
  * @author czq 
