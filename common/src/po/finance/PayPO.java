@@ -17,47 +17,84 @@ public class PayPO implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
+	 * ID
+	 */
+	private String ID;
+	/**
 	 * 时间
 	 */
 	private MyDate time;
+	/**
+	 * 银行账户
+	 */
+	private String account;
 	/**
 	 * 金额
 	 */
 	private int money;
 	/**
-	 * 类型
+	 * 经手人
 	 */
-	private String type;
+	private String person;
+	/**
+	 * 租金
+	 */
+	private int rent;
+	/**
+	 * 运费
+	 */
+	private int freight;
+	/**
+	 * 工资
+	 */
+	private int salary;
 	
 	public PayPO() {}
-	
+
+	public PayPO(String iD, MyDate time, String account, int money,
+			String person, int rent, int freight, int salary) {
+		super();
+		ID = iD;
+		this.time = time;
+		this.account = account;
+		this.money = money;
+		this.person = person;
+		this.rent = rent;
+		this.freight = freight;
+		this.salary = salary;
+	}
+
+	public String getID() {
+		return ID;
+	}
+
 	public MyDate getTime() {
 		return time;
 	}
-	public void setTime(MyDate time) {
-		this.time = time;
+
+	public String getAccount() {
+		return account;
 	}
+
 	public int getMoney() {
 		return money;
 	}
-	public void setMoney(int money) {
-		this.money = money;
+
+	public String getPerson() {
+		return person;
 	}
-	public String getType() {
-		return type;
+
+	public int getRent() {
+		return rent;
 	}
-	public void setType(String type) {
-		this.type = type;
+
+	public int getFreight() {
+		return freight;
 	}
-	/**
-	 * 
-	 * @param time
-	 * @param money
-	 */
-	public PayPO(MyDate time, int money,String type) {
-		super();
-		this.time = time;
-		this.money = money;
-		this.type=type;
+
+	public int getSalary() {
+		return salary;
 	}
+	
+	
 }

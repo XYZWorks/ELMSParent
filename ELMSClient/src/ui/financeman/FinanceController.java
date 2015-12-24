@@ -97,7 +97,7 @@ public class FinanceController extends PanelController {
 		bankAccountManagePanel = new BankAccountManagePanel(e.element(bankAccountStr) , bankAccountService , changePanel);
 		costManagePanel = new CostManagePanel(e.element(costManageStr) , costService, changePanel , costManageStr);
 		bulidStateFromPanel = new BulidStateFormPanel(e.element(bulidStateFormStr) , statisticblservice);
-		bulidPayPanel = new BulidPayPanel(e.element(bulidPayStr) , payService);
+		bulidPayPanel = new BulidPayPanel(e.element(bulidPayStr) , payService, bankAccountService);
 	}
 
 	@Override

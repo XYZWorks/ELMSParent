@@ -3,6 +3,8 @@ package bl.financebl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import org.omg.PortableServer.ID_ASSIGNMENT_POLICY_ID;
+
 import net.RMIManage;
 import po.finance.BankAccountPO;
 import test.java.other.VOPOchange;
@@ -66,6 +68,16 @@ public class BankAccount {
 	public ResultMessage addAccount(BankAccountVO vo) {
 		try {
 			return dataService.addAccount((BankAccountPO) VOPOchange.VOtoPO(vo));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.FAIL;
+	}
+
+	public ResultMessage checkAccount(String iD, int money) {
+		
+		try {
+			return dataService.checkAccount(iD , money);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

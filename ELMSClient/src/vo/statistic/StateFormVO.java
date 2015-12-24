@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import util.MyDate;
 import vo.finance.DepositVO;
-import vo.finance.PayVO;
+import vo.finance.FormPayVO;
 
 /**
  * 经营状况表VO类
@@ -23,16 +23,15 @@ public class StateFormVO {
 	/**
 	 * 付款信息
 	 */
-	public ArrayList<PayVO> pays;
+	public ArrayList<FormPayVO> pays;
 	/**
 	 * 
 	 * 收款信息
 	 */
 	public ArrayList<DepositVO> deposits;
 	public StateFormVO() {
-		// TODO Auto-generated constructor stub
 	}
-	public StateFormVO(MyDate startDate, MyDate endDate, ArrayList<PayVO> pays,
+	public StateFormVO(MyDate startDate, MyDate endDate, ArrayList<FormPayVO> pays,
 			ArrayList<DepositVO> deposits) {
 		super();
 		this.startDate = startDate;

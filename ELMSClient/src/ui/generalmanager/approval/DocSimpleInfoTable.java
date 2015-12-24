@@ -112,7 +112,6 @@ public class DocSimpleInfoTable extends MyTablePanel{
 		this.type = type;
 		
 		vos = bl.getBills(type);
-		System.out.println(vos.size());
 		initialMes();
 		MyTableModel dtm = new MyTableModel(columnNames, data){
 			@Override

@@ -660,26 +660,34 @@
 						type="confirm" />
 					<cancel x="707" y="560" width="89" height="40" text="取消"
 						type="cancel" />
-					<back x="0" y="0" width="53" height="53" text="返回" type="back" />
 				</BUTTONS>
 				<TEXTFIELDS>
-					<money x="345" y="271" width="276" height="40" />
-				</TEXTFIELDS>
+						<id x="200" y="60" width="200" height="40" />
+						<account x="200" y="120" width="200" height="40" />
+						<person x="200" y="180" width="200" height="40" />
+						<money x="200" y="300" width="200" height="40" />
+						<rent x="200" y="360" width="200" height="40" />
+						<freight x="200" y="420" width="200" height="40" />
+						<salary x="200" y="480" width="200" height="40" />
+					</TEXTFIELDS>
 				<LABELS>
-					<title x="48" y="36" width="200" height="28" text="新建付款单"
-						fontName="华文细黑" size="26" />
-					<money x="200" y="271" width="115" height="40" text="金额"
-						type="rectangle" />
-					<password x="200" y="341" width="115" height="40" text="类型"
-						type="rectangle" />
-					<time x="200" y="201" width="115" height="40" text="时间" type="rectangle" />
-				</LABELS>
-				<type x="345" y="341" width="276" height="40" strings="1 2" />
-				<table x="500" y="560" width="115" height="40" columm="1 2" />
-				<datepicker x="345" y="201" width="276" height="40">
-					<field x="345" y="201" width="236" height="40" />
-					<button x="581" y="201" width="40" height="40" type="rectangle" />
-				</datepicker>
+				<title x="345" y="271" width="276" height="40" text = "新建付款单" /> 
+						<id x="60" y="60" width="115" height="40" text="ID" type="rectangle" />
+						<account x="60" y="120" width="115" height="40" text="银行账户" type="rectangle" />
+						<person x="60" y="180" width="115" height="40" text="经手人" type="rectangle" />
+						<date x="60" y="240" width="115" height="40" text="日期"
+							type="rectangle" />
+						<money x="60" y="300" width="115" height="40" text="总金额"
+							type="rectangle" />
+						<rent x="60" y="360" width="115" height="40" text="租金"
+							type="rectangle" />
+						<freight x="60" y="420" width="115" height="40" text="运费"
+							type="rectangle" />
+						<salary x="60" y="480" width="115" height="40" text="人员工资"
+							type="rectangle" />
+					</LABELS>
+					
+					<datepicker x="200" y="240" width="200" height="40" />
 
 			</BulidPayPanel>
 

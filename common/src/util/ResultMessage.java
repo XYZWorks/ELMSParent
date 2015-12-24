@@ -27,7 +27,7 @@ public enum ResultMessage {
 	
 	
 	
-	
+	MONEY_NOT_ENOUGH;
 	
 	
 	
