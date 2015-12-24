@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import po.strategy.ConstPO;
+import po.strategy.EstiDatePO;
 import po.strategy.SalaryWayPO;
 import util.ResultMessage;
 import util.StaffType;
@@ -24,7 +25,7 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 	 */
 	private static final String salaryTable = "salary";
 	
-	
+	private static final String estimateTime = "TIME_ESTIMATE";
 
 	public StrategyDataImpl() throws RemoteException {}
 	
@@ -86,6 +87,24 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 		}else{
 			return new SalaryWayPO(type, Integer.parseInt(findMes.get(1)), Integer.parseInt(findMes.get(2)), WageStrategy.valueOf(findMes.get(3)));
 		}
+	}
+
+	@Override
+	public EstiDatePO getEstiDatePO() {
+		Object o = helper.readFromSerFile(estimateTime);
+		if( o == null){
+			System.err.println("WARNING: 时间估计文件丢失");
+			return null;
+		}
+		return (EstiDatePO) o;
+	}
+
+	@Override
+	public ResultMessage setEstiDatePO(EstiDatePO po) {
+		if(helper.writeToSerFile(po, estimateTime, false)){
+			return ResultMessage.SUCCESS;
+		}
+		return ResultMessage.FAIL;
 	}
 
 	
