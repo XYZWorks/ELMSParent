@@ -58,7 +58,6 @@ public class Strategy {
 		
 		ArrayList<SalaryWayPO> pos = null;
 		ArrayList<SalaryWayVO> vos = null;
-		
 		try {
 			pos = strategyData.getSalary();
 			if(pos!=null)

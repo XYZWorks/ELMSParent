@@ -48,12 +48,12 @@ public interface StrategyDataService extends DataserviceParent{
 	 * 得到预计时间
 	 * @return
 	 */
-	public EstiDatePO getEstiDatePO();
+	public EstiDatePO getEstiDatePO()  throws RemoteException ;
 	/**
 	 * 设置预计时间
 	 * @return
 	 */
-	public ResultMessage setEstiDatePO(EstiDatePO po);
+	public ResultMessage setEstiDatePO(EstiDatePO po)  throws RemoteException ;
 	
 //	/**
 //	 * 期初建账数据

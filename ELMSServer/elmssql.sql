@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2015-12-17 15:26:50
+-- Generation Time: 2015-12-24 03:18:01
 -- 服务器版本： 5.6.26
 -- PHP Version: 5.6.12
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `elmssql`
 --
+CREATE DATABASE IF NOT EXISTS `elmssql` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `elmssql`;
 
 -- --------------------------------------------------------
 
@@ -41,16 +43,10 @@ CREATE TABLE IF NOT EXISTS `account` (
 --
 
 INSERT INTO `account` (`id`, `name`, `type`, `password`, `phone`, `email`) VALUES
-('', '', 'courier', '', '', ''),
 ('000000', 'Adminstrator', 'Adminstrator', '000000', '', ''),
-('000001', '张三', 'manager', '123456', '', ''),
-('111', '陈自强', 'courier', '123456', '', ''),
 ('1111111', NULL, 'courier', 'aaaaaa', NULL, NULL),
 ('112233', NULL, 'courier', 'zxcvbn', '', ''),
-('1231', '纯植物', 'saleman', '111111', NULL, NULL),
-('2222', '231', 'courier', '21323', '', ''),
-('23', '123', 'courier', '234', '', ''),
-('231111', '12323', 'courier', '23412', '', '');
+('123456', 'asd强', 'manager', '123236', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -69,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `alarm` (
 --
 
 INSERT INTO `alarm` (`city`, `value`) VALUES
-('BEIJING', '0'),
+('BEIJING', '90%'),
 ('GUANGZHOU', '0'),
 ('NANJING', '0'),
 ('SHANGHAI', '0');
@@ -146,9 +142,7 @@ CREATE TABLE IF NOT EXISTS `bankaccount` (
 
 INSERT INTO `bankaccount` (`id`, `password`, `money`) VALUES
 ('000002', '123123', '22222'),
-('123213', '123121', '12312375'),
-('1232qw', '123121', '123212'),
-('1321321', '123212', '123');
+('1321321', '123212', '876');
 
 -- --------------------------------------------------------
 
@@ -184,8 +178,8 @@ CREATE TABLE IF NOT EXISTS `car` (
 --
 
 INSERT INTO `car` (`id`, `instid`, `plateNum`, `useYear`) VALUES
-('000001', '', '粤A12345', 3),
-('000002', '', '粤A123W5', 4);
+('000000', '000003', '京A88888', 4),
+('123412', '025000001', '粤VDC798', 8);
 
 -- --------------------------------------------------------
 
@@ -257,6 +251,16 @@ CREATE TABLE IF NOT EXISTS `driver` (
   `licenseyear` int(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='司机信息表';
 
+--
+-- 转存表中的数据 `driver`
+--
+
+INSERT INTO `driver` (`id`, `name`, `birthday`, `instid`, `idCard`, `phoneNum`, `isman`, `licenseyear`) VALUES
+('000001', '章撒', '1992-4-12', '123456', '445202199204121134', '18324522334', '1', 5),
+('000002', '陈自强', '1996-4-14', '000000', '445202199604143071', '18362910989', '1', 3),
+('000003', '邢A', '1996-4-16', '000000', '442121142323451111', '18377651389', '0', 3),
+('000004', '陈泽强', '1998-4-15', '000000', '445202199804153011', '19362217867', '1', 4);
+
 -- --------------------------------------------------------
 
 --
@@ -265,11 +269,20 @@ CREATE TABLE IF NOT EXISTS `driver` (
 
 DROP TABLE IF EXISTS `freight`;
 CREATE TABLE IF NOT EXISTS `freight` (
+  `id` varchar(45) NOT NULL,
   `startdate` varchar(20) NOT NULL,
   `enddate` varchar(20) NOT NULL,
   `money` int(4) NOT NULL,
   `costtype` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `freight`
+--
+
+INSERT INTO `freight` (`id`, `startdate`, `enddate`, `money`, `costtype`) VALUES
+('123123', '2015-12-23', '2015-12-23', 1232, 'FREIGHT'),
+('123678', '2015-12-23', '2015-12-23', 2000, 'FREIGHT');
 
 -- --------------------------------------------------------
 
@@ -283,6 +296,17 @@ CREATE TABLE IF NOT EXISTS `inst` (
   `location` varchar(20) DEFAULT NULL,
   `type` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='机构信息';
+
+--
+-- 转存表中的数据 `inst`
+--
+
+INSERT INTO `inst` (`id`, `location`, `type`) VALUES
+('123123', 'NANJING', 'transportCenter'),
+('123124', 'NANJING', 'transportCenter'),
+('123255', 'SHANGHAI', 'transportCenter'),
+('1246546', 'NANJING', 'transportCenter'),
+('345574', 'NANJING', 'transportCenter');
 
 -- --------------------------------------------------------
 
@@ -373,6 +397,7 @@ CREATE TABLE IF NOT EXISTS `myorder` (
   `goodHeight` int(4) DEFAULT NULL,
   `goodPack` varchar(20) DEFAULT NULL,
   `orderForm` varchar(20) DEFAULT NULL,
+  `orderstartdate` varchar(45) NOT NULL,
   `orderEestiTime` int(4) DEFAULT NULL,
   `orderCost` float DEFAULT NULL,
   `loadDoc` varchar(20) DEFAULT NULL,
@@ -392,8 +417,8 @@ CREATE TABLE IF NOT EXISTS `myorder` (
 -- 转存表中的数据 `myorder`
 --
 
-INSERT INTO `myorder` (`id`, `type`, `date`, `state`, `senderName`, `senderPhone`, `senderCompany`, `senderAddress`, `receiverName`, `receiverPhone`, `receiverCompany`, `receiverAddress`, `goodNum`, `goodName`, `goodWeight`, `goodLong`, `goodWidth`, `goodHeight`, `goodPack`, `orderForm`, `orderEestiTime`, `orderCost`, `loadDoc`, `arriveZZDoc`, `inStoreOneDoc`, `outStoreOneDoc`, `transferDoc`, `instoreTwoDoc`, `outStoreTwoDoc`, `arriveYYDoc`, `sendGoodDoc`, `realReceiver`, `orderReceiveDate`) VALUES
-('123456', 'order', '2015-12-4', 'wait', '123', '123', '123', '123213', '123', '123', '123', '123', 2, '123', 12, 123, 12, 12, '12', '123', 4, 23, 'ZCD000001', 'JSD000001', 'RKD000001', 'CKD000001', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `myorder` (`id`, `type`, `date`, `state`, `senderName`, `senderPhone`, `senderCompany`, `senderAddress`, `receiverName`, `receiverPhone`, `receiverCompany`, `receiverAddress`, `goodNum`, `goodName`, `goodWeight`, `goodLong`, `goodWidth`, `goodHeight`, `goodPack`, `orderForm`, `orderstartdate`, `orderEestiTime`, `orderCost`, `loadDoc`, `arriveZZDoc`, `inStoreOneDoc`, `outStoreOneDoc`, `transferDoc`, `instoreTwoDoc`, `outStoreTwoDoc`, `arriveYYDoc`, `sendGoodDoc`, `realReceiver`, `orderReceiveDate`) VALUES
+('123456', 'order', '2015-12-4', 'wait', '123', '123', '123', '123213', '123', '123', '123', '123', 2, '123', 12, 123, 12, 12, '12', '123', '', 4, 23, 'ZCD000001', 'JSD000001', 'RKD000001', 'CKD000001', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -421,11 +446,46 @@ CREATE TABLE IF NOT EXISTS `outstoredoc` (
 
 DROP TABLE IF EXISTS `pay`;
 CREATE TABLE IF NOT EXISTS `pay` (
-  `id` int(11) NOT NULL,
+  `id` varchar(45) NOT NULL,
   `time` varchar(45) NOT NULL,
+  `account` varchar(45) NOT NULL,
   `money` int(4) NOT NULL,
-  `type` varchar(45) NOT NULL
+  `person` varchar(45) NOT NULL,
+  `rent` int(4) NOT NULL,
+  `freight` int(4) NOT NULL,
+  `salary` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `pay`
+--
+
+INSERT INTO `pay` (`id`, `time`, `account`, `money`, `person`, `rent`, `freight`, `salary`) VALUES
+('123123', '2015-12-24', '1321321', 123123, '123123', 123123, 213213, 120);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `paydoc`
+--
+
+DROP TABLE IF EXISTS `paydoc`;
+CREATE TABLE IF NOT EXISTS `paydoc` (
+  `id` varchar(45) NOT NULL,
+  `date` varchar(45) NOT NULL,
+  `yyid` varchar(45) NOT NULL,
+  `money` int(8) NOT NULL,
+  `courier` varchar(45) NOT NULL,
+  `orders` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `paydoc`
+--
+
+INSERT INTO `paydoc` (`id`, `date`, `yyid`, `money`, `courier`, `orders`) VALUES
+('123123', '2015-12-23', '123123', 231, '123', '123123,123123,'),
+('234123', '2015-12-23', '123123', 123, '123', '123123,123345,');
 
 -- --------------------------------------------------------
 
@@ -442,6 +502,15 @@ CREATE TABLE IF NOT EXISTS `person` (
   `phone` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 转存表中的数据 `person`
+--
+
+INSERT INTO `person` (`id`, `instid`, `name`, `type`, `phone`) VALUES
+('000001', '000000', '陈平', 'courier', '13142321234'),
+('123124', '123234', '终场前', 'financeman', '12312312312'),
+('123456', '000001', '陈安杰', 'financeman', '13923689344');
+
 -- --------------------------------------------------------
 
 --
@@ -450,11 +519,19 @@ CREATE TABLE IF NOT EXISTS `person` (
 
 DROP TABLE IF EXISTS `rent`;
 CREATE TABLE IF NOT EXISTS `rent` (
+  `id` varchar(45) NOT NULL,
   `startdate` varchar(45) NOT NULL,
   `enddate` varchar(45) NOT NULL,
   `money` int(4) NOT NULL,
   `type` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `rent`
+--
+
+INSERT INTO `rent` (`id`, `startdate`, `enddate`, `money`, `type`) VALUES
+('213123', '2015-12-23', '2015-12-23', 123123, 'RENT');
 
 -- --------------------------------------------------------
 
@@ -490,12 +567,22 @@ INSERT INTO `salary` (`type`, `basicSalary`, `moreMoney`, `way`) VALUES
 
 DROP TABLE IF EXISTS `salarycost`;
 CREATE TABLE IF NOT EXISTS `salarycost` (
+  `id` varchar(45) NOT NULL,
   `startdate` varchar(45) NOT NULL,
   `enddate` varchar(45) NOT NULL,
   `money` int(4) NOT NULL,
   `costtype` varchar(45) NOT NULL,
-  `worker` varchar(5) NOT NULL
+  `worker` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `salarycost`
+--
+
+INSERT INTO `salarycost` (`id`, `startdate`, `enddate`, `money`, `costtype`, `worker`) VALUES
+('123123', '2015-12-23', '2015-12-23', 500, 'SALARY', 'financeman'),
+('123213', '2015-12-23', '2015-12-23', 1231, 'SALARY', 'financeman'),
+('123456', '2015-12-23', '2015-12-23', 500, 'SALARY', 'financeman');
 
 -- --------------------------------------------------------
 
@@ -657,7 +744,7 @@ ALTER TABLE `driver`
 -- Indexes for table `freight`
 --
 ALTER TABLE `freight`
-  ADD PRIMARY KEY (`startdate`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `inst`
@@ -696,6 +783,12 @@ ALTER TABLE `pay`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `paydoc`
+--
+ALTER TABLE `paydoc`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `person`
 --
 ALTER TABLE `person`
@@ -705,7 +798,7 @@ ALTER TABLE `person`
 -- Indexes for table `rent`
 --
 ALTER TABLE `rent`
-  ADD PRIMARY KEY (`startdate`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `salary`
@@ -718,7 +811,7 @@ ALTER TABLE `salary`
 -- Indexes for table `salarycost`
 --
 ALTER TABLE `salarycost`
-  ADD PRIMARY KEY (`startdate`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `sendgooddoc`
@@ -753,11 +846,6 @@ ALTER TABLE `transferdoc`
 --
 ALTER TABLE `deposit`
   MODIFY `ID` int(4) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `pay`
---
-ALTER TABLE `pay`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

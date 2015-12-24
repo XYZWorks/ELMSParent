@@ -1,14 +1,20 @@
 package bl.orderbl;
 
-import java.awt.Container;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.BusinessLogicDataFactory;
+import bl.storebl.StoreController;
+import bl.strategybl.StrategyController;
+import bl.transportbl.TransportController;
+import blservice.strategyblservice.StrategyblService;
+import ds.orderdataservice.OrderDataService;
 import po.DocPO;
 import po.order.OrderPO;
 import po.order.ReceivePO;
 import test.java.other.VOPOchange;
 import util.City;
+import util.DocState;
 import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
@@ -25,12 +31,6 @@ import vo.transport.ArriveZZDocVO;
 import vo.transport.LoadDocVO;
 import vo.transport.SendGoodDocVO;
 import vo.transport.TransferDocVO;
-import bl.BusinessLogicDataFactory;
-import bl.storebl.StoreController;
-import bl.strategybl.StrategyController;
-import bl.transportbl.TransportController;
-import blservice.strategyblservice.StrategyblService;
-import ds.orderdataservice.OrderDataService;
 
 /**
  * @author ymc
@@ -63,7 +63,6 @@ public class Order {
 		try {
 			po = orderData.getSingleOrderPO(orderBarCode);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if (po == null)
@@ -199,7 +198,6 @@ public class Order {
 		try {
 			po = orderData.getSingleOrderPO(orderBarCode);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try{
@@ -217,7 +215,6 @@ public class Order {
 		try {
 			return orderData.receiveInfo(po, orderBarCode);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return ResultMessage.FAIL;
@@ -251,6 +248,7 @@ public class Order {
 		}
 		return pres;
 	}
+
 
 	public double getEstiDate(City one,City two) {
 		EstiDateVO vo = strategybl.getEstiDateVO();
@@ -300,6 +298,28 @@ public class Order {
 		else if(twoPlace(City.SHANGHAI, City.GUANGZHOU, one, two))
 			vo.dayInSG =( vo.dayInSG+day)/2;
 		return strategybl.setEstiDateVO(vo);
+	}
+	
+	public ResultMessage changeDocsState(ArrayList<String> docsID,
+			DocType type, DocState state) {
+		try {
+			return orderData.changeDocsState(docsID, type, state);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return ResultMessage.SQL_ERROR;
+	}
+
+	public ResultMessage changeOneDocState(String docID, DocType type,
+			DocState state) {
+		try {
+			return orderData.changeOneDocState(docID, type, state);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ResultMessage.SQL_ERROR;
+
 	}
 
 }

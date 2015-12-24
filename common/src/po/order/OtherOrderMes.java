@@ -40,65 +40,48 @@ public class OtherOrderMes {
 	 */
 	private MyDate orderReceiveDate;
 
-	public String getGoodPack() {
-		return goodPack;
+	public OtherOrderMes(String goodPack, String orderForm,
+			MyDate orderStartDate, int orderEestiTime, double orderCost,
+			String realReceiver, MyDate orderReceiveDate) {
+		super();
+		this.goodPack = goodPack;
+		this.orderForm = orderForm;
+		this.orderStartDate = orderStartDate;
+		this.orderEestiTime = orderEestiTime;
+		this.orderCost = orderCost;
+		this.realReceiver = realReceiver;
+		this.orderReceiveDate = orderReceiveDate;
 	}
 
-	public void setGoodPack(String goodPack) {
-		this.goodPack = goodPack;
+	public String getGoodPack() {
+		return goodPack;
 	}
 
 	public String getOrderForm() {
 		return orderForm;
 	}
 
-	public void setOrderForm(String orderForm) {
-		this.orderForm = orderForm;
+	public MyDate getOrderStartDate() {
+		return orderStartDate;
 	}
 
 	public int getOrderEestiTime() {
 		return orderEestiTime;
 	}
 
-	public void setOrderEestiTime(int orderEestiTime) {
-		this.orderEestiTime = orderEestiTime;
-	}
-
 	public double getOrderCost() {
 		return orderCost;
-	}
-
-	public void setOrderCost(int orderCost) {
-		this.orderCost = orderCost;
 	}
 
 	public String getRealReceiver() {
 		return realReceiver;
 	}
 
-	public void setRealReceiver(String realReceiver) {
-		this.realReceiver = realReceiver;
-	}
-
 	public MyDate getOrderReceiveDate() {
 		return orderReceiveDate;
 	}
 
-	public void setOrderReceiveDate(MyDate orderReceiveDate) {
-		this.orderReceiveDate = orderReceiveDate;
-	}
-
-	public OtherOrderMes(String goodPack, String orderForm, int orderEestiTime,
-			double total, String realReceiver, MyDate orderStartDate, MyDate orderReceiveDate) {
-		super();
-		this.goodPack = goodPack;
-		this.orderForm = orderForm;
-		this.orderEestiTime = orderEestiTime;
-		this.orderCost = total;
-		this.realReceiver = realReceiver;
-		this.orderReceiveDate = orderReceiveDate;
-		this.orderStartDate = orderStartDate;
-	}
+	
 	
 	
 }

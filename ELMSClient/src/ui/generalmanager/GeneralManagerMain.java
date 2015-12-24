@@ -2,7 +2,6 @@ package ui.generalmanager;
 
 import org.dom4j.Element;
 
-import ui.tools.MyDatePicker;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.util.CompomentType;

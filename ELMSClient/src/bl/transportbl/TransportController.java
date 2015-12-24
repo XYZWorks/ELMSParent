@@ -85,17 +85,14 @@ public class TransportController implements Transportblservice{
 	}
 
 	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
-		// TODO Auto-generated method stub
-		return null;
+		return transport.changeDocsState(docsID , type , state);
 	}
 
 	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
-		// TODO Auto-generated method stub
-		return null;
+		return transport.changeOneDocState(docID , type , state);
 	}
 	public ArrayList<? extends DocVO> getDocLists(DocType type) {
-		// TODO Auto-generated method stub
-		return null;
+		return transport.getDocLists(type);
 	}
 	public DocVO getByID(String ID , DocType type) {
 		return transport.getDocByID(ID , type);
