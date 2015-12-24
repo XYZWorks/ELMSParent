@@ -204,16 +204,18 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 		idT.setEditable(false);
 		ZZIDT.setEditable(false);
 		sendCityB.setEditable(false);
+		sendCityB.setEnabled(false);
+		goodStateB.setEnabled(false);
 		goodStateB.setEditable(false);
 		
 		order.setVisible(false);
 		addOneOrder.setVisible(false);
+		confirm.setVisible(false);
+		cancel.setVisible(false);
 	}
 
 	@Override
-	public void addBackButton() {
-		// TODO Auto-generated method stub
-		
+	public void addBackButton(JPanel changePanel , String backString) {
 	}
 
 	@Override

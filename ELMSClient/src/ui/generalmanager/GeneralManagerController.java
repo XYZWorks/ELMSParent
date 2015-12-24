@@ -108,7 +108,7 @@ public class GeneralManagerController extends PanelController {
 	@Override
 	protected void initPanel(Element e) {
 		GMmainpanel = new GeneralManagerMain(e.element(GMmainpanelStr) , this);
-		approvalPanel = new ApprovalDocsPanel(e.element(approvalPanelStr) , approvalBL);
+		approvalPanel = new ApprovalDocsPanel(e.element(approvalPanelStr) , approvalBL ,approvalPanelStr, changePanel);
 		constSetPanel = new ConstSetPanel(e.element(constSetPanelStr) , strategyblService);
 		statisticPanel = new StatisticPanel(e.element(statisticPanelStr) , statisticblservice);
 		instManagePanel = new InstManagePanel(e.element(instManagePanelStr), changePanel , personnelblservice);

@@ -3,8 +3,6 @@ package bl.storebl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import org.omg.CORBA.portable.ValueOutputStream;
-
 import po.DocPO;
 import po.store.OutStoreDocPO;
 import test.java.other.VOPOchange;

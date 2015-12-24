@@ -147,7 +147,10 @@ public class DocSimpleInfoTable extends MyTablePanel{
 			System.err.println(vos.size());
 		}
 		
+		//清空数据
+		data = null;
 		if(vos==null){
+			
 			return;
 		}
 		
@@ -160,4 +163,25 @@ public class DocSimpleInfoTable extends MyTablePanel{
 				data[i][4] = DocState.getName(vos.get(i).state);
 		}
 	}
+	
+	/**
+	 * 获得表内一条详细信息
+	 * @return
+	 */
+	Object getFullObjectMes(){
+		int temp;
+		if( (temp = table.getSelectedRow()) == -1){
+			return null;	
+		}else{
+			String id = (String) table.getValueAt(temp, 1);
+			for (int i = 0; i < vos.size(); i++) {
+				if(vos.get(i).ID.equals(id))
+				{
+					return vos.get(i);
+				}
+			}
+		return null;	
+		}
+	}
+	
 }

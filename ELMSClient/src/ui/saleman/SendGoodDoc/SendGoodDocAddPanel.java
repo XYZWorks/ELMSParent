@@ -6,7 +6,6 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import blservice.transportblservice.Transportblservice;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
@@ -19,11 +18,13 @@ import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.ConfirmListener;
+import ui.util.DocPanelForApproval;
 import ui.util.TipsDialog;
 import util.City;
 import util.MyDate;
 import util.ResultMessage;
 import vo.transport.SendGoodDocVO;
+import blservice.transportblservice.Transportblservice;
 
 /**
  * 派送单增加界面
@@ -31,7 +32,7 @@ import vo.transport.SendGoodDocVO;
  *
  */
 @SuppressWarnings("serial")
-public class SendGoodDocAddPanel extends AddDocPanel{
+public class SendGoodDocAddPanel extends AddDocPanel implements DocPanelForApproval{
 	
 	private MyLabel id;
 	private MyDatePicker date;
@@ -52,14 +53,10 @@ public class SendGoodDocAddPanel extends AddDocPanel{
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	protected void initButtons(Element e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -148,5 +145,29 @@ public class SendGoodDocAddPanel extends AddDocPanel{
 		idT.setText("");
 		sendManT.setText("");
 		orderBarCodeT.setText("");
+	}
+
+	@Override
+	public void setAllCompUneditOrUnVisiable() {
+		idT.setEditable(false);sendManT.setEditable(false);orderBarCodeT.setEditable(false);
+		sendCityB.setEnabled(false);
+		confirm.setVisible(false);cancel.setVisible(false);
+		
+	}
+
+	@Override
+	public void addBackButton(JPanel changePanel, String backStr) {
+	}
+
+	@Override
+	public void setMessage(Object o) {
+		if(o == null){
+			return;
+		}
+		SendGoodDocVO vo = (SendGoodDocVO) o;
+		idT.setText(vo.ID);
+		sendCityB.setSelectedItem(vo.sendCity.getName());
+		sendManT.setText(vo.sendMan);
+		orderBarCodeT.setText(vo.orderBarCode);
 	}
 }

@@ -194,10 +194,6 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval{
 		date.setVisible(false);
 	}
 
-	@Override
-	public void addBackButton() {
-		
-	}
 
 	@Override
 	public void setMessage(Object o) {
@@ -213,6 +209,12 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval{
 		for (String orders : vo.orders) {
 			ordersTable.addAOrder(orders);
 		}
+	}
+
+	@Override
+	public void addBackButton(JPanel changePanel, String backStr) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

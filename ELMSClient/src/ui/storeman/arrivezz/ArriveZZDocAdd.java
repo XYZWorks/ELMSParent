@@ -1,13 +1,9 @@
 package ui.storeman.arrivezz;
 
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-
-import javax.management.relation.RelationNotification;
 
 import org.dom4j.Element;
 
-import blservice.transportblservice.Transportblservice;
 import ui.config.UserfulMethod;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
@@ -18,7 +14,6 @@ import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
-import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
 import util.City;
@@ -26,6 +21,7 @@ import util.GoodsState;
 import util.MyDate;
 import util.ResultMessage;
 import vo.transport.ArriveZZDocVO;
+import blservice.transportblservice.Transportblservice;
 
 /**
  * 到达单
@@ -33,6 +29,7 @@ import vo.transport.ArriveZZDocVO;
  * @author 
  *
  */
+@SuppressWarnings("serial")
 public class ArriveZZDocAdd extends MyPanel {
 
 	

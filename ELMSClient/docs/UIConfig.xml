@@ -81,6 +81,81 @@
 			</mainWindow>
 
 			<ApprovalPanel x="232" y="54" width="848" height="637">
+				<loadDocShowpanelAddPanel x="232" y="54"
+					width="848" height="637">
+					<BUTTONS>
+						<confirm x="560" y="560" width="89" height="40" text="确认"
+							type="confirm" />
+						<cancel x="707" y="560" width="89" height="40" text="取消"
+							type="cancel" />
+						<back x="0" y="0" width="53" height="53" type="back" />
+						<addOrder x="748" y="120" width="40" height="40" type="add" />
+					</BUTTONS>
+					<LABELS>
+						<id x="60" y="60" width="115" height="40" text="ID" type="rectangle" />
+						<YYID x="60" y="120" width="115" height="40" text="营业厅编号"
+							type="rectangle" />
+						<loadDoc x="60" y="180" width="115" height="40" text="汽运编号"
+							type="rectangle" />
+						<arriveCity x="60" y="240" width="115" height="40"
+							text="到达地" type="rectangle" />
+						<car x="60" y="300" width="115" height="40" text="车辆ID" type="rectangle" />
+						<supervisor x="60" y="360" width="115" height="40"
+							text="监运员" type="rectangle" />
+						<escort x="60" y="420" width="115" height="40" text="押送员"
+							type="rectangle" />
+						<order x="425" y="120" width="115" height="40" text="订单号"
+							type="rectangle" />
+					</LABELS>
+					<TEXTFIELDS>
+						<id x="200" y="60" width="200" height="40" />
+						<YYID x="200" y="120" width="200" height="40" />
+						<loadDoc x="200" y="180" width="200" height="40" />
+						<car x="200" y="300" width="200" height="40" />
+						<supervisor x="200" y="360" width="200" height="40" />
+						<escort x="200" y="420" width="200" height="40" />
+						<order x="560" y="120" width="168" height="40" />
+					</TEXTFIELDS>
+					<datepicker x="588" y="60" width="200" height="40" />
+					<arrive x="200" y="240" width="200" height="40" strings="南京 北京 上海 广州" />
+					<table x="425" y="180" width="363" height="280" column="序号 ID" />
+				</loadDocShowpanelAddPanel>
+				
+				
+				<arriveYYDocShowPanelAddPanel x="232"
+					y="54" width="1080" height="637">
+					<BUTTONS>
+						<confirm x="550" y="560" width="89" height="40" text="确认"
+							type="confirm" />
+						<cancel x="700" y="560" width="89" height="40" text="取消"
+							type="cancel" />
+						<back x="0" y="0" width="53" height="53" type="back" />
+						<addOrder x="748" y="120" width="40" height="40" type="add" />
+					</BUTTONS>
+					<LABELS>
+						<id x="60" y="120" width="115" height="40" text="ID" type="rectangle" />
+						<ZZID x="60" y="180" width="115" height="40" text="中转中心编号"
+							type="rectangle" />
+						<sendCity x="60" y="240" width="115" height="40" text="出发地"
+							type="rectangle" />
+						<goodState x="60" y="300" width="115" height="40" text="货物状态"
+							type="rectangle" />
+						<!-- -->
+						<order x="425" y="120" width="115" height="40" text="订单号"
+							type="rectangle" />
+					</LABELS>
+					<TEXTFIELDS>
+						<id x="200" y="120" width="200" height="40" />
+						<ZZID x="200" y="180" width="200" height="40" />
+						<order x="560" y="120" width="168" height="40" />
+					</TEXTFIELDS>
+					<datepicker x="588" y="60" width="200" height="40" />
+					<sendCity x="200" y="240" width="200" height="40" strings="南京 北京 上海 广州" />
+					<goodState x="200" y="300" width="200" height="40"
+						strings="完整 损坏 丢失" />
+					<table x="425" y="180" width="363" height="280" column="序号 ID" />
+				</arriveYYDocShowPanelAddPanel>
+				
 				<BUTTONS>
 					<approveMany x="590" y="560" width="89" height="40"
 						text="批量审批" type="cancel" />

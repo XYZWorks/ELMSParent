@@ -21,6 +21,7 @@ import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.ConfirmListener;
+import ui.util.DocPanelForApproval;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
 import util.City;
@@ -34,7 +35,7 @@ import blservice.transportblservice.Transportblservice;
  * @version 2015年12月8日 下午8:27:23 
  */
 @SuppressWarnings("serial")
-public class LoadDocAddPanel extends AddDocPanel{
+public class LoadDocAddPanel extends AddDocPanel implements DocPanelForApproval{
 	
 	
 	
@@ -191,5 +192,36 @@ public class LoadDocAddPanel extends AddDocPanel{
 		
 		
 		ordersTable.clearOrders();
+	}
+
+	@Override
+	public void setAllCompUneditOrUnVisiable() {
+		idT.setEditable(false);YYIDT.setEditable(false);loadDocT.setEditable(false);
+		carT.setEditable(false);supervisorT.setEditable(false);escortT.setEditable(false);loadDocT.setEditable(false);
+		
+		arriveCityB.setEnabled(false);
+		orderCode.setVisible(false);
+		addOneOrder.setVisible(false);
+		confirm.setVisible(false);
+		cancel.setVisible(false);
+		
+	}
+
+	@Override
+	public void addBackButton(JPanel changePanel, String backStr) {
+	}
+
+	@Override
+	public void setMessage(Object o) {
+		if(o == null){
+			return;
+		}
+		LoadDocVO vo = (LoadDocVO) o;
+		idT.setText(vo.ID);
+		YYIDT.setText(vo.YYID);loadDocT.setText(vo.loadDocID);carT.setText(vo.loadDocID);
+		supervisorT.setText(vo.supervisor);escortT.setText(vo.escort);
+		for (String orders : vo.orderBarCodes) {
+			ordersTable.addAOrder(orders);
+		}
 	}
 }
