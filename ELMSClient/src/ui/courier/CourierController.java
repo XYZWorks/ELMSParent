@@ -6,6 +6,7 @@ import bl.BusinessLogicDataFactory;
 import blservice.orderblservice.Orderblservice;
 import blservice.strategyblservice.StrategyblService;
 import config.StaticMessage;
+import ui.courier.AddOrder.AddOrderPanel;
 import ui.courier.FindFullInfo.FindFullOrderInfoPanel;
 import ui.courier.FindFullInfo.showInfoPanel;
 import ui.courier.inputInfoReceive.InputReceiveInfoPanel;

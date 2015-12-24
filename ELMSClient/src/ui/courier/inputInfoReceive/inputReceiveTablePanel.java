@@ -5,12 +5,15 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+import javax.swing.text.TabExpander;
+
 import org.dom4j.Element;
 
 import blservice.orderblservice.Orderblservice;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import vo.order.PreReceiveVO;
+import vo.order.ReceiveVO;
 
 /**
  *
@@ -20,13 +23,17 @@ import vo.order.PreReceiveVO;
 @SuppressWarnings("serial")
 public class inputReceiveTablePanel extends MyTablePanel {
 	private Orderblservice bl;
-	private ArrayList<PreReceiveVO> pre;
+	private InputReceiveInfoPanel inputReceiveInfoPanel;
+	public  ArrayList<PreReceiveVO> pre;
+	
 
 	private static final int COLUMN_NUM = 5;
 
-	public inputReceiveTablePanel(Element config, Orderblservice bl) {
+	public inputReceiveTablePanel(Element config, Orderblservice bl,InputReceiveInfoPanel inputReceiveInfoPanel) {
 		super(config);
 		this.bl = bl;
+		this.inputReceiveInfoPanel=inputReceiveInfoPanel;
+		
 		initialTitleAndColumn(config);
 		initTable();
 		initScrollerPane();
@@ -73,16 +80,6 @@ public class inputReceiveTablePanel extends MyTablePanel {
 		setRowAndColumnLen(40, columnLen);
 
 		
-//		table.addMouseListener(new MouseAdapter() {
-//			  public void mouseClicked(MouseEvent e) {
-//				  int index=e.getClickCount();
-//				  if(index==2){
-//					  int row=getSelectedRow();
-//					  
-//				  }
-//			  }
-//		});
-//		
 	}
 
 	@Override
@@ -101,4 +98,7 @@ public class inputReceiveTablePanel extends MyTablePanel {
 		}
 	}
 
+	public ArrayList<PreReceiveVO> getPreReceive(){
+		return pre;
+	}
 }

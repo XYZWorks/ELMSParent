@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import ui.courier.AddOrderPanel;
+import ui.courier.AddOrder.AddOrderPanel;
 import ui.saleman.ArriveYYDoc.ArriveYYDocAddPanel;
 import ui.saleman.LoadDoc.LoadDocAddPanel;
 import ui.saleman.SendGoodDoc.SendGoodDocAddPanel;

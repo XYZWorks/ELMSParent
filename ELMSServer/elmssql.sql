@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2015-12-24 03:18:01
+-- Generation Time: 2015-12-24 14:13:18
 -- 服务器版本： 5.6.26
 -- PHP Version: 5.6.12
 
@@ -96,9 +96,9 @@ INSERT INTO `arriveyydoc` (`id`, `type`, `date`, `state`, `zzid`, `sendciry`, `g
 ('123123123', 'arriveYYDoc', '115-11-3', 'wait', '123123123', 'NANJING', 'Lost', '12312312312,'),
 ('123123123123', 'arriveYYDoc', '115-11-3', 'wait', '123123123123', 'NANJING', 'Complete', '123123123123,'),
 ('123123213', 'arriveYYDoc', '115-11-3', 'wait', '213213123', 'NANJING', 'Complete', '123123123,123123123123,'),
-('123213', 'arriveYYDoc', '115-11-3', 'wait', '123213213', 'NANJING', 'Complete', '12321323,1232132311,'),
+('123213', 'arriveYYDoc', '115-11-3', 'pass', '123213213', 'NANJING', 'Complete', '12321323,1232132311,'),
 ('12321312', 'arriveYYDoc', '115-11-3', 'wait', '123213213', 'NANJING', 'Complete', '123213123123,1232132,12321321321,12321323,'),
-('1232131211', 'arriveYYDoc', '115-11-3', 'wait', '123213213', 'NANJING', 'Complete', '123213123123,1232132,12321321321,12321323,'),
+('1232131211', 'arriveYYDoc', '115-11-3', 'pass', '123213213', 'NANJING', 'Complete', '123213123123,1232132,12321321321,12321323,'),
 ('123213213', 'arriveYYDoc', '115-11-3', 'wait', '123123123', 'NANJING', 'Complete', '12312312,'),
 ('12321322', 'arriveYYDoc', '2015-12-16', 'wait', '123213', 'NANJING', 'Complete', '123213123,1232123,'),
 ('12341241', 'arriveYYDoc', '115-11-3', 'wait', '123412343124', 'NANJING', 'Complete', '1234124,1234124124,1234124124345,'),
@@ -122,6 +122,13 @@ CREATE TABLE IF NOT EXISTS `arrivezzdoc` (
   `goodstate` varchar(45) DEFAULT NULL,
   `orderBarCodes` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `arrivezzdoc`
+--
+
+INSERT INTO `arrivezzdoc` (`id`, `type`, `date`, `state`, `zzid`, `sendcity`, `goodstate`, `orderBarCodes`) VALUES
+('123456', 'arriveZZDoc', '2015-12-24', 'pass', '123345', 'NANJING', 'Complete', NULL);
 
 -- --------------------------------------------------------
 
@@ -453,15 +460,16 @@ CREATE TABLE IF NOT EXISTS `pay` (
   `person` varchar(45) NOT NULL,
   `rent` int(4) NOT NULL,
   `freight` int(4) NOT NULL,
-  `salary` int(4) NOT NULL
+  `salary` int(4) NOT NULL,
+  `state` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `pay`
 --
 
-INSERT INTO `pay` (`id`, `time`, `account`, `money`, `person`, `rent`, `freight`, `salary`) VALUES
-('123123', '2015-12-24', '1321321', 123123, '123123', 123123, 213213, 120);
+INSERT INTO `pay` (`id`, `time`, `account`, `money`, `person`, `rent`, `freight`, `salary`, `state`) VALUES
+('123123', '2015-12-24', '1321321', 123123, '123123', 123123, 213213, 120, 'wait');
 
 -- --------------------------------------------------------
 
@@ -607,10 +615,10 @@ CREATE TABLE IF NOT EXISTS `sendgooddoc` (
 
 INSERT INTO `sendgooddoc` (`id`, `type`, `date`, `state`, `sendMan`, `orderBarCode`, `sendCity`) VALUES
 ('123123', 'sendGoodDoc', '115-11-3', 'wait', '123', '123213123123', 'NANJING'),
-('123123213', 'sendGoodDoc', '115-11-3', 'wait', '123123123', '12312312312', 'NANJING'),
-('123213', 'sendGoodDoc', '115-11-3', 'wait', '123123', '1232131231223', 'NANJING'),
+('123123213', 'sendGoodDoc', '115-11-3', 'pass', '123123123', '12312312312', 'NANJING'),
+('123213', 'sendGoodDoc', '115-11-3', 'pass', '123123', '1232131231223', 'NANJING'),
 ('123213123', 'sendGoodDoc', '115-11-3', 'wait', '123123123', '123123213123', 'NANJING'),
-('12321325661', 'sendGoodDoc', '115-11-3', 'wait', '123123', '1232131231223', 'NANJING'),
+('12321325661', 'sendGoodDoc', '115-11-3', 'pass', '123123', '1232131231223', 'NANJING'),
 ('PSD1511120000001', 'sendGoodDoc', '2015-11-12', 'wait', 'moxigan', '3213640812', 'BEIJING');
 
 -- --------------------------------------------------------
