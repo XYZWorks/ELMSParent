@@ -41,6 +41,7 @@ import util.DocType;
 import util.MyDate;
 import vo.order.OrderVO;
 import vo.strategy.ConstVO;
+import vo.strategy.EstiDateVO;
 
 /**
  * 查询订单界面
@@ -56,6 +57,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 	private StrategyblService strategyblService;
 
 	private ConstVO constVO;
+	private EstiDateVO estiDateVO;
 
 	// 白色矩形panel
 	private MyWhitePanel senderInfoPanel;
@@ -96,9 +98,12 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 
 	// 预计送达时间label
 	private MyPictureLabel estimateTime;
+	private MyLabel estimateTimeText;
+	
 	// 费用总计label
 	private MyPictureLabel cost;
 	private MyLabel costText;
+	
 	// 费用double
 	private double total;
 
@@ -147,6 +152,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 	private ButtonGroup orderFormGroup;
 	private String FormChose;
 	private double formMoney;
+	private int[]ratios;
 
 	// 下拉框 四种不同城市的地区
 	private MyComboBox senderCity;
@@ -184,7 +190,12 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 		super(config);
 		this.orderblservice = orderblservice;
 		this.strategyblService = strategyblService;
+		
 		constVO = strategyblService.getConst();
+		ratios=constVO.ratios;
+		
+		estiDateVO=strategyblService.getEstiDateVO();
+		
 
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
@@ -272,6 +283,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 		orderFormLabel = new MyLabel(e.element("orderFormLabel"));
 
 		estimateTime = new MyPictureLabel(e.element("estimateTime"));
+		estimateTimeText=new MyLabel(e.element("estimateTimeText"));
 
 		cost = new MyPictureLabel(e.element("cost"));
 		costText=new MyLabel(e.element("costText"));
@@ -392,6 +404,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 		this.add(confirm);
 		this.add(cancel);
 
+		this.add(estimateTimeText);
 		this.add(estimateTime);
 		
 		//注意添加的顺序：显示在最上面的最先添加进入面板 costText显示在cost上面
@@ -427,6 +440,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 				OtherOrderMes otherMes = new OtherOrderMes(packChose, FormChose,
 						Integer.parseInt(estimateTime.getText()), total, null, null);
 
+				
 				// 订单的构造器
 				// String iD, DocType type, MyDate date, DocState state,
 				// PeopleMes sender, PeopleMes receiver, GoodMes goodMes,
@@ -474,9 +488,9 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 		carton.addActionListener(new goodPackListener());
 		woodCase.addActionListener(new goodPackListener());
 
-		commonOrder.addActionListener(new goodPackListener());
-		quickOrder.addActionListener(new goodPackListener());
-		economicOrder.addActionListener(new goodPackListener());
+		commonOrder.addActionListener(new orderFormListener());
+		quickOrder.addActionListener(new orderFormListener());
+		economicOrder.addActionListener(new orderFormListener());
 		goodWeightText.addFocusListener(new goodWeightListener());
 
 	}
@@ -485,12 +499,22 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 	 * 根据选择的包装费用和快递形式来计算运费
 	 */
 	public void calCost() {
-		if ((senderCityString != null) && (receiverCityString != null) && (!goodWeightText.getText().equals(""))&&packMoney!=0) {
+		if ((senderCityString != null) && (receiverCityString != null) && (!goodWeightText.getText().equals(""))&&packMoney!=0&&FormChose!=null) {
+			//标准快递算法
 			double goodweight = Double.parseDouble(goodWeightText.getText());
 			double miles = getMiles();
 			double transferCost = miles / 1000 * 23 * goodweight;
 			total = packMoney + transferCost;
-
+			
+			System.out.println("total" + total);
+			//经济快递
+			if (FormChose.equals("economicOrder")) {
+				total=total/ratios[1]*ratios[0];
+			} else if (FormChose.equals("quickOrder")) {
+				total=total/ratios[1]*ratios[2];
+			}
+			System.out.println("Pretotal" + total);
+			
 			// 测试各项数据的准确性
 			System.out.println("miles" + miles);
 			System.out.println("goodweight" + goodweight);
@@ -697,7 +721,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 
 					System.out.println("sendercity:" + senderCityString);
 
-					// setTime();
+					setTime();
 					calCost();
 					// repaint();
 				}
@@ -790,7 +814,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 					}
 
 					System.out.println("recevierCityString" + receiverCityString);
-					// setTime();
+					setTime();
 					calCost();
 					// repaint();
 				}
@@ -805,10 +829,56 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 	 */
 	public void setTime() {
 		if ((senderChose != 0) && (receiverChose != 0)) {
-			// TODO 获得时间 单独建立方法
-			System.out.println("setTime");
-			estimateTime.setForeground(new Color(26, 188, 156));
-			estimateTime.setText("5");
+			double time = 0;
+			
+			System.out.println("senderChose"+senderChose);
+			System.out.println("receiverChose"+receiverChose);
+			
+			if (senderChose == receiverChose) {
+				// 同城的营业厅距离30km
+				time=estiDateVO.dayInSameCity ;
+			} else {
+				// 让senderchose比receiverChose小
+				if (senderChose > receiverChose) {
+					int tmp;
+					tmp = receiverChose;
+					receiverChose = senderChose;
+					senderChose = tmp;
+				}
+				// 如果寄件人在南京
+				if (senderChose == 1) {
+					switch (receiverChose) {
+					case 2:
+						time = estiDateVO.dayInBN;// 南京＋北京
+						break;
+					case 3:
+						time = estiDateVO.dayInNG;// 南京+广州
+						break;
+					case 4:
+						time = estiDateVO.dayInNS;// 南京＋上海
+						break;
+					}
+				}
+				// 如果寄件人在北京
+				else if (senderChose == 2) {
+					switch (receiverChose) {
+					case 3:
+						time = estiDateVO.dayInBG;// 北京+广州
+						break;
+					case 4:
+						time = estiDateVO.dayInBS;// 北京＋上海
+						break;
+					}
+				} else if ((senderChose == 3) && (receiverChose == 4)) {
+					time = estiDateVO.dayInSG;// 上海＋广州
+				}
+			}
+			
+			String result = String.format("%.2f", time);
+			System.out.println("time:" + result);
+
+			estimateTimeText.setForeground(new Color(26, 188, 156));
+			estimateTimeText.setText(result);
 		}
 	}
 

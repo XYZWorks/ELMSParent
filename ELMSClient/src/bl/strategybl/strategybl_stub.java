@@ -54,8 +54,9 @@ public class strategybl_stub implements StrategyblService {
 
 	@Override
 	public EstiDateVO getEstiDateVO() {
-		// TODO Auto-generated method stub
-		return null;
+		//double dayInBN, double dayInBS, double dayInBG, double dayInNS, double dayInNG, double dayInSG, double dayInSameCity
+		EstiDateVO estiDateVO=new EstiDateVO(3,4,6,2,3,3,1);
+		return estiDateVO;
 	}
 
 	@Override

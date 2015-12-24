@@ -30,6 +30,11 @@ public class EstiDateVO {
 	 */
 	public double dayInSG;
 	
+	/**
+	 * 同城 预计时间
+	 */
+	public double dayInSameCity;
+	
 	public EstiDateVO() {
 	}
 	
@@ -43,7 +48,7 @@ public class EstiDateVO {
 	 * @param dayInNG
 	 * @param dayInSG
 	 */
-	public EstiDateVO(double dayInBN, double dayInBS, double dayInBG, double dayInNS, double dayInNG, double dayInSG) {
+	public EstiDateVO(double dayInBN, double dayInBS, double dayInBG, double dayInNS, double dayInNG, double dayInSG, double dayInSameCity) {
 		super();
 		this.dayInBN = dayInBN;
 		this.dayInBS = dayInBS;
@@ -51,5 +56,6 @@ public class EstiDateVO {
 		this.dayInNS = dayInNS;
 		this.dayInNG = dayInNG;
 		this.dayInSG = dayInSG;
+		this.dayInSameCity=dayInSameCity;
 	}
 }
