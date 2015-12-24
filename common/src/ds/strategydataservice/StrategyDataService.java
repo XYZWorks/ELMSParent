@@ -3,11 +3,12 @@ package ds.strategydataservice;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import ds.DataserviceParent;
 import po.strategy.ConstPO;
+import po.strategy.EstiDatePO;
 import po.strategy.SalaryWayPO;
 import util.ResultMessage;
 import util.StaffType;
-import ds.DataserviceParent;
 
 /**
  * 系统常量及薪水策略数据层接口
@@ -43,6 +44,17 @@ public interface StrategyDataService extends DataserviceParent{
 	 * @return
 	 */
 	public SalaryWayPO getOneSalary(StaffType type) throws RemoteException;
+	/**
+	 * 得到预计时间
+	 * @return
+	 */
+	public EstiDatePO getEstiDatePO();
+	/**
+	 * 设置预计时间
+	 * @return
+	 */
+	public ResultMessage setEstiDatePO(EstiDatePO po);
+	
 //	/**
 //	 * 期初建账数据
 //	 * @param po 账单PO类
