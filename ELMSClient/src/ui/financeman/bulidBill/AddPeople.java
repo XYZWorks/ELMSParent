@@ -131,7 +131,7 @@ public class AddPeople extends MyPanel{
 			String phone;
 			@Override
 			protected void updateMes() {
-				String[] data = {mainPanel.instVOs.get(0).ID,StaffType.getName(type), id, name , phone};
+				String[] data = {mainPanel.instVOs.get(0).ID,type.getName(), id, name , phone};
 				table.addOneRow(data);
 				
 			}

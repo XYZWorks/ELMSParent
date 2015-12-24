@@ -6,6 +6,7 @@ import po.order.GoodMes;
 import po.order.OtherOrderMes;
 import po.order.PeopleMes;
 import po.order.TransferDocs;
+import util.City;
 import util.DocState;
 import util.DocType;
 import util.MyDate;
@@ -167,6 +168,18 @@ public class orderbl_stub implements Orderblservice{
 		order.add(one);
 		order.add(two);
 		return order;
+	}
+
+	@Override
+	public double getEstiDate(City one, City two) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public ResultMessage setEstiDate(double day, City one, City two) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

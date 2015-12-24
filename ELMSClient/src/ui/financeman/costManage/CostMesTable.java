@@ -8,7 +8,6 @@ import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import util.CostType;
 import util.MyDate;
-import util.StaffType;
 import vo.finance.CostVO;
 import vo.finance.FreightVO;
 import vo.finance.RentVO;
@@ -107,7 +106,7 @@ public class CostMesTable extends MyTablePanel {
 					data[i][2] = MyDate.toString(vo.startDate);
 					data[i][3] = MyDate.toString(vo.endDate);
 					data[i][4] = String.valueOf(vo.money);
-					data[i][5] = StaffType.getName(vo.worker);
+					data[i][5] = vo.worker.getName();
 					
 				}
 				
@@ -194,7 +193,7 @@ public class CostMesTable extends MyTablePanel {
 				temp[2] = MyDate.toString(vo.startDate);
 				temp[3] = MyDate.toString(vo.endDate);
 				temp[4] = String.valueOf(vo.money);
-				temp[5] = StaffType.getName(vo.worker);
+				temp[5] = vo.worker.getName();
 				addOneRow(temp);
 			}
 		}

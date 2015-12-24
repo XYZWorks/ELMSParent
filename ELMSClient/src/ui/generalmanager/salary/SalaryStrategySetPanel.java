@@ -92,9 +92,8 @@ public class SalaryStrategySetPanel extends MyPanel implements TextFieldsManage 
 		vos = bl.getsalary();
 		String temp = (String) staffTypeBox.getSelectedItem();
 		for (SalaryWayVO salaryWayVO : vos) {
-			if ((temp.equals(StaffType.getName(salaryWayVO.type)))) {
-				wageStrategyBox.setSelectedItem(StaffType
-						.getName(salaryWayVO.type));
+			if ((temp.equals(salaryWayVO.type.getName()))) {
+				wageStrategyBox.setSelectedItem(salaryWayVO.type.getName());
 				basicMoneyField
 						.setText(String.valueOf(salaryWayVO.basicSalary));
 				moreMoneyField.setText(String.valueOf(salaryWayVO.moreMoney));

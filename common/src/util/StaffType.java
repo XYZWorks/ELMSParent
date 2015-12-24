@@ -14,27 +14,27 @@ public enum StaffType {
 	/**
 	 * 财务人员
 	 */
-	financeman("financeman"),
+	financeman("财务人员"),
 	/**
 	 * 营业厅业务员
 	 */
-	saleman("saleman"),
+	saleman("营业厅业务员"),
 	/**
 	 * 快递员
 	 */
-	courier("courier"),
+	courier("快递员"),
 	/**
 	 * 中转中心业务人员
 	 */
-	storeman("storeman"),
+	storeman("中转中心业务人员"),
 	/**
 	 * 中转中心管理员
 	 */
-	storemanager("storemanager"),
+	storemanager("中转中心管理员"),
 	/**
 	 * 司机
 	 */
-	driver("driver");
+	driver("司机");
 
 	private String stafftypeName;
 
@@ -43,63 +43,19 @@ public enum StaffType {
 	}
 	
 	public final static StaffType getType(String chineseName){
-		switch (chineseName) {
-		case "快递员":
-
-			return courier;
-		case "司机":
-
-			return driver;
-		case "财务人员":
-
-			return financeman;
-		case "营业厅业务员":
-
-			return saleman;
-		case "中转中心业务员":
-
-			return storeman;
-		case "中转中心管理员":
-
-			return storemanager;
-
-		default:
-			System.err.println("---------人员账户中英文不对应");
-			return null;
+		for (StaffType staffType : StaffType.values()) {
+			if(staffType.stafftypeName.equals(chineseName)){
+				return staffType;
+			}
 		}
-		
+		System.err.println("---------人员账户中英文不对应");
+		return StaffType.courier;
 		
 	}
 	
 	
-	public final static String getName(StaffType type) {
-		
-		
-		switch (type) {
-		case courier:
-
-			return "快递员";
-		case driver:
-
-			return "司机";
-		case financeman:
-
-			return "财务人员";
-		case saleman:
-
-			return "营业厅业务员";
-		case storeman:
-
-			return "中转中心业务员";
-		case storemanager:
-
-			return "中转中心管理人员";
-
-		default:
-			System.err.println("--------------非法人员输入");
-			return "";
-		}
-
+	public String getName() {
+		return stafftypeName;
 	}
 
 
