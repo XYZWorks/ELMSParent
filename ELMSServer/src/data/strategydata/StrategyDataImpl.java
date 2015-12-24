@@ -25,6 +25,8 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 	 */
 	private static final String salaryTable = "salary";
 	
+	private static final String constFile = "Const";
+	
 	private static final String estimateTime = "TIME_ESTIMATE";
 
 	public StrategyDataImpl() throws RemoteException {}
@@ -42,11 +44,11 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 	
 	//const 暂时用序列化实现
 	public ConstPO getConst() throws RemoteException {
-		return (ConstPO)helper.readFromSerFile("Const");
+		return (ConstPO)helper.readFromSerFile(constFile);
 	}
 
 	public ResultMessage setConst(ConstPO po) throws RemoteException {
-		if(helper.writeToSerFile(po, "const" , false)){
+		if(helper.writeToSerFile(po, constFile , false)){
 			return ResultMessage.SUCCESS;
 		}else{
 			return ResultMessage.FAIL;
@@ -90,7 +92,7 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 	}
 
 	@Override
-	public EstiDatePO getEstiDatePO() {
+	public EstiDatePO getEstiDatePO() throws RemoteException  {
 		Object o = helper.readFromSerFile(estimateTime);
 		if( o == null){
 			System.err.println("WARNING: 时间估计文件丢失");
@@ -100,7 +102,7 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 	}
 
 	@Override
-	public ResultMessage setEstiDatePO(EstiDatePO po) {
+	public ResultMessage setEstiDatePO(EstiDatePO po) throws RemoteException  {
 		if(helper.writeToSerFile(po, estimateTime, false)){
 			return ResultMessage.SUCCESS;
 		}

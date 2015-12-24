@@ -110,18 +110,8 @@ public class DocSimpleInfoTable extends MyTablePanel{
 	public void changeDocType(DocType type){
 		this.type = type;
 		initialMes();
-		MyTableModel dtm = new MyTableModel(columnNames, data){
-			@Override
-			public boolean isCellEditable(int rowIndex, int columnIndex) {
-				if(columnIndex == 0){
-				return true;
-				}else{
-				return false;
-				}
-			}
-		};
 		//第一列可修改
-		table.setModel(dtm);
+		table.getModel().setDataVector(data, columnNames);
 	}
 	
 	@Override
@@ -162,12 +152,12 @@ public class DocSimpleInfoTable extends MyTablePanel{
 		}
 		
 		data = new Object[vos.size()][COLUMN_NUMS];
-			for (int i = 0; i < vos.size(); i++) {
+		for (int i = 0; i < vos.size(); i++) {
 				data[i][0] = new Boolean(false);
 				data[i][1] = vos.get(i).ID;
 				data[i][2] = DocType.getName(vos.get(i).type);
 				data[i][3] = MyDate.toString(vos.get(i).date);
 				data[i][4] = DocState.getName(vos.get(i).state);
-			}
+		}
 	}
 }
