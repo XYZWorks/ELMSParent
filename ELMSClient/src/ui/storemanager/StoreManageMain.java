@@ -16,6 +16,7 @@ import ui.util.PanelController;
 *@author:xingcheng
 *@version 2015年11月26日
 */
+@SuppressWarnings("serial")
 public class StoreManageMain extends MyPanel{
 	
 	private MyPictureButton inStoreButton;

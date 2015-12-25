@@ -2,7 +2,6 @@ package ui.storemanager.alarm;
 
 import org.dom4j.Element;
 
-import bl.storebl.StoreController;
 import ui.storemanager.StoreManagerController;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
@@ -15,12 +14,14 @@ import ui.util.PanelController;
 import ui.util.TipsDialog;
 import util.City;
 import util.ResultMessage;
+import bl.storebl.StoreController;
 
 /**
  * @author ymc
  * @version 创建时间：2015年12月16日 下午4:42:52
  *
  */
+@SuppressWarnings("serial")
 public class AlarmSetSinglePanel extends MyPanel {
 
 	MyPictureButton confirmButton;

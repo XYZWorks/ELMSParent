@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import bl.storebl.StoreController;
 import ui.config.GraphicsUtils;
 import ui.config.UserfulMethod;
 import ui.table.MyTable;
@@ -12,13 +11,14 @@ import ui.table.MyTablePanel;
 import util.DocType;
 import util.MyDate;
 import vo.store.InStoreDocVO;
-import vo.store.OutStoreDocVO;
+import bl.storebl.StoreController;
 
 /** 
  * @author ymc 
  * @version 创建时间：2015年12月6日 下午2:20:45 
  *
  */
+@SuppressWarnings("serial")
 public class InStoreTablePanel extends MyTablePanel {
 
 	private static final int COLUMN_NUM = 5;

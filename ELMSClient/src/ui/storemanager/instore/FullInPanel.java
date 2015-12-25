@@ -2,9 +2,7 @@ package ui.storemanager.instore;
 
 import org.dom4j.Element;
 
-import bl.storebl.StoreController;
 import ui.storemanager.StoreManagerController;
-import ui.table.MyTablePanel;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -13,12 +11,14 @@ import ui.util.CompomentType;
 import ui.util.PanelController;
 import util.MyDate;
 import vo.store.InStoreDocVO;
+import bl.storebl.StoreController;
 
 /** 
  * @author ymc 
  * @version 创建时间：2015年12月6日 下午3:37:55 
  *
  */
+@SuppressWarnings("serial")
 public class FullInPanel extends MyPanel {
 	
 	MyPictureButton returnButton;

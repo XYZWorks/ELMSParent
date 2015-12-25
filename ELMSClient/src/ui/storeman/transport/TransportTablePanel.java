@@ -4,22 +4,21 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import blservice.transportblservice.Transportblservice;
-import po.order.TransferDocs;
 import ui.config.GraphicsUtils;
 import ui.config.UserfulMethod;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import util.DocType;
 import util.MyDate;
-import vo.transport.ArriveZZDocVO;
 import vo.transport.TransferDocVO;
+import blservice.transportblservice.Transportblservice;
 
 /** 
  * @author ymc 
  * @version 创建时间：2015年12月5日 下午4:48:31 
  *
  */
+@SuppressWarnings("serial")
 public class TransportTablePanel extends MyTablePanel {
 
 	private static final int COLUMN_NUM = 8;

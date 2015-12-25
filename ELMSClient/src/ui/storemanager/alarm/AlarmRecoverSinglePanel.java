@@ -2,12 +2,8 @@ package ui.storemanager.alarm;
 
 import org.dom4j.Element;
 
-import bl.storebl.StoreController;
-import po.store.StoreMessagePO;
 import ui.config.UserfulMethod;
 import ui.storemanager.StoreManagerController;
-import ui.storemanager.alarm.AlarmSetSinglePanel.ModifyListener;
-import ui.tools.MyButton;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
 import ui.tools.MyPictureButton;
@@ -17,12 +13,14 @@ import ui.util.TipsDialog;
 import util.FormatMes;
 import util.ResultMessage;
 import vo.store.StoreMessageVO;
+import bl.storebl.StoreController;
 
 /**
  * @author ymc
  * @version 创建时间：2015年12月16日 下午8:15:21
  *
  */
+@SuppressWarnings("serial")
 public class AlarmRecoverSinglePanel extends AlarmSetSinglePanel {
 
 	MyLabel nowNum;

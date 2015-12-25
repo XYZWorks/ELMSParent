@@ -1,13 +1,8 @@
 package ui.storemanager.storeshow;
 
-import java.util.ArrayList;
-
 import org.dom4j.Element;
 
-import po.order.OrderSimpleInfoPO;
 import ui.storemanager.instore.ShowLocTablePanel;
-import vo.store.InStoreDocVO;
-import vo.store.OutStoreDocVO;
 import vo.store.StoreShowVO;
 
 /** 
@@ -15,6 +10,7 @@ import vo.store.StoreShowVO;
  * @version 创建时间：2015年12月12日 下午2:06:22 
  *
  */
+@SuppressWarnings("serial")
 public class OrderInfoTable extends ShowLocTablePanel {
 	
 	

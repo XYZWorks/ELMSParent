@@ -2,25 +2,23 @@ package ui.storemanager.storecheck;
 
 import org.dom4j.Element;
 
-import bl.storebl.StoreController;
 import ui.storemanager.instore.InStoreTablePanel;
 import ui.storemanager.outstore.OutStoreTablePanel;
-import ui.storemanager.storeshow.OrderInfoTable;
 import ui.storemanager.storeshow.StoreSingleShowPanel;
-import ui.tools.MyDatePicker;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
-import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.util.PanelController;
 import util.MyDate;
 import vo.store.StoreMessageVO;
+import bl.storebl.StoreController;
 
 /** 
  * @author ymc 
  * @version 创建时间：2015年12月13日 下午3:54:03 
  *
  */
+@SuppressWarnings("serial")
 public class StoreCheckInfoPanel extends StoreSingleShowPanel {
 
 	public StoreCheckInfoPanel(Element config, StoreController bl, PanelController controller) {

@@ -18,6 +18,7 @@ import ui.storeman.arrivezz.ArriveZZDocAdd;
 import ui.storeman.transport.AddTransportPanel;
 import ui.storemanager.instore.AddInStorePanel;
 import ui.storemanager.outstore.AddOutStorePanel;
+import ui.tools.MyCardLayOut;
 import ui.util.DocPanelForApproval;
 import util.DocType;
 
@@ -30,7 +31,7 @@ import util.DocType;
 public class ApprovalDetailPanel{
 	
 	private JPanel changePanel;
-	private CardLayout panelManager;
+	private MyCardLayOut panelManager;
 	
 	private ArriveYYDocAddPanel arriveYYDocPanel;
 	private LoadDocAddPanel loadDocPanel;
@@ -47,7 +48,7 @@ public class ApprovalDetailPanel{
 	public ApprovalDetailPanel(Element config , JPanel changePanel ) {
 		
 		this.changePanel = changePanel;
-		this.panelManager = (CardLayout) changePanel.getLayout();
+		this.panelManager = (MyCardLayOut) changePanel.getLayout();
 		
 		myInit(config);
 		addToMap();

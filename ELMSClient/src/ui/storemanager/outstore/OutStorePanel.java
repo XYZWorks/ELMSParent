@@ -1,13 +1,6 @@
 package ui.storemanager.outstore;
 
-import java.awt.event.MouseEvent;
-
 import org.dom4j.Element;
-
-import bl.storebl.StoreController;
-import config.StaticMessage;
-import ui.storemanager.instore.FullInPanel;
-import ui.storemanager.instore.InStoreTablePanel;
 
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
@@ -16,13 +9,15 @@ import ui.tools.MyPictureButton;
 import ui.util.CompomentType;
 import ui.util.PanelController;
 import util.MyDate;
-import vo.store.InStoreDocVO;
+import bl.storebl.StoreController;
+import config.StaticMessage;
 
 /** 
  * @author ymc 
  * @version 创建时间：2015年12月3日 下午11:36:37 
  *
  */
+@SuppressWarnings("serial")
 public class OutStorePanel extends MyPanel {
 
 	StoreController bl;

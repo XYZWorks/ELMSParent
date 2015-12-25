@@ -22,6 +22,7 @@ import util.MyDate;
  * @version 创建时间：2015年12月3日 上午10:21:14
  *
  */
+@SuppressWarnings("serial")
 public class ArriveZZPanel extends MyPanel {
 	Transportblservice bl;
 

@@ -160,7 +160,6 @@ public abstract class PanelController {
 	 * 父类自初始化
 	 * @param e
 	 */
-	@SuppressWarnings("serial")
 	private void initial(Element e){
 		panelManager = new MyCardLayOut();
 		this.changePanel = new JPanel(panelManager);
