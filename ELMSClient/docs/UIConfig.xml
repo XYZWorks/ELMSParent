@@ -442,7 +442,7 @@
 				</DatePicker>
 			</findFullInfoPanel>
 			<inputReceiveInfoPanel x="232" y="54" width="1080"
-				height="637">
+				height="800">
 				<BUTTONS>
 					<confirm text="确认修改" x="707" y="695" width="89" height="37"
 						type="confirm" />

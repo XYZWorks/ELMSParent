@@ -55,8 +55,7 @@ public class LoginFrame extends MyFrame {
 
 	private Element config;
 
-	// //普通用户查询订单
-	// private MyLabel findOrderInfo;
+	
 
 	public LoginFrame(Element config) {
 		super(config);
@@ -117,7 +116,7 @@ public class LoginFrame extends MyFrame {
 		mainpanel.add(login);
 		mainpanel.add(closeButton);
 		// mainpanel.add(rememberMe);
-		// mainpanel.add(findOrderInfo);
+		
 
 	}
 
@@ -125,14 +124,8 @@ public class LoginFrame extends MyFrame {
 		login.addMouseListener(new MyLoginListener());
 		closeButton.addMouseListener(new MyCloseListener());
 		checkOrder.addMouseListener(new MyCheckOrderListener());
-		// findOrderInfo.addMouseListener(new findOrderListener());
 	}
 
-	// class findOrderListener extends MouseAdapter{
-	// @Override
-	// public void mouseClicked(MouseEvent e) {
-	//
-	// }
 
 	class MyLoginListener extends MouseAdapter {
 		@Override
@@ -229,18 +222,8 @@ public class LoginFrame extends MyFrame {
 		}
 	}
 
-<<<<<<< HEAD
 	 public static void main(String[] args) {
-	 //
 	 ParseXML xmlReader = new ParseXML();
-	// xmlReader.getRoot();
 	 new LoginFrame(xmlReader.getConfig("loginframe"));
 	 }
-=======
-public static void main(String[] args) {
-	//
-	ParseXML xmlReader = new ParseXML("UIConfig.xml");
-	new LoginFrame(xmlReader.getConfig("loginframe"));
-}	
->>>>>>> origin/master
 }
