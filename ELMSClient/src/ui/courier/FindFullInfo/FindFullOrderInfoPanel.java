@@ -11,6 +11,7 @@ import po.order.GoodMes;
 import po.order.OtherOrderMes;
 import po.order.PeopleMes;
 import po.order.TransferDocs;
+import ui.config.DataType;
 import ui.courier.CourierController;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
@@ -22,7 +23,9 @@ import ui.tools.MyTextArea;
 import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
 import ui.util.TipsDialog;
+import util.DocType;
 import util.ResultMessage;
+import vo.order.OrderSimpleInfoVO;
 import vo.order.OrderVO;
 
 @SuppressWarnings("serial")
@@ -426,34 +429,35 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		orderFormText.setText(otherMes.getOrderForm());
 
 		// 读取流转信息
-		setTransfer();
+		setTransferInfo();
 
 	}
-
-	public void setTransfer() {
+	
+	public void setTransferInfo() {
+		// 依次读取物流信息：地点＋时间
+		ArrayList<OrderSimpleInfoVO> info = orderblservice.getSimpleInfo(BarCode);
+		int length = info.size();
 
 		MyLabel[] place = { one, two, three, four, five, six, seven, eight, nine, ten };
 		MyLabel[] time = { oneText, twoText, threeText, fourText, fiveText, sixText, sevenText, eightText, nineText,
 				tenText };
-		
-		for (int i = 0; i < transfer.size(); i++) {
-			
-			orderblservice.
-			
-			
-			place[i].setText(processPlace(transfer.get(i).place, info.get(i).type, i));
-
+		for (int i = 0; i < length; i++) {
+			//详细信息的单据号
+			String transferCode=transfer.get(i);
+			//复用简易信息里的时间和地点
+			place[i].setText(transferCode+processPlace(info.get(i).place, info.get(i).type, i));
 			time[i].setText(processTime(info.get(i).time));
 		}
 
 		// 如果流转信息不超过5个，右边栏点点不会出现
-		if (transfer.size() <= 5) {
+		if (length <= 5) {
 			LineRight.setVisible(false);
 		} else {
 			LineRight.setVisible(true);
 		}
-
+		
 	}
+
 
 	private String processPlace(String place, DocType type, int i) {
 		String result = null;
