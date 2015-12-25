@@ -1,8 +1,12 @@
 package ui.storemanager.storecheck;
 
 import java.awt.event.MouseEvent;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import org.dom4j.Element;
+
+import com.eltima.components.ui.a3;
 
 import bl.storebl.StoreController;
 import ui.storemanager.instore.InStoreTablePanel;
@@ -19,6 +23,8 @@ import ui.util.PanelController;
 import ui.util.TipsDialog;
 import util.MyDate;
 import util.ResultMessage;
+import vo.store.InStoreDocVO;
+import vo.store.OutStoreDocVO;
 import vo.store.StoreMessageVO;
 
 /** 
@@ -115,7 +121,7 @@ public class StoreCheckInfoPanel extends StoreSingleShowPanel {
 
 			if(result==ResultMessage.SUCCESS)
 				new TipsDialog("导出excel成功");
-			else {
+			else { 
 				new TipsDialog("导出excel失败");
 			}
 		}
@@ -133,9 +139,23 @@ public class StoreCheckInfoPanel extends StoreSingleShowPanel {
 				
 		}
 		if(target!=null){
+			ins = new ArrayList<>();
+			outs = new ArrayList<>();
 			nowNum.setText("   "+String.valueOf(target.number));
-			ins = target.inStoreDocs;
-			outs = target.outStoreDocs;
+			ArrayList<InStoreDocVO> instmp = target.inStoreDocs;
+			ArrayList<OutStoreDocVO> outstmp = target.outStoreDocs;
+			for(InStoreDocVO in : instmp){
+				if(in.date.equals(nowDate))
+					ins.add(in);
+			}
+			target.inStoreDocs = ins;
+			
+			for(OutStoreDocVO out : outstmp){
+				if(out.date.equals(nowDate))
+					outs.add(out);
+			}
+			
+			target.outStoreDocs = outs;
 			inTable.resetValue(ins);
 			
 			outTable.resetValue(outs);
