@@ -10,7 +10,6 @@ import ui.tools.MyPictureButton;
 import ui.util.CompomentType;
 import ui.util.MyMainPanelButtonListener;
 import ui.util.PanelController;
-import ui.util.RefreshPanel;
 
 /**
 *中转中心管理员 主界面

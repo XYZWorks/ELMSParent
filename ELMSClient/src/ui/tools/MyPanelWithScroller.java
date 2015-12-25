@@ -5,6 +5,7 @@ import java.awt.Dimension;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 import org.dom4j.Element;
  /** 
@@ -13,7 +14,7 @@ import org.dom4j.Element;
  * @version 2015年12月6日 下午1:49:57 
  */
 @SuppressWarnings("serial")
-public abstract class MyPanelWithScroller extends JScrollPane {
+public abstract class MyPanelWithScroller extends JScrollPane{
 	//在有需要的时候 直接将scrollerpane和panel绑定在一起
 	private JPanel panel;
 	
@@ -26,8 +27,8 @@ public abstract class MyPanelWithScroller extends JScrollPane {
 		panel.setPreferredSize(new Dimension(Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height"))));
 		
 		this.getViewport().add(panel);
-		this.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		this.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		this.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		this.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 	}
 	
 	
@@ -70,8 +71,4 @@ public abstract class MyPanelWithScroller extends JScrollPane {
 	 * 增加监听（内部类机制）
 	 */
 	protected abstract void addListener();
-	
-	public void refresh(){
-		
-	}
-	}
+}

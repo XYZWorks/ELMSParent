@@ -25,23 +25,28 @@ public class StrategyController implements StrategyblService{
 		strategy = new Strategy(strategyData);
 	}
 	
+	@Override
 	public ConstVO getConst() {
 
 		return strategy.getConst();
 	}
 
+	@Override
 	public ResultMessage setConst(ConstVO vo) {
 		return strategy.setConst(vo);
 	}
 
+	@Override
 	public ArrayList<SalaryWayVO> getsalary() {
 		return strategy.getsalary();
 	}
 
+	@Override
 	public SalaryWayVO getOneSalary(StaffType type) {
 		return strategy.getOneSalary(type);
 	}
 
+	@Override
 	public ResultMessage setSalary(SalaryWayVO way) {
 		return strategy.setSalary(way);
 	}

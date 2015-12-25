@@ -1,5 +1,6 @@
 package ui.inital;
 
+import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -9,7 +10,7 @@ import javax.swing.JFrame;
 import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
-import ui.courier.CourierController;
+import ui.saleman.SaleManController;
 import ui.tools.MyFrame;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -65,8 +66,8 @@ public class InitalPanel2 extends MyPanel {
 //		AccountType type = vo.type;
 		
 		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
-		controller =  new CourierController(this, e.element("CourierManager")) ;
-		//controller =  new CourierController(this, e.element("CourierManager")) ;
+	//	controller =  new CourierController(this, e.element("CourierManager")) ;
+		controller =  new SaleManController(this, e.element("Salesman")) ;
 		
 //		switch (type) {
 //		case Adminstrator:
@@ -174,7 +175,7 @@ public class InitalPanel2 extends MyPanel {
 		public void mouseClicked(MouseEvent e) {
 			min.setMyIcon(ButtonState.MOUSE_CLICKED);
 			//最小化到任务栏
-			parent.setExtendedState(JFrame.ICONIFIED);
+			parent.setExtendedState(Frame.ICONIFIED);
 		}
 
 		@Override

@@ -4,7 +4,6 @@ import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
 import ui.tools.MyButton;
-import ui.tools.MyLabel;
 
 /**
 *右上角显示 职业身份 解析accountvo

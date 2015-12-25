@@ -23,22 +23,27 @@ public class AccountController implements Accountblservice{
 		account=new Account(accountDataService);
 	}
 	
+	@Override
 	public ResultMessage add(AccountVO vo) {
 		return account.add(vo);
 	}
 
+	@Override
 	public ResultMessage delete(String ID ){
 		return account.delete(ID);
 	}
 
+	@Override
 	public AccountVO find(String ID) {
 		return account.find(ID);
 	}
 
+	@Override
 	public ResultMessage modify(AccountVO vo) {
 		return account.modify(vo);
 	}
 
+	@Override
 	public ArrayList<AccountVO> show() {
 		return account.show();
 	}

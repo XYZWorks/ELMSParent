@@ -16,6 +16,7 @@ import blservice.DocApprovalService;
  */
 public class MockDocs implements DocApprovalService {
 
+	@Override
 	public ArrayList<? extends DocVO> getDocLists(DocType type) {
 		switch (type) {
 		case arriveYYDoc:
@@ -57,11 +58,13 @@ public class MockDocs implements DocApprovalService {
 		return ResultMessage.SUCCESS;
 	}
 
+	@Override
 	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
 	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
 		// TODO Auto-generated method stub
 		return null;

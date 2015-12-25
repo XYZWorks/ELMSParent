@@ -7,7 +7,7 @@
 			<checkOrder text="" x="213" y="316" width="72" height="17" />
 		</BUTTONS>
 		<LABELS>
-			
+
 			<findOrderInfo text="" x="209" y="315" width="73"
 				height="18" />
 		</LABELS>
@@ -288,6 +288,7 @@
 			</addOrderPanel>
 
 			<showInfoPanel x="232" y="54" width="1080" height="1200">
+
 				<showTable x="49" y="114" width="727" height="500"
 					column="订单号 收件人 收件地址 寄件人 寄件地址 运费" />
 
@@ -393,9 +394,11 @@
 
 					<estimateTime text="" x="49" y="1080" width="189"
 						height="65" one="courier//estimateTime" />
+					<estimateTimeText  text="" x="49" y="1080" width="189"
+						height="65" size="38"/>
 
-					<cost text="" x="300" y="1080" width="189" height="65"
-						one="courier//cost" />
+					<cost text="" x="350" y="1080" width="189" height="65"/>
+					<costText text="" x="350" y="1080" width="189" height="65" size="38"/>
 
 					<transferInfo text="物流信息" x="0" y="0" width="114"
 						height="40" type="rectangle" />
@@ -455,6 +458,8 @@
 
 				</BUTTONS>
 				<LABELS>
+					<seeAll text="查看全部" x="380" y="30" width="120" height="45"
+						type="rectangle" />
 				</LABELS>
 				<TEXTFIELDS>
 				</TEXTFIELDS>

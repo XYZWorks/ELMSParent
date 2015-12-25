@@ -1,8 +1,6 @@
 package ui.tools;
 
 
-import java.awt.Color;
-
 import javax.swing.JLabel;
 
 import org.dom4j.Element;

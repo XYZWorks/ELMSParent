@@ -20,7 +20,6 @@ import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
-import util.City;
 import util.MyDate;
 import util.ResultMessage;
 import vo.DTManage.CarVO;

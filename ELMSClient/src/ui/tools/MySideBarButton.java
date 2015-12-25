@@ -1,10 +1,9 @@
 package ui.tools;
 
 import java.awt.Color;
-import java.security.KeyStore.PrivateKeyEntry;
-
 import javax.swing.Icon;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 import org.dom4j.Element;
 
@@ -50,8 +49,8 @@ public class MySideBarButton extends JLabel{
 		this.setFont(GraphicsUtils.getFont(null));
 		this.setForeground(Color.WHITE);
 		this.setText(e.attributeValue("text"));
-		this.setVerticalTextPosition(JLabel.CENTER);
-		this.setHorizontalTextPosition(JLabel.CENTER);
+		this.setVerticalTextPosition(SwingConstants.CENTER);
+		this.setHorizontalTextPosition(SwingConstants.CENTER);
 		this.repaint();
 		this.setVisible(true);
 	}

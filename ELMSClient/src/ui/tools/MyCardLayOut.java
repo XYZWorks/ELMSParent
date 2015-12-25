@@ -39,7 +39,6 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
 
-import ui.tools.MyCardLayOut.Card;
 import ui.util.RefreshPanel;
 
 /**
@@ -206,7 +205,8 @@ public class MyCardLayOut implements LayoutManager2,
      * @see       java.awt.CardLayout#show(java.awt.Container, java.lang.String)
      * @exception  IllegalArgumentException  if the constraint is not a string.
      */
-    public void addLayoutComponent(Component comp, Object constraints) {
+    @Override
+	public void addLayoutComponent(Component comp, Object constraints) {
       synchronized (comp.getTreeLock()) {
           if (constraints == null){
               constraints = "";
@@ -223,15 +223,16 @@ public class MyCardLayOut implements LayoutManager2,
      * @deprecated   replaced by
      *      <code>addLayoutComponent(Component, Object)</code>.
      */
-    @Deprecated
+    @Override
+	@Deprecated
     public void addLayoutComponent(String name, Component comp) {
         synchronized (comp.getTreeLock()) {
             if (!vector.isEmpty()) {
                 comp.setVisible(false);
             }
             for (int i=0; i < vector.size(); i++) {
-                if (((Card)vector.get(i)).name.equals(name)) {
-                    ((Card)vector.get(i)).comp = comp;
+                if (vector.get(i).name.equals(name)) {
+                    vector.get(i).comp = comp;
                     return;
                 }
             }
@@ -246,10 +247,11 @@ public class MyCardLayOut implements LayoutManager2,
      * @see     java.awt.Container#remove(java.awt.Component)
      * @see     java.awt.Container#removeAll()
      */
-    public void removeLayoutComponent(Component comp) {
+    @Override
+	public void removeLayoutComponent(Component comp) {
         synchronized (comp.getTreeLock()) {
             for (int i = 0; i < vector.size(); i++) {
-                if (((Card)vector.get(i)).comp == comp) {
+                if (vector.get(i).comp == comp) {
                     // if we remove current component we should show next one
                     if (comp.isVisible() && (comp.getParent() != null)) {
                         next(comp.getParent());
@@ -276,7 +278,8 @@ public class MyCardLayOut implements LayoutManager2,
      * @see     java.awt.Container#getPreferredSize
      * @see     java.awt.CardLayout#minimumLayoutSize
      */
-    public Dimension preferredLayoutSize(Container parent) {
+    @Override
+	public Dimension preferredLayoutSize(Container parent) {
         synchronized (parent.getTreeLock()) {
             Insets insets = parent.getInsets();
             int ncomponents = parent.getComponentCount();
@@ -306,7 +309,8 @@ public class MyCardLayOut implements LayoutManager2,
      * @see       java.awt.Container#doLayout
      * @see       java.awt.CardLayout#preferredLayoutSize
      */
-    public Dimension minimumLayoutSize(Container parent) {
+    @Override
+	public Dimension minimumLayoutSize(Container parent) {
         synchronized (parent.getTreeLock()) {
             Insets insets = parent.getInsets();
             int ncomponents = parent.getComponentCount();
@@ -336,7 +340,8 @@ public class MyCardLayOut implements LayoutManager2,
      * @see #minimumLayoutSize
      * @see #preferredLayoutSize
      */
-    public Dimension maximumLayoutSize(Container target) {
+    @Override
+	public Dimension maximumLayoutSize(Container target) {
         return new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE);
     }
 
@@ -347,7 +352,8 @@ public class MyCardLayOut implements LayoutManager2,
      * where 0 represents alignment along the origin, 1 is aligned
      * the furthest away from the origin, 0.5 is centered, etc.
      */
-    public float getLayoutAlignmentX(Container parent) {
+    @Override
+	public float getLayoutAlignmentX(Container parent) {
         return 0.5f;
     }
 
@@ -358,7 +364,8 @@ public class MyCardLayOut implements LayoutManager2,
      * where 0 represents alignment along the origin, 1 is aligned
      * the furthest away from the origin, 0.5 is centered, etc.
      */
-    public float getLayoutAlignmentY(Container parent) {
+    @Override
+	public float getLayoutAlignmentY(Container parent) {
         return 0.5f;
     }
 
@@ -366,7 +373,8 @@ public class MyCardLayOut implements LayoutManager2,
      * Invalidates the layout, indicating that if the layout manager
      * has cached information it should be discarded.
      */
-    public void invalidateLayout(Container target) {
+    @Override
+	public void invalidateLayout(Container target) {
     }
 
     /**
@@ -379,7 +387,8 @@ public class MyCardLayOut implements LayoutManager2,
      * @param     parent the parent container in which to do the layout
      * @see       java.awt.Container#doLayout
      */
-    public void layoutContainer(Container parent) {
+    @Override
+	public void layoutContainer(Container parent) {
         synchronized (parent.getTreeLock()) {
             Insets insets = parent.getInsets();
             int ncomponents = parent.getComponentCount();
@@ -534,7 +543,7 @@ public class MyCardLayOut implements LayoutManager2,
             Component next = null;
             int ncomponents = vector.size();
             for (int i = 0; i < ncomponents; i++) {
-                Card card = (Card)vector.get(i);
+                Card card = vector.get(i);
                 if (card.name.equals(name)) {
                     next = card.comp;
                     currentCard = i;
@@ -566,7 +575,8 @@ public class MyCardLayOut implements LayoutManager2,
      * Returns a string representation of the state of this card layout.
      * @return    a string representation of this card layout.
      */
-    public String toString() {
+    @Override
+	public String toString() {
         return getClass().getName() + "[hgap=" + hgap + ",vgap=" + vgap + "]";
     }
 
@@ -587,8 +597,8 @@ public class MyCardLayOut implements LayoutManager2,
             vector = new Vector<>();
             if (tab != null && !tab.isEmpty()) {
                 for (Enumeration<String> e = tab.keys() ; e.hasMoreElements() ; ) {
-                    String key = (String)e.nextElement();
-                    Component comp = (Component)tab.get(key);
+                    String key = e.nextElement();
+                    Component comp = tab.get(key);
                     vector.add(new Card(key, comp));
                     if (comp.isVisible()) {
                         currentCard = vector.size() - 1;
@@ -610,7 +620,7 @@ public class MyCardLayOut implements LayoutManager2,
         Hashtable<String, Component> tab = new Hashtable<>();
         int ncomponents = vector.size();
         for (int i = 0; i < ncomponents; i++) {
-            Card card = (Card)vector.get(i);
+            Card card = vector.get(i);
             tab.put(card.name, card.comp);
         }
 

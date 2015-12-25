@@ -3,8 +3,6 @@ package bl.storebl;
 import java.util.ArrayList;
 
 import net.RMIManage;
-import test.java.other.DataTool;
-import ui.inital.initialPanel3;
 import util.City;
 import util.DataServiceType;
 import util.DocState;
@@ -16,7 +14,6 @@ import vo.store.InStoreDocVO;
 import vo.store.OutStoreDocVO;
 import vo.store.StoreCheckVO;
 import vo.store.StoreMessageVO;
-import vo.store.StoreShowVO;
 import blservice.storeblservice.InStoreDocService;
 import blservice.storeblservice.OutStoreDocService;
 import blservice.storeblservice.StoreblService;
@@ -47,23 +44,28 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 	public void initial(){
 		
 	}
+	@Override
 	public ArrayList<StoreMessageVO> show() {
 		return store.show();
 	}
 
+	@Override
 	public ArrayList<StoreCheckVO> showCheck() {
 		return store.showCheck();
 	}
 
+	@Override
 	public ResultMessage exportExcel(String path,StoreMessageVO vo) {
 		return store.exportExcel(path,vo);
 	}
 
+	@Override
 	public ResultMessage update(StoreMessageVO vo) {
 		return store.update(vo);
 	}
 
 	
+	@Override
 	public ArrayList<? extends DocVO> getDocLists(DocType type) {
 		switch (type) {
 		case inStoreDoc:
@@ -78,22 +80,27 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 
 
 
+	@Override
 	public ResultMessage generate(OutStoreDocVO vo) {
 		return outStoreDocImpl.generate(vo);
 	}
 
+	@Override
 	public ResultMessage generate(InStoreDocVO vo) {
 		return inStoreDocImpl.generate(vo);
 	}
 
+	@Override
 	public ArrayList<OutStoreDocVO> showOutStoreDocs() {
 		return outStoreDocImpl.show();
 	}
 
+	@Override
 	public ArrayList<InStoreDocVO> showInstoreDocs() {
 		return inStoreDocImpl.show();
 	}
 
+	@Override
 	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
 		switch (type) {
 		case inStoreDoc:
@@ -105,6 +112,7 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 		}
 	}
 
+	@Override
 	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
 		switch (type) {
 		case inStoreDoc:
@@ -117,13 +125,16 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 	}
 
 
+	@Override
 	public ResultMessage setAlarmValue(String value, City city) {
 		return store.setAlarmValue(value,city);
 	}
 
+	@Override
 	public String getAlarmValue(City city) {
 		return store.getAlarmValue(city);
 	}
+	@Override
 	public DocVO getByID(String ID , DocType type) {
 		if(type == DocType.inStoreDoc){
 			return inStoreDocImpl.getByID(ID , DocType.inStoreDoc);
@@ -135,6 +146,7 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 		
 				
 	}
+	@Override
 	public ResultMessage updateStore(City loc, TransferWay way,String ID , DocType type) {
 		DocVO tmp = getByID(ID, type);
 		return store.updateStore(loc,way,tmp);

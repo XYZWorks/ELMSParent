@@ -2,22 +2,20 @@ package ui.courier.FindFullInfo;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-
 import org.dom4j.Element;
 
 import blservice.orderblservice.Orderblservice;
 import ui.config.UserfulMethod;
 import ui.courier.CourierController;
 import ui.tools.MyDatePicker;
-import ui.tools.MyPanelWithScroller;
+import ui.tools.MyPanel;
 import ui.tools.MySearchBox;
 import ui.util.CompomentType;
 import ui.util.TipsDialog;
 import util.FormatMes;
-import util.ResultMessage;
 
 @SuppressWarnings("serial")
-public class showInfoPanel extends MyPanelWithScroller {
+public class showInfoPanel extends MyPanel {
 
 	private CourierController controller;
 	private Orderblservice orderblservice;
@@ -26,7 +24,7 @@ public class showInfoPanel extends MyPanelWithScroller {
 	private MySearchBox searchBox;
 	private Element config;
 	private FindFullOrderInfoPanel findFullOrderInfoPanel;
-
+	
 	public showInfoPanel(Element config, Orderblservice orderblservice, CourierController controller,
 			FindFullOrderInfoPanel findFullOrderInfoPanel) {
 		super(config);
@@ -53,7 +51,6 @@ public class showInfoPanel extends MyPanelWithScroller {
 
 	@Override
 	protected void initButtons(Element e) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -81,13 +78,16 @@ public class showInfoPanel extends MyPanelWithScroller {
 		this.add(showTable);
 		this.add(datePicker);
 		this.add(searchBox);
+		
 	}
 
 	@Override
 	protected void addListener() {
 		searchBox.addKeyListener(new SearchBoxListener());
-
+		
+		
 	}
+	
 
 	class SearchBoxListener extends KeyAdapter {
 

@@ -271,6 +271,7 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage {
 		}
 	}
 
+	@Override
 	public void allowTextFieldToModify(boolean flag) {
 		instance.setEditable(flag);
 		planeCost.setEditable(flag);
@@ -290,7 +291,7 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage {
 		@Override
 		public void itemStateChanged(ItemEvent e) {
 			if (((String) startCity.getSelectedItem())
-					.equals((String) arriveCity.getSelectedItem())) {
+					.equals(arriveCity.getSelectedItem())) {
 				instance.setText("0");
 				return;
 			}

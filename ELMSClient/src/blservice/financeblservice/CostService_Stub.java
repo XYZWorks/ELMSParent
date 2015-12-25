@@ -33,15 +33,18 @@ public class CostService_Stub implements CostService {
 		return vos;
 	}
 
+	@Override
 	public ResultMessage add(CostVO vo) {
 		
 		return ResultMessage.SUCCESS;
 	}
 
+	@Override
 	public ResultMessage modify(CostVO vo) {
 		return ResultMessage.SUCCESS;
 	}
 
+	@Override
 	public ResultMessage del(CostVO vo) {
 		return ResultMessage.SUCCESS;
 	}

@@ -4,6 +4,7 @@ import java.awt.Cursor;
 
 import javax.swing.Icon;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 import org.dom4j.Element;
 
@@ -50,8 +51,8 @@ public class MyPictureButton extends JLabel {
 		this.setFont(GraphicsUtils.getFont(e));
 		if(e.attributeValue("text") != null){
 			this.setText(e.attributeValue("text"));
-			this.setHorizontalTextPosition(JLabel.CENTER);
-			this.setVerticalTextPosition(JLabel.CENTER);
+			this.setHorizontalTextPosition(SwingConstants.CENTER);
+			this.setVerticalTextPosition(SwingConstants.CENTER);
 		}
 		
 		this.repaint();

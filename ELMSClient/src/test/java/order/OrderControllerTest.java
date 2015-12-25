@@ -1,23 +1,17 @@
 package test.java.order;
 
-import static org.junit.Assert.fail;
-
 import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import test.java.other.DataTool;
-import util.DocState;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
-import vo.order.OrderSimpleInfoVO;
 import vo.order.OrderVO;
-import vo.transport.ArriveYYDocVO;
 import bl.orderbl.OrderController;
 import blservice.orderblservice.Orderblservice;
-import junit.framework.TestCase;
 /** 
  * 
  * @author czq 

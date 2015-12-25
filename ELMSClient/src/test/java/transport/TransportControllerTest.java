@@ -1,23 +1,9 @@
 package test.java.transport;
 
-import static org.junit.Assert.fail;
-
-import java.util.ArrayList;
-
 import org.junit.Before;
 import org.junit.Test;
 
-import test.java.other.DataTool;
-import util.MyDate;
-import util.DocState;
-import util.DocType;
 import util.ResultMessage;
-import vo.DocVO;
-import vo.transport.ArriveYYDocVO;
-import vo.transport.ArriveZZDocVO;
-import vo.transport.LoadDocVO;
-import vo.transport.SendGoodDocVO;
-import vo.transport.TransferDocVO;
 import bl.transportbl.TransportController;
 import blservice.transportblservice.Transportblservice;
 

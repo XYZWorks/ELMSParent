@@ -111,7 +111,7 @@ public class InStoreDocImpl  {
 		}else{
 			InStoreDocVO test = (InStoreDocVO) VOPOchange.POtoVO(po);
 			
-			return (DocVO) test;
+			return test;
 		}
 	}
 

@@ -7,7 +7,6 @@ import org.dom4j.Element;
 import bl.storebl.StoreController;
 import config.StaticMessage;
 import ui.storeman.StoreManController;
-import ui.storemanager.storeshow.StoreSingleShowPanel;
 import ui.tools.MyComboBox;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;

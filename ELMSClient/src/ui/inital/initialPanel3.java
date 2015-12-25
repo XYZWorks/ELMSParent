@@ -1,5 +1,6 @@
  package ui.inital;
 
+import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -9,8 +10,6 @@ import javax.swing.JFrame;
 import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
-import ui.generalmanager.GeneralManagerController;
-import ui.storeman.StoreManController;
 import ui.storemanager.StoreManagerController;
 import ui.tools.MyFrame;
 import ui.tools.MyLabel;
@@ -19,7 +18,6 @@ import ui.tools.MyPictureButton;
 import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.PanelController;
-import vo.account.AccountVO;
 
 /**
  * 主面板界面，不动的界面
@@ -179,7 +177,7 @@ public class initialPanel3 extends MyPanel {
 		public void mouseClicked(MouseEvent e) {
 			min.setMyIcon(ButtonState.MOUSE_CLICKED);
 			//最小化到任务栏
-			parent.setExtendedState(JFrame.ICONIFIED);
+			parent.setExtendedState(Frame.ICONIFIED);
 		}
 
 		@Override
