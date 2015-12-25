@@ -1,11 +1,13 @@
 package main;
 
-import java.rmi.RemoteException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.awt.EventQueue;
 
+import javax.swing.UIManager;
+
+import org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper;
+
+import ui.config.ParseXML;
 import ui.login.LoginFrame;
-import util.MyDate;
 
  /** 
  * 程序入口
@@ -16,12 +18,31 @@ public class AXIS {
 	
 	
 	
-	public static void main(String[] args) throws RemoteException {
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
 		
-		//启动登陆界面（在登陆界面构造函数中启动RMI服务）
-		new LoginFrame(null);
-	
+		try {
+			BeautyEyeLNFHelper.frameBorderStyle = BeautyEyeLNFHelper.FrameBorderStyle.translucencySmallShadow;
+			org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF();
+//			UIManager.put("RootPane.setupButtonVisible" ,false);
+//			UIManager.put("RootPane.frameBorder", new EmptyBorder(0, 0, 0, 0));
+//			UIManager.put("RootPaneUI", UIManager.getDefaults().get("RootPaneUI"));
+			
+//			UIManager.put("RootPane.frameBorder", UIManager.getDefaults().get("RootPane.frameBorder"));
+			UIManager.put("RootPaneUI", null);
+		}catch(Exception e){
+			
+		}
 		
-		
+		EventQueue.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				ParseXML xmlReader = new ParseXML("UIConfig.xml");
+				new LoginFrame(xmlReader.getConfig("loginframe"));
+			}
+			
+		});
 	}
 }

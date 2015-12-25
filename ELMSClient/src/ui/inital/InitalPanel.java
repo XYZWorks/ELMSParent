@@ -6,7 +6,7 @@ import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JFrame;
+import javax.swing.UIManager;
 
 import org.dom4j.Element;
 
@@ -16,6 +16,7 @@ import ui.financeman.FinanceController;
 import ui.generalmanager.GeneralManagerController;
 import ui.saleman.SaleManController;
 import ui.storeman.StoreManController;
+import ui.storemanager.StoreManagerController;
 import ui.tools.MyFrame;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -80,21 +81,6 @@ public class InitalPanel extends MyPanel {
 	 */
 	private void addOtherPanel(Element e) {
 		AccountType type = vo.type;
-//		controller=new CourierController(this, e.element("Courier"));
-<<<<<<< HEAD
-	//	controller = new SaleManController(this, e.element("Salesman"));
-=======
-//		controller = new SaleManController(this, e.element("Salesman"));
->>>>>>> origin/master
-//		return;
-		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
-
-		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
-		
-//		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
-//
-//		controller = new FinanceController(this, e.element("Financeman"));
-//		controller = new AdminstratorController(this, e.element("Adminstrator"));
 		switch (type) {
 		case Adminstrator:
 			controller = new AdminstratorController(this, e.element("Adminstrator"));
@@ -115,12 +101,14 @@ public class InitalPanel extends MyPanel {
 			controller = new StoreManController(this, e.element("Storeman"));
 			break;
 		case storemanager:
-			controller = new StoreManController(this, e.element("Storemanager"));
+			controller = new StoreManagerController(this, e.element("Storemanager"));
 			break;
 		default:
 			break;
 		}
-
+		
+		
+		
 	}
 
 	@Override

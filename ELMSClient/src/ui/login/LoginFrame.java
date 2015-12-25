@@ -60,6 +60,10 @@ public class LoginFrame extends MyFrame {
 
 	public LoginFrame(Element config) {
 		super(config);
+		
+		
+		
+		
 		this.config = config;
 
 		if (RMIManage.netInit()) {
@@ -229,18 +233,6 @@ public class LoginFrame extends MyFrame {
 		}
 	}
 
-<<<<<<< HEAD
-	 public static void main(String[] args) {
-	 //
-	 ParseXML xmlReader = new ParseXML();
-	// xmlReader.getRoot();
-	 new LoginFrame(xmlReader.getConfig("loginframe"));
-	 }
-=======
-public static void main(String[] args) {
-	//
-	ParseXML xmlReader = new ParseXML("UIConfig.xml");
-	new LoginFrame(xmlReader.getConfig("loginframe"));
-}	
->>>>>>> origin/master
+
+
 }
