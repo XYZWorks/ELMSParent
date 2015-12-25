@@ -70,4 +70,8 @@ public abstract class MyPanelWithScroller extends JScrollPane {
 	 * 增加监听（内部类机制）
 	 */
 	protected abstract void addListener();
-}
+	
+	public void refresh(){
+		
+	}
+	}

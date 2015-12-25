@@ -2,6 +2,7 @@ package ui.util;
 
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.awt.Container;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,9 +10,10 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import config.StaticMessage;
 import ui.tools.MyPanel;
+import ui.tools.MyPanelWithScroller;
 import ui.tools.MySideBarButton;
+import config.StaticMessage;
  /** 
  * 界面跳转控制器父类
  * @author czq 
@@ -160,8 +162,20 @@ public abstract class PanelController {
 	 * 父类自初始化
 	 * @param e
 	 */
+	@SuppressWarnings("serial")
 	private void initial(Element e){
-		panelManager = new CardLayout();
+		panelManager = new CardLayout(){
+			@Override
+			public void show(Container parent, String name) {
+				super.show(parent, name);
+				if(parent instanceof MyPanel){
+					((MyPanel)parent).refresh();
+				}else if(parent instanceof MyPanelWithScroller){
+					((MyPanelWithScroller)parent).refresh();
+				}
+				
+			}
+		};
 		this.changePanel = new JPanel(panelManager);
 		buttonMap = new HashMap<String, MySideBarButton>(10);
 		

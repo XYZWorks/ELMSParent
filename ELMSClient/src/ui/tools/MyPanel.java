@@ -66,6 +66,10 @@ public abstract class MyPanel extends JPanel{
 	 * 增加监听（内部类机制）
 	 */
 	protected abstract void addListener();
+
+	public  void refresh() {
+		
+	}
 	
 	
 }
