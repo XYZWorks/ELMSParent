@@ -8,6 +8,8 @@ import java.awt.event.MouseMotionAdapter;
 import javax.swing.JFrame;
 
 import org.dom4j.Element;
+
+import ui.config.GraphicsUtils;
 /** 
  * 所有Frame父类
  * @author czq 
@@ -26,6 +28,7 @@ public class MyFrame extends JFrame{
 		this.setLayout(null);
 		this.setResizable(false);
 		this.moveFrame();
+		this.setIconImage(GraphicsUtils.getImage("element//icon"));
 		//居中放置
 		this.setLocationRelativeTo(null);
 		

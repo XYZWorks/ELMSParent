@@ -20,6 +20,7 @@ public class AXIS {
 		try {
 			BeautyEyeLNFHelper.frameBorderStyle = BeautyEyeLNFHelper.FrameBorderStyle.translucencySmallShadow;
 			org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF();
+			
 //			UIManager.put("RootPane.setupButtonVisible" ,false);
 //			UIManager.put("RootPane.frameBorder", new EmptyBorder(0, 0, 0, 0));
 //			UIManager.put("RootPaneUI", UIManager.getDefaults().get("RootPaneUI"));
