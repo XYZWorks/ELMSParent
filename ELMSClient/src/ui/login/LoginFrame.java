@@ -11,12 +11,10 @@ import net.RMIManage;
 import org.dom4j.Element;
 
 import ui.common.CommonFrame;
-import ui.config.ParseXML;
 import ui.config.UserfulMethod;
 import ui.inital.mainFrame;
 import ui.tools.MyButton;
 import ui.tools.MyFrame;
-import ui.tools.MyLabel;
 import ui.tools.MyOptionPane;
 import ui.tools.MyPasswordField;
 import ui.tools.MyTextField;
@@ -55,8 +53,7 @@ public class LoginFrame extends MyFrame {
 
 	private Element config;
 
-	// //普通用户查询订单
-	// private MyLabel findOrderInfo;
+	
 
 	public LoginFrame(Element config) {
 		super(config);
@@ -121,7 +118,7 @@ public class LoginFrame extends MyFrame {
 		mainpanel.add(login);
 		mainpanel.add(closeButton);
 		// mainpanel.add(rememberMe);
-		// mainpanel.add(findOrderInfo);
+		
 
 	}
 
@@ -129,14 +126,8 @@ public class LoginFrame extends MyFrame {
 		login.addMouseListener(new MyLoginListener());
 		closeButton.addMouseListener(new MyCloseListener());
 		checkOrder.addMouseListener(new MyCheckOrderListener());
-		// findOrderInfo.addMouseListener(new findOrderListener());
 	}
 
-	// class findOrderListener extends MouseAdapter{
-	// @Override
-	// public void mouseClicked(MouseEvent e) {
-	//
-	// }
 
 	class MyLoginListener extends MouseAdapter {
 		@Override
@@ -234,7 +225,5 @@ public class LoginFrame extends MyFrame {
 
 		}
 	}
-	
-
 
 }

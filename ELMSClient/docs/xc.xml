@@ -316,7 +316,7 @@
 
 			</addOrderPanel>
 
-			<showInfoPanel x="232" y="54" width="1080" height="1200">
+			<showInfoPanel x="232" y="54" width="1080" height="720">
 				<showTable x="49" y="114" width="727" height="500"
 					column="订单号 收件人 收件地址 寄件人 寄件地址 运费" />
 
@@ -339,8 +339,8 @@
 						height="360" />
 				</WHITEPANELS>
 				<BUTTONS>
-					<delete x="48" y="76" width="137" height="19" normal="element//min"
-						enter="element//min-enter" clicked="element//min-clicked" />
+					<delete x="530" y="40" width="137" height="40" normal="element//delete"
+						enter="element//delete-enter" clicked="element//delete-clicked" />
 					<returnToPrevious x="0" y="0" width="53" height="53"
 						normal="element//back" enter="element//back-enter" clicked="element//back-clicked" />
 				</BUTTONS>
@@ -475,11 +475,11 @@
 				</DatePicker>
 			</findFullInfoPanel>
 			<inputReceiveInfoPanel x="232" y="54" width="1080"
-				height="637">
+				height="680">
 				<BUTTONS>
-					<confirm text="确认修改" x="707" y="695" width="89" height="37"
+					<confirm text="确认修改" x="500" y="630" width="89" height="37"
 						type="confirm" />
-					<cancel text="取消" x="599" y="695" width="89" height="37"
+					<cancel text="取消" x="599" y="630" width="89" height="37"
 						type="cancel" />
 
 				</BUTTONS>

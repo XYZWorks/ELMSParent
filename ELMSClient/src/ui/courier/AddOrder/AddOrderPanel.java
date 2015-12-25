@@ -13,9 +13,13 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import blservice.orderblservice.Orderblservice;
+import blservice.strategyblservice.StrategyblService;
 import po.order.GoodMes;
 import po.order.OtherOrderMes;
 import po.order.PeopleMes;
+import ui.config.DataType;
+import ui.config.UserfulMethod;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
@@ -34,8 +38,6 @@ import util.DocType;
 import vo.order.OrderVO;
 import vo.strategy.ConstVO;
 import vo.strategy.EstiDateVO;
-import blservice.orderblservice.Orderblservice;
-import blservice.strategyblservice.StrategyblService;
 
 /**
  * 查询订单界面
@@ -451,6 +453,16 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 				// 检查订单所有属性是否填写完整
 //				 checkDataValid checkDataValid = new checkDataValid();
 				// return checkDataValid.isValid();
+				UserfulMethod.dataHandler(orderBarCodeText.getText(),DataType.BarCode,"订单号");//订单号格式是否正确
+				UserfulMethod.dataHandler(senderPhoneText.getText(),DataType.phone,"寄件人电话");
+				UserfulMethod.dataHandler(receiverPhoneText.getText(),DataType.phone,"收件人电话");
+				//正数
+				UserfulMethod.dataHandler(goodNumText.getText(),DataType.PositiveNum,"货物数量");
+				UserfulMethod.dataHandler(goodLongText.getText(),DataType.PositiveNum,"货物长度");
+				UserfulMethod.dataHandler(goodWidthText.getText(),DataType.PositiveNum,"货物宽度");
+				UserfulMethod.dataHandler(goodHeightText.getText(),DataType.PositiveNum,"货物高度");
+				UserfulMethod.dataHandler(goodWeightText.getText(),DataType.PositiveNum,"货物重量");
+				
 				return true;
 			}
 
@@ -461,8 +473,6 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 
 			@Override
 			protected void updateMes() {
-				// TODO Auto-generated method stub
-
 			}
 		});
 
@@ -499,25 +509,25 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 			double miles = getMiles();
 			double transferCost = miles / 1000 * 23 * goodweight;
 			total = packMoney + transferCost;
-		
-			System.out.println("Before-total" + total);
+		 
+			//System.out.println("Before-total" + total);
 			//经济快递
 			if (FormChose.equals("economicOrder")) {
 				total=total/ratios[1]*ratios[0];
 			} else if (FormChose.equals("quickOrder")) {
 				total=total/ratios[1]*ratios[2];
 			}
-			System.out.println("After-total" + total);
+			//System.out.println("After-total" + total);
 			
 			// 测试各项数据的准确性
-			System.out.println("miles" + miles);
-			System.out.println("goodweight" + goodweight);
-			System.out.println("transferCost" + transferCost);
-			System.out.println("total" + total);
+//			System.out.println("miles" + miles);
+//			System.out.println("goodweight" + goodweight);
+//			System.out.println("transferCost" + transferCost);
+//			System.out.println("total" + total);
 
 			// 四舍五入总价 保留两位小数
 			String result = String.format("%.2f", total);
-			System.out.println("result:" + result);
+			//System.out.println("result:" + result);
 
 			// 绘制cost label
 			costText.setForeground(new Color(255, 138, 0));
@@ -530,8 +540,8 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 		// 单位：km
 		double miles = 0;
 
-		System.out.println("senderChose" + senderChose);
-		System.out.println("receiverChose" + receiverChose);
+//		System.out.println("senderChose" + senderChose);
+//		System.out.println("receiverChose" + receiverChose);
 
 		if ((senderChose == receiverChose) && (senderChose != 0)) {
 			// 同城的营业厅距离30km
@@ -661,7 +671,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 							public void itemStateChanged(final ItemEvent e) {
 								if (e.getStateChange() == ItemEvent.SELECTED) {
 									senderAreaString = (String) senderNanJingArea.getSelectedItem();
-									System.out.println("senderAreaString" + senderAreaString);
+									//System.out.println("senderAreaString" + senderAreaString);
 								}
 							}
 						});
@@ -676,7 +686,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 							public void itemStateChanged(final ItemEvent e) {
 								if (e.getStateChange() == ItemEvent.SELECTED) {
 									senderAreaString = (String) senderBeiJingArea.getSelectedItem();
-									System.out.println("senderAreaString" + senderAreaString);
+									//System.out.println("senderAreaString" + senderAreaString);
 								}
 							}
 						});
@@ -691,7 +701,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 							public void itemStateChanged(final ItemEvent e) {
 								if (e.getStateChange() == ItemEvent.SELECTED) {
 									senderAreaString = (String) senderGuangZhouArea.getSelectedItem();
-									System.out.println("senderAreaString" + senderAreaString);
+									//System.out.println("senderAreaString" + senderAreaString);
 								}
 							}
 						});
@@ -706,7 +716,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 							public void itemStateChanged(final ItemEvent e) {
 								if (e.getStateChange() == ItemEvent.SELECTED) {
 									senderAreaString = (String) senderShangHaiArea.getSelectedItem();
-									System.out.println("senderAreaString" + senderAreaString);
+									//System.out.println("senderAreaString" + senderAreaString);
 								}
 							}
 						});
@@ -754,7 +764,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 							public void itemStateChanged(final ItemEvent e) {
 								if (e.getStateChange() == ItemEvent.SELECTED) {
 									receiverAreaString = (String) receiverNanJingArea.getSelectedItem();
-									System.out.println("receiverAreaString" + receiverAreaString);
+									//System.out.println("receiverAreaString" + receiverAreaString);
 								}
 							}
 						});
@@ -770,7 +780,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 							public void itemStateChanged(final ItemEvent e) {
 								if (e.getStateChange() == ItemEvent.SELECTED) {
 									receiverAreaString = (String) receiverBeiJingArea.getSelectedItem();
-									System.out.println("receiverAreaString" + receiverAreaString);
+								//	System.out.println("receiverAreaString" + receiverAreaString);
 								}
 							}
 						});
@@ -785,7 +795,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 							public void itemStateChanged(final ItemEvent e) {
 								if (e.getStateChange() == ItemEvent.SELECTED) {
 									receiverAreaString = (String) receiverGuangZhouArea.getSelectedItem();
-									System.out.println("receiverAreaString" + receiverAreaString);
+									//System.out.println("receiverAreaString" + receiverAreaString);
 								}
 							}
 						});
@@ -800,14 +810,14 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 							public void itemStateChanged(final ItemEvent e) {
 								if (e.getStateChange() == ItemEvent.SELECTED) {
 									receiverAreaString = (String) receiverShangHaiArea.getSelectedItem();
-									System.out.println("receiverAreaString" + receiverAreaString);
+									//System.out.println("receiverAreaString" + receiverAreaString);
 								}
 							}
 						});
 						break;
 					}
 
-					System.out.println("recevierCityString" + receiverCityString);
+				//	System.out.println("recevierCityString" + receiverCityString);
 					setTime();
 					calCost();
 					// repaint();

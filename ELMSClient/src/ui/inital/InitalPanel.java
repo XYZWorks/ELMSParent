@@ -6,19 +6,14 @@ import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.UIManager;
-
 import main.AXIS;
 
 import org.dom4j.Element;
 
-import config.XMLReader;
 import ui.config.GraphicsUtils;
-import ui.config.ParseXML;
 import ui.courier.CourierController;
 import ui.financeman.FinanceController;
 import ui.generalmanager.GeneralManagerController;
-import ui.login.LoginFrame;
 import ui.saleman.SaleManController;
 import ui.storeman.StoreManController;
 import ui.storemanager.StoreManagerController;
@@ -86,12 +81,13 @@ public class InitalPanel extends MyPanel {
 	 */
 	private void addOtherPanel(Element e) {
 		AccountType type = vo.type;
+
 		switch (type) {
 		case Adminstrator:
 			controller = new AdminstratorController(this, e.element("Adminstrator"));
 			break;
 		case courier:
-			controller = new CourierController(this, e.element("Courier"));
+			controller = new CourierController(this, e.element("CourierManager"));
 			break;
 		case financeman:
 			controller = new FinanceController(this, e.element("Financeman"));

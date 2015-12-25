@@ -34,7 +34,7 @@ public class UserfulMethod {
 	 * @param type
 	 * @return
 	 */
-	private static boolean dataHandler(String message , DataType type,String chineseName){
+	public static boolean dataHandler(String message , DataType type,String chineseName){
 		switch (type) {
 		case ID:
 			return FormatMesHandler(checkID(message) , chineseName);
@@ -48,6 +48,8 @@ public class UserfulMethod {
 			return FormatMesHandler(checkPlateNum(message), chineseName);
 		case bankAccount:
 			return FormatMesHandler(checkBankAccount(message), chineseName);
+		case BarCode:
+			return FormatMesHandler(checkBarCode(message), chineseName);
 		default:
 			break;
 		}
