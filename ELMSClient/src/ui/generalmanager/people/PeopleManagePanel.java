@@ -1,6 +1,5 @@
 package ui.generalmanager.people;
 
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 
@@ -9,6 +8,7 @@ import org.dom4j.Element;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
+import ui.tools.MyCardLayOut;
 import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -42,7 +42,7 @@ public class PeopleManagePanel extends MyPanel{
 	
 	private boolean isModify = false;
 	
-	private CardLayout panelManager;
+	private MyCardLayOut panelManager;
 	
 	private Personnelblservice bl;
 	
@@ -53,7 +53,7 @@ public class PeopleManagePanel extends MyPanel{
 	private AddPeoplePanel addpeople;
 	
 	
-	public PeopleManagePanel(Element config , CardLayout panelManager ,Personnelblservice bl) {
+	public PeopleManagePanel(Element config , MyCardLayOut panelManager ,Personnelblservice bl) {
 		super(config);
 		this.bl = bl;
 		this.panelManager = panelManager;
