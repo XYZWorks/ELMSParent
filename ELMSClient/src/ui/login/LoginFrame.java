@@ -171,8 +171,9 @@ public class LoginFrame extends MyFrame {
 			} else {
 				System.out.println("登录成功，用户类型为 " + vo.type.name());
 				new mainFrame(config.getParent(), vo);
+				frame.dispose();
 			}
-
+		
 		}
 
 		@Override
@@ -220,6 +221,7 @@ public class LoginFrame extends MyFrame {
 			}
 			// 单独开启 普通查询人员的 frame
 			CommonFrame commonFrame = new CommonFrame(config.element("commonFrame"));
+			frame.dispose();
 		}
 
 		@Override
@@ -232,7 +234,7 @@ public class LoginFrame extends MyFrame {
 
 		}
 	}
-
+	
 
 
 }

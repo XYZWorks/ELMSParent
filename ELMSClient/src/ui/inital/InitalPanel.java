@@ -8,12 +8,17 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.UIManager;
 
+import main.AXIS;
+
 import org.dom4j.Element;
 
+import config.XMLReader;
 import ui.config.GraphicsUtils;
+import ui.config.ParseXML;
 import ui.courier.CourierController;
 import ui.financeman.FinanceController;
 import ui.generalmanager.GeneralManagerController;
+import ui.login.LoginFrame;
 import ui.saleman.SaleManController;
 import ui.storeman.StoreManController;
 import ui.storemanager.StoreManagerController;
@@ -169,11 +174,8 @@ public class InitalPanel extends MyPanel {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			exit.setMyIcon(ButtonState.MOUSE_CLICKED);
-			//弹出optionpane 确认退出 TODO
-			
-			System.exit(0);
-			
-			
+			parent.dispose();
+			new AXIS();
 		}
 
 		@Override
