@@ -40,6 +40,7 @@ import java.util.Hashtable;
 import java.util.Vector;
 
 import ui.tools.MyCardLayOut.Card;
+import ui.util.RefreshPanel;
 
 /**
  * A <code>CardLayout</code> object is a layout manager for a
@@ -550,11 +551,10 @@ public class MyCardLayOut implements LayoutManager2,
                     }
                 }
                 next.setVisible(true);
-                //-----------------------------------
-                if(next instanceof MyPanel){
-                	((MyPanel)next).refresh();
-                }else if(next instanceof MyPanelWithScroller){
-                	((MyPanelWithScroller)next).refresh();
+                //-----------------------------------TODO 我的修改
+                if(next instanceof RefreshPanel){
+                	System.err.println("refreshing==");
+                	((RefreshPanel)next).refresh();
                 }
                 //------------------------------------
                 parent.validate();

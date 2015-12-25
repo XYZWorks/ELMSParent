@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JPanel;
 
+import ui.tools.MyCardLayOut;
 import ui.tools.MyPictureButton;
  /** 
  * 返回按钮
@@ -14,12 +15,12 @@ import ui.tools.MyPictureButton;
 public class MyBackListener extends MyPictureButtonListener {
 	private JPanel changePanel;
 	private String backStr;
-	private CardLayout panelManager;
+	private MyCardLayOut panelManager;
 	public MyBackListener(MyPictureButton button , JPanel changePanel , String backStr) {
 		super(button);
 		this.backStr = backStr;
 		this.changePanel = changePanel;
-		this.panelManager = (CardLayout) changePanel.getLayout();
+		this.panelManager = (MyCardLayOut) changePanel.getLayout();
 	}
 
 	@Override

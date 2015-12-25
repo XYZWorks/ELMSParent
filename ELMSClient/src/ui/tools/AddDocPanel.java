@@ -1,19 +1,8 @@
 package ui.tools;
 
-import java.awt.CardLayout;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JPanel;
- 
-
-
-
-
-
-
-
-
-
 
 import org.dom4j.Element;
 
@@ -41,14 +30,14 @@ public abstract class AddDocPanel extends MyPanel{
 	protected MyTablePanel messageTable;
 	
 	private final JPanel changePanel;
-	private final CardLayout panelManager;
+	private final MyCardLayOut panelManager;
 	
 	public AddDocPanel(Element config , JPanel changePanel , String checkDocPanelStr , MyTablePanel messageTable) {
 		super(config);
 		this.changePanel = changePanel;
 		this.checkDocPanelStr = checkDocPanelStr;
 		this.messageTable = messageTable;
-		panelManager = (CardLayout) changePanel.getLayout();
+		panelManager = (MyCardLayOut) changePanel.getLayout();
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));

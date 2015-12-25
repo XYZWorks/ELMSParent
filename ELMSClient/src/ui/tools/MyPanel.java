@@ -67,9 +67,9 @@ public abstract class MyPanel extends JPanel{
 	 */
 	protected abstract void addListener();
 
-	public  void refresh() {
-		
-	}
+//	public  void refresh() {
+//		
+//	}
 	
 	
 }
