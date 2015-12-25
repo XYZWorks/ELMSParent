@@ -73,6 +73,7 @@ public class InitalPanel extends MyPanel {
 		this.repaint();
 		
 		this.setVisible(true);
+//		set
 	}
 	
 	/**
@@ -114,7 +115,7 @@ public class InitalPanel extends MyPanel {
 
 	@Override
 	 public void paintComponent(Graphics g) {
-		super.paintComponent(g);
+		
 		g.drawImage(bg, 0, 0, null);
 		
 		
@@ -137,7 +138,7 @@ public class InitalPanel extends MyPanel {
 
 	@Override
 	protected void initLabels(Element e) {
-//		career = new MyLabel(e.element("career") , vo.type.name() + "," + vo.name);
+		career = new MyLabel(e.element("career") , vo.type.getName() + "  " + vo.name);
 
 	}
 
@@ -154,7 +155,7 @@ public class InitalPanel extends MyPanel {
 		this.add(home);
 		
 		this.add(rectangle);
-//		this.add(career);
+		this.add(career);
 	}
 
 	@Override

@@ -7,6 +7,7 @@
 			<checkOrder text="" x="213" y="316" width="72" height="17" />
 		</BUTTONS>
 		<LABELS>
+			
 			<findOrderInfo text="" x="209" y="315" width="73"
 				height="18" />
 		</LABELS>
@@ -108,6 +109,9 @@
 				enter="element//home-enter" clicked="element//home-clicked" />
 			<career text="" x="773" y="16" width="26" height="22" />
 		</BUTTONS>
+		<LABELS>
+			<career text="" x="773" y="16" width="200" height="22" />
+		</LABELS>
 		<CourierManager x="232" y="54" width="848" height="637">
 			<BUTTONS>
 				<addOrder text="增加订单" x="0" y="267" />
