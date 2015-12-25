@@ -110,12 +110,12 @@ public class LoginFrame extends MyFrame {
 
 	private void addCom() {
 
-//		mainpanel.setLayout(null);
-//		mainpanel.add(userName);
-//		mainpanel.add(password);
-//		mainpanel.add(checkOrder);
-//		mainpanel.add(login);
-//		mainpanel.add(closeButton);
+		mainpanel.setLayout(null);
+		mainpanel.add(userName);
+		mainpanel.add(password);
+		mainpanel.add(checkOrder);
+		mainpanel.add(login);
+		mainpanel.add(closeButton);
 		// mainpanel.add(rememberMe);
 		
 
