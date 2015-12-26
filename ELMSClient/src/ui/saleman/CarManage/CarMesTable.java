@@ -105,6 +105,8 @@ public class CarMesTable extends MyTablePanel{
 	@Override
 	protected void initTable() {
 		table = new MyTable(columnNames, data);
+		int[] columnLen = { 200,200,200,200};
+		setRowAndColumnLen(40, columnLen);
 	}
 
 }
