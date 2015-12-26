@@ -1478,8 +1478,8 @@
 					<AddAccount text="" x="190" y="216" width="119" height="162"
 						normal="Adminstrator//AddAccount" enter="Adminstrator//AddAccount-enter"
 						clicked="Adminstrator//AddAccount-clicked" />
-					<ModifyAccount text="" x="498" y="215" width="123" height="160" 
-						normal="Adminstrator//ModifyAccount" enter="Adminstrator//ModifyAccount-enter"
+					<ModifyAccount text="" x="498" y="215" width="123"
+						height="160" normal="Adminstrator//ModifyAccount" enter="Adminstrator//ModifyAccount-enter"
 						clicked="Adminstrator//ModifyAccount-clicked" />
 				</BUTTONS>
 			</mainWindow>
@@ -1495,10 +1495,13 @@
 					<password text="" x="345" y="300" width="276" height="40" />
 				</TEXTFIELDS>
 				<LABELS>
-					<accountID text="账户ID" x="200" y="170" width="115" height="40" type="rectangle"/>
-					<name text="姓名" x="200" y="240" width="115" height="40" type="rectangle"/>
-					<password text="密码" x="200" y="300" width="115" height="40" type="rectangle"/>
-					<staffType text="职员类型" x="200" y="370" width="115" height="40" type="rectangle"/>
+					<accountID text="账户ID" x="200" y="170" width="115"
+						height="40" type="rectangle" />
+					<name text="姓名" x="200" y="240" width="115" height="40" type="rectangle" />
+					<password text="密码" x="200" y="300" width="115" height="40"
+						type="rectangle" />
+					<staffType text="职员类型" x="200" y="370" width="115"
+						height="40" type="rectangle" />
 
 				</LABELS>
 				<staffBox text="" x="345" y="370" width="276" height="40"
@@ -1507,10 +1510,8 @@
 			<ModifyAccountPanel x="232" y="54" width="848"
 				height="637">
 				<BUTTONS>
-					<modify  x="700" y="65" width="40" height="40"
-						type="modify" />
-					<delete  x="758" y="65" width="40" height="40"
-						type="delete" />
+					<modify x="700" y="65" width="40" height="40" type="modify" />
+					<delete x="758" y="65" width="40" height="40" type="delete" />
 				</BUTTONS>
 				<LABELS>
 					<name text="姓名" x="50" y="500" width="100" height="50" />
@@ -1751,32 +1752,31 @@
 						<cancel text="取消" x="599" y="695" width="89" height="37"
 							type="cancel" />
 					</BUTTONS>
-
+					<WHITEPANELS>
+						<whitePanel x="200" y="20" width="400" height="545" />
+					</WHITEPANELS>
 					<LABELS>
-						<id x="60" y="60" width="115" height="40" text="ID" type="rectangle" />
-						<name x="60" y="120" width="115" height="40" text="姓名" type="rectangle" />
-						<sex x="60" y="180" width="115" height="40" text="性别" type="rectangle" />
-						<bornday x="60" y="240" width="115" height="40" text="出生日期"
-							type="rectangle" />
-						<idCard x="60" y="300" width="115" height="40" text="身份证号"
-							type="rectangle" />
-						<phone x="60" y="360" width="115" height="40" text="手机号码"
-							type="rectangle" />
-						<instid x="60" y="420" width="115" height="40" text="机构ID"
-							type="rectangle" />
-						<license x="60" y="480" width="115" height="40" text="驾驶证期限"
-							type="rectangle" />
+						<addCarman x="0" y="0" width="115" height="40" text="增加司机"
+							type="rectangle" size="20" />
+						<id x="50" y="60" width="115" height="40" text="ID" />
+						<name x="50" y="120" width="115" height="40" text="姓名" />
+						<sex x="50" y="180" width="115" height="40" text="性别" />
+						<bornday x="50" y="240" width="115" height="40" text="出生日期" />
+						<idCard x="50" y="300" width="115" height="40" text="身份证号" />
+						<phone x="50" y="360" width="115" height="40" text="手机号码" />
+						<instid x="50" y="420" width="115" height="40" text="机构ID" />
+						<license x="50" y="480" width="115" height="40" text="驾驶证期限" />
 					</LABELS>
 					<TEXTFIELDS>
-						<id x="200" y="60" width="200" height="40" />
-						<name x="200" y="120" width="200" height="40" />
-						<phone x="200" y="360" width="200" height="40" />
-						<instid x="200" y="420" width="200" height="40" />
-						<idCard x="200" y="300" width="200" height="40" />
-						<license x="200" y="480" width="200" height="40" />
+						<id x="160" y="60" width="200" height="40" />
+						<name x="160" y="120" width="200" height="40" />
+						<idCard x="160" y="300" width="200" height="40" />
+						<phone x="160" y="360" width="200" height="40" />
+						<instid x="160" y="420" width="200" height="40" />
+						<license x="160" y="480" width="200" height="40" />
 					</TEXTFIELDS>
-					<borns x="200" y="240" width="200" height="40" />
-					<sex x="200" y="180" width="200" height="40" strings="男 女" />
+					<borns x="160" y="240" width="200" height="40" />
+					<sex x="160" y="180" width="200" height="40" strings="男 女" />
 					<datepicker x="588" y="60" width="200" height="40" />
 				</driverInfoManagePanelAddPanel>
 				<title x="48" y="36" width="200" height="28" text="司机信息列表"
@@ -1787,17 +1787,17 @@
 					enter="element//delete-enter" clicked="element//delete-clicked" />
 				<modify x="750" y="80" width="40" height="40" normal="element//modify"
 					enter="element//modify-enter" clicked="element//modify-clicked" />
-				
+
 				<datepicker x="758" y="80" width="40" height="40" />
 				<table x="48" y="150" width="750" height="420"
 					column="编号 姓名 机构ID 出生日期 身份证号 手机号码 性别 驾驶证期限" />
-					
+
 				<search x="175" y="80" />
 				<searchButton x="495" y="80" width="115" height="40"
 					text="搜索" type="cancel" />
 				<searchWay x="48" y="80" width="120" height="40"
 					strings="查找方式 按姓名查找 按ID查找 按机构ID查找" />
-				
+
 				<confirm text="确认修改" x="707" y="695" width="89" height="37"
 					type="confirm" />
 				<cancel text="取消" x="599" y="695" width="89" height="37"
@@ -1808,6 +1808,9 @@
 				height="637">
 				<truckInfoManagePanelAddPanel x="232"
 					y="54" width="1080" height="637">
+					<WHITEPANELS>
+						<whitePanel x="200" y="120" width="400" height="320" />
+					</WHITEPANELS>
 					<BUTTONS>
 						<confirm x="550" y="560" width="89" height="40" text="确认"
 							type="confirm" />
@@ -1817,20 +1820,19 @@
 					</BUTTONS>
 
 					<LABELS>
-						<id x="60" y="120" width="115" height="40" text="ID" type="rectangle" />
-						<instid x="60" y="180" width="115" height="40" text="机构ID"
-							type="rectangle" />
-						<plateNum x="60" y="240" width="115" height="40" text="车牌号"
-							type="rectangle" />
-						<useYear x="60" y="300" width="115" height="40" text="使用年份"
-							type="rectangle" />
+						<addCar x="0" y="0" width="115" height="40" text="增加车辆"
+							type="rectangle" size="20" />
+						<id x="50" y="50" width="115" height="40" text="ID" />
+						<instid x="50" y="115" width="115" height="40" text="机构ID" />
+						<plateNum x="50" y="180" width="115" height="40" text="车牌号" />
+						<useYear x="50" y="245" width="115" height="40" text="使用年份" />
 					</LABELS>
 
 					<TEXTFIELDS>
-						<id x="200" y="120" width="200" height="40" />
-						<instid x="200" y="180" width="200" height="40" />
-						<plateNum x="200" y="240" width="200" height="40" />
-						<useYear x="200" y="300" width="200" height="40" />
+						<id x="160" y="50" width="160" height="40" />
+						<instid x="160" y="115" width="160" height="40" />
+						<plateNum x="160" y="180" width="160" height="40" />
+						<useYear x="160" y="245" width="160" height="40" />
 					</TEXTFIELDS>
 				</truckInfoManagePanelAddPanel>
 				<title x="48" y="36" width="200" height="28" text="车辆信息列表"
@@ -1841,7 +1843,7 @@
 					enter="element//delete-enter" clicked="element//delete-clicked" />
 				<modify x="750" y="80" width="40" height="40" normal="element//modify"
 					enter="element//modify-enter" clicked="element//modify-clicked" />
-					
+
 				<search x="175" y="80" />
 				<datepicker x="758" y="80" width="40" height="40" />
 				<table x="48" y="150" width="750" height="420" column="ID 机构ID 车牌号 使用年份" />
@@ -1849,10 +1851,8 @@
 					strings="查找方式 按ID查找 按车牌号查找" />
 				<searchButton x="495" y="80" width="115" height="40"
 					text="搜索" type="cancel" />
-					
+
 			</truckInfoManagePanel>
-
-
 		</Salesman>
 
 
