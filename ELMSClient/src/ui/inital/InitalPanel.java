@@ -92,13 +92,13 @@ public class InitalPanel extends MyPanel {
 //			controller = new CourierController(this, e.element("CourierManager"));
 //			break;
 //		case financeman:
-//			controller = new FinanceController(this, e.element("Financeman"));
+			controller = new FinanceController(this, e.element("Financeman"));
 //			break;
 //		case manager:
 //			controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
 //			break;
 	//	case saleman:
-			controller = new SaleManController(this, e.element("Salesman"));
+//			controller = new SaleManController(this, e.element("Salesman"));
 //			break;
 //		case storeman:
 //			controller = new StoreManController(this, e.element("Storeman"));
