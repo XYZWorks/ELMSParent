@@ -61,8 +61,16 @@ public class DriverMesPanel extends MyTablePanel {
 	@Override
 	public void addOneData(Object o , int type) {
 		DriverVO vo = (DriverVO) o;
-		if(type != 0){
+		if(type == 1){
 			vos.add(vo);
+		}else if(type == 2){
+			for (int i = 0; i < vos.size(); i++) {
+				if(vos.get(i).ID.equals(vo.ID)){
+					addOneData(vos.get(i) , 0 );
+					new TipsDialog("成功找到一条信息", Color.GREEN);
+					return;
+				}
+			}
 		}
 		String[] temp  = new String[8];
 		temp[0] = vo.ID;

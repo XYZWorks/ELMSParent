@@ -337,12 +337,14 @@ public abstract class DataSuperClass extends UnicastRemoteObject {
 			sql = "SELECT id from " + tableName + " ORDER BY `id` DESC";
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
+			String nowDate = MyDate.getDatePart(date);
 			while (result.next()) {
+				
 				String id = result.getString(1);
 				if(id.length() == 10){
-					
 				}else if(id.length() == 16){
-					if(id.substring(3, 8).equals(MyDate.getDatePart(date))){
+					if(id.substring(3, 9).equals(nowDate)){
+						
 						try {
 							return Integer.parseInt(id.substring(id.length() - 7)) + 1;
 						} catch (Exception e) {
