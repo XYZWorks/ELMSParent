@@ -86,9 +86,10 @@ public class DriverManageCheckPanel extends CheckDocPanel {
 		searchWay = new MyComboBox(e.element("searchWay"));
 		title = new MyLabel(e.element("title"));
 		delete=new MyPictureButton(e.element("delete"));
+		modify=new MyPictureButton(e.element("modify"));
 		confirm = new MyPictureButton(e.element("confirm"));
 		cancel = new MyPictureButton(e.element("cancel"));
-		modify=new MyPictureButton(e.element("modify"));
+		
 	}
 
 	@Override
@@ -180,9 +181,10 @@ public class DriverManageCheckPanel extends CheckDocPanel {
 		add(searchWay);
 		add(title);
 		add(delete);
+		add(modify);
 		add(confirm);
 		add(cancel);
-		add(modify);
+		
 		datePicker.setVisible(false);
 	}
 

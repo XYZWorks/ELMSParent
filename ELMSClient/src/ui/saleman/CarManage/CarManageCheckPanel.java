@@ -12,6 +12,7 @@ import ui.config.UserfulMethod;
 import ui.tools.CheckDocPanel;
 import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
+import ui.tools.MyPictureButton;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
 import blservice.DTManageblservice.DTManageblservice;
@@ -29,6 +30,9 @@ public class CarManageCheckPanel extends CheckDocPanel{
 	 */
 	MyComboBox searchWay;
 	private MyLabel title;
+	private MyPictureButton delete;
+	private MyPictureButton modify;
+	
 	CarMesTable myTable;
 	CarManageAddPanel myAddPanel;
 	
@@ -89,12 +93,17 @@ public class CarManageCheckPanel extends CheckDocPanel{
 	protected void initialDifferComp(Element e) {
 		searchWay = new MyComboBox(e.element("searchWay"));
 		title = new MyLabel(e.element("title"));
+		delete=new MyPictureButton(e.element("delete"));
+		modify=new MyPictureButton(e.element("modify"));
 	}
 
 	@Override
 	protected void addDifferComp() {
 		add(searchWay);
 		add(title);
+		add(delete);
+		add(modify);
+		datePicker.setVisible(false);
 	}
 
 	
