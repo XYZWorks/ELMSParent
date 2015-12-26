@@ -1,5 +1,6 @@
 package ui.saleman.DriverManage;
 
+import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -8,15 +9,19 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import blservice.DTManageblservice.DTManageblservice;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
 import ui.tools.CheckDocPanel;
 import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
+import ui.tools.MyPictureButton;
+import ui.util.CancelListener;
+import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
-import blservice.DTManageblservice.DTManageblservice;
+import util.ResultMessage;
 
 /**
  * 司机信息查看界面
@@ -31,8 +36,22 @@ public class DriverManageCheckPanel extends CheckDocPanel {
 	/**
 	 * 查找方式
 	 */
-	private MyComboBox searchWay;
+	private MyComboBox searchWay ;
+	private MyPictureButton delete;
+	private MyPictureButton modify;
+	/**
+	 * 确认修改的按钮 如果点击确认修改 则更新所有改动数据
+	 */
+	private MyPictureButton confirm;
 
+	/**
+	 * 取消修改的按钮 如果点击取消 则撤销本次的所有改动
+	 */
+	private MyPictureButton cancel;
+	
+	
+	
+	
 	private enum searchWays {
 		name, id, instid
 	};
@@ -66,6 +85,11 @@ public class DriverManageCheckPanel extends CheckDocPanel {
 	protected void initialDifferComp(Element e) {
 		searchWay = new MyComboBox(e.element("searchWay"));
 		title = new MyLabel(e.element("title"));
+		delete=new MyPictureButton(e.element("delete"));
+		modify=new MyPictureButton(e.element("modify"));
+		confirm = new MyPictureButton(e.element("confirm"));
+		cancel = new MyPictureButton(e.element("cancel"));
+		
 	}
 
 	@Override
@@ -95,12 +119,73 @@ public class DriverManageCheckPanel extends CheckDocPanel {
 				mySearch();
 			}
 		});
+		
+		cancel.addMouseListener(new CancelListener(cancel) {
+
+			@Override
+			public void resetMes() {
+				// TODO 重新读取数据
+
+			}
+		});
+
+		confirm.addMouseListener(new ConfirmListener(confirm) {
+
+			@Override
+			protected boolean saveToSQL() {
+	     	//TODO
+				return true;
+			}
+
+			@Override
+			protected boolean checkDataValid() {
+				return true;
+			}
+
+			@Override
+			protected void reInitial() {
+			}
+
+			@Override
+			protected void updateMes() {
+				// TODO Auto-generated method stub
+
+			}
+		});
+		delete.addMouseListener(new MyPictureButtonListener(delete){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				if(myTable.getSelectedRow() == -1){
+					new TipsDialog("请选择一条信息", Color.GREEN);
+				}
+				
+				result = 
+						bl.delDriver((String) myTable.getValueAt(myTable.getSelectedRow(), 0));
+						
+						if (result == ResultMessage.SUCCESS) {
+							new TipsDialog("删除成功" , Color.green);
+							myTable.removeRow(myTable.getSelectedRow());
+						}else{
+							new TipsDialog("数据库或网络故障");
+						}
+				
+			}
+			
+			
+		});
 	}
 
 	@Override
 	protected void addDifferComp() {
 		add(searchWay);
 		add(title);
+		add(delete);
+		add(modify);
+		add(confirm);
+		add(cancel);
+		
+		datePicker.setVisible(false);
 	}
 
 	private void mySearch() {

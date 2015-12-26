@@ -14,6 +14,7 @@ import po.order.TransferDocs;
 import ui.courier.CourierController;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
+import ui.tools.MyOptionPane;
 import ui.tools.MyPanelWithScroller;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
@@ -375,6 +376,7 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 //				if (result == ResultMessage.FAIL) {
 //					TipsDialog notDelete = new TipsDialog("货物已经装车 订单无法删除");
 //				} else if (result == ResultMessage.SUCCESS) {
+					//TODO MyOptionPane myOptionPane=new MyOptionPane(parent, "确定要删除改订单？");
 					TipsDialog Delete = new TipsDialog("订单删除成功");
 					controller.getCardLayout().show(controller.getChangePanel(), "showInfoPanel");
 				//}

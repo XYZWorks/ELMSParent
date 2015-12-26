@@ -1,5 +1,7 @@
 package ui.login;
 
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -124,44 +126,55 @@ public class LoginFrame extends MyFrame {
 		login.addMouseListener(new MyLoginListener());
 		closeButton.addMouseListener(new MyCloseListener());
 		checkOrder.addMouseListener(new MyCheckOrderListener());
+		password.addKeyListener(new KeyAdapter() {
+			 public void keyPressed(KeyEvent e) {
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER){
+					 dealWithChoose();
+				 }
+				 
+				 
+			 }
+		});
 	}
+	
+	private void dealWithChoose(){
+		String id = userName.getText();
+		String passwords = new String(password.getPassword());
+		FormatMes format;
+		format = UserfulMethod.checkID(id);
+		if (format == FormatMes.ILEGAL_CHAR) {
+			new MyOptionPane(frame, "用户名有非法字符，请您重新输入~", JOptionPane.INFORMATION_MESSAGE);
+			userName.setText("");
+			return;
+		} else if (format == FormatMes.WRONG_LENGTH) {
+			new MyOptionPane(frame, "用户名长度不足，请您重新输入~", JOptionPane.INFORMATION_MESSAGE);
+			return;
 
+		}
+
+		if (RMIManage.netInit()) {
+			bl = BusinessLogicDataFactory.getFactory().getUserMesBusinessLogic();
+		} else {
+			return;
+		}
+
+		AccountVO vo;
+		vo = bl.login(new AccountVO(id, passwords, null));
+
+		if (vo == null) {
+			new MyOptionPane(frame, "用户名或密码错误，请您重新输入");
+		} else {
+			System.out.println("登录成功，用户类型为 " + vo.type.name());
+			new mainFrame(config.getParent(), vo);
+			frame.dispose();
+		}
+	}
 
 	class MyLoginListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			mainpanel.changeBG(6);
-
-			String id = userName.getText();
-			String passwords = new String(password.getPassword());
-			FormatMes format;
-			format = UserfulMethod.checkID(id);
-			if (format == FormatMes.ILEGAL_CHAR) {
-				new MyOptionPane(frame, "用户名有非法字符，请您重新输入~", JOptionPane.INFORMATION_MESSAGE);
-				userName.setText("");
-				return;
-			} else if (format == FormatMes.WRONG_LENGTH) {
-				new MyOptionPane(frame, "用户名长度不足，请您重新输入~", JOptionPane.INFORMATION_MESSAGE);
-				return;
-
-			}
-
-			if (RMIManage.netInit()) {
-				bl = BusinessLogicDataFactory.getFactory().getUserMesBusinessLogic();
-			} else {
-				return;
-			}
-
-			AccountVO vo;
-			vo = bl.login(new AccountVO(id, passwords, null));
-
-			if (vo == null) {
-				new MyOptionPane(frame, "用户名或密码错误，请您重新输入");
-			} else {
-				System.out.println("登录成功，用户类型为 " + vo.type.name());
-				new mainFrame(config.getParent(), vo);
-				frame.dispose();
-			}
+			dealWithChoose();
 		
 		}
 
