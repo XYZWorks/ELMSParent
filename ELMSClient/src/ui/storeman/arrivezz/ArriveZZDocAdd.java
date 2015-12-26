@@ -100,6 +100,7 @@ public class ArriveZZDocAdd extends MyPanel implements DocPanelForApproval{
 	protected void initTextFields(Element e) {
 		IDT = new MyTextField(e.element("ID"));
 		IDT.setText("DDD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.arriveZZDoc)));
+		IDT.setEditable(false);
 
 		centerT = new MyTextField(e.element("center"));
 

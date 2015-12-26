@@ -6,6 +6,8 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
 import ui.storemanager.StoreManagerController;
 import ui.tools.MyComboBox;
@@ -22,6 +24,7 @@ import ui.util.MyBackListener;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
 import util.City;
+import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
 import util.TransferWay;
@@ -91,6 +94,9 @@ public class AddOutStorePanel extends MyPanel implements DocPanelForApproval{
 	@Override
 	protected void initTextFields(Element e) {
 		IDT = new MyTextField(e.element("ID"));
+		IDT.setText("CKD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.outStoreDoc)));
+		IDT.setEditable(false);
+
 		orderT = new MyTextField(e.element("order"));
 		transferDocT = new MyTextField(e.element("transferDoc"));
 	}
@@ -152,7 +158,8 @@ public class AddOutStorePanel extends MyPanel implements DocPanelForApproval{
 		@Override
 		protected void reInitial() {
 			orderT.setText("");
-			IDT.setText("");
+			IDT.setText("CKD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.outStoreDoc)));
+
 			transferDocT.setText("");
 
 		}
@@ -176,9 +183,14 @@ public class AddOutStorePanel extends MyPanel implements DocPanelForApproval{
 			String transferDoc = transferDocT.getText();
 			String ID = IDT.getText();
 			MyDate date = picker.getMyDate();
-			
+			SimpleDataFormat[] datas = new SimpleDataFormat[orders.size()+1];
+			datas[0] = new SimpleDataFormat(transferDoc, DataType.ID, "中转单");
+			for (int i = 1; i < orders.size()+1; i++) {
+				datas[i] = new SimpleDataFormat(orders.get(i-1), DataType.BarCode, "订单号");
+			}
 			out = new OutStoreDocVO(ID, date, orders, loc, transferDoc, shipWay);
-			return true;
+			return UserfulMethod.dealWithData(datas);
+
 		}
 
 		@Override

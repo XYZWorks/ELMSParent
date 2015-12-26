@@ -21,6 +21,7 @@ import ui.util.ConfirmListener;
 import ui.util.DocPanelForApproval;
 import ui.util.TipsDialog;
 import util.City;
+import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
 import vo.transport.SendGoodDocVO;
@@ -62,6 +63,9 @@ public class SendGoodDocAddPanel extends AddDocPanel implements DocPanelForAppro
 	@Override
 	protected void initTextFields(Element e) {
 		idT = new MyTextField(e.element("id"));
+		idT.setText("PSD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.sendGoodDoc)));
+		idT.setEditable(false);
+
 		sendManT = new MyTextField(e.element("sendMan"));
 		orderBarCodeT = new MyTextField(e.element("orderBarCode"));
 		
@@ -128,6 +132,7 @@ public class SendGoodDocAddPanel extends AddDocPanel implements DocPanelForAppro
 			
 			@Override
 			protected void reInitial() {
+
 				myInit();
 			}
 			
@@ -142,7 +147,8 @@ public class SendGoodDocAddPanel extends AddDocPanel implements DocPanelForAppro
 		
 	}
 	private void  myInit() {
-		idT.setText("");
+		idT.setText("ZCD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.loadDoc)));
+
 		sendManT.setText("");
 		orderBarCodeT.setText("");
 	}

@@ -23,6 +23,7 @@ import ui.util.MyBackListener;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
 import util.City;
+import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
 import vo.transport.TransferDocVO;
@@ -96,6 +97,9 @@ public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
 	@Override
 	protected void initTextFields(Element e) {
 		IDT = new MyTextField(e.element("ID"));
+		IDT.setText("ZZD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.transferDoc)));
+		IDT.setEditable(false);
+
 		containerT = new MyTextField(e.element("container"));
 		numberT = new MyTextField(e.element("number"));
 		LoadManNameT = new MyTextField(e.element("LoadManName"));
@@ -203,7 +207,8 @@ public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
 
 		@Override
 		protected void reInitial() {
-			IDT.setText("");
+			IDT.setText("ZZD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.transferDoc)));
+
 			containerT.setText("");
 			numberT.setText("");
 			LoadManNameT.setText("");

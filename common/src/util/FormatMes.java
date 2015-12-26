@@ -13,5 +13,8 @@ public enum FormatMes {
 	 * 存在非法字符
 	 */
 	ILEGAL_CHAR,
+	ILEGAL_STORENUM,
 	NEGATIVE_NUM;
+	
+	
 }

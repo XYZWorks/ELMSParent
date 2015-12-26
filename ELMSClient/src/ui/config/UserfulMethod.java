@@ -51,6 +51,8 @@ public class UserfulMethod {
 			return FormatMesHandler(checkBankAccount(message), chineseName);
 		case BarCode:
 			return FormatMesHandler(checkBarCode(message), chineseName);
+		case StoreNum:
+			return FormatMesHandler(checkStoreNum(message), chineseName);
 		default:
 			break;
 		}
@@ -59,6 +61,13 @@ public class UserfulMethod {
 	
 	
 	
+	private static FormatMes checkStoreNum(String message) {
+		if("航运".equals(message)||"汽运".equals(message)||"铁运".equals(message))
+			return FormatMes.CORRECT;
+		else {
+			return FormatMes.ILEGAL_STORENUM;
+		}
+	}
 	/**
 	 * 扩充至7位
 	 * @param i
@@ -85,6 +94,9 @@ public class UserfulMethod {
 			break;
 		case NEGATIVE_NUM:
 			new TipsDialog(chineseName + "应为正整数 ， 请重新输入");
+			break;
+		case ILEGAL_STORENUM:
+			new TipsDialog(chineseName + "应为航运汽运或铁运");
 			break;
 		}
 		return false;
