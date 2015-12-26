@@ -69,7 +69,13 @@ public class AddLocTablePanel extends MyTablePanel {
 		}
 		
 
-		table = new MyTable(columnNames, data);
+		table = new MyTable(columnNames, data){
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				
+				return true;
+			}
+		};
 
 	}
 	

@@ -80,7 +80,7 @@ public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
+
 
 	}
 
@@ -206,7 +206,16 @@ public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
 
 	@Override
 	public void setAllCompUneditOrUnVisiable() {
-		// TODO Auto-generated method stub
+		IDT.setEditable(false);;
+		numberT.setEditable(false);;
+		LoadManNameT.setEditable(false);;
+		
+		containerT.setEditable(false);
+		ordersT.setEditable(false);;
+		
+		sendCityC.setEnabled(false);
+		confirmButton.setVisible(false);
+		returnButton.setVisible(false);
 		
 	}
 
