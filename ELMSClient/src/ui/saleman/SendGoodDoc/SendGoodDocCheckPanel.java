@@ -36,7 +36,7 @@ public class SendGoodDocCheckPanel extends CheckDocPanel {
 	@Override
 	protected void initialAddDocPanelAndTable(Element e) {
 		messageTable = new SendGoodMesTable(e.element(tableStr));
-		addDocPanel = new SendGoodDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable , bl);
+		addDocPanel = new SendGoodDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable);
 		
 	}
 
