@@ -342,7 +342,7 @@ public abstract class DataSuperClass extends UnicastRemoteObject {
 				if(id.length() == 10){
 					
 				}else if(id.length() == 16){
-					if(id.substring(3, 8).equals(MyDate.toString(date))){
+					if(id.substring(3, 8).equals(MyDate.getDatePart(date))){
 						try {
 							return Integer.parseInt(id.substring(id.length() - 7)) + 1;
 						} catch (Exception e) {
