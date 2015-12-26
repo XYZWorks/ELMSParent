@@ -104,5 +104,11 @@ public class LoadDocMesTable extends MyTablePanel {
 			
 		}
 	}
-	
+	@Override
+	public void showAllMessages() {
+		removeAllRows();
+		for (int i = 0; i < vos.size(); i++) {
+			addOneData(vos.get(i), 0);
+		}
+	}
 }

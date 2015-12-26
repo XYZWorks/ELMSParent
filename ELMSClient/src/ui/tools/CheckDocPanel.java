@@ -144,9 +144,7 @@ public abstract class CheckDocPanel extends JPanel{
 			public void keyPressed(KeyEvent e) {
 				super.keyPressed(e);
 				if(e.getKeyCode() == KeyEvent.VK_ENTER){
-					if(UserfulMethod.dealWithData(new SimpleDataFormat(searchBox.getMyText() , DataType.ID , "ID"))){
-						messageTable.searchID(searchBox.getMyText());
-					}
+					mySearch();
 				}
 				
 			}
@@ -156,10 +154,18 @@ public abstract class CheckDocPanel extends JPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
-				if(UserfulMethod.dealWithData(new SimpleDataFormat(searchBox.getMyText() , DataType.ID , "ID"))){
-					messageTable.searchID(searchBox.getMyText());
-				}
+				mySearch();
 			}
 		});
+	}
+	public void mySearch(){
+		//如果没有输入，默认展示所有数据
+		if(searchBox.getText().equals("")){
+			messageTable.showAllMessages();
+			return;
+		}
+		if(UserfulMethod.dealWithData(new SimpleDataFormat(searchBox.getMyText() , DataType.ID , "ID"))){
+			messageTable.searchID(searchBox.getMyText());
+		}
 	}
 }

@@ -96,5 +96,11 @@ public class ArriveYYDocMesTable extends MyTablePanel {
 		table = new MyTable(columnNames, data);
 
 	}
-
+	@Override
+	public void showAllMessages() {
+		removeAllRows();
+		for (int i = 0; i < vos.size(); i++) {
+			addOneData(vos.get(i), 0);
+		}
+	}
 }

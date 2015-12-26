@@ -154,7 +154,7 @@ public class DriverManageCheckPanel extends CheckDocPanel {
 		datePicker.setVisible(false);
 	}
 
-	private void mySearch() {
+	public void mySearch() {
 		if (searchWay.getSelectedIndex() == 0) {
 			new TipsDialog("请选择查找方式");
 			return;

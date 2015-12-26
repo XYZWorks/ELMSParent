@@ -1,8 +1,6 @@
 package ui.saleman.CarManage;
 
 import java.awt.Color;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JPanel;
@@ -57,24 +55,6 @@ public class CarManageCheckPanel extends CheckDocPanel{
 	@Override
 	protected void addListener() {
 		super.addListener();
-		search.addMouseListener(new MyPictureButtonListener(search){
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				super.mouseClicked(e);
-				mySearch();
-			}
-		});
-		searchBox.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-				super.keyPressed(e);
-				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-					mySearch();
-				}
-			}
-
-			
-		});
 		delete.addMouseListener(new MyPictureButtonListener(delete){
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -113,7 +93,7 @@ public class CarManageCheckPanel extends CheckDocPanel{
 		});
 		
 	}
-	private void mySearch() {
+	public void mySearch() {
 		if(searchWay.getSelectedIndex() == 0){
 			new TipsDialog("請選擇查找方式");
 			return;

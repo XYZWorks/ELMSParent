@@ -117,5 +117,11 @@ public class CarMesTable extends MyTablePanel{
 		int[] columnLen = { 200,200,200,200};
 		setRowAndColumnLen(40, columnLen);
 	}
-
+	@Override
+	public void showAllMessages() {
+		removeAllRows();
+		for (int i = 0; i < vos.size(); i++) {
+			addOneData(vos.get(i), 0);
+		}
+	}
 }
