@@ -126,7 +126,9 @@ public class DriverMesPanel extends MyTablePanel {
 	protected void initTable() {
 		table = new MyTable(columnNames, data);
 //		setRowAndColumnLen(rowLen, columnLen);
-
+		
+		int[] columnLen = { 70, 70, 95, 130, 250,180,50,100};
+		setRowAndColumnLen(40, columnLen);
 	}
 
 }
