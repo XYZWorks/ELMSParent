@@ -13,7 +13,9 @@ import javax.swing.JPanel;
 import org.dom4j.Element;
 
 import ui.tools.MyCardLayOut;
+
 import ui.tools.MyComboBox;
+
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -45,7 +47,9 @@ public class BulidBillPanel extends MyPanel {
 	Statisticblservice bl;
 	JPanel changePanel;
 	MyCardLayOut panelManager;
+
 	ArrayList<BillVO> vos;
+
 	/**
 	 * 账单 = =
 	 */
