@@ -1,5 +1,6 @@
 package ui.saleman.DriverManage;
 
+import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -20,6 +21,7 @@ import ui.util.CancelListener;
 import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
+import util.ResultMessage;
 
 /**
  * 司机信息查看界面
@@ -149,7 +151,28 @@ public class DriverManageCheckPanel extends CheckDocPanel {
 
 			}
 		});
-
+		delete.addMouseListener(new MyPictureButtonListener(delete){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				if(myTable.getSelectedRow() == -1){
+					new TipsDialog("请选择一条信息", Color.GREEN);
+				}
+				
+				result = 
+						bl.delDriver((String) myTable.getValueAt(myTable.getSelectedRow(), 0));
+						
+						if (result == ResultMessage.SUCCESS) {
+							new TipsDialog("删除成功" , Color.green);
+							myTable.removeRow(myTable.getSelectedRow());
+						}else{
+							new TipsDialog("数据库或网络故障");
+						}
+				
+			}
+			
+			
+		});
 	}
 
 	@Override
