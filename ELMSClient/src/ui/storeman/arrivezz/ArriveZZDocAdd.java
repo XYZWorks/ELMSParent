@@ -99,7 +99,7 @@ public class ArriveZZDocAdd extends MyPanel implements DocPanelForApproval{
 	@Override
 	protected void initTextFields(Element e) {
 		IDT = new MyTextField(e.element("ID"));
-		IDT.setText("DDD"+UserfulMethod.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.arriveZZDoc)));
+		IDT.setText("DDD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.arriveZZDoc)));
 
 		centerT = new MyTextField(e.element("center"));
 
@@ -169,7 +169,7 @@ public class ArriveZZDocAdd extends MyPanel implements DocPanelForApproval{
 
 		@Override
 		protected void reInitial() {
-			IDT.setText("DDD"+UserfulMethod.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.arriveZZDoc)));
+			IDT.setText("DDD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.arriveZZDoc)));
 			centerT.setText("");
 			ordersT.setText("");
 	
