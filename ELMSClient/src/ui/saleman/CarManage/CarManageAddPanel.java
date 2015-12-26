@@ -89,16 +89,31 @@ public class CarManageAddPanel extends AddDocPanel {
 			String plateNum;
 			String useYear;
 			String instid;
+			CarVO vo;
 			@Override
 			protected boolean saveToSQL() {
-				
-				if(bl.addCar(new CarVO(id, instid ,plateNum, Integer.parseInt(useYear))) == ResultMessage.SUCCESS){
-					new TipsDialog("成功增加司机信息" , Color.GREEN);
-					return true;
+				if(isAddOrModify){
+					result = bl.addCar(vo = new CarVO(id , instid , plateNum, Integer.parseInt(useYear)));
+					if(result == ResultMessage.SUCCESS){
+						new TipsDialog("成功增加司机信息" , Color.GREEN);
+						return true;
+					}else{
+						new TipsDialog("未能增加司机信息", Color.RED);
+						System.err.println(result);
+						return false;
+					}
 				}else{
-					new TipsDialog("未能增加司机信息", Color.RED);
-					return false;
+					result = bl.modifyCar(vo = new CarVO(id, instid ,plateNum, Integer.parseInt(useYear)));
+					if(result == ResultMessage.SUCCESS){
+						new TipsDialog("成功修改司机信息" , Color.GREEN);
+						return true;
+					}else{
+						new TipsDialog("未能修改司机信息", Color.RED);
+						System.err.println(result);
+						return false;
+					}
 				}
+				
 			}
 			
 			@Override
@@ -118,8 +133,11 @@ public class CarManageAddPanel extends AddDocPanel {
 
 			@Override
 			protected void updateMes() {
-				String[] data = { id, instid , plateNum , useYear };
-				messageTable.addOneRow(data);
+				if(isAddOrModify){
+					messageTable.addOneData(vo, 1);
+				}else {
+					messageTable.addOneData(vo, 2);
+				}
 				
 			}
 		});
@@ -135,4 +153,19 @@ public class CarManageAddPanel extends AddDocPanel {
 	private void  myInit() {
 		idT.setText("");plateNumT.setText("");useYearT.setText("");instidT.setText("");
 	}
+	
+	@Override
+	public void setAddOrModify(boolean isAdd, String id) {
+		isAddOrModify = isAdd;
+		idT.setEditable(isAdd);
+		
+		if(isAdd){
+			
+		}else{
+			idT.setText(id);
+		}
+		
+		
+	}
+	
 }

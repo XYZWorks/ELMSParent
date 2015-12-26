@@ -14,14 +14,15 @@ public class CarPO implements Serializable{
 	 * 序列化UID
 	 */
 	private static final long serialVersionUID = 1L;
-	/**
-	 * 机构ID
-	 */
-	private String instID;
+	
 	/**
 	 * 车辆编号
 	 */
 	private  String ID ;
+	/**
+	 * 机构ID
+	 */
+	private String instID;
 	/**
 	 * 车牌号
 	 */
@@ -32,7 +33,7 @@ public class CarPO implements Serializable{
 	private  int useYear;
 
 
-	public CarPO(String instID, String iD, String plateNum, int useYear) {
+	public CarPO(String iD, String instID, String plateNum, int useYear) {
 		super();
 		this.instID = instID;
 		ID = iD;
