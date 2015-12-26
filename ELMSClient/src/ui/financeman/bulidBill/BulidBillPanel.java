@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.tools.MyCardLayOut;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -39,7 +40,7 @@ public class BulidBillPanel extends MyPanel {
 	// 均为默认权限，包内可访问
 	Statisticblservice bl;
 	JPanel changePanel;
-	CardLayout panelManager;
+	MyCardLayOut panelManager;
 	/**
 	 * 账单 = =
 	 */
@@ -75,7 +76,7 @@ public class BulidBillPanel extends MyPanel {
 			JPanel changePanel) {
 		super(config);
 		this.changePanel = changePanel;
-		this.panelManager = (CardLayout) changePanel.getLayout();
+		this.panelManager = (MyCardLayOut) changePanel.getLayout();
 		this.bl = bl;
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));

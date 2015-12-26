@@ -1475,18 +1475,18 @@
 			</BUTTONS>
 			<mainWindow x="232" y="54" width="848" height="637">
 				<BUTTONS>
-					<AddAccount text="" x="260" y="316" width="119" height="162"
+					<AddAccount text="" x="190" y="216" width="119" height="162"
 						normal="Adminstrator//AddAccount" enter="Adminstrator//AddAccount-enter"
 						clicked="Adminstrator//AddAccount-clicked" />
-					<ModifyAccount text="" x="568" y="315" width="123"
-						height="160" normal="Adminstrator//ModifyAccount" enter="Adminstrator//ModifyAccount-enter"
+					<ModifyAccount text="" x="498" y="215" width="123" height="160" 
+						normal="Adminstrator//ModifyAccount" enter="Adminstrator//ModifyAccount-enter"
 						clicked="Adminstrator//ModifyAccount-clicked" />
 				</BUTTONS>
 			</mainWindow>
 			<AddAccountPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
-					<addAccount text="确认增加" x="600" y="400" width="119"
-						height="162" type="rectangle" />
+					<addAccount text="确认增加" x="700" y="560" width="89"
+						height="37" type="confirm" />
 
 				</BUTTONS>
 				<TEXTFIELDS>
