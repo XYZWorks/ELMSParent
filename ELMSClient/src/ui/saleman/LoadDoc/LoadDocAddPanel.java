@@ -25,6 +25,7 @@ import ui.util.DocPanelForApproval;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
 import util.City;
+import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
 import vo.transport.LoadDocVO;
@@ -83,6 +84,9 @@ public class LoadDocAddPanel extends AddDocPanel implements DocPanelForApproval{
 	@Override
 	protected void initTextFields(Element e) {
 		idT = new MyTextField(e.element("id"));
+		idT.setText("ZCD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.loadDoc)));
+		idT.setEditable(false);
+
 		YYIDT = new MyTextField(e.element("YYID"));
 		loadDocT = new MyTextField(e.element("loadDoc"));
 		carT = new MyTextField(e.element("car"));
@@ -159,6 +163,7 @@ public class LoadDocAddPanel extends AddDocPanel implements DocPanelForApproval{
 			
 			@Override
 			protected void reInitial() {
+
 				reinit();
 			}
 			
@@ -187,7 +192,9 @@ public class LoadDocAddPanel extends AddDocPanel implements DocPanelForApproval{
 	}
 	
 	private void reinit(){
-		idT.setText("");YYIDT.setText("");loadDocT.setText("");carT.setText("");
+		idT.setText("ZCD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.loadDoc)));
+
+		YYIDT.setText("");loadDocT.setText("");carT.setText("");
 		supervisorT.setText("");escortT.setText("");orderCode.setText("");
 		
 		

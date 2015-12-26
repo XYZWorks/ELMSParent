@@ -23,6 +23,7 @@ public class AddLocTablePanel extends MyTablePanel {
 
 	private ArrayList<String> locs;
 
+	private String[][] fullLocs;
 	public AddLocTablePanel(Element config) {
 		super(config);
 		initialTitleAndColumn(config);
@@ -112,4 +113,20 @@ public class AddLocTablePanel extends MyTablePanel {
 		
 		return locations;
 	}
+	
+	public String[][] getFullLocs() {
+		int index = 0;
+		for (; ((String)getValueAt(index, 0)).length()> 0; index++) ;
+		fullLocs = new String[index][4];
+		for(int i = 0;i<index;i++){
+			fullLocs[i][0] = (String) getValueAt(i, 1);
+			fullLocs[i][1] = (String) getValueAt(i, 2);
+			fullLocs[i][2] = (String) getValueAt(i, 3);
+			fullLocs[i][3] = (String) getValueAt(i, 4);
+		}
+		
+		return fullLocs;
+		
+	}
 }
+

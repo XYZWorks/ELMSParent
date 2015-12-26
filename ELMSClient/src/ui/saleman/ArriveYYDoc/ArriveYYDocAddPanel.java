@@ -26,6 +26,7 @@ import ui.util.DocPanelForApproval;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
 import util.City;
+import util.DocType;
 import util.GoodsState;
 import util.MyDate;
 import util.ResultMessage;
@@ -80,6 +81,8 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 	@Override
 	protected void initTextFields(Element e) {
 		idT = new MyTextField(e.element("id"));
+		idT.setText("JSD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.arriveYYDoc)));
+		idT.setEditable(false);
 		ZZIDT = new MyTextField(e.element("ZZID"));
 		order = new MyTextField(e.element("order"));
 	}
@@ -160,6 +163,7 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 
 			@Override
 			protected void reInitial() {
+
 				reinit();
 			}
 
@@ -194,7 +198,9 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 		});
 	}
 	private void reinit(){
-		idT.setText("");ZZIDT.setText("");order.setText("");
+		idT.setText("JSD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.arriveYYDoc)));
+
+		ZZIDT.setText("");order.setText("");
 		
 		ordersTable.clearOrders();
 	}
