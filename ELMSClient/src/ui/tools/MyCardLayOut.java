@@ -39,7 +39,6 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
 
-import ui.tools.MyCardLayOut.Card;
 import ui.util.RefreshPanel;
 
 /**
@@ -58,7 +57,7 @@ import ui.util.RefreshPanel;
  * method can be used to associate a string identifier with a given card
  * for fast random access.
  *
- * @author      Arthur van Hoff
+ * @author      Arthur van Hoff   czq
  * @see         java.awt.Container
  * @since       JDK1.0
  */
@@ -573,7 +572,8 @@ public class MyCardLayOut implements LayoutManager2,
     /**
      * Reads serializable fields from stream.
      */
-    private void readObject(ObjectInputStream s)
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	private void readObject(ObjectInputStream s)
         throws ClassNotFoundException, IOException
     {
         ObjectInputStream.GetField f = s.readFields();

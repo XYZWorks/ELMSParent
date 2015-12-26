@@ -2,6 +2,9 @@ package ui.financeman.bulidBill;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Rectangle;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
@@ -9,6 +12,8 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.tools.MyCardLayOut;
+import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -40,7 +45,8 @@ public class BulidBillPanel extends MyPanel {
 	// 均为默认权限，包内可访问
 	Statisticblservice bl;
 	JPanel changePanel;
-	CardLayout panelManager;
+	MyCardLayOut panelManager;
+	ArrayList<BillVO> vos;
 	/**
 	 * 账单 = =
 	 */
@@ -66,6 +72,7 @@ public class BulidBillPanel extends MyPanel {
 
 	private MyDatePicker datePicker;
 	private MyTextField name;
+	private MyComboBox lastBill;
 
 	final static String bulidBillStr = "BulidBillPanel";
 	final static String addInstStr = "AddInstStrPanel";
@@ -76,7 +83,7 @@ public class BulidBillPanel extends MyPanel {
 			JPanel changePanel) {
 		super(config);
 		this.changePanel = changePanel;
-		this.panelManager = (CardLayout) changePanel.getLayout();
+		this.panelManager = (MyCardLayOut) changePanel.getLayout();
 		this.bl = bl;
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
@@ -86,30 +93,73 @@ public class BulidBillPanel extends MyPanel {
 		addCompoment();
 		addListener();
 		panelManager.show(changePanel, bulidBillStr);
-		
+
 		myinit();
 	}
+
 	/**
 	 * 进行账单读取
 	 */
 	private void myinit() {
 		ArrayList<BillVO> vos = bl.getBills();
-		if(vos != null && !vos.isEmpty()){
-			bill = vos.get(vos.size() - 1);
-			String[][] data = new String[bill.instituations.size()][5];
-			String instid;
-			InstVO vo;
-			for (int i = 0 ; i < data.length ; i ++) {
-				vo = bill.instituations.get(i);
-				data[i][0] = vo.ID;
-				data[i][1] = vo.location.getName();
-				data[i][2] = vo.type.getName();
+
+		if (vos != null && !vos.isEmpty()) {
+			for (int i = 0; i < vos.size(); i++) {
+				lastBill.addItem((i+1) + "." + MyDate.toString(vos.get(i).date));
 			}
 			
-			
-			
+			lastBill.setSelectedIndex(0);
+			initABill(vos.get(0));
+
+		} else {
+			vos = new ArrayList<>();
 		}
-		
+		lastBill.addItem("当前账单");
+	}
+
+	private void initABill(BillVO billvo) {
+		String[][] data = new String[billvo.instituations.size()][5];
+		String instid;
+		InstVO vo;
+		for (int i = 0; i < data.length; i++) {
+			vo = billvo.instituations.get(i);
+			instid = data[i][0] = vo.ID;
+			data[i][1] = vo.location.getName();
+			data[i][2] = vo.type.getName();
+			data[i][3] = getPersons(instid , billvo.persons);
+			data[i][4] = getCars(instid , billvo.cars);
+			mainTable.addOneRow(data[i]);
+		}
+
+	}
+
+	private String getCars(String instid, ArrayList<CarVO> carVOs) {
+
+		int carNum = 0;
+		CarVO vo;
+		for (int i = 0; i < carVOs.size(); i++) {
+			vo = carVOs.get(i);
+			if (vo.instID.equals(instid)) {
+				carNum++;
+			}
+
+		}
+
+		return String.valueOf(carNum);
+	}
+
+	private String getPersons(String instid, ArrayList<PersonVO> personVOs) {
+		int personNum = 0;
+		PersonVO vo;
+		for (int i = 0; i < personVOs.size(); i++) {
+			vo = personVOs.get(i);
+			if (vo.instID.equals(instid)) {
+				personNum++;
+			}
+
+		}
+
+		return String.valueOf(personNum);
 	}
 
 	@Override
@@ -117,7 +167,7 @@ public class BulidBillPanel extends MyPanel {
 		confirm = new MyPictureButton(e.element("confirm"));
 		cancel = new MyPictureButton(e.element("cancel"));
 		add = new MyPictureButton(e.element("add"));
-		 
+
 	}
 
 	@Override
@@ -137,10 +187,11 @@ public class BulidBillPanel extends MyPanel {
 	@Override
 	protected void initOtherCompoment(Element e) {
 		datePicker = new MyDatePicker(e.element("datePicker"));
-		mainTable = new MainTable(e.element("table") , this);
+		mainTable = new MainTable(e.element("table"), this);
 		addCar = new AddCar(e.element("addCar"), this);
-		addPeople = new AddPeople(e.element("addPeople") , this);
+		addPeople = new AddPeople(e.element("addPeople"), this);
 		addInst = new AddInst(e.element("addInst"), this);
+		lastBill = new MyComboBox(new Rectangle(0, 0, 200, 50));
 
 	}
 
@@ -160,38 +211,47 @@ public class BulidBillPanel extends MyPanel {
 		add(time);
 		add(title);
 		add(mainTable);
-		
+		add(lastBill);
 	}
+
 	/**
 	 * 完成一个机构的增加时调用的方法
 	 */
-	void finishOneInst(){
+	void finishOneInst() {
 		bill.instituations.addAll(instVOs);
 		bill.persons.addAll(personVOs);
 		bill.cars.addAll(carVOs);
-		
+
 		InstVO vo = instVOs.get(0);
-		String[] data = {vo.ID ,  vo.location.getName() , vo.type.getName() , String.valueOf(personVOs.size()) , String.valueOf(carVOs.size()) };
+		String[] data = { vo.ID, vo.location.getName(), vo.type.getName(),
+				String.valueOf(personVOs.size()), String.valueOf(carVOs.size()) };
 		mainTable.addOneRow(data);
 		instVOs.clear();
 		personVOs.clear();
 		carVOs.clear();
-		
+
 	}
-	
-	
+
 	@Override
 	protected void addListener() {
+		lastBill.addItemListener(new ItemListener() {
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				
+			}
+		});
+		
+		
 		confirm.addMouseListener(new ConfirmListener(confirm) {
 
 			@Override
 			protected boolean saveToSQL() {
 				bill.date = datePicker.getMyDate();
 				bill.finaceman = name.getText();
-				if(bl.bulidBill(bill) == ResultMessage.SUCCESS){
+				if (bl.bulidBill(bill) == ResultMessage.SUCCESS) {
 					new TipsDialog("成功新建账单", Color.GREEN);
 					return true;
-				}else{
+				} else {
 					new TipsDialog("由于网络或数据库原因，新建失败");
 					return false;
 				}
@@ -205,7 +265,7 @@ public class BulidBillPanel extends MyPanel {
 
 			@Override
 			protected boolean checkDataValid() {
-				if(name.getText().equals("")){
+				if (name.getText().equals("")) {
 					new TipsDialog("请输入经手人", Color.GREEN);
 					return false;
 				}
@@ -215,7 +275,7 @@ public class BulidBillPanel extends MyPanel {
 			@Override
 			protected void updateMes() {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {
@@ -226,7 +286,7 @@ public class BulidBillPanel extends MyPanel {
 
 			}
 		});
-		add.addMouseListener(new MyPictureButtonListener(add){
+		add.addMouseListener(new MyPictureButtonListener(add) {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);

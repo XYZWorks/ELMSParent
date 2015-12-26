@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.tools.MyCardLayOut;
 import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -31,7 +32,7 @@ import blservice.financeblservice.CostService;
 @SuppressWarnings("serial")
 public class CostManagePanel extends MyPanel {
 	JPanel changePanel;
-	CardLayout panelManager;
+	MyCardLayOut panelManager;
 	CostService costService;
 	final static String addCostPanelStr = "addCostPanel";
 	final static String costManageStr = "CostManagePanel";
@@ -56,7 +57,7 @@ public class CostManagePanel extends MyPanel {
 		super(config);
 		this.costService = costService;
 		this.changePanel = changePanel;
-		this.panelManager = (CardLayout) changePanel.getLayout();
+		this.panelManager = (MyCardLayOut) changePanel.getLayout();
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);

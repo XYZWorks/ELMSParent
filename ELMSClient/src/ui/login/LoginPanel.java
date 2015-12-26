@@ -7,7 +7,6 @@ import java.awt.Image;
 import javax.swing.JPanel;
 
 import ui.config.GraphicsUtils;
-import ui.tools.MyPanel;
  /** 
  * 
  * @author czq 
@@ -41,7 +40,8 @@ public class LoginPanel extends JPanel {
 		bgclose2 = GraphicsUtils.getImage(pre + "bg-close-2");
 		bglogin1 = GraphicsUtils.getImage(pre + "bg-login-1");
 		bglogin2 = GraphicsUtils.getImage(pre + "bg-login-2");
-//		setOpaque(true);
+		setOpaque(true);
+		setBackground(new Color(0, 0, 0));
 		nowbg = bg;
 		repaint();
 	}
@@ -49,11 +49,13 @@ public class LoginPanel extends JPanel {
 	@Override
 	public void paintComponent(Graphics g)  
 	{  
-//		super.paintComponent(g);
-		
-//		g.setColor(Color.WHITE);
+		GraphicsUtils.setAlpha(g, 0);
+		super.paintComponent(g);
+		GraphicsUtils.setAlpha(g, 1);
+		g.drawImage(nowbg, 0,0, null);
+//		g.setColor(Color.red);
 //		g.fillRect(0, 0, getWidth(), getHeight());
-	    g.drawImage(nowbg, 0,0, null);
+	    
 	    
 	   
 	} 

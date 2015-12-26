@@ -1,6 +1,5 @@
 package ui.login;
 
-import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -76,13 +75,13 @@ public class LoginFrame extends MyFrame {
 		initOtherCom(config);
 		config.attributeValue("width");
 		this.frame = this;
-		this.setContentPane(mainpanel);
+		
 		addCom();
 		addListener();
-
-		this.validate();
-		this.repaint();
-		this.mainpanel.repaint();
+		this.setContentPane(mainpanel);
+//		this.validate();
+//		this.repaint();
+//		this.mainpanel.repaint();
 		this.setVisible(true);
 	}
 

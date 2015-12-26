@@ -2,8 +2,6 @@ package vo.store;
 
 import java.util.ArrayList;
 
-import bl.orderbl.orderbl_stub;
-import test.java.other.ExportExcel;
 import util.City;
 import util.TransferWay;
 

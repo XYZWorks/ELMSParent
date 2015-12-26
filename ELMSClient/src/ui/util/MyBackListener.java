@@ -1,6 +1,5 @@
 package ui.util;
 
-import java.awt.CardLayout;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JPanel;
