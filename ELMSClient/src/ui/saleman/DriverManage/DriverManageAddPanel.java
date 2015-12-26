@@ -130,19 +130,22 @@ public class DriverManageAddPanel extends AddDocPanel {
 			String licenseYear;
 			boolean isman;
 			String idCard;
-
+			DriverVO vo;
 			@Override
 			protected void updateMes() {
-				String[] data = { id, name, instid, MyDate.toString(birthday),
-						idCard, phone, isman ? "男" : "女", licenseYear };
-				messageTable.addOneRow(data);
+				if(isAddOrModify){
+					messageTable.addOneData(vo, 1);
+				}else {
+					messageTable.addOneData(vo, 2);
+				}
+				
 
 			}
 
 			@Override
 			protected boolean saveToSQL() {
 				if(isAddOrModify){
-					result = bl.addDriver(new DriverVO(id, name, instid, birthday,
+					result = bl.addDriver(vo = new DriverVO(id, name, instid, birthday,
 							idCard, phone, isman, Integer.parseInt(licenseYear)));
 					if (result == ResultMessage.SUCCESS) {
 						new TipsDialog("成功增加司机信息", Color.GREEN);
@@ -153,7 +156,7 @@ public class DriverManageAddPanel extends AddDocPanel {
 						return false;
 					}
 				}else{
-					result = bl.modifyDriver(new DriverVO(id, name, instid, birthday,
+					result = bl.modifyDriver(vo = new DriverVO(id, name, instid, birthday,
 							idCard, phone, isman, Integer.parseInt(licenseYear)));
 					if (result == ResultMessage.SUCCESS) {
 						new TipsDialog("成功修改司机信息", Color.GREEN);
@@ -184,6 +187,7 @@ public class DriverManageAddPanel extends AddDocPanel {
 				idCard = idCardT.getText();
 				licenseYear = licenseYearT.getText();
 				isman = sexB.getSelectedIndex() == 0 ? true : false;
+				
 				SimpleDataFormat[] datas = {
 						new SimpleDataFormat(id, DataType.ID, "ID"),
 						new SimpleDataFormat(phone, DataType.phone, "手机号码"),
