@@ -408,4 +408,32 @@ public class Transport {
 		return ResultMessage.SQL_ERROR;
 	}
 
+	public int getDayDocCount(DocType type) {
+		try {
+			switch (type) {
+			case arriveYYDoc:
+				
+				return transportData.getDayDocCount(DocType.arriveYYDoc, MyDate.getNowTime());
+			case arriveZZDoc:
+				
+				return transportData.getDayDocCount(DocType.arriveZZDoc, MyDate.getNowTime());
+			case loadDoc:
+				return transportData.getDayDocCount(DocType.loadDoc, MyDate.getNowTime());
+			case sendGoodDoc:
+				return transportData.getDayDocCount(DocType.sendGoodDoc, MyDate.getNowTime());
+
+			case transferDoc:
+				return transportData.getDayDocCount(DocType.transferDoc, MyDate.getNowTime());
+
+	
+			default:
+				break;
+			}
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return -1;
+	}
+
 }

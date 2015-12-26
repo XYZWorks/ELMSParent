@@ -10,6 +10,7 @@ import po.store.OutStoreDocPO;
 import test.java.other.VOPOchange;
 import util.DocState;
 import util.DocType;
+import util.MyDate;
 import util.ResultMessage;
 import vo.DocVO;
 import vo.store.OutStoreDocVO;
@@ -140,6 +141,16 @@ public class OutStoreDocImpl {
 			return out;
 		}
 		
+	}
+
+	public int getDayDocCount() {
+		try {
+			return storeData.getDayDocCount(DocType.outStoreDoc, MyDate.getNowTime());
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return -1;
 	}
 	
 

@@ -23,6 +23,7 @@ import ui.util.MyBackListener;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
 import util.City;
+import util.DocType;
 import util.GoodsState;
 import util.MyDate;
 import util.ResultMessage;
@@ -98,7 +99,8 @@ public class ArriveZZDocAdd extends MyPanel implements DocPanelForApproval{
 	@Override
 	protected void initTextFields(Element e) {
 		IDT = new MyTextField(e.element("ID"));
-		
+		IDT.setText("DDD"+UserfulMethod.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.arriveZZDoc)));
+
 		centerT = new MyTextField(e.element("center"));
 
 		ordersT = new MyTextField(e.element("orders"));
@@ -155,6 +157,8 @@ public class ArriveZZDocAdd extends MyPanel implements DocPanelForApproval{
 		returnButton.addMouseListener(new MyJumpListener(returnButton, "ArriveZZPanel", controller,true));
 
 	}
+	
+	
 
 	class MyAddListener extends ConfirmListener {
 		ArriveZZDocVO vo;
@@ -165,7 +169,7 @@ public class ArriveZZDocAdd extends MyPanel implements DocPanelForApproval{
 
 		@Override
 		protected void reInitial() {
-			IDT.setText("");
+			IDT.setText("DDD"+UserfulMethod.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.arriveZZDoc)));
 			centerT.setText("");
 			ordersT.setText("");
 	

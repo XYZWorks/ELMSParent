@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import ui.util.TipsDialog;
 import util.FormatMes;
+import util.MyDate;
 /**
   * 保存一些有用的UI层静态方法
   * @author czq
@@ -56,6 +57,49 @@ public class UserfulMethod {
 		return false;
 	}
 	
+	/**
+	 * 
+	 * 得到6位表示的日期
+	 * @param date
+	 * @return
+	 */
+	public static String getDatePart(MyDate date) {
+		
+		String d = MyDate.toString(date);
+		String[] spl = d.split("-");
+		
+		if(spl.length<3)
+			return null;
+		
+		String result = spl[0].substring(2, 4);
+		
+		if(spl[1].length()<2)
+			result = result+"0"+spl[1];
+		else {
+			result = result+spl[1];
+		}
+		if(spl[2].length()<2)
+			result = result+"0"+spl[2];
+		else {
+			result = result+spl[2];
+		}
+		return result;
+	}
+	
+	/**
+	 * 扩充至7位
+	 * @param i
+	 * @return
+	 */
+	public static String toSeven(int i) {
+		String result = i+"";
+		
+		while (result.length()<7) {
+			result="0"+result;
+			
+		}
+		return result;
+	}
 	private static boolean FormatMesHandler( FormatMes message,String chineseName){
 		switch (message) {
 		case CORRECT:
