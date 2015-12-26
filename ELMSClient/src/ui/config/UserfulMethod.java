@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import ui.util.TipsDialog;
 import util.FormatMes;
+import util.MyDate;
 /**
   * 保存一些有用的UI层静态方法
   * @author czq
@@ -56,6 +57,22 @@ public class UserfulMethod {
 		return false;
 	}
 	
+	
+	
+	/**
+	 * 扩充至7位
+	 * @param i
+	 * @return
+	 */
+	public static String toSeven(int i) {
+		String result = i+"";
+		
+		while (result.length()<7) {
+			result="0"+result;
+			
+		}
+		return result;
+	}
 	private static boolean FormatMesHandler( FormatMes message,String chineseName){
 		switch (message) {
 		case CORRECT:

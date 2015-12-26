@@ -103,10 +103,12 @@ public class OrderController implements Orderblservice{
 		
 		return order.setEstiDate(day,one,two);
 	}
+
 	@Override
 	public int getDayDocCount(DocType type) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
 	
 }

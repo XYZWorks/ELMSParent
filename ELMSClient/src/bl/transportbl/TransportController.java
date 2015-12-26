@@ -124,6 +124,12 @@ public class TransportController implements Transportblservice{
 	public ArrayList<PayDocVO> getPays() {
 		return transport.getPays();
 	}
+
+	@Override
+	public int getDayDocCount(DocType type) {
+		
+		return transport.getDayDocCount(type);
+	}
 	
 	
 

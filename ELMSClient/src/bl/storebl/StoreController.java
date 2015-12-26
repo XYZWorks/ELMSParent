@@ -155,8 +155,11 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 
 	@Override
 	public int getDayDocCount(DocType type) {
-		// TODO Auto-generated method stub
-		return 0;
+		if(type==DocType.inStoreDoc)		
+			return inStoreDocImpl.getDayDocCount();
+		else if(type ==DocType.outStoreDoc)
+			return outStoreDocImpl.getDayDocCount();
+		return -1;
 	}
 
 }
