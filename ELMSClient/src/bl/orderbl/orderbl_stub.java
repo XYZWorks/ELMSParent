@@ -2,6 +2,7 @@ package bl.orderbl;
 
 import java.util.ArrayList;
 
+import blservice.orderblservice.Orderblservice;
 import po.order.GoodMes;
 import po.order.OtherOrderMes;
 import po.order.PeopleMes;
@@ -16,7 +17,6 @@ import vo.order.OrderSimpleInfoVO;
 import vo.order.OrderVO;
 import vo.order.PreReceiveVO;
 import vo.order.ReceiveVO;
-import blservice.orderblservice.Orderblservice;
 
 /**
 *
@@ -206,6 +206,16 @@ public class orderbl_stub implements Orderblservice{
 	public ResultMessage setEstiDate(double day, City one, City two) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	
+
+	
+
+	@Override
+	public int getDayDocCount(DocType type) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

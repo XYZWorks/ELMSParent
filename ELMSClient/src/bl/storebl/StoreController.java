@@ -153,4 +153,13 @@ public class StoreController implements StoreblService , InStoreDocService , Out
 		
 	}
 
+	@Override
+	public int getDayDocCount(DocType type) {
+		if(type==DocType.inStoreDoc)		
+			return inStoreDocImpl.getDayDocCount();
+		else if(type ==DocType.outStoreDoc)
+			return outStoreDocImpl.getDayDocCount();
+		return -1;
+	}
+
 }

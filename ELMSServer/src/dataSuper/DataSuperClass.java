@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import util.DocState;
+import util.MyDate;
 import util.ResultMessage;
 
 import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
@@ -331,21 +332,29 @@ public abstract class DataSuperClass extends UnicastRemoteObject {
 		return ResultMessage.FAIL;
 	}
 
-	protected int  getDayDocCount(String tableName) {
+	protected int  getDayDocCount(String tableName, MyDate date) {
 		try {
 			sql = "SELECT id from " + tableName + " ORDER BY `id` DESC";
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
+			String nowDate = MyDate.getDatePart(date);
 			while (result.next()) {
+				
 				String id = result.getString(1);
 				if(id.length() == 10){
-					
 				}else if(id.length() == 16){
-					try {
-						return Integer.parseInt(id.substring(id.length() - 7)) + 1;
-					} catch (Exception e) {
-						return -1;
+					if(id.substring(3, 9).equals(nowDate)){
+						
+						try {
+							return Integer.parseInt(id.substring(id.length() - 7)) + 1;
+						} catch (Exception e) {
+							return -1;
+						}
+					}else{
+						return 1;
 					}
+					
+					
 					
 				}
 				

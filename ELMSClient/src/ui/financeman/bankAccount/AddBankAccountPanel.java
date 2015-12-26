@@ -168,7 +168,7 @@ public class AddBankAccountPanel extends MyPanel{
 			@Override
 			protected void updateMes() {
 				String[] data = {id , money , password};
- 				table.addOneRow(data);
+// 				table.addon
 			}
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {

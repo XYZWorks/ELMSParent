@@ -61,8 +61,16 @@ public class DriverMesPanel extends MyTablePanel {
 	@Override
 	public void addOneData(Object o , int type) {
 		DriverVO vo = (DriverVO) o;
-		if(type != 0){
+		if(type == 1){
 			vos.add(vo);
+		}else if(type == 2){
+			removeAllRows();
+			for (int i = 0; i < vos.size(); i++) {
+				if(vos.get(i).ID.equals(vo.ID)){
+					vos.set(i, vo);
+				}
+				addOneData(vos.get(i) , 0 );
+			}
 		}
 		String[] temp  = new String[8];
 		temp[0] = vo.ID;
@@ -126,7 +134,9 @@ public class DriverMesPanel extends MyTablePanel {
 	protected void initTable() {
 		table = new MyTable(columnNames, data);
 //		setRowAndColumnLen(rowLen, columnLen);
-
+		
+		int[] columnLen = { 70, 70, 95, 130, 250,180,50,100};
+		setRowAndColumnLen(40, columnLen);
 	}
 
 }
