@@ -17,6 +17,7 @@ import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
+import ui.tools.MyWhitePanel;
 import ui.util.CancelListener;
 import ui.util.ConfirmListener;
 import ui.util.TipsDialog;
@@ -32,6 +33,11 @@ import vo.DTManage.DriverVO;
  */
 @SuppressWarnings("serial")
 public class DriverManageAddPanel extends AddDocPanel {
+
+	private MyWhitePanel whitePanel;
+
+	private MyPictureLabel addCarman;
+
 	private MyLabel id;
 	private MyLabel name;
 	private MyLabel instid;
@@ -51,14 +57,14 @@ public class DriverManageAddPanel extends AddDocPanel {
 	private MyDatePicker borns;
 	DTManageblservice bl;
 
-	public DriverManageAddPanel(Element config, JPanel changePanel,
-			String checkDocPanelStr, MyTablePanel messageTable) {
+	public DriverManageAddPanel(Element config, JPanel changePanel, String checkDocPanelStr,
+			MyTablePanel messageTable) {
 		super(config, changePanel, checkDocPanelStr, messageTable);
 	}
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
+		whitePanel=new MyWhitePanel(e.element("whitePanel"));
 
 	}
 
@@ -70,6 +76,7 @@ public class DriverManageAddPanel extends AddDocPanel {
 
 	@Override
 	protected void initTextFields(Element e) {
+		
 		idT = new MyTextField(e.element("id"));
 		nameT = new MyTextField(e.element("name"));
 		phoneT = new MyTextField(e.element("phone"));
@@ -82,15 +89,17 @@ public class DriverManageAddPanel extends AddDocPanel {
 
 	@Override
 	protected void initLabels(Element e) {
-		id = new MyPictureLabel(e.element("id"));
-		name = new MyPictureLabel(e.element("name"));
-		bornDay = new MyPictureLabel(e.element("bornday"));
-		phone = new MyPictureLabel(e.element("phone"));
+		addCarman=new MyPictureLabel(e.element("addCarman"));
+		
+		id = new MyLabel(e.element("id"));
+		name = new MyLabel(e.element("name"));
+		bornDay = new MyLabel(e.element("bornday"));
+		phone = new MyLabel(e.element("phone"));
 
-		instid = new MyPictureLabel(e.element("instid"));
-		sex = new MyPictureLabel(e.element("sex"));
-		licenseYear = new MyPictureLabel(e.element("license"));
-		idCard = new MyPictureLabel(e.element("idCard"));
+		instid = new MyLabel(e.element("instid"));
+		sex = new MyLabel(e.element("sex"));
+		licenseYear = new MyLabel(e.element("license"));
+		idCard = new MyLabel(e.element("idCard"));
 	}
 
 	@Override
@@ -101,22 +110,29 @@ public class DriverManageAddPanel extends AddDocPanel {
 
 	@Override
 	protected void addCompoment() {
-		add(bornDay);
-		add(borns);
-		add(id);
-		add(idT);
-		add(name);
-		add(nameT);
-		add(phone);
-		add(phoneT);
-		add(sex);
-		add(sexB);
-		add(idCard);
-		add(idCardT);
-		add(instid);
-		add(instidT);
-		add(licenseYear);
-		add(licenseYearT);
+		whitePanel.add(addCarman);
+		whitePanel.add(bornDay);
+		whitePanel.add(borns);
+		whitePanel.add(id);
+		whitePanel.add(idT);
+		whitePanel.add(name);
+		whitePanel.add(nameT);
+		whitePanel.add(phone);
+		whitePanel.add(phoneT);
+		whitePanel.add(sex);
+		whitePanel.add(sexB);
+		whitePanel.add(idCard);
+		whitePanel.add(idCardT);
+		whitePanel.add(instid);
+		whitePanel.add(instidT);
+		whitePanel.add(licenseYear);
+		whitePanel.add(licenseYearT);
+		
+		confirm.setLocation(280,575);
+		cancel.setLocation(450,575);
+		
+		
+		this.add(whitePanel);
 	}
 
 	@Override
@@ -131,22 +147,22 @@ public class DriverManageAddPanel extends AddDocPanel {
 			boolean isman;
 			String idCard;
 			DriverVO vo;
+
 			@Override
 			protected void updateMes() {
-				if(isAddOrModify){
+				if (isAddOrModify) {
 					messageTable.addOneData(vo, 1);
-				}else {
+				} else {
 					messageTable.addOneData(vo, 2);
 				}
-				
 
 			}
 
 			@Override
 			protected boolean saveToSQL() {
-				if(isAddOrModify){
-					result = bl.addDriver(vo = new DriverVO(id, name, instid, birthday,
-							idCard, phone, isman, Integer.parseInt(licenseYear)));
+				if (isAddOrModify) {
+					result = bl.addDriver(vo = new DriverVO(id, name, instid, birthday, idCard, phone, isman,
+							Integer.parseInt(licenseYear)));
 					if (result == ResultMessage.SUCCESS) {
 						new TipsDialog("成功增加司机信息", Color.GREEN);
 						return true;
@@ -155,9 +171,9 @@ public class DriverManageAddPanel extends AddDocPanel {
 						System.err.println(result);
 						return false;
 					}
-				}else{
-					result = bl.modifyDriver(vo = new DriverVO(id, name, instid, birthday,
-							idCard, phone, isman, Integer.parseInt(licenseYear)));
+				} else {
+					result = bl.modifyDriver(vo = new DriverVO(id, name, instid, birthday, idCard, phone, isman,
+							Integer.parseInt(licenseYear)));
 					if (result == ResultMessage.SUCCESS) {
 						new TipsDialog("成功修改司机信息", Color.GREEN);
 						return true;
@@ -166,10 +182,9 @@ public class DriverManageAddPanel extends AddDocPanel {
 						System.err.println(result);
 						return false;
 					}
-					
-					
+
 				}
-				
+
 			}
 
 			@Override
@@ -187,14 +202,12 @@ public class DriverManageAddPanel extends AddDocPanel {
 				idCard = idCardT.getText();
 				licenseYear = licenseYearT.getText();
 				isman = sexB.getSelectedIndex() == 0 ? true : false;
-				
-				SimpleDataFormat[] datas = {
-						new SimpleDataFormat(id, DataType.ID, "ID"),
+
+				SimpleDataFormat[] datas = { new SimpleDataFormat(id, DataType.ID, "ID"),
 						new SimpleDataFormat(phone, DataType.phone, "手机号码"),
 						new SimpleDataFormat(instid, DataType.ID, "机构ID"),
 						new SimpleDataFormat(idCard, DataType.idCard, "身份证号"),
-						new SimpleDataFormat(licenseYear, DataType.PositiveNum,
-								"驾驶证期限") };
+						new SimpleDataFormat(licenseYear, DataType.PositiveNum, "驾驶证期限") };
 				return UserfulMethod.dealWithData(datas);
 			}
 		});
@@ -216,19 +229,18 @@ public class DriverManageAddPanel extends AddDocPanel {
 		idCardT.setText("");
 		licenseYearT.setText("");
 	}
-	
+
 	@Override
 	public void setAddOrModify(boolean isAdd, String id) {
 		isAddOrModify = isAdd;
 		idT.setEditable(isAdd);
-		
-		if(isAdd){
-			
-		}else{
+
+		if (isAdd) {
+
+		} else {
 			idT.setText(id);
 		}
-		
-		
+
 	}
-	
+
 }
