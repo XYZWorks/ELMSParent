@@ -82,37 +82,37 @@ public class InitalPanel extends MyPanel {
 	 */
 	private void addOtherPanel(Element e) {
 
-		AccountType type = vo.type;
-
-		switch (type) {
-		case Adminstrator:
-			controller = new AdminstratorController(this, e.element("Adminstrator"));
-			break;
-		case courier:
-			controller = new CourierController(this, e.element("CourierManager"));
-			break;
-		case financeman:
-			controller = new FinanceController(this, e.element("Financeman"));
-			break;
-		case manager:
-			controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
-			break;
-		case saleman:
+//		AccountType type = vo.type;
+//
+//		switch (type) {
+//		case Adminstrator:
+//			controller = new AdminstratorController(this, e.element("Adminstrator"));
+//			break;
+//		case courier:
+//			controller = new CourierController(this, e.element("CourierManager"));
+//			break;
+//		case financeman:
+//			controller = new FinanceController(this, e.element("Financeman"));
+//			break;
+//		case manager:
+//			controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
+//			break;
+	//	case saleman:
 			controller = new SaleManController(this, e.element("Salesman"));
-			break;
-		case storeman:
-			controller = new StoreManController(this, e.element("Storeman"));
-			break;
-		case storemanager:
-			controller = new StoreManagerController(this, e.element("Storemanager"));
-			break;
-		default:
-			break;
+//			break;
+//		case storeman:
+//			controller = new StoreManController(this, e.element("Storeman"));
+//			break;
+//		case storemanager:
+//			controller = new StoreManagerController(this, e.element("Storemanager"));
+//			break;
+//		default:
+//			break;
 		}
 		
 		
 		
-	}
+	//}
 
 	@Override
 	 public void paintComponent(Graphics g) {
