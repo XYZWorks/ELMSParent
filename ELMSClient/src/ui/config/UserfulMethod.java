@@ -205,6 +205,9 @@ public class UserfulMethod {
 		}
 		return result;
 	}
+	
+	
+
 //	public static final FormatMes checkTexts(String texts){
 //		for (int i = 0; i < texts.length(); i++) {
 ////			if(texts.charAt(i))
@@ -248,6 +251,7 @@ public class UserfulMethod {
 		}
 	}
 
+	
 	
 	
 	

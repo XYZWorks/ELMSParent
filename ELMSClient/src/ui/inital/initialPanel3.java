@@ -5,13 +5,10 @@ import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JFrame;
-
 import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
 import ui.storeman.StoreManController;
-import ui.storemanager.StoreManagerController;
 import ui.tools.MyFrame;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;

@@ -82,6 +82,8 @@ public class InitalPanel extends MyPanel {
 	 */
 	private void addOtherPanel(Element e) {
 
+
+
 		AccountType type = vo.type;
 
 		switch (type) {
@@ -101,10 +103,10 @@ public class InitalPanel extends MyPanel {
 			controller = new SaleManController(this, e.element("Salesman"));
 			break;
 		case storeman:
-			controller = new StoreManController(this, e.element("Storeman"));
+			controller = new StoreManController(this, e.element("StoreMan"));
 			break;
 		case storemanager:
-			controller = new StoreManagerController(this, e.element("Storemanager"));
+			controller = new StoreManagerController(this, e.element("StoreManager"));
 			break;
 		default:
 			break;
