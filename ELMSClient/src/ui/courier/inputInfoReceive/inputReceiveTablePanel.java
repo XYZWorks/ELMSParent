@@ -25,7 +25,7 @@ public class inputReceiveTablePanel extends MyTablePanel {
 	private Orderblservice bl;
 	private InputReceiveInfoPanel inputReceiveInfoPanel;
 	public  ArrayList<PreReceiveVO> pre;
-	
+	public ArrayList<PreReceiveVO>after;
 
 	private static final int COLUMN_NUM = 5;
 
@@ -45,7 +45,8 @@ public class inputReceiveTablePanel extends MyTablePanel {
 	protected void initialTitleAndColumn(Element config) {
 		columnNames = MyTablePanel.getColumnName(config.attributeValue("column"));
 		 pre = bl.getPreReceive();
-
+		 after=pre;
+		 
 		if (pre == null || pre.isEmpty()) {
 			return;
 		}
@@ -82,9 +83,9 @@ public class inputReceiveTablePanel extends MyTablePanel {
 		
 	}
 
-	@Override
-	public void updateTableMes() {
-		pre = bl.getPreReceive();
+	
+	public void updateTableMes(ArrayList<PreReceiveVO>pre) {
+		//pre = bl.getPreReceive();
 		if (pre == null) {
 			return;
 		}
@@ -98,7 +99,17 @@ public class inputReceiveTablePanel extends MyTablePanel {
 		}
 	}
 
-	public ArrayList<PreReceiveVO> getPreReceive(){
-		return pre;
+	@Override
+	public void updateTableMes() {
+		// TODO Auto-generated method stub
+		
+	}
+
+//	public ArrayList<PreReceiveVO> getPreReceive(){
+//		return after;
+//	}
+	
+	public String[][] getData(){
+		return (String[][]) data;
 	}
 }

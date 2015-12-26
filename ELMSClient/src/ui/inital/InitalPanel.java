@@ -5,7 +5,7 @@ import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JFrame;
+import main.AXIS;
 
 import org.dom4j.Element;
 
@@ -13,6 +13,11 @@ import ui.config.GraphicsUtils;
 import ui.financeman.FinanceController;
 import ui.generalmanager.GeneralManagerController;
 import ui.saleman.SaleManController;
+<<<<<<< HEAD
+=======
+import ui.storeman.StoreManController;
+import ui.storemanager.StoreManagerController;
+>>>>>>> 4a209e878cfbc1673446e59b6d08ea1f758a1049
 import ui.tools.MyFrame;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -67,6 +72,7 @@ public class InitalPanel extends MyPanel {
 		this.repaint();
 		
 		this.setVisible(true);
+//		set
 	}
 	
 	/**
@@ -74,6 +80,7 @@ public class InitalPanel extends MyPanel {
 	 * @param vo
 	 */
 	private void addOtherPanel(Element e) {
+<<<<<<< HEAD
 //		AccountType type = vo.type;
 //		controller=new CourierController(this, e.element("Courier"));
 //		controller = new SaleManController(this, e.element("Salesman"));
@@ -112,11 +119,43 @@ public class InitalPanel extends MyPanel {
 //			break;
 //		}
 
+=======
+		AccountType type = vo.type;
+
+		switch (type) {
+		case Adminstrator:
+			controller = new AdminstratorController(this, e.element("Adminstrator"));
+			break;
+		case courier:
+			controller = new CourierController(this, e.element("CourierManager"));
+			break;
+		case financeman:
+			controller = new FinanceController(this, e.element("Financeman"));
+			break;
+		case manager:
+			controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
+			break;
+		case saleman:
+			controller = new SaleManController(this, e.element("Salesman"));
+			break;
+		case storeman:
+			controller = new StoreManController(this, e.element("Storeman"));
+			break;
+		case storemanager:
+			controller = new StoreManagerController(this, e.element("Storemanager"));
+			break;
+		default:
+			break;
+		}
+		
+		
+		
+>>>>>>> 4a209e878cfbc1673446e59b6d08ea1f758a1049
 	}
 
 	@Override
 	 public void paintComponent(Graphics g) {
-		super.paintComponent(g);
+		
 		g.drawImage(bg, 0, 0, null);
 		
 		
@@ -139,7 +178,7 @@ public class InitalPanel extends MyPanel {
 
 	@Override
 	protected void initLabels(Element e) {
-//		career = new MyLabel(e.element("career") , vo.type.name() + "," + vo.name);
+		career = new MyLabel(e.element("career") , vo.type.getName() + "  " + vo.name);
 
 	}
 
@@ -156,7 +195,7 @@ public class InitalPanel extends MyPanel {
 		this.add(home);
 		
 		this.add(rectangle);
-//		this.add(career);
+		this.add(career);
 	}
 
 	@Override
@@ -172,11 +211,8 @@ public class InitalPanel extends MyPanel {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			exit.setMyIcon(ButtonState.MOUSE_CLICKED);
-			//弹出optionpane 确认退出 TODO
-			
-			System.exit(0);
-			
-			
+			parent.dispose();
+			new AXIS();
 		}
 
 		@Override

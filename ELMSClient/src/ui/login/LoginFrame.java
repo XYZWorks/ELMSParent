@@ -11,12 +11,10 @@ import net.RMIManage;
 import org.dom4j.Element;
 
 import ui.common.CommonFrame;
-import ui.config.ParseXML;
 import ui.config.UserfulMethod;
 import ui.inital.mainFrame;
 import ui.tools.MyButton;
 import ui.tools.MyFrame;
-import ui.tools.MyLabel;
 import ui.tools.MyOptionPane;
 import ui.tools.MyPasswordField;
 import ui.tools.MyTextField;
@@ -55,11 +53,14 @@ public class LoginFrame extends MyFrame {
 
 	private Element config;
 
-	// //普通用户查询订单
-	// private MyLabel findOrderInfo;
+	
 
 	public LoginFrame(Element config) {
 		super(config);
+		
+		
+		
+		
 		this.config = config;
 
 		if (RMIManage.netInit()) {
@@ -67,7 +68,6 @@ public class LoginFrame extends MyFrame {
 		}
 
 		mainpanel = new LoginPanel();
-		this.setBackground(new Color(0, 0, 0, 0));
 
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextField(config.element(CompomentType.TEXTFIELDS.name()));
@@ -110,14 +110,14 @@ public class LoginFrame extends MyFrame {
 
 	private void addCom() {
 
-		mainpanel.setLayout(null);
-		mainpanel.add(userName);
-		mainpanel.add(password);
-		mainpanel.add(checkOrder);
-		mainpanel.add(login);
-		mainpanel.add(closeButton);
+//		mainpanel.setLayout(null);
+//		mainpanel.add(userName);
+//		mainpanel.add(password);
+//		mainpanel.add(checkOrder);
+//		mainpanel.add(login);
+//		mainpanel.add(closeButton);
 		// mainpanel.add(rememberMe);
-		// mainpanel.add(findOrderInfo);
+		
 
 	}
 
@@ -125,14 +125,8 @@ public class LoginFrame extends MyFrame {
 		login.addMouseListener(new MyLoginListener());
 		closeButton.addMouseListener(new MyCloseListener());
 		checkOrder.addMouseListener(new MyCheckOrderListener());
-		// findOrderInfo.addMouseListener(new findOrderListener());
 	}
 
-	// class findOrderListener extends MouseAdapter{
-	// @Override
-	// public void mouseClicked(MouseEvent e) {
-	//
-	// }
 
 	class MyLoginListener extends MouseAdapter {
 		@Override
@@ -167,8 +161,9 @@ public class LoginFrame extends MyFrame {
 			} else {
 				System.out.println("登录成功，用户类型为 " + vo.type.name());
 				new mainFrame(config.getParent(), vo);
+				frame.dispose();
 			}
-
+		
 		}
 
 		@Override
@@ -216,6 +211,7 @@ public class LoginFrame extends MyFrame {
 			}
 			// 单独开启 普通查询人员的 frame
 			CommonFrame commonFrame = new CommonFrame(config.element("commonFrame"));
+			frame.dispose();
 		}
 
 		@Override
@@ -229,18 +225,4 @@ public class LoginFrame extends MyFrame {
 		}
 	}
 
-<<<<<<< HEAD
-	 public static void main(String[] args) {
-	 //
-	 ParseXML xmlReader = new ParseXML();
-	// xmlReader.getRoot();
-	 new LoginFrame(xmlReader.getConfig("loginframe"));
-	 }
-=======
-public static void main(String[] args) {
-	//
-	ParseXML xmlReader = new ParseXML("UIConfig.xml");
-	new LoginFrame(xmlReader.getConfig("loginframe"));
-}	
->>>>>>> origin/master
 }

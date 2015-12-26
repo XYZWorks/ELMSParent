@@ -10,7 +10,7 @@ public class StaticMessage {
 	
 	public static final String IMAGE_PATH = "image//";
 	
-	public static final String xmlPath = "docs\\";
+	public static final String xmlPath = "docs//";
 	
 	public static final String ICON_PATH = "element//";
 	

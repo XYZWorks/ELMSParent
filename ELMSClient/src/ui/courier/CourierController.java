@@ -66,7 +66,7 @@ public class CourierController extends PanelController{
 	protected void initPanel(Element e) {
 		courierMainPanel=new CourierMainPanel(e.element(courierMainPanelStr),this);
 		addOrderPanel=new AddOrderPanel(e.element(addOrderPanelStr),orderblservice,strategyblService);
-		findFullInfoPanel=new FindFullOrderInfoPanel(e.element(findFullInfoPanelStr), orderblservice);
+		findFullInfoPanel=new FindFullOrderInfoPanel(e.element(findFullInfoPanelStr), orderblservice,this);
 		showInfoPanel=new showInfoPanel(e.element(showInfoPanelStr),orderblservice,this,findFullInfoPanel);
 		inputReceiveInfoPanel=new InputReceiveInfoPanel(e.element(inputReceiveInfoPanelStr),orderblservice);
 
