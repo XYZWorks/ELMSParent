@@ -5,9 +5,6 @@ import java.util.ArrayList;
 import util.CostType;
 import util.ResultMessage;
 import vo.finance.CostVO;
-import vo.finance.FreightVO;
-import vo.finance.RentVO;
-import vo.finance.SalaryVO;
 
 /**
  * 成本信息管理接口

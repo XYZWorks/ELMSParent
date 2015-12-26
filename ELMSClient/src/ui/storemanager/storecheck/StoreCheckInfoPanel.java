@@ -1,17 +1,26 @@
 package ui.storemanager.storecheck;
 
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
 import org.dom4j.Element;
 
+import bl.storebl.StoreController;
+import bl.storebl.StoreController;
 import ui.storemanager.instore.InStoreTablePanel;
 import ui.storemanager.outstore.OutStoreTablePanel;
 import ui.storemanager.storeshow.StoreSingleShowPanel;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
 import ui.tools.MyPictureButton;
+import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
+import ui.util.TipsDialog;
 import util.MyDate;
+import util.ResultMessage;
+import vo.store.InStoreDocVO;
+import vo.store.OutStoreDocVO;
 import vo.store.StoreMessageVO;
-import bl.storebl.StoreController;
 
 /** 
  * @author ymc 
@@ -89,11 +98,31 @@ public class StoreCheckInfoPanel extends StoreSingleShowPanel {
 
 	@Override
 	protected void addListener() {
-		
+		confirmButton.addMouseListener(new ExportListener(confirmButton));
 		returnButton.addMouseListener(new MyJumpListener(returnButton, "StoreCheckPanel", controller,true));
 
 	}
 	
+	class ExportListener extends MyPictureButtonListener{
+
+		public ExportListener(MyPictureButton button) {
+			super(button);
+			
+		}
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			super.mouseClicked(e);
+			ResultMessage result = bl.exportExcel("库存快照"+MyDate.toString(MyDate.getNowTime())+" "+center.getText()+storeNum.getText(), target);
+//			ResultMessage result = bl.exportExcel("库存快照"+MyDate.toString(MyDate.getNowTime()), target);
+
+			if(result==ResultMessage.SUCCESS)
+				new TipsDialog("导出excel成功");
+			else { 
+				new TipsDialog("导出excel失败");
+			}
+		}
+		
+	}
 	@Override
 	public void getInfo(String cen, String sto) {
 		center.setText(cen);
@@ -106,9 +135,23 @@ public class StoreCheckInfoPanel extends StoreSingleShowPanel {
 				
 		}
 		if(target!=null){
+			ins = new ArrayList<>();
+			outs = new ArrayList<>();
 			nowNum.setText("   "+String.valueOf(target.number));
-			ins = target.inStoreDocs;
-			outs = target.outStoreDocs;
+			ArrayList<InStoreDocVO> instmp = target.inStoreDocs;
+			ArrayList<OutStoreDocVO> outstmp = target.outStoreDocs;
+			for(InStoreDocVO in : instmp){
+				if(in.date.equals(nowDate))
+					ins.add(in);
+			}
+			target.inStoreDocs = ins;
+			
+			for(OutStoreDocVO out : outstmp){
+				if(out.date.equals(nowDate))
+					outs.add(out);
+			}
+			
+			target.outStoreDocs = outs;
 			inTable.resetValue(ins);
 			
 			outTable.resetValue(outs);

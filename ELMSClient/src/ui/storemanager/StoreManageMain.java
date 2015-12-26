@@ -10,7 +10,6 @@ import ui.tools.MyPictureButton;
 import ui.util.CompomentType;
 import ui.util.MyMainPanelButtonListener;
 import ui.util.PanelController;
-import ui.util.RefreshPanel;
 
 /**
 *中转中心管理员 主界面
@@ -72,7 +71,7 @@ public class StoreManageMain extends MyPanel{
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		date = new MyDatePicker(e.element("DatePicker"));		
+//		date = new MyDatePicker(e.element("DatePicker"));		
 	}
 
 	@Override
@@ -84,7 +83,7 @@ public class StoreManageMain extends MyPanel{
 		this.add(storeCheckButton);
 		this.add(storeShowButton);
 		
-		this.add(date);
+//		this.add(date);
 	}
 
 	@Override

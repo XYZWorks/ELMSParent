@@ -1,7 +1,5 @@
 package test.java.personnel;
 
-import static org.junit.Assert.fail;
-
 import java.util.ArrayList;
 
 import org.junit.Before;
@@ -13,7 +11,6 @@ import vo.personnel.InstVO;
 import vo.personnel.PersonVO;
 import bl.personnelbl.PersonnelController;
 import blservice.personnelblservice.Personnelblservice;
-import junit.framework.TestCase;
 
 /**
  * 

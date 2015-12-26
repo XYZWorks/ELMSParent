@@ -1,6 +1,5 @@
 package ui.generalmanager.approval;
 
-import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +16,8 @@ import ui.saleman.SendGoodDoc.SendGoodDocAddPanel;
 import ui.storeman.arrivezz.ArriveZZDocAdd;
 import ui.storeman.transport.AddTransportPanel;
 import ui.storemanager.instore.AddInStorePanel;
+import ui.storemanager.instore.FullInPanel;
+import ui.storemanager.instore.ShowLocTablePanel;
 import ui.storemanager.outstore.AddOutStorePanel;
 import ui.tools.MyCardLayOut;
 import ui.util.DocPanelForApproval;
@@ -37,7 +38,7 @@ public class ApprovalDetailPanel{
 	private LoadDocAddPanel loadDocPanel;
 	private ArriveZZDocAdd arriveZZPanel;
 	private SendGoodDocAddPanel sendGoodDocPanel;
-	private AddInStorePanel inStorePanel;
+	private FullInPanel inStorePanel;
 	private AddOutStorePanel outStorePanel;
 	private AddTransportPanel transportPanel;
 	private AddOrderPanel orderPanel;
@@ -61,7 +62,7 @@ public class ApprovalDetailPanel{
 		loadDocPanel = new LoadDocAddPanel(e.element("loadDocShowpanelAddPanel"), changePanel, ApprovalDocsPanel.approvalPanelStr, null);
 		sendGoodDocPanel = new SendGoodDocAddPanel(e.element("sendGoodDocShowPanelAddPanel"), changePanel, ApprovalDocsPanel.approvalPanelStr, null);
 		arriveZZPanel = new ArriveZZDocAdd(e.element("AddArriveZZPanel"), null, null);
-		inStorePanel = new AddInStorePanel(e.element("AddInStorePanel"), null, null);
+		inStorePanel = new FullInPanel(e.element("FullInPanel"), null, null);
 		outStorePanel = new AddOutStorePanel(e.element("AddOutStorePanel"), null, null);
 //		orderPanel = new AddOrderPanel(e.element(""), null, null);
 		transportPanel = new AddTransportPanel(e.element("AddTransportPanel"), null, null);

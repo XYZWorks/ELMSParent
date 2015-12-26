@@ -36,14 +36,17 @@ public class ApprovalController implements Approvalblservice {
 	}
 	
 	
+	@Override
 	public ArrayList<? extends DocVO> getBills(DocType type) {
 		return approval.getBills(type);
 	}
 
+	@Override
 	public ResultMessage approveOne(DocVO vo) {
 		return approval.approveOne(vo);
 	}
 
+	@Override
 	public ResultMessage approveMany(ArrayList<? extends DocVO> docsVO) {
 		
 		return approval.approveMany(docsVO);

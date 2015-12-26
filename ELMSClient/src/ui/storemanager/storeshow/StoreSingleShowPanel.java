@@ -1,5 +1,6 @@
 package ui.storemanager.storeshow;
 
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import org.dom4j.Element;
@@ -64,8 +65,7 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 	protected StoreMessageVO target;
 	protected ArrayList<InStoreDocVO> ins;
 	protected ArrayList<OutStoreDocVO> outs;
-	protected ArrayList<String> orderBars;
-	protected ArrayList<String> locs;
+
 	
 	public StoreSingleShowPanel(Element config, StoreController bl, PanelController controller) {
 		super(config);
@@ -168,6 +168,28 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 			// TODO Auto-generated constructor stub
 		}
 		
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			super.mouseClicked(e);
+			MyDate past = picker.getMyDate();
+			ArrayList<InStoreDocVO> inStoreDocVOs = new ArrayList<>();
+			ArrayList<OutStoreDocVO> outStoreDocVOs = new ArrayList<>();
+			for(InStoreDocVO in : ins){
+				if(in.date.between(past,nowDate)){
+					inStoreDocVOs.add(in);
+				}
+			}
+			
+			for(OutStoreDocVO out : outs){
+				if(out.date.between(past,nowDate)){
+					outStoreDocVOs.add(out);
+				}
+			}
+			inTable.resetValue(inStoreDocVOs);			
+			outTable.resetValue(outStoreDocVOs);
+			
+		}
+		
 	}
 	public void getInfo(String cen, String sto) {
 		center.setText(cen);
@@ -185,10 +207,6 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 			totalNum.setText("   "+String.valueOf(target.totalNum));
 			ins = target.inStoreDocs;
 			outs = target.outStoreDocs;
-			orderBars = new ArrayList<>();
-			locs = new ArrayList<>();
-			
-			
 			
 			inTable.resetValue(ins);			
 			outTable.resetValue(outs);

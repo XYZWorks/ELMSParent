@@ -1,15 +1,12 @@
 package ui.saleman.LoadDoc;
 
-import java.awt.Color;
 import java.util.ArrayList;
 
 import org.dom4j.Element;
 
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
-import ui.util.TipsDialog;
 import util.MyDate;
-import vo.transport.ArriveYYDocVO;
 import vo.transport.LoadDocVO;
 import blservice.transportblservice.Transportblservice;
  /** 

@@ -49,16 +49,19 @@ public class DTManageController implements DTManageblservice{
 		return dtm.delDriver(ID);
 	}
 
+	@Override
 	public ArrayList<String> getDriverName(String InstID) {
 		return dtm.getDriverName(InstID);
 	}
 
 
 
+	@Override
 	public CarVO checkCarByID(String ID) {
 		return dtm.checkCarByID(ID);
 	}
 
+	@Override
 	public CarVO checkByPlateNum(String plateNum) {
 		return dtm.checkByPlateNum(plateNum);
 	}
@@ -66,14 +69,17 @@ public class DTManageController implements DTManageblservice{
 	public ResultMessage addCar(CarVO vo) {
 		return dtm.addCar(vo);
 	}
+	@Override
 	public ResultMessage modifyCar(CarVO vo) {
 		return dtm.modifyCar(vo);
 	}
 
+	@Override
 	public ResultMessage delCar(String ID) {
 		return dtm.delCar(ID);
 	}
 
+	@Override
 	public ArrayList<String> getPlateNumber(String instID) {
 		
 		return dtm.getPlateNumber(instID);

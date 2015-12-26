@@ -69,7 +69,7 @@ public abstract class MyPanel extends JPanel{
 
 //	public  void refresh() {
 //		
-//	}
+
 	
 	
 }

@@ -71,9 +71,9 @@ public class MyDate implements Serializable{
 	public boolean equals(MyDate date){
 		if(this.year!=date.year)
 			return false;
-		if(this.month!=date.year)
+		if(this.month!=date.month)
 			return false;
-		if(this.day!=date.year)
+		if(this.day!=date.day)
 			return false;
 		return true;
 		
@@ -92,6 +92,17 @@ public class MyDate implements Serializable{
 			System.err.println("得到当前时间出错");
 		}
 		return date;
+	}
+
+
+	public boolean between(MyDate past, MyDate nowDate) {
+		if(this.year>nowDate.year||this.year<past.year)
+			return false;
+		if(this.month>nowDate.month||this.year<past.month)
+			return false;
+		if(this.day>nowDate.day||this.day<past.day)
+			return false;
+		return true;
 	}
 	
 }

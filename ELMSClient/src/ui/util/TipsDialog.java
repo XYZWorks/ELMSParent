@@ -8,6 +8,7 @@ import java.awt.Rectangle;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 import ui.config.GraphicsUtils;
 import ui.tools.MyLabel;
@@ -93,8 +94,8 @@ public class TipsDialog extends JDialog{
 		label.setFont(font);
         label.setText(message);
         if(isCenter){
-        	label.setHorizontalTextPosition(JLabel.CENTER);
-        	label.setVerticalTextPosition(JLabel.CENTER);
+        	label.setHorizontalTextPosition(SwingConstants.CENTER);
+        	label.setVerticalTextPosition(SwingConstants.CENTER);
         }
    
         

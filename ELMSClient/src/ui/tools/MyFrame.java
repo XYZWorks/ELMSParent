@@ -1,6 +1,5 @@
 package ui.tools;
 
-import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -42,7 +41,8 @@ public class MyFrame extends JFrame{
 	private void moveFrame(){
 		this.addMouseListener(new MouseAdapter() {
 			
-			 public void mousePressed(MouseEvent e) {
+			 @Override
+			public void mousePressed(MouseEvent e) {
 				 start.x = e.getX();
 				 start.y = e.getY();
 			 }
@@ -52,7 +52,8 @@ public class MyFrame extends JFrame{
 		
 		this.addMouseMotionListener(new MouseMotionAdapter() {
 			
-			 public void mouseDragged(MouseEvent e) {
+			 @Override
+			public void mouseDragged(MouseEvent e) {
 					 Point p = getLocation();
 					 
 					 setLocation( p.x + e.getX() -start.x , p.y + e.getY() - start.y);

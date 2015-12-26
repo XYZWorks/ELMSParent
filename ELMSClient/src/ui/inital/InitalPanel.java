@@ -1,15 +1,15 @@
  package ui.inital;
 
-import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import main.AXIS;
+import javax.swing.JFrame;
 
 import org.dom4j.Element;
 
+import main.AXIS;
 import ui.config.GraphicsUtils;
 import ui.courier.CourierController;
 import ui.financeman.FinanceController;
@@ -81,6 +81,7 @@ public class InitalPanel extends MyPanel {
 	 * @param vo
 	 */
 	private void addOtherPanel(Element e) {
+
 		AccountType type = vo.type;
 
 		switch (type) {
@@ -191,7 +192,7 @@ public class InitalPanel extends MyPanel {
 		public void mouseClicked(MouseEvent e) {
 			min.setMyIcon(ButtonState.MOUSE_CLICKED);
 			//最小化到任务栏
-			parent.setExtendedState(Frame.ICONIFIED);
+			parent.setExtendedState(JFrame.ICONIFIED);
 		}
 
 		@Override

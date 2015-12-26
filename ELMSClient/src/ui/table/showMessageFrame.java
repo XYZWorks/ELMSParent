@@ -1,11 +1,8 @@
 package ui.table;
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import javax.swing.JLabel;
-import javax.swing.WindowConstants;
-
 import ui.tools.MyPictureLabel;
 
 @SuppressWarnings("serial")

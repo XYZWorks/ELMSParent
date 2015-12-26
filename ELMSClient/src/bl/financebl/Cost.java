@@ -100,13 +100,13 @@ public class Cost {
 		switch (vo.costType) {
 		
 		case FREIGHT:
-			po = (FreightPO) VOPOchange.VOtoPO((FreightVO)vo);
+			po = (FreightPO) VOPOchange.VOtoPO(vo);
 			break;
 		case RENT:
-			po = (RentPO) VOPOchange.VOtoPO((RentVO)vo);
+			po = (RentPO) VOPOchange.VOtoPO(vo);
 			break;
 		case SALARY:
-			po = (SalaryPO) VOPOchange.VOtoPO((SalaryVO)vo);
+			po = (SalaryPO) VOPOchange.VOtoPO(vo);
 			break;
 		default:
 			return ResultMessage.FAIL;

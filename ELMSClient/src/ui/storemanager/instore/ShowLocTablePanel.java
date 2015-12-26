@@ -7,13 +7,17 @@ import org.dom4j.Element;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
 
+
 /** 
  * @author ymc 
  * @version 创建时间：2015年12月8日 上午11:12:09 
  *
  */
-@SuppressWarnings("serial")
-public class ShowLocTablePanel extends MyTablePanel {
+
+public class ShowLocTablePanel extends MyTablePanel{
+
+
+
 	
 	protected static final int COLUMN_NUM = 5;
 
@@ -91,5 +95,7 @@ public class ShowLocTablePanel extends MyTablePanel {
 		}
 		
 	}
+
+	
 
 }

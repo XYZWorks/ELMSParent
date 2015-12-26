@@ -1,7 +1,5 @@
 package test.java.DTManage;
 
-import static org.junit.Assert.fail;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,7 +9,6 @@ import vo.DTManage.CarVO;
 import vo.DTManage.DriverVO;
 import bl.DTManagebl.DTManageController;
 import blservice.DTManageblservice.DTManageblservice;
-import junit.framework.TestCase;
  /** 
  * 
  * @author czq 

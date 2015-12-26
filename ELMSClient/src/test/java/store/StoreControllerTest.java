@@ -1,27 +1,18 @@
 package test.java.store;
 
-import static org.junit.Assert.fail;
-
 import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import test.java.other.DataTool;
 import util.City;
-import util.DocState;
-import util.DocType;
 import util.ResultMessage;
-import vo.DocVO;
-import vo.store.InStoreDocVO;
-import vo.store.OutStoreDocVO;
 import vo.store.StoreCheckVO;
 import vo.store.StoreMessageVO;
 import bl.storebl.StoreController;
 import blservice.storeblservice.InStoreDocService;
 import blservice.storeblservice.OutStoreDocService;
 import blservice.storeblservice.StoreblService;
-import junit.framework.TestCase;
 /** 
  * 
  * @author czq 

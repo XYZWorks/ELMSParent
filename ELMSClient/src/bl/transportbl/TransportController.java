@@ -35,65 +35,81 @@ public class TransportController implements Transportblservice{
 
 	}
 	
+	@Override
 	public ResultMessage add(LoadDocVO vo) {
 		return transport.add(vo);
 	}
 
+	@Override
 	public ArrayList<LoadDocVO> getDayLoadDocs(MyDate date) {
 		return transport.getDayLoadDocs(date);
 	}
 
+	@Override
 	public ResultMessage add(SendGoodDocVO vo) {
 		return transport.add(vo);
 	}
 
+	@Override
 	public ArrayList<SendGoodDocVO> getDaySendDocs(MyDate date) {
 		return transport.getDaySendDocs(date);
 	}
 
+	@Override
 	public ResultMessage add(ArriveYYDocVO vo) {
 		return transport.add(vo);
 	}
 
+	@Override
 	public ArrayList<ArriveYYDocVO> getDayArriveYYDocs(MyDate date) {
 		return transport.getDayArriveYYDocs(date);
 	}
 
+	@Override
 	public ResultMessage add(ArriveZZDocVO vo) {
 		return transport.add(vo);
 	}
 
+	@Override
 	public ArrayList<ArriveZZDocVO> getDayArriveZZDocs(MyDate date) {
 		return transport.getDayArriveZZDocs(date);
 	}
 
+	@Override
 	public ResultMessage add(TransferDocVO vo) {
 		return transport.addTransferDoc(vo);
 	}
 
+	@Override
 	public ArrayList<TransferDocVO> getDayTransferDocs(MyDate date) {
 		return transport.getDayTransferDocs(date);
 	}
 
+	@Override
 	public ArrayList<DocVO> getDoc(DocType type) {
 		return transport.getDoc(type);
 	}
 
 
+	@Override
 	public double getExpense(OutStoreDocVO outStoreVO, TransferDocVO transferVO) {
 		return transport.getExpense(outStoreVO,transferVO);
 	}
 
+	@Override
 	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
 		return transport.changeDocsState(docsID , type , state);
 	}
 
+	@Override
 	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
 		return transport.changeOneDocState(docID , type , state);
 	}
+	@Override
 	public ArrayList<? extends DocVO> getDocLists(DocType type) {
 		return transport.getDocLists(type);
 	}
+	@Override
 	public DocVO getByID(String ID , DocType type) {
 		return transport.getDocByID(ID , type);
 	}

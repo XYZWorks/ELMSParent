@@ -5,8 +5,6 @@ import javax.swing.JPanel;
 import org.dom4j.Element;
 
 import blservice.transportblservice.Transportblservice;
-import ui.saleman.ArriveYYDoc.ArriveYYDocAddPanel;
-import ui.saleman.ArriveYYDoc.ArriveYYDocMesTable;
 import ui.tools.CheckDocPanel;
 import ui.tools.MyLabel;
  /** 

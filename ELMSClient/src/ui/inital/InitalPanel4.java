@@ -1,5 +1,6 @@
 package ui.inital;
 
+import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -9,7 +10,6 @@ import javax.swing.JFrame;
 import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
-import ui.generalmanager.GeneralManagerController;
 import ui.saleman.SaleManController;
 import ui.tools.MyFrame;
 import ui.tools.MyLabel;
@@ -180,7 +180,7 @@ public class InitalPanel4 extends MyPanel{
 		public void mouseClicked(MouseEvent e) {
 			min.setMyIcon(ButtonState.MOUSE_CLICKED);
 			//最小化到任务栏
-			parent.setExtendedState(JFrame.ICONIFIED);
+			parent.setExtendedState(Frame.ICONIFIED);
 		}
 
 		@Override

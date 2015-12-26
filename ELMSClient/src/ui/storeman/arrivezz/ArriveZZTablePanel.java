@@ -2,20 +2,15 @@ package ui.storeman.arrivezz;
 
 import java.util.ArrayList;
 
-import javax.jws.soap.SOAPBinding.Use;
-
 import org.dom4j.Element;
 
-import blservice.accountblservice.Accountblservice;
 import blservice.transportblservice.Transportblservice;
-import blservice.transportblservice.transportblservice_Driver;
 import ui.config.GraphicsUtils;
 import ui.config.UserfulMethod;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import util.DocType;
 import util.MyDate;
-import vo.account.AccountVO;
 import vo.transport.ArriveZZDocVO;
 
 /**
