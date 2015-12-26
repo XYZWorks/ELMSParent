@@ -71,6 +71,7 @@ public class DriverMesPanel extends MyTablePanel {
 				}
 				addOneData(vos.get(i) , 0 );
 			}
+			return;
 		}
 		String[] temp  = new String[8];
 		temp[0] = vo.ID;
@@ -138,5 +139,11 @@ public class DriverMesPanel extends MyTablePanel {
 		int[] columnLen = { 70, 70, 95, 130, 250,180,50,100};
 		setRowAndColumnLen(40, columnLen);
 	}
-
+	@Override
+	public void showAllMessages() {
+		removeAllRows();
+		for (int i = 0; i < vos.size(); i++) {
+			addOneData(vos.get(i), 0);
+		}
+	}
 }

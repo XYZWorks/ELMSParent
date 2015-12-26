@@ -10,14 +10,13 @@ import javax.swing.JPanel;
 import org.dom4j.Element;
 
 import ui.courier.AddOrder.AddOrderPanel;
+import ui.courier.FindFullInfo.FindFullOrderInfoPanel;
 import ui.saleman.ArriveYYDoc.ArriveYYDocAddPanel;
 import ui.saleman.LoadDoc.LoadDocAddPanel;
 import ui.saleman.SendGoodDoc.SendGoodDocAddPanel;
 import ui.storeman.arrivezz.ArriveZZDocAdd;
 import ui.storeman.transport.AddTransportPanel;
-import ui.storemanager.instore.AddInStorePanel;
 import ui.storemanager.instore.FullInPanel;
-import ui.storemanager.instore.ShowLocTablePanel;
 import ui.storemanager.outstore.AddOutStorePanel;
 import ui.tools.MyCardLayOut;
 import ui.util.DocPanelForApproval;
@@ -41,7 +40,7 @@ public class ApprovalDetailPanel{
 	private FullInPanel inStorePanel;
 	private AddOutStorePanel outStorePanel;
 	private AddTransportPanel transportPanel;
-	private AddOrderPanel orderPanel;
+	private FindFullOrderInfoPanel orderPanel;
 	private Map<DocType, DocPanelForApproval> docsPanels = new HashMap<>(12);
 	
 	
@@ -58,13 +57,13 @@ public class ApprovalDetailPanel{
 	
 	private void myInit(Element e) {
 		
-		arriveYYDocPanel = new ArriveYYDocAddPanel(e.element("arriveYYDocShowPanelAddPanel"), changePanel, ApprovalDocsPanel.approvalPanelStr, null);
-		loadDocPanel = new LoadDocAddPanel(e.element("loadDocShowpanelAddPanel"), changePanel, ApprovalDocsPanel.approvalPanelStr, null);
+		arriveYYDocPanel = new ArriveYYDocAddPanel(e.element("arriveYYDocShowPanelAddPanel"), changePanel, ApprovalDocsPanel.approvalPanelStr, null, null);
+//		loadDocPanel = new LoadDocAddPanel(e.element("loadDocShowpanelAddPanel"), changePanel, ApprovalDocsPanel.approvalPanelStr, null);
 		sendGoodDocPanel = new SendGoodDocAddPanel(e.element("sendGoodDocShowPanelAddPanel"), changePanel, ApprovalDocsPanel.approvalPanelStr, null);
 		arriveZZPanel = new ArriveZZDocAdd(e.element("AddArriveZZPanel"), null, null);
 		inStorePanel = new FullInPanel(e.element("FullInPanel"), null, null);
 		outStorePanel = new AddOutStorePanel(e.element("AddOutStorePanel"), null, null);
-//		orderPanel = new AddOrderPanel(e.element(""), null, null);
+		orderPanel = new FindFullOrderInfoPanel(e.element("findFullInfoPanel"), null, null);
 		transportPanel = new AddTransportPanel(e.element("AddTransportPanel"), null, null);
 	}
 	
@@ -74,7 +73,6 @@ public class ApprovalDetailPanel{
 	 * @param type
 	 */
 	void jumpToDocPanel(Object message , DocType type){
-		System.out.println(type);
 		docsPanels.get(type).setMessage(message);
 		
 		panelManager.show(changePanel, type.name());
@@ -83,12 +81,12 @@ public class ApprovalDetailPanel{
 	
 	private void addToMap(){
 		docsPanels.put(DocType.arriveYYDoc, arriveYYDocPanel);
-		docsPanels.put(DocType.loadDoc, loadDocPanel);
+//		docsPanels.put(DocType.loadDoc, loadDocPanel);
 		docsPanels.put(DocType.sendGoodDoc, sendGoodDocPanel);
 		docsPanels.put(DocType.arriveZZDoc, arriveZZPanel);
 		docsPanels.put(DocType.inStoreDoc, inStorePanel);
 		docsPanels.put(DocType.outStoreDoc, outStorePanel);
-//		docsPanels.put(DocType.order, orderPanel);
+		docsPanels.put(DocType.order, orderPanel);
 		docsPanels.put(DocType.transferDoc, transportPanel);
 	}
 	/**

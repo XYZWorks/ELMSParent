@@ -28,6 +28,7 @@ public class ArriveYYDocCheckPanel extends CheckDocPanel{
 		myTable.bl = this.bl;
 		addPanel = (ArriveYYDocAddPanel) addDocPanel;
 		addPanel.bl = this.bl;
+		addPanel.reinit();
 		initTableContent();
 	}
 
@@ -43,7 +44,7 @@ public class ArriveYYDocCheckPanel extends CheckDocPanel{
 	@Override
 	protected void initialAddDocPanelAndTable(Element e) {
 		messageTable = new ArriveYYDocMesTable(e.element(tableStr));
-		addDocPanel = new ArriveYYDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr , messageTable);
+		addDocPanel = new ArriveYYDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr , messageTable , bl);
 		
 	}
 

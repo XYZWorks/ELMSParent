@@ -99,7 +99,11 @@ public class ArriveZZDocAdd extends MyPanel implements DocPanelForApproval{
 	@Override
 	protected void initTextFields(Element e) {
 		IDT = new MyTextField(e.element("ID"));
-		IDT.setText("DDD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.arriveZZDoc)));
+		if(controller != null){//为了审批单据
+			IDT.setText("DDD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.arriveZZDoc)));
+		}
+	
+		IDT.setEditable(false);
 
 		centerT = new MyTextField(e.element("center"));
 

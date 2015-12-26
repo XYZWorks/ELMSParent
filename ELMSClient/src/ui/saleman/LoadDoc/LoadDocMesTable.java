@@ -1,11 +1,13 @@
 package ui.saleman.LoadDoc;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import org.dom4j.Element;
 
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
+import ui.util.TipsDialog;
 import util.MyDate;
 import vo.transport.LoadDocVO;
 import blservice.transportblservice.Transportblservice;
@@ -18,7 +20,7 @@ import blservice.transportblservice.Transportblservice;
 public class LoadDocMesTable extends MyTablePanel {
 	Transportblservice bl;
 	
-	ArrayList<LoadDocVO> vos = new ArrayList<>();
+	ArrayList<LoadDocVO> vos;
 	
 	String[] oneData = new String[COLUMN_NUM];
  	private static final int COLUMN_NUM = 9;
@@ -39,7 +41,6 @@ public class LoadDocMesTable extends MyTablePanel {
 			vos.add(vo);
 		}
 		
-		vos.add(vo);
 		oneData[0] = vo.ID;
 		oneData[1] = MyDate.toString(vo.date);
 		oneData[2] = vo.YYID;
@@ -59,7 +60,7 @@ public class LoadDocMesTable extends MyTablePanel {
 		vos = bl.getDayLoadDocs(MyDate.getNowTime());
 		
 		if(vos == null || vos.isEmpty()){
-			vos = new ArrayList<>();
+			vos = new ArrayList<>(10);
 			return;
 		}
 		
@@ -99,10 +100,18 @@ public class LoadDocMesTable extends MyTablePanel {
 		for (int i = 0; i < vos.size(); i++) {
 			if(vos.get(i).ID.equals(id)){
 				addOneData(vos.get(i) , 0);
+				new TipsDialog("成功找到一条信息", Color.GREEN);
 				break;
 			}
 			
 		}
+		new TipsDialog("未找到任何一条信息");
 	}
-	
+	@Override
+	public void showAllMessages() {
+		removeAllRows();
+		for (int i = 0; i < vos.size(); i++) {
+			addOneData(vos.get(i), 0);
+		}
+	}
 }

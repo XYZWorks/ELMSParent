@@ -4,9 +4,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import javax.swing.JPanel;
+
 import org.dom4j.Element;
 
-import blservice.orderblservice.Orderblservice;
 import po.order.GoodMes;
 import po.order.OtherOrderMes;
 import po.order.PeopleMes;
@@ -14,21 +15,22 @@ import po.order.TransferDocs;
 import ui.courier.CourierController;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
-import ui.tools.MyOptionPane;
 import ui.tools.MyPanelWithScroller;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyTextArea;
 import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
+import ui.util.DocPanelForApproval;
 import ui.util.TipsDialog;
 import util.DocType;
 import util.ResultMessage;
 import vo.order.OrderSimpleInfoVO;
 import vo.order.OrderVO;
+import blservice.orderblservice.Orderblservice;
 
 @SuppressWarnings("serial")
-public class FindFullOrderInfoPanel extends MyPanelWithScroller {
+public class FindFullOrderInfoPanel extends MyPanelWithScroller implements DocPanelForApproval {
 
 	// bl
 	private Orderblservice orderblservice;
@@ -401,8 +403,10 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 	}
 
 	public void getData(String BarCode) {
-
-		orderVO = orderblservice.getFullInfo(BarCode);
+		if(orderblservice != null){
+			orderVO = orderblservice.getFullInfo(BarCode);
+		}
+		
 		sender = orderVO.sender;
 		receiver = orderVO.receiver;
 		goodMes = orderVO.goodMes;
@@ -440,7 +444,10 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		estimateTimeText.setText(String.valueOf(otherMes.getOrderEestiTime()));
 
 		// 读取流转信息
-		setTransferInfo();
+		if(orderblservice != null){
+			setTransferInfo();
+		}
+		
 
 	}
 	
@@ -509,5 +516,24 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		String after = origin[0] + "-" + origin[1] + "-" + origin[2] + " " + origin[3] + ":" + origin[4] + ":"
 				+ origin[5];
 		return after;
+	}
+
+	@Override
+	public void setAllCompUneditOrUnVisiable() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addBackButton(JPanel changePanel, String backStr) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setMessage(Object o) {
+		orderVO = (OrderVO) o;
+		getData(null);
+		readData();
 	}
 }

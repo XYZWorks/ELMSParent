@@ -65,8 +65,17 @@ public class CarMesTable extends MyTablePanel{
 	@Override
 	public void addOneData(Object o, int type) {
 		CarVO vo = (CarVO) o;
-		if(type != 0){
+		if(type == 1){
 			vos.add(vo);
+		}else if(type == 2){
+			removeAllRows();
+			for (int i = 0; i < vos.size(); i++) {
+				if(vos.get(i).ID.equals(vo.ID)){
+					vos.set(i, vo);
+				}
+				addOneData(vos.get(i) , 0 );
+			}
+			return;
 		}
 		String[] temp = new String[4];
 		temp[0] = vo.ID;
@@ -108,5 +117,11 @@ public class CarMesTable extends MyTablePanel{
 		int[] columnLen = { 200,200,200,200};
 		setRowAndColumnLen(40, columnLen);
 	}
-
+	@Override
+	public void showAllMessages() {
+		removeAllRows();
+		for (int i = 0; i < vos.size(); i++) {
+			addOneData(vos.get(i), 0);
+		}
+	}
 }

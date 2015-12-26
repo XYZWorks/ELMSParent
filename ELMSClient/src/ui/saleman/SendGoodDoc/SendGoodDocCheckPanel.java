@@ -29,6 +29,7 @@ public class SendGoodDocCheckPanel extends CheckDocPanel {
 		myTable.bl = this.bl;
 		myAddPanel = (SendGoodDocAddPanel) addDocPanel;
 		myAddPanel.bl = this.bl;
+		myAddPanel.myInit();
 		initTableContent();
 	}
 
