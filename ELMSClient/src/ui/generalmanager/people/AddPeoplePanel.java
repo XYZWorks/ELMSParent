@@ -15,6 +15,7 @@ import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
+import ui.util.RefreshPanel;
 import ui.util.TipsDialog;
 import util.ResultMessage;
 import util.StaffType;
@@ -26,7 +27,7 @@ import blservice.personnelblservice.Personnelblservice;
  * @version 2015年12月3日 上午9:07:46 
  */
 @SuppressWarnings("serial")
-public class AddPeoplePanel extends MyPanel{
+public class AddPeoplePanel extends MyPanel implements RefreshPanel{
 	
 	private MyPictureLabel instIDL;
 	private MyPictureLabel IDL;
@@ -198,6 +199,10 @@ public class AddPeoplePanel extends MyPanel{
 		name.setText("");phone.setText("");instID.setText("");type.setSelectedIndex(0);
 	}
 	
+	@Override
+	public void refresh() {
+		myInit();
+	}
 	
 
 	@Override

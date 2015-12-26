@@ -1,11 +1,7 @@
 package net;
 
-import java.net.MalformedURLException;
 import java.rmi.Naming;
-import java.rmi.NotBoundException;
 import java.rmi.Remote;
-import java.rmi.RemoteException;
-
 import ui.tools.MyOptionPane;
 import util.DataServiceType;
 import config.StaticMessage;

@@ -84,6 +84,7 @@ public class showTable extends MyTablePanel {
 		setRowAndColumnLen(40, columnLen);
 
 		table.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e) {
 				int index = e.getClickCount();
 				if (index == 2) {

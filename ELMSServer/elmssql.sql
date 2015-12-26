@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2015-12-24 14:13:18
+-- Generation Time: 2015-12-25 09:16:26
 -- 服务器版本： 5.6.26
 -- PHP Version: 5.6.12
 
@@ -44,9 +44,10 @@ CREATE TABLE IF NOT EXISTS `account` (
 
 INSERT INTO `account` (`id`, `name`, `type`, `password`, `phone`, `email`) VALUES
 ('000000', 'Adminstrator', 'Adminstrator', '000000', '', ''),
+('000001', '陈自强', 'manager', '000000', '', ''),
+('000002', '陈自强', 'financeman', '000000', '', ''),
 ('1111111', NULL, 'courier', 'aaaaaa', NULL, NULL),
-('112233', NULL, 'courier', 'zxcvbn', '', ''),
-('123456', 'asd强', 'manager', '123236', NULL, NULL);
+('112233', NULL, 'courier', 'zxcvbn', '', '');
 
 -- --------------------------------------------------------
 
@@ -416,6 +417,7 @@ CREATE TABLE IF NOT EXISTS `myorder` (
   `outStoreTwoDoc` varchar(45) DEFAULT NULL,
   `arriveYYDoc` varchar(20) DEFAULT NULL,
   `sendGoodDoc` varchar(20) DEFAULT NULL,
+  `alldocs` text NOT NULL,
   `realReceiver` varchar(20) DEFAULT NULL,
   `orderReceiveDate` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单表';
@@ -424,8 +426,8 @@ CREATE TABLE IF NOT EXISTS `myorder` (
 -- 转存表中的数据 `myorder`
 --
 
-INSERT INTO `myorder` (`id`, `type`, `date`, `state`, `senderName`, `senderPhone`, `senderCompany`, `senderAddress`, `receiverName`, `receiverPhone`, `receiverCompany`, `receiverAddress`, `goodNum`, `goodName`, `goodWeight`, `goodLong`, `goodWidth`, `goodHeight`, `goodPack`, `orderForm`, `orderstartdate`, `orderEestiTime`, `orderCost`, `loadDoc`, `arriveZZDoc`, `inStoreOneDoc`, `outStoreOneDoc`, `transferDoc`, `instoreTwoDoc`, `outStoreTwoDoc`, `arriveYYDoc`, `sendGoodDoc`, `realReceiver`, `orderReceiveDate`) VALUES
-('123456', 'order', '2015-12-4', 'wait', '123', '123', '123', '123213', '123', '123', '123', '123', 2, '123', 12, 123, 12, 12, '12', '123', '', 4, 23, 'ZCD000001', 'JSD000001', 'RKD000001', 'CKD000001', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `myorder` (`id`, `type`, `date`, `state`, `senderName`, `senderPhone`, `senderCompany`, `senderAddress`, `receiverName`, `receiverPhone`, `receiverCompany`, `receiverAddress`, `goodNum`, `goodName`, `goodWeight`, `goodLong`, `goodWidth`, `goodHeight`, `goodPack`, `orderForm`, `orderstartdate`, `orderEestiTime`, `orderCost`, `loadDoc`, `arriveZZDoc`, `inStoreOneDoc`, `outStoreOneDoc`, `transferDoc`, `instoreTwoDoc`, `outStoreTwoDoc`, `arriveYYDoc`, `sendGoodDoc`, `alldocs`, `realReceiver`, `orderReceiveDate`) VALUES
+('123456', 'order', '2015-12-4', 'wait', '123', '123', '123', '123213', '123', '123', '123', '123', 2, '123', 12, 123, 12, 12, '12', '123', '', 4, 23, 'ZCD000001', 'JSD000001', 'RKD000001', 'CKD000001', NULL, NULL, NULL, NULL, NULL, '', NULL, NULL);
 
 -- --------------------------------------------------------
 

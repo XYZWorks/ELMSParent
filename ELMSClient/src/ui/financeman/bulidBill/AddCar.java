@@ -149,12 +149,14 @@ public class AddCar extends MyPanel{
 			}
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {
+			@Override
 			public void resetMes() {
 				myInit();
 				
 			}
 		});
 		back.addMouseListener(new MyPictureButtonListener(back){
+			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
 				panelManager.show(changePanel, BulidBillPanel.bulidBillStr);

@@ -1,9 +1,8 @@
 package ui.tools;
 
-import java.awt.Color;
-
 import javax.swing.Icon;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 import org.dom4j.Element;
 
@@ -32,8 +31,8 @@ public MyPictureLabel(String str) {
 			this.setText(str);
 			this.setIcon(normal);
 			
-			this.setHorizontalTextPosition(JLabel.CENTER);
-			this.setVerticalTextPosition(JLabel.CENTER);
+			this.setHorizontalTextPosition(SwingConstants.CENTER);
+			this.setVerticalTextPosition(SwingConstants.CENTER);
 		
 	}
 	
@@ -56,8 +55,8 @@ public MyPictureLabel(String str) {
 			normal = pics.getNormal();
 			
 			this.setIcon(normal);
-			this.setHorizontalTextPosition(JLabel.CENTER);
-			this.setVerticalTextPosition(JLabel.CENTER);
+			this.setHorizontalTextPosition(SwingConstants.CENTER);
+			this.setVerticalTextPosition(SwingConstants.CENTER);
 		}
 		
 	}

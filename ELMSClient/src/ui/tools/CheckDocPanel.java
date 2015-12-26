@@ -1,6 +1,5 @@
 package ui.tools;
 
-import java.awt.CardLayout;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -58,14 +57,14 @@ public abstract class CheckDocPanel extends JPanel{
 	protected AddDocPanel addDocPanel;
 	
 	protected final JPanel changePanel;
-	protected final CardLayout panelManager;
+	protected final MyCardLayOut panelManager;
 	
 	public CheckDocPanel(Element config , JPanel changePanel , String checkDocName , String addDocName) {
 		super();
 		this.setLayout(null);
 		this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));;
 		this.changePanel = changePanel;
-		panelManager = (CardLayout) changePanel.getLayout();
+		panelManager = (MyCardLayOut) changePanel.getLayout();
 		checkDocPanelStr = checkDocName;
 		addDocPanelStr = addDocName;
 		

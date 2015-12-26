@@ -2,6 +2,7 @@ package ui.table;
 
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
  /** 
  * 表格类
@@ -25,7 +26,7 @@ public class MyTable extends JTable{
 		
 		this.setModel(model);
 		DefaultTableCellRenderer   r   =   new   DefaultTableCellRenderer();   
-		r.setHorizontalAlignment(JLabel.CENTER);   
+		r.setHorizontalAlignment(SwingConstants.CENTER);   
 		setDefaultRenderer(String.class,   r);
 		
 		
@@ -59,6 +60,7 @@ public class MyTable extends JTable{
 //	}
 	
 	
+	@Override
 	public MyTableModel getModel() {
 		return model;
 	}

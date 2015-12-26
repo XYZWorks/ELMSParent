@@ -1,20 +1,13 @@
 package test.java.statistic;
 
-import static org.junit.Assert.fail;
-
-import java.util.ArrayList;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import test.java.other.DataTool;
 import util.ResultMessage;
-import vo.statistic.BillVO;
-import vo.statistic.CostIncomeVO;
 import vo.statistic.StateFormVO;
 import bl.statisticbl.StatisticController;
 import blservice.statisticblservice.Statisticblservice;
-import junit.framework.TestCase;
 /** 
  * 
  * @author czq 

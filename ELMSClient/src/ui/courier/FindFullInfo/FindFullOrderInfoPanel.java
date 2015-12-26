@@ -11,10 +11,8 @@ import po.order.GoodMes;
 import po.order.OtherOrderMes;
 import po.order.PeopleMes;
 import po.order.TransferDocs;
-import ui.config.DataType;
 import ui.courier.CourierController;
 import ui.tools.MyDatePicker;
-import ui.tools.MyLabel;
 import ui.tools.MyLabel;
 import ui.tools.MyPanelWithScroller;
 import ui.tools.MyPictureButton;
@@ -95,9 +93,11 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 
 	// 预计送达时间
 	private MyPictureLabel estimateTime;
+	private MyLabel estimateTimeText;
 
 	// 费用总计
 	private MyPictureLabel cost;
+	private MyLabel costText;
 
 	// 包装形式
 	private MyLabel goodPackLabel;
@@ -224,9 +224,11 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 
 		// 预计时间
 		estimateTime = new MyPictureLabel(e.element("estimateTime"));
+		estimateTimeText=new MyLabel(e.element("estimateTimeText"));
 
 		// 费用
 		cost = new MyPictureLabel(e.element("cost"));
+		costText=new MyLabel(e.element("costText"));
 
 		// 流转信息
 		transferInfo = new MyPictureLabel(e.element("transferInfo"));
@@ -356,7 +358,10 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		transferInfoPanel.add(tenText);
 
 		this.add(estimateTime);
+		this.add(estimateTimeText);
+		
 		this.add(cost);
+		this.add(costText);
 
 	}
 
@@ -367,11 +372,12 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 			public void mouseClicked(MouseEvent e) {
 				ResultMessage result = orderblservice.del(BarCode);
 				// 是否是删除失败就显示 fail
-				if (result == ResultMessage.FAIL) {
-					TipsDialog notDelete = new TipsDialog("货物已经装车 订单无法删除");
-				} else if (result == ResultMessage.SUCCESS) {
+//				if (result == ResultMessage.FAIL) {
+//					TipsDialog notDelete = new TipsDialog("货物已经装车 订单无法删除");
+//				} else if (result == ResultMessage.SUCCESS) {
 					TipsDialog Delete = new TipsDialog("订单删除成功");
-				}
+					controller.getCardLayout().show(controller.getChangePanel(), "showInfoPanel");
+				//}
 			}
 		});
 
@@ -427,6 +433,9 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		// 读取其他信息
 		goodPackText.setText(otherMes.getGoodPack());
 		orderFormText.setText(otherMes.getOrderForm());
+		
+		costText.setText(String.valueOf(otherMes.getOrderCost()));
+		estimateTimeText.setText(String.valueOf(otherMes.getOrderEestiTime()));
 
 		// 读取流转信息
 		setTransferInfo();

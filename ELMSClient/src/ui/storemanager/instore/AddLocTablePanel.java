@@ -12,6 +12,7 @@ import ui.table.MyTablePanel;
  * @version 创建时间：2015年12月8日 上午10:15:27
  *
  */
+@SuppressWarnings("serial")
 public class AddLocTablePanel extends MyTablePanel {
 
 	private static final int COLUMN_NUM = 5;

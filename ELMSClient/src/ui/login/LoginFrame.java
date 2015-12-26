@@ -1,6 +1,5 @@
 package ui.login;
 
-import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -110,12 +109,12 @@ public class LoginFrame extends MyFrame {
 
 	private void addCom() {
 
-//		mainpanel.setLayout(null);
-//		mainpanel.add(userName);
-//		mainpanel.add(password);
-//		mainpanel.add(checkOrder);
-//		mainpanel.add(login);
-//		mainpanel.add(closeButton);
+		mainpanel.setLayout(null);
+		mainpanel.add(userName);
+		mainpanel.add(password);
+		mainpanel.add(checkOrder);
+		mainpanel.add(login);
+		mainpanel.add(closeButton);
 		// mainpanel.add(rememberMe);
 		
 

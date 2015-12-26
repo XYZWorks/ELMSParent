@@ -4,7 +4,6 @@ import org.dom4j.Element;
 
 import bl.BusinessLogicDataFactory;
 import blservice.DTManageblservice.DTManageblservice;
-import blservice.DTManageblservice.DTManageblservice_Stub;
 import blservice.transportblservice.Transportblservice;
 import ui.saleman.ArriveYYDoc.ArriveYYDocCheckPanel;
 import ui.saleman.CarManage.CarManageCheckPanel;

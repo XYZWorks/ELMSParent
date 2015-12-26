@@ -12,7 +12,6 @@ import org.junit.Test;
 import util.DataServiceType;
 import vo.order.OrderSimpleInfoVO;
 import ds.orderdataservice.OrderDataService;
-import bl.BusinessLogicDataFactory;
  /** 
  * 
  * @author czq 

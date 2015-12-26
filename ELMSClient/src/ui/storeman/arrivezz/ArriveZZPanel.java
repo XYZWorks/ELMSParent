@@ -1,14 +1,8 @@
 package ui.storeman.arrivezz;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.dom4j.Element;
-import org.junit.experimental.theories.Theories;
-
 import blservice.transportblservice.Transportblservice;
 import config.StaticMessage;
-import ui.inital.mainFrame;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -22,6 +16,7 @@ import util.MyDate;
  * @version 创建时间：2015年12月3日 上午10:21:14
  *
  */
+@SuppressWarnings("serial")
 public class ArriveZZPanel extends MyPanel {
 	Transportblservice bl;
 

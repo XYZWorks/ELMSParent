@@ -1,6 +1,5 @@
 package ui.util;
 
-import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,6 +9,7 @@ import javax.swing.JPanel;
 import org.dom4j.Element;
 
 import config.StaticMessage;
+import ui.tools.MyCardLayOut;
 import ui.tools.MyPanel;
 import ui.tools.MySideBarButton;
  /** 
@@ -29,7 +29,7 @@ public abstract class PanelController {
 	/**
 	 * 布局管理器
 	 */
-	protected CardLayout panelManager;
+	protected MyCardLayOut panelManager;
 	
 	/**
 	 * 存储字符串与左边钮的对应关系
@@ -40,6 +40,7 @@ public abstract class PanelController {
 	 * 存储字符串与界面的对应关系
 	 */
 	protected Map<String, Component> panelMap = new HashMap<>(9);
+	
 	
 	/**
 	 * 
@@ -103,7 +104,7 @@ public abstract class PanelController {
 	 * 返回布局管理器
 	 * @return
 	 */
-	public CardLayout getCardLayout() {
+	public MyCardLayOut getCardLayout() {
 		return this.panelManager;
 	}
 	
@@ -120,6 +121,7 @@ public abstract class PanelController {
 	 */
 	public void jumpToWindow(String panelName) {
 		panelManager.show(changePanel, panelName);
+		
 		setAllButtonVisable(true);
 		setTheRelatedButton(panelName);
 	}
@@ -161,7 +163,7 @@ public abstract class PanelController {
 	 * @param e
 	 */
 	private void initial(Element e){
-		panelManager = new CardLayout();
+		panelManager = new MyCardLayOut();
 		this.changePanel = new JPanel(panelManager);
 		buttonMap = new HashMap<String, MySideBarButton>(10);
 		

@@ -2,6 +2,8 @@ package ui.courier.inputInfoReceive;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import org.dom4j.Element;
@@ -10,6 +12,7 @@ import blservice.orderblservice.Orderblservice;
 import ui.tools.MyDatePicker;
 import ui.tools.MyPanelWithScroller;
 import ui.tools.MyPictureButton;
+import ui.tools.MyPictureLabel;
 import ui.tools.MySearchBox;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
@@ -34,6 +37,9 @@ public class InputReceiveInfoPanel extends MyPanelWithScroller {
 
 	private MyDatePicker datePicker;
 	private MySearchBox searchBox;
+	
+	//查看全部
+	private MyPictureLabel seeAll;
 
 	private inputReceiveTablePanel table;
 	private Orderblservice bl;
@@ -56,6 +62,7 @@ public class InputReceiveInfoPanel extends MyPanelWithScroller {
 	protected void initButtons(Element e) {
 		confirm = new MyPictureButton(e.element("confirm"));
 		cancel = new MyPictureButton(e.element("cancel"));
+		
 	}
 
 	@Override
@@ -67,7 +74,7 @@ public class InputReceiveInfoPanel extends MyPanelWithScroller {
 	@Override
 	protected void initLabels(Element e) {
 		// TODO Auto-generated method stub
-
+		seeAll=new MyPictureLabel(e.element("seeAll"));
 	}
 
 	@Override
@@ -86,6 +93,7 @@ public class InputReceiveInfoPanel extends MyPanelWithScroller {
 		this.add(table);
 		this.add(datePicker);
 		this.add(searchBox);
+		this.add(seeAll);
 
 	}
 
@@ -147,6 +155,7 @@ public class InputReceiveInfoPanel extends MyPanelWithScroller {
 		});
 
 		searchBox.addKeyListener(new SearchBoxListener());
+		seeAll.addMouseListener(new seeAllListener());
 	}
 
 	class SearchBoxListener extends KeyAdapter {
@@ -169,6 +178,16 @@ public class InputReceiveInfoPanel extends MyPanelWithScroller {
 		}
 	}
 
+	class seeAllListener extends MouseAdapter{
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			table.myInit();
+			table.validate();
+			table.repaint();
+		}
+	}
+	
+	
 	@Override
 	protected void initWhitePanels(Element e) {
 		// TODO Auto-generated method stub

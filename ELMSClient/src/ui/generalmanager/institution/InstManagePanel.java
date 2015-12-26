@@ -157,8 +157,8 @@ public class InstManagePanel extends MyPanel{
 					
 					if(result == ResultMessage.SUCCESS){
 						new TipsDialog("成功修改机构！");
-						table.getTable().setValueAt((String) location.getSelectedItem(), temp, 1);
-						table.getTable().setValueAt((String) type.getSelectedItem(), temp, 2);
+						table.getTable().setValueAt(location.getSelectedItem(), temp, 1);
+						table.getTable().setValueAt(type.getSelectedItem(), temp, 2);
 					}
 					
 				}

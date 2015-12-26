@@ -222,8 +222,10 @@ public class BulidStateFormPanel extends MyPanel{
 			MyDate endDate;
 			String income;
 			String outCome;
+			@Override
 			protected void updateMes() {
 			}
+			@Override
 			protected boolean saveToSQL() {
 				if(isStateForm){
 					payVOs.trimToSize();
@@ -240,9 +242,11 @@ public class BulidStateFormPanel extends MyPanel{
 					return false;
 				}
 			}
+			@Override
 			protected void reInitial() {
 				myInit();
 			}
+			@Override
 			protected boolean checkDataValid() {
 				startDate = start.getMyDate();
 				endDate = end.getMyDate();

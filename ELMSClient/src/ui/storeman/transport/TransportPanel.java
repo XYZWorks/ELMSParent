@@ -1,12 +1,7 @@
 package ui.storeman.transport;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.dom4j.Element;
 
-import blservice.transportblservice.Transportblservice;
-import config.StaticMessage;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -14,12 +9,15 @@ import ui.tools.MyPictureButton;
 import ui.util.CompomentType;
 import ui.util.PanelController;
 import util.MyDate;
+import blservice.transportblservice.Transportblservice;
+import config.StaticMessage;
 
 /** 
  * @author ymc 
  * @version 创建时间：2015年12月3日 上午10:19:41 
  *
  */
+@SuppressWarnings("serial")
 public class TransportPanel extends MyPanel {
 
 	Transportblservice bl;

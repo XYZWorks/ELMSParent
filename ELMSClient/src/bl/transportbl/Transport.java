@@ -351,27 +351,27 @@ public class Transport {
 			switch (type) {
 			case arriveYYDoc:
 				for (DocPO docPO : docPOs) {
-					docVOs.add((ArriveYYDocVO) VOPOchange.POtoVO((ArriveYYDocPO)docPO));
+					docVOs.add((ArriveYYDocVO) VOPOchange.POtoVO(docPO));
 				}
 				break;
 			case loadDoc:
 				for (DocPO docPO : docPOs) {
-					docVOs.add((LoadDocVO) VOPOchange.POtoVO((LoadDocPO)docPO));
+					docVOs.add((LoadDocVO) VOPOchange.POtoVO(docPO));
 				}
 				break;
 			case sendGoodDoc:
 				for (DocPO docPO : docPOs) {
-					docVOs.add((SendGoodDocVO) VOPOchange.POtoVO((SendGoodDocPO)docPO));
+					docVOs.add((SendGoodDocVO) VOPOchange.POtoVO(docPO));
 				}
 				break;
 			case transferDoc:
 				for (DocPO docPO : docPOs) {
-					docVOs.add((TransferDocVO) VOPOchange.POtoVO((TransferDocPO)docPO));
+					docVOs.add((TransferDocVO) VOPOchange.POtoVO(docPO));
 				}
 				break;
 			case arriveZZDoc:
 				for (DocPO docPO : docPOs) {
-					docVOs.add((ArriveZZDocVO) VOPOchange.POtoVO((ArriveZZDocPO)docPO));
+					docVOs.add((ArriveZZDocVO) VOPOchange.POtoVO(docPO));
 				}
 				break;
 			default:

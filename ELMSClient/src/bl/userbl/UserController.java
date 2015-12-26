@@ -20,16 +20,19 @@ public class UserController implements UserMesblservice{
 
 		userMes = new UserMes(accountds);
 	}
+	@Override
 	public AccountVO login(AccountVO vo) {
 		return userMes.login(vo);
 	}
 
+	@Override
 	public ResultMessage modify(AccountVO vo) {
 		return userMes.modify(vo);
 	}
 
 
 
+	@Override
 	public AccountVO getMes(String ID) {
 		return userMes.getMes(ID);
 	}

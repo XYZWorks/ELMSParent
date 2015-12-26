@@ -1,22 +1,17 @@
 package ui.storemanager.storecheck;
 
 import java.awt.event.MouseEvent;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import com.eltima.components.ui.a3;
-
+import bl.storebl.StoreController;
 import bl.storebl.StoreController;
 import ui.storemanager.instore.InStoreTablePanel;
 import ui.storemanager.outstore.OutStoreTablePanel;
-import ui.storemanager.storeshow.OrderInfoTable;
 import ui.storemanager.storeshow.StoreSingleShowPanel;
-import ui.tools.MyDatePicker;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
-import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
@@ -32,6 +27,7 @@ import vo.store.StoreMessageVO;
  * @version 创建时间：2015年12月13日 下午3:54:03 
  *
  */
+@SuppressWarnings("serial")
 public class StoreCheckInfoPanel extends StoreSingleShowPanel {
 
 	public StoreCheckInfoPanel(Element config, StoreController bl, PanelController controller) {

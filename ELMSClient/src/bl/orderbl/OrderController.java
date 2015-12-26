@@ -32,38 +32,47 @@ public class OrderController implements Orderblservice{
 		order = new Order(orderData);
 		transportController = new TransportController();
 	}
+	@Override
 	public ResultMessage add(OrderVO vo) {
 		return order.add(vo);
 	}
 
+	@Override
 	public ResultMessage checkBarCode(String orderBarCode) {
 		return order.checkBarCode(orderBarCode);
 	}
 
+	@Override
 	public ArrayList<OrderVO> getOrderVO(MyDate date) {
 		return order.getOrderVO(date);
 	}
 
+	@Override
 	public ResultMessage del(String orderBarCode) {
 		return order.del(orderBarCode);
 	}
 
+	@Override
 	public ArrayList<OrderSimpleInfoVO> getSimpleInfo(String orderBarCode) {
 		return order.getSimpleInfo(orderBarCode);
 	}
 
+	@Override
 	public OrderVO getFullInfo(String orderBarCode) {
 		return order.getFullInfo(orderBarCode);
 	}
 
+	@Override
 	public ResultMessage receiveInfo(ReceiveVO vo) {
 		return order.receiveInfo(vo);
 	}
 
+	@Override
 	public ResultMessage addDocToList(DocVO vo,ArrayList<String> orderBarCodes) {
 		return order.addDocToList(vo,orderBarCodes);
 	}
 
+	@Override
 	public ArrayList<DocVO> getDocLists(DocType type) {
 		
 		return null;

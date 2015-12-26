@@ -14,7 +14,7 @@ import util.AccountType;
 public class testframeforxc extends MyFrame {
 	
 		public static void main(String[] args) {
-			ParseXML xml = new ParseXML("xc.xml");
+			ParseXML xml = new ParseXML();
 			testframeforxc test = new testframeforxc(xml.getRoot(), null);
 		}
 //		private MyPanel panel;

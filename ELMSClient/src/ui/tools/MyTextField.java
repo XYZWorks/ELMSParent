@@ -1,8 +1,6 @@
 package ui.tools;
 
 import java.awt.Color;
-import java.awt.Graphics;
-
 import javax.swing.JTextField;
 
 import org.dom4j.Element;

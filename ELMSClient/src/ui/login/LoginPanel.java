@@ -1,13 +1,11 @@
 package ui.login;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.JPanel;
 
 import ui.config.GraphicsUtils;
-import ui.tools.MyPanel;
  /** 
  * 
  * @author czq 

@@ -4,9 +4,7 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import bl.storebl.StoreController;
 import ui.storemanager.StoreManagerController;
-import ui.table.MyTablePanel;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -17,13 +15,16 @@ import ui.util.MyBackListener;
 import ui.util.PanelController;
 import util.MyDate;
 import vo.store.InStoreDocVO;
+import bl.storebl.StoreController;
 
 /** 
  * @author ymc 
  * @version 创建时间：2015年12月6日 下午3:37:55 
  *
  */
+
 public class FullInPanel extends MyPanel implements DocPanelForApproval {
+
 	
 	MyPictureButton returnButton;
 	

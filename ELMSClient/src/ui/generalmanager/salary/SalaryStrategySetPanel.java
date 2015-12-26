@@ -203,6 +203,7 @@ public class SalaryStrategySetPanel extends MyPanel implements TextFieldsManage 
 
 	}
 
+	@Override
 	public void allowTextFieldToModify(boolean flag) {
 		basicMoneyField.setEditable(flag);
 		moreMoneyField.setEditable(flag);

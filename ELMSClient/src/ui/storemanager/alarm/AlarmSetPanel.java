@@ -4,20 +4,20 @@ import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
 
-import bl.storebl.StoreController;
-import config.StaticMessage;
 import ui.storemanager.StoreManagerController;
-import ui.storemanager.storecheck.StoreCheckInfoPanel;
 import ui.storemanager.storeshow.StoreShowPanel;
 import ui.tools.MyJumpListener;
 import ui.tools.MyPictureButton;
 import ui.util.PanelController;
+import bl.storebl.StoreController;
+import config.StaticMessage;
 
 /** 
  * @author ymc 
  * @version 创建时间：2015年12月3日 上午11:48:39 
  *
  */
+@SuppressWarnings("serial")
 public class AlarmSetPanel extends StoreShowPanel {
 	public AlarmSetPanel(Element config ,StoreController bl, StoreManagerController controller) {
 		super(config, bl, controller);

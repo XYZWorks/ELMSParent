@@ -45,7 +45,6 @@ public class UserMes {
 		try {
 			re =  accountds.modify(po);
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			
 		}

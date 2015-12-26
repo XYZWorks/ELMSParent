@@ -23,26 +23,32 @@ public class StatisticController implements Statisticblservice{
 		statisticData = (StatisticDataService) RMIManage.getDataService(DataServiceType.StatisticDataService);
 		statistic = new Statistic(statisticData);
 	}
+	@Override
 	public ResultMessage bulidStateForm(StateFormVO vo) {
 		return statistic.bulidStateForm(vo);
 	}
 
+	@Override
 	public ResultMessage bulidCostIncomeForm(CostIncomeVO vo) {
 		return statistic.bulidCostIncomeForm(vo);
 	}
 
+	@Override
 	public ArrayList<StateFormVO> getStateForm() {
 		return statistic.getStateForm();
 	}
 
+	@Override
 	public ArrayList<CostIncomeVO> getIncomeForm() {
 		return statistic.getIncomeForm();
 	}
 
+	@Override
 	public ResultMessage bulidBill(BillVO vo) {
 		return statistic.bulidBill(vo);
 	}
 
+	@Override
 	public ArrayList<BillVO> getBills() {
 		return statistic.getBills();
 	}

@@ -21,34 +21,42 @@ public class PersonnelController implements Personnelblservice{
 		personnelDataService = (PersonnelDataService) RMIManage.getDataService(DataServiceType.PersonnelDataService);
 		per = new Personnel(personnelDataService);
 	}
+	@Override
 	public ArrayList<PersonVO> getPeopleByInst(String ID) {
 		return per.getPeopleByInst(ID);
 	}
 
+	@Override
 	public PersonVO getPeopleByID(String ID) {
 		return per.getPeopleByID(ID);
 	}
 
+	@Override
 	public ArrayList<PersonVO> getPeopleByName(String name) {
 		return per.getPeopleByName(name);
 	}
 
+	@Override
 	public ResultMessage addPeople(PersonVO vo) {
 		return per.addPeople(vo);
 	}
 
+	@Override
 	public ResultMessage delPeople(String ID) {
 		return per.delPeople(ID);
 	}
 
+	@Override
 	public ResultMessage addInst(InstVO vo) {
 		return per.addInst(vo);
 	}
 
+	@Override
 	public ResultMessage delInst(String ID) {
 		return per.delInst(ID);
 	}
 
+	@Override
 	public ArrayList<InstVO> getInst() {
 		return per.getInst();
 	}
