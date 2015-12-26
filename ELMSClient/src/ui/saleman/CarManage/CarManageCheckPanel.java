@@ -1,5 +1,8 @@
 package ui.saleman.CarManage;
 
+import java.awt.Color;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JPanel;
@@ -15,6 +18,7 @@ import ui.tools.MyLabel;
 import ui.tools.MyPictureButton;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
+import util.ResultMessage;
 import blservice.DTManageblservice.DTManageblservice;
  /** 
  * 车辆信息管理查看界面
@@ -57,30 +61,79 @@ public class CarManageCheckPanel extends CheckDocPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
-				if(searchWay.getSelectedIndex() == 0){
-					new TipsDialog("請選擇查找方式");
+				mySearch();
+			}
+		});
+		searchBox.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				super.keyPressed(e);
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					mySearch();
+				}
+			}
+
+			
+		});
+		delete.addMouseListener(new MyPictureButtonListener(delete){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				if(myTable.getSelectedRow() == -1){
+					new TipsDialog("请选择一条信息", Color.GREEN);
+				}
+				
+				result = 
+						bl.delCar((String) myTable.getValueAt(myTable.getSelectedRow(), 0));
+						
+						if (result == ResultMessage.SUCCESS) {
+							new TipsDialog("删除成功" , Color.green);
+							myTable.removeRow(myTable.getSelectedRow());
+						}else{
+							new TipsDialog("数据库或网络故障");
+						}
+				
+			}
+			
+			
+		});
+		modify.addMouseListener(new MyPictureButtonListener(modify){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				if(myTable.getSelectedRow() == -1){
+					new TipsDialog("请选择一条数据", Color.GREEN);
 					return;
 				}
 				
-				String type = (String) searchWay.getSelectedItem();
-				String text = searchBox.getMyText();
-				
-				if(type.equals("ID")){
-					if(UserfulMethod.dealWithData(new SimpleDataFormat(text, DataType.ID, "ID"))){
-						myTable.searchID(text);
-					}
-				}else{
-					if(UserfulMethod.dealWithData(new SimpleDataFormat(text, DataType.PlateNum, "车牌号"))){
-						myTable.searchPlateNum(text);
-					}
-					
-				}
+				addDocPanel.setAddOrModify(false, (String) myTable.getValueAt(myTable.getSelectedRow(), 0));
+				panelManager.show(changePanel, addDocPanelStr);
 			}
+
 		});
 		
+	}
+	private void mySearch() {
+		if(searchWay.getSelectedIndex() == 0){
+			new TipsDialog("請選擇查找方式");
+			return;
+		}
+		
+		String type = (String) searchWay.getSelectedItem();
+		String text = searchBox.getMyText();
+		
+		if(type.equals("ID")){
+			if(UserfulMethod.dealWithData(new SimpleDataFormat(text, DataType.ID, "ID"))){
+				myTable.searchID(text);
+			}
+		}else{
+			if(UserfulMethod.dealWithData(new SimpleDataFormat(text, DataType.PlateNum, "车牌号"))){
+				myTable.searchPlateNum(text);
+			}
+			
+		}
 		
 	}
-	
 	
 	
 	@Override

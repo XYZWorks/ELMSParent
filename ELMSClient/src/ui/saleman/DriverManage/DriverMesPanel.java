@@ -64,13 +64,14 @@ public class DriverMesPanel extends MyTablePanel {
 		if(type == 1){
 			vos.add(vo);
 		}else if(type == 2){
+			removeAllRows();
 			for (int i = 0; i < vos.size(); i++) {
 				if(vos.get(i).ID.equals(vo.ID)){
-					addOneData(vos.get(i) , 0 );
-					new TipsDialog("成功找到一条信息", Color.GREEN);
-					return;
+					vos.set(i, vo);
 				}
+				addOneData(vos.get(i) , 0 );
 			}
+			return;
 		}
 		String[] temp  = new String[8];
 		temp[0] = vo.ID;
