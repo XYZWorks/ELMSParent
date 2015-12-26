@@ -1,6 +1,5 @@
 package ui.financeman.bulidBill;
 
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 
@@ -11,6 +10,7 @@ import org.dom4j.Element;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
+import ui.tools.MyCardLayOut;
 import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -53,7 +53,7 @@ public class AddPeople extends MyPanel{
 	 */
 	private MyPictureButton add;
 	
-	private CardLayout panelManager;
+	private MyCardLayOut panelManager;
 	private JPanel changePanel;
 	private BulidBillPanel mainPanel;
 	
