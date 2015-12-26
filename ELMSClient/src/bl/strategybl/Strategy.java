@@ -13,6 +13,7 @@ import vo.strategy.ConstVO;
 import vo.strategy.EstiDateVO;
 import vo.strategy.SalaryWayVO;
 import ds.strategydataservice.StrategyDataService;
+import exception.ExceptionHandler;
 
 /** 
  * @author ymc 
@@ -49,7 +50,7 @@ public class Strategy {
 		try {
 			resultMessage = strategyData.setConst(po);
 		} catch (RemoteException e) {
-			e.printStackTrace();
+//			new ExceptionHandler();
 		}
 		return resultMessage;
 	}

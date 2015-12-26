@@ -103,7 +103,6 @@ public class InitalPanel extends MyPanel {
 			controller = new SaleManController(this, e.element("Salesman"));
 			break;
 		case storeman:
-
 			controller = new StoreManController(this, e.element("Storeman"));
 			break;
 		case storemanager:
