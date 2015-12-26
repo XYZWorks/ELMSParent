@@ -32,6 +32,8 @@ public abstract class AddDocPanel extends MyPanel{
 	private final JPanel changePanel;
 	private final MyCardLayOut panelManager;
 	
+	protected boolean isAddOrModify = true;
+	
 	public AddDocPanel(Element config , JPanel changePanel , String checkDocPanelStr , MyTablePanel messageTable) {
 		super(config);
 		this.changePanel = changePanel;
@@ -70,4 +72,7 @@ public abstract class AddDocPanel extends MyPanel{
 		});
 	}
 	
+	public void setAddOrModify(boolean isAdd , String id) {
+		
+	}
 }

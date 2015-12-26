@@ -141,14 +141,32 @@ public class DriverManageAddPanel extends AddDocPanel {
 
 			@Override
 			protected boolean saveToSQL() {
-				if (bl.addDriver(new DriverVO(id, name, instid, birthday,
-						idCard, phone, isman, Integer.parseInt(licenseYear))) == ResultMessage.SUCCESS) {
-					new TipsDialog("成功增加司机信息", Color.GREEN);
-					return true;
-				} else {
-					new TipsDialog("增加司机信息失败，可能由于ID重复或数据库错误", Color.RED);
-					return false;
+				if(isAddOrModify){
+					result = bl.addDriver(new DriverVO(id, name, instid, birthday,
+							idCard, phone, isman, Integer.parseInt(licenseYear)));
+					if (result == ResultMessage.SUCCESS) {
+						new TipsDialog("成功增加司机信息", Color.GREEN);
+						return true;
+					} else {
+						new TipsDialog("增加司机信息失败，可能由于ID重复或数据库错误", Color.RED);
+						System.err.println(result);
+						return false;
+					}
+				}else{
+					result = bl.modifyDriver(new DriverVO(id, name, instid, birthday,
+							idCard, phone, isman, Integer.parseInt(licenseYear)));
+					if (result == ResultMessage.SUCCESS) {
+						new TipsDialog("成功修改司机信息", Color.GREEN);
+						return true;
+					} else {
+						new TipsDialog("修改司机信息失败，可能由于ID重复或数据库错误", Color.RED);
+						System.err.println(result);
+						return false;
+					}
+					
+					
 				}
+				
 			}
 
 			@Override
@@ -194,4 +212,19 @@ public class DriverManageAddPanel extends AddDocPanel {
 		idCardT.setText("");
 		licenseYearT.setText("");
 	}
+	
+	@Override
+	public void setAddOrModify(boolean isAdd, String id) {
+		isAddOrModify = isAdd;
+		idT.setEditable(isAdd);
+		
+		if(isAdd){
+			
+		}else{
+			idT.setText(id);
+		}
+		
+		
+	}
+	
 }
