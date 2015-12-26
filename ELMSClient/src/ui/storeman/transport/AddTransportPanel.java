@@ -6,6 +6,8 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
@@ -155,20 +157,21 @@ public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
 	}
 
 	class MyAddListener extends ConfirmListener {
-
+		TransferDocVO vo ;
 		public MyAddListener(MyPictureButton button) {
 			super(button);
 		}
 		
 		@Override
 		protected boolean checkDataValid() {
-			return true;
-		}
-
-		@Override
-		protected boolean saveToSQL() {
 			String ID = IDT.getText();
-			int container = Integer.parseInt(containerT.getText());
+			int container = 0;
+			try{
+				container = Integer.parseInt(containerT.getText());
+			}
+			catch(NumberFormatException e){
+				
+			}
 			String number = numberT.getText();
 			String loadManName = LoadManNameT.getText();
 			
@@ -176,9 +179,21 @@ public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
 		
 			City sendCity = City.toCity(sendCityC.getSelectedItem().toString());
 			
-			ArrayList<String> orders = UserfulMethod.stringToArray(ordersT.getText());
+			ArrayList<String> orders = UserfulMethod.stringToArray(ordersT.getText());	
+			SimpleDataFormat[] datas = new SimpleDataFormat[orders.size()+1];
+			datas[0] = new SimpleDataFormat(container+"", DataType.PositiveNum, "货柜号");
+			for (int i = 1; i < orders.size()+1; i++) {
+				datas[i] = new SimpleDataFormat(orders.get(i-1), DataType.BarCode, "订单号");
+			}
+			vo = new TransferDocVO(ID,myDate,number,sendCity,container,loadManName,orders);
+			return UserfulMethod.dealWithData(datas);
+		}
+
+		@Override
+		protected boolean saveToSQL() {
 			
-			ResultMessage r = bl.add(new TransferDocVO(ID,myDate,number,sendCity,container,loadManName,orders));
+			
+			ResultMessage r = bl.add(vo);
 			
 			if(r ==ResultMessage.SUCCESS)
 				new TipsDialog("生成中转单成功");

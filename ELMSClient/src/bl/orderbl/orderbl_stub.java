@@ -208,4 +208,10 @@ public class orderbl_stub implements Orderblservice{
 		return null;
 	}
 
+	@Override
+	public int getDayDocCount(DocType type) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

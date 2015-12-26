@@ -6,6 +6,8 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
@@ -155,7 +157,7 @@ public class ArriveZZDocAdd extends MyPanel implements DocPanelForApproval{
 	}
 
 	class MyAddListener extends ConfirmListener {
-
+		ArriveZZDocVO vo;
 		public MyAddListener(MyPictureButton button, Transportblservice bl) {
 			super(button);
 		}
@@ -178,12 +180,6 @@ public class ArriveZZDocAdd extends MyPanel implements DocPanelForApproval{
 
 		@Override
 		protected boolean checkDataValid() {
-			
-			return true;
-		}
-
-		@Override
-		protected boolean saveToSQL() {
 			String ID = IDT.getText();
 			String zzID = centerT.getText();
 			MyDate myDate = picker.getMyDate();
@@ -191,9 +187,20 @@ public class ArriveZZDocAdd extends MyPanel implements DocPanelForApproval{
 			GoodsState goodsState = GoodsState.toGoodState(goodStateC.getSelectedItem().toString());
 			
 			ArrayList<String> orders = UserfulMethod.stringToArray(ordersT.getText());
-		
+			SimpleDataFormat[] datas = new SimpleDataFormat[orders.size()+1];
+			datas[0] = new SimpleDataFormat(zzID, DataType.ID, "中转中心编号");
+			for (int i = 1; i < orders.size()+1; i++) {
+				datas[i] = new SimpleDataFormat(orders.get(i-1), DataType.BarCode, "订单号");
+			}
+			vo = new ArriveZZDocVO(ID, myDate, zzID, sendCity, goodsState, orders);
+			return UserfulMethod.dealWithData(datas);
+		}
+
+		@Override
+		protected boolean saveToSQL() {
+
 			
-			ResultMessage result = bl.add(new ArriveZZDocVO(ID, myDate, zzID, sendCity, goodsState, orders));
+			ResultMessage result = bl.add(vo);
 			if(result ==ResultMessage.SUCCESS)
 				showSuccess();
 			return true;

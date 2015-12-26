@@ -87,8 +87,8 @@ public class BusinessLogicDataFactory {
 	}
 	
 	public StrategyblService getStrategyBusinessLogic(){
-	//	return new  StrategyController();
-		return new strategybl_stub();
+		return new  StrategyController();
+//		return new strategybl_stub();
 	}
 	
 	public Personnelblservice getPersonnelBusinessLogic(){

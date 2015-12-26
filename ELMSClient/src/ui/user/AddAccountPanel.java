@@ -8,6 +8,7 @@ import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
+import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
@@ -23,10 +24,10 @@ import blservice.accountblservice.Accountblservice;
 @SuppressWarnings("serial")
 public class AddAccountPanel extends MyPanel{
 	
-	private MyLabel accountID;
-	private MyLabel name;
-	private MyLabel staffTypeLabel;
-	private MyLabel passwordLabel;
+	private MyPictureLabel accountID;
+	private MyPictureLabel name;
+	private MyPictureLabel staffTypeLabel;
+	private MyPictureLabel passwordLabel;
 	
 	private MyTextField accountIDField;
 	private MyTextField nameField;
@@ -67,10 +68,10 @@ public class AddAccountPanel extends MyPanel{
 
 	@Override
 	protected void initLabels(Element e) {
-		accountID = new MyLabel(e.element("accountID"));
-		name = new MyLabel(e.element("name"));
-		passwordLabel = new MyLabel(e.element("password"));
-		staffTypeLabel = new MyLabel(e.element("staffType"));
+		accountID = new MyPictureLabel(e.element("accountID"));
+		name = new MyPictureLabel(e.element("name"));
+		passwordLabel = new MyPictureLabel(e.element("password"));
+		staffTypeLabel = new MyPictureLabel(e.element("staffType"));
 		
 	}
 

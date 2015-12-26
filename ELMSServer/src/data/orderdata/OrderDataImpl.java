@@ -268,6 +268,11 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 		return super.changeOneDocState(docID, orderTable, state);
 	}
 
+	@Override
+	public int getDayDocCount(DocType type, MyDate date) throws RemoteException {
+		return super.getDayDocCount(orderTable,  date);
+	}
+
 	
 
 }
