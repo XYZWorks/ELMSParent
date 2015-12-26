@@ -269,8 +269,8 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	}
 
 	@Override
-	public int getDayDocCount(DocType type) throws RemoteException {
-		return super.getDayDocCount(orderTable);
+	public int getDayDocCount(DocType type, MyDate date) throws RemoteException {
+		return super.getDayDocCount(orderTable,  date);
 	}
 
 	

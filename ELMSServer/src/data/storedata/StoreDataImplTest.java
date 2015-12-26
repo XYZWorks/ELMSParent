@@ -3,6 +3,7 @@ package data.storedata;
 import org.junit.Test;
 
 import util.DocType;
+import util.MyDate;
 
 /** 
  * @author ymc 
@@ -23,7 +24,7 @@ public class StoreDataImplTest {
 //	}
 	@Test
 	public void testGetDocCount() throws Exception{
-		System.out.println(new StoreDataImpl().getDayDocCount(DocType.inStoreDoc));;
+		System.out.println(new StoreDataImpl().getDayDocCount(DocType.inStoreDoc , MyDate.getNowTime()));;
 	}
 	
 	

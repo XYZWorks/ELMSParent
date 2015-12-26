@@ -332,12 +332,12 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 	}
 
 	@Override
-	public int getDayDocCount(DocType type) throws RemoteException {
+	public int getDayDocCount(DocType type , MyDate date) throws RemoteException {
 		switch (type) {
 		case inStoreDoc:
-			return super.getDayDocCount(instoreDocTable);
+			return super.getDayDocCount(instoreDocTable ,date);
 		case outStoreDoc:
-			return super.getDayDocCount(outstoreDocTable);
+			return super.getDayDocCount(outstoreDocTable, date);
 		default:
 			break;
 		}
