@@ -81,6 +81,7 @@ public class InitalPanel extends MyPanel {
 	 */
 	private void addOtherPanel(Element e) {
 
+
 		AccountType type = vo.type;
 
 		switch (type) {
@@ -112,8 +113,8 @@ public class InitalPanel extends MyPanel {
 			break;
 		default:
 			break;
-		}
 
+		}
 	}
 
 	@Override
