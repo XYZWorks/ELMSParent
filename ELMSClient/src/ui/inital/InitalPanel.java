@@ -1,4 +1,4 @@
- package ui.inital;
+package ui.inital;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -38,8 +38,7 @@ import vo.account.AccountVO;
 @SuppressWarnings("serial")
 public class InitalPanel extends MyPanel {
 
-
-//	private ShowCareer career;
+	// private ShowCareer career;
 	private MyPictureButton exit;
 	private MyPictureButton min;
 	private MyPictureButton home;
@@ -50,34 +49,34 @@ public class InitalPanel extends MyPanel {
 	 */
 	private PanelController controller;
 	private MyFrame parent;
-	private  AccountVO vo;
-	
+	private AccountVO vo;
+
 	private final static Image bg = GraphicsUtils.getImage("bg//bg");
 
-
-	public InitalPanel(Element e , MyFrame frame ,AccountVO vo) {
+	public InitalPanel(Element e, MyFrame frame, AccountVO vo) {
 		super(e);
 		this.parent = frame;
 		this.vo = vo;
 		TipsDialog.setFrame(frame);
-		
+
 		this.initButtons(e.element(CompomentType.BUTTONS.name()));
 		this.initLabels(e.element(CompomentType.LABELS.name()));
 		this.initTextFields(e.element(CompomentType.TEXTFIELDS.name()));
 		this.initOtherCompoment(e);
 		this.addCompoment();
 		this.addListener();
-		//界面跳转方法
-		this.addOtherPanel(e); 
-		
+		// 界面跳转方法
+		this.addOtherPanel(e);
+
 		this.repaint();
-		
+
 		this.setVisible(true);
-//		set
+		// set
 	}
-	
+
 	/**
 	 * 根据账户类型跳转至不同的界面
+	 * 
 	 * @param vo
 	 */
 	private void addOtherPanel(Element e) {
@@ -86,42 +85,43 @@ public class InitalPanel extends MyPanel {
 
 		switch (type) {
 		case Adminstrator:
-			controller = new AdminstratorController(this, e.element("Adminstrator"));
+			controller = new AdminstratorController(this,
+					e.element("Adminstrator"));
 			break;
 		case courier:
-			controller = new CourierController(this, e.element("CourierManager"));
+			controller = new CourierController(this,
+					e.element("CourierManager"));
 			break;
 		case financeman:
 			controller = new FinanceController(this, e.element("Financeman"));
 			break;
 		case manager:
-			controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
+			controller = new GeneralManagerController(this,
+					e.element("GeneralManager"));
 			break;
 		case saleman:
 			controller = new SaleManController(this, e.element("Salesman"));
 			break;
 		case storeman:
+
 			controller = new StoreManController(this, e.element("Storeman"));
 			break;
 		case storemanager:
-			controller = new StoreManagerController(this, e.element("Storemanager"));
+			controller = new StoreManagerController(this,
+					e.element("Storemanager"));
 			break;
 		default:
 			break;
 		}
-		}
-		
-		
-		
-	//}
+
+	}
 
 	@Override
-	 public void paintComponent(Graphics g) {
-		
+	public void paintComponent(Graphics g) {
+
 		g.drawImage(bg, 0, 0, null);
-		
-		
-	};                                                        
+
+	};
 
 	@Override
 	protected void initButtons(Element e) {
@@ -140,7 +140,8 @@ public class InitalPanel extends MyPanel {
 
 	@Override
 	protected void initLabels(Element e) {
-		career = new MyLabel(e.element("career") , vo.type.getName() + "  " + vo.name);
+		career = new MyLabel(e.element("career"), vo.type.getName() + "  "
+				+ vo.name);
 
 	}
 
@@ -155,7 +156,7 @@ public class InitalPanel extends MyPanel {
 		this.add(exit);
 		this.add(min);
 		this.add(home);
-		
+
 		this.add(rectangle);
 		this.add(career);
 	}
@@ -168,7 +169,7 @@ public class InitalPanel extends MyPanel {
 		rectangle.addMouseListener(new RectangleListener());
 
 	}
-	
+
 	class ExitListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
@@ -187,12 +188,12 @@ public class InitalPanel extends MyPanel {
 			exit.setMyIcon(ButtonState.NORMAL);
 		}
 	}
-	
+
 	class MinListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			min.setMyIcon(ButtonState.MOUSE_CLICKED);
-			//最小化到任务栏
+			// 最小化到任务栏
 			parent.setExtendedState(JFrame.ICONIFIED);
 		}
 
@@ -206,12 +207,12 @@ public class InitalPanel extends MyPanel {
 			min.setMyIcon(ButtonState.NORMAL);
 		}
 	}
-	
+
 	class HomeListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			home.setMyIcon(ButtonState.MOUSE_CLICKED);
-			//切换到主页
+			// 切换到主页
 			controller.jumpBackToMainWindow();
 		}
 
@@ -225,12 +226,12 @@ public class InitalPanel extends MyPanel {
 			home.setMyIcon(ButtonState.NORMAL);
 		}
 	}
-	
+
 	class RectangleListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			rectangle.setMyIcon(ButtonState.MOUSE_CLICKED);
-			//下拉窗口 选择“设置账户信息”“登出账户”
+			// 下拉窗口 选择“设置账户信息”“登出账户”
 		}
 
 		@Override
@@ -246,6 +247,6 @@ public class InitalPanel extends MyPanel {
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		
+
 	}
 }

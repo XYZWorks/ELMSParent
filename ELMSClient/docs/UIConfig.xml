@@ -2605,7 +2605,7 @@
 					height="1250">
 
 					<BUTTONS>
-						<confirm x="550" y="1150" width="150" height="100" text="确认"
+						<confirm x="550" y="1150" width="150" height="100" text="导出Excel"
 							type="rectangle" />
 						<return x="700" y="1150" width="150" height="100" text="返回"
 							type="rectangle" />

@@ -7,6 +7,7 @@ import java.awt.Image;
 import javax.swing.JPanel;
 
 import ui.config.GraphicsUtils;
+import ui.tools.MyPictureButton;
  /** 
  * 
  * @author czq 
@@ -14,6 +15,7 @@ import ui.config.GraphicsUtils;
  */
 @SuppressWarnings("serial")
 public class LoginPanel extends JPanel {
+	MyPictureButton modifyPort;
 	
 	private Image nowbg;
 	

@@ -10,6 +10,7 @@ import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.util.CompomentType;
 import ui.util.PanelController;
+import ui.util.TipsDialog;
 import util.MyDate;
 import vo.store.InStoreDocVO;
 import bl.storebl.StoreController;
@@ -113,6 +114,9 @@ public class InStorePanel extends MyPanel {
 				FullInPanel  refer = (FullInPanel) controller.getPanelMap().get(toPanel);
 				InStoreDocVO vo = getVO();
 				refer.setInStoreVO(vo);
+			}
+			else{
+				new TipsDialog("请选择一行查看");
 			}
 			
 			
