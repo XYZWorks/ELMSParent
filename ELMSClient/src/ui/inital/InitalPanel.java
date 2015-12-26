@@ -5,27 +5,28 @@ import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import main.AXIS;
+import javax.swing.JFrame;
 
 import org.dom4j.Element;
 
+import main.AXIS;
 import ui.config.GraphicsUtils;
+import ui.courier.CourierController;
 import ui.financeman.FinanceController;
 import ui.generalmanager.GeneralManagerController;
 import ui.saleman.SaleManController;
-<<<<<<< HEAD
-=======
 import ui.storeman.StoreManController;
 import ui.storemanager.StoreManagerController;
->>>>>>> 4a209e878cfbc1673446e59b6d08ea1f758a1049
 import ui.tools.MyFrame;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
+import ui.user.AdminstratorController;
 import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
+import util.AccountType;
 import vo.account.AccountVO;
 
 /**
@@ -80,46 +81,7 @@ public class InitalPanel extends MyPanel {
 	 * @param vo
 	 */
 	private void addOtherPanel(Element e) {
-<<<<<<< HEAD
-//		AccountType type = vo.type;
-//		controller=new CourierController(this, e.element("Courier"));
-//		controller = new SaleManController(this, e.element("Salesman"));
-//		return;
-		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
 
-		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
-		
-//		controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
-//
-//		controller = new FinanceController(this, e.element("Financeman"));
-//		controller = new AdminstratorController(this, e.element("Adminstrator"));
-//		switch (type) {
-//		case Adminstrator:
-//			controller = new AdminstratorController(this, e.element("Adminstrator"));
-//			break;
-//		case courier:
-//			controller = new CourierController(this, e.element("Courier"));
-//			break;
-//		case financeman:
-//			controller = new FinanceController(this, e.element("Financeman"));
-//			break;
-//		case manager:
-//			controller =  new GeneralManagerController(this, e.element("GeneralManager")) ;
-//			break;
-//		case saleman:
-//			controller = new SaleManController(this, e.element("Salesman"));
-//			break;
-//		case storeman:
-//			controller = new StoreManController(this, e.element("Storeman"));
-//			break;
-//		case storemanager:
-//			controller = new StoreManController(this, e.element("Storemanager"));
-//			break;
-//		default:
-//			break;
-//		}
-
-=======
 		AccountType type = vo.type;
 
 		switch (type) {
@@ -150,7 +112,6 @@ public class InitalPanel extends MyPanel {
 		
 		
 		
->>>>>>> 4a209e878cfbc1673446e59b6d08ea1f758a1049
 	}
 
 	@Override
