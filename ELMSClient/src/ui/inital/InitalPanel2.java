@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
+import ui.courier.CourierController;
+import ui.financeman.FinanceController;
 import ui.saleman.SaleManController;
 import ui.tools.MyFrame;
 import ui.tools.MyLabel;
@@ -66,8 +68,8 @@ public class InitalPanel2 extends MyPanel {
 //		AccountType type = vo.type;
 		
 		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
-	//	controller =  new CourierController(this, e.element("CourierManager")) ;
-		controller =  new SaleManController(this, e.element("Salesman")) ;
+		controller =  new CourierController(this, e.element("CourierManager")) ;
+//		controller =  new FinanceController(this, e.element("Financeman")) ;
 		
 //		switch (type) {
 //		case Adminstrator:

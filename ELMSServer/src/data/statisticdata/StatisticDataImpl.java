@@ -101,6 +101,11 @@ public class StatisticDataImpl extends DataSuperClass implements
 
 	public ArrayList<BillPO> getBills() throws RemoteException {
 		ArrayList<Object> temp = helper.readManyFromSerFile(billTable);
+		
+		if(temp == null){
+			return null;
+		}
+		
 		ArrayList<BillPO> pos = new ArrayList<BillPO>(temp.size());
 		if (temp != null) {
 			for (int i = 0; i < temp.size(); i++) {

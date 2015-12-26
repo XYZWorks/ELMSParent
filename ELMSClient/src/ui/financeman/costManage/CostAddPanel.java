@@ -12,6 +12,7 @@ import blservice.financeblservice.CostService;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
+import ui.tools.MyCardLayOut;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
@@ -42,7 +43,7 @@ public class CostAddPanel extends MyPanel {
 	
 	private CostService costService;
 	private JPanel changePanel;
-	private CardLayout panelManager;
+	private MyCardLayOut panelManager;
 	private CostManagePanel costManagePanel;
 	private boolean modifyState = false;
 	
@@ -76,7 +77,7 @@ public class CostAddPanel extends MyPanel {
 	public CostAddPanel(Element config , CostService costService, JPanel changePanel, CostManagePanel costManagePanel) {
 		super(config);
 		this.changePanel = changePanel;
-		this.panelManager = (CardLayout) changePanel.getLayout();
+		this.panelManager = (MyCardLayOut) changePanel.getLayout();
 		this.costService = costService;
 		this.costManagePanel = costManagePanel;
 		initButtons(config.element(CompomentType.BUTTONS.name()));
