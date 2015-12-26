@@ -185,5 +185,7 @@ public abstract class MyTablePanel extends JPanel {
 		add(rollpane);
 	}
 	
-	
+	public void showAllMessages(){
+		
+	}
 }

@@ -105,5 +105,11 @@ public class PayDocMesTable extends MyTablePanel{
 		}
 		return null;
 	}
-	
+	@Override
+	public void showAllMessages() {
+		removeAllRows();
+		for (int i = 0; i < vos.size(); i++) {
+			addOneData(vos.get(i), 0);
+		}
+	}
 }
