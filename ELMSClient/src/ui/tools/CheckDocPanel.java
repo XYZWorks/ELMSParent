@@ -21,7 +21,7 @@ import ui.util.MyPictureButtonListener;
  * @version 2015年12月8日 下午7:25:52 
  */
 @SuppressWarnings("serial")
-public abstract class CheckDocPanel extends JPanel{
+public abstract class CheckDocPanel extends JPanel {
 	/**
 	 * 搜索框
 	 */
@@ -160,11 +160,9 @@ public abstract class CheckDocPanel extends JPanel{
 	}
 	public void mySearch(){
 		//如果没有输入，默认展示所有数据
-		if(searchBox.getText().equals("")){
+		if(searchBox.getMyText().equals("")){
 			messageTable.showAllMessages();
-			return;
-		}
-		if(UserfulMethod.dealWithData(new SimpleDataFormat(searchBox.getMyText() , DataType.ID , "ID"))){
+		}else if(UserfulMethod.dealWithData(new SimpleDataFormat(searchBox.getMyText() , DataType.ID , "ID"))){
 			messageTable.searchID(searchBox.getMyText());
 		}
 	}

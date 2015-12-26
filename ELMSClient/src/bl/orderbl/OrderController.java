@@ -75,7 +75,7 @@ public class OrderController implements Orderblservice{
 	@Override
 	public ArrayList<DocVO> getDocLists(DocType type) {
 		
-		return null;
+		return order.getDocLists();
 	}
 
 	@Override

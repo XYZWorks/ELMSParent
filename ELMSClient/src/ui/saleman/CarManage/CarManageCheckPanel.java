@@ -46,6 +46,7 @@ public class CarManageCheckPanel extends CheckDocPanel{
 		myTable.bl = bl;
 		myAddPanel = (CarManageAddPanel) addDocPanel;
 		myAddPanel.bl = this.bl;
+		
 		initTableContent();
 	}
 
@@ -119,7 +120,7 @@ public class CarManageCheckPanel extends CheckDocPanel{
 	@Override
 	protected void initialAddDocPanelAndTable(Element e) {
 		messageTable = new CarMesTable(e.element(tableStr), bl);
-		addDocPanel = new CarManageAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable);
+		addDocPanel = new CarManageAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr, messageTable ,bl);
 		
 	}
 	@Override

@@ -57,7 +57,7 @@ public class DriverManageCheckPanel extends CheckDocPanel {
 		// 注意必须先传bl然后才能初始化table，否则将报空指针异常
 		myTable.bl = this.bl;
 		myAddPanel = (DriverManageAddPanel) addDocPanel;
-		myAddPanel.bl = this.bl;
+		myAddPanel.bl = bl;
 		initTableContent();
 	}
 
@@ -65,7 +65,7 @@ public class DriverManageCheckPanel extends CheckDocPanel {
 	protected void initialAddDocPanelAndTable(Element e) {
 		messageTable = new DriverMesPanel(e.element(tableStr));
 		addDocPanel = new DriverManageAddPanel(e.element(addDocPanelStr),
-				changePanel, checkDocPanelStr, messageTable);
+				changePanel, checkDocPanelStr, messageTable );
 
 	}
 

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import ui.util.TipsDialog;
 import util.FormatMes;
-import util.MyDate;
 /**
   * 保存一些有用的UI层静态方法
   * @author czq

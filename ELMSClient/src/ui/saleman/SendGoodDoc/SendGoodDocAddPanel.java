@@ -48,7 +48,7 @@ public class SendGoodDocAddPanel extends AddDocPanel implements DocPanelForAppro
 	
 	Transportblservice bl;
 	
-	public SendGoodDocAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable) {
+	public SendGoodDocAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable, Transportblservice bl) {
 		super(config , changePanel , checkDocPanelStr,  messageTable );
 	}
 
@@ -63,7 +63,6 @@ public class SendGoodDocAddPanel extends AddDocPanel implements DocPanelForAppro
 	@Override
 	protected void initTextFields(Element e) {
 		idT = new MyTextField(e.element("id"));
-		idT.setText("PSD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.sendGoodDoc)));
 		idT.setEditable(false);
 
 		sendManT = new MyTextField(e.element("sendMan"));
@@ -146,7 +145,7 @@ public class SendGoodDocAddPanel extends AddDocPanel implements DocPanelForAppro
 		});
 		
 	}
-	private void  myInit() {
+	void  myInit() {
 		idT.setText("ZCD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.loadDoc)));
 
 		sendManT.setText("");

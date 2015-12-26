@@ -322,4 +322,24 @@ public class Order {
 
 	}
 
+	@SuppressWarnings("unchecked")
+	public ArrayList<DocVO> getDocLists() {
+		ArrayList<DocVO> vos = null;
+		ArrayList<OrderPO> pos = null;
+		
+		try {
+			pos = (ArrayList<OrderPO>) orderData.getDocLists(DocType.order);
+			vos = new ArrayList<>(pos.size());
+			for (OrderPO orderPO : pos) {
+				vos.add((OrderVO) VOPOchange.POtoVO(orderPO));
+			}
+			return vos.isEmpty()?null:vos;
+			
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
 }

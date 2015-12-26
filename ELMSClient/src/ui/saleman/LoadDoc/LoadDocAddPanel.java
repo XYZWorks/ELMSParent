@@ -84,7 +84,6 @@ public class LoadDocAddPanel extends AddDocPanel implements DocPanelForApproval{
 	@Override
 	protected void initTextFields(Element e) {
 		idT = new MyTextField(e.element("id"));
-		idT.setText("ZCD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.loadDoc)));
 		idT.setEditable(false);
 
 		YYIDT = new MyTextField(e.element("YYID"));
@@ -191,7 +190,7 @@ public class LoadDocAddPanel extends AddDocPanel implements DocPanelForApproval{
 		});
 	}
 	
-	private void reinit(){
+	void reinit(){
 		idT.setText("ZCD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.loadDoc)));
 
 		YYIDT.setText("");loadDocT.setText("");carT.setText("");

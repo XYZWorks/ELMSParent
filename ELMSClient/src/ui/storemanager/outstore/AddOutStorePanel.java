@@ -94,7 +94,9 @@ public class AddOutStorePanel extends MyPanel implements DocPanelForApproval{
 	@Override
 	protected void initTextFields(Element e) {
 		IDT = new MyTextField(e.element("ID"));
-		IDT.setText("CKD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.outStoreDoc)));
+		if(controller != null){
+			IDT.setText("CKD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.outStoreDoc)));
+		}
 		IDT.setEditable(false);
 
 		orderT = new MyTextField(e.element("order"));
