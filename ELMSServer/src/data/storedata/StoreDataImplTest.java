@@ -1,8 +1,8 @@
 package data.storedata;
 
-import java.rmi.RemoteException;
-
 import org.junit.Test;
+
+import util.DocType;
 
 /** 
  * @author ymc 
@@ -11,15 +11,20 @@ import org.junit.Test;
  */
 public class StoreDataImplTest {
 
+//	@Test
+//	public void testInitial() {
+//		try {
+//			new StoreDataImpl().initial();
+//		} catch (RemoteException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		
+//	}
 	@Test
-	public void testInitial() {
-		try {
-			new StoreDataImpl().initial();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		
-		
+	public void testGetDocCount() throws Exception{
+		System.out.println(new StoreDataImpl().getDayDocCount(DocType.inStoreDoc));;
 	}
-
+	
+	
 }

@@ -1,9 +1,6 @@
 package blservice;
 
 import java.util.ArrayList;
- 
-
-
 
 import util.DocState;
 import util.DocType;
@@ -39,4 +36,12 @@ public interface DocApprovalService {
 	 * @return
 	 */
 	public DocVO getByID(String ID , DocType type);
+	
+	
+	/**
+	 * 获得这个单据今天生成的单据编号
+	 * @param type
+	 * @return
+	 */
+	public int getDayDocCount(DocType type);
 }

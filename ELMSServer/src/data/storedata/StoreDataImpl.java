@@ -331,5 +331,19 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 		}
 	}
 
+	@Override
+	public int getDayDocCount(DocType type) throws RemoteException {
+		switch (type) {
+		case inStoreDoc:
+			return super.getDayDocCount(instoreDocTable);
+		case outStoreDoc:
+			return super.getDayDocCount(outstoreDocTable);
+		default:
+			break;
+		}
+		System.err.println("单据类型错误，不能获得对应单据");
+		return -1;
+	}
+
 }
 

@@ -248,4 +248,23 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 		return pos.isEmpty()?null:pos;
 	}
 
+	@Override
+	public int getDayDocCount(DocType type) throws RemoteException {
+		switch (type) {
+		case loadDoc:
+			return super.getDayDocCount(loadDocTable);
+		case arriveYYDoc:
+			return super.getDayDocCount(loadDocTable);
+		case arriveZZDoc:
+			return super.getDayDocCount(loadDocTable);
+		case transferDoc:
+			return super.getDayDocCount(loadDocTable);
+		case sendGoodDoc:
+			return super.getDayDocCount(loadDocTable);
+		default:
+			System.err.println("单据类型错误，不能获得对应单据");
+			return -1;
+		}
+	}
+
 }

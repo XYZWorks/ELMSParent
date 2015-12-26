@@ -331,7 +331,34 @@ public abstract class DataSuperClass extends UnicastRemoteObject {
 		return ResultMessage.FAIL;
 	}
 
-
+	protected int  getDayDocCount(String tableName) {
+		try {
+			sql = "SELECT id from " + tableName + " ORDER BY `id` DESC";
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while (result.next()) {
+				String id = result.getString(1);
+				if(id.length() == 10){
+					
+				}else if(id.length() == 16){
+					try {
+						return Integer.parseInt(id.substring(id.length() - 7)) + 1;
+					} catch (Exception e) {
+						return -1;
+					}
+					
+				}
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1 ;
+	}
+	
+	
 
 	/**
 	 * 仅供测试

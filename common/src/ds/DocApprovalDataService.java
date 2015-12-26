@@ -31,4 +31,11 @@ public interface DocApprovalDataService extends DataserviceParent{
 	 */
 	public ResultMessage changeOneDocState(String docID,
 			DocType type, DocState state)  throws RemoteException;
+	
+	/**
+	 * 获得这个单据今天生成的单据编号
+	 * @param type
+	 * @return
+	 */
+	public int getDayDocCount(DocType type)throws RemoteException;
 }
