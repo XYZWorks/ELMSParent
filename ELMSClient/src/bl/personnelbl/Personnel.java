@@ -11,190 +11,135 @@ import vo.personnel.InstVO;
 import vo.personnel.PersonVO;
 import ds.personneldataservice.PersonnelDataService;
 
-/** 
+/**
  * 
- * @author ymc 
- * @version 创建时间：2015年10月27日 下午7:48:36 
+ * @author ymc
+ * @version 创建时间：2015年10月27日 下午7:48:36
  *
  */
 public class Personnel {
-	
-	
+
 	private PersonnelDataService personnelData;
-	private ResultMessage result = null;
+
+	// private ResultMessage result = null;
 	public Personnel(PersonnelDataService personnelData) {
 		this.personnelData = personnelData;
-		
+
 	}
-	public ArrayList<PersonVO> getPeopleByInst(String ID)  {
-		
-		
+
+	public ArrayList<PersonVO> getPeopleByInst(String ID)
+			throws RemoteException {
+
 		ArrayList<PersonPO> pos = new ArrayList<PersonPO>();
-		
-		try {
-			pos = personnelData.getPeoByInst(ID);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		
-		if(pos == null){
+
+		pos = personnelData.getPeoByInst(ID);
+
+		if (pos == null) {
 			return null;
 		}
-		
+
 		ArrayList<PersonVO> vos = new ArrayList<PersonVO>(pos.size());
-		for(PersonPO po: pos){
-			vos.add((PersonVO)VOPOchange.POtoVO(po));
+		for (PersonPO po : pos) {
+			vos.add((PersonVO) VOPOchange.POtoVO(po));
 		}
 		return vos;
 	}
 
-	public PersonVO getPeopleByID(String ID) {
-		
+	public PersonVO getPeopleByID(String ID) throws RemoteException {
+
 		PersonVO vo = null;
 		PersonPO po = null;
-		
-		try {
-			po = personnelData.getPersonByID(ID);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		
-		if(po == null){
+
+		po = personnelData.getPersonByID(ID);
+
+		if (po == null) {
 			return null;
 		}
-		
-		
+
 		vo = (PersonVO) VOPOchange.POtoVO(po);
 		return vo;
 	}
-	
 
-	public ArrayList<PersonVO> getPeopleByName(String name) {
-		
+	public ArrayList<PersonVO> getPeopleByName(String name)
+			throws RemoteException {
+
 		ArrayList<PersonVO> vos = new ArrayList<PersonVO>();
 		ArrayList<PersonPO> pos = new ArrayList<PersonPO>();
-		
-		try {
-			pos = personnelData.getPeoByName(name);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		
-		if(pos == null){
+
+		pos = personnelData.getPeoByName(name);
+
+		if (pos == null) {
 			return null;
 		}
-		
-		
-		for(PersonPO po: pos){
-			vos.add((PersonVO)VOPOchange.POtoVO(po));
+
+		for (PersonPO po : pos) {
+			vos.add((PersonVO) VOPOchange.POtoVO(po));
 		}
 		return vos;
 	}
 
-	public ResultMessage addPeople(PersonVO vo) {
-		
+	public ResultMessage addPeople(PersonVO vo) throws RemoteException {
+
 		PersonPO po = (PersonPO) VOPOchange.VOtoPO(vo);
-		
-		try {
-			result = personnelData.addPerson(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		
-		return result;
+
+		return personnelData.addPerson(po);
+
 	}
 
-	public ResultMessage delPeople(String ID) {
-		
-		try {
-			result = personnelData.delPerson(ID);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return result;
+	public ResultMessage delPeople(String ID) throws RemoteException {
+
+		return personnelData.delPerson(ID);
 	}
 
-	public ResultMessage addInst(InstVO vo) {
-		
+	public ResultMessage addInst(InstVO vo) throws RemoteException {
+
 		InstPO po = (InstPO) VOPOchange.VOtoPO(vo);
-		
-		try {
-			result = personnelData.addInst(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		
-		
-		return result;
+
+		return personnelData.addInst(po);
 
 	}
 
-	public ResultMessage delInst(String ID) {
-		
-		try {
-			result = personnelData.delInst(ID);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		
-		return result;
+	public ResultMessage delInst(String ID) throws RemoteException {
+		return personnelData.delInst(ID);
 	}
 
-	public ArrayList<InstVO> getInst() {
-		
-		
+	public ArrayList<InstVO> getInst() throws RemoteException {
+
 		ArrayList<InstPO> pos = new ArrayList<InstPO>();
-		
-		try {
-			pos = personnelData.getInst();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		if(pos == null){
+
+		pos = personnelData.getInst();
+		if (pos == null) {
 			return null;
 		}
-		
-		
+
 		ArrayList<InstVO> vos = new ArrayList<InstVO>(pos.size());
-		for(InstPO po:pos){
-			vos.add((InstVO)VOPOchange.POtoVO(po));
+		for (InstPO po : pos) {
+			vos.add((InstVO) VOPOchange.POtoVO(po));
 		}
 		return vos;
 	}
-	public ArrayList<PersonVO> getPersons() {
+
+	public ArrayList<PersonVO> getPersons() throws RemoteException {
 		ArrayList<PersonPO> pos = new ArrayList<PersonPO>();
-		
-		try {
-			pos = personnelData.getPersons();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		if(pos == null){
+
+		pos = personnelData.getPersons();
+		if (pos == null) {
 			return null;
 		}
-		
-		
+
 		ArrayList<PersonVO> vos = new ArrayList<PersonVO>(pos.size());
-		for(PersonPO po:pos){
-			vos.add((PersonVO)VOPOchange.POtoVO(po));
+		for (PersonPO po : pos) {
+			vos.add((PersonVO) VOPOchange.POtoVO(po));
 		}
 		return vos;
 	}
-	public ResultMessage modifyInst(InstVO vo) {
-		try {
-			return personnelData.modifyInst((InstPO) VOPOchange.VOtoPO(vo));
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return ResultMessage.FAIL;
+
+	public ResultMessage modifyInst(InstVO vo) throws RemoteException {
+		return personnelData.modifyInst((InstPO) VOPOchange.VOtoPO(vo));
 	}
-	public ResultMessage modifyPerson(PersonVO vo) {
-		try {
-			return personnelData.modifyPerson((PersonPO) VOPOchange.VOtoPO(vo));
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return ResultMessage.FAIL;
+
+	public ResultMessage modifyPerson(PersonVO vo) throws RemoteException {
+		return personnelData.modifyPerson((PersonPO) VOPOchange.VOtoPO(vo));
 	}
 
 }

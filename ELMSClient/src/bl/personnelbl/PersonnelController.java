@@ -1,20 +1,23 @@
 package bl.personnelbl;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
 import net.RMIManage;
-import ds.personneldataservice.PersonnelDataService;
 import util.DataServiceType;
 import util.ResultMessage;
 import vo.personnel.InstVO;
 import vo.personnel.PersonVO;
+import bl.BusinessController;
 import blservice.personnelblservice.Personnelblservice;
+import ds.personneldataservice.PersonnelDataService;
+import exception.ExceptionHandler;
  /** 
  * 人員機構管理控制類
  * @author czq 
  * @version 2015年11月15日 上午9:24:36 
  */
-public class PersonnelController implements Personnelblservice{
+public class PersonnelController extends BusinessController implements Personnelblservice{
 	private Personnel per;
 	private PersonnelDataService personnelDataService;
 	public PersonnelController() {
@@ -23,56 +26,150 @@ public class PersonnelController implements Personnelblservice{
 	}
 	@Override
 	public ArrayList<PersonVO> getPeopleByInst(String ID) {
-		return per.getPeopleByInst(ID);
+		try {
+			return per.getPeopleByInst(ID);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return per.getPeopleByInst(ID);
+				} catch (Exception e1) {}
+			}
+		}return null;
 	}
 
 	@Override
 	public PersonVO getPeopleByID(String ID) {
-		return per.getPeopleByID(ID);
+		try {
+			return per.getPeopleByID(ID);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return per.getPeopleByID(ID);
+				} catch (Exception e1) {}
+			}
+		}return null;
 	}
 
 	@Override
 	public ArrayList<PersonVO> getPeopleByName(String name) {
-		return per.getPeopleByName(name);
+		try {
+			return per.getPeopleByName(name);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return per.getPeopleByName(name);
+				} catch (Exception e1) {}
+			}
+		}return null;
 	}
 
 	@Override
 	public ResultMessage addPeople(PersonVO vo) {
-		return per.addPeople(vo);
+		try {
+			return per.addPeople(vo);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return per.addPeople(vo);
+				} catch (Exception e1) {}
+			}
+		}return ResultMessage.FAIL;
 	}
 
 	@Override
 	public ResultMessage delPeople(String ID) {
-		return per.delPeople(ID);
+		try {
+			return per.delPeople(ID);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return per.delPeople(ID);
+				} catch (Exception e1) {}
+			}
+		}return ResultMessage.FAIL;
 	}
 
 	@Override
 	public ResultMessage addInst(InstVO vo) {
-		return per.addInst(vo);
+		try {
+			return per.addInst(vo);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return per.addInst(vo);
+				} catch (Exception e1) {}
+			}
+		}return ResultMessage.FAIL;
 	}
 
 	@Override
 	public ResultMessage delInst(String ID) {
-		return per.delInst(ID);
+		try {
+			return per.delInst(ID);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return per.delInst(ID);
+				} catch (Exception e1) {}
+			}
+		}return ResultMessage.FAIL;
 	}
 
 	@Override
 	public ArrayList<InstVO> getInst() {
-		return per.getInst();
+		try {
+			return per.getInst();
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return per.getInst();
+				} catch (Exception e1) {}
+			}
+		}return null;
 	}
 	@Override
 	public ArrayList<PersonVO> getPersons() {
-		return per.getPersons();
+		try {
+			return per.getPersons();
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return per.getPersons();
+				} catch (Exception e1) {}
+			}
+		}return null;
 	}
 	@Override
 	public ResultMessage modifyInst(InstVO vo) {
 		
-		return per.modifyInst(vo);
+		try {
+			return per.modifyInst(vo);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return per.modifyInst(vo);
+				} catch (Exception e1) {}
+			}
+		}return ResultMessage.FAIL;
 	}
 	@Override
 	public ResultMessage modifyPerson(PersonVO vo) {
 		
-		return per.modifyPerson(vo);
+		try {
+			return per.modifyPerson(vo);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return per.modifyPerson(vo);
+				} catch (Exception e1) {}
+			}
+		}return ResultMessage.FAIL;
+	}
+	@Override
+	public void reinitDataService(Remote dataService) {
+		personnelDataService = (PersonnelDataService) dataService;
+		per = new Personnel(personnelDataService);
+		
 	}
 
 }

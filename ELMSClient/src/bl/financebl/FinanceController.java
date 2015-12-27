@@ -28,7 +28,7 @@ import exception.ExceptionHandler;
 public class FinanceController extends BusinessController implements BankAccountBusinessService, CostService, PayService , ProfitService,DepositService{
 	
 	FinanceDataService financeDataService;
-	private final static DataServiceType stype = DataServiceType.FinanceDataService;
+	
 	private BankAccount bankAccount ;
 	private Pay pay;
 	private Cost cost;
@@ -37,7 +37,7 @@ public class FinanceController extends BusinessController implements BankAccount
 	
 	public FinanceController() {
 		financeDataService= (FinanceDataService) RMIManage.getDataService(DataServiceType.FinanceDataService);
-
+		myType = DataServiceType.FinanceDataService;
 		bankAccount = new BankAccount(financeDataService);
 		pay = new Pay(financeDataService);
 		cost = new Cost(financeDataService);
@@ -56,7 +56,7 @@ public class FinanceController extends BusinessController implements BankAccount
 		try {
 			return pay.create(vo);
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(stype, this)){
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				try {
 					return pay.create(vo);
 				} catch (Exception e1) {
@@ -72,7 +72,7 @@ public class FinanceController extends BusinessController implements BankAccount
 		try {
 			return cost.showCosts(type);
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(stype, this)){
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				try {
 					return cost.showCosts(type);
 				} catch (Exception e1) {
@@ -87,7 +87,7 @@ public class FinanceController extends BusinessController implements BankAccount
 		try {
 			return cost.add(vo);
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(stype, this)){
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				try {
 					return cost.add(vo);
 				} catch (Exception e1) {
@@ -103,7 +103,7 @@ public class FinanceController extends BusinessController implements BankAccount
 		try {
 			return cost.modify(vo);
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(stype, this)){
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				try {
 					return cost.modify(vo);
 				} catch (Exception e1) {
@@ -119,7 +119,7 @@ public class FinanceController extends BusinessController implements BankAccount
 		try {
 			return cost.del(vo);
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(stype, this)){
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				try {
 					return cost.del(vo);
 				} catch (Exception e1) {
@@ -136,7 +136,7 @@ public class FinanceController extends BusinessController implements BankAccount
 		try {
 			return pay.showPays();
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(stype, this)){
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				try {
 					return pay.showPays();
 				} catch (Exception e1) {
@@ -151,7 +151,7 @@ public class FinanceController extends BusinessController implements BankAccount
 		try {
 			return deposit.create(vo);
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(stype, this)){
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				try {
 					return deposit.create(vo);
 				} catch (Exception e1) {
@@ -166,7 +166,7 @@ public class FinanceController extends BusinessController implements BankAccount
 		try {
 			return deposit.show();
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(stype, this)){
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				try {
 					return deposit.show();
 				} catch (Exception e1) {
@@ -182,7 +182,7 @@ public class FinanceController extends BusinessController implements BankAccount
 		try {
 			return bankAccount.getAccounts();
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(stype, this)){
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				try {
 					return bankAccount.getAccounts();
 				} catch (Exception e1) {
@@ -198,7 +198,7 @@ public class FinanceController extends BusinessController implements BankAccount
 		try {
 			return bankAccount.modifyAccount(vo);
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(stype, this)){
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				try {
 					return bankAccount.modifyAccount(vo);
 				} catch (Exception e1) {
@@ -213,7 +213,7 @@ public class FinanceController extends BusinessController implements BankAccount
 		try {
 			return bankAccount.deleteAccount(ID);
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(stype, this)){
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				try {
 					return bankAccount.deleteAccount(ID);
 				} catch (Exception e1) {
@@ -228,7 +228,7 @@ public class FinanceController extends BusinessController implements BankAccount
 		try {
 			return bankAccount.addAccount(vo);
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(stype, this)){
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				try {
 					return bankAccount.addAccount(vo);
 				} catch (Exception e1) {
@@ -245,7 +245,7 @@ public class FinanceController extends BusinessController implements BankAccount
 		try {
 			return bankAccount.checkAccount(ID, money);
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(stype, this)){
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				try {
 					return bankAccount.checkAccount(ID, money);
 				} catch (Exception e1) {
