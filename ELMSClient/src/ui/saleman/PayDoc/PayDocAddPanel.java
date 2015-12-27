@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import bl.BusinessLogicDataFactory;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
@@ -28,6 +29,7 @@ import ui.util.TipsDialog;
 import util.MyDate;
 import util.ResultMessage;
 import vo.transport.PayDocVO;
+import blservice.orderblservice.Orderblservice;
 import blservice.transportblservice.Transportblservice;
 
 /**
@@ -46,12 +48,15 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 	private MyLabel id;
 	private MyDatePicker date;
 	private MyLabel YYID;
-	private MyLabel money;
 	private MyLabel courierName;
+
+	private MyPictureLabel money;
+	private MyLabel moneyText;
+	private double moneyTotal;
 
 	private MyTextField idT;
 	private MyTextField YYIDT;
-	private MyTextField moneyT;
+	// private MyTextField moneyT;
 	private MyTextField courierNameT;
 
 	private MyPictureButton addOneOrder;
@@ -60,7 +65,7 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 	/**
 	 * 接收单上放置的订单号表
 	 */
-	private LoadDocOrders ordersTable;
+	private PaySmallTable ordersTable;
 
 	public Transportblservice bl;
 
@@ -83,7 +88,7 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 	protected void initTextFields(Element e) {
 		idT = new MyTextField(e.element("id"));
 		YYIDT = new MyTextField(e.element("YYID"));
-		moneyT = new MyTextField(e.element("money"));
+		// moneyT = new MyTextField(e.element("money"));
 		courierNameT = new MyTextField(e.element("courierName"));
 		orderCode = new MyTextField(e.element("order"));
 	}
@@ -93,7 +98,8 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 		payInfo = new MyPictureLabel(e.element("payInfo"));
 		id = new MyLabel(e.element("id"));
 		YYID = new MyLabel(e.element("YYID"));
-		money = new MyLabel(e.element("money"));
+		money = new MyPictureLabel(e.element("money"));
+		moneyText = new MyLabel(e.element("moneyText"));
 		courierName = new MyLabel(e.element("courierName"));
 		newOrder = new MyPictureLabel(e.element("order"));
 	}
@@ -101,7 +107,7 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 	@Override
 	protected void initOtherCompoment(Element e) {
 		date = new MyDatePicker(e.element("datepicker"));
-		ordersTable = new LoadDocOrders(e.element("table"));
+		ordersTable = new PaySmallTable(e.element("table"));
 	}
 
 	@Override
@@ -114,10 +120,12 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 		whitePanel.add(date);
 		whitePanel.add(id);
 		whitePanel.add(idT);
-		whitePanel.add(money);
-		whitePanel.add(moneyT);
-		
+
 		this.add(whitePanel);
+
+		add(moneyText);
+		add(money);
+
 		add(date);
 		add(ordersTable);
 		add(orderCode);
@@ -135,9 +143,34 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
 				String temp = orderCode.getText();
-				if (UserfulMethod.dealWithData(new SimpleDataFormat(temp, DataType.ID, "订单号"))) {
-					ordersTable.addAOrder(temp);
-					new TipsDialog("成功新增订单", Color.BLUE);
+				if (UserfulMethod.dealWithData(new SimpleDataFormat(temp, DataType.BarCode, "订单号"))) {
+					// 判断订单是否存在
+					Orderblservice orderblservice = BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
+					if (orderblservice.getFullInfo(temp) == null) {
+						new TipsDialog("该订单不存在，请重新输入");
+					} else {
+
+						// 避免同一个订单反复加在收款单里
+						ArrayList<String> alreadyCode = ordersTable.getOrderbarCodes();
+						boolean isExist = false;
+						if (alreadyCode.size() != 0) {
+							for (int i = 0; i < alreadyCode.size(); i++) {
+								if (alreadyCode.get(i).equals(temp)) {
+									new TipsDialog("该订单已在收款单里，请不要重复添加");
+									isExist = true;
+									break;
+								}
+							}
+						}
+						if (isExist == false) {
+							ordersTable.addAOrder(temp);
+							moneyTotal = ordersTable.getMoneyTotal();
+							moneyText.setText(String.valueOf(moneyTotal));
+							new TipsDialog("成功新增订单", Color.BLUE);
+
+						}
+
+					}
 				}
 			}
 		});
@@ -183,7 +216,7 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 				courierName = courierNameT.getText();
 				myDate = date.getMyDate();
 				ID = idT.getText();
-				money = moneyT.getText();
+				money = moneyText.getText();
 				orders = ordersTable.getOrderbarCodes();
 				SimpleDataFormat[] datas = { new SimpleDataFormat(YYID, DataType.ID, "营业厅ID"),
 						new SimpleDataFormat(money, DataType.PositiveNum, "金额"),
@@ -205,7 +238,7 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 	private void myInit() {
 		YYIDT.setText("");
 		idT.setText("");
-		moneyT.setText("");
+		moneyText.setText("");
 		ordersTable.clearOrders();
 		courierNameT.setText("");
 	}
@@ -214,7 +247,7 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 	public void setAllCompUneditOrUnVisiable() {
 		YYIDT.setEditable(false);
 		idT.setEditable(false);
-		moneyT.setEditable(false);
+		// moneyT.setEditable(false);
 		courierNameT.setEditable(false);
 
 		date.setVisible(false);
@@ -233,7 +266,7 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 		PayDocVO vo = (PayDocVO) o;
 		YYIDT.setText(vo.YYID);
 		idT.setText(vo.ID);
-		moneyT.setText(String.valueOf(vo.money));
+		// moneyT.setText(String.valueOf(vo.money));
 		courierNameT.setText(vo.courierName);
 		date.setTime(vo.date);
 		for (String orders : vo.orders) {

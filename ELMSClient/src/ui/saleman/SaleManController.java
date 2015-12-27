@@ -73,6 +73,7 @@ public class SaleManController extends PanelController {
 		transportblservice = BusinessLogicDataFactory.getFactory().getTransportblservice();
 		dtManageblservice = BusinessLogicDataFactory.getFactory().getDTManageBusinessLogic();
 //		dtManageblservice = new DTManageblservice_Stub();
+		
 	}
 	
 	
