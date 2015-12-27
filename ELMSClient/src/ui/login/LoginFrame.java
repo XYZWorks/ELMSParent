@@ -35,6 +35,7 @@ import blservice.usermesblservice.UserMesblservice;
 @SuppressWarnings("serial")
 public class LoginFrame extends MyFrame {
 
+	
 	private LoginPanel mainpanel;
 
 	private MyPictureButton closeButton;
@@ -43,6 +44,7 @@ public class LoginFrame extends MyFrame {
 	
 	private MyPictureButton set;
 
+	private MyPictureButton ipButton;
 	// 查询订单
 	private MyPictureButton checkOrder;
 
@@ -97,10 +99,17 @@ public class LoginFrame extends MyFrame {
 	}
 
 	private void initButtons(Element config) {
+<<<<<<< HEAD
 		login = new MyPictureButton(config.element("login"));
 		checkOrder = new MyPictureButton(config.element("checkOrder"));
 		closeButton = new MyPictureButton(config.element("close"));
 		set = new MyPictureButton(config.element("set"));
+=======
+		login = new MyButton(config.element("login"));
+		checkOrder = new MyButton(config.element("checkOrder"));
+		closeButton = new MyButton(config.element("close"));
+		ipButton = new MyPictureButton(config.element("ip"));
+>>>>>>> refs/remotes/origin/master
 	}
 
 	private void initTextField(Element config) {
@@ -123,16 +132,27 @@ public class LoginFrame extends MyFrame {
 		mainpanel.add(checkOrder);
 		mainpanel.add(login);
 		mainpanel.add(closeButton);
+<<<<<<< HEAD
 		mainpanel.add(set);
+=======
+		mainpanel.add(ipButton);
+>>>>>>> refs/remotes/origin/master
 		// mainpanel.add(rememberMe);
 		
 
 	}
 
 	private void addListener() {
+<<<<<<< HEAD
 		login.addMouseListener(new MyLoginListener(login));
 		closeButton.addMouseListener(new MyCloseListener(closeButton));
 		checkOrder.addMouseListener(new MyCheckOrderListener(checkOrder));
+=======
+		login.addMouseListener(new MyLoginListener());
+		closeButton.addMouseListener(new MyCloseListener());
+		checkOrder.addMouseListener(new MyCheckOrderListener());
+		ipButton.addMouseListener(new MyIPListener(ipButton));
+>>>>>>> refs/remotes/origin/master
 		password.addKeyListener(new KeyAdapter() {
 			 public void keyPressed(KeyEvent e) {
 				 if(e.getKeyCode() == KeyEvent.VK_ENTER){
@@ -145,6 +165,7 @@ public class LoginFrame extends MyFrame {
 	}
 	
 	private void dealWithChoose(){
+
 		String id = userName.getText();
 		String passwords = new String(password.getPassword());
 		FormatMes format;
@@ -176,9 +197,33 @@ public class LoginFrame extends MyFrame {
 			frame.dispose();
 		}
 	}
+	
+	
+	class MyIPListener extends MyPictureButtonListener{
 
+<<<<<<< HEAD
 	class MyLoginListener extends MyPictureButtonListener {
 		
+=======
+		public MyIPListener(MyPictureButton button) {
+			super(button);
+		}
+		
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			super.mouseClicked(e);
+			new SetIPPane(null);
+		}
+		
+	}
+	
+	
+	class MyLoginListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			mainpanel.changeBG(6);
+			dealWithChoose();
+>>>>>>> refs/remotes/origin/master
 		
 		public MyLoginListener(MyPictureButton button) {
 			super(button);

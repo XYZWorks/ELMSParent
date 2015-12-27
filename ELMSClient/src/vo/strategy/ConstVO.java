@@ -1,4 +1,7 @@
 package vo.strategy;
+
+import util.City;
+
 /**
  * 常量VO类
  * @author czq
@@ -82,6 +85,33 @@ public class ConstVO {
 		this.plasticBag = plasticBag;
 	}
 	
+	public double getInstance(City one , City two) {
+		if(twoPlace(City.BEIJING, City.NANJING, one, two))
+			return mileInBN;
+		else if(twoPlace(City.BEIJING, City.SHANGHAI, one, two))
+			return mileInBS;
+		else if(twoPlace(City.BEIJING, City.GUANGZHOU, one, two))
+			return mileInBG;
+		else if(twoPlace(City.NANJING, City.SHANGHAI, one, two))
+			return mileInNS;
+		else if(twoPlace(City.NANJING, City.GUANGZHOU, one, two))
+			return mileInNG;
+		else if(twoPlace(City.SHANGHAI, City.GUANGZHOU, one, two))
+			return mileINSG;
+		else {
+			return 0;
+		}
+		
+	}
 	
+	private boolean twoPlace(City target1, City target2, City one, City two) {
+		if (target1 == one && target2 == two)
+			return true;
+
+		if (target1 == two && target2 == one)
+			return true;
+
+		return false;
+	}
 	
 }

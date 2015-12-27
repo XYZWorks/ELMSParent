@@ -2,6 +2,7 @@
 <ELMS width="1080" height="720">
 	<loginframe width="489" height="411">
 		<BUTTONS>
+<<<<<<< HEAD
 			<close text="" x="429" y="6" width="53" height="53" 
 			normal="login//close" enter="login//close-enter" clicked="login//close-clicked"/>
 			<set text="" x="376" y="6" width="53" height="53" 
@@ -10,6 +11,12 @@
 			normal="login//login" enter="login//login-enter" clicked="login//login-clicked"/>
 			<checkOrder text="" x="207" y="338" width="75" height="17" 
 			normal="login//checkOrder" enter="login//checkOrder-enter" clicked="login//checkOrder-clicked"/>
+=======
+			<close text="" x="455" y="36" width="34" height="33" />
+			<login text="" x="3" y="358" width="489" height="53" />
+			<checkOrder text="" x="213" y="316" width="72" height="17" />
+			<ip text="更改IP" x="330" y="306" width="107" height="35" type="other" />
+>>>>>>> refs/remotes/origin/master
 		</BUTTONS>
 		<LABELS>
 			<findOrderInfo text="" x="209" y="315" width="73"
