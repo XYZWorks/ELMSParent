@@ -1,10 +1,16 @@
 package po.order;
+
+import java.io.Serializable;
  /** 
  * 寄件人、收件人信息封装类
  * @author czq 
  * @version 2015年11月22日 下午12:02:03 
  */
-public class PeopleMes {
+public class PeopleMes implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	String name;
 	String phone;
 	String company;

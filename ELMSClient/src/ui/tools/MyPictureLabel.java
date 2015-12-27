@@ -1,7 +1,6 @@
 package ui.tools;
 
 import javax.swing.Icon;
-import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import org.dom4j.Element;

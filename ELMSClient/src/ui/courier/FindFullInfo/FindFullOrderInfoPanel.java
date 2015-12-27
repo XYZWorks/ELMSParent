@@ -22,6 +22,7 @@ import ui.tools.MyTextArea;
 import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
 import ui.util.DocPanelForApproval;
+import ui.util.MyBackListener;
 import ui.util.TipsDialog;
 import util.DocType;
 import util.ResultMessage;
@@ -520,14 +521,16 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller implements DocPa
 
 	@Override
 	public void setAllCompUneditOrUnVisiable() {
-		// TODO Auto-generated method stub
+		//启用新的返回键
+		returnToPrevious.setVisible(false);
 		
 	}
 
 	@Override
 	public void addBackButton(JPanel changePanel, String backStr) {
-		// TODO Auto-generated method stub
-		
+		MyPictureButton back = new MyPictureButton();
+		back.addMouseListener(new MyBackListener(back, changePanel, backStr));
+		add(back);
 	}
 
 	@Override

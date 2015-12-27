@@ -1,12 +1,18 @@
 package po.order;
 
+import java.io.Serializable;
+
 import util.MyDate;
  /** 
  * 订单其他信息封装类
  * @author czq 
  * @version 2015年11月22日 下午12:14:08 
  */
-public class OtherOrderMes {
+public class OtherOrderMes implements Serializable{
+	/**
+	 * 序列化UID
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 订单的包装形式（木箱、纸箱、快递袋、其他）
 	 */

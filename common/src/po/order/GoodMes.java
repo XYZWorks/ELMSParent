@@ -1,10 +1,16 @@
 package po.order;
+
+import java.io.Serializable;
  /** 
  * 货物信息
  * @author czq 
  * @version 2015年11月22日 下午12:06:26 
  */
-public class GoodMes {
+public class GoodMes implements Serializable{
+	/**
+	 * 序列化UID
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 货物数量
 	 */

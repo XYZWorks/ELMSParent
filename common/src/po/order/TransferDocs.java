@@ -1,5 +1,6 @@
 package po.order;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /** 
@@ -7,7 +8,11 @@ import java.util.ArrayList;
  * @author czq 
  * @version 2015年11月22日 下午12:27:00 
  */
-public class TransferDocs {
+public class TransferDocs implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 装车单
 	 */

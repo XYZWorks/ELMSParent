@@ -60,6 +60,9 @@ public class MyDate implements Serializable{
 	}
 	
 	public static MyDate getDate(String date){
+		if(date == null || date.equals("")){
+			return MyDate.getNowTime();
+		}
 		String[] temp = date.split("-");
 		if(temp.length == 3){
 			return new MyDate(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), Integer.parseInt(temp[2]));

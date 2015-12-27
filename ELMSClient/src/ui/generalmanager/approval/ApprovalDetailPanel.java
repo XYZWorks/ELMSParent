@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import ui.courier.AddOrder.AddOrderPanel;
 import ui.courier.FindFullInfo.FindFullOrderInfoPanel;
 import ui.saleman.ArriveYYDoc.ArriveYYDocAddPanel;
 import ui.saleman.LoadDoc.LoadDocAddPanel;
@@ -46,10 +45,8 @@ public class ApprovalDetailPanel{
 	
 	
 	public ApprovalDetailPanel(Element config , JPanel changePanel ) {
-		
 		this.changePanel = changePanel;
 		this.panelManager = (MyCardLayOut) changePanel.getLayout();
-		
 		myInit(config);
 		addToMap();
 		setPanelState();
@@ -59,7 +56,7 @@ public class ApprovalDetailPanel{
 		
 		arriveYYDocPanel = new ArriveYYDocAddPanel(e.element("arriveYYDocShowPanelAddPanel"), changePanel, ApprovalDocsPanel.approvalPanelStr, null, null);
 //		loadDocPanel = new LoadDocAddPanel(e.element("loadDocShowpanelAddPanel"), changePanel, ApprovalDocsPanel.approvalPanelStr, null);
-		sendGoodDocPanel = new SendGoodDocAddPanel(e.element("sendGoodDocShowPanelAddPanel"), changePanel, ApprovalDocsPanel.approvalPanelStr, null);
+//		sendGoodDocPanel = new SendGoodDocAddPanel(e.element("sendGoodDocShowPanelAddPanel"), changePanel, ApprovalDocsPanel.approvalPanelStr, null);
 		arriveZZPanel = new ArriveZZDocAdd(e.element("AddArriveZZPanel"), null, null);
 		inStorePanel = new FullInPanel(e.element("FullInPanel"), null, null);
 		outStorePanel = new AddOutStorePanel(e.element("AddOutStorePanel"), null, null);
@@ -82,7 +79,7 @@ public class ApprovalDetailPanel{
 	private void addToMap(){
 		docsPanels.put(DocType.arriveYYDoc, arriveYYDocPanel);
 //		docsPanels.put(DocType.loadDoc, loadDocPanel);
-		docsPanels.put(DocType.sendGoodDoc, sendGoodDocPanel);
+//		docsPanels.put(DocType.sendGoodDoc, sendGoodDocPanel);
 		docsPanels.put(DocType.arriveZZDoc, arriveZZPanel);
 		docsPanels.put(DocType.inStoreDoc, inStorePanel);
 		docsPanels.put(DocType.outStoreDoc, outStorePanel);

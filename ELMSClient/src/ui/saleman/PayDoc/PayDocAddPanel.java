@@ -276,8 +276,6 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 
 	@Override
 	public void addBackButton(JPanel changePanel, String backStr) {
-		// TODO Auto-generated method stub
-
 	}
 
 }
