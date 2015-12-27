@@ -22,24 +22,15 @@ public class Deposit {
 		this.financeData = financeDataService;
 	}
 
-	public ResultMessage create(DepositVO vo) {
+	public ResultMessage create(DepositVO vo) throws RemoteException {
 		DepositPO po = (DepositPO) VOPOchange.VOtoPO(vo);
-		try {
 			return financeData.addDeposit(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return ResultMessage.FAIL;
 	} 
 
-	public ArrayList<DepositVO> show() {
+	public ArrayList<DepositVO> show() throws RemoteException {
 		ArrayList<DepositPO> pos = new ArrayList<>();
 		ArrayList<DepositVO> vos = null;
-		try {
 			pos = financeData.getDepositPO();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 		
 		if(pos!=null){
 			vos = new ArrayList<>(pos.size());

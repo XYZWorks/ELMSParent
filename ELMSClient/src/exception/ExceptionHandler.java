@@ -1,8 +1,11 @@
 package exception;
 
+import java.awt.Color;
 import java.rmi.Remote;
 
+import bl.BusinessController;
 import ui.tools.MyOptionPane;
+import ui.util.TipsDialog;
 import util.DataServiceType;
 import ds.accountdataservice.AccountDataService;
 
@@ -30,15 +33,16 @@ public class ExceptionHandler {
 //		return new ExceptionMes(null, false);
 //	}
 	
-	public static Remote myExceptionHandler(DataServiceType type) {
-		Remote service = net.RMIManage.getDataService(type);
+	public static boolean myExceptionHandler(DataServiceType myType , BusinessController controller) {
+		Remote service = net.RMIManage.getDataService(myType);
 		if(service != null){
-			new MyOptionPane(null, "服务器已恢复正常~");
-			return service;
+			new TipsDialog("服务器已恢复正常~" , Color.GREEN);
+			controller.reinitDataService(service);
+			return true;
 		}else{
 			new MyOptionPane(null, "网络异常，请重试！");
 		}
-	return null;
+	return false;
 }
 	
 //	public static Remote getDataServiceAgain(DataServiceType type) {

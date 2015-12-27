@@ -1,5 +1,6 @@
 package bl.DTManagebl;
 
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -8,6 +9,7 @@ import util.DataServiceType;
 import util.ResultMessage;
 import vo.DTManage.CarVO;
 import vo.DTManage.DriverVO;
+import bl.BusinessController;
 import blservice.DTManageblservice.DTManageblservice;
 import ds.DTManagedataservice.DTManagedataservice;
 import exception.ExceptionHandler;
@@ -16,7 +18,7 @@ import exception.ExceptionHandler;
  * @author czq 
  * @version 2015年11月15日 上午9:16:29 
  */
-public class DTManageController implements DTManageblservice{
+public class DTManageController extends BusinessController implements DTManageblservice{
 	
 	private DTManage dtm;
 	private DTManagedataservice manageData ;
@@ -32,10 +34,8 @@ public class DTManageController implements DTManageblservice{
 		try {
 			return dtm.addDriver(vo);
 		} catch (Exception e) {
-			manageData = (DTManagedataservice) ExceptionHandler.myExceptionHandler(type);
-			if(manageData != null){
+			if(ExceptionHandler.myExceptionHandler(type, this)){
 				try {
-					dtm = new DTManage(manageData);
 					return dtm.addDriver(vo);
 				} catch (RemoteException e1) {
 				}
@@ -48,10 +48,8 @@ public class DTManageController implements DTManageblservice{
 		try {
 			return dtm.checkDriverByName(name);
 		} catch (Exception e) {
-			manageData = (DTManagedataservice) ExceptionHandler.myExceptionHandler(type);
-			if(manageData != null){
+			if(ExceptionHandler.myExceptionHandler(type, this)){
 				try {
-					dtm = new DTManage(manageData);
 					return dtm.checkDriverByName(name);
 				} catch (RemoteException e1) {
 				}
@@ -64,10 +62,8 @@ public class DTManageController implements DTManageblservice{
 		try {
 			return dtm.checkDriverByID(ID);
 		} catch (Exception e) {
-			manageData = (DTManagedataservice) ExceptionHandler.myExceptionHandler(type);
-			if(manageData != null){
+			if(ExceptionHandler.myExceptionHandler(type, this)){
 				try {
-					dtm = new DTManage(manageData);
 					return dtm.checkDriverByID(ID);
 				} catch (RemoteException e1) {
 				}
@@ -80,10 +76,8 @@ public class DTManageController implements DTManageblservice{
 		try {
 			return dtm.checkDriverByInst(InstID);
 		} catch (Exception e) {
-			manageData = (DTManagedataservice) ExceptionHandler.myExceptionHandler(type);
-			if(manageData != null){
+			if(ExceptionHandler.myExceptionHandler(type, this)){
 				try {
-					dtm = new DTManage(manageData);
 					return dtm.checkDriverByInst(InstID);
 				} catch (RemoteException e1) {
 				}
@@ -96,10 +90,8 @@ public class DTManageController implements DTManageblservice{
 		try {
 			return dtm.modifyDriver(vo);
 		} catch (Exception e) {
-			manageData = (DTManagedataservice) ExceptionHandler.myExceptionHandler(type);
-			if(manageData != null){
+			if(ExceptionHandler.myExceptionHandler(type, this)){
 				try {
-					dtm = new DTManage(manageData);
 					return dtm.modifyDriver(vo);
 				} catch (RemoteException e1) {
 				}
@@ -112,10 +104,8 @@ public class DTManageController implements DTManageblservice{
 		try {
 			return dtm.delDriver(ID);
 		} catch (Exception e) {
-			manageData = (DTManagedataservice) ExceptionHandler.myExceptionHandler(type);
-			if(manageData != null){
+			if(ExceptionHandler.myExceptionHandler(type, this)){
 				try {
-					dtm = new DTManage(manageData);
 					return dtm.delDriver(ID);
 				} catch (RemoteException e1) {
 				}
@@ -129,10 +119,8 @@ public class DTManageController implements DTManageblservice{
 		try {
 			return dtm.getDriverName(InstID);
 		} catch (Exception e) {
-			manageData = (DTManagedataservice) ExceptionHandler.myExceptionHandler(type);
-			if(manageData != null){
+			if(ExceptionHandler.myExceptionHandler(type, this)){
 				try {
-					dtm = new DTManage(manageData);
 					return dtm.getDriverName(InstID);
 				} catch (RemoteException e1) {
 				}
@@ -148,10 +136,8 @@ public class DTManageController implements DTManageblservice{
 		try {
 			return dtm.checkCarByID(ID);
 		} catch (Exception e) {
-			manageData = (DTManagedataservice) ExceptionHandler.myExceptionHandler(type);
-			if(manageData != null){
+			if(ExceptionHandler.myExceptionHandler(type, this)){
 				try {
-					dtm = new DTManage(manageData);
 					return dtm.checkCarByID(ID);
 				} catch (RemoteException e1) {
 				}
@@ -165,10 +151,8 @@ public class DTManageController implements DTManageblservice{
 		try {
 			return dtm.checkByPlateNum(plateNum);
 		} catch (Exception e) {
-			manageData = (DTManagedataservice) ExceptionHandler.myExceptionHandler(type);
-			if(manageData != null){
+			if(ExceptionHandler.myExceptionHandler(type, this)){
 				try {
-					dtm = new DTManage(manageData);
 					return dtm.checkByPlateNum(plateNum);
 				} catch (RemoteException e1) {
 				}
@@ -181,10 +165,8 @@ public class DTManageController implements DTManageblservice{
 		try {
 			return dtm.addCar(vo);
 		} catch (Exception e) {
-			manageData = (DTManagedataservice) ExceptionHandler.myExceptionHandler(type);
-			if(manageData != null){
+			if(ExceptionHandler.myExceptionHandler(type, this)){
 				try {
-					dtm = new DTManage(manageData);
 					return dtm.addCar(vo);
 				} catch (RemoteException e1) {
 				}
@@ -197,11 +179,9 @@ public class DTManageController implements DTManageblservice{
 		try {
 			return dtm.modifyCar(vo);
 		} catch (Exception e) {
-			manageData = (DTManagedataservice) ExceptionHandler.myExceptionHandler(type);
-			if(manageData != null){
+			if(ExceptionHandler.myExceptionHandler(type, this)){
 				try {
-					dtm = new DTManage(manageData);
-					return dtm.addCar(vo);
+					return dtm.modifyCar(vo);
 				} catch (RemoteException e1) {
 				}
 			}
@@ -215,10 +195,8 @@ public class DTManageController implements DTManageblservice{
 		try {
 			return dtm.delCar(ID);
 		} catch (Exception e) {
-			manageData = (DTManagedataservice) ExceptionHandler.myExceptionHandler(type);
-			if(manageData != null){
+			if(ExceptionHandler.myExceptionHandler(type, this)){
 				try {
-					dtm = new DTManage(manageData);
 					return dtm.delCar(ID);
 				} catch (RemoteException e1) {
 				}
@@ -233,10 +211,8 @@ public class DTManageController implements DTManageblservice{
 		try {
 			return dtm.getPlateNumber(instID);
 		} catch (RemoteException e) {
-			manageData = (DTManagedataservice) ExceptionHandler.myExceptionHandler(type);
-			if(manageData != null){
+			if(ExceptionHandler.myExceptionHandler(type, this)){
 				try {
-					dtm = new DTManage(manageData);
 					return dtm.getPlateNumber(instID);
 				} catch (RemoteException e1) {
 				}
@@ -249,10 +225,8 @@ public class DTManageController implements DTManageblservice{
 		try {
 			return dtm.getAllCars();
 		} catch (RemoteException e) {
-			manageData = (DTManagedataservice) ExceptionHandler.myExceptionHandler(type);
-			if(manageData != null){
+			if(ExceptionHandler.myExceptionHandler(type, this)){
 				try {
-					dtm = new DTManage(manageData);
 					return dtm.getAllCars();
 				} catch (RemoteException e1) {
 				}
@@ -265,16 +239,20 @@ public class DTManageController implements DTManageblservice{
 		try {
 			return dtm.getAllDrivers();
 		} catch (RemoteException e) {
-			manageData = (DTManagedataservice) ExceptionHandler.myExceptionHandler(type);
-			if(manageData != null){
+			if(ExceptionHandler.myExceptionHandler(type, this)){
 				try {
-					dtm = new DTManage(manageData);
 					return dtm.getAllDrivers();
 				} catch (RemoteException e1) {
 				}
 			}
 		}
 		return null;
+	}
+	
+	@Override
+	public void reinitDataService(Remote dataService) {
+		dtm = new DTManage((DTManagedataservice) dataService);
+		
 	}
 	
 

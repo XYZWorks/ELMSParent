@@ -20,24 +20,15 @@ public class Pay {
 		this.financeds = financeDataService;
 	}
 
-	public ResultMessage create(PayVO vo) {
+	public ResultMessage create(PayVO vo) throws RemoteException {
 		PayPO po = (PayPO) VOPOchange.VOtoPO(vo);
 		
-		try {
 			return financeds.addPay(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return ResultMessage.FAIL;
 	}
 
-	public ArrayList<PayVO> showPays() {
+	public ArrayList<PayVO> showPays() throws RemoteException {
 		ArrayList<PayPO> pos = null;
-		try {
 			pos = financeds.getPayPO();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 		
 		if(pos == null){
 			return null;

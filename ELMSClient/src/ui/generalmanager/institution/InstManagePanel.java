@@ -159,10 +159,14 @@ public class InstManagePanel extends MyPanel{
 						new TipsDialog("成功修改机构！");
 						table.getTable().setValueAt(location.getSelectedItem(), temp, 1);
 						table.getTable().setValueAt(type.getSelectedItem(), temp, 2);
+						ismodify(false);
+						return true;
+					}else{
+						
 					}
 					
 				}
-				ismodify(false);
+				
 				
 				return false;
 				

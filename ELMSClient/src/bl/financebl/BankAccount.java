@@ -21,9 +21,8 @@ public class BankAccount {
 		this.dataService = financeDataService;
 	}
 
-	public ArrayList<BankAccountVO> getAccounts() {
+	public ArrayList<BankAccountVO> getAccounts() throws RemoteException {
 		ArrayList<BankAccountVO> vos = null;
-		try {
 			ArrayList<BankAccountPO> pos = dataService.getAccounts();
 			if(pos == null){
 				return null;
@@ -36,47 +35,25 @@ public class BankAccount {
 			}
 			
 			
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 		return vos;
 	}
 
-	public ResultMessage modifyAccount(BankAccountVO vo) {
+	public ResultMessage modifyAccount(BankAccountVO vo) throws RemoteException {
 		
-		try {
 			return dataService.modifyAccount((BankAccountPO) VOPOchange.VOtoPO(vo));
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return ResultMessage.FAIL;
 	}
 
-	public ResultMessage deleteAccount(String ID) {
-		try {
+	public ResultMessage deleteAccount(String ID) throws RemoteException {
 			return dataService.deleteAccount(ID);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return ResultMessage.FAIL;
 	}
 
-	public ResultMessage addAccount(BankAccountVO vo) {
-		try {
+	public ResultMessage addAccount(BankAccountVO vo) throws RemoteException {
 			return dataService.addAccount((BankAccountPO) VOPOchange.VOtoPO(vo));
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return ResultMessage.FAIL;
 	}
 
-	public ResultMessage checkAccount(String iD, int money) {
+	public ResultMessage checkAccount(String iD, int money)
+			throws RemoteException {
 		
-		try {
 			return dataService.checkAccount(iD , money);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return ResultMessage.FAIL;
 	}
 }
