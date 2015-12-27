@@ -4,6 +4,7 @@ import bl.DTManagebl.DTManageController;
 import bl.accountbl.AccountController;
 import bl.approvalbl.ApprovalController;
 import bl.financebl.FinanceController;
+import bl.orderbl.OrderController;
 import bl.orderbl.orderbl_stub;
 import bl.personnelbl.PersonnelController;
 import bl.statisticbl.StatisticController;
@@ -101,9 +102,8 @@ public class BusinessLogicDataFactory {
 	
 
 	public Orderblservice getOrderBussinessLogic(){
-		//System.out.println("Factory!orderbussinesslogic");
-		return new orderbl_stub();
-	//	return new OrderController();
+		//return new orderbl_stub();
+		return new OrderController();
 	}
 	
 	public StrategyblService getStrategyBussinessLogic(){

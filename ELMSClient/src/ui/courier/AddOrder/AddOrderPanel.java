@@ -12,6 +12,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 
 import org.dom4j.Element;
+import org.junit.experimental.results.ResultMatchers;
 
 import blservice.orderblservice.Orderblservice;
 import blservice.strategyblservice.StrategyblService;
@@ -35,6 +36,7 @@ import ui.util.ConfirmListener;
 import ui.util.DocPanelForApproval;
 import util.DocState;
 import util.DocType;
+import util.ResultMessage;
 import vo.order.OrderVO;
 import vo.strategy.ConstVO;
 import vo.strategy.EstiDateVO;
@@ -443,9 +445,13 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 				// OtherOrderMes otherMes, TransferDocs transferDocs
 				OrderVO order = new OrderVO(orderBarCodeText.getText(), DocType.order, DatePicker.getMyDate(),
 						DocState.wait, sender, receiver, goodMes, otherMes, null);
-				orderblservice.add(order);
-
+				ResultMessage result=orderblservice.add(order);
+				if(result==ResultMessage.FAIL){
+					return false;
+				}
+				
 				return true;
+			
 			}
 
 			@Override
