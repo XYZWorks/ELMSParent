@@ -18,8 +18,10 @@ import ui.tools.MyButton;
 import ui.tools.MyFrame;
 import ui.tools.MyOptionPane;
 import ui.tools.MyPasswordField;
+import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
+import ui.util.MyPictureButtonListener;
 import util.FormatMes;
 import vo.account.AccountVO;
 import bl.BusinessLogicDataFactory;
@@ -35,12 +37,14 @@ public class LoginFrame extends MyFrame {
 
 	private LoginPanel mainpanel;
 
-	private MyButton closeButton;
+	private MyPictureButton closeButton;
 
-	private MyButton login;
+	private MyPictureButton login;
+	
+	private MyPictureButton set;
 
 	// 查询订单
-	private MyButton checkOrder;
+	private MyPictureButton checkOrder;
 
 	// private MyCheckBox rememberMe;
 
@@ -53,6 +57,7 @@ public class LoginFrame extends MyFrame {
 	private LoginFrame frame;
 
 	private Element config;
+	
 
 	
 
@@ -92,9 +97,10 @@ public class LoginFrame extends MyFrame {
 	}
 
 	private void initButtons(Element config) {
-		login = new MyButton(config.element("login"));
-		checkOrder = new MyButton(config.element("checkOrder"));
-		closeButton = new MyButton(config.element("close"));
+		login = new MyPictureButton(config.element("login"));
+		checkOrder = new MyPictureButton(config.element("checkOrder"));
+		closeButton = new MyPictureButton(config.element("close"));
+		set = new MyPictureButton(config.element("set"));
 	}
 
 	private void initTextField(Element config) {
@@ -117,15 +123,16 @@ public class LoginFrame extends MyFrame {
 		mainpanel.add(checkOrder);
 		mainpanel.add(login);
 		mainpanel.add(closeButton);
+		mainpanel.add(set);
 		// mainpanel.add(rememberMe);
 		
 
 	}
 
 	private void addListener() {
-		login.addMouseListener(new MyLoginListener());
-		closeButton.addMouseListener(new MyCloseListener());
-		checkOrder.addMouseListener(new MyCheckOrderListener());
+		login.addMouseListener(new MyLoginListener(login));
+		closeButton.addMouseListener(new MyCloseListener(closeButton));
+		checkOrder.addMouseListener(new MyCheckOrderListener(checkOrder));
 		password.addKeyListener(new KeyAdapter() {
 			 public void keyPressed(KeyEvent e) {
 				 if(e.getKeyCode() == KeyEvent.VK_ENTER){
@@ -170,51 +177,46 @@ public class LoginFrame extends MyFrame {
 		}
 	}
 
-	class MyLoginListener extends MouseAdapter {
+	class MyLoginListener extends MyPictureButtonListener {
+		
+		
+		public MyLoginListener(MyPictureButton button) {
+			super(button);
+		}
+
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			mainpanel.changeBG(6);
+			super.mouseClicked(e);
 			dealWithChoose();
 		
 		}
 
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			mainpanel.changeBG(5);
-
-		}
-
-		@Override
-		public void mouseExited(MouseEvent e) {
-			mainpanel.changeBG(0);
-
-		}
 	}
 
-	class MyCloseListener extends MouseAdapter {
+	class MyCloseListener extends MyPictureButtonListener {
+		public MyCloseListener(MyPictureButton button) {
+			super(button);
+		}
+
 		@Override
 		public void mouseClicked(MouseEvent e) {
+			super.mouseClicked(e);
 			frame.dispose();
 			System.exit(0);
-			mainpanel.changeBG(4);
 		}
 
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			mainpanel.changeBG(5);
-
-		}
-
-		@Override
-		public void mouseExited(MouseEvent e) {
-
-		}
-
+		
 	}
 
-	class MyCheckOrderListener extends MouseAdapter {
+	class MyCheckOrderListener extends MyPictureButtonListener {
+		public MyCheckOrderListener(MyPictureButton button) {
+			super(button);
+		}
+
 		@Override
 		public void mouseClicked(MouseEvent e) {
+			super.mouseClicked(e);
+			
 			// 服务器未开启提示
 			if (RMIManage.netInit()) {
 				bl = BusinessLogicDataFactory.getFactory().getUserMesBusinessLogic();
@@ -226,15 +228,7 @@ public class LoginFrame extends MyFrame {
 			frame.dispose();
 		}
 
-		@Override
-		public void mouseEntered(MouseEvent e) {
-
-		}
-
-		@Override
-		public void mouseExited(MouseEvent e) {
-
-		}
+		
 	}
 
 }
