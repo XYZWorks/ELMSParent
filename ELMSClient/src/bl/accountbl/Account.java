@@ -3,8 +3,8 @@ package bl.accountbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.VOPOchange;
 import po.account.AccountPO;
-import test.java.other.VOPOchange;
 import util.ResultMessage;
 import vo.account.AccountVO;
 import ds.accountdataservice.AccountDataService;

@@ -3,10 +3,10 @@ package bl.statisticbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.VOPOchange;
 import po.statistic.BillPO;
 import po.statistic.CostIncomePO;
 import po.statistic.StateFormPO;
-import test.java.other.VOPOchange;
 import util.ResultMessage;
 import vo.statistic.BillVO;
 import vo.statistic.CostIncomeVO;

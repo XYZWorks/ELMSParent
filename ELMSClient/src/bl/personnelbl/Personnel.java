@@ -3,9 +3,9 @@ package bl.personnelbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.VOPOchange;
 import po.personnel.InstPO;
 import po.personnel.PersonPO;
-import test.java.other.VOPOchange;
 import util.ResultMessage;
 import vo.personnel.InstVO;
 import vo.personnel.PersonVO;

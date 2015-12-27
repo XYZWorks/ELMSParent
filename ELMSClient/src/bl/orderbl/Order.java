@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bl.BusinessLogicDataFactory;
+import bl.VOPOchange;
 import bl.storebl.StoreController;
 import bl.strategybl.StrategyController;
 import bl.transportbl.TransportController;
@@ -12,7 +13,6 @@ import ds.orderdataservice.OrderDataService;
 import po.DocPO;
 import po.order.OrderPO;
 import po.order.ReceivePO;
-import test.java.other.VOPOchange;
 import util.City;
 import util.DocState;
 import util.DocType;

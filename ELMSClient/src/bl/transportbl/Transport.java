@@ -10,8 +10,6 @@ import po.transport.LoadDocPO;
 import po.transport.PayDocPO;
 import po.transport.SendGoodDocPO;
 import po.transport.TransferDocPO;
-import test.java.other.DataTool;
-import test.java.other.VOPOchange;
 import util.DocState;
 import util.DocType;
 import util.MyDate;
@@ -25,6 +23,7 @@ import vo.transport.LoadDocVO;
 import vo.transport.PayDocVO;
 import vo.transport.SendGoodDocVO;
 import vo.transport.TransferDocVO;
+import bl.VOPOchange;
 import blservice.orderblservice.Orderblservice;
 import blservice.strategyblservice.StrategyblService;
 import ds.transportdataservice.Transportdataservice;
@@ -51,14 +50,10 @@ public class Transport {
 
 	}
 
-	public ResultMessage add(LoadDocVO vo) {
+	public ResultMessage add(LoadDocVO vo) throws RemoteException {
 		LoadDocPO po = (LoadDocPO) VOPOchange.VOtoPO(vo);
 		ResultMessage result = null;
-		try {
 			result = transportData.addLoadDocPO(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 
 		if (result == ResultMessage.SUCCESS)
 			orderbl.addDocToList(vo, vo.orderBarCodes);
@@ -66,17 +61,13 @@ public class Transport {
 	}
 
 	@SuppressWarnings("unchecked")
-	public ArrayList<LoadDocVO> getDayLoadDocs(MyDate date) {
+	public ArrayList<LoadDocVO> getDayLoadDocs(MyDate date) throws RemoteException {
 
 		ArrayList<LoadDocPO> pos = new ArrayList<LoadDocPO>();
 		ArrayList<LoadDocVO> vos = new ArrayList<LoadDocVO>();
 
-		try {
 			pos = (ArrayList<LoadDocPO>) transportData
 					.getDocLists(DocType.loadDoc);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 
 		if (pos == null) {
 			return null;
@@ -89,15 +80,11 @@ public class Transport {
 		return vos;
 	}
 
-	public ResultMessage add(SendGoodDocVO vo) {
+	public ResultMessage add(SendGoodDocVO vo) throws RemoteException {
 		SendGoodDocPO po = (SendGoodDocPO) VOPOchange.VOtoPO(vo);
 		ResultMessage result = null;
 
-		try {
 			result = transportData.addSendGoodDocPO(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 		if (result == ResultMessage.SUCCESS) {
 			ArrayList<String> orderBarCodes = new ArrayList<>(1);
 			orderBarCodes.add(vo.orderBarCode);
@@ -108,39 +95,29 @@ public class Transport {
 	}
 
 	@SuppressWarnings("unchecked")
-	public ArrayList<SendGoodDocVO> getDaySendDocs(MyDate date) {
-		ArrayList<SendGoodDocPO> pos = new ArrayList<SendGoodDocPO>();
+	public ArrayList<SendGoodDocVO> getDaySendDocs(MyDate date) throws RemoteException {
+		ArrayList<SendGoodDocPO> pos ;
 		ArrayList<SendGoodDocVO> vos = new ArrayList<SendGoodDocVO>();
 
-		try {
 			pos = (ArrayList<SendGoodDocPO>) transportData
 					.getDocLists(DocType.sendGoodDoc);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 
 		if (pos == null) {
 			return null;
 		}
 
 		for (SendGoodDocPO po : pos) {
-			// if (po.getDate().equals(date)) {
 			vos.add((SendGoodDocVO) VOPOchange.POtoVO(po));
-			// }
 		}
 
 		return vos;
 	}
 
-	public ResultMessage add(ArriveYYDocVO vo) {
+	public ResultMessage add(ArriveYYDocVO vo) throws RemoteException {
 		ArriveYYDocPO po = (ArriveYYDocPO) VOPOchange.VOtoPO(vo);
 		ResultMessage result = null;
 
-		try {
 			result = transportData.addArriveYYDocPO(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 		if (result == ResultMessage.SUCCESS) {
 			orderbl.addDocToList(vo, vo.orderBarCodes);
 		}
@@ -149,55 +126,36 @@ public class Transport {
 	}
 
 	@SuppressWarnings("unchecked")
-	public ArrayList<ArriveYYDocVO> getDayArriveYYDocs(MyDate date) {
+	public ArrayList<ArriveYYDocVO> getDayArriveYYDocs(MyDate date) throws RemoteException {
 		ArrayList<ArriveYYDocPO> pos = new ArrayList<ArriveYYDocPO>();
 		ArrayList<ArriveYYDocVO> vos = new ArrayList<ArriveYYDocVO>();
 
-		try {
 			pos = (ArrayList<ArriveYYDocPO>) transportData
 					.getDocLists(DocType.arriveYYDoc);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 		if (pos == null) {
 			return null;
 		}
 
 		for (ArriveYYDocPO po : pos) {
-			// if (po.getDate().equals(date)) {
 			vos.add((ArriveYYDocVO) VOPOchange.POtoVO(po));
-			// }
 		}
 
 		return vos;
 	}
 
-	public ResultMessage add(ArriveZZDocVO vo) {
+	public ResultMessage add(ArriveZZDocVO vo) throws RemoteException {
 		ArriveZZDocPO po = (ArriveZZDocPO) VOPOchange.VOtoPO(vo);
-		ResultMessage result = null;
-
-		try {
-			result = transportData.addArriveZZDocPO(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return result;
+		return transportData.addArriveZZDocPO(po);
+		
 	}
 
 	@SuppressWarnings("unchecked")
-	public ArrayList<ArriveZZDocVO> getDayArriveZZDocs(MyDate date) {
+	public ArrayList<ArriveZZDocVO> getDayArriveZZDocs(MyDate date) throws RemoteException {
 		ArrayList<ArriveZZDocPO> pos = new ArrayList<ArriveZZDocPO>();
 		ArrayList<ArriveZZDocVO> vos = new ArrayList<ArriveZZDocVO>();
 
-		try {
 			pos = (ArrayList<ArriveZZDocPO>) transportData
 					.getDocLists(DocType.arriveZZDoc);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		} catch (NullPointerException e) {
-			return (ArrayList<ArriveZZDocVO>) DataTool
-					.getDocList(DocType.arriveZZDoc);
-		}
 		if (pos == null) {
 			return null;
 		}
@@ -208,31 +166,19 @@ public class Transport {
 		return vos;
 	}
 
-	public ResultMessage addTransferDoc(TransferDocVO vo) {
+	public ResultMessage addTransferDoc(TransferDocVO vo) throws RemoteException {
 		TransferDocPO po = (TransferDocPO) VOPOchange.VOtoPO(vo);
-
-		ResultMessage result = null;
-
-		try {
-			result = transportData.addTransferDocPO(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return result;
+			return transportData.addTransferDocPO(po);
 	}
 
 	@SuppressWarnings("unchecked")
-	public ArrayList<TransferDocVO> getDayTransferDocs(MyDate date) {
+	public ArrayList<TransferDocVO> getDayTransferDocs(MyDate date) throws RemoteException {
 
 		ArrayList<TransferDocPO> pos = new ArrayList<TransferDocPO>();
 		ArrayList<TransferDocVO> vos = new ArrayList<TransferDocVO>();
 
-		try {
 			pos = (ArrayList<TransferDocPO>) transportData
 					.getDocLists(DocType.transferDoc);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 
 		if (pos == null) {
 			System.err.println("po is null");
@@ -247,15 +193,11 @@ public class Transport {
 	}
 
 	@SuppressWarnings("unchecked")
-	public ArrayList<DocVO> getDoc(DocType type) {
-		ArrayList<DocPO> pos = new ArrayList<DocPO>();
+	public ArrayList<DocVO> getDoc(DocType type) throws RemoteException {
+		ArrayList<DocPO> pos ;
 		ArrayList<DocVO> vos = new ArrayList<DocVO>();
 
-		try {
 			pos = (ArrayList<DocPO>) transportData.getDocLists(type);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 
 		for (DocPO po : pos) {
 			vos.add((TransferDocVO) VOPOchange.POtoVO(po));
@@ -264,9 +206,8 @@ public class Transport {
 		return vos;
 	}
 
-	public DocVO getDocByID(String ID, DocType type) {
+	public DocVO getDocByID(String ID, DocType type) throws RemoteException {
 		DocPO po = null;
-		try {
 			switch (type) {
 			case transferDoc:
 				po = transportData.getTransferDocPO(ID);
@@ -286,10 +227,6 @@ public class Transport {
 			default:
 				break;
 			}
-		} catch (RemoteException e) {
-			e.printStackTrace();
-			return null;
-		}
 
 		if (po == null) {
 			return null;
@@ -337,11 +274,11 @@ public class Transport {
 		return null;
 	}
 
-	public ArrayList<? extends DocVO> getDocLists(DocType type) {
+	@SuppressWarnings("unchecked")
+	public ArrayList<? extends DocVO> getDocLists(DocType type) throws RemoteException {
 		ArrayList<DocVO> docVOs = new ArrayList<>();
 		ArrayList<DocPO> docPOs;
 		
-		try {
 			docPOs = (ArrayList<DocPO>) transportData.getDocLists(type);
 			if(docPOs == null || docPOs.isEmpty()){
 				return null;
@@ -378,9 +315,6 @@ public class Transport {
 				System.err.println("类型传递错误，transport不应有其他单据类型！");
 				return null;
 			}
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 		
 		
 		
@@ -388,28 +322,17 @@ public class Transport {
 	}
 
 	public ResultMessage changeDocsState(ArrayList<String> docsID,
-			DocType type, DocState state) {
+			DocType type, DocState state) throws RemoteException {
 		
-		try {
 			return transportData.changeDocsState(docsID, type, state);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return ResultMessage.SQL_ERROR;
 	}
 
 	public ResultMessage changeOneDocState(String docID, DocType type,
-			DocState state) {
-		try {
+			DocState state) throws RemoteException {
 			return transportData.changeOneDocState(docID, type, state);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return ResultMessage.SQL_ERROR;
 	}
 
-	public int getDayDocCount(DocType type) {
-		try {
+	public int getDayDocCount(DocType type) throws RemoteException {
 			switch (type) {
 			case arriveYYDoc:
 				
@@ -429,10 +352,6 @@ public class Transport {
 			default:
 				break;
 			}
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return -1;
 	}
 

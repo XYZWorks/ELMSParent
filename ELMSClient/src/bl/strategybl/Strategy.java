@@ -3,121 +3,82 @@ package bl.strategybl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.VOPOchange;
 import po.strategy.ConstPO;
 import po.strategy.EstiDatePO;
 import po.strategy.SalaryWayPO;
-import test.java.other.VOPOchange;
 import util.ResultMessage;
 import util.StaffType;
 import vo.strategy.ConstVO;
 import vo.strategy.EstiDateVO;
 import vo.strategy.SalaryWayVO;
 import ds.strategydataservice.StrategyDataService;
-import exception.ExceptionHandler;
 
-/** 
- * @author ymc 
- * @version 创建时间：2015年10月27日 下午7:50:58 
+/**
+ * @author ymc
+ * @version 创建时间：2015年10月27日 下午7:50:58
  *
  */
 public class Strategy {
-	
-	
+
 	StrategyDataService strategyData;
+
 	public Strategy(StrategyDataService strategyData) {
-		this.strategyData =strategyData;
+		this.strategyData = strategyData;
 
 	}
-	public ConstVO getConst() {
+
+	public ConstVO getConst() throws RemoteException {
 		ConstPO po = null;
-		try {
-			po = strategyData.getConst();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		if(po == null){
+		po = strategyData.getConst();
+		if (po == null) {
 			return null;
 		}
-		
+
 		ConstVO vo = (ConstVO) VOPOchange.POtoVO(po);
 		return vo;
 	}
 
-	public ResultMessage setConst(ConstVO vo) {
+	public ResultMessage setConst(ConstVO vo) throws RemoteException {
 		ConstPO po = (ConstPO) VOPOchange.VOtoPO(vo);
-		
-		ResultMessage resultMessage = null;
-		try {
-			resultMessage = strategyData.setConst(po);
-		} catch (RemoteException e) {
-//			new ExceptionHandler();
-		}
-		return resultMessage;
+		return strategyData.setConst(po);
 	}
 
-	public ArrayList<SalaryWayVO> getsalary() {
-		
+	public ArrayList<SalaryWayVO> getsalary() throws RemoteException {
+
 		ArrayList<SalaryWayPO> pos = null;
 		ArrayList<SalaryWayVO> vos = null;
-		try {
-			pos = strategyData.getSalary();
-			if(pos!=null)
-				vos = new ArrayList<SalaryWayVO>(pos.size());
-				for(SalaryWayPO po : pos){
-					vos.add((SalaryWayVO)VOPOchange.POtoVO(po));
-				}
-		} catch (RemoteException e) {
-			e.printStackTrace();
+		pos = strategyData.getSalary();
+		if (pos != null)
+			vos = new ArrayList<SalaryWayVO>(pos.size());
+		for (SalaryWayPO po : pos) {
+			vos.add((SalaryWayVO) VOPOchange.POtoVO(po));
 		}
 		return vos;
 	}
 
-	public SalaryWayVO getOneSalary(StaffType type) {
+	public SalaryWayVO getOneSalary(StaffType type) throws RemoteException {
 		SalaryWayPO po = null;
 		SalaryWayVO vo = null;
-		try {
-			po = strategyData.getOneSalary(type);
-			if(po!=null)
-				vo = (SalaryWayVO) VOPOchange.POtoVO(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+		po = strategyData.getOneSalary(type);
+		if (po != null)
+			vo = (SalaryWayVO) VOPOchange.POtoVO(po);
 		return vo;
 	}
 
-	public ResultMessage setSalary(SalaryWayVO way) {
+	public ResultMessage setSalary(SalaryWayVO way) throws RemoteException {
 		SalaryWayPO po = (SalaryWayPO) VOPOchange.VOtoPO(way);
-		
-		ResultMessage resultMessage= null;
-		try {
-			resultMessage = strategyData.setSalaryWay(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return resultMessage;
+		return strategyData.setSalaryWay(po);
 	}
-	public EstiDateVO getEstiDateVO() {
-		
-		EstiDatePO po = null;
-		try {
-			po = strategyData.getEstiDatePO();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		EstiDateVO vo = (EstiDateVO) VOPOchange.POtoVO(po);
-		return vo;
+
+	public EstiDateVO getEstiDateVO() throws RemoteException {
+		EstiDatePO po = strategyData.getEstiDatePO();
+		return (EstiDateVO) VOPOchange.POtoVO(po);
 	}
-	public ResultMessage setEstiDateVO(EstiDateVO vo) {
+
+	public ResultMessage setEstiDateVO(EstiDateVO vo) throws RemoteException {
 		EstiDatePO po = (EstiDatePO) VOPOchange.VOtoPO(vo);
-		try {
-			return strategyData.setEstiDatePO(po);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return ResultMessage.FAIL;
+		return strategyData.setEstiDatePO(po);
 	}
 
 }

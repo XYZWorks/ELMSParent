@@ -1,4 +1,4 @@
-package test.java.other;
+package bl;
 
 
 import java.lang.reflect.Field;

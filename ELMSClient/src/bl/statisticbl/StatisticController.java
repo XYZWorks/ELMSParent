@@ -13,31 +13,36 @@ import bl.BusinessController;
 import blservice.statisticblservice.Statisticblservice;
 import ds.statisticdataservice.StatisticDataService;
 import exception.ExceptionHandler;
- /** 
+
+/**
  * 经营状况表、成本收益表、期初建账控制器
- * @author czq 
- * @version 2015年11月15日 上午9:24:59 
+ * 
+ * @author czq
+ * @version 2015年11月15日 上午9:24:59
  */
-public class StatisticController extends BusinessController implements Statisticblservice{
-	
+public class StatisticController extends BusinessController implements
+		Statisticblservice {
+
 	private Statistic statistic;
 	private StatisticDataService statisticData;
-	public StatisticController(){
+
+	public StatisticController() {
 		myType = DataServiceType.StatisticDataService;
-		statisticData = (StatisticDataService) RMIManage.getDataService(DataServiceType.StatisticDataService);
+		statisticData = (StatisticDataService) RMIManage
+				.getDataService(DataServiceType.StatisticDataService);
 		statistic = new Statistic(statisticData);
 	}
+
 	@Override
 	public ResultMessage bulidStateForm(StateFormVO vo) {
 		try {
 			return statistic.bulidStateForm(vo);
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return statistic.bulidStateForm(vo);
-				} catch (Exception e1) {}
+			if (ExceptionHandler.myExceptionHandler(myType, this)) {
+				return bulidStateForm(vo);
 			}
-		}return ResultMessage.FAIL;
+		}
+		return ResultMessage.FAIL;
 	}
 
 	@Override
@@ -45,12 +50,11 @@ public class StatisticController extends BusinessController implements Statistic
 		try {
 			return statistic.bulidCostIncomeForm(vo);
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return statistic.bulidCostIncomeForm(vo);
-				} catch (Exception e1) {}
+			if (ExceptionHandler.myExceptionHandler(myType, this)) {
+				return bulidCostIncomeForm(vo);
 			}
-		}return ResultMessage.FAIL;
+		}
+		return ResultMessage.FAIL;
 	}
 
 	@Override
@@ -58,12 +62,11 @@ public class StatisticController extends BusinessController implements Statistic
 		try {
 			return statistic.getStateForm();
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return statistic.getStateForm();
-				} catch (Exception e1) {}
+			if (ExceptionHandler.myExceptionHandler(myType, this)) {
+				return getStateForm();
 			}
-		}return null;
+		}
+		return null;
 	}
 
 	@Override
@@ -71,12 +74,11 @@ public class StatisticController extends BusinessController implements Statistic
 		try {
 			return statistic.getIncomeForm();
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return statistic.getIncomeForm();
-				} catch (Exception e1) {}
+			if (ExceptionHandler.myExceptionHandler(myType, this)) {
+				return getIncomeForm();
 			}
-		}return null;
+		}
+		return null;
 	}
 
 	@Override
@@ -84,12 +86,11 @@ public class StatisticController extends BusinessController implements Statistic
 		try {
 			return statistic.bulidBill(vo);
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return statistic.bulidBill(vo);
-				} catch (Exception e1) {}
+			if (ExceptionHandler.myExceptionHandler(myType, this)) {
+				return bulidBill(vo);
 			}
-		}return ResultMessage.FAIL;
+		}
+		return ResultMessage.FAIL;
 	}
 
 	@Override
@@ -97,18 +98,18 @@ public class StatisticController extends BusinessController implements Statistic
 		try {
 			return statistic.getBills();
 		} catch (Exception e) {
-			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return statistic.getBills();
-				} catch (Exception e1) {}
+			if (ExceptionHandler.myExceptionHandler(myType, this)) {
+				return getBills();
 			}
-		}return null;
+		}
+		return null;
 	}
+
 	@Override
 	public void reinitDataService(Remote dataService) {
 		statisticData = (StatisticDataService) dataService;
 		statistic = new Statistic(statisticData);
-		
+
 	}
 
 }

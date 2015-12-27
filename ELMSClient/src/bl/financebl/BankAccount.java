@@ -3,8 +3,8 @@ package bl.financebl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.VOPOchange;
 import po.finance.BankAccountPO;
-import test.java.other.VOPOchange;
 import util.ResultMessage;
 import vo.finance.BankAccountVO;
 import ds.financedataservice.FinanceDataService;

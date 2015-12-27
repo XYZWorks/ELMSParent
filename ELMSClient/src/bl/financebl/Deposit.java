@@ -3,10 +3,10 @@ package bl.financebl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.VOPOchange;
 import blservice.orderblservice.Orderblservice;
 import ds.financedataservice.FinanceDataService;
 import po.finance.DepositPO;
-import test.java.other.VOPOchange;
 import util.ResultMessage;
 import vo.finance.DepositVO;
 
