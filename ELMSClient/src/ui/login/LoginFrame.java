@@ -18,8 +18,10 @@ import ui.tools.MyButton;
 import ui.tools.MyFrame;
 import ui.tools.MyOptionPane;
 import ui.tools.MyPasswordField;
+import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
+import ui.util.MyPictureButtonListener;
 import util.FormatMes;
 import vo.account.AccountVO;
 import bl.BusinessLogicDataFactory;
@@ -33,12 +35,14 @@ import blservice.usermesblservice.UserMesblservice;
 @SuppressWarnings("serial")
 public class LoginFrame extends MyFrame {
 
+	
 	private LoginPanel mainpanel;
 
 	private MyButton closeButton;
 
 	private MyButton login;
 
+	private MyPictureButton ipButton;
 	// 查询订单
 	private MyButton checkOrder;
 
@@ -95,6 +99,7 @@ public class LoginFrame extends MyFrame {
 		login = new MyButton(config.element("login"));
 		checkOrder = new MyButton(config.element("checkOrder"));
 		closeButton = new MyButton(config.element("close"));
+		ipButton = new MyPictureButton(config.element("ip"));
 	}
 
 	private void initTextField(Element config) {
@@ -117,6 +122,7 @@ public class LoginFrame extends MyFrame {
 		mainpanel.add(checkOrder);
 		mainpanel.add(login);
 		mainpanel.add(closeButton);
+		mainpanel.add(ipButton);
 		// mainpanel.add(rememberMe);
 		
 
@@ -126,6 +132,7 @@ public class LoginFrame extends MyFrame {
 		login.addMouseListener(new MyLoginListener());
 		closeButton.addMouseListener(new MyCloseListener());
 		checkOrder.addMouseListener(new MyCheckOrderListener());
+		ipButton.addMouseListener(new MyIPListener(ipButton));
 		password.addKeyListener(new KeyAdapter() {
 			 public void keyPressed(KeyEvent e) {
 				 if(e.getKeyCode() == KeyEvent.VK_ENTER){
@@ -138,6 +145,7 @@ public class LoginFrame extends MyFrame {
 	}
 	
 	private void dealWithChoose(){
+
 		String id = userName.getText();
 		String passwords = new String(password.getPassword());
 		FormatMes format;
@@ -169,7 +177,23 @@ public class LoginFrame extends MyFrame {
 			frame.dispose();
 		}
 	}
+	
+	
+	class MyIPListener extends MyPictureButtonListener{
 
+		public MyIPListener(MyPictureButton button) {
+			super(button);
+		}
+		
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			super.mouseClicked(e);
+			new SetIPPane(null);
+		}
+		
+	}
+	
+	
 	class MyLoginListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
