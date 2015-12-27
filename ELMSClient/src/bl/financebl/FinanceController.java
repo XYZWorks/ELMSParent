@@ -1,5 +1,6 @@
 package bl.financebl;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
 import net.RMIManage;
@@ -11,20 +12,23 @@ import vo.finance.CostVO;
 import vo.finance.DepositVO;
 import vo.finance.PayVO;
 import vo.finance.ProfitVO;
+import bl.BusinessController;
 import blservice.financeblservice.BankAccountBusinessService;
 import blservice.financeblservice.CostService;
 import blservice.financeblservice.DepositService;
 import blservice.financeblservice.PayService;
 import blservice.financeblservice.ProfitService;
 import ds.financedataservice.FinanceDataService;
+import exception.ExceptionHandler;
  /** 
  * 
  * @author czq 
  * @version 2015年11月15日 上午9:17:23 
  */
-public class FinanceController implements BankAccountBusinessService, CostService, PayService , ProfitService,DepositService{
+public class FinanceController extends BusinessController implements BankAccountBusinessService, CostService, PayService , ProfitService,DepositService{
 	
 	FinanceDataService financeDataService;
+	private final static DataServiceType stype = DataServiceType.FinanceDataService;
 	private BankAccount bankAccount ;
 	private Pay pay;
 	private Cost cost;
@@ -49,73 +53,220 @@ public class FinanceController implements BankAccountBusinessService, CostServic
 
 	@Override
 	public ResultMessage create(PayVO vo) {
-		return pay.create(vo);
+		try {
+			return pay.create(vo);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(stype, this)){
+				try {
+					return pay.create(vo);
+				} catch (Exception e1) {
+				}
+			}
+		}
+		return ResultMessage.FAIL;
+
 	}
  
 	@Override
 	public ArrayList<? extends CostVO> showCosts(CostType type) {
-		return cost.showCosts(type);
+		try {
+			return cost.showCosts(type);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(stype, this)){
+				try {
+					return cost.showCosts(type);
+				} catch (Exception e1) {
+				}
+			}
+		}
+		return null;
 	}
 	
 	@Override
 	public ResultMessage add(CostVO vo) {
-		return cost.add(vo);
+		try {
+			return cost.add(vo);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(stype, this)){
+				try {
+					return cost.add(vo);
+				} catch (Exception e1) {
+				}
+			}
+		}
+		return ResultMessage.FAIL;
+
 	}
 
 	@Override
 	public ResultMessage modify(CostVO vo) {
-		return cost.modify(vo);
+		try {
+			return cost.modify(vo);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(stype, this)){
+				try {
+					return cost.modify(vo);
+				} catch (Exception e1) {
+				}
+			}
+		}
+		return ResultMessage.FAIL;
+
 	}
 
 	@Override
 	public ResultMessage del(CostVO vo) {
-		return cost.del(vo);
+		try {
+			return cost.del(vo);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(stype, this)){
+				try {
+					return cost.del(vo);
+				} catch (Exception e1) {
+				}
+			}
+		}
+		return ResultMessage.FAIL;
+
 	}
 
 
 	@Override
 	public ArrayList<PayVO> showPays() {
-		return pay.showPays();
+		try {
+			return pay.showPays();
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(stype, this)){
+				try {
+					return pay.showPays();
+				} catch (Exception e1) {
+				}
+			}
+		}
+		return null;
 	}
 
 	@Override
 	public ResultMessage createDeposit(DepositVO vo) {
-		return deposit.create(vo);
+		try {
+			return deposit.create(vo);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(stype, this)){
+				try {
+					return deposit.create(vo);
+				} catch (Exception e1) {
+				}
+			}
+		}
+		return ResultMessage.FAIL;
 	}
 
 	@Override
 	public ArrayList<DepositVO> showDeposit() {
-		return deposit.show();
+		try {
+			return deposit.show();
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(stype, this)){
+				try {
+					return deposit.show();
+				} catch (Exception e1) {
+				}
+			}
+		}
+		return null;
+
 	}
 
 	@Override
 	public ArrayList<BankAccountVO> getAccounts() {
-		return bankAccount.getAccounts();
+		try {
+			return bankAccount.getAccounts();
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(stype, this)){
+				try {
+					return bankAccount.getAccounts();
+				} catch (Exception e1) {
+				}
+			}
+		}
+		return null;
+
 	}
 
 	@Override
 	public ResultMessage modifyAccount(BankAccountVO vo) {
-		return bankAccount.modifyAccount(vo);
+		try {
+			return bankAccount.modifyAccount(vo);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(stype, this)){
+				try {
+					return bankAccount.modifyAccount(vo);
+				} catch (Exception e1) {
+				}
+			}
+		}
+		return ResultMessage.FAIL;
 	}
 
 	@Override
 	public ResultMessage deleteAccount(String ID) {
-		return bankAccount.deleteAccount(ID);
+		try {
+			return bankAccount.deleteAccount(ID);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(stype, this)){
+				try {
+					return bankAccount.deleteAccount(ID);
+				} catch (Exception e1) {
+				}
+			}
+		}
+		return ResultMessage.FAIL;
 	}
 
 	@Override
 	public ResultMessage addAccount(BankAccountVO vo) {
-		return bankAccount.addAccount(vo);
+		try {
+			return bankAccount.addAccount(vo);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(stype, this)){
+				try {
+					return bankAccount.addAccount(vo);
+				} catch (Exception e1) {
+				}
+			}
+		}
+		return ResultMessage.FAIL;
 	}
 
 
 	@Override
 	public ResultMessage checkAccount(String ID, int money) {
 		
-		return bankAccount.checkAccount(ID, money);
+		try {
+			return bankAccount.checkAccount(ID, money);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(stype, this)){
+				try {
+					return bankAccount.checkAccount(ID, money);
+				} catch (Exception e1) {
+				}
+			}
+		}
+		return ResultMessage.FAIL;
 	}
 
 
+	@Override
+	public void reinitDataService(Remote dataService) {
+		financeDataService = (FinanceDataService) dataService;
+		bankAccount = new BankAccount(financeDataService);
+		pay = new Pay(financeDataService);
+		cost = new Cost(financeDataService);
+		profit = new Profit(financeDataService);
+		deposit = new Deposit(financeDataService);
+	}
+
+	
 
 
 }

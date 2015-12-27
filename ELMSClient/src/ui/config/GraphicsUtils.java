@@ -47,7 +47,7 @@ public class GraphicsUtils {
 		
 		labelPictureMap.put("back", new ButtonOrLabelPicture("element//back","element//back-enter","element//back-clicked"));
 		
-		labelPictureMap.put("other", new ButtonOrLabelPicture("element//other","element//other-enter","element//other-clicked"));
+	//	labelPictureMap.put("other", new ButtonOrLabelPicture("element//other","element//other-enter","element//other-clicked"));
 	}
 	
 	public static final ButtonOrLabelPicture getButtonLabelPic(String type){
