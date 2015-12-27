@@ -14,6 +14,7 @@ import ui.tools.AddDocPanel;
 import ui.tools.MyLabel;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
+import ui.tools.MyWhitePanel;
 import ui.util.CancelListener;
 import ui.util.ConfirmListener;
 import ui.util.TipsDialog;
@@ -28,6 +29,10 @@ import blservice.DTManageblservice.DTManageblservice;
 @SuppressWarnings("serial")
 public class CarManageAddPanel extends AddDocPanel {
 	
+	private MyWhitePanel whitePanel;
+	
+	private MyPictureLabel addCar;
+	
 	private MyLabel id;
 	private MyLabel plateNum;
 	private MyLabel useYear;
@@ -38,14 +43,15 @@ public class CarManageAddPanel extends AddDocPanel {
 	private MyTextField useYearT;
 	
 	DTManageblservice bl;
-	public CarManageAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable ) {
+	public CarManageAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable, DTManageblservice bl ) {
 		super(config , changePanel , checkDocPanelStr,  messageTable);
+		this.bl = bl;
 		
 	}
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
+		whitePanel=new MyWhitePanel(e.element("whitePanel"));
 
 	}
 
@@ -65,10 +71,11 @@ public class CarManageAddPanel extends AddDocPanel {
 
 	@Override
 	protected void initLabels(Element e) {
-		id = new MyPictureLabel(e.element("id"));
-		plateNum = new MyPictureLabel(e.element("plateNum"));
-		useYear = new MyPictureLabel(e.element("useYear"));
-		instid = new MyPictureLabel(e.element("instid"));
+		addCar=new MyPictureLabel(e.element("addCar"));
+		id = new MyLabel(e.element("id"));
+		plateNum = new MyLabel(e.element("plateNum"));
+		useYear = new MyLabel(e.element("useYear"));
+		instid = new MyLabel(e.element("instid"));
 	}
 
 	@Override
@@ -79,7 +86,22 @@ public class CarManageAddPanel extends AddDocPanel {
 
 	@Override
 	protected void addCompoment() {
-		add(id);add(plateNum);add(useYear);add(idT);add(plateNumT);add(useYearT);add(instid);add(instidT);
+		whitePanel.add(addCar);
+		whitePanel.add(id);
+		whitePanel.add(plateNum);
+		whitePanel.add(useYear);
+		whitePanel.add(idT);
+		whitePanel.add(plateNumT);
+		whitePanel.add(useYearT);
+		whitePanel.add(instid);
+		whitePanel.add(instidT);
+		
+		//修改从父类里继承的confirm cancel的位置
+		confirm.setLocation(320,470);
+		cancel.setLocation(450,470);
+		
+		
+		this.add(whitePanel);
 	}
 
 	@Override
@@ -89,16 +111,31 @@ public class CarManageAddPanel extends AddDocPanel {
 			String plateNum;
 			String useYear;
 			String instid;
+			CarVO vo;
 			@Override
 			protected boolean saveToSQL() {
-				
-				if(bl.addCar(new CarVO(id, instid ,plateNum, Integer.parseInt(useYear))) == ResultMessage.SUCCESS){
-					new TipsDialog("成功增加司机信息" , Color.GREEN);
-					return true;
+				if(isAddOrModify){
+					result = bl.addCar(vo = new CarVO(id , instid , plateNum, Integer.parseInt(useYear)));
+					if(result == ResultMessage.SUCCESS){
+						new TipsDialog("成功增加司机信息" , Color.GREEN);
+						return true;
+					}else{
+						new TipsDialog("未能增加司机信息", Color.RED);
+						System.err.println(result);
+						return false;
+					}
 				}else{
-					new TipsDialog("未能增加司机信息", Color.RED);
-					return false;
+					result = bl.modifyCar(vo = new CarVO(id, instid ,plateNum, Integer.parseInt(useYear)));
+					if(result == ResultMessage.SUCCESS){
+						new TipsDialog("成功修改司机信息" , Color.GREEN);
+						return true;
+					}else{
+						new TipsDialog("未能修改司机信息", Color.RED);
+						System.err.println(result);
+						return false;
+					}
 				}
+				
 			}
 			
 			@Override
@@ -118,8 +155,11 @@ public class CarManageAddPanel extends AddDocPanel {
 
 			@Override
 			protected void updateMes() {
-				String[] data = { id, instid , plateNum , useYear };
-				messageTable.addOneRow(data);
+				if(isAddOrModify){
+					messageTable.addOneData(vo, 1);
+				}else {
+					messageTable.addOneData(vo, 2);
+				}
 				
 			}
 		});
@@ -135,4 +175,19 @@ public class CarManageAddPanel extends AddDocPanel {
 	private void  myInit() {
 		idT.setText("");plateNumT.setText("");useYearT.setText("");instidT.setText("");
 	}
+	
+	@Override
+	public void setAddOrModify(boolean isAdd, String id) {
+		isAddOrModify = isAdd;
+		idT.setEditable(isAdd);
+		
+		if(isAdd){
+			
+		}else{
+			idT.setText(id);
+		}
+		
+		
+	}
+	
 }

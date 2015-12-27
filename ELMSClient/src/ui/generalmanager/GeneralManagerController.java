@@ -2,12 +2,6 @@ package ui.generalmanager;
 
 import org.dom4j.Element;
 
-import bl.BusinessLogicDataFactory;
-import blservice.approvalblservice.Approvalblservice;
-import blservice.approvalblservice.Approvalblservice_Stub;
-import blservice.personnelblservice.Personnelblservice;
-import blservice.statisticblservice.Statisticblservice;
-import blservice.strategyblservice.StrategyblService;
 import ui.generalmanager.approval.ApprovalDocsPanel;
 import ui.generalmanager.constSet.ConstSetPanel;
 import ui.generalmanager.institution.InstManagePanel;
@@ -20,6 +14,11 @@ import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.MySideBarListener;
 import ui.util.PanelController;
+import bl.BusinessLogicDataFactory;
+import blservice.approvalblservice.Approvalblservice;
+import blservice.personnelblservice.Personnelblservice;
+import blservice.statisticblservice.Statisticblservice;
+import blservice.strategyblservice.StrategyblService;
 import config.StaticMessage;
 
 /**
@@ -109,7 +108,7 @@ public class GeneralManagerController extends PanelController {
 	@Override
 	protected void initPanel(Element e) {
 		GMmainpanel = new GeneralManagerMain(e.element(GMmainpanelStr) , this);
-		approvalPanel = new ApprovalDocsPanel(e.element(approvalPanelStr) , approvalBL);
+		approvalPanel = new ApprovalDocsPanel(e.element(approvalPanelStr) , approvalBL ,approvalPanelStr, changePanel);
 		constSetPanel = new ConstSetPanel(e.element(constSetPanelStr) , strategyblService);
 		statisticPanel = new StatisticPanel(e.element(statisticPanelStr) , statisticblservice);
 		instManagePanel = new InstManagePanel(e.element(instManagePanelStr), changePanel , personnelblservice);

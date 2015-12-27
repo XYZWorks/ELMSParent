@@ -4,25 +4,24 @@ import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
 
-import bl.storebl.StoreController;
-import blservice.storeblservice.StoreblService;
-import blservice.transportblservice.Transportblservice;
-import config.StaticMessage;
-import ui.storeman.arrivezz.ArriveZZTablePanel;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.util.CompomentType;
 import ui.util.PanelController;
+import ui.util.TipsDialog;
 import util.MyDate;
 import vo.store.InStoreDocVO;
+import bl.storebl.StoreController;
+import config.StaticMessage;
 
 /** 
  * @author ymc 
  * @version 创建时间：2015年12月3日 下午11:36:57 
  *
  */
+@SuppressWarnings("serial")
 public class InStorePanel extends MyPanel {
 	
 	StoreController bl;
@@ -115,6 +114,9 @@ public class InStorePanel extends MyPanel {
 				FullInPanel  refer = (FullInPanel) controller.getPanelMap().get(toPanel);
 				InStoreDocVO vo = getVO();
 				refer.setInStoreVO(vo);
+			}
+			else{
+				new TipsDialog("请选择一行查看");
 			}
 			
 			

@@ -60,6 +60,9 @@ public class MyDate implements Serializable{
 	}
 	
 	public static MyDate getDate(String date){
+		if(date == null || date.equals("")){
+			return MyDate.getNowTime();
+		}
 		String[] temp = date.split("-");
 		if(temp.length == 3){
 			return new MyDate(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), Integer.parseInt(temp[2]));
@@ -71,9 +74,9 @@ public class MyDate implements Serializable{
 	public boolean equals(MyDate date){
 		if(this.year!=date.year)
 			return false;
-		if(this.month!=date.year)
+		if(this.month!=date.month)
 			return false;
-		if(this.day!=date.year)
+		if(this.day!=date.day)
 			return false;
 		return true;
 		
@@ -92,6 +95,47 @@ public class MyDate implements Serializable{
 			System.err.println("得到当前时间出错");
 		}
 		return date;
+	}
+
+
+	public boolean between(MyDate past, MyDate nowDate) {
+		if(this.year>nowDate.year||this.year<past.year)
+			return false;
+		if(this.month>nowDate.month||this.year<past.month)
+			return false;
+		if(this.day>nowDate.day||this.day<past.day)
+			return false;
+		return true;
+	}
+	
+	
+	/**
+	 * 
+	 * 得到6位表示的日期
+	 * @param date
+	 * @return
+	 */
+	public static String getDatePart(MyDate date) {
+		
+		String d = MyDate.toString(date);
+		String[] spl = d.split("-");
+		
+		if(spl.length<3)
+			return null;
+		
+		String result = spl[0].substring(2, 4);
+		
+		if(spl[1].length()<2)
+			result = result+"0"+spl[1];
+		else {
+			result = result+spl[1];
+		}
+		if(spl[2].length()<2)
+			result = result+"0"+spl[2];
+		else {
+			result = result+spl[2];
+		}
+		return result;
 	}
 	
 }

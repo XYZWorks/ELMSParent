@@ -4,11 +4,12 @@ import bl.DTManagebl.DTManageController;
 import bl.accountbl.AccountController;
 import bl.approvalbl.ApprovalController;
 import bl.financebl.FinanceController;
-import bl.orderbl.orderbl_stub;
+import bl.orderbl.OrderController;
 import bl.personnelbl.PersonnelController;
 import bl.statisticbl.StatisticController;
 import bl.storebl.StoreController;
 import bl.strategybl.StrategyController;
+import bl.strategybl.strategybl_stub;
 import bl.transportbl.TransportController;
 import bl.userbl.UserController;
 import blservice.DTManageblservice.DTManageblservice;
@@ -87,6 +88,7 @@ public class BusinessLogicDataFactory {
 	
 	public StrategyblService getStrategyBusinessLogic(){
 		return new  StrategyController();
+//		return new strategybl_stub();
 	}
 	
 	public Personnelblservice getPersonnelBusinessLogic(){
@@ -99,9 +101,8 @@ public class BusinessLogicDataFactory {
 	
 
 	public Orderblservice getOrderBussinessLogic(){
-		//System.out.println("Factory!orderbussinesslogic");
-		return new orderbl_stub();
-	//	return new OrderController();
+		//return new orderbl_stub();
+		return new OrderController();
 	}
 	
 	public StrategyblService getStrategyBussinessLogic(){

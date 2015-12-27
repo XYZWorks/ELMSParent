@@ -12,6 +12,7 @@ import po.finance.PayPO;
 import po.finance.RentPO;
 import po.finance.SalaryPO;
 import util.CostType;
+import util.DocState;
 import util.MyDate;
 import util.ResultMessage;
 import util.StaffType;
@@ -72,7 +73,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while(result.next()){
-				pos.add(new PayPO(MyDate.getDate(result.getString(2)), Integer.parseInt(result.getString(3)), result.getString(4)));
+				pos.add(new PayPO(result.getString(1), MyDate.getDate(result.getString(2)), result.getString(3), Integer.parseInt(result.getString(4)), result.getString(5), Integer.parseInt(result.getString(6)), Integer.parseInt(result.getString(7)), Integer.parseInt(result.getString(8)) , DocState.valueOf(result.getString(9))));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -85,7 +86,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	}
 
 	public ResultMessage addPay(PayPO po) throws RemoteException {
-		return addToSQL(payTable, "0" , MyDate.toString(po.getTime()) , String.valueOf(po.getMoney()) , po.getType());
+		return addToSQL(payTable, po.getID()  , MyDate.toString(po.getTime()) , po.getAccount() , String.valueOf(po.getMoney()), String.valueOf(po.getMoney()) , po.getPerson() ,String.valueOf(po.getRent()) , String.valueOf(po.getFreight()) , String.valueOf(po.getSalary()) , po.getState().name());
 	}
 
 	public ArrayList<? extends CostPO> show(CostType type) throws RemoteException {
@@ -128,6 +129,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 									.parseInt(result.getString(4)), CostType
 									.valueOf(result.getString(5)), StaffType.valueOf(result
 											.getString(6))));
+					
 				}
 				break;
 			default:
@@ -137,7 +139,11 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 			e.printStackTrace();
 			return null;
 		}
-
+		costs.trimToSize();
+		System.err.println(costs.size());
+		for (CostPO costPO : costs) {
+			System.err.println(costPO.getID());
+		}
 		return costs.isEmpty() ? null : costs;
 
 	}
@@ -159,7 +165,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 			return addToSQL(salaryTable,spo.getID(), MyDate.toString(spo.getStartDate()),
 					MyDate.toString(spo.getEndDate()),
 					String.valueOf(spo.getMoney()), spo.getCostType().name(),
-					StaffType.getName(spo.getWorker()));
+					spo.getWorker().name());
 		default:
 			return ResultMessage.FAIL;
 		}
@@ -183,7 +189,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 			return modifyFromSQL(salaryTable, spo.getID(),MyDate.toString(spo.getStartDate()),
 					MyDate.toString(spo.getEndDate()),
 					String.valueOf(spo.getMoney()), spo.getCostType().name(),
-					StaffType.getName(spo.getWorker()));
+					spo.getWorker().name());
 		default:
 			return ResultMessage.FAIL;
 		}
@@ -235,6 +241,38 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	@Override
 	public ResultMessage addAccount(BankAccountPO vo) throws RemoteException{
 		return addToSQL(bankAccountTable, vo.getID() , vo.getPassword() , vo.getMoney());
+	}
+
+	@Override
+	public ResultMessage checkAccount(String iD, int money)
+			throws RemoteException {
+		
+		try {
+			sql = "SELECT id,money FROM " + bankAccountTable;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			int temp;
+			while(result.next()){
+				if(result.getString(1).equals(iD)){
+					if( (temp = Integer.parseInt(result.getString(2))) >= money){
+						sql = "UPDATE " + bankAccountTable + " SET money = \"" + String.valueOf(temp - money) + "\" WHERE id = " + "\"" + iD + "\"" ;  
+						preState = conn.prepareStatement(sql);
+						preState.execute();
+						return ResultMessage.SUCCESS;
+					}else{
+						return ResultMessage.MONEY_NOT_ENOUGH;
+					}
+					
+				}
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return ResultMessage.NOT_EXIST;
 	}
 
 	

@@ -1,20 +1,11 @@
 package ui.saleman.ArriveYYDoc;
 
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-
 import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import ui.config.DataType;
-import ui.config.SimpleDataFormat;
-import ui.config.UserfulMethod;
 import ui.tools.CheckDocPanel;
 import ui.tools.MyLabel;
-import ui.util.MyPictureButtonListener;
 import blservice.transportblservice.Transportblservice;
 /**
  * 接收单查看界面
@@ -37,6 +28,7 @@ public class ArriveYYDocCheckPanel extends CheckDocPanel{
 		myTable.bl = this.bl;
 		addPanel = (ArriveYYDocAddPanel) addDocPanel;
 		addPanel.bl = this.bl;
+		addPanel.reinit();
 		initTableContent();
 	}
 
@@ -52,7 +44,7 @@ public class ArriveYYDocCheckPanel extends CheckDocPanel{
 	@Override
 	protected void initialAddDocPanelAndTable(Element e) {
 		messageTable = new ArriveYYDocMesTable(e.element(tableStr));
-		addDocPanel = new ArriveYYDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr , messageTable);
+		addDocPanel = new ArriveYYDocAddPanel(e.element(addDocPanelStr), changePanel , checkDocPanelStr , messageTable , bl);
 		
 	}
 

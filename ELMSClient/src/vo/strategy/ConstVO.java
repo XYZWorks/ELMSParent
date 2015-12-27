@@ -1,4 +1,7 @@
 package vo.strategy;
+
+import util.City;
+
 /**
  * 常量VO类
  * @author czq
@@ -10,37 +13,37 @@ public class ConstVO {
 	/**
 	 * 北京、南京距离
 	 */
-	public int mileInBN;
+	public double mileInBN;
 	/**
 	 * 北京、上海距离
 	 */
-	public int mileInBS;
+	public double mileInBS;
 	/**
 	 * 北京、广州距离
 	 */
-	public int mileInBG;
+	public double mileInBG;
 	/**
 	 * 南京、上海距离
 	 */
-	public int mileInNS;
+	public double mileInNS;
 	/**
 	 * 南京、广州距离
 	 */
-	public int mileInNG;
+	public double mileInNG;
 	/**
 	 * 上海、广州距离
 	 */
-	public int mileINSG;
+	public double mileINSG;
 	/**
-	 * 飞机每公里价格
+	 * 飞机每公里每吨价格
 	 */
 	public double plane;
 	/**
-	 * 火车每公里价格
+	 * 火车每公里每吨价格
 	 */
 	public double train;
 	/**
-	 * 汽车每公里价格
+	 * 汽车每公里每吨价格
 	 */
 	public double truck;
 	/**
@@ -62,8 +65,8 @@ public class ConstVO {
 	public int[] ratios;
 	
 	public ConstVO() {}
-	public ConstVO( int mileInBN, int mileInBS, int mileInBG,
-			int mileInNS, int mileInNG, int mileINSG, double plane,
+	public ConstVO( double mileInBN, double mileInBS, double mileInBG,
+			double mileInNS, double mileInNG, double mileINSG, double plane,
 			double train, double truck, int paperBox, int woodBox,
 			int plasticBag,int[] ratios) {
 		super();
@@ -82,6 +85,33 @@ public class ConstVO {
 		this.plasticBag = plasticBag;
 	}
 	
+	public double getInstance(City one , City two) {
+		if(twoPlace(City.BEIJING, City.NANJING, one, two))
+			return mileInBN;
+		else if(twoPlace(City.BEIJING, City.SHANGHAI, one, two))
+			return mileInBS;
+		else if(twoPlace(City.BEIJING, City.GUANGZHOU, one, two))
+			return mileInBG;
+		else if(twoPlace(City.NANJING, City.SHANGHAI, one, two))
+			return mileInNS;
+		else if(twoPlace(City.NANJING, City.GUANGZHOU, one, two))
+			return mileInNG;
+		else if(twoPlace(City.SHANGHAI, City.GUANGZHOU, one, two))
+			return mileINSG;
+		else {
+			return 0;
+		}
+		
+	}
 	
+	private boolean twoPlace(City target1, City target2, City one, City two) {
+		if (target1 == one && target2 == two)
+			return true;
+
+		if (target1 == two && target2 == one)
+			return true;
+
+		return false;
+	}
 	
 }

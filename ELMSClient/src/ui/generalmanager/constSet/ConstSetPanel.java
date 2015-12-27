@@ -169,7 +169,7 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage {
 			trainc = trainCost.getText();
 			carc = truckCost.getText();
 			woodc = woodCost.getText();
-			plasticc = planeCost.getText();
+			plasticc = plasticCost.getText();
 			paperc = paperCost.getText();
 			fastc = fastT.getText();
 			normalc = normalT.getText();
@@ -212,12 +212,12 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage {
 		protected boolean saveToSQL() {
 			
 			switch (tempI) {
-			case 0:consts.mileInBN = Integer.parseInt(instancec);break;
-			case 1:consts.mileInBS = Integer.parseInt(instancec);break;
-			case 2:consts.mileInBG = Integer.parseInt(instancec);break;
-			case 3:consts.mileInNS = Integer.parseInt(instancec);break;
-			case 4:consts.mileInNG = Integer.parseInt(instancec);break;
-			case 5:consts.mileINSG = Integer.parseInt(instancec);break;
+			case 0:consts.mileInBN = Double.parseDouble(instancec);break;
+			case 1:consts.mileInBS = Double.parseDouble(instancec);break;
+			case 2:consts.mileInBG = Double.parseDouble(instancec);break;
+			case 3:consts.mileInNS = Double.parseDouble(instancec);break;
+			case 4:consts.mileInNG = Double.parseDouble(instancec);break;
+			case 5:consts.mileINSG = Double.parseDouble(instancec);break;
 			default:break;
 			}
 			
@@ -271,6 +271,7 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage {
 		}
 	}
 
+	@Override
 	public void allowTextFieldToModify(boolean flag) {
 		instance.setEditable(flag);
 		planeCost.setEditable(flag);
@@ -290,7 +291,7 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage {
 		@Override
 		public void itemStateChanged(ItemEvent e) {
 			if (((String) startCity.getSelectedItem())
-					.equals((String) arriveCity.getSelectedItem())) {
+					.equals(arriveCity.getSelectedItem())) {
 				instance.setText("0");
 				return;
 			}
@@ -417,7 +418,7 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage {
 		arriveCity.addItemListener(aListener);
 	}
 
-	private int instanceBetweenCity(String start, String end) {
+	private double instanceBetweenCity(String start, String end) {
 
 		for(int i = 0 ; i < 2 ; i++){
 			switch (start) {

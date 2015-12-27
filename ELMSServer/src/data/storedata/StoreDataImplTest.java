@@ -1,64 +1,31 @@
 package data.storedata;
 
-import static org.junit.Assert.fail;
-
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-
-import org.junit.Before;
 import org.junit.Test;
 
-import po.store.StoreMessagePO;
-import util.ResultMessage;
+import util.DocType;
+import util.MyDate;
+
 /** 
- * 
- * @author czq 
- * @version 2015年12月15日 下午10:53:40 
+ * @author ymc 
+ * @version 创建时间：2015年12月23日 下午4:25:32 
+ *
  */
 public class StoreDataImplTest {
-	StoreDataImpl test;
-	@Before
-	public void setUp() throws Exception {
-		test = new StoreDataImpl();
-	}
-	
-	@Test
-	public void testAddIn() {
-//		test.addIn(po);
-	}
 
-	@Test
-	public void testAddOut() {
-//		test.addOut(po);
-	}
-	
-	
-	
-	
-	@Test
-	public void testUpdate() {
-//		if(test.update(DataTool.getStoreMessagePO()) == ResultMessage.SUCCESS){
-//			return;
+//	@Test
+//	public void testInitial() {
+//		try {
+//			new StoreDataImpl().initial();
+//		} catch (RemoteException e) {
+//			e.printStackTrace();
 //		}
-//		fail();
-	}
-
+//		
+//		
+//	}
 	@Test
-	public void testGetStoreMessages() throws RemoteException {
-		ArrayList<StoreMessagePO> pos = test.getStoreMessages();
-		
-		
-		if(pos != null){
-			System.out.println(pos.size());
-			return;
-		}
-		
-		fail("Not yet implemented");
+	public void testGetDocCount() throws Exception{
+		System.out.println(new StoreDataImpl().getDayDocCount(DocType.inStoreDoc , MyDate.getNowTime()));;
 	}
-
-	@Test
-	public void testStoreCheck() {
-		fail("Not yet implemented");
-	}
-
+	
+	
 }

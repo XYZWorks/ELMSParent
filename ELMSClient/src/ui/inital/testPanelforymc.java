@@ -2,13 +2,10 @@ package ui.inital;
 
 import javax.swing.JFrame;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-
 import org.dom4j.Element;
 import org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper;
 
 import ui.config.ParseXML;
-import ui.generalmanager.constSet.ConstSetPanel;
 import ui.tools.MyFrame;
 
 /** 
@@ -19,6 +16,8 @@ import ui.tools.MyFrame;
 public class testPanelforymc extends MyFrame{
 
 	public testPanelforymc(Element e) {
+		
+	
 		super(e);
 		
 

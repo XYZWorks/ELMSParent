@@ -1,25 +1,33 @@
 package ui.storemanager.storecheck;
 
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
 import org.dom4j.Element;
 
 import bl.storebl.StoreController;
+import bl.storebl.StoreController;
 import ui.storemanager.instore.InStoreTablePanel;
 import ui.storemanager.outstore.OutStoreTablePanel;
-import ui.storemanager.storeshow.OrderInfoTable;
 import ui.storemanager.storeshow.StoreSingleShowPanel;
-import ui.tools.MyDatePicker;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
-import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
+import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
+import ui.util.TipsDialog;
 import util.MyDate;
+import util.ResultMessage;
+import vo.store.InStoreDocVO;
+import vo.store.OutStoreDocVO;
+import vo.store.StoreMessageVO;
 
 /** 
  * @author ymc 
  * @version 创建时间：2015年12月13日 下午3:54:03 
  *
  */
+@SuppressWarnings("serial")
 public class StoreCheckInfoPanel extends StoreSingleShowPanel {
 
 	public StoreCheckInfoPanel(Element config, StoreController bl, PanelController controller) {
@@ -90,9 +98,64 @@ public class StoreCheckInfoPanel extends StoreSingleShowPanel {
 
 	@Override
 	protected void addListener() {
-		
+		confirmButton.addMouseListener(new ExportListener(confirmButton));
 		returnButton.addMouseListener(new MyJumpListener(returnButton, "StoreCheckPanel", controller,true));
 
+	}
+	
+	class ExportListener extends MyPictureButtonListener{
+
+		public ExportListener(MyPictureButton button) {
+			super(button);
+			
+		}
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			super.mouseClicked(e);
+			ResultMessage result = bl.exportExcel("库存快照"+MyDate.toString(MyDate.getNowTime())+" "+center.getText()+storeNum.getText(), target);
+//			ResultMessage result = bl.exportExcel("库存快照"+MyDate.toString(MyDate.getNowTime()), target);
+
+			if(result==ResultMessage.SUCCESS)
+				new TipsDialog("导出excel成功");
+			else { 
+				new TipsDialog("导出excel失败");
+			}
+		}
+		
+	}
+	@Override
+	public void getInfo(String cen, String sto) {
+		center.setText(cen);
+		storeNum.setText(sto);
+		for (StoreMessageVO vo : bl.show()) {
+			if (cen.equals(vo.location.getName()) && sto.equals(vo.storeLoc.getStoreLocation()+"区")){
+				target = vo;
+				break;
+			}
+				
+		}
+		if(target!=null){
+			ins = new ArrayList<>();
+			outs = new ArrayList<>();
+			nowNum.setText("   "+String.valueOf(target.number));
+			ArrayList<InStoreDocVO> instmp = target.inStoreDocs;
+			ArrayList<OutStoreDocVO> outstmp = target.outStoreDocs;
+			for(InStoreDocVO in : instmp){
+				if(in.date.equals(nowDate))
+					ins.add(in);
+			}
+			target.inStoreDocs = ins;
+			
+			for(OutStoreDocVO out : outstmp){
+				if(out.date.equals(nowDate))
+					outs.add(out);
+			}
+			
+			target.outStoreDocs = outs;
+			inTable.resetValue(ins);
+			
+			outTable.resetValue(outs);
+		}
 	}
 
 }

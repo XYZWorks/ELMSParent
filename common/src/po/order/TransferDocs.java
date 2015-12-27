@@ -1,10 +1,18 @@
 package po.order;
- /** 
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+/** 
  * 订单流转过程中的单据信息
  * @author czq 
  * @version 2015年11月22日 下午12:27:00 
  */
-public class TransferDocs {
+public class TransferDocs implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 装车单
 	 */
@@ -28,19 +36,10 @@ public class TransferDocs {
 	private String arriveYYDoc;
 	private String sendGoodDoc;
 	
-	public TransferDocs(String loadDoc, String arriveZZDoc, String inStoreOneDoc, String outStoreOneDoc,
-			String transferDoc, String instoreTwoDoc, String outStoreTwoDoc, String arriveYYDoc, String sendGoodDoc) {
-		super();
-		this.loadDoc = loadDoc;
-		this.arriveZZDoc = arriveZZDoc;
-		this.inStoreOneDoc = inStoreOneDoc;
-		this.outStoreOneDoc = outStoreOneDoc;
-		this.transferDoc = transferDoc;
-		this.instoreTwoDoc = instoreTwoDoc;
-		this.outStoreTwoDoc = outStoreTwoDoc;
-		this.arriveYYDoc = arriveYYDoc;
-		this.sendGoodDoc = sendGoodDoc;
-	}
+	/**
+	 * 流转的所有编号
+	 */
+	private ArrayList<String> allDocs;
 
 	public String getLoadDoc() {
 		return loadDoc;
@@ -114,5 +113,33 @@ public class TransferDocs {
 		this.sendGoodDoc = sendGoodDoc;
 	}
 
+	public ArrayList<String> getAllDocs() {
+		return allDocs;
+	}
+
+	public void setAllDocs(ArrayList<String> allDocs) {
+		this.allDocs = allDocs;
+	}
+
+	public TransferDocs(String loadDoc, String arriveZZDoc, String inStoreOneDoc, String outStoreOneDoc,
+			String transferDoc, String instoreTwoDoc, String outStoreTwoDoc, String arriveYYDoc, String sendGoodDoc,
+			ArrayList<String> allDocs) {
+		super();
+		this.loadDoc = loadDoc;
+		this.arriveZZDoc = arriveZZDoc;
+		this.inStoreOneDoc = inStoreOneDoc;
+		this.outStoreOneDoc = outStoreOneDoc;
+		this.transferDoc = transferDoc;
+		this.instoreTwoDoc = instoreTwoDoc;
+		this.outStoreTwoDoc = outStoreTwoDoc;
+		this.arriveYYDoc = arriveYYDoc;
+		this.sendGoodDoc = sendGoodDoc;
+		this.allDocs = allDocs;
+	}
 	
-}
+	
+	
+	
+}	
+	
+	

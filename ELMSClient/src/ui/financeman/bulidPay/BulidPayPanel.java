@@ -1,8 +1,12 @@
 package ui.financeman.bulidPay;
 
+import java.awt.Color;
+
 import org.dom4j.Element;
 
-import ui.tools.MyComboBox;
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -12,6 +16,12 @@ import ui.tools.MyTextField;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
+import ui.util.TipsDialog;
+import util.DocState;
+import util.MyDate;
+import util.ResultMessage;
+import vo.finance.PayVO;
+import blservice.financeblservice.BankAccountBusinessService;
 import blservice.financeblservice.PayService;
 
 /**
@@ -24,25 +34,36 @@ import blservice.financeblservice.PayService;
 public class BulidPayPanel extends MyPanel {
 
 	private PayService payService;
-
+	private BankAccountBusinessService bankAccountBusinessService;
+	
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
-//	private MyPictureButton back;
-	
-	private PayTable table;
+
 	private MyLabel title;
-	
-	private MyPictureLabel time;
-	private MyPictureLabel type;
-	private MyPictureLabel money;
+
+	private MyPictureLabel idL;
+	private MyPictureLabel accountL;
+	private MyPictureLabel personL;
+	private MyPictureLabel dateL;
+	private MyPictureLabel moneyL;
+	private MyPictureLabel rentL;
+	private MyPictureLabel freightL;
+	private MyPictureLabel salaryL;
+
+	private MyTextField idT;
+	private MyTextField accountT;
+	private MyTextField personT;
+	private MyTextField moneyT;
+	private MyTextField rentT;
+	private MyTextField freightT;
+	private MyTextField salaryT;
 
 	private MyDatePicker datePicker;
-	private MyComboBox typeT;
-	private MyTextField moneyT;
 
-	public BulidPayPanel(Element config, PayService payService) {
+	public BulidPayPanel(Element config, PayService payService , BankAccountBusinessService bankAccountBusinessService) {
 		super(config);
 		this.payService = payService;
+		this.bankAccountBusinessService = bankAccountBusinessService;
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
@@ -56,98 +77,155 @@ public class BulidPayPanel extends MyPanel {
 	protected void initButtons(Element e) {
 		confirm = new MyPictureButton(e.element("confirm"));
 		cancel = new MyPictureButton(e.element("cancel"));
-//		back = new MyPictureButton(e.element("back"));
 	}
 
 	@Override
 	protected void initTextFields(Element e) {
-
+		idT = new MyTextField(e.element("id"));
+		accountT = new MyTextField(e.element("account"));
+		personT = new MyTextField(e.element("person"));
 		moneyT = new MyTextField(e.element("money"));
+		rentT = new MyTextField(e.element("rent"));
+		freightT = new MyTextField(e.element("freight"));
+		salaryT = new MyTextField(e.element("salary"));
 
 	}
 
 	@Override
 	protected void initLabels(Element e) {
-		money = new MyPictureLabel(e.element("money"));
-		type = new MyPictureLabel(e.element("password"));
-		time = new MyPictureLabel(e.element("time"));
-		title = new MyPictureLabel(e.element("title"));
+		title = new MyLabel(e.element("title"));
+
+		idL = new MyPictureLabel(e.element("id"));
+		accountL = new MyPictureLabel(e.element("account"));
+		personL = new MyPictureLabel(e.element("person"));
+		dateL = new MyPictureLabel(e.element("date"));
+		moneyL = new MyPictureLabel(e.element("money"));
+		rentL = new MyPictureLabel(e.element("rent"));
+		freightL = new MyPictureLabel(e.element("freight"));
+		salaryL = new MyPictureLabel(e.element("salary"));
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		typeT = new MyComboBox(e.element("type"));
 		datePicker = new MyDatePicker(e.element("datepicker"));
-		table = new PayTable(e.element("table") , payService);
 	}
 
 	@Override
 	protected void addCompoment() {
-		add(datePicker);
-//		add(back);
+
 		add(title);
 		add(cancel);
 		add(confirm);
-		add(money);
-		add(moneyT);
-		add(table);
-		add(time);
-		add(type);
-		add(typeT);
-		add(title);
 
+		add(accountL);
+		add(freightL);
+		add(rentL);
+		add(salaryL);
+		add(personL);
+		add(dateL);
+		add(idL);
+		add(moneyL);
+		add(personL);
+		add(accountT);
+		add(freightT);
+		add(rentT);
+		add(salaryT);
+		add(personT);
+		add(idT);
+		add(moneyT);
+		add(personT);
+		add(datePicker);
+		
 	}
 
 	@Override
 	protected void addListener() {
 		confirm.addMouseListener(new ConfirmListener(confirm) {
-			
+			String id;
+			String account;
+			MyDate date;
+			String money;
+			String person;
+			String rent;
+			String freight;
+			String salary;
+			PayVO vo;
+
 			@Override
 			protected boolean saveToSQL() {
-				return false;
-				// TODO Auto-generated method stub
-				
+				result = bankAccountBusinessService.checkAccount(account , Integer.parseInt(money));
+				if(result == ResultMessage.NOT_EXIST){
+					new TipsDialog("银行账户不存在！请您重新输入银行账户");
+					return false;
+				}else if(result == ResultMessage.MONEY_NOT_ENOUGH){
+					new TipsDialog("余额不足！请您重新输入银行账户");
+					return false;
+				}else{
+					result = payService.create(vo = new PayVO(id, date, account, Integer.parseInt(money), person, Integer.parseInt(rent), Integer.parseInt(freight), Integer.parseInt(salary) , DocState.wait));
+					if(result == ResultMessage.SUCCESS){
+						new TipsDialog("成功增加新增付款单", Color.GREEN);
+						return true;
+					}else{
+						new TipsDialog("未能成功增加到数据库");
+						System.err.println(result);
+						return false;
+					}
+					
+				}
 			}
-			
+
 			@Override
 			protected void reInitial() {
-				// TODO Auto-generated method stub
-				
+				myInit();
+
 			}
-			
+
 			@Override
 			protected boolean checkDataValid() {
-				// TODO Auto-generated method stub
-				return false;
+				id = idT.getText();
+				account = accountT.getText();
+				date = datePicker.getMyDate();
+				money = moneyT.getText();
+				person = personT.getText();
+				rent = rentT.getText();
+				freight = freightT.getText();
+				salary = salaryT.getText();
+				SimpleDataFormat[] datas = {
+						new SimpleDataFormat(id, DataType.ID, "ID"),
+						new SimpleDataFormat(account, DataType.bankAccount,
+								"银行账户"),
+						new SimpleDataFormat(money, DataType.PositiveNum, "总金额"),
+						new SimpleDataFormat(freight, DataType.PositiveNum,
+								"运费"),
+						new SimpleDataFormat(rent, DataType.PositiveNum, "租金") ,
+						new SimpleDataFormat(salary, DataType.PositiveNum, "人员工资")
+						};
+				return UserfulMethod.dealWithData(datas);
 			}
 
 			@Override
 			protected void updateMes() {
-				// TODO Auto-generated method stub
-				
+
 			}
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {
-			
+
 			@Override
 			public void resetMes() {
-				// TODO Auto-generated method stub
-				
+				myInit();
+
 			}
 		});
-//		back.addMouseListener(new MyPictureButtonListener(back){
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				super.mouseClicked(e);
-//				
-//			}
-//		});
 	}
-
+	
+	private void myInit() {
+		idT.setText("");accountT.setText("");moneyT.setText("");freightT.setText("");
+		rentT.setText("");salaryT.setText("");personT.setText("");
+	}
+	
+	
 	@Override
 	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

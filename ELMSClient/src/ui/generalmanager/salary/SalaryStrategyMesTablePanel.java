@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import blservice.strategyblservice.StrategyblService;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import vo.strategy.SalaryWayVO;
+import blservice.strategyblservice.StrategyblService;
  /** 
  * 薪水策略信息显示面板
  * @author czq 
@@ -45,8 +45,8 @@ public class SalaryStrategyMesTablePanel extends MyTablePanel{
 			SalaryWayVO vo;
 			for (int i = 0; i < vos.size(); i++) {
 				vo = vos.get(i);
-				data[i][0] = vo.type.name();
-				data[i][1] =  vo.way.name();
+				data[i][0] = vo.type.getName();
+				data[i][1] = vo.way.getName();
 				data[i][2] = String.valueOf(vo.basicSalary);
 				data[i][3] = String.valueOf(vo.moreMoney);
 			}

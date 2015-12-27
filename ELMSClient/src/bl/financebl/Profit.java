@@ -9,12 +9,11 @@ import ds.financedataservice.FinanceDataService;
  *
  */
 public class Profit {
-	FinanceDataService financebl;
+	FinanceDataService financeDate;
 	public Profit(FinanceDataService financeDataService) {
-		this.financebl = financeDataService;
+		this.financeDate = financeDataService;
 	}
 	public ProfitVO getMessage() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

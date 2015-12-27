@@ -8,6 +8,7 @@ import po.DocPO;
 import po.transport.ArriveYYDocPO;
 import po.transport.ArriveZZDocPO;
 import po.transport.LoadDocPO;
+import po.transport.PayDocPO;
 import po.transport.SendGoodDocPO;
 import po.transport.TransferDocPO;
 import util.City;
@@ -39,6 +40,8 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 	private final String arriveZZDocTable = "ArriveZZDoc";
 	
 	private final String arriveYYDocTable = "ArriveYYDoc";
+	
+	private final String payDocTable = "PayDoc";
 	
 	public TransportDataImpl() throws RemoteException {}
 	
@@ -217,6 +220,51 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 			return null;
 		}
 		return super.changeOneDocState(docID, temptable, state);
+	}
+
+	@Override
+	public ResultMessage addPayDoc(PayDocPO po) throws RemoteException {
+		return addToSQL(payDocTable	, po.getID() , MyDate.toString(po.getDate()) , po.getYYID() , String.valueOf(po.getMoney()) , po.getCourierName() , helper.tranFromArrayToString(po.getOrders()));
+	}
+
+	@Override
+	public ArrayList<PayDocPO> getPays() throws RemoteException {
+		ArrayList<PayDocPO> pos = new ArrayList<>();
+		try {
+			sql = "SELECT * FROM  " + payDocTable;
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			while (result.next()) {
+				pos.add(new PayDocPO(result.getString(1), Integer
+						.parseInt(result.getString(4)), result.getString(3),
+						MyDate.getDate(result.getString(2)), result
+								.getString(5), helper
+								.tranFromStringToArrayList(result.getString(6))));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return pos.isEmpty()?null:pos;
+	}
+
+	@Override
+	public int getDayDocCount(DocType type, MyDate date) throws RemoteException {
+		switch (type) {
+		case loadDoc:
+			return super.getDayDocCount(loadDocTable , date);
+		case arriveYYDoc:
+			return super.getDayDocCount(arriveYYDocTable, date);
+		case arriveZZDoc:
+			return super.getDayDocCount(arriveZZDocTable, date);
+		case transferDoc:
+			return super.getDayDocCount(transferDocTable, date);
+		case sendGoodDoc:
+			return super.getDayDocCount(sendGoodDocTable, date);
+		default:
+			System.err.println("单据类型错误，不能获得对应单据");
+			return -1;
+		}
 	}
 
 }

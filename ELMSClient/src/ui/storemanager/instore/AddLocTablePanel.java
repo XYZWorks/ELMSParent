@@ -12,6 +12,7 @@ import ui.table.MyTablePanel;
  * @version 创建时间：2015年12月8日 上午10:15:27
  *
  */
+@SuppressWarnings("serial")
 public class AddLocTablePanel extends MyTablePanel {
 
 	private static final int COLUMN_NUM = 5;
@@ -22,6 +23,7 @@ public class AddLocTablePanel extends MyTablePanel {
 
 	private ArrayList<String> locs;
 
+	private String[][] fullLocs;
 	public AddLocTablePanel(Element config) {
 		super(config);
 		initialTitleAndColumn(config);
@@ -45,7 +47,7 @@ public class AddLocTablePanel extends MyTablePanel {
 //			this.setColumnEdit(true, i);
 //		}
 	}
-
+	
 	@Override
 	public void updateTableMes() {
 		// TODO Auto-generated method stub
@@ -68,7 +70,13 @@ public class AddLocTablePanel extends MyTablePanel {
 		}
 		
 
-		table = new MyTable(columnNames, data);
+		table = new MyTable(columnNames, data){
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				
+				return true;
+			}
+		};
 
 	}
 	
@@ -105,4 +113,20 @@ public class AddLocTablePanel extends MyTablePanel {
 		
 		return locations;
 	}
+	
+	public String[][] getFullLocs() {
+		int index = 0;
+		for (; ((String)getValueAt(index, 0)).length()> 0; index++) ;
+		fullLocs = new String[index][4];
+		for(int i = 0;i<index;i++){
+			fullLocs[i][0] = (String) getValueAt(i, 1);
+			fullLocs[i][1] = (String) getValueAt(i, 2);
+			fullLocs[i][2] = (String) getValueAt(i, 3);
+			fullLocs[i][3] = (String) getValueAt(i, 4);
+		}
+		
+		return fullLocs;
+		
+	}
 }
+

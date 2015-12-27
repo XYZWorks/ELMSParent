@@ -17,11 +17,11 @@ import ui.util.PanelController;
  * @version 创建时间：2015年12月3日 上午11:48:28 
  *
  */
+@SuppressWarnings("serial")
 public class AlarmRecoverPanel extends StoreShowPanel {
 
 	public AlarmRecoverPanel(Element config ,StoreController bl, StoreManagerController controller) {
 		super(config, bl, controller);
-		// TODO Auto-generated constructor stub
 	}
 	@Override
 	protected void addListener() {

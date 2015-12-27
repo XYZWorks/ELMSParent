@@ -1,7 +1,7 @@
- package ui.login;
+package ui.login;
 
-import java.awt.Color;
-import java.awt.event.MouseAdapter;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JOptionPane;
@@ -11,243 +11,239 @@ import net.RMIManage;
 import org.dom4j.Element;
 
 import ui.common.CommonFrame;
-import ui.config.ParseXML;
 import ui.config.UserfulMethod;
 import ui.inital.mainFrame;
-import ui.tools.MyButton;
 import ui.tools.MyFrame;
-import ui.tools.MyLabel;
 import ui.tools.MyOptionPane;
 import ui.tools.MyPasswordField;
+import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
+import ui.util.MyPictureButtonListener;
 import util.FormatMes;
 import vo.account.AccountVO;
 import bl.BusinessLogicDataFactory;
 import blservice.usermesblservice.UserMesblservice;
 
-/** 
+/**
  * 
- * @author czq 
- * @version 2015年11月22日 下午11:50:27 
+ * @author czq
+ * @version 2015年11月22日 下午11:50:27
  */
 @SuppressWarnings("serial")
-public class LoginFrame extends MyFrame{
+public class LoginFrame extends MyFrame {
+
 	
 	private LoginPanel mainpanel;
+
+	private MyPictureButton closeButton;
+
+	private MyPictureButton login;
 	
-	private MyButton closeButton;
-	
-	private MyButton login;
-	
-	private MyButton checkOrder;
-	
-//	private MyCheckBox rememberMe;
-	
+	private MyPictureButton set;
+	// 查询订单
+	private MyPictureButton checkOrder;
+
+	// private MyCheckBox rememberMe;
+
 	private MyTextField userName;
-	
+
 	private MyPasswordField password;
-	
+
 	private UserMesblservice bl;
-	
+
 	private LoginFrame frame;
-	
+
 	private Element config;
 	
-	//普通用户查询订单
-	private MyLabel findOrderInfo;
+
 	
+
 	public LoginFrame(Element config) {
 		super(config);
-		this.config = config;
 		
-		if(RMIManage.netInit()){
+		
+		
+		
+		this.config = config;
+
+		if (RMIManage.netInit()) {
 			bl = BusinessLogicDataFactory.getFactory().getUserMesBusinessLogic();
 		}
-		
+
 		mainpanel = new LoginPanel();
-		this.setBackground(new Color(0, 0, 0, 0));
 
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextField(config.element(CompomentType.TEXTFIELDS.name()));
 		initLabel(config.element(CompomentType.LABELS.name()));
-		
+
 		initOtherCom(config);
 		config.attributeValue("width");
 		this.frame = this;
-		this.setContentPane(mainpanel);
+		
 		addCom();
 		addListener();
-		
-		this.validate();
-		this.repaint();
-		this.mainpanel.repaint();
+		this.setContentPane(mainpanel);
+//		this.validate();
+//		this.repaint();
+//		this.mainpanel.repaint();
 		this.setVisible(true);
 	}
-	
+
 	private void initLabel(Element config) {
-		findOrderInfo=new MyLabel(config.element("findOrderInfo"));
+
 	}
 
-	private void initButtons(Element config){
-		login = new MyButton(config.element("login"));
-		checkOrder = new MyButton(config.element("checkOrder"));
-		closeButton = new MyButton(config.element("close"));
+	private void initButtons(Element config) {
+		login = new MyPictureButton(config.element("login"));
+		checkOrder = new MyPictureButton(config.element("checkOrder"));
+		closeButton = new MyPictureButton(config.element("close"));
+		set = new MyPictureButton(config.element("set"));
 	}
-	
-	
-	
-	private void initTextField(Element config){
+
+	private void initTextField(Element config) {
 		userName = new MyTextField(config.element("userName"));
-		
+
 	}
-	
-	private void initOtherCom(Element config){
-		
-//		rememberMe = new MyCheckBox(config.element("rememberMe"));
+
+	private void initOtherCom(Element config) {
+
+		// rememberMe = new MyCheckBox(config.element("rememberMe"));
 		password = new MyPasswordField(config.element("password"));
-	}
 	
-	private void addCom(){
-		
+	}
+
+	private void addCom() {
+
 		mainpanel.setLayout(null);
 		mainpanel.add(userName);
 		mainpanel.add(password);
 		mainpanel.add(checkOrder);
 		mainpanel.add(login);
 		mainpanel.add(closeButton);
-//		mainpanel.add(rememberMe);
-		mainpanel.add(findOrderInfo);
+		mainpanel.add(set);
+		// mainpanel.add(rememberMe);
 		
-		
-	}
-	
-	private void  addListener(){
-		login.addMouseListener(new MyLoginListener());		
-		closeButton.addMouseListener(new MyCloseListener());
-		checkOrder.addMouseListener(new MyCheckOrderListener());
-		findOrderInfo.addMouseListener(new findOrderListener());
+
 	}
 
-class findOrderListener extends MouseAdapter{
-	@Override
-	 public void mouseClicked(MouseEvent e) {
-		//服务器未开启提示
-		if(RMIManage.netInit()){
-			bl = BusinessLogicDataFactory.getFactory().getUserMesBusinessLogic();
-		}else{
-			return;
-		}
-		
-		 //单独开启 普通查询人员的 frame
-		CommonFrame commonFrame=new CommonFrame(config.element("commonFrame"));
+	private void addListener() {
+		login.addMouseListener(new MyLoginListener(login));
+		closeButton.addMouseListener(new MyCloseListener(closeButton));
+		checkOrder.addMouseListener(new MyCheckOrderListener(checkOrder));
+		set.addMouseListener(new MyIPListener(set));
+		password.addKeyListener(new KeyAdapter() {
+			 public void keyPressed(KeyEvent e) {
+				 if(e.getKeyCode() == KeyEvent.VK_ENTER){
+					 dealWithChoose();
+				 }
+				 
+				 
+			 }
+		});
 	}
-}
 	
-	
-	
-class MyLoginListener extends MouseAdapter{
-	@Override
-	 public void mouseClicked(MouseEvent e) {
-		mainpanel.changeBG(6);
-		
+	private void dealWithChoose(){
+
 		String id = userName.getText();
 		String passwords = new String(password.getPassword());
 		FormatMes format;
 		format = UserfulMethod.checkID(id);
-		if(format == FormatMes.ILEGAL_CHAR){
-			new MyOptionPane(frame , "用户名有非法字符，请您重新输入~" , JOptionPane.INFORMATION_MESSAGE);
+		if (format == FormatMes.ILEGAL_CHAR) {
+			new MyOptionPane(frame, "用户名有非法字符，请您重新输入~", JOptionPane.INFORMATION_MESSAGE);
 			userName.setText("");
 			return;
-		} else if(format == FormatMes.WRONG_LENGTH){
-			new MyOptionPane(frame ,"用户名长度不足，请您重新输入~" , JOptionPane.INFORMATION_MESSAGE);
+		} else if (format == FormatMes.WRONG_LENGTH) {
+			new MyOptionPane(frame, "用户名长度不足，请您重新输入~", JOptionPane.INFORMATION_MESSAGE);
 			return;
-			
+
 		}
-		
-		if(RMIManage.netInit()){
+
+		if (RMIManage.netInit()) {
 			bl = BusinessLogicDataFactory.getFactory().getUserMesBusinessLogic();
-		}else{
+		} else {
 			return;
 		}
-		
-		
+
 		AccountVO vo;
 		vo = bl.login(new AccountVO(id, passwords, null));
-		 
-		
-		 
-		 
-		 
-		 
-		 
-		if( vo == null){
+
+		if (vo == null) {
 			new MyOptionPane(frame, "用户名或密码错误，请您重新输入");
-		}else{
+		} else {
 			System.out.println("登录成功，用户类型为 " + vo.type.name());
-			new mainFrame(config.getParent() , vo);
+			new mainFrame(config.getParent(), vo);
+			frame.dispose();
+		}
+	}
+	
+	
+	class MyIPListener extends MyPictureButtonListener{
+
+		public MyIPListener(MyPictureButton button) {
+			super(button);
+		}
+		
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			super.mouseClicked(e);
+			new SetIPPane(null);
 		}
 		
 	}
 	
-	@Override
-   public void mouseEntered(MouseEvent e) {
-		mainpanel.changeBG(5);
-		
-	}
-
-	@Override
-   public void mouseExited(MouseEvent e) {
-		mainpanel.changeBG(0);
-		
-	}
-}
-
-class MyCloseListener extends MouseAdapter{
-	@Override
-	 public void mouseClicked(MouseEvent e) {
-		frame.dispose();
-		System.exit(0);
-		mainpanel.changeBG(4);
-	}
 	
-	@Override
-    public void mouseEntered(MouseEvent e) {
-		mainpanel.changeBG(5);
+	class MyLoginListener extends MyPictureButtonListener {
+		
+		public MyLoginListener(MyPictureButton button) {
+			super(button);
+		}
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			super.mouseClicked(e);
+			dealWithChoose();
+		
+		}
+
+	}
+
+	class MyCloseListener extends MyPictureButtonListener {
+		public MyCloseListener(MyPictureButton button) {
+			super(button);
+		}
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			super.mouseClicked(e);
+			frame.dispose();
+			System.exit(0);
+		}
+
 		
 	}
 
-	@Override
-    public void mouseExited(MouseEvent e) {
-		
+	class MyCheckOrderListener extends MyPictureButtonListener {
+		public MyCheckOrderListener(MyPictureButton button) {
+			super(button);
+		}
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			super.mouseClicked(e);
+			
+			// 服务器未开启提示
+			if (RMIManage.netInit()) {
+				bl = BusinessLogicDataFactory.getFactory().getUserMesBusinessLogic();
+			} else {
+				return;
+			}
+			// 单独开启 普通查询人员的 frame
+			CommonFrame commonFrame = new CommonFrame(config.element("commonFrame"));
+			frame.dispose();
+		}
+
 		
 	}
 
-}
-class MyCheckOrderListener extends MouseAdapter{
-	@Override
-	 public void mouseClicked(MouseEvent e) {
-		
-		
-	}
-	
-	@Override
-   public void mouseEntered(MouseEvent e) {
-		
-		
-	}
-
-	@Override
-   public void mouseExited(MouseEvent e) {
-		
-		
-	}
-}
-
-
-public static void main(String[] args) {
-	//
-	ParseXML xmlReader = new ParseXML("xc.xml");
-	new LoginFrame(xmlReader.getConfig("loginframe"));
-}	
 }

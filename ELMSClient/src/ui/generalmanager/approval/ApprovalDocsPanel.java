@@ -1,15 +1,17 @@
 package ui.generalmanager.approval;
 
+import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
+
+import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
 import ui.tools.MyComboBox;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
-import ui.tools.MyPictureLabel;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
@@ -24,7 +26,6 @@ import blservice.approvalblservice.Approvalblservice;
 @SuppressWarnings("serial")
 public class ApprovalDocsPanel extends MyPanel{
 	
-//	private MyPictureLabel chooseDocType;
 	private MyComboBox DocTypeChooseBox;
 	
 	private DocSimpleInfoTable table;
@@ -35,16 +36,21 @@ public class ApprovalDocsPanel extends MyPanel{
 	 * 查看详细信息
 	 */
 	private MyPictureButton checkForMoreInfo;
+	static String approvalPanelStr;
 	
 	//持有其他单据查看界面的引用，这些界面可用于传入参数进行显示
 	
 	
-	
+	private DocType type = DocType.order;
 	private Approvalblservice bl;
+	private ApprovalDetailPanel approvalDetailPanel;
+	private JPanel changePanel;
 	
-	public ApprovalDocsPanel(Element config  , Approvalblservice bl) {
+	public ApprovalDocsPanel(Element config  , Approvalblservice bl, String approvalpanelstr , JPanel changePanel ) {
 		super(config);
 		this.bl = bl;
+		this.changePanel = changePanel;
+		approvalPanelStr = approvalpanelstr;
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
@@ -68,13 +74,13 @@ public class ApprovalDocsPanel extends MyPanel{
 
 	@Override
 	protected void initLabels(Element e) {
-//		chooseDocType = new MyPictureLabel(e.element("choose"));
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
 		table = new DocSimpleInfoTable(e.element("table"), bl , DocType.order);
 		DocTypeChooseBox = new MyComboBox(e.element("type"));
+		approvalDetailPanel = new ApprovalDetailPanel(e, changePanel);
 	}
 
 	@Override
@@ -84,8 +90,6 @@ public class ApprovalDocsPanel extends MyPanel{
 		add(approvalOne);
 		add(table);
 		add(checkForMoreInfo);
-//		add(chooseDocType);
-		
 	}
 
 	@Override
@@ -93,7 +97,7 @@ public class ApprovalDocsPanel extends MyPanel{
 		DocTypeChooseBox.addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
-				DocType type = DocType.getDocType((String) DocTypeChooseBox.getSelectedItem());
+				type = DocType.getDocType((String) DocTypeChooseBox.getSelectedItem());
 				if(type != null){
 					table.changeDocType(type);
 				}
@@ -128,6 +132,11 @@ public class ApprovalDocsPanel extends MyPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
+				if(table.getSelectedRow() == -1){
+					new TipsDialog("请选择一行数据" , Color.GREEN);
+					return;
+				}
+				approvalDetailPanel.jumpToDocPanel(table.getFullObjectMes(), type);
 				//跳转Panel
 			}
 		});

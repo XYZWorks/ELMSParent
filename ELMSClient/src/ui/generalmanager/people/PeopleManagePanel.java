@@ -1,28 +1,24 @@
 package ui.generalmanager.people;
 
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
 
-import blservice.personnelblservice.Personnelblservice;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
-import ui.table.MyTable;
+import ui.tools.MyCardLayOut;
 import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
-import ui.tools.MyPictureLabel;
 import ui.tools.MySearchBox;
-import ui.tools.MyTextField;
-import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
 import util.ResultMessage;
+import blservice.personnelblservice.Personnelblservice;
 
 /**
  * 人员管理，主要进入人员查看界面
@@ -46,7 +42,7 @@ public class PeopleManagePanel extends MyPanel{
 	
 	private boolean isModify = false;
 	
-	private CardLayout panelManager;
+	private MyCardLayOut panelManager;
 	
 	private Personnelblservice bl;
 	
@@ -57,7 +53,7 @@ public class PeopleManagePanel extends MyPanel{
 	private AddPeoplePanel addpeople;
 	
 	
-	public PeopleManagePanel(Element config , CardLayout panelManager ,Personnelblservice bl) {
+	public PeopleManagePanel(Element config , MyCardLayOut panelManager ,Personnelblservice bl) {
 		super(config);
 		this.bl = bl;
 		this.panelManager = panelManager;

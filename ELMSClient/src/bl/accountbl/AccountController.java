@@ -1,46 +1,99 @@
 package bl.accountbl;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
-import net.RMIManage;
-import ds.accountdataservice.AccountDataService;
+import net.RMIServiceFactory;
 import util.DataServiceType;
 import util.ResultMessage;
 import vo.account.AccountVO;
+import bl.BusinessController;
 import blservice.accountblservice.Accountblservice;
- /** 
+import ds.accountdataservice.AccountDataService;
+import exception.ExceptionHandler;
+
+/**
  * 
- * @author czq 
- * @version 2015年11月15日 上午9:15:28 
+ * @author czq
+ * @version 2015年11月15日 上午9:15:28
  */
-public class AccountController implements Accountblservice{
-	
+public class AccountController extends BusinessController implements
+		Accountblservice {
+
 	private Account account;
-	private AccountDataService accountDataService ;
-	public AccountController(){
-		
-		accountDataService = (AccountDataService) RMIManage.getDataService(DataServiceType.AccountDataService);
-		account=new Account(accountDataService);
+	private AccountDataService accountDataService;
+
+	public AccountController() {
+		myType = DataServiceType.AccountDataService;
+		accountDataService = RMIServiceFactory.accountDataService;
+		account = new Account(accountDataService);
 	}
-	
+
+	@Override
 	public ResultMessage add(AccountVO vo) {
-		return account.add(vo);
+		try {
+			return account.add(vo);
+		} catch (Exception e) {
+			if (ExceptionHandler.myExceptionHandler(myType, this)) {
+				return add(vo);
+			}
+		}
+		return ResultMessage.FAIL;
 	}
 
-	public ResultMessage delete(String ID ){
-		return account.delete(ID);
+	@Override
+	public ResultMessage delete(String ID) {
+		try {
+			return account.delete(ID);
+		} catch (Exception e) {
+			if (ExceptionHandler.myExceptionHandler(myType, this)) {
+				return delete(ID);
+			}
+		}
+		return ResultMessage.FAIL;
 	}
 
+	@Override
 	public AccountVO find(String ID) {
-		return account.find(ID);
+		try {
+			return account.find(ID);
+		} catch (Exception e) {
+			if (ExceptionHandler.myExceptionHandler(myType, this)) {
+				return find(ID);
+			}
+		}
+		return null;
 	}
 
+	@Override
 	public ResultMessage modify(AccountVO vo) {
-		return account.modify(vo);
+		try {
+			return account.modify(vo);
+		} catch (Exception e) {
+			if (ExceptionHandler.myExceptionHandler(myType, this)) {
+				return modify(vo);
+			}
+		}
+		return ResultMessage.FAIL;
 	}
 
+	@Override
 	public ArrayList<AccountVO> show() {
-		return account.show();
+		try {
+			return account.show();
+		} catch (Exception e) {
+			if (ExceptionHandler.myExceptionHandler(myType, this)) {
+				return show();
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public void reinitDataService(Remote dataService) {
+		accountDataService = (AccountDataService) dataService;
+		account = new Account(accountDataService);
+
 	}
 
 }

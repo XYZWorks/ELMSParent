@@ -1,13 +1,13 @@
 package ui.storeman.arrivezz;
 
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-import javax.management.relation.RelationNotification;
+import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import blservice.transportblservice.Transportblservice;
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
@@ -18,14 +18,17 @@ import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
-import ui.util.MyPictureButtonListener;
+import ui.util.DocPanelForApproval;
+import ui.util.MyBackListener;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
 import util.City;
+import util.DocType;
 import util.GoodsState;
 import util.MyDate;
 import util.ResultMessage;
 import vo.transport.ArriveZZDocVO;
+import blservice.transportblservice.Transportblservice;
 
 /**
  * 到达单
@@ -33,7 +36,8 @@ import vo.transport.ArriveZZDocVO;
  * @author 
  *
  */
-public class ArriveZZDocAdd extends MyPanel {
+@SuppressWarnings("serial")
+public class ArriveZZDocAdd extends MyPanel implements DocPanelForApproval{
 
 	
 	private MyPictureButton confirmButton;
@@ -58,6 +62,7 @@ public class ArriveZZDocAdd extends MyPanel {
 	private MyDatePicker picker;
 	PanelController controller;
 	Transportblservice bl;
+	
 
 	public ArriveZZDocAdd(Element config, Transportblservice bl, PanelController controller) {
 		super(config);
@@ -70,6 +75,11 @@ public class ArriveZZDocAdd extends MyPanel {
 
 		initOtherCompoment(config);
 		addCompoment();
+		//单据审批界面传进来的是空指针= =
+		if(controller == null){
+			return;
+		}
+		
 		addListener();
 	}
 
@@ -89,7 +99,12 @@ public class ArriveZZDocAdd extends MyPanel {
 	@Override
 	protected void initTextFields(Element e) {
 		IDT = new MyTextField(e.element("ID"));
-		
+		if(controller != null){//为了审批单据
+			IDT.setText("DDD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.arriveZZDoc)));
+		}
+	
+		IDT.setEditable(false);
+
 		centerT = new MyTextField(e.element("center"));
 
 		ordersT = new MyTextField(e.element("orders"));
@@ -146,9 +161,11 @@ public class ArriveZZDocAdd extends MyPanel {
 		returnButton.addMouseListener(new MyJumpListener(returnButton, "ArriveZZPanel", controller,true));
 
 	}
+	
+	
 
 	class MyAddListener extends ConfirmListener {
-
+		ArriveZZDocVO vo;
 		public MyAddListener(MyPictureButton button, Transportblservice bl) {
 			super(button);
 		}
@@ -156,7 +173,7 @@ public class ArriveZZDocAdd extends MyPanel {
 
 		@Override
 		protected void reInitial() {
-			IDT.setText("");
+			IDT.setText("DDD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.arriveZZDoc)));
 			centerT.setText("");
 			ordersT.setText("");
 	
@@ -171,12 +188,6 @@ public class ArriveZZDocAdd extends MyPanel {
 
 		@Override
 		protected boolean checkDataValid() {
-			
-			return true;
-		}
-
-		@Override
-		protected boolean saveToSQL() {
 			String ID = IDT.getText();
 			String zzID = centerT.getText();
 			MyDate myDate = picker.getMyDate();
@@ -184,9 +195,20 @@ public class ArriveZZDocAdd extends MyPanel {
 			GoodsState goodsState = GoodsState.toGoodState(goodStateC.getSelectedItem().toString());
 			
 			ArrayList<String> orders = UserfulMethod.stringToArray(ordersT.getText());
-		
+			SimpleDataFormat[] datas = new SimpleDataFormat[orders.size()+1];
+			datas[0] = new SimpleDataFormat(zzID, DataType.ID, "中转中心编号");
+			for (int i = 1; i < orders.size()+1; i++) {
+				datas[i] = new SimpleDataFormat(orders.get(i-1), DataType.BarCode, "订单号");
+			}
+			vo = new ArriveZZDocVO(ID, myDate, zzID, sendCity, goodsState, orders);
+			return UserfulMethod.dealWithData(datas);
+		}
+
+		@Override
+		protected boolean saveToSQL() {
+
 			
-			ResultMessage result = bl.add(new ArriveZZDocVO(ID, myDate, zzID, sendCity, goodsState, orders));
+			ResultMessage result = bl.add(vo);
 			if(result ==ResultMessage.SUCCESS)
 				showSuccess();
 			return true;
@@ -198,5 +220,40 @@ public class ArriveZZDocAdd extends MyPanel {
 			ArriveZZPanel aPanel = (ArriveZZPanel) controller.getPanelMap().get("ArriveZZPanel");
 			aPanel.arriveZZTablePanel.updateTableMes();
 		}
+	}
+
+	@Override
+	public void setAllCompUneditOrUnVisiable() {
+		IDT.setEditable(false);
+		centerT.setEditable(false);
+		goodStateC.setEnabled(false);
+		sendCityC.setEnabled(false);
+		ordersT.setEnabled(false);
+		
+		confirmButton.setVisible(false);
+		returnButton.setVisible(false);
+		
+	}
+
+	@Override
+	public void addBackButton(JPanel changePanel, String backStr) {
+		MyPictureButton back = new MyPictureButton();
+		add(back);
+		back.addMouseListener(new MyBackListener(back, changePanel, backStr));
+	}
+	
+	@Override
+	public void setMessage(Object o) {
+		if(o == null){
+			return;
+		}
+		ArriveZZDocVO vo = (ArriveZZDocVO) o;
+		IDT.setText(vo.ID);
+		centerT.setText(vo.zZID);
+		goodStateC.setSelectedItem(vo.goodState.getName());
+		sendCityC.setSelectedItem(vo.sendCity.getName());
+		picker.setTime(vo.date);
+		ordersT.setText(UserfulMethod.orderArrayToString(vo.orderBarCodes));
+		
 	}
 }

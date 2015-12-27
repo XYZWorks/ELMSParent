@@ -11,6 +11,7 @@ import blservice.financeblservice.BankAccountBusinessService;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
+import ui.tools.MyCardLayOut;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
@@ -44,7 +45,7 @@ public class AddBankAccountPanel extends MyPanel{
 	private BankAccountBusinessService bl;
 	
 	private JPanel changePanel;
-	private CardLayout layout;
+	private MyCardLayOut layout;
 	private final String bankAccountStr = "BankAccountManagePanel";
 	private boolean addOrModify = true;
 	private BankAccountTable table;
@@ -53,7 +54,7 @@ public class AddBankAccountPanel extends MyPanel{
 		super(config);
 		this.bl = bl;
 		this.changePanel = changePanel;
-		this.layout = (CardLayout) changePanel.getLayout();
+		this.layout = (MyCardLayOut) changePanel.getLayout();
 		this.table = table;
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
@@ -167,7 +168,7 @@ public class AddBankAccountPanel extends MyPanel{
 			@Override
 			protected void updateMes() {
 				String[] data = {id , money , password};
- 				table.addOneRow(data);
+// 				table.addon
 			}
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {

@@ -3,10 +3,10 @@ package bl.statisticbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bl.VOPOchange;
 import po.statistic.BillPO;
 import po.statistic.CostIncomePO;
 import po.statistic.StateFormPO;
-import test.java.other.VOPOchange;
 import util.ResultMessage;
 import vo.statistic.BillVO;
 import vo.statistic.CostIncomeVO;
@@ -20,44 +20,28 @@ import ds.statisticdataservice.StatisticDataService;
  */
 public class Statistic {
 	private StatisticDataService statisticData;
-	private ResultMessage result = null;
 	public Statistic(StatisticDataService statisticData) {
 		this.statisticData = statisticData;
 	}
-	public ResultMessage bulidStateForm(StateFormVO vo) {
+	public ResultMessage bulidStateForm(StateFormVO vo) throws RemoteException {
 		
 		StateFormPO po = (StateFormPO) VOPOchange.VOtoPO(vo);
-		
-		try {
-			result = statisticData.bulidStateForm(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return result;
+		return statisticData.bulidStateForm(po);
 	}
 
-	public ResultMessage bulidCostIncomeForm(CostIncomeVO vo) {
+	public ResultMessage bulidCostIncomeForm(CostIncomeVO vo) throws RemoteException {
 		
 		CostIncomePO po = (CostIncomePO) VOPOchange.VOtoPO(vo);
 		
-		try {
-			result = statisticData.CostIncomeForm(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return result;
+		return statisticData.CostIncomeForm(po);
 	}
 
-	public ArrayList<StateFormVO> getStateForm() {
+	public ArrayList<StateFormVO> getStateForm() throws RemoteException {
 		
 		ArrayList<StateFormPO> pos = new ArrayList<StateFormPO>();
 		
 		
-		try {
 			pos = statisticData.getStateForm();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 		if(pos == null){
 			return null;
 		}
@@ -70,15 +54,11 @@ public class Statistic {
 		return vos;
 	}
 
-	public ArrayList<CostIncomeVO> getIncomeForm() {
+	public ArrayList<CostIncomeVO> getIncomeForm() throws RemoteException {
 
 		ArrayList<CostIncomePO> pos = new ArrayList<CostIncomePO>();
 		
-		try {
 			pos = statisticData.getCostIncomeForm();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 		
 		if(pos == null){
 			return null;
@@ -90,27 +70,18 @@ public class Statistic {
 		return vos;	
 	}
 
-	public ResultMessage bulidBill(BillVO vo) {
+	public ResultMessage bulidBill(BillVO vo) throws RemoteException {
 		BillPO po = (BillPO) VOPOchange.VOtoPO(vo);
 		
-		try {
-			result = statisticData.bulidBill(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return result;
+		return statisticData.bulidBill(po);
 	}
 
-	public ArrayList<BillVO> getBills() {
+	public ArrayList<BillVO> getBills() throws RemoteException {
 		
 		ArrayList<BillPO> pos = new ArrayList<BillPO>();
 		
 		
-		try {
 			pos = statisticData.getBills();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 		
 		if(pos == null){
 			return null;

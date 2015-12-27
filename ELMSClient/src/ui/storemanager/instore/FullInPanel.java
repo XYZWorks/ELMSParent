@@ -1,25 +1,30 @@
 package ui.storemanager.instore;
 
+import javax.swing.JPanel;
+
 import org.dom4j.Element;
 
-import bl.storebl.StoreController;
 import ui.storemanager.StoreManagerController;
-import ui.table.MyTablePanel;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.util.CompomentType;
+import ui.util.DocPanelForApproval;
+import ui.util.MyBackListener;
 import ui.util.PanelController;
 import util.MyDate;
 import vo.store.InStoreDocVO;
+import bl.storebl.StoreController;
 
 /** 
  * @author ymc 
  * @version 创建时间：2015年12月6日 下午3:37:55 
  *
  */
-public class FullInPanel extends MyPanel {
+
+public class FullInPanel extends MyPanel implements DocPanelForApproval {
+
 	
 	MyPictureButton returnButton;
 	
@@ -124,6 +129,26 @@ public class FullInPanel extends MyPanel {
 		locInfoTable.locs = vo.location;
 		locInfoTable.reset();
 		
+	}
+
+	@Override
+	public void setAllCompUneditOrUnVisiable() {
+		returnButton.setVisible(false);
+		
+	}
+
+	@Override
+	public void addBackButton(JPanel changePanel, String backStr) {
+		MyPictureButton back = new MyPictureButton();
+		add(back);
+		back.addMouseListener(new MyBackListener(back, changePanel, backStr));
+	}
+	
+
+	@Override
+	public void setMessage(Object vo) {
+		this.vo = (InStoreDocVO) vo;
+		initValue();
 	}
 
 }

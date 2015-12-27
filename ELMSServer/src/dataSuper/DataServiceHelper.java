@@ -252,6 +252,9 @@ public class DataServiceHelper {
 				e.printStackTrace();
 			}
 			e1.printStackTrace();
+		}catch (EOFException e) {
+			System.err.println("WARNING: 账单文件丢失");
+			return null;
 		}
 		catch (IOException e1) {
 			e1.printStackTrace();

@@ -1,34 +1,31 @@
 package ui.storemanager.instore;
 
-import java.sql.Date;
 import java.util.ArrayList;
-
-import javax.swing.JScrollPane;
 
 import org.dom4j.Element;
 
-import ui.config.UserfulMethod;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
-import ui.tools.MyButton;
-import ui.tools.MyLabel;
-import util.MyDate;
-import vo.store.InStoreDocVO;
+
 
 /** 
  * @author ymc 
  * @version 创建时间：2015年12月8日 上午11:12:09 
  *
  */
-public class ShowLocTablePanel extends MyTablePanel {
+
+public class ShowLocTablePanel extends MyTablePanel{
+
+
+
 	
-	private static final int COLUMN_NUM = 5;
+	protected static final int COLUMN_NUM = 5;
 
 //	private static final int ROW_NUM = 15;
 	
-	ArrayList<String> orders;
+	protected ArrayList<String> orders;
 	
-	ArrayList<String> locs;
+	protected ArrayList<String> locs;
 	
 	public ShowLocTablePanel(Element config) {
 		
@@ -70,10 +67,11 @@ public class ShowLocTablePanel extends MyTablePanel {
 
 	public void reset() {
 		//清空table
-		for(int i = 0;i<table.getRowCount();i++){
-			for(int j = 0;j<COLUMN_NUM ; j++)
-				table.setValueAt("", i, j);
-		}
+//		for(int i = 0;i<table.getRowCount();i++){
+//			for(int j = 0;j<COLUMN_NUM ; j++)
+//				table.setValueAt("", i, j);
+//		}
+		removeAllRows();
 		
 		//将增加table的行数
 		Object[] tmp = {"","","","",""};	
@@ -97,5 +95,7 @@ public class ShowLocTablePanel extends MyTablePanel {
 		}
 		
 	}
+
+	
 
 }

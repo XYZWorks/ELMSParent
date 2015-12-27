@@ -1,9 +1,7 @@
 package ui.tools;
 
-import java.awt.CardLayout;
 import java.awt.event.MouseEvent;
 
-import config.StaticMessage;
 import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
 
@@ -15,7 +13,7 @@ import ui.util.PanelController;
 public class MyJumpListener extends MyPictureButtonListener{
 	protected PanelController controller;
 	
-	protected CardLayout layout;
+	protected MyCardLayOut layout;
 	
 	protected String toPanel;
 	
@@ -24,8 +22,10 @@ public class MyJumpListener extends MyPictureButtonListener{
 	public MyJumpListener(MyPictureButton button, String toPanel, PanelController controller,boolean isVisable) {
 		super(button);
 		this.toPanel = toPanel;
-		this.controller = controller;
-		this.layout = controller.getCardLayout();
+		if(controller!=null){
+			this.controller = controller;
+			this.layout = controller.getCardLayout();
+		}
 		this.isVisable = isVisable;
 	}
 	

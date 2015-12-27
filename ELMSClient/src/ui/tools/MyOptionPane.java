@@ -11,12 +11,12 @@ import javax.swing.JOptionPane;
 public class MyOptionPane extends JOptionPane {
 	public MyOptionPane(JFrame parent , String message) {
 		super(message);
-		MyOptionPane.showMessageDialog(parent, message);
+		JOptionPane.showMessageDialog(parent, message);
 	}
 	public MyOptionPane(JFrame parent , String message , int chooseType){
 //		super(message, messageType);
 		super(message, JOptionPane.INFORMATION_MESSAGE, chooseType);
-		MyOptionPane.showMessageDialog(parent, message, "" , messageType);
+		JOptionPane.showMessageDialog(parent, message, "" , messageType);
 		
 	}
 	

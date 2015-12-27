@@ -21,6 +21,7 @@ import blservice.financeblservice.DepositService;
 import blservice.financeblservice.PayService;
 import blservice.financeblservice.ProfitService;
 import blservice.statisticblservice.Statisticblservice;
+import blservice.transportblservice.Transportblservice;
 import config.StaticMessage;
  /** 
  * 财务管理人员控制器类
@@ -38,7 +39,7 @@ public class FinanceController extends PanelController {
 	
 	private MyPanel financeMain;
 	
-	private MyPanel financeApprovalPanel;
+	private FinanceApprovalPanel financeApprovalPanel;
 	private MyPanel bulidBillPanel;
 	private MyPanel bankAccountManagePanel;
 	private MyPanel costManagePanel;
@@ -59,6 +60,7 @@ public class FinanceController extends PanelController {
 	private ProfitService profitService;
 	private PayService payService;
 	private Statisticblservice statisticblservice;
+	private Transportblservice transportblservice;
 	
 	
 	public FinanceController(MyPanel initialPanel, Element e) {
@@ -77,6 +79,7 @@ public class FinanceController extends PanelController {
 	
 	@Override
 	protected void initialBL() {
+		transportblservice = BusinessLogicDataFactory.getFactory().getTransportblservice();
 		bankAccountService = BusinessLogicDataFactory.getFactory().getBankAccountService();
 		costService = BusinessLogicDataFactory.getFactory().getCostService();
 		depositService = BusinessLogicDataFactory.getFactory().getDepositService();
@@ -89,12 +92,12 @@ public class FinanceController extends PanelController {
 	@Override
 	protected void initPanel(Element e) {
 		financeMain = new FinanceMain(e.element(financeMainStr) , this);
-		financeApprovalPanel = new FinanceApprovalPanel(e.element(finaceApprovalStr));
+		financeApprovalPanel = new FinanceApprovalPanel(e.element(finaceApprovalStr), changePanel, finaceApprovalStr, "ShowPayDoc", transportblservice);
 		bulidBillPanel = new BulidBillPanel(e.element(bulidBillStr) , statisticblservice , changePanel);
 		bankAccountManagePanel = new BankAccountManagePanel(e.element(bankAccountStr) , bankAccountService , changePanel);
 		costManagePanel = new CostManagePanel(e.element(costManageStr) , costService, changePanel , costManageStr);
 		bulidStateFromPanel = new BulidStateFormPanel(e.element(bulidStateFormStr) , statisticblservice);
-		bulidPayPanel = new BulidPayPanel(e.element(bulidPayStr) , payService);
+		bulidPayPanel = new BulidPayPanel(e.element(bulidPayStr) , payService, bankAccountService);
 	}
 
 	@Override

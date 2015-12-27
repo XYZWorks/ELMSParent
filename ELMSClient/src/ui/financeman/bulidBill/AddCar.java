@@ -11,6 +11,7 @@ import org.dom4j.Element;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
+import ui.tools.MyCardLayOut;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
@@ -48,7 +49,7 @@ public class AddCar extends MyPanel{
 	 */
 	private MyPictureButton back;
 	
-	private CardLayout panelManager;
+	private MyCardLayOut panelManager;
 	private JPanel changePanel;
 	private BulidBillPanel mainPanel;
 	
@@ -149,12 +150,14 @@ public class AddCar extends MyPanel{
 			}
 		});
 		cancel.addMouseListener(new CancelListener(cancel) {
+			@Override
 			public void resetMes() {
 				myInit();
 				
 			}
 		});
 		back.addMouseListener(new MyPictureButtonListener(back){
+			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
 				panelManager.show(changePanel, BulidBillPanel.bulidBillStr);

@@ -1,16 +1,27 @@
 package ui.financeman.approval;
 
+import java.awt.Color;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JPanel;
+
 import org.dom4j.Element;
 
-import ui.tools.MyDatePicker;
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
+import ui.saleman.PayDoc.PayDocAddPanel;
+import ui.saleman.PayDoc.PayDocMesTable;
+import ui.tools.CheckDocPanel;
 import ui.tools.MyLabel;
-import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
-import ui.tools.MyTextField;
-import ui.util.CancelListener;
-import ui.util.CompomentType;
 import ui.util.ConfirmListener;
+import ui.util.MyPictureButtonListener;
+import ui.util.TipsDialog;
+import blservice.transportblservice.Transportblservice;
 
 /**
  * 财务人员的交易审核界面
@@ -18,83 +29,74 @@ import ui.util.ConfirmListener;
  *
  */
 @SuppressWarnings("serial")
-public class FinanceApprovalPanel extends MyPanel{
+public class FinanceApprovalPanel extends CheckDocPanel{
 	
-	private MyPictureButton confirm;
-	private MyPictureButton cancel;
+	private MyPictureButton approval;
 	
 	private MyLabel title;
-	private MyPictureLabel time;
-	private MyPictureLabel person;
-	private MyPictureLabel money;
-	private MyPictureLabel company;
 	
-	private MyDatePicker datePicker;
-	private MyTextField name;
-	private MyTextField moneyT;
-	private MyTextField companyT;
+	private Transportblservice bl;
 	
+	private PayDocAddPanel myAddPanel;
 	
+	private PayDocMesTable myTable;
 	
-	public FinanceApprovalPanel(Element config) {
-		super(config);
-		initButtons(config.element(CompomentType.BUTTONS.name()));
-		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
-		initOtherCompoment(config);
-		initLabels(config.element(CompomentType.LABELS.name()));
-		addCompoment();
+	public FinanceApprovalPanel(Element config , JPanel changePanel , String MainPanel , String detailName , Transportblservice bl) {
+		super(config, changePanel, MainPanel, detailName);
+		this.bl = bl;
+		myTable = (PayDocMesTable) messageTable;
+		myTable.bl = this.bl;
+		myAddPanel = (PayDocAddPanel) addDocPanel;
+		myAddPanel.bl = this.bl;
+		initTableContent();
 		addListener();
-		
+		myAddPanel.setAllCompUneditOrUnVisiable();
 	}
 
-	@Override
-	protected void initButtons(Element e) {
-		confirm = new MyPictureButton(e.element("confirm"));
-		cancel = new MyPictureButton(e.element("cancel"));
-		
-	}
 
-	@Override
-	protected void initTextFields(Element e) {
-		name = new MyTextField(e.element("name"));
-		moneyT = new MyTextField(e.element("money"));
-		companyT = new MyTextField(e.element("company"));
-		
-	}
 
-	@Override
-	protected void initLabels(Element e) {
-		time = new MyPictureLabel(e.element("time"));
-		person = new MyPictureLabel(e.element("person"));
-		money = new MyPictureLabel(e.element("money"));
-		company = new MyPictureLabel(e.element("company"));
-		title = new MyPictureLabel(e.element("title"));
-	}
 
-	@Override
-	protected void initOtherCompoment(Element e) {
-		datePicker = new MyDatePicker(e.element("date"));
-		
-	}
 
-	@Override
-	protected void addCompoment() {
-		add(time);
-		add(datePicker);
-		add(companyT);
-		add(company);
-		add(cancel);
-		add(confirm);
-		add(person);
-		add(name);
-		add(money);
-		add(moneyT);
-		add(title);
-	}
 
 	@Override
 	protected void addListener() {
-		confirm.addMouseListener(new ConfirmListener(confirm) {
+		addDoc.addMouseListener(new MyPictureButtonListener(addDoc){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				if(myTable.getSelectedRow() == -1){
+					new TipsDialog("请选择一行数据", Color.GREEN);
+					return;
+				}else{
+					myAddPanel.setMessage(myTable.getARowMes(myTable.getSelectedRow()));
+					jumpToADD();
+				}
+				
+			}
+		});
+		searchBox.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				super.keyPressed(e);
+				if(e.getKeyCode() == KeyEvent.VK_ENTER){
+					if(UserfulMethod.dealWithData(new SimpleDataFormat(searchBox.getMyText() , DataType.ID , "ID"))){
+						messageTable.searchID(searchBox.getMyText());
+					}
+				}
+				
+			}
+		});
+		
+		search.addMouseListener(new MyPictureButtonListener(search){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				if(UserfulMethod.dealWithData(new SimpleDataFormat(searchBox.getMyText() , DataType.ID , "ID"))){
+					messageTable.searchID(searchBox.getMyText());
+				}
+			}
+		});
+		approval.addMouseListener(new ConfirmListener(approval) {
 			
 			@Override
 			protected boolean saveToSQL() {
@@ -121,17 +123,26 @@ public class FinanceApprovalPanel extends MyPanel{
 				
 			}
 		});
-		cancel.addMouseListener(new CancelListener(cancel) {
-			
-			@Override
-			public void resetMes() {
-				// TODO Auto-generated method stub
-				
-			}
-		});
+	}
+
+
+	@Override
+	protected void initialAddDocPanelAndTable(Element e) {
+		messageTable = new PayDocMesTable(e.element("table"));
+		addDocPanel = new PayDocAddPanel(e.element("payDocShowPanelAddPanel"), changePanel, checkDocPanelStr, messageTable);
+		
 	}
 
 	@Override
-	protected void initWhitePanels(Element e) {}
+	protected void initialDifferComp(Element e) {
+		approval = new MyPictureButton(e.element("approval"));
+		title = new MyPictureLabel(e.element("title"));
+	}
+
+	@Override
+	protected void addDifferComp() {
+		add(approval);
+		add(title);
+	}
 
 }

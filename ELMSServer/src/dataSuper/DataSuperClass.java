@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import util.DocState;
+import util.MyDate;
 import util.ResultMessage;
 
 import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
@@ -65,7 +66,7 @@ public abstract class DataSuperClass extends UnicastRemoteObject {
 		SQLmap.put("inst", helper.bulidSQL("inst", 3, "id" , "location" , "type"));
 		SQLmap.put("car",helper.bulidSQL("car", 4, "id" , "instid", "plateNum" , "useYear") );
 		SQLmap.put("driver", helper.bulidSQL("driver", 8, "id", "name" , "birthday" ,  "instid" ,"idCard" , "phoneNum" , "isman" , "licenseYear" ));
-		SQLmap.put("myorder", helper.bulidSQL("myorder" , 33 , "id" , "type" , "date" , "state" , "senderName" , "senderPhone" ,"senderCompany" , "senderAddress" , "receiverName" , "receiverPhone" , "receiverCompany" , "receiverAddress" , "goodNum" , "goodName" , "goodWeight" , "goodLong" , "goodWidth" , "goodHeight" , "goodPack" , "orderForm" , "orderEestiTime" , "orderCost" , "loadDoc" , "arriveZZDoc" ,"inStoreOneDoc" , "outStoreOneDoc", "transferDoc" , "instoreTwoDoc" , "outStoreTwoDoc","arriveYYDoc" , "sendGoodDoc" ,"realReceiver" ,"orderReceiveDate"));
+		SQLmap.put("myorder", helper.bulidSQL("myorder" , 34 , "id" , "type" , "date" , "state" , "senderName" , "senderPhone" ,"senderCompany" , "senderAddress" , "receiverName" , "receiverPhone" , "receiverCompany" , "receiverAddress" , "goodNum" , "goodName" , "goodWeight" , "goodLong" , "goodWidth" , "goodHeight" , "goodPack" , "orderForm" , "orderstartdate", "orderEestiTime" , "orderCost" , "loadDoc" , "arriveZZDoc" ,"inStoreOneDoc" , "outStoreOneDoc", "transferDoc" , "instoreTwoDoc" , "outStoreTwoDoc","arriveYYDoc" , "sendGoodDoc" ,"realReceiver" ,"orderReceiveDate"));
 		SQLmap.put("salary", helper.bulidSQL("salary", 4, "type" , "basicSalary" , "moreMoney" , "way"));
 		SQLmap.put("LoadDoc", helper.bulidSQL("LoadDoc", 11 , "id", "type" , "date" , "state", "YYID" , "LoadDocID" ,"arriveCity" ,"carID" ,"Supervisor" ,"Escort" , "orderBarCodes"));
 		SQLmap.put("SendGoodDoc", helper.bulidSQL("SendGoodDoc", 7,  "id", "type" , "date" , "state", "sendMan" , "orderBarCode" ,"sendCity"));
@@ -75,15 +76,15 @@ public abstract class DataSuperClass extends UnicastRemoteObject {
 		SQLmap.put("InStoreDoc", helper.bulidSQL("InStoreDoc", 7, "id", "type" , "date", "state" , "orderPOs" , "loc" ,"location" ));
 		SQLmap.put("OutStoreDoc", helper.bulidSQL("OutStoreDoc", 8, "id", "type" , "date", "state" , "orderPOs" , "loc" ,"transferDoc" ,"shipWay" ));
 		SQLmap.put("BankAccount", helper.bulidSQL("BankAccount", 3, "id" , "password" , "money"));
-		
+		SQLmap.put("PayDoc", helper.bulidSQL("PayDoc", 6, "id" , "date" , "yyid" , "money" ,"courier" ,"orders"));
 		
 		SQLmap.put("StateForm", helper.bulidSQL("StateForm", 4, "startDate" , "endDate" , "deposits" ,"pays"));
 		SQLmap.put("CostIncomeForm", helper.bulidSQL("CostIncomeForm", 4, "income" , "expense" , "startDate" , "endDate"));
 		SQLmap.put("bill", helper.bulidSQL("bill", 5, "finaceMan" , "date" , "instituations" , "persons" ,"cars" ));
 		SQLmap.put("deposit", helper.bulidSQL("deposit", 3, "id" ,"date" , "money"));
-		SQLmap.put("pay", helper.bulidSQL("pay", 4 , "id" , "time" , "money" , "type"));
+		SQLmap.put("pay", helper.bulidSQL("pay", 9 , "id" , "time" , "account", "money" , "person" , "rent" , "freight" , "salary" , "state"));
 		SQLmap.put("rent", helper.bulidSQL("rent", 5, "id","startDate" , "endDate" , "money" , "type" ,"costType"));
-		SQLmap.put("frieght", helper.bulidSQL("frieght", 5, "id","startDate" , "endDate" , "money"  ,"costType"));
+		SQLmap.put("freight", helper.bulidSQL("freight", 5, "id","startDate" , "endDate" , "money"  ,"costType"));
 		SQLmap.put("salarycost", helper.bulidSQL("salarycost", 6,"id", "startDate" , "endDate" , "money"  ,"costType" , "worker"));
 		SQLmap.put("StoreCheck", helper.bulidSQL("StoreCheck", 6, "date" , "location" , "storeLoc" , "number" , "total", "inStoreDocs" ,"outStoreDocs"));
 		SQLmap.put("alarm", helper.bulidSQL("alarm", 2, "city" , "value"));
@@ -117,6 +118,7 @@ public abstract class DataSuperClass extends UnicastRemoteObject {
 			}
 			affectRows = preState.executeUpdate();
 		} catch(MySQLIntegrityConstraintViolationException e){
+			e.printStackTrace();
 			return ResultMessage.hasExist;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -330,7 +332,42 @@ public abstract class DataSuperClass extends UnicastRemoteObject {
 		return ResultMessage.FAIL;
 	}
 
-
+	protected int  getDayDocCount(String tableName, MyDate date) {
+		try {
+			sql = "SELECT id from " + tableName + " ORDER BY `id` DESC";
+			preState = conn.prepareStatement(sql);
+			result = preState.executeQuery();
+			String nowDate = MyDate.getDatePart(date);
+			while (result.next()) {
+				
+				String id = result.getString(1);
+				if(id.length() == 10){
+				}else if(id.length() == 16){
+					if(id.substring(3, 9).equals(nowDate)){
+						
+						try {
+							return Integer.parseInt(id.substring(id.length() - 7)) + 1;
+						} catch (Exception e) {
+							return -1;
+						}
+					}else{
+						return 1;
+					}
+					
+					
+					
+				}
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 1 ;
+	}
+	
+	
 
 	/**
 	 * 仅供测试

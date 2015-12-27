@@ -2,31 +2,40 @@ package ui.courier.FindFullInfo;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
+import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import blservice.orderblservice.Orderblservice;
 import po.order.GoodMes;
 import po.order.OtherOrderMes;
 import po.order.PeopleMes;
 import po.order.TransferDocs;
+import ui.courier.CourierController;
 import ui.tools.MyDatePicker;
-import ui.tools.MyLabel;
 import ui.tools.MyLabel;
 import ui.tools.MyPanelWithScroller;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
+import ui.tools.MyTextArea;
 import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
+import ui.util.DocPanelForApproval;
+import ui.util.MyBackListener;
 import ui.util.TipsDialog;
+import util.DocType;
 import util.ResultMessage;
+import vo.order.OrderSimpleInfoVO;
 import vo.order.OrderVO;
+import blservice.orderblservice.Orderblservice;
 
 @SuppressWarnings("serial")
-public class FindFullOrderInfoPanel extends MyPanelWithScroller {
+public class FindFullOrderInfoPanel extends MyPanelWithScroller implements DocPanelForApproval {
 
 	// bl
 	private Orderblservice orderblservice;
+	private CourierController controller;
 
 	// 白色矩形panel
 	private MyWhitePanel senderInfoPanel;
@@ -52,13 +61,13 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 	private MyPictureLabel senderInfo;
 	private MyLabel senderNameLabel;
 	private MyLabel senderPhoneLabel;
-	private MyLabel senderAddressLabel;
 	private MyLabel senderUnitLabel;
+	private MyLabel senderAddressLabel;
 
 	private MyLabel senderNameText;
 	private MyLabel senderPhoneText;
-	private MyLabel senderAddressText;
 	private MyLabel senderUnitText;
+	private MyTextArea senderAddressText;
 
 	// 收件人信息
 	private MyPictureLabel receiverInfo;
@@ -69,8 +78,8 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 
 	private MyLabel receiverNameText;
 	private MyLabel receiverPhoneText;
-	private MyLabel receiverAddressText;
 	private MyLabel receiverUnitText;
+	private MyTextArea receiverAddressText;
 
 	// 货物信息
 	private MyPictureLabel goodsInfo;
@@ -78,8 +87,6 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 	private MyLabel goodWeightLabel;
 	private MyLabel goodNumLabel;
 	private MyLabel goodVolumLabel;// 体积
-	private MyLabel goodPackLabel;// 包装形式
-	private MyLabel orderFormLabel;// 快递形式
 
 	private MyLabel goodNameText;
 	private MyLabel goodNumText;
@@ -90,15 +97,17 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 
 	// 预计送达时间
 	private MyPictureLabel estimateTime;
+	private MyLabel estimateTimeText;
 
 	// 费用总计
 	private MyPictureLabel cost;
+	private MyLabel costText;
 
 	// 包装形式
-	private MyLabel goodPack;
+	private MyLabel goodPackLabel;
 	private MyLabel goodPackText;
 	// 快递形式
-	private MyLabel orderForm;
+	private MyLabel orderFormLabel;
 	private MyLabel orderFormText;
 
 	// 标题栏：物流信息
@@ -138,28 +147,24 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 	private OtherOrderMes otherMes;
 	private TransferDocs transferDocs;
 
-	public FindFullOrderInfoPanel(Element config, Orderblservice orderblservice, String BarCode) {
+	private ArrayList<String> transfer;
+
+	public FindFullOrderInfoPanel(Element config, Orderblservice orderblservice, CourierController controller) {
 		super(config);
 
 		this.orderblservice = orderblservice;
-		
+		this.controller = controller;
+
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initOtherCompoment(config);
 		initLabels(config.element(CompomentType.LABELS.name()));
-		
-		this.BarCode = BarCode;
-		orderBarCodeLabel.setText(BarCode);
 
-		getData();
-		readData();
-		
 		addCompoment();
 		addListener();
 		setVisible(true);
-		
-		
+
 	}
 
 	@Override
@@ -186,8 +191,8 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 
 		senderNameText = new MyLabel(e.element("senderNameText"));
 		senderPhoneText = new MyLabel(e.element("senderPhoneText"));
-		senderAddressText = new MyLabel(e.element("senderAddressText"));
 		senderUnitText = new MyLabel(e.element("senderUnitText"));
+		senderAddressText = new MyTextArea(e.element("senderAddressText"));
 
 		// 收件人信息
 		receiverInfo = new MyPictureLabel(e.element("receiverInfo"));
@@ -198,8 +203,8 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 
 		receiverNameText = new MyLabel(e.element("receiverNameText"));
 		receiverPhoneText = new MyLabel(e.element("receiverPhoneText"));
-		receiverAddressText = new MyLabel(e.element("receiverAddressText"));
 		receiverUnitText = new MyLabel(e.element("receiverUnitText"));
+		receiverAddressText = new MyTextArea(e.element("receiverAddressText"));
 
 		// 货物信息
 		goodsInfo = new MyPictureLabel(e.element("goodsInfo"));
@@ -207,8 +212,6 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		goodWeightLabel = new MyLabel(e.element("goodWeightLabel"));
 		goodNumLabel = new MyLabel(e.element("goodNumLabel"));
 		goodVolumLabel = new MyLabel(e.element("goodVolumLabel"));
-		goodPackLabel = new MyLabel(e.element("goodPackLabel"));
-		orderFormLabel = new MyLabel(e.element("orderFormLabel"));
 
 		goodNameText = new MyLabel(e.element("goodNameText"));
 		goodNumText = new MyLabel(e.element("goodNumText"));
@@ -218,16 +221,18 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		goodHeightText = new MyLabel(e.element("goodHeightText"));
 
 		// 其他信息
-		goodPack = new MyLabel(e.element("goodPack"));
+		goodPackLabel = new MyLabel(e.element("goodPackLabel"));
+		orderFormLabel = new MyLabel(e.element("orderFormLabel"));
 		goodPackText = new MyLabel(e.element("goodPackText"));
-		orderForm = new MyLabel(e.element("orderForm"));
 		orderFormText = new MyLabel(e.element("orderFormText"));
 
 		// 预计时间
 		estimateTime = new MyPictureLabel(e.element("estimateTime"));
+		estimateTimeText=new MyLabel(e.element("estimateTimeText"));
 
 		// 费用
 		cost = new MyPictureLabel(e.element("cost"));
+		costText=new MyLabel(e.element("costText"));
 
 		// 流转信息
 		transferInfo = new MyPictureLabel(e.element("transferInfo"));
@@ -321,10 +326,13 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		goodInfoPanel.add(orderFormLabel);
 
 		goodInfoPanel.add(goodNameText);
+		goodInfoPanel.add(goodNumText);
 		goodInfoPanel.add(goodWeightText);
 		goodInfoPanel.add(goodLongText);
 		goodInfoPanel.add(goodWidthText);
 		goodInfoPanel.add(goodHeightText);
+		goodInfoPanel.add(orderFormText);
+		goodInfoPanel.add(goodPackText);
 
 		transferInfoPanel.add(transferInfo);
 
@@ -354,7 +362,10 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		transferInfoPanel.add(tenText);
 
 		this.add(estimateTime);
+		this.add(estimateTimeText);
+		
 		this.add(cost);
+		this.add(costText);
 
 	}
 
@@ -363,115 +374,169 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller {
 		delete.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ResultMessage result=orderblservice.del(BarCode);
-				//是否是删除失败就显示 fail
-				if(result==ResultMessage.FAIL){
-					 TipsDialog notDelete=new TipsDialog("货物已经装车 无法删除");
-				}
-				else if(result==ResultMessage.SUCCESS){
-					
-				}
-				
+				ResultMessage result = orderblservice.del(BarCode);
+				// 是否是删除失败就显示 fail
+//				if (result == ResultMessage.FAIL) {
+//					TipsDialog notDelete = new TipsDialog("货物已经装车 订单无法删除");
+//				} else if (result == ResultMessage.SUCCESS) {
+					//TODO MyOptionPane myOptionPane=new MyOptionPane(parent, "确定要删除改订单？");
+					TipsDialog Delete = new TipsDialog("订单删除成功");
+					controller.getCardLayout().show(controller.getChangePanel(), "showInfoPanel");
+				//}
 			}
 		});
 
+		returnToPrevious.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				controller.getCardLayout().show(controller.getChangePanel(), "showInfoPanel");
+			}
+		});
 	}
 
-	public void getData() {
-		orderVO = orderblservice.getFullInfo(orderBarCodeLabel.getText());
+	public void readInfo(String BarCode) {
+		this.BarCode = BarCode;
+		orderBarCodeLabel.setText(BarCode);
+		// System.out.println("barcode"+BarCode);
+
+		getData(BarCode);
+		readData();
+	}
+
+	public void getData(String BarCode) {
+		if(orderblservice != null){
+			orderVO = orderblservice.getFullInfo(BarCode);
+		}
+		
 		sender = orderVO.sender;
 		receiver = orderVO.receiver;
 		goodMes = orderVO.goodMes;
 		otherMes = orderVO.otherMes;
 		transferDocs = orderVO.transferDocs;
-
+		transfer = transferDocs.getAllDocs();
 	}
 
 	public void readData() {
 		// 读取收件人信息
 		senderNameText.setText(sender.getName());
 		senderPhoneText.setText(sender.getPhone());
-		senderAddressText.setText(sender.getPhone());
+		senderAddressText.setText(sender.getAddress());
 		senderUnitText.setText(sender.getCompany());
 
 		// 读取寄件人信息
 		receiverNameText.setText(receiver.getName());
 		receiverPhoneText.setText(receiver.getPhone());
-		receiverAddressText.setText(receiver.getPhone());
+		receiverAddressText.setText(receiver.getAddress());
 		receiverUnitText.setText(receiver.getCompany());
 
 		// 读取货物信息
 		goodNameText.setText(goodMes.getGoodName());
 		goodNumText.setText(String.valueOf(goodMes.getGoodNum()));
-		goodWeightText.setText(String.valueOf(goodMes.getGoodWeight()));
-		goodLongText.setText(String.valueOf(goodMes.getGoodLong()));
-		goodWidthText.setText(String.valueOf(goodMes.getGoodWidth()));
-		goodHeightText.setText(String.valueOf(goodMes.getGoodHeight()));
+		goodWeightText.setText(String.valueOf(goodMes.getGoodWeight()) + "kg");
+		goodLongText.setText("长" + String.valueOf(goodMes.getGoodLong()) + "cm");
+		goodWidthText.setText("宽" + String.valueOf(goodMes.getGoodWidth()) + "cm");
+		goodHeightText.setText("高" + String.valueOf(goodMes.getGoodHeight()) + "cm");
 
 		// 读取其他信息
 		goodPackText.setText(otherMes.getGoodPack());
 		orderFormText.setText(otherMes.getOrderForm());
+		
+		costText.setText(String.valueOf(otherMes.getOrderCost()));
+		estimateTimeText.setText(String.valueOf(otherMes.getOrderEestiTime()));
+
+		// 读取流转信息
+		if(orderblservice != null){
+			setTransferInfo();
+		}
+		
+
+	}
+	
+	public void setTransferInfo() {
+		// 依次读取物流信息：地点＋时间
+		ArrayList<OrderSimpleInfoVO> info = orderblservice.getSimpleInfo(BarCode);
+		int length = info.size();
+
+		MyLabel[] place = { one, two, three, four, five, six, seven, eight, nine, ten };
+		MyLabel[] time = { oneText, twoText, threeText, fourText, fiveText, sixText, sevenText, eightText, nineText,
+				tenText };
+		for (int i = 0; i < length; i++) {
+			//详细信息的单据号
+			String transferCode=transfer.get(i);
+			//复用简易信息里的时间和地点
+			place[i].setText(transferCode+processPlace(info.get(i).place, info.get(i).type, i));
+			time[i].setText(processTime(info.get(i).time));
+		}
+
+		// 如果流转信息不超过5个，右边栏点点不会出现
+		if (length <= 5) {
+			LineRight.setVisible(false);
+		} else {
+			LineRight.setVisible(true);
+		}
+		
 	}
 
-	// MyLabel[] place = { one, two, three, four, five, six, seven, eight, nine,
-	// ten };
-	// MyLabel[] time = { oneText, twoText, threeText, fourText, fiveText,
-	// sixText, sevenText, eightText, nineText,
-	// tenText };
-	// for (int i = 0; i < length; i++) {
-	// place[i].setText(processPlace(info.get(i).place, info.get(i).type, i));
-	//
-	// time[i].setText(processTime(info.get(i).time));
-	// }
-	//
-	// // 如果流转信息不超过5个，右边栏点点不会出现
-	// if (length <= 5) {
-	// LineRight.setVisible(false);
-	// } else {
-	// LineRight.setVisible(true);
-	// }
-	//
-	// }
-	//
-	// private String processPlace(String place, DocType type, int i) {
-	// String result = null;
-	// switch (type) {
-	// // 装车单
-	// case loadDoc:
-	// result = "快件已被成功装车，送往"+place+"中转中心";
-	// break;
-	// // 中转中心到达单
-	// case arriveZZDoc:
-	// result = "快递已到达["+place+"中转中心]";
-	// break;
-	// // 入库单
-	// case inStoreDoc:
-	// result = "快递已入库["+place+"中转中心]";
-	// break;
-	// // 出库单
-	// case outStoreDoc:
-	// result = "快递已出库["+place+"中转中心]";
-	// break;
-	// // 接受单
-	// case arriveYYDoc:
-	// result = "快件已到达[" +place+"营业厅]";
-	// break;
-	// // 派送单
-	// case sendGoodDoc:
-	// result = "快递正在被快递员："+place+" 派送";
-	// break;
-	// default:
-	// break;
-	// }
-	// return result;
-	// }
-	//
-	// private String processTime(String time) {
-	// String[] origin = time.split("-");
-	// // 转化格式：年－月－日 时：分：秒
-	// String after = origin[0] + "-" + origin[1] + "-" + origin[2] + " " +
-	// origin[3] + ":" + origin[4] + ":"
-	// + origin[5];
-	// return after;
-	// }
+
+	private String processPlace(String place, DocType type, int i) {
+		String result = null;
+		switch (type) {
+		// 装车单
+		case loadDoc:
+			result = "快件已被成功装车，送往" + place + "中转中心";
+			break;
+		// 中转中心到达单
+		case arriveZZDoc:
+			result = "快递已到达[" + place + "中转中心]";
+			break;
+		// 入库单
+		case inStoreDoc:
+			result = "快递已入库[" + place + "中转中心]";
+			break;
+		// 出库单
+		case outStoreDoc:
+			result = "快递已出库[" + place + "中转中心]";
+			break;
+		// 接受单
+		case arriveYYDoc:
+			result = "快件已到达[" + place + "营业厅]";
+			break;
+		// 派送单
+		case sendGoodDoc:
+			result = "快递正在被快递员：" + place + " 派送";
+			break;
+		default:
+			break;
+		}
+		return result;
+	}
+
+	private String processTime(String time) {
+		String[] origin = time.split("-");
+		// 转化格式：年－月－日 时：分：秒
+		String after = origin[0] + "-" + origin[1] + "-" + origin[2] + " " + origin[3] + ":" + origin[4] + ":"
+				+ origin[5];
+		return after;
+	}
+
+	@Override
+	public void setAllCompUneditOrUnVisiable() {
+		//启用新的返回键
+		returnToPrevious.setVisible(false);
+		
+	}
+
+	@Override
+	public void addBackButton(JPanel changePanel, String backStr) {
+		MyPictureButton back = new MyPictureButton();
+		back.addMouseListener(new MyBackListener(back, changePanel, backStr));
+		add(back);
+	}
+
+	@Override
+	public void setMessage(Object o) {
+		orderVO = (OrderVO) o;
+		getData(null);
+		readData();
+	}
 }

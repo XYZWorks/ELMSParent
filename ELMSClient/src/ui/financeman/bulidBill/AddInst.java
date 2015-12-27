@@ -10,6 +10,7 @@ import org.dom4j.Element;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
+import ui.tools.MyCardLayOut;
 import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -42,7 +43,7 @@ public class AddInst extends MyPanel{
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
 	
-	private CardLayout panelManager;
+	private MyCardLayOut panelManager;
 	private JPanel changePanel;
 	private BulidBillPanel mainPanel;
 	InstVO vo;

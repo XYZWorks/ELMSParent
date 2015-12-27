@@ -1,6 +1,6 @@
 package ui.tools;
 
-import java.awt.Window.Type;
+import java.awt.Rectangle;
 
 import javax.swing.JComboBox;
 
@@ -13,12 +13,16 @@ import org.dom4j.Element;
 @SuppressWarnings("serial")
 public class MyComboBox extends JComboBox<String> {
 	
-	
+	public MyComboBox(Rectangle r) {
+		this.setBounds(r);
+		this.setEditable(false);
+	}
 	public MyComboBox(Element config) {
 		this.setBounds(Integer.parseInt(config.attributeValue("x")),
 				Integer.parseInt(config.attributeValue("y")),
 				Integer.parseInt(config.attributeValue("width")),
 				Integer.parseInt(config.attributeValue("height")));
+		this.setEditable(false);
 		String[] strs = config.attributeValue("strings").split(" ");
 		for (String string : strs) {
 			this.addItem(string);

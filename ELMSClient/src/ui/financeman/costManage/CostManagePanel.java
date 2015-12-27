@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.tools.MyCardLayOut;
 import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -31,15 +32,15 @@ import blservice.financeblservice.CostService;
 @SuppressWarnings("serial")
 public class CostManagePanel extends MyPanel {
 	JPanel changePanel;
-	CardLayout panelManager;
+	MyCardLayOut panelManager;
 	CostService costService;
 	final static String addCostPanelStr = "addCostPanel";
 	final static String costManageStr = "CostManagePanel";
 
 	private CostAddPanel addCostPanel;
-	private CostMesTable freightTable;
-	private CostMesTable rentTable;
-	private CostMesTable salaryTable;
+	CostMesTable freightTable;
+	CostMesTable rentTable;
+	CostMesTable salaryTable;
 	private CostMesTable nowTable;
 	// 成本信息管理标题
 	private MyLabel title;
@@ -56,7 +57,7 @@ public class CostManagePanel extends MyPanel {
 		super(config);
 		this.costService = costService;
 		this.changePanel = changePanel;
-		this.panelManager = (CardLayout) changePanel.getLayout();
+		this.panelManager = (MyCardLayOut) changePanel.getLayout();
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		initOtherCompoment(config);
@@ -95,7 +96,7 @@ public class CostManagePanel extends MyPanel {
 	protected void initOtherCompoment(Element e) {
 		costType = new MyComboBox(e.element("costType"));
 		addCostPanel = new CostAddPanel(e.element(addCostPanelStr), costService,
-				changePanel);
+				changePanel , this);
 		freightTable = new CostMesTable(e.element("table"),
 				CostType.FREIGHT, costService);
 		rentTable = new CostMesTable(e.element("table"), CostType.RENT,

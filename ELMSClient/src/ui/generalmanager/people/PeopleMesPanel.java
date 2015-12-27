@@ -8,9 +8,6 @@ import org.dom4j.Element;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import ui.util.TipsDialog;
-import util.MyDate;
-import util.StaffType;
-import vo.DTManage.DriverVO;
 import vo.personnel.PersonVO;
 import blservice.personnelblservice.Personnelblservice;
  /** 
@@ -65,7 +62,7 @@ public class PeopleMesPanel extends MyTablePanel{
 			data[i][0] = vo.instID;
 			data[i][1] = vo.ID;
 			data[i][2] = vo.name;
-			data[i][3] = StaffType.getName(vo.type);
+			data[i][3] = vo.type.getName();
 			data[i][4] = vo.phoneNum;
 			i++;
 		}
@@ -87,7 +84,7 @@ public class PeopleMesPanel extends MyTablePanel{
 			temp[0] = vo.instID;
 			temp[1] = vo.ID;
 			temp[2] = vo.name;
-			temp[3] = StaffType.getName(vo.type);
+			temp[3] = vo.type.getName();
 			temp[4] = vo.phoneNum;
 			addOneRow(temp);
 		}else{
@@ -95,7 +92,7 @@ public class PeopleMesPanel extends MyTablePanel{
 			if(((String)table.getValueAt(row, 1)).equals(vo.ID)){
 				table.setValueAt(vo.instID, row, 0);
 				table.setValueAt(vo.name, row, 2);
-				table.setValueAt(StaffType.getName(vo.type), row, 3);
+				table.setValueAt(vo.type.getName(), row, 3);
 				table.setValueAt(vo.phoneNum, row, 4);
 			}
 			
@@ -169,7 +166,7 @@ public class PeopleMesPanel extends MyTablePanel{
 			mes[0] = personVO.ID ;
 			mes [1] = personVO.instID;
 			mes [2] = personVO.name;
-			mes [3] = StaffType.getName(personVO.type);
+			mes [3] = personVO.type.getName();
 			mes [4] = personVO.phoneNum;
 			table.getModel().addRow(mes);
 		}
@@ -194,7 +191,7 @@ public class PeopleMesPanel extends MyTablePanel{
 			mes[0] = personVO.ID ;
 			mes [1] = personVO.instID;
 			mes [2] = personVO.name;
-			mes [3] = StaffType.getName(personVO.type);
+			mes [3] = personVO.type.getName();
 			mes [4] = personVO.phoneNum;
 			table.getModel().addRow(mes);
 		

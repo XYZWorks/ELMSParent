@@ -2,12 +2,12 @@ package ui.generalmanager;
 
 import org.dom4j.Element;
 
-import ui.tools.MyDatePicker;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.util.CompomentType;
 import ui.util.MyMainPanelButtonListener;
 import ui.util.PanelController;
+import ui.util.RefreshPanel;
 
 /**
  * 总经理主界面
@@ -16,7 +16,7 @@ import ui.util.PanelController;
  * @version 2015年11月26日
  */
 @SuppressWarnings("serial")
-public class GeneralManagerMain extends MyPanel {
+public class GeneralManagerMain extends MyPanel implements RefreshPanel{
 
 	private MyPictureButton constsetButton;
 	private MyPictureButton approvalButton;
@@ -94,6 +94,10 @@ public class GeneralManagerMain extends MyPanel {
 
 	@Override
 	protected void initWhitePanels(Element e) {}
+
+	@Override
+	public void refresh() {
+	}
 
 	
 }

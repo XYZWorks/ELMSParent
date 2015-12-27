@@ -1,7 +1,6 @@
 package ui.table;
 
 import javax.swing.table.DefaultTableModel;
-import javax.xml.transform.Templates;
 
 @SuppressWarnings("serial")
 public class MyTableModel extends DefaultTableModel {
@@ -19,7 +18,7 @@ public class MyTableModel extends DefaultTableModel {
 
 	public MyTableModel(Object[] headers, Object[][] data) {
 		super(data, headers);
-
+		setDataVector(dataVector, columnIdentifiers);
 		if(data == null||data.length==0){
 			return;
 		}
@@ -34,6 +33,7 @@ public class MyTableModel extends DefaultTableModel {
 
 	}
 
+	@Override
 	public Class<?> getColumnClass(int c) {
 		Class<?> temp = null; 
 		

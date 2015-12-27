@@ -1,13 +1,13 @@
 package ui.storemanager.instore;
 
-import java.util.ArrayList;
+import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import bl.storebl.StoreController;
-import ui.inital.initialPanel3;
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
 import ui.storemanager.StoreManagerController;
-import ui.table.MyTablePanel;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyJumpListener;
@@ -17,19 +17,25 @@ import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
+import ui.util.DocPanelForApproval;
+import ui.util.MyBackListener;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
 import util.City;
+import util.DocType;
+import util.MyDate;
 import util.ResultMessage;
 import util.TransferWay;
 import vo.store.InStoreDocVO;
+import bl.storebl.StoreController;
 
 /**
  * @author ymc
  * @version 创建时间：2015年12月6日 下午2:27:17
  *
  */
-public class AddInStorePanel extends MyPanel {
+@SuppressWarnings("serial")
+public class AddInStorePanel extends MyPanel implements DocPanelForApproval{
 
 	MyPictureButton confirmButton;
 	MyPictureButton returnButton;
@@ -60,6 +66,11 @@ public class AddInStorePanel extends MyPanel {
 
 		initOtherCompoment(config);
 		addCompoment();
+		//一切为了单据审批= =
+		if(controller == null){
+			return;
+		}
+		
 		addListener();
 	}
 
@@ -79,6 +90,11 @@ public class AddInStorePanel extends MyPanel {
 	@Override
 	protected void initTextFields(Element e) {
 		IDT = new MyTextField(e.element("ID"));
+		if(controller != null){
+			IDT.setText("RKD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.inStoreDoc)));
+
+		}
+		IDT.setEditable(false);
 
 	}
 
@@ -134,7 +150,7 @@ public class AddInStorePanel extends MyPanel {
 
 		@Override
 		protected void reInitial() {
-			IDT.setText("");
+			IDT.setText("RKD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.inStoreDoc)));
 			locInfoTable.resetData();
 
 		}
@@ -146,10 +162,18 @@ public class AddInStorePanel extends MyPanel {
 			vo.loc = City.toCity((String) sendCityC.getSelectedItem());
 			vo.orders = locInfoTable.getOrders();
 			vo.location = locInfoTable.getLocations();
-			// TODO
-			// for(String s: vo.orders)
-			// System.out.println(s);
-			return true;
+			SimpleDataFormat[] datas = new SimpleDataFormat[vo.orders.size()*5];
+			
+			String[][] full = locInfoTable.getFullLocs();
+			
+			for (int i = 0; i < vo.orders.size(); i++) {
+				datas[5*i] = new SimpleDataFormat(vo.orders.get(i), DataType.BarCode, "订单号");
+				datas[5*i+1] = new SimpleDataFormat(full[i][0], DataType.StoreNum, "区号");
+				datas[5*i+2] = new SimpleDataFormat(full[i][1], DataType.PositiveNum, "排号");
+				datas[5*i+3] = new SimpleDataFormat(full[i][2], DataType.PositiveNum, "架号");
+				datas[5*i+4] = new SimpleDataFormat(full[i][3], DataType.PositiveNum, "位号");
+			}
+			return UserfulMethod.dealWithData(datas);
 		}
 
 		@Override
@@ -176,6 +200,33 @@ public class AddInStorePanel extends MyPanel {
 
 		}
 
+	}
+
+	@Override
+	public void setAllCompUneditOrUnVisiable() {
+		
+		
+	}
+
+	@Override
+	public void addBackButton(JPanel changePanel, String backStr) {
+		MyPictureButton back = new MyPictureButton();
+		add(back);
+		back.addMouseListener(new MyBackListener(back, changePanel, backStr));
+		
+	}
+
+	@Override
+	public void setMessage(Object o) {
+		if(o == null){
+			return;
+		}
+		InStoreDocVO vo = (InStoreDocVO) o;
+		IDT.setText(vo.ID);
+		
+		picker.setTime(vo.date);
+		sendCityC.setSelectedItem(vo.loc.getName());
+		
 	}
 
 }

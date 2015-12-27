@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.tools.MyCardLayOut;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
@@ -47,7 +48,7 @@ public class BankAccountManagePanel extends MyPanel {
 	private final static String addPanelStr = "addPanel";
 	
 	private JPanel changePanel;
-	private CardLayout layout;
+	private MyCardLayOut layout;
 
 	public BankAccountManagePanel(Element config, BankAccountBusinessService bl , JPanel changePanel) {
 		super(config);
@@ -61,7 +62,7 @@ public class BankAccountManagePanel extends MyPanel {
 		addListener();
 		
 		changePanel.add(addPanel, addPanelStr);
-		layout = (CardLayout) changePanel.getLayout();
+		layout = (MyCardLayOut) changePanel.getLayout();
 		
 		//删除时才出现
 		confirm.setVisible(false);cancel.setVisible(false);

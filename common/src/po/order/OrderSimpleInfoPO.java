@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 public class OrderSimpleInfoPO implements Serializable{
 	public OrderSimpleInfoPO() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

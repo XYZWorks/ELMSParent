@@ -1,5 +1,6 @@
 package ui.common;
 
+import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyAdapter;
@@ -24,7 +25,6 @@ import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.TipsDialog;
 import util.FormatMes;
-import util.ResultMessage;
 
 /**
 *
@@ -197,7 +197,7 @@ public class CommonInitalPanel extends MyPanel{
 		public void mouseClicked(MouseEvent e) {
 			min.setMyIcon(ButtonState.MOUSE_CLICKED);
 			//最小化到任务栏
-			parent.setExtendedState(JFrame.ICONIFIED);
+			parent.setExtendedState(Frame.ICONIFIED);
 		}
 
 		@Override

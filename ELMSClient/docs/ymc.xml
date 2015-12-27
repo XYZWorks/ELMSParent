@@ -81,7 +81,7 @@
 			 		
 			 		<LABELS>
 	
-						<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="35"
+						<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="26"
 						text="中转单" type="rectangle"/>
 			 			<ID  x="50" y="150" width="200" height="100"  
 						text="中转单编号" type="rectangle"/>
@@ -150,7 +150,7 @@
 			 		</BUTTONS>
 			 		
 			 		<LABELS>
-						<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="35"
+						<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="26"
 						text="到达单" type="rectangle"/>
 			 			<ID  x="420" y="150" width="200" height="100"  
 						text="到达单编号" type="rectangle"/>
@@ -204,9 +204,9 @@
 				</BUTTONS>
 				
 				<LABELS>
-					<center  x="100" y="150" width="300" height="100"  fontName="华文新魏" size="30"
+					<center  x="100" y="150" width="300" height="100"  fontName="华文细黑" size="30"
 					text="中转中心所在地" type="rectangle"/>
-					<store  x="100" y="320" width="200" height="100"   fontName="华文新魏" size="30"
+					<store  x="100" y="320" width="200" height="100"   fontName="华文细黑" size="30"
 					text="仓库区" type="rectangle"/>
 				</LABELS>
 				
@@ -228,12 +228,12 @@
 			 		<LABELS>
 						<center  x="250" y="30" width="200" height="100"  size="25"
 						text="" type="rectangle"/>
-			 			<centerL  x="50" y="30" width="200" height="100"    fontName="华文新魏" size="30"
+			 			<centerL  x="50" y="30" width="200" height="100"    fontName="华文细黑" size="30"
 						text="中转中心" type="rectangle"/>
 						<storeNum  x="570" y="30" width="200" height="100"   size="25"
 						text="" type="rectangle"/>
 						
-						<storeNumL  x="420" y="30" width="200" height="100"   fontName="华文新魏" size="30"
+						<storeNumL  x="420" y="30" width="200" height="100"   fontName="华文细黑" size="30"
 						text="仓库区" type="rectangle"/>	
 						<nowNum  x="230" y="150" width="200" height="100"  
 						text="" type="rectangle"/>
@@ -316,11 +316,7 @@
 						normal="storemanager//StoreCheck" enter="storemanager//StoreCheck-enter" clicked="storemanager//StoreCheck-clicked" />
 					<storeShow text="" x="352" y="160" width="140" height="165" enter="storemanager//StoreShow-enter"  normal="storemanager//StoreShow" clicked="storemanager//StoreShow-clicked" />
 				</BUTTONS>
-				<DatePicker x="0" y="0" width="400" height="50">
-						<field   x="0" y="0" width="350" height="50"      />
-						<button     x="350" y="0" width="50" height="50"  type = "rectangle" />
-					
-				</DatePicker>
+				
 			</mainWindow>
 			
 			
@@ -329,30 +325,29 @@
 				<table x="50" y="75" width="750" height="430" columnName="单据类型 ID 日期 目的地 订单号集合" />
 				
 				<BUTTONS>
-					<full x="400" y="500" width="130" height="100" text="查看"
-						type="rectangle"/>
-					<add x="560" y="500" width="130" height="100" text="增加"
-						type="rectangle"/>
-					<return x="720" y="500" width="130" height="100" text="返回"
-						type="rectangle"/>
+					<full x="707" y="560" width="89" height="40" text="查看"
+						type="confirm"/>
+					<add x="748" y="90" width="40" height="40" text=""
+						type="add"/>
+					<return x="0" y="0" width="53" height="53" text=""
+						type="back"/>
 				</BUTTONS>
 				
 				<LABELS>
-					<nowDoc  x="20" y="0" width="200" height="100"  
-					text="已生成入库单" type="rectangle"/>
+					<nowDoc x="48" y="36" width="200" height="28" text="已生成入库单"
+					fontName="华文细黑" size="26" />
 				</LABELS>
 				
 				<FullInPanel x="232" y="54" width="848" height="637">
 					
 					<BUTTONS>
-			 			
-						<return x="700" y="500" width="150" height="100" text="返回"
-						type="rectangle"/>
+						<return x="0" y="0" width="53" height="53" text="返回"
+						type="back"/>
 						
 			 		</BUTTONS>
 			 		
 			 		<LABELS>
-						<title  x="30" y="0" width="350" height="100"  name="华文细黑" size="35"
+						<title  x="30" y="0" width="350" height="100"  name="华文细黑" size="26"
 						text="入库单详细信息" type="rectangle"/>
 			 			<ID  x="420" y="120" width="200" height="100"  
 						text="入库单编号" type="rectangle"/>
@@ -387,7 +382,7 @@
 			 		</BUTTONS>
 			 		
 			 		<LABELS>
-						<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="35"
+						<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="26"
 						text="入库单" type="rectangle"/>
 			 			<ID  x="420" y="150" width="200" height="100"  
 						text="入库单编号" type="rectangle"/>
@@ -454,7 +449,7 @@
 			 		</BUTTONS>
 			 		
 			 		<LABELS>
-						<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="35"
+						<title  x="30" y="0" width="200" height="100"  name="华文细黑" size="26"
 						text="出库单" type="rectangle"/>
 			 			<ID  x="50" y="150" width="200" height="100"  
 						text="出库单编号" type="rectangle"/>
@@ -510,9 +505,9 @@
 				</BUTTONS>
 				
 				<LABELS>
-					<center  x="100" y="150" width="300" height="100"  fontName="华文新魏" size="30"
+					<center  x="100" y="150" width="300" height="100"  fontName="华文细黑" size="30"
 					text="中转中心所在地" type="rectangle"/>
-					<store  x="100" y="320" width="200" height="100"   fontName="华文新魏" size="30"
+					<store  x="100" y="320" width="200" height="100"   fontName="华文细黑" size="30"
 					text="仓库区" type="rectangle"/>
 				</LABELS>
 				
@@ -535,12 +530,12 @@
 			 		<LABELS>
 						<center  x="250" y="30" width="200" height="100"  size="25"
 						text="" type="rectangle"/>
-			 			<centerL  x="50" y="30" width="200" height="100"    fontName="华文新魏" size="30"
+			 			<centerL  x="50" y="30" width="200" height="100"    fontName="华文细黑" size="30"
 						text="中转中心" type="rectangle"/>
 						<storeNum  x="570" y="30" width="200" height="100"   size="25"
 						text="" type="rectangle"/>
 						
-						<storeNumL  x="420" y="30" width="200" height="100"   fontName="华文新魏" size="30"
+						<storeNumL  x="420" y="30" width="200" height="100"   fontName="华文细黑" size="30"
 						text="仓库区" type="rectangle"/>	
 						<nowNum  x="230" y="150" width="200" height="100"  
 						text="" type="rectangle"/>
@@ -605,9 +600,9 @@
 				</BUTTONS>
 				
 				<LABELS>
-					<center  x="100" y="150" width="300" height="100"  fontName="华文新魏" size="30"
+					<center  x="100" y="150" width="300" height="100"  fontName="华文细黑" size="30"
 					text="中转中心所在地" type="rectangle"/>
-					<store  x="100" y="320" width="200" height="100"   fontName="华文新魏" size="30"
+					<store  x="100" y="320" width="200" height="100"   fontName="华文细黑" size="30"
 					text="仓库区" type="rectangle"/>
 				</LABELS>
 				
@@ -620,7 +615,7 @@
 			 	<StoreCheckInfoPanel x="232" y="54" width="848" height="1250">
 			 	
 			 		<BUTTONS>
-			 			<confirm x="550" y="1150" width="150" height="100" text="确认"
+			 			<confirm x="550" y="1150" width="150" height="100" text="导出Excel"
 						type="rectangle"/>
 						<return x="700" y="1150" width="150" height="100" text="返回"
 						type="rectangle"/>
@@ -630,12 +625,12 @@
 			 		<LABELS>
 						<center  x="250" y="30" width="200" height="100"  size="25"
 						text="" type="rectangle"/>
-			 			<centerL  x="50" y="30" width="200" height="100"    fontName="华文新魏" size="30"
+			 			<centerL  x="50" y="30" width="200" height="100"    fontName="华文细黑" size="30"
 						text="中转中心" type="rectangle"/>
 						<storeNum  x="570" y="30" width="200" height="100"   size="25"
 						text="" type="rectangle"/>
 						
-						<storeNumL  x="420" y="30" width="200" height="100"   fontName="华文新魏" size="30"
+						<storeNumL  x="420" y="30" width="200" height="100"   fontName="华文细黑" size="30"
 						text="仓库区" type="rectangle"/>	
 						<nowNum  x="230" y="150" width="200" height="100"  
 						text="" type="rectangle"/>
@@ -694,9 +689,9 @@
 				</BUTTONS>
 				
 				<LABELS>
-					<center  x="100" y="150" width="300" height="100"  fontName="华文新魏" size="30"
+					<center  x="100" y="150" width="300" height="100"  fontName="华文细黑" size="30"
 					text="中转中心所在地" type="rectangle"/>
-					<store  x="100" y="320" width="200" height="100"   fontName="华文新魏" size="30"
+					<store  x="100" y="320" width="200" height="100"   fontName="华文细黑" size="30"
 					text="仓库区" type="rectangle"/>
 				</LABELS>
 				
@@ -719,12 +714,12 @@
 			 		<LABELS>
 						<center  x="250" y="30" width="200" height="100"  size="25"
 						text="" type="rectangle"/>
-			 			<centerL  x="50" y="30" width="200" height="100"    fontName="华文新魏" size="30"
+			 			<centerL  x="50" y="30" width="200" height="100"    fontName="华文细黑" size="30"
 						text="中转中心" type="rectangle"/>
 						<storeNum  x="570" y="30" width="200" height="100"   size="25"
 						text="" type="rectangle"/>
 						
-						<storeNumL  x="420" y="30" width="200" height="100"   fontName="华文新魏" size="30"
+						<storeNumL  x="420" y="30" width="200" height="100"   fontName="华文细黑" size="30"
 						text="仓库区" type="rectangle"/>	
 						<nowValue  x="230" y="200" width="200" height="100"  
 						text="" type="rectangle"/>
@@ -758,9 +753,9 @@
 				</BUTTONS>
 				
 				<LABELS>
-					<center  x="100" y="150" width="300" height="100"  fontName="华文新魏" size="30"
+					<center  x="100" y="150" width="300" height="100"  fontName="华文细黑" size="30"
 					text="中转中心所在地" type="rectangle"/>
-					<store  x="100" y="320" width="200" height="100"   fontName="华文新魏" size="30"
+					<store  x="100" y="320" width="200" height="100"   fontName="华文细黑" size="30"
 					text="仓库区" type="rectangle"/>
 				</LABELS>
 				
@@ -783,12 +778,12 @@
 			 		<LABELS>
 						<center  x="250" y="30" width="200" height="100"  size="25"
 						text="" type="rectangle"/>
-			 			<centerL  x="50" y="30" width="200" height="100"    fontName="华文新魏" size="30"
+			 			<centerL  x="50" y="30" width="200" height="100"    fontName="华文细黑" size="30"
 						text="中转中心" type="rectangle"/>
 						<storeNum  x="570" y="30" width="200" height="100"   size="25"
 						text="" type="rectangle"/>
 						
-						<storeNumL  x="420" y="30" width="200" height="100"   fontName="华文新魏" size="30"
+						<storeNumL  x="420" y="30" width="200" height="100"   fontName="华文细黑" size="30"
 						text="仓库区" type="rectangle"/>	
 						<nowValue  x="230" y="200" width="200" height="100"  
 						text="" type="rectangle"/>

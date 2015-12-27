@@ -6,6 +6,7 @@ import bl.BusinessLogicDataFactory;
 import blservice.orderblservice.Orderblservice;
 import blservice.strategyblservice.StrategyblService;
 import config.StaticMessage;
+import ui.courier.AddOrder.AddOrderPanel;
 import ui.courier.FindFullInfo.FindFullOrderInfoPanel;
 import ui.courier.FindFullInfo.showInfoPanel;
 import ui.courier.inputInfoReceive.InputReceiveInfoPanel;
@@ -25,10 +26,10 @@ public class CourierController extends PanelController{
 	private Orderblservice orderblservice;
 	private StrategyblService strategyblService;
 	
-	//初始化四个操作界面
+	//初始化五个操作界面
 	private CourierMainPanel courierMainPanel;
 	private AddOrderPanel addOrderPanel;
-	//private FindFullOrderInfoPanel findFullInfoPanel;
+	private FindFullOrderInfoPanel findFullInfoPanel;
 	private InputReceiveInfoPanel inputReceiveInfoPanel;
 	private showInfoPanel showInfoPanel;
 	
@@ -41,7 +42,7 @@ public class CourierController extends PanelController{
 	private final String addOrderPanelStr = "addOrderPanel";
 	private final String showInfoPanelStr="showInfoPanel";
 	private final String inputReceiveInfoPanelStr="inputReceiveInfoPanel";
-	
+	private final String findFullInfoPanelStr="findFullInfoPanel";
 	public CourierController(MyPanel initialPanel, Element e) {
 		super(initialPanel,e);		
 		initialBL();
@@ -65,7 +66,8 @@ public class CourierController extends PanelController{
 	protected void initPanel(Element e) {
 		courierMainPanel=new CourierMainPanel(e.element(courierMainPanelStr),this);
 		addOrderPanel=new AddOrderPanel(e.element(addOrderPanelStr),orderblservice,strategyblService);
-		showInfoPanel=new showInfoPanel(e.element(showInfoPanelStr),orderblservice);
+		findFullInfoPanel=new FindFullOrderInfoPanel(e.element(findFullInfoPanelStr), orderblservice,this);
+		showInfoPanel=new showInfoPanel(e.element(showInfoPanelStr),orderblservice,this,findFullInfoPanel);
 		inputReceiveInfoPanel=new InputReceiveInfoPanel(e.element(inputReceiveInfoPanelStr),orderblservice);
 
 	}
@@ -90,7 +92,7 @@ public class CourierController extends PanelController{
 	protected void addPanels() {
 		changePanel.add(courierMainPanel , courierMainPanelStr);
 		changePanel.add(addOrderPanel , addOrderPanelStr);
-		//changePanel.add(findFullInfoPanel , findFullInfoPanelStr);
+		changePanel.add(findFullInfoPanel , findFullInfoPanelStr);
 		changePanel.add(showInfoPanel, showInfoPanelStr);
 		changePanel.add(inputReceiveInfoPanel , inputReceiveInfoPanelStr);
 	}

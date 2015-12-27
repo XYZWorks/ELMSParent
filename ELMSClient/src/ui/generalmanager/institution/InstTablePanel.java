@@ -6,7 +6,6 @@ import org.dom4j.Element;
 
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
-import util.StaffType;
 import vo.personnel.InstVO;
 import blservice.personnelblservice.Personnelblservice;
 
@@ -38,12 +37,13 @@ public class InstTablePanel extends MyTablePanel {
 				.attributeValue("column"));
 
 		vos = bl.getInst();
-
+		
 		if (vos != null) {
+			data = new String[vos.size()][3];
 			for (int i = 0; i < vos.size(); i++) {
 				data[i][0] = vos.get(i).ID;
 				data[i][1] = vos.get(i).type.getName();
-				data[i][2] = vos.get(i).location.name();
+				data[i][2] = vos.get(i).location.getName();
 			}
 		}
 
@@ -58,20 +58,22 @@ public class InstTablePanel extends MyTablePanel {
 	@Override
 	public void addOneData(Object o, int type) {
 		InstVO vo = (InstVO) o;
-		if(type != 0){
+		if(type == 1){
 			vos.add(vo);
-		}else if(type == 1){
+		}
+		
+		if(type == 1){
 			String[] temp = new String[3];
 			temp[0] = vo.ID;
 			temp[1] = vo.type.getName();
 			temp[2] = vo.location.name();
 			addOneRow(temp);
-		}else{
+		}else if(type == 2){
 			int row = getSelectedRow();
 			if(((String)table.getValueAt(row, 1)).equals(vo.ID)){
 				table.setValueAt(vo.ID, row, 0);
 				table.setValueAt(vo.type.getName(), row, 1);
-				table.setValueAt(vo.location.name(), row, 2);
+				table.setValueAt(vo.location.getName(), row, 2);
 			}
 			
 		}
@@ -92,7 +94,7 @@ public class InstTablePanel extends MyTablePanel {
 			vo = vos.get(i);
 			table.setValueAt(vo.ID, i, 0);
 			table.setValueAt(vo.type.getName(), i, 1);
-			table.setValueAt(vo.location.name(), i, 2);
+			table.setValueAt(vo.location.getName(), i, 2);
 
 		}
 

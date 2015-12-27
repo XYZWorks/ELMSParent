@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import po.DocPO;
 import util.DocState;
 import util.DocType;
+import util.MyDate;
 import util.ResultMessage;
  /** 
  * 单据审批相关接口父接口
@@ -31,4 +32,11 @@ public interface DocApprovalDataService extends DataserviceParent{
 	 */
 	public ResultMessage changeOneDocState(String docID,
 			DocType type, DocState state)  throws RemoteException;
+	
+	/**
+	 * 获得这个单据今天生成的单据编号
+	 * @param type
+	 * @return
+	 */
+	public int getDayDocCount(DocType type , MyDate date)throws RemoteException;
 }

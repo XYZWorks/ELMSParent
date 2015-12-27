@@ -8,6 +8,8 @@ import java.awt.event.MouseMotionAdapter;
 import javax.swing.JFrame;
 
 import org.dom4j.Element;
+
+import ui.config.GraphicsUtils;
 /** 
  * 所有Frame父类
  * @author czq 
@@ -26,6 +28,7 @@ public class MyFrame extends JFrame{
 		this.setLayout(null);
 		this.setResizable(false);
 		this.moveFrame();
+		this.setIconImage(GraphicsUtils.getImage("element//icon"));
 		//居中放置
 		this.setLocationRelativeTo(null);
 		
@@ -38,7 +41,8 @@ public class MyFrame extends JFrame{
 	private void moveFrame(){
 		this.addMouseListener(new MouseAdapter() {
 			
-			 public void mousePressed(MouseEvent e) {
+			 @Override
+			public void mousePressed(MouseEvent e) {
 				 start.x = e.getX();
 				 start.y = e.getY();
 			 }
@@ -48,7 +52,8 @@ public class MyFrame extends JFrame{
 		
 		this.addMouseMotionListener(new MouseMotionAdapter() {
 			
-			 public void mouseDragged(MouseEvent e) {
+			 @Override
+			public void mouseDragged(MouseEvent e) {
 					 Point p = getLocation();
 					 
 					 setLocation( p.x + e.getX() -start.x , p.y + e.getY() - start.y);

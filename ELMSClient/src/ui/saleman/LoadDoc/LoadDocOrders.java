@@ -60,6 +60,7 @@ public class LoadDocOrders extends MyTablePanel{
 	}
 
 	public ArrayList<String> getOrderbarCodes() {
+		
 		return orderbarCodes;
 	}
 	

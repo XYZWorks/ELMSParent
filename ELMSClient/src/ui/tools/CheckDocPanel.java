@@ -1,6 +1,5 @@
 package ui.tools;
 
-import java.awt.CardLayout;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -22,7 +21,7 @@ import ui.util.MyPictureButtonListener;
  * @version 2015年12月8日 下午7:25:52 
  */
 @SuppressWarnings("serial")
-public abstract class CheckDocPanel extends JPanel{
+public abstract class CheckDocPanel extends JPanel {
 	/**
 	 * 搜索框
 	 */
@@ -58,14 +57,14 @@ public abstract class CheckDocPanel extends JPanel{
 	protected AddDocPanel addDocPanel;
 	
 	protected final JPanel changePanel;
-	protected final CardLayout panelManager;
+	protected final MyCardLayOut panelManager;
 	
 	public CheckDocPanel(Element config , JPanel changePanel , String checkDocName , String addDocName) {
 		super();
 		this.setLayout(null);
 		this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));;
 		this.changePanel = changePanel;
-		panelManager = (CardLayout) changePanel.getLayout();
+		panelManager = (MyCardLayOut) changePanel.getLayout();
 		checkDocPanelStr = checkDocName;
 		addDocPanelStr = addDocName;
 		
@@ -145,9 +144,7 @@ public abstract class CheckDocPanel extends JPanel{
 			public void keyPressed(KeyEvent e) {
 				super.keyPressed(e);
 				if(e.getKeyCode() == KeyEvent.VK_ENTER){
-					if(UserfulMethod.dealWithData(new SimpleDataFormat(searchBox.getMyText() , DataType.ID , "ID"))){
-						messageTable.searchID(searchBox.getMyText());
-					}
+					mySearch();
 				}
 				
 			}
@@ -157,10 +154,16 @@ public abstract class CheckDocPanel extends JPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
-				if(UserfulMethod.dealWithData(new SimpleDataFormat(searchBox.getMyText() , DataType.ID , "ID"))){
-					messageTable.searchID(searchBox.getMyText());
-				}
+				mySearch();
 			}
 		});
+	}
+	public void mySearch(){
+		//如果没有输入，默认展示所有数据
+		if(searchBox.getMyText().equals("")){
+			messageTable.showAllMessages();
+		}else if(UserfulMethod.dealWithData(new SimpleDataFormat(searchBox.getMyText() , DataType.ID , "ID"))){
+			messageTable.searchID(searchBox.getMyText());
+		}
 	}
 }

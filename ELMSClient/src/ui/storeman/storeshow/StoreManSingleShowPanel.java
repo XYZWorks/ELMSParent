@@ -12,6 +12,7 @@ import ui.util.PanelController;
  * @version 创建时间：2015年12月13日 下午3:14:57 
  *
  */
+@SuppressWarnings("serial")
 public class StoreManSingleShowPanel extends StoreSingleShowPanel {
 
 	public StoreManSingleShowPanel(Element config, StoreController bl, PanelController controller) {

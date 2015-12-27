@@ -4,8 +4,6 @@ import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
 
-import bl.storebl.StoreController;
-import config.StaticMessage;
 import ui.storemanager.StoreManagerController;
 import ui.tools.MyComboBox;
 import ui.tools.MyJumpListener;
@@ -14,12 +12,15 @@ import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.util.CompomentType;
 import ui.util.PanelController;
+import bl.storebl.StoreController;
+import config.StaticMessage;
 
 /** 
  * @author ymc 
  * @version 创建时间：2015年12月3日 上午11:47:57 
  *
  */
+@SuppressWarnings("serial")
 public class StoreShowPanel extends MyPanel {
 	
 	StoreController bl;

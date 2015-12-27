@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import bl.storebl.StoreController;
 import ui.config.GraphicsUtils;
 import ui.config.UserfulMethod;
 import ui.table.MyTable;
@@ -12,13 +11,14 @@ import ui.table.MyTablePanel;
 import util.DocType;
 import util.MyDate;
 import vo.store.InStoreDocVO;
-import vo.store.OutStoreDocVO;
+import bl.storebl.StoreController;
 
 /** 
  * @author ymc 
  * @version 创建时间：2015年12月6日 下午2:20:45 
  *
  */
+@SuppressWarnings("serial")
 public class InStoreTablePanel extends MyTablePanel {
 
 	private static final int COLUMN_NUM = 5;
@@ -109,10 +109,11 @@ public class InStoreTablePanel extends MyTablePanel {
 		
 	}
 	/**
-	 * 根据传入的vos重设table的值
-	 * @param vos
+	 * 根据传入的vosin重设table的值
+	 * @param vosin
 	 */
-	public void resetValue(ArrayList<InStoreDocVO> vos) {
+	public void resetValue(ArrayList<InStoreDocVO> vosin) {
+		vos = vosin;
 		if(vos==null){
 			return;
 		}
@@ -123,9 +124,23 @@ public class InStoreTablePanel extends MyTablePanel {
 			data[i][0] = DocType.getName(vo.type);
 			data[i][1] = vo.ID;
 			data[i][2] = MyDate.toString(vo.date);
+//			System.out.println(i+"  "+vo.loc);
 			data[i][3] = vo.loc.getName();
 			data[i][4] = UserfulMethod.orderArrayToString(vo.orders);
 			
+		}
+//		System.out.println(table.getRowCount());
+		removeAllRows();
+//		System.out.println(table.getRowCount());
+		//将增加table的行数
+		Object[] tmp = {"","","","",""};
+		
+		for(int i = table.getRowCount();i<vos.size();i++)
+			addOneRow(tmp);
+		
+		for(int i = 0;i<vos.size();i++){
+			for(int j = 0;j<COLUMN_NUM;j++)
+				table.setValueAt(data[i][j], i, j);
 		}
 	}
 

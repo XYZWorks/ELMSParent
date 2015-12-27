@@ -311,7 +311,7 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 			return new InStoreDocPO(findMes.get(0), DocType.inStoreDoc,
 					MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes
 							.get(3)), helper.tranFromStringToArrayList(findMes
-							.get(4)), City.toCity(findMes.get(5)),
+							.get(4)), City.valueOf(findMes.get(5)),
 					helper.tranFromStringToArrayList(findMes.get(6)));
 		}
 
@@ -326,9 +326,23 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 			return new OutStoreDocPO(findMes.get(0), DocType.outStoreDoc,
 					MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes
 							.get(3)), helper.tranFromStringToArrayList(findMes
-							.get(4)), City.toCity(findMes.get(5)),
+							.get(4)), City.valueOf(findMes.get(5)),
 					findMes.get(6), TransferWay.valueOf(findMes.get(7)));
 		}
+	}
+
+	@Override
+	public int getDayDocCount(DocType type , MyDate date) throws RemoteException {
+		switch (type) {
+		case inStoreDoc:
+			return super.getDayDocCount(instoreDocTable ,date);
+		case outStoreDoc:
+			return super.getDayDocCount(outstoreDocTable, date);
+		default:
+			break;
+		}
+		System.err.println("单据类型错误，不能获得对应单据");
+		return -1;
 	}
 
 }

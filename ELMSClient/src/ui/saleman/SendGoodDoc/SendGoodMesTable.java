@@ -90,5 +90,13 @@ public class SendGoodMesTable extends MyTablePanel {
 	protected void initTable() {
 		table = new MyTable(columnNames, data);
 	}
-
+	@Override
+	public void showAllMessages() {
+		removeAllRows();
+//		System.out.println(vos.size());
+		for (int i = 0; i < vos.size(); i++) {
+//			System.out.println(i);
+			addOneData(vos.get(i), 0);
+		}
+	}
 }

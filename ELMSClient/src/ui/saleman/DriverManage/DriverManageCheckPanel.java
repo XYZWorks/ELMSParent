@@ -1,5 +1,6 @@
 package ui.saleman.DriverManage;
 
+import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -14,8 +15,10 @@ import ui.config.UserfulMethod;
 import ui.tools.CheckDocPanel;
 import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
+import ui.tools.MyPictureButton;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
+import util.ResultMessage;
 import blservice.DTManageblservice.DTManageblservice;
 
 /**
@@ -31,8 +34,12 @@ public class DriverManageCheckPanel extends CheckDocPanel {
 	/**
 	 * 查找方式
 	 */
-	private MyComboBox searchWay;
-
+	private MyComboBox searchWay ;
+	private MyPictureButton delete;
+	private MyPictureButton modify;
+	
+	
+	
 	private enum searchWays {
 		name, id, instid
 	};
@@ -50,7 +57,7 @@ public class DriverManageCheckPanel extends CheckDocPanel {
 		// 注意必须先传bl然后才能初始化table，否则将报空指针异常
 		myTable.bl = this.bl;
 		myAddPanel = (DriverManageAddPanel) addDocPanel;
-		myAddPanel.bl = this.bl;
+		myAddPanel.bl = bl;
 		initTableContent();
 	}
 
@@ -58,7 +65,7 @@ public class DriverManageCheckPanel extends CheckDocPanel {
 	protected void initialAddDocPanelAndTable(Element e) {
 		messageTable = new DriverMesPanel(e.element(tableStr));
 		addDocPanel = new DriverManageAddPanel(e.element(addDocPanelStr),
-				changePanel, checkDocPanelStr, messageTable);
+				changePanel, checkDocPanelStr, messageTable );
 
 	}
 
@@ -66,6 +73,9 @@ public class DriverManageCheckPanel extends CheckDocPanel {
 	protected void initialDifferComp(Element e) {
 		searchWay = new MyComboBox(e.element("searchWay"));
 		title = new MyLabel(e.element("title"));
+		delete=new MyPictureButton(e.element("delete"));
+		modify=new MyPictureButton(e.element("modify"));
+		
 	}
 
 	@Override
@@ -95,15 +105,56 @@ public class DriverManageCheckPanel extends CheckDocPanel {
 				mySearch();
 			}
 		});
+
+		delete.addMouseListener(new MyPictureButtonListener(delete){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				if(myTable.getSelectedRow() == -1){
+					new TipsDialog("请选择一条信息", Color.GREEN);
+				}
+				
+				result = 
+						bl.delDriver((String) myTable.getValueAt(myTable.getSelectedRow(), 0));
+						
+						if (result == ResultMessage.SUCCESS) {
+							new TipsDialog("删除成功" , Color.green);
+							myTable.removeRow(myTable.getSelectedRow());
+						}else{
+							new TipsDialog("数据库或网络故障");
+						}
+				
+			}
+			
+			
+		});
+		modify.addMouseListener(new MyPictureButtonListener(modify){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				if(myTable.getSelectedRow() == -1){
+					new TipsDialog("请选择一条数据", Color.GREEN);
+					return;
+				}
+				
+				addDocPanel.setAddOrModify(false, (String) myTable.getValueAt(myTable.getSelectedRow(), 0));
+				panelManager.show(changePanel, addDocPanelStr);
+			}
+
+		});
 	}
 
 	@Override
 	protected void addDifferComp() {
 		add(searchWay);
 		add(title);
+		add(delete);
+		add(modify);
+		
+		datePicker.setVisible(false);
 	}
 
-	private void mySearch() {
+	public void mySearch() {
 		if (searchWay.getSelectedIndex() == 0) {
 			new TipsDialog("请选择查找方式");
 			return;

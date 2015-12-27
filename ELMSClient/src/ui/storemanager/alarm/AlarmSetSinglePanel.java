@@ -1,8 +1,10 @@
 package ui.storemanager.alarm;
 
+import javax.sound.midi.Synthesizer;
+
 import org.dom4j.Element;
 
-import bl.storebl.StoreController;
+import ui.config.SimpleDataFormat;
 import ui.storemanager.StoreManagerController;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
@@ -15,12 +17,14 @@ import ui.util.PanelController;
 import ui.util.TipsDialog;
 import util.City;
 import util.ResultMessage;
+import bl.storebl.StoreController;
 
 /**
  * @author ymc
  * @version 创建时间：2015年12月16日 下午4:42:52
  *
  */
+@SuppressWarnings("serial")
 public class AlarmSetSinglePanel extends MyPanel {
 
 	MyPictureButton confirmButton;
@@ -130,8 +134,16 @@ public class AlarmSetSinglePanel extends MyPanel {
 		@Override
 		protected boolean checkDataValid() {
 			value = modifyT.getText();
-			if(Integer.parseInt(value)<=100&&Integer.parseInt(value)>=0)
+			int val = 0;
+			try{
+				val = Integer.parseInt(value);
+			}catch(NumberFormatException e){
+				new TipsDialog("警戒值为正整数");
+				return false;
+			}
+			if(val<=100&&val>0)
 				return true;
+			new TipsDialog("警戒值在0到100之间");
 			return false;
 		}
 

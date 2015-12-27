@@ -157,12 +157,16 @@ public class InstManagePanel extends MyPanel{
 					
 					if(result == ResultMessage.SUCCESS){
 						new TipsDialog("成功修改机构！");
-						table.getTable().setValueAt((String) location.getSelectedItem(), temp, 1);
-						table.getTable().setValueAt((String) type.getSelectedItem(), temp, 2);
+						table.getTable().setValueAt(location.getSelectedItem(), temp, 1);
+						table.getTable().setValueAt(type.getSelectedItem(), temp, 2);
+						ismodify(false);
+						return true;
+					}else{
+						
 					}
 					
 				}
-				ismodify(false);
+				
 				
 				return false;
 				
@@ -198,8 +202,10 @@ public class InstManagePanel extends MyPanel{
 					result = bl.delInst((String) table.getValueAt(table.getSelectedRow(), 0));
 					if(result == ResultMessage.SUCCESS){
 						new TipsDialog("成功删除一条数据" , Color.GREEN);
+						table.updateTableMes();
 					}else{
 						new TipsDialog("未成功删除数据");
+						System.out.println(result);
 					}
 				}
 			}

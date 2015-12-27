@@ -1,10 +1,10 @@
 package ui.storemanager.storeshow;
 
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import bl.storebl.StoreController;
 import ui.storemanager.instore.InStoreTablePanel;
 import ui.storemanager.outstore.OutStoreTablePanel;
 import ui.tools.MyDatePicker;
@@ -19,6 +19,8 @@ import util.MyDate;
 import vo.store.InStoreDocVO;
 import vo.store.OutStoreDocVO;
 import vo.store.StoreMessageVO;
+import vo.store.StoreShowVO;
+import bl.storebl.StoreController;
 
 /** 
  * @author ymc 
@@ -63,6 +65,7 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 	protected StoreMessageVO target;
 	protected ArrayList<InStoreDocVO> ins;
 	protected ArrayList<OutStoreDocVO> outs;
+
 	
 	public StoreSingleShowPanel(Element config, StoreController bl, PanelController controller) {
 		super(config);
@@ -165,21 +168,50 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 			// TODO Auto-generated constructor stub
 		}
 		
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			super.mouseClicked(e);
+			MyDate past = picker.getMyDate();
+			ArrayList<InStoreDocVO> inStoreDocVOs = new ArrayList<>();
+			ArrayList<OutStoreDocVO> outStoreDocVOs = new ArrayList<>();
+			for(InStoreDocVO in : ins){
+				if(in.date.between(past,nowDate)){
+					inStoreDocVOs.add(in);
+				}
+			}
+			
+			for(OutStoreDocVO out : outs){
+				if(out.date.between(past,nowDate)){
+					outStoreDocVOs.add(out);
+				}
+			}
+			inTable.resetValue(inStoreDocVOs);			
+			outTable.resetValue(outStoreDocVOs);
+			
+		}
+		
 	}
 	public void getInfo(String cen, String sto) {
 		center.setText(cen);
 		storeNum.setText(sto);
 		for (StoreMessageVO vo : bl.show()) {
-			if (cen.equals(vo.location.getName()) && sto.equals(vo.storeLoc.getStoreLocation()))
+			if (cen.equals(vo.location.getName()) && sto.equals(vo.storeLoc.getStoreLocation()+"区")){
 				target = vo;
+				break;
+			}
+				
 		}
 		if(target!=null){
+			
 			nowNum.setText("   "+String.valueOf(target.number));
 			totalNum.setText("   "+String.valueOf(target.totalNum));
 			ins = target.inStoreDocs;
 			outs = target.outStoreDocs;
-			inTable.resetValue(ins);
+			
+			inTable.resetValue(ins);			
 			outTable.resetValue(outs);
+			StoreShowVO show = StoreShowVO.getStoreShow(target);
+			orderTable.resetValue(show);
 		}
 	}
 

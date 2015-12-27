@@ -2,12 +2,14 @@ package ui.storemanager.outstore;
 
 import java.util.ArrayList;
 
+import javax.swing.JPanel;
+
 import org.dom4j.Element;
 
-import bl.storebl.StoreController;
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
 import ui.storemanager.StoreManagerController;
-import ui.storemanager.instore.InStorePanel;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyJumpListener;
@@ -17,13 +19,17 @@ import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
+import ui.util.DocPanelForApproval;
+import ui.util.MyBackListener;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
 import util.City;
+import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
 import util.TransferWay;
 import vo.store.OutStoreDocVO;
+import bl.storebl.StoreController;
 
 /**
  * @author ymc
@@ -31,7 +37,7 @@ import vo.store.OutStoreDocVO;
  *
  */
 @SuppressWarnings("serial")
-public class AddOutStorePanel extends MyPanel {
+public class AddOutStorePanel extends MyPanel implements DocPanelForApproval{
 
 	MyPictureButton confirmButton;
 	MyPictureButton returnButton;
@@ -66,13 +72,16 @@ public class AddOutStorePanel extends MyPanel {
 
 		initOtherCompoment(config);
 		addCompoment();
+		//为了单据审批
+		if(controller == null){
+			return;
+		}
+		
 		addListener();
 	}
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -85,6 +94,11 @@ public class AddOutStorePanel extends MyPanel {
 	@Override
 	protected void initTextFields(Element e) {
 		IDT = new MyTextField(e.element("ID"));
+		if(controller != null){
+			IDT.setText("CKD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.outStoreDoc)));
+		}
+		IDT.setEditable(false);
+
 		orderT = new MyTextField(e.element("order"));
 		transferDocT = new MyTextField(e.element("transferDoc"));
 	}
@@ -141,13 +155,13 @@ public class AddOutStorePanel extends MyPanel {
 		OutStoreDocVO out;
 		public AddOutStoreListener(MyPictureButton button) {
 			super(button);
-			// TODO Auto-generated constructor stub
 		}
 
 		@Override
 		protected void reInitial() {
 			orderT.setText("");
-			IDT.setText("");
+			IDT.setText("CKD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.outStoreDoc)));
+
 			transferDocT.setText("");
 
 		}
@@ -171,9 +185,14 @@ public class AddOutStorePanel extends MyPanel {
 			String transferDoc = transferDocT.getText();
 			String ID = IDT.getText();
 			MyDate date = picker.getMyDate();
-			
+			SimpleDataFormat[] datas = new SimpleDataFormat[orders.size()+1];
+			datas[0] = new SimpleDataFormat(transferDoc, DataType.ID, "中转单");
+			for (int i = 1; i < orders.size()+1; i++) {
+				datas[i] = new SimpleDataFormat(orders.get(i-1), DataType.BarCode, "订单号");
+			}
 			out = new OutStoreDocVO(ID, date, orders, loc, transferDoc, shipWay);
-			return true;
+			return UserfulMethod.dealWithData(datas);
+
 		}
 
 		@Override
@@ -189,5 +208,40 @@ public class AddOutStorePanel extends MyPanel {
 
 		}
 
+	}
+
+	@Override
+	public void setAllCompUneditOrUnVisiable() {
+		orderT.setEditable(false);
+		transferDocT.setEditable(false);
+		IDT.setEditable(false);
+		sendCityC.setEnabled(false);
+		shipWayC.setEnabled(false);
+		
+		confirmButton.setVisible(false);
+		returnButton.setVisible(false);
+	
+	}
+
+	@Override
+	public void addBackButton(JPanel changePanel, String backStr) {
+		MyPictureButton back = new MyPictureButton();
+		add(back);
+		back.addMouseListener(new MyBackListener(back, changePanel, backStr));
+		
+	}
+
+	@Override
+	public void setMessage(Object o) {
+		if(o == null){
+			return;
+		}
+		OutStoreDocVO vo = (OutStoreDocVO) o;
+		IDT.setText(vo.ID);
+		orderT.setText(UserfulMethod.orderArrayToString(vo.orders));
+		transferDocT.setText(vo.transferDoc);
+		picker.setTime(vo.date);
+		sendCityC.setSelectedItem(vo.loc.getName());
+		shipWayC.setSelectedItem(vo.shipWay.getStoreLocation());
 	}
 }

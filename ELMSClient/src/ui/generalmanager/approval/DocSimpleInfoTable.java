@@ -4,15 +4,14 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import blservice.approvalblservice.Approvalblservice;
 import ui.table.MyTable;
-import ui.table.MyTableModel;
 import ui.table.MyTablePanel;
 import util.DocState;
 import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
 import vo.DocVO;
+import blservice.approvalblservice.Approvalblservice;
  /** 
  * 单据简要信息表
  * @author czq 
@@ -108,24 +107,10 @@ public class DocSimpleInfoTable extends MyTablePanel{
 	 * @param type
 	 */
 	public void changeDocType(DocType type){
-		initialMes();
 		this.type = type;
-		
-		vos = bl.getBills(type);
-		System.out.println(vos.size());
 		initialMes();
-		MyTableModel dtm = new MyTableModel(columnNames, data){
-			@Override
-			public boolean isCellEditable(int rowIndex, int columnIndex) {
-				if(columnIndex == 0){
-				return true;
-				}else{
-				return false;
-				}
-			}
-		};
 		//第一列可修改
-		table.setModel(dtm);
+		table.getModel().setDataVector(data, columnNames);
 	}
 	
 	@Override
@@ -156,18 +141,46 @@ public class DocSimpleInfoTable extends MyTablePanel{
 	
 	private void initialMes(){
 		vos =  bl.getBills(type);
+		System.err.println(type);
+		if(vos != null){
+			System.err.println(vos.size());
+		}
 		
+		//清空数据
+		data = null;
 		if(vos==null){
+			
 			return;
 		}
 		
 		data = new Object[vos.size()][COLUMN_NUMS];
-			for (int i = 0; i < vos.size(); i++) {
+		for (int i = 0; i < vos.size(); i++) {
 				data[i][0] = new Boolean(false);
 				data[i][1] = vos.get(i).ID;
 				data[i][2] = DocType.getName(vos.get(i).type);
 				data[i][3] = MyDate.toString(vos.get(i).date);
 				data[i][4] = DocState.getName(vos.get(i).state);
-			}
+		}
 	}
+	
+	/**
+	 * 获得表内一条详细信息
+	 * @return
+	 */
+	Object getFullObjectMes(){
+		int temp;
+		if( (temp = table.getSelectedRow()) == -1){
+			return null;	
+		}else{
+			String id = (String) table.getValueAt(temp, 1);
+			for (int i = 0; i < vos.size(); i++) {
+				if(vos.get(i).ID.equals(id))
+				{
+					return vos.get(i);
+				}
+			}
+		return null;	
+		}
+	}
+	
 }

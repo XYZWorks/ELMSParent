@@ -34,7 +34,7 @@ public class UserfulMethod {
 	 * @param type
 	 * @return
 	 */
-	private static boolean dataHandler(String message , DataType type,String chineseName){
+	public static boolean dataHandler(String message , DataType type,String chineseName){
 		switch (type) {
 		case ID:
 			return FormatMesHandler(checkID(message) , chineseName);
@@ -46,12 +46,41 @@ public class UserfulMethod {
 			return FormatMesHandler(checkPositiveNum(message), chineseName);
 		case PlateNum:
 			return FormatMesHandler(checkPlateNum(message), chineseName);
+		case bankAccount:
+			return FormatMesHandler(checkBankAccount(message), chineseName);
+		case BarCode:
+			return FormatMesHandler(checkBarCode(message), chineseName);
+		case StoreNum:
+			return FormatMesHandler(checkStoreNum(message), chineseName);
 		default:
 			break;
 		}
 		return false;
 	}
 	
+	
+	
+	private static FormatMes checkStoreNum(String message) {
+		if("航运".equals(message)||"汽运".equals(message)||"铁运".equals(message))
+			return FormatMes.CORRECT;
+		else {
+			return FormatMes.ILEGAL_STORENUM;
+		}
+	}
+	/**
+	 * 扩充至7位
+	 * @param i
+	 * @return
+	 */
+	public static String toSeven(int i) {
+		String result = i+"";
+		
+		while (result.length()<7) {
+			result="0"+result;
+			
+		}
+		return result;
+	}
 	private static boolean FormatMesHandler( FormatMes message,String chineseName){
 		switch (message) {
 		case CORRECT:
@@ -65,9 +94,26 @@ public class UserfulMethod {
 		case NEGATIVE_NUM:
 			new TipsDialog(chineseName + "应为正整数 ， 请重新输入");
 			break;
+		case ILEGAL_STORENUM:
+			new TipsDialog(chineseName + "应为航运汽运或铁运");
+			break;
 		}
 		return false;
 	}
+	
+	public static final FormatMes checkBankAccount(String ID){
+		if(ID.length() < 6){
+			return FormatMes.WRONG_LENGTH;
+		}
+		
+		for (int i = 0; i < ID.length(); i++) {
+			if(!isNum(ID.charAt(i))){
+				return FormatMes.ILEGAL_CHAR;
+			}
+		}
+		return FormatMes.CORRECT;
+	}
+	
 	
 	/**
 	 * 检查ID是否有误，返回有关信息
@@ -187,6 +233,9 @@ public class UserfulMethod {
 		}
 		return result;
 	}
+	
+	
+
 //	public static final FormatMes checkTexts(String texts){
 //		for (int i = 0; i < texts.length(); i++) {
 ////			if(texts.charAt(i))
@@ -230,6 +279,7 @@ public class UserfulMethod {
 		}
 	}
 
+	
 	
 	
 	

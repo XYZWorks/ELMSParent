@@ -1,10 +1,13 @@
 package ui.courier.FindFullInfo;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import org.dom4j.Element;
 
 import blservice.orderblservice.Orderblservice;
+import ui.courier.CourierController;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import util.MyDate;
@@ -13,25 +16,26 @@ import vo.order.OrderVO;
 @SuppressWarnings("serial")
 public class showTable extends MyTablePanel {
 
-	private Orderblservice bl;
+	private Orderblservice orderblservice;
+	private FindFullOrderInfoPanel findFullOrderInfoPanel;
+	private CourierController controller;
 	private ArrayList<OrderVO> pre;
 
 	private static final int COLUMN_NUM = 6;
 
-	public showTable(Element config, Orderblservice bl) {
-		
-		super(config);
-		this.bl = bl;
-		if(bl==null){
-			System.out.println("null");
-		}
-		
-		initialTitleAndColumn(config);
+	public showTable(Element element, Orderblservice orderblservice, CourierController controller,
+			FindFullOrderInfoPanel findFullOrderInfoPanel) {
+		// TODO Auto-generated constructor stub
+		super(element);
+		this.orderblservice = orderblservice;
+
+		this.findFullOrderInfoPanel = findFullOrderInfoPanel;
+		this.controller = controller;
+
+		initialTitleAndColumn(element);
 		initTable();
 		initScrollerPane();
 		this.add(rollpane);
-
-		
 	}
 
 	@Override
@@ -43,7 +47,7 @@ public class showTable extends MyTablePanel {
 		System.out.println(date1);
 
 		// 获得系统时间
-		pre = bl.getOrderVO(date);
+		pre = orderblservice.getOrderVO(date);
 
 		if (pre == null || pre.isEmpty()) {
 			return;
@@ -76,8 +80,22 @@ public class showTable extends MyTablePanel {
 				return true;
 			}
 		};
-		int[] columnLen = { 100, 300, 100, 100, 100, 100 };
+		int[] columnLen = { 80, 50, 200, 50, 200, 50 };
 		setRowAndColumnLen(40, columnLen);
+
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int index = e.getClickCount();
+				if (index == 2) {
+					int row = getSelectedRow();
+					findFullOrderInfoPanel.readInfo(pre.get(row).ID);
+					findFullOrderInfoPanel.repaint();
+					controller.getCardLayout().show(controller.getChangePanel(), "findFullInfoPanel");
+
+				}
+			}
+		});
 
 	}
 

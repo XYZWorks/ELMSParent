@@ -21,7 +21,7 @@ public class StateFormPanel extends MyTablePanel{
 	
 	private ArrayList<StateFormVO> vos;
 	
-	private final static int COLUMN_NUM = 3;
+	private final static int COLUMN_NUM = 5;
 	
 	public StateFormPanel(Element config , Statisticblservice bl) {
 		super(config);
@@ -34,7 +34,6 @@ public class StateFormPanel extends MyTablePanel{
 
 	@Override
 	public void updateTableMes() {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -47,7 +46,7 @@ public class StateFormPanel extends MyTablePanel{
 		StateFormVO vo;
 		
 		if(vos!= null){
-			data = new Object[vos.size()][5];
+			data = new Object[vos.size()][COLUMN_NUM];
 			for (int i = 0; i < vos.size(); i++) {
 				vo = vos.get(i);
 				data[i][0] = String.valueOf(i);

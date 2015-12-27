@@ -2,10 +2,8 @@ package blservice.approvalblservice;
 
 import java.util.ArrayList;
 
-import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
-import vo.transport.LoadDocVO;
  /** * @author czq @version 创建时间：2015年10月25日 下午3:29:34 * 简单说明 */
 public class Approvalblservice_Driver {
 	public void drive(Approvalblservice bl){

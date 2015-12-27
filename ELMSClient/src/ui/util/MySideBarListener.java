@@ -1,9 +1,9 @@
 package ui.util;
 
-import java.awt.CardLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import ui.tools.MyCardLayOut;
 import ui.tools.MySideBarButton;
  /** 
  * 左边条按钮监听实现类
@@ -16,7 +16,7 @@ public class MySideBarListener extends MouseAdapter{
 	
 	private PanelController controller;
 	
-	private CardLayout panelManager;
+	private MyCardLayOut panelManager;
 	/**
 	 * 该左边条按钮对应的panel名称
 	 */

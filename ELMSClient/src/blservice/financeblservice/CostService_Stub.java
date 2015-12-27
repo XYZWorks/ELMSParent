@@ -16,6 +16,7 @@ import vo.finance.CostVO;
 public class CostService_Stub implements CostService {
 	FinanceDataService financeDS;
 	
+	@SuppressWarnings("unchecked")
 	public ArrayList<CostVO> showCosts() {
 		ArrayList<CostVO> vos = null;
 		try {
@@ -33,15 +34,18 @@ public class CostService_Stub implements CostService {
 		return vos;
 	}
 
+	@Override
 	public ResultMessage add(CostVO vo) {
 		
 		return ResultMessage.SUCCESS;
 	}
 
+	@Override
 	public ResultMessage modify(CostVO vo) {
 		return ResultMessage.SUCCESS;
 	}
 
+	@Override
 	public ResultMessage del(CostVO vo) {
 		return ResultMessage.SUCCESS;
 	}

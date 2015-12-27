@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import blservice.financeblservice.CostService;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import util.CostType;
@@ -13,6 +12,7 @@ import vo.finance.CostVO;
 import vo.finance.FreightVO;
 import vo.finance.RentVO;
 import vo.finance.SalaryVO;
+import blservice.financeblservice.CostService;
  /** 
  * 运费信息表格
  * @author czq 
@@ -26,7 +26,7 @@ public class CostMesTable extends MyTablePanel {
 	private final static String[] titlesForFrieght = {"ID" , "成本类型" , "创建时间" , "结束时间" , "金额"};
 	private final static String[] titlesForSalary = {"ID" , "成本类型" , "创建时间" , "结束时间" , "金额" , "人员类型"};
 	private final static String[] titlesForRent = {"ID" , "成本类型" , "创建时间" , "结束时间" , "金额"};
-	private ArrayList<? extends CostVO> vos;
+	private ArrayList<CostVO> vos;
 	
 	
 	
@@ -46,10 +46,13 @@ public class CostMesTable extends MyTablePanel {
 		// TODO Auto-generated method stub
 
 	}
-
+	
+	
+	
 	@Override
 	protected void initialTitleAndColumn(Element config) {
-		vos = costService.showCosts(type);
+		vos = (ArrayList<CostVO>) costService.showCosts(type);
+		
 		if(type == CostType.FREIGHT){
 			columnNames = titlesForFrieght;
 			
@@ -93,6 +96,7 @@ public class CostMesTable extends MyTablePanel {
 			columnNames = titlesForSalary;
 			
 			if(vos != null && vos.size() != 0){
+				System.out.println(vos.size());
 				data = new String[vos.size()][columnNames.length];
 				SalaryVO vo;
 				for (int i = 0; i < vos.size(); i++) {
@@ -102,23 +106,102 @@ public class CostMesTable extends MyTablePanel {
 					data[i][2] = MyDate.toString(vo.startDate);
 					data[i][3] = MyDate.toString(vo.endDate);
 					data[i][4] = String.valueOf(vo.money);
-					data[i][5] = vo.worker;
+					data[i][5] = vo.worker.getName();
+					
 				}
 				
 			}
-			
 			
 		}
 		
 		
 		
 	}
-
+	/**
+	 * 这里如果type为2，表示修改一条数据
+	 */
+	@Override
+	public void addOneData(Object o, int type) {
+		if(this.type == CostType.FREIGHT){
+			FreightVO vo = (FreightVO) o;
+			if(type != 0){
+				vos.add(vo);
+			}
+			if(type == 2){
+				int row = getSelectedRow();
+				if(((String)table.getValueAt(row, 0)).equals(vo.ID)){
+					table.setValueAt(vo.ID, row, 0);
+					table.setValueAt(vo.costType.getName(), row, 1);
+					table.setValueAt(MyDate.toString(vo.startDate), row, 2);
+					table.setValueAt(MyDate.toString(vo.endDate), row, 3);
+					table.setValueAt(String.valueOf(vo.money), row, 4);
+				}
+			}else{
+				String[] temp = new String[5];
+				temp[0] = vo.ID;
+				temp[1] = vo.costType.getName();
+				temp[2] = MyDate.toString(vo.startDate);
+				temp[3] = MyDate.toString(vo.endDate);
+				temp[4] = String.valueOf(vo.money);
+				addOneRow(temp);
+			}
+			
+			
+		}else if(this.type == CostType.RENT){
+			RentVO vo = (RentVO) o;
+			if(type != 0){
+				vos.add(vo);
+			}
+			if(type == 2){
+				int row = getSelectedRow();
+				if(((String)table.getValueAt(row, 0)).equals(vo.ID)){
+					table.setValueAt(vo.ID, row, 0);
+					table.setValueAt(vo.costType.getName(), row, 1);
+					table.setValueAt(MyDate.toString(vo.startDate), row, 2);
+					table.setValueAt(MyDate.toString(vo.endDate), row, 3);
+					table.setValueAt(String.valueOf(vo.money), row, 4);
+				}
+			}else{
+				String[] temp = new String[5];
+				temp[0] = vo.ID;
+				temp[1] = vo.costType.getName();
+				temp[2] = MyDate.toString(vo.startDate);
+				temp[3] = MyDate.toString(vo.endDate);
+				temp[4] = String.valueOf(vo.money);
+				addOneRow(temp);
+			}
+			
+		}else{
+			SalaryVO vo = (SalaryVO) o;
+			if(type != 0){
+				vos.add(vo);
+			}
+			if(type == 2){
+				int row = getSelectedRow();
+				if(((String)table.getValueAt(row, 0)).equals(vo.ID)){
+					table.setValueAt(vo.ID, row, 0);
+					table.setValueAt(vo.costType.getName(), row, 1);
+					table.setValueAt(MyDate.toString(vo.startDate), row, 2);
+					table.setValueAt(MyDate.toString(vo.endDate), row, 3);
+					table.setValueAt(String.valueOf(vo.money), row, 4);
+					table.setValueAt(String.valueOf(vo.money), row, 5);
+				}
+			}else{
+				String[] temp = new String[5];
+				temp[0] = vo.ID;
+				temp[1] = vo.costType.getName();
+				temp[2] = MyDate.toString(vo.startDate);
+				temp[3] = MyDate.toString(vo.endDate);
+				temp[4] = String.valueOf(vo.money);
+				temp[5] = vo.worker.getName();
+				addOneRow(temp);
+			}
+		}
+	}
+	
 	@Override
 	protected void initTable() {
 		table = new MyTable(columnNames, data);
-		
-
 	}
 	
 	

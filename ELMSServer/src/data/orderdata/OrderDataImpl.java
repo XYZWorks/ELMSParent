@@ -60,13 +60,13 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 								Integer.parseInt(result.getString(17)),
 								Integer.parseInt(result.getString(18))),
 						new OtherOrderMes(result.getString(19), result
-								.getString(20), Integer.parseInt(result
-								.getString(21)), Double.parseDouble(result
-								.getString(22)), result.getString(32), MyDate
-								.getDate(result.getString(33))),
-						new TransferDocs(result.getString(23), result
-								.getString(24), result.getString(25), result
-								.getString(26), result.getString(27) , result.getString(28) ,result.getString(29) , result.getString(30) , result.getString(31)));
+								.getString(20) , MyDate.getDate(result.getString(21)), Integer.parseInt(result
+								.getString(22)), Double.parseDouble(result
+								.getString(23)), result.getString(34), MyDate
+								.getDate(result.getString(35))),
+						new TransferDocs(result.getString(24), result
+								.getString(25), result.getString(26), result
+								.getString(27), result.getString(28) , result.getString(29) ,result.getString(30) , result.getString(31) , result.getString(32), helper.tranFromStringToArrayList(result.getString(33))));
 				pos.add(po);
 			}
 			
@@ -93,13 +93,13 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 				String.valueOf(po.getGoodMes().getGoodWidth()),
 				String.valueOf(po.getGoodMes().getGoodHeight()), po
 						.getOtherMes().getGoodPack(), po.getOtherMes()
-						.getOrderForm(), String.valueOf(po.getOtherMes()
+						.getOrderForm(), MyDate.toString(po.getOtherMes().getOrderStartDate()) , String.valueOf(po.getOtherMes()
 						.getOrderEestiTime()), String.valueOf(po.getOtherMes()
 						.getOrderCost()), po.getTransferDocs().getLoadDoc(), po
 						.getTransferDocs().getArriveZZDoc(), po
 						.getTransferDocs().getTransferDoc(), po
 						.getTransferDocs().getArriveYYDoc(), po
-						.getTransferDocs().getSendGoodDoc(), po.getOtherMes()
+						.getTransferDocs().getSendGoodDoc() , helper.tranFromArrayToString(po.getTransferDocs().getAllDocs()), po.getOtherMes()
 						.getRealReceiver(), MyDate.toString(po.getOtherMes()
 						.getOrderReceiveDate()));
 	}
@@ -154,13 +154,13 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 							Integer.parseInt(findMes.get(16)),
 							Integer.parseInt(findMes.get(17))),
 					new OtherOrderMes(findMes.get(18), findMes
-							.get(19), Integer.parseInt(findMes
-							.get(20)), Double.parseDouble(findMes
-									.get(21)), findMes.get(31), MyDate
-							.getDate(findMes.get(32))),
-					new TransferDocs(findMes.get(22), findMes
-							.get(23), findMes.get(24), findMes
-							.get(25), findMes.get(26) , findMes.get(27) , findMes.get(28) , findMes.get(29) , findMes.get(30)));
+							.get(19), MyDate.getDate(findMes.get(20)) , Integer.parseInt(findMes
+							.get(21)), Double.parseDouble(findMes
+									.get(22)), findMes.get(33), MyDate
+							.getDate(findMes.get(34))),
+					new TransferDocs(findMes.get(23), findMes
+							.get(24), findMes.get(25), findMes
+							.get(26), findMes.get(27) , findMes.get(28) , findMes.get(29) , findMes.get(30) , findMes.get(31), helper.tranFromStringToArrayList(findMes.get(32))));
 		}
 		
 	}
@@ -232,13 +232,13 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 								Integer.parseInt(result.getString(17)),
 								Integer.parseInt(result.getString(18))),
 						new OtherOrderMes(result.getString(19), result
-								.getString(20), Integer.parseInt(result
-								.getString(21)), Double.parseDouble(result
-								.getString(22)), result.getString(32), MyDate
-								.getDate(result.getString(33))),
-						new TransferDocs(result.getString(23), result
-								.getString(24), result.getString(25), result
-								.getString(26), result.getString(27) , result.getString(28) ,result.getString(29) ,result.getString(30) ,result.getString(31)));
+								.getString(20) , MyDate.getDate(result.getString(21)), Integer.parseInt(result
+								.getString(22)), Double.parseDouble(result
+								.getString(23)), result.getString(34), MyDate
+								.getDate(result.getString(35))),
+						new TransferDocs(result.getString(24), result
+								.getString(25), result.getString(26), result
+								.getString(27), result.getString(28) , result.getString(29) ,result.getString(30) , result.getString(31) , result.getString(32), helper.tranFromStringToArrayList(result.getString(33))));
 				pos.add(po);
 			}
 			
@@ -266,6 +266,11 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	public ResultMessage changeOneDocState (String docID,
 			DocType type, DocState state)  throws RemoteException {
 		return super.changeOneDocState(docID, orderTable, state);
+	}
+
+	@Override
+	public int getDayDocCount(DocType type, MyDate date) throws RemoteException {
+		return super.getDayDocCount(orderTable,  date);
 	}
 
 	

@@ -2,8 +2,6 @@ package blservice.statisticblservice;
 
 import java.util.ArrayList;
 
-import org.omg.Messaging.SyncScopeHelper;
-
 import util.ResultMessage;
 import vo.statistic.BillVO;
 import vo.statistic.CostIncomeVO;

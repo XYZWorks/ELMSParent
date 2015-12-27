@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 import org.dom4j.Element;
 
@@ -65,6 +66,10 @@ public abstract class MyPanel extends JPanel{
 	 * 增加监听（内部类机制）
 	 */
 	protected abstract void addListener();
+
+//	public  void refresh() {
+//		
+
 	
 	
 }

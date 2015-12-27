@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import util.ResultMessage;
 import util.StaffType;
 import vo.strategy.ConstVO;
+import vo.strategy.EstiDateVO;
 import vo.strategy.SalaryWayVO;
 
 /**
@@ -40,4 +41,14 @@ public interface StrategyblService {
 	 * @return
 	 */
 	public ResultMessage setSalary(SalaryWayVO way);
+	/**
+	 * 得到预计时间
+	 * @return
+	 */
+	public EstiDateVO getEstiDateVO();
+	/**
+	 * 设置预计时间
+	 * @return
+	 */
+	public ResultMessage setEstiDateVO(EstiDateVO vo);
 }

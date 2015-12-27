@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import bl.storebl.StoreController;
 import ui.config.GraphicsUtils;
 import ui.config.UserfulMethod;
 import ui.table.MyTable;
@@ -12,14 +11,15 @@ import ui.table.MyTablePanel;
 import util.DocType;
 import util.MyDate;
 import util.TransferWay;
-import vo.store.InStoreDocVO;
 import vo.store.OutStoreDocVO;
+import bl.storebl.StoreController;
 
 /** 
  * @author ymc 
  * @version 创建时间：2015年12月9日 下午7:57:29 
  *
  */
+@SuppressWarnings("serial")
 public class OutStoreTablePanel extends MyTablePanel {
 
 	private static final int COLUMN_NUM = 7;
@@ -117,10 +117,11 @@ public class OutStoreTablePanel extends MyTablePanel {
 	}
 	
 	/**
-	 * 根据传入的vos重设table的值
-	 * @param vos
+	 * 根据传入的vosout重设table的值
+	 * @param vosout
 	 */
-	public void resetValue(ArrayList<OutStoreDocVO> vos) {
+	public void resetValue(ArrayList<OutStoreDocVO> vosout) {
+		vos = vosout;
 		if(vos==null){
 			return;
 		}
@@ -137,5 +138,17 @@ public class OutStoreTablePanel extends MyTablePanel {
 			data[i][6] = UserfulMethod.orderArrayToString(vo.orders);
 			
 		}
+		removeAllRows();
+		Object[] tmp = {"","","","","","",""};
+		
+		for(int i = table.getRowCount();i<vos.size();i++)
+			addOneRow(tmp);
+		
+		for(int i = 0;i<vos.size();i++){
+			for(int j = 0;j<COLUMN_NUM;j++)
+				table.setValueAt(data[i][j], i, j);
+		}
 	}
+	
+	
 }
