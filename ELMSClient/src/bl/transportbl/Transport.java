@@ -10,10 +10,13 @@ import po.transport.LoadDocPO;
 import po.transport.PayDocPO;
 import po.transport.SendGoodDocPO;
 import po.transport.TransferDocPO;
+import test.java.other.VOPOchange;
+import util.City;
 import util.DocState;
 import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
+import util.TransferWay;
 import vo.DocVO;
 import vo.store.OutStoreDocVO;
 import vo.strategy.ConstVO;
@@ -23,7 +26,6 @@ import vo.transport.LoadDocVO;
 import vo.transport.PayDocVO;
 import vo.transport.SendGoodDocVO;
 import vo.transport.TransferDocVO;
-import bl.VOPOchange;
 import blservice.orderblservice.Orderblservice;
 import blservice.strategyblservice.StrategyblService;
 import ds.transportdataservice.Transportdataservice;
@@ -235,12 +237,21 @@ public class Transport {
 
 	}
 
-	// TODO 求运费==
 	public double getExpense(OutStoreDocVO outStoreDocVO,
 			TransferDocVO transferVO) {
 		ConstVO vo = strategybl.getConst();
-
-		return 0;
+		City one = outStoreDocVO.loc;
+		City two = transferVO.sendCity;
+		double instance = vo.getInstance(one, two);
+		double perCost = 0;
+		if(outStoreDocVO.shipWay==TransferWay.plane)
+			perCost = vo.plane;
+		else if(outStoreDocVO.shipWay==TransferWay.train)
+			perCost = vo.train;
+		else if(outStoreDocVO.shipWay==TransferWay.car)
+			perCost = vo.truck;
+		
+		return instance*perCost;
 	}
 
 	public ResultMessage addOnePay(PayDocVO vo) {
