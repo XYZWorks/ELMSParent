@@ -21,6 +21,7 @@ public class PersonnelController extends BusinessController implements Personnel
 	private Personnel per;
 	private PersonnelDataService personnelDataService;
 	public PersonnelController() {
+		myType = DataServiceType.PersonnelDataService;
 		personnelDataService = (PersonnelDataService) RMIManage.getDataService(DataServiceType.PersonnelDataService);
 		per = new Personnel(personnelDataService);
 	}
@@ -30,9 +31,7 @@ public class PersonnelController extends BusinessController implements Personnel
 			return per.getPeopleByInst(ID);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return per.getPeopleByInst(ID);
-				} catch (Exception e1) {}
+				return getPeopleByInst(ID);
 			}
 		}return null;
 	}
@@ -43,9 +42,7 @@ public class PersonnelController extends BusinessController implements Personnel
 			return per.getPeopleByID(ID);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return per.getPeopleByID(ID);
-				} catch (Exception e1) {}
+			return getPeopleByID(ID);
 			}
 		}return null;
 	}
@@ -56,9 +53,7 @@ public class PersonnelController extends BusinessController implements Personnel
 			return per.getPeopleByName(name);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return per.getPeopleByName(name);
-				} catch (Exception e1) {}
+				return getPeopleByName(name);
 			}
 		}return null;
 	}
@@ -69,9 +64,7 @@ public class PersonnelController extends BusinessController implements Personnel
 			return per.addPeople(vo);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return per.addPeople(vo);
-				} catch (Exception e1) {}
+				return addPeople(vo);
 			}
 		}return ResultMessage.FAIL;
 	}
@@ -82,9 +75,7 @@ public class PersonnelController extends BusinessController implements Personnel
 			return per.delPeople(ID);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return per.delPeople(ID);
-				} catch (Exception e1) {}
+				return delPeople(ID);
 			}
 		}return ResultMessage.FAIL;
 	}
@@ -95,9 +86,7 @@ public class PersonnelController extends BusinessController implements Personnel
 			return per.addInst(vo);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return per.addInst(vo);
-				} catch (Exception e1) {}
+				return addInst(vo);
 			}
 		}return ResultMessage.FAIL;
 	}
@@ -108,9 +97,7 @@ public class PersonnelController extends BusinessController implements Personnel
 			return per.delInst(ID);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return per.delInst(ID);
-				} catch (Exception e1) {}
+				return delInst(ID);
 			}
 		}return ResultMessage.FAIL;
 	}
@@ -121,9 +108,7 @@ public class PersonnelController extends BusinessController implements Personnel
 			return per.getInst();
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return per.getInst();
-				} catch (Exception e1) {}
+				return getInst();
 			}
 		}return null;
 	}
@@ -133,9 +118,7 @@ public class PersonnelController extends BusinessController implements Personnel
 			return per.getPersons();
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return per.getPersons();
-				} catch (Exception e1) {}
+				return getPersons();
 			}
 		}return null;
 	}
@@ -146,9 +129,7 @@ public class PersonnelController extends BusinessController implements Personnel
 			return per.modifyInst(vo);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return per.modifyInst(vo);
-				} catch (Exception e1) {}
+				return modifyInst(vo);
 			}
 		}return ResultMessage.FAIL;
 	}
@@ -159,9 +140,7 @@ public class PersonnelController extends BusinessController implements Personnel
 			return per.modifyPerson(vo);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return per.modifyPerson(vo);
-				} catch (Exception e1) {}
+				return modifyPerson(vo);
 			}
 		}return ResultMessage.FAIL;
 	}

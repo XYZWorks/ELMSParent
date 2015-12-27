@@ -2,7 +2,6 @@ package ui.login;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JOptionPane;
@@ -14,7 +13,6 @@ import org.dom4j.Element;
 import ui.common.CommonFrame;
 import ui.config.UserfulMethod;
 import ui.inital.mainFrame;
-import ui.tools.MyButton;
 import ui.tools.MyFrame;
 import ui.tools.MyOptionPane;
 import ui.tools.MyPasswordField;
@@ -43,8 +41,6 @@ public class LoginFrame extends MyFrame {
 	private MyPictureButton login;
 	
 	private MyPictureButton set;
-
-	private MyPictureButton ipButton;
 	// 查询订单
 	private MyPictureButton checkOrder;
 
@@ -99,17 +95,10 @@ public class LoginFrame extends MyFrame {
 	}
 
 	private void initButtons(Element config) {
-<<<<<<< HEAD
 		login = new MyPictureButton(config.element("login"));
 		checkOrder = new MyPictureButton(config.element("checkOrder"));
 		closeButton = new MyPictureButton(config.element("close"));
 		set = new MyPictureButton(config.element("set"));
-=======
-		login = new MyButton(config.element("login"));
-		checkOrder = new MyButton(config.element("checkOrder"));
-		closeButton = new MyButton(config.element("close"));
-		ipButton = new MyPictureButton(config.element("ip"));
->>>>>>> refs/remotes/origin/master
 	}
 
 	private void initTextField(Element config) {
@@ -132,27 +121,17 @@ public class LoginFrame extends MyFrame {
 		mainpanel.add(checkOrder);
 		mainpanel.add(login);
 		mainpanel.add(closeButton);
-<<<<<<< HEAD
 		mainpanel.add(set);
-=======
-		mainpanel.add(ipButton);
->>>>>>> refs/remotes/origin/master
 		// mainpanel.add(rememberMe);
 		
 
 	}
 
 	private void addListener() {
-<<<<<<< HEAD
 		login.addMouseListener(new MyLoginListener(login));
 		closeButton.addMouseListener(new MyCloseListener(closeButton));
 		checkOrder.addMouseListener(new MyCheckOrderListener(checkOrder));
-=======
-		login.addMouseListener(new MyLoginListener());
-		closeButton.addMouseListener(new MyCloseListener());
-		checkOrder.addMouseListener(new MyCheckOrderListener());
-		ipButton.addMouseListener(new MyIPListener(ipButton));
->>>>>>> refs/remotes/origin/master
+		set.addMouseListener(new MyIPListener(set));
 		password.addKeyListener(new KeyAdapter() {
 			 public void keyPressed(KeyEvent e) {
 				 if(e.getKeyCode() == KeyEvent.VK_ENTER){
@@ -201,10 +180,6 @@ public class LoginFrame extends MyFrame {
 	
 	class MyIPListener extends MyPictureButtonListener{
 
-<<<<<<< HEAD
-	class MyLoginListener extends MyPictureButtonListener {
-		
-=======
 		public MyIPListener(MyPictureButton button) {
 			super(button);
 		}
@@ -218,12 +193,7 @@ public class LoginFrame extends MyFrame {
 	}
 	
 	
-	class MyLoginListener extends MouseAdapter {
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			mainpanel.changeBG(6);
-			dealWithChoose();
->>>>>>> refs/remotes/origin/master
+	class MyLoginListener extends MyPictureButtonListener {
 		
 		public MyLoginListener(MyPictureButton button) {
 			super(button);

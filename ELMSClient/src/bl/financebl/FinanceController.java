@@ -57,10 +57,7 @@ public class FinanceController extends BusinessController implements BankAccount
 			return pay.create(vo);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return pay.create(vo);
-				} catch (Exception e1) {
-				}
+				return create(vo);
 			}
 		}
 		return ResultMessage.FAIL;
@@ -73,10 +70,7 @@ public class FinanceController extends BusinessController implements BankAccount
 			return cost.showCosts(type);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return cost.showCosts(type);
-				} catch (Exception e1) {
-				}
+				return showCosts(type);
 			}
 		}
 		return null;
@@ -88,10 +82,7 @@ public class FinanceController extends BusinessController implements BankAccount
 			return cost.add(vo);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return cost.add(vo);
-				} catch (Exception e1) {
-				}
+				return add(vo);
 			}
 		}
 		return ResultMessage.FAIL;
@@ -104,10 +95,7 @@ public class FinanceController extends BusinessController implements BankAccount
 			return cost.modify(vo);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return cost.modify(vo);
-				} catch (Exception e1) {
-				}
+				return modify(vo);
 			}
 		}
 		return ResultMessage.FAIL;
@@ -120,10 +108,7 @@ public class FinanceController extends BusinessController implements BankAccount
 			return cost.del(vo);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return cost.del(vo);
-				} catch (Exception e1) {
-				}
+				return del(vo);
 			}
 		}
 		return ResultMessage.FAIL;
@@ -137,10 +122,7 @@ public class FinanceController extends BusinessController implements BankAccount
 			return pay.showPays();
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return pay.showPays();
-				} catch (Exception e1) {
-				}
+				return showPays();
 			}
 		}
 		return null;
@@ -152,10 +134,7 @@ public class FinanceController extends BusinessController implements BankAccount
 			return deposit.create(vo);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return deposit.create(vo);
-				} catch (Exception e1) {
-				}
+				return createDeposit(vo);
 			}
 		}
 		return ResultMessage.FAIL;
@@ -167,10 +146,7 @@ public class FinanceController extends BusinessController implements BankAccount
 			return deposit.show();
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return deposit.show();
-				} catch (Exception e1) {
-				}
+				return showDeposit();
 			}
 		}
 		return null;
@@ -183,10 +159,7 @@ public class FinanceController extends BusinessController implements BankAccount
 			return bankAccount.getAccounts();
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return bankAccount.getAccounts();
-				} catch (Exception e1) {
-				}
+				return getAccounts();
 			}
 		}
 		return null;
@@ -199,10 +172,7 @@ public class FinanceController extends BusinessController implements BankAccount
 			return bankAccount.modifyAccount(vo);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return bankAccount.modifyAccount(vo);
-				} catch (Exception e1) {
-				}
+				return modifyAccount(vo);
 			}
 		}
 		return ResultMessage.FAIL;
@@ -214,10 +184,7 @@ public class FinanceController extends BusinessController implements BankAccount
 			return bankAccount.deleteAccount(ID);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return bankAccount.deleteAccount(ID);
-				} catch (Exception e1) {
-				}
+				return deleteAccount(ID);
 			}
 		}
 		return ResultMessage.FAIL;
@@ -229,10 +196,7 @@ public class FinanceController extends BusinessController implements BankAccount
 			return bankAccount.addAccount(vo);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return bankAccount.addAccount(vo);
-				} catch (Exception e1) {
-				}
+				return addAccount(vo);
 			}
 		}
 		return ResultMessage.FAIL;
@@ -246,10 +210,7 @@ public class FinanceController extends BusinessController implements BankAccount
 			return bankAccount.checkAccount(ID, money);
 		} catch (Exception e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
-				try {
-					return bankAccount.checkAccount(ID, money);
-				} catch (Exception e1) {
-				}
+				return checkAccount(ID, money);
 			}
 		}
 		return ResultMessage.FAIL;

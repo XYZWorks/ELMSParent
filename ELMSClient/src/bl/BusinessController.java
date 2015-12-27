@@ -10,7 +10,7 @@ import util.DataServiceType;
  */
 public abstract class BusinessController {
 	
-	protected static DataServiceType myType;
+	protected DataServiceType myType;
 	
 	
 	public abstract void reinitDataService(Remote dataService);

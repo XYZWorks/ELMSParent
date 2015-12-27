@@ -2,7 +2,6 @@ package bl;
 
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
@@ -20,6 +19,7 @@ import vo.store.InStoreDocVO;
  */
 public class VOPOchange {
 	
+	@SuppressWarnings("unchecked")
 	public static Object POtoVO(Object o){
 		
 		if(o == null){
@@ -161,6 +161,7 @@ public class VOPOchange {
 		return vo;
 		
 	}
+	@SuppressWarnings("unchecked")
 	public static Object VOtoPO(Object o){
 		
 		Object po = null;
@@ -175,7 +176,7 @@ public class VOPOchange {
 		
 		Field[] field = voClass.getDeclaredFields();
 	
-		Method met = null;
+//		Method met = null;
 		
 			
 		try {		
@@ -301,6 +302,7 @@ public class VOPOchange {
 		
 	}
 	
+	@SuppressWarnings("rawtypes")
 	private static Field getSuperField(Class clazz, String name) {
 		
 		Field[] field = clazz.getDeclaredFields();
@@ -319,6 +321,7 @@ public class VOPOchange {
 		}
 		return null;
 	}
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 //		CostVO  vo = new CostVO(1000, "freigt");		
 //		CostPO po = (CostPO) VOtoPO(vo);

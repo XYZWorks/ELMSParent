@@ -47,10 +47,7 @@ public class OrderController extends BusinessController implements
 			return order.add(vo);
 		} catch (Exception e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
-				try {
-					return order.add(vo);
-				} catch (Exception e1) {
-				}
+				return add(vo);
 			}
 		}
 		return ResultMessage.FAIL;
@@ -62,10 +59,7 @@ public class OrderController extends BusinessController implements
 			return order.checkBarCode(orderBarCode);
 		} catch (Exception e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
-				try {
-					return order.checkBarCode(orderBarCode);
-				} catch (Exception e1) {
-				}
+				return checkBarCode(orderBarCode);
 			}
 		}
 		return ResultMessage.FAIL;
@@ -77,10 +71,7 @@ public class OrderController extends BusinessController implements
 			return order.getOrderVO(date);
 		} catch (Exception e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
-				try {
-					return order.getOrderVO(date);
-				} catch (Exception e1) {
-				}
+				return getOrderVO(date);
 			}
 		}
 		return null;
@@ -92,10 +83,7 @@ public class OrderController extends BusinessController implements
 			return order.del(orderBarCode);
 		} catch (Exception e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
-				try {
-					return order.del(orderBarCode);
-				} catch (Exception e1) {
-				}
+				return del(orderBarCode);
 			}
 		}
 		return ResultMessage.FAIL;
@@ -107,10 +95,7 @@ public class OrderController extends BusinessController implements
 			return order.getSimpleInfo(orderBarCode);
 		} catch (Exception e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
-				try {
-					return order.getSimpleInfo(orderBarCode);
-				} catch (Exception e1) {
-				}
+				return getSimpleInfo(orderBarCode);
 			}
 		}
 		return null;
@@ -122,10 +107,7 @@ public class OrderController extends BusinessController implements
 			return order.getFullInfo(orderBarCode);
 		} catch (Exception e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
-				try {
-					return order.getFullInfo(orderBarCode);
-				} catch (Exception e1) {
-				}
+				return getFullInfo(orderBarCode);
 			}
 		}
 		return null;
@@ -137,10 +119,7 @@ public class OrderController extends BusinessController implements
 			return order.receiveInfo(vo);
 		} catch (Exception e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
-				try {
-					return order.receiveInfo(vo);
-				} catch (Exception e1) {
-				}
+				return receiveInfo(vo);
 			}
 		}
 		return ResultMessage.FAIL;
@@ -152,10 +131,7 @@ public class OrderController extends BusinessController implements
 			return order.addDocToList(vo, orderBarCodes);
 		} catch (Exception e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
-				try {
-					return order.addDocToList(vo, orderBarCodes);
-				} catch (Exception e1) {
-				}
+				return addDocToList(vo, orderBarCodes);
 			}
 		}
 		return ResultMessage.FAIL;
@@ -168,10 +144,7 @@ public class OrderController extends BusinessController implements
 			return order.getDocLists();
 		} catch (Exception e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
-				try {
-					return order.getDocLists();
-				} catch (Exception e1) {
-				}
+				return getDocLists(type);
 			}
 		}
 		return null;
@@ -184,10 +157,7 @@ public class OrderController extends BusinessController implements
 			return order.changeDocsState(docsID, type, state);
 		} catch (Exception e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
-				try {
-					return order.changeDocsState(docsID, type, state);
-				} catch (Exception e1) {
-				}
+				return changeDocsState(docsID, type, state);
 			}
 		}
 		return ResultMessage.FAIL;
@@ -200,10 +170,7 @@ public class OrderController extends BusinessController implements
 			return order.changeOneDocState(docID, type, state);
 		} catch (Exception e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
-				try {
-					return order.changeOneDocState(docID, type, state);
-				} catch (Exception e1) {
-				}
+				return changeOneDocState(docID, type, state);
 			}
 		}
 		return ResultMessage.FAIL;
@@ -216,11 +183,7 @@ public class OrderController extends BusinessController implements
 					.getDaySendDocs(MyDate.getNowTime()));
 		} catch (Exception e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
-				try {
-					return order.getPreReceive(transportController
-							.getDaySendDocs(MyDate.getNowTime()));
-				} catch (Exception e1) {
-				}
+				return getPreReceive();
 			}
 		}
 		return null;

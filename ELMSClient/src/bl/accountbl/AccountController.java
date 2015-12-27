@@ -35,10 +35,7 @@ public class AccountController extends BusinessController implements
 			return account.add(vo);
 		} catch (Exception e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
-				try {
-					return account.add(vo);
-				} catch (Exception e1) {
-				}
+				return add(vo);
 			}
 		}
 		return ResultMessage.FAIL;
@@ -50,10 +47,7 @@ public class AccountController extends BusinessController implements
 			return account.delete(ID);
 		} catch (Exception e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
-				try {
-					return account.delete(ID);
-				} catch (Exception e1) {
-				}
+				return delete(ID);
 			}
 		}
 		return ResultMessage.FAIL;
@@ -65,10 +59,7 @@ public class AccountController extends BusinessController implements
 			return account.find(ID);
 		} catch (Exception e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
-				try {
-					return account.find(ID);
-				} catch (Exception e1) {
-				}
+				return find(ID);
 			}
 		}
 		return null;
@@ -80,10 +71,7 @@ public class AccountController extends BusinessController implements
 			return account.modify(vo);
 		} catch (Exception e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
-				try {
-					return account.modify(vo);
-				} catch (Exception e1) {
-				}
+				return modify(vo);
 			}
 		}
 		return ResultMessage.FAIL;
@@ -95,10 +83,7 @@ public class AccountController extends BusinessController implements
 			return account.show();
 		} catch (Exception e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
-				try {
-					return account.show();
-				} catch (Exception e1) {
-				}
+				return show();
 			}
 		}
 		return null;

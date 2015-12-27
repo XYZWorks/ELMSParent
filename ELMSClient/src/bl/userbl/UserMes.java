@@ -16,53 +16,35 @@ import ds.accountdataservice.AccountDataService;
 
 public class UserMes {
 	AccountDataService accountds;
-	
+
 	public UserMes(AccountDataService accountDataService) {
 		this.accountds = accountDataService;
 	}
-	
-	public AccountVO login(AccountVO vo) {
-		try {
-			AccountPO temp = accountds.check(vo.ID, vo.password);
-			if(temp == null){
-				return null;
-			}else{
-				return (AccountVO)VOPOchange.POtoVO(temp);
-			}
-			
-			
-		} catch (RemoteException e) {
-			e.printStackTrace();
+
+	public AccountVO login(AccountVO vo) throws RemoteException {
+		AccountPO temp = accountds.check(vo.ID, vo.password);
+		if (temp == null) {
+			return null;
+		} else {
+			return (AccountVO) VOPOchange.POtoVO(temp);
+		}
+
+	}
+
+	public ResultMessage modify(AccountVO vo) throws RemoteException {
+
+		AccountPO po = (AccountPO) VOPOchange.VOtoPO(vo);
+		return accountds.modify(po);
+	}
+
+	public AccountVO getMes(String ID) throws RemoteException {
+		AccountVO vo = null;
+		AccountPO po = null;
+		po = accountds.getMes(ID);
+		if (po == null) {
 			return null;
 		}
-
-	}
-
-	public ResultMessage modify(AccountVO vo) {
-		
-		AccountPO po = (AccountPO) VOPOchange.VOtoPO(vo);
-		ResultMessage re = null;
-		try {
-			re =  accountds.modify(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-			
-		}
-		return re;
-	}
-
-	public AccountVO getMes(String ID) {
-		AccountVO vo = null ;
-		AccountPO po = null;
-		try {
-			po = accountds.getMes(ID);
-			if( po == null){
-				return null;
-			}
-			vo = (AccountVO) VOPOchange.POtoVO(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+		vo = (AccountVO) VOPOchange.POtoVO(po);
 		return vo;
 	}
 

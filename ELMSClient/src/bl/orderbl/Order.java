@@ -201,7 +201,10 @@ public class Order {
 		DocPO po = (DocPO) VOPOchange.VOtoPO(vo);
 		return orderData.addDocToList(po, orderBarCodes);
 	}
-
+	
+	
+	//TODO
+	@SuppressWarnings("unused")
 	public ArrayList<PreReceiveVO> getPreReceive(
 			ArrayList<SendGoodDocVO> daySendDocs) throws RemoteException {
 		ArrayList<String> barCodes = null;
