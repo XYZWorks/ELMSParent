@@ -1,9 +1,9 @@
 package bl.orderbl;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 
 import net.RMIManage;
-import ds.orderdataservice.OrderDataService;
 import util.City;
 import util.DataServiceType;
 import util.DocState;
@@ -15,14 +15,17 @@ import vo.order.OrderSimpleInfoVO;
 import vo.order.OrderVO;
 import vo.order.PreReceiveVO;
 import vo.order.ReceiveVO;
+import bl.BusinessController;
 import bl.transportbl.TransportController;
 import blservice.orderblservice.Orderblservice;
+import ds.orderdataservice.OrderDataService;
+import exception.ExceptionHandler;
  /** 
  * 订单controller类
  * @author czq 
  * @version 2015年11月15日 上午9:22:18 
  */
-public class OrderController implements Orderblservice{
+public class OrderController extends BusinessController implements Orderblservice{
 
 	private TransportController transportController;
 	private OrderDataService orderData;
@@ -30,65 +33,163 @@ public class OrderController implements Orderblservice{
 	public OrderController() {
 		orderData  = (OrderDataService) RMIManage.getDataService(DataServiceType.OrderDataService);
 		order = new Order(orderData);
+		myType = DataServiceType.OrderDataService;
 		transportController = new TransportController();
 	}
 	@Override
 	public ResultMessage add(OrderVO vo) {
-		return order.add(vo);
+		try {
+			return order.add(vo);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return order.add(vo);
+				} catch (Exception e1) {}
+			}
+		}
+		return ResultMessage.FAIL;
 	}
 
 	@Override
 	public ResultMessage checkBarCode(String orderBarCode) {
-		return order.checkBarCode(orderBarCode);
+		try {
+			return order.checkBarCode(orderBarCode);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return order.checkBarCode(orderBarCode);
+				} catch (Exception e1) {}
+			}
+		}return ResultMessage.FAIL;
 	}
 
 	@Override
 	public ArrayList<OrderVO> getOrderVO(MyDate date) {
-		return order.getOrderVO(date);
+		try {
+			return order.getOrderVO(date);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return order.getOrderVO(date);
+				} catch (Exception e1) {}
+			}
+		}return null;
 	}
 
 	@Override
 	public ResultMessage del(String orderBarCode) {
-		return order.del(orderBarCode);
+		try {
+			return order.del(orderBarCode);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return order.del(orderBarCode);
+				} catch (Exception e1) {}
+			}
+		}return ResultMessage.FAIL;
 	}
 
 	@Override
 	public ArrayList<OrderSimpleInfoVO> getSimpleInfo(String orderBarCode) {
-		return order.getSimpleInfo(orderBarCode);
+		try {
+			return order.getSimpleInfo(orderBarCode);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return order.getSimpleInfo(orderBarCode);
+				} catch (Exception e1) {}
+			}
+		}return null;
 	}
 
 	@Override
 	public OrderVO getFullInfo(String orderBarCode) {
-		return order.getFullInfo(orderBarCode);
+		try {
+			return order.getFullInfo(orderBarCode);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return order.getFullInfo(orderBarCode);
+				} catch (Exception e1) {}
+			}
+		}return null;
 	}
 
 	@Override
 	public ResultMessage receiveInfo(ReceiveVO vo) {
-		return order.receiveInfo(vo);
+		try {
+			return order.receiveInfo(vo);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return order.receiveInfo(vo);
+				} catch (Exception e1) {}
+			}
+		}return ResultMessage.FAIL;
 	}
 
 	@Override
 	public ResultMessage addDocToList(DocVO vo,ArrayList<String> orderBarCodes) {
-		return order.addDocToList(vo,orderBarCodes);
+		try {
+			return order.addDocToList(vo,orderBarCodes);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return order.addDocToList(vo,orderBarCodes);
+				} catch (Exception e1) {}
+			}
+		}return ResultMessage.FAIL;
 	}
 
 	@Override
 	public ArrayList<DocVO> getDocLists(DocType type) {
 		
-		return null;
+		try {
+			return order.getDocLists();
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return order.getDocLists();
+				} catch (Exception e1) {}
+			}
+		}return null;
 	}
 
 	@Override
 	public ResultMessage changeDocsState(ArrayList<String> docsID, DocType type, DocState state) {
-		return order.changeDocsState(docsID , type , state);
+		try {
+			return order.changeDocsState(docsID , type , state);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return order.changeDocsState(docsID , type , state);
+				} catch (Exception e1) {}
+			}
+		}return ResultMessage.FAIL;
 	}
 	@Override
 	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
-		return order.changeOneDocState(docID , type , state);
+		try {
+			return order.changeOneDocState(docID , type , state);
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return order.changeOneDocState(docID , type , state);
+				} catch (Exception e1) {}
+			}
+		}return ResultMessage.FAIL;
 	}
 	@Override
 	public ArrayList<PreReceiveVO> getPreReceive() {
-		return order.getPreReceive(transportController.getDaySendDocs(MyDate.getNowTime()));
+		try {
+			return order.getPreReceive(transportController.getDaySendDocs(MyDate.getNowTime()));
+		} catch (Exception e) {
+			if(ExceptionHandler.myExceptionHandler(myType, this)){
+				try {
+					return order.getPreReceive(transportController.getDaySendDocs(MyDate.getNowTime()));
+				} catch (Exception e1) {}
+			}
+		}return null;
 	}
 	@Override
 	public DocVO getByID(String ID, DocType type) {
@@ -108,6 +209,11 @@ public class OrderController implements Orderblservice{
 	public int getDayDocCount(DocType type) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	@Override
+	public void reinitDataService(Remote dataService) {
+		orderData = (OrderDataService) dataService;
+		order = new Order(orderData);
 	}
 	
 	

@@ -97,7 +97,10 @@ public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
 	@Override
 	protected void initTextFields(Element e) {
 		IDT = new MyTextField(e.element("ID"));
-		IDT.setText("ZZD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.transferDoc)));
+		
+		if(controller != null){
+			IDT.setText("ZZD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.transferDoc)));
+		}
 		IDT.setEditable(false);
 
 		containerT = new MyTextField(e.element("container"));

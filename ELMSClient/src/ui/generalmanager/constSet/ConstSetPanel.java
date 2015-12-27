@@ -169,7 +169,7 @@ public class ConstSetPanel extends MyPanel implements TextFieldsManage {
 			trainc = trainCost.getText();
 			carc = truckCost.getText();
 			woodc = woodCost.getText();
-			plasticc = planeCost.getText();
+			plasticc = plasticCost.getText();
 			paperc = paperCost.getText();
 			fastc = fastT.getText();
 			normalc = normalT.getText();

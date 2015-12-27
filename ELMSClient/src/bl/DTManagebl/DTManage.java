@@ -11,214 +11,155 @@ import vo.DTManage.CarVO;
 import vo.DTManage.DriverVO;
 import ds.DTManagedataservice.DTManagedataservice;
 
-/** 
- * @author ymc 
- * @version 创建时间：2015年10月27日 下午7:45:48 
+/**
+ * @author ymc
+ * @version 创建时间：2015年10月27日 下午7:45:48
  *
  */
-public class DTManage{
-	
-	
+public class DTManage {
+
 	private DTManagedataservice manageData;
 	private ResultMessage result = null;
+
 	public DTManage(DTManagedataservice manageData) {
 		this.manageData = manageData;
 	}
-	public ResultMessage addDriver(DriverVO vo) {
-		
+
+	public ResultMessage addDriver(DriverVO vo) throws RemoteException {
+
 		DriverPO po = (DriverPO) VOPOchange.VOtoPO(vo);
-		try {
-			result = manageData.addDriverPO(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		
+		result = manageData.addDriverPO(po);
+
 		return result;
 	}
 
-	public ArrayList<DriverVO> checkDriverByName(String name) {
-		
-		ArrayList<DriverPO> pos = new ArrayList<DriverPO>();
-		
+	public ArrayList<DriverVO> checkDriverByName(String name)
+			throws RemoteException {
 
-		try {
-			pos = manageData.getDriverByName(name);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+		ArrayList<DriverPO> pos = new ArrayList<DriverPO>();
+
+		pos = manageData.getDriverByName(name);
 		if (pos == null) {
 			return null;
 		}
-		
+
 		ArrayList<DriverVO> vos = new ArrayList<DriverVO>(pos.size());
-		for(DriverPO po : pos){
-			vos.add((DriverVO)VOPOchange.POtoVO(po));
+		for (DriverPO po : pos) {
+			vos.add((DriverVO) VOPOchange.POtoVO(po));
 		}
 		return vos;
 	}
 
-	public DriverVO checkDriverByID(String ID) {
-		
+	public DriverVO checkDriverByID(String ID) throws RemoteException {
+
 		DriverPO po = null;
-		
-		try {
-			po = manageData.getDriverMes(ID);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		
+
+		po = manageData.getDriverMes(ID);
+
 		DriverVO vo = (DriverVO) VOPOchange.POtoVO(po);
 		return vo;
 	}
 
-	public ArrayList<DriverVO> checkDriverByInst(String InstID) {
-		
-		ArrayList<DriverPO> pos = new ArrayList<DriverPO>();
-		
+	public ArrayList<DriverVO> checkDriverByInst(String InstID)
+			throws RemoteException {
 
-		try {
-			pos = manageData.getDriverByInst(InstID);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		
+		ArrayList<DriverPO> pos = new ArrayList<DriverPO>();
+
+		pos = manageData.getDriverByInst(InstID);
+
 		ArrayList<DriverVO> vos = new ArrayList<DriverVO>(pos.size());
-		for(DriverPO po : pos){
-			vos.add((DriverVO)VOPOchange.POtoVO(po));
+		for (DriverPO po : pos) {
+			vos.add((DriverVO) VOPOchange.POtoVO(po));
 		}
 		return vos;
 	}
 
-	public ResultMessage modifyDriver(DriverVO vo) {
+	public ResultMessage modifyDriver(DriverVO vo) throws RemoteException {
 		DriverPO po = (DriverPO) VOPOchange.VOtoPO(vo);
-		try {
-			result = manageData.updateDriverPo(po);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		
+		result = manageData.updateDriverPo(po);
+
 		return result;
 	}
 
-	public ResultMessage delDriver(String ID) {
+	public ResultMessage delDriver(String ID) throws RemoteException {
 		result = null;
-		try {
-			result = manageData.delDriverPO(ID);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		
+		result = manageData.delDriverPO(ID);
+
 		return result;
 	}
 
-	public ArrayList<String> getDriverName(String InstID) {
+	public ArrayList<String> getDriverName(String InstID)
+			throws RemoteException {
 		ArrayList<DriverVO> vos = checkDriverByInst(InstID);
-		
-		
+
 		if (vos == null) {
 			return null;
 		}
-		
+
 		ArrayList<String> names = new ArrayList<String>(vos.size());
-		for(DriverVO vo : vos){
+		for (DriverVO vo : vos) {
 			names.add(vo.name);
 		}
 		return names;
 	}
 
-	public ResultMessage addCar(CarVO vo) {
+	public ResultMessage addCar(CarVO vo) throws RemoteException {
 		result = null;
-		try {
-			result =  manageData.addCarPO((CarPO) VOPOchange.VOtoPO(vo));
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+		result = manageData.addCarPO((CarPO) VOPOchange.VOtoPO(vo));
 		return result;
 	}
 
-	public CarVO checkCarByID(String ID) {
-		CarVO vo = null;
-		
-		try {
-			vo = (CarVO) VOPOchange.POtoVO(manageData.getCarMes(ID));
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return vo;
+	public CarVO checkCarByID(String ID) throws RemoteException {
+
+		return (CarVO) VOPOchange.POtoVO(manageData.getCarMes(ID));
+
 	}
 
-	public CarVO checkByPlateNum(String plateNum) {
-		CarVO vo = null;
-		
-		try {
-			vo = (CarVO) VOPOchange.POtoVO(manageData.checkByPlateNum(plateNum));
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return vo;
+	public CarVO checkByPlateNum(String plateNum) throws RemoteException {
+		return (CarVO) VOPOchange.POtoVO(manageData.checkByPlateNum(plateNum));
 	}
 
-	public ResultMessage modifyCar(CarVO vo) {
-		try {
-			return manageData.updateCarPo((CarPO) VOPOchange.VOtoPO(vo));
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		
-		return ResultMessage.FAIL;
+	public ResultMessage modifyCar(CarVO vo) throws RemoteException {
+		return manageData.updateCarPo((CarPO) VOPOchange.VOtoPO(vo));
+
 	}
 
-	public ResultMessage delCar(String ID) {
-		try {
-			return manageData.delCarPO(ID);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return ResultMessage.FAIL;
+	public ResultMessage delCar(String ID) throws RemoteException {
+		return manageData.delCarPO(ID);
 	}
 
-	public ArrayList<String> getPlateNumber(String InstID) {
-		try {
-			return manageData.getPlateNums();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return null;
+	public ArrayList<String> getPlateNumber(String InstID)
+			throws RemoteException {
+		return manageData.getPlateNums();
 	}
-	public ArrayList<CarVO> getAllCars() {
+
+	public ArrayList<CarVO> getAllCars() throws RemoteException {
 		ArrayList<CarPO> pos = null;
-		try {
-			pos = manageData.getAllCars();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		if(pos == null){
+		pos = manageData.getAllCars();
+		if (pos == null) {
 			return null;
 		}
-		
+
 		ArrayList<CarVO> vos = new ArrayList<>(pos.size());
 		for (CarPO carPO : pos) {
 			vos.add((CarVO) VOPOchange.POtoVO(carPO));
 		}
-		
+
 		return vos;
 	}
-	public ArrayList<DriverVO> getAllDrivers() {
+
+	public ArrayList<DriverVO> getAllDrivers() throws RemoteException {
 		ArrayList<DriverPO> pos = null;
-		try {
-			pos = manageData.getAllDrivers();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		if(pos == null){
+		pos = manageData.getAllDrivers();
+		if (pos == null) {
 			return null;
 		}
-		
+
 		ArrayList<DriverVO> vos = new ArrayList<>(pos.size());
 		for (DriverPO driverPO : pos) {
 			vos.add((DriverVO) VOPOchange.POtoVO(driverPO));
 		}
-		
+
 		return vos;
 	}
 }

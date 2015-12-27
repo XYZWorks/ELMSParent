@@ -90,7 +90,10 @@ public class AddInStorePanel extends MyPanel implements DocPanelForApproval{
 	@Override
 	protected void initTextFields(Element e) {
 		IDT = new MyTextField(e.element("ID"));
-		IDT.setText("RKD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.inStoreDoc)));
+		if(controller != null){
+			IDT.setText("RKD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.inStoreDoc)));
+
+		}
 		IDT.setEditable(false);
 
 	}

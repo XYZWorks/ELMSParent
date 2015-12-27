@@ -43,8 +43,9 @@ public class CarManageAddPanel extends AddDocPanel {
 	private MyTextField useYearT;
 	
 	DTManageblservice bl;
-	public CarManageAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable ) {
+	public CarManageAddPanel(Element config, JPanel changePanel, String checkDocPanelStr, MyTablePanel messageTable, DTManageblservice bl ) {
 		super(config , changePanel , checkDocPanelStr,  messageTable);
+		this.bl = bl;
 		
 	}
 

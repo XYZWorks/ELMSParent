@@ -64,7 +64,7 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 	Transportblservice bl;
 
 	public ArriveYYDocAddPanel(Element config, JPanel changePanel,
-			String checkDocPanelStr, MyTablePanel messageTable) {
+			String checkDocPanelStr, MyTablePanel messageTable, Transportblservice bl) {
 		super(config, changePanel, checkDocPanelStr, messageTable);
 	}
 
@@ -81,7 +81,6 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 	@Override
 	protected void initTextFields(Element e) {
 		idT = new MyTextField(e.element("id"));
-		idT.setText("JSD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.arriveYYDoc)));
 		idT.setEditable(false);
 		ZZIDT = new MyTextField(e.element("ZZID"));
 		order = new MyTextField(e.element("order"));
@@ -197,7 +196,7 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 			}
 		});
 	}
-	private void reinit(){
+	void reinit(){
 		idT.setText("JSD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.arriveYYDoc)));
 
 		ZZIDT.setText("");order.setText("");

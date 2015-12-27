@@ -2,6 +2,7 @@ package bl.orderbl;
 
 import static org.junit.Assert.*;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import net.RMIManage;
@@ -25,7 +26,7 @@ public class OrderTest {
 	}
 
 	@Test
-	public void testGetSimpleInfo() {
+	public void testGetSimpleInfo() throws RemoteException {
 		ArrayList<OrderSimpleInfoVO> vos = order.getSimpleInfo("123456");
 		System.out.println(vos.size());
 		

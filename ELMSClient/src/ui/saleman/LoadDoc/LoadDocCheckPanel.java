@@ -27,6 +27,7 @@ public class LoadDocCheckPanel extends CheckDocPanel{
 		myTable.bl = this.bl;
 		myAddPanel = (LoadDocAddPanel) addDocPanel;
 		myAddPanel.bl = this.bl;
+		myAddPanel.reinit();
 		initTableContent();
 	}
 

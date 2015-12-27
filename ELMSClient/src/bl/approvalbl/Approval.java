@@ -31,7 +31,6 @@ public class Approval {
 	}
 
 	public ArrayList<? extends DocVO> getBills(DocType type) {
-		System.err.println("get" + type.name());
 		switch (type) {
 		case arriveYYDoc:
 		case arriveZZDoc:

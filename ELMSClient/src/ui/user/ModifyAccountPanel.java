@@ -175,12 +175,13 @@ public class ModifyAccountPanel extends MyPanel{
 				result = bl.delete((String)table.getTable().getValueAt(row, 0));
 				if(result == ResultMessage.SUCCESS){
 					System.out.println("删除成功   177行");
+					table.removeRow(row);
 				}else{
 					
 				}
 				
 				
-				table.removeRow(row);
+				
 			}else{
 				
 			}
