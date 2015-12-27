@@ -114,6 +114,7 @@ public class InitalPanel extends MyPanel {
 		default:
 			break;
 
+
 		}
 	}
 
