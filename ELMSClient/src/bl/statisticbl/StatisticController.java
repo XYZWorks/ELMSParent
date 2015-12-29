@@ -1,6 +1,7 @@
 package bl.statisticbl;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import net.RMIManage;
@@ -37,7 +38,7 @@ public class StatisticController extends BusinessController implements
 	public ResultMessage bulidStateForm(StateFormVO vo) {
 		try {
 			return statistic.bulidStateForm(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return bulidStateForm(vo);
 			}
@@ -49,7 +50,7 @@ public class StatisticController extends BusinessController implements
 	public ResultMessage bulidCostIncomeForm(CostIncomeVO vo) {
 		try {
 			return statistic.bulidCostIncomeForm(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return bulidCostIncomeForm(vo);
 			}
@@ -61,7 +62,7 @@ public class StatisticController extends BusinessController implements
 	public ArrayList<StateFormVO> getStateForm() {
 		try {
 			return statistic.getStateForm();
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getStateForm();
 			}
@@ -73,7 +74,7 @@ public class StatisticController extends BusinessController implements
 	public ArrayList<CostIncomeVO> getIncomeForm() {
 		try {
 			return statistic.getIncomeForm();
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getIncomeForm();
 			}
@@ -85,7 +86,7 @@ public class StatisticController extends BusinessController implements
 	public ResultMessage bulidBill(BillVO vo) {
 		try {
 			return statistic.bulidBill(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return bulidBill(vo);
 			}
@@ -97,7 +98,7 @@ public class StatisticController extends BusinessController implements
 	public ArrayList<BillVO> getBills() {
 		try {
 			return statistic.getBills();
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getBills();
 			}

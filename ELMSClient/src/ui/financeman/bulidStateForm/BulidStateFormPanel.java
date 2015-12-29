@@ -60,12 +60,14 @@ public class BulidStateFormPanel extends MyPanel{
 	
 	
 	private MyWhitePanel addDepositPanel;
+	private MyPictureLabel deposit;
 	private MyPictureButton addOneDeposit;
 	private MyDatePicker DepositDate;
 	private MyLabel depositMoney;
 	private MyTextField moneyT;
 	
 	private MyWhitePanel addPayPanel;
+	private MyPictureLabel pay;
 	private MyPictureButton addOnePay;
 	private MyDatePicker PayDate;
 	private MyLabel payMoney;
@@ -135,7 +137,9 @@ public class BulidStateFormPanel extends MyPanel{
 		endL = new MyPictureLabel(e.element("end"));
 		title = new MyLabel(e.element("title"));
 		
+		deposit =  new MyPictureLabel(e.element("deposit"));
 		depositMoney = new MyPictureLabel(e.element("depositMoney"));
+		pay =  new MyPictureLabel(e.element("pay"));
 		payMoney = new MyPictureLabel(e.element("payMoney"));
 		payType = new MyPictureLabel(e.element("payType"));
 		
@@ -158,15 +162,23 @@ public class BulidStateFormPanel extends MyPanel{
 	@Override
 	protected void addCompoment() {
 		add(addDepositPanel);
-		add(addOneDeposit);
 		add(deposits);add(pays);
 		add(start);add(startL);add(end);add(endL);add(confirm);add(cancel);add(addCostInComeOrState);
 		add(title);
 		//以下为经营状况表组件
-		add(DepositDate);add(moneyT);add(depositMoney);
+		addDepositPanel.add(DepositDate);
+		addDepositPanel.add(deposit);
+		addDepositPanel.add(moneyT);
+		addDepositPanel.add(depositMoney);
+		addDepositPanel.add(addOneDeposit);
+		addDepositPanel.add(addOneDeposit);
+//		add(DepositDate);add(moneyT);add(depositMoney);
 		add(addPayPanel);
-		add(addOnePay);add(PayDate);add(payMoney);
-		add(payMoneyT);add(payType);add(payTypeT);
+		addPayPanel.add(addOnePay);addPayPanel.add(PayDate);addPayPanel.add(payMoney);
+		addPayPanel.add(payMoneyT);addPayPanel.add(payType);addPayPanel.add(payTypeT);
+		addPayPanel.add(pay);
+//		add(addOnePay);add(PayDate);add(payMoney);
+//		add(payMoneyT);add(payType);add(payTypeT);
 		//以下为成本收益表组件
 		add(income);add(incomeT);
 		add(outCome);add(outComeT);
@@ -316,7 +328,8 @@ public class BulidStateFormPanel extends MyPanel{
 	protected void initWhitePanels(Element e) {
 		addDepositPanel = new MyWhitePanel(e.element("Deposit"));
 		addPayPanel = new MyWhitePanel(e.element("Pay"));
-		
+		addDepositPanel.setOpaque(false);
+		addPayPanel.setOpaque(false);
 	}
 
 }

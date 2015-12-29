@@ -7,9 +7,10 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 
+import main.AXIS;
+
 import org.dom4j.Element;
 
-import main.AXIS;
 import ui.config.GraphicsUtils;
 import ui.courier.CourierController;
 import ui.financeman.FinanceController;
@@ -27,6 +28,7 @@ import ui.util.CompomentType;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
 import util.AccountType;
+import util.StaffType;
 import vo.account.AccountVO;
 
 /**
@@ -84,7 +86,7 @@ public class InitalPanel extends MyPanel {
 
 
 		AccountType type = vo.type;
-
+		type = AccountType.financeman;
 		switch (type) {
 		case Adminstrator:
 			controller = new AdminstratorController(this,
@@ -105,11 +107,11 @@ public class InitalPanel extends MyPanel {
 			controller = new SaleManController(this, e.element("Salesman"));
 			break;
 		case storeman:
-			controller = new StoreManController(this, e.element("Storeman"));
+			controller = new StoreManController(this, e.element("StoreMan"));
 			break;
 		case storemanager:
 			controller = new StoreManagerController(this,
-					e.element("Storemanager"));
+					e.element("StoreManager"));
 			break;
 		default:
 			break;

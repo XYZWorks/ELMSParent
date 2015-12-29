@@ -1,6 +1,7 @@
 package bl.financebl;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import net.RMIManage;
@@ -55,7 +56,7 @@ public class FinanceController extends BusinessController implements BankAccount
 	public ResultMessage create(PayVO vo) {
 		try {
 			return pay.create(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return create(vo);
 			}
@@ -68,7 +69,7 @@ public class FinanceController extends BusinessController implements BankAccount
 	public ArrayList<? extends CostVO> showCosts(CostType type) {
 		try {
 			return cost.showCosts(type);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return showCosts(type);
 			}
@@ -80,7 +81,7 @@ public class FinanceController extends BusinessController implements BankAccount
 	public ResultMessage add(CostVO vo) {
 		try {
 			return cost.add(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return add(vo);
 			}
@@ -93,7 +94,7 @@ public class FinanceController extends BusinessController implements BankAccount
 	public ResultMessage modify(CostVO vo) {
 		try {
 			return cost.modify(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return modify(vo);
 			}
@@ -106,7 +107,7 @@ public class FinanceController extends BusinessController implements BankAccount
 	public ResultMessage del(CostVO vo) {
 		try {
 			return cost.del(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return del(vo);
 			}
@@ -120,7 +121,7 @@ public class FinanceController extends BusinessController implements BankAccount
 	public ArrayList<PayVO> showPays() {
 		try {
 			return pay.showPays();
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return showPays();
 			}
@@ -132,7 +133,7 @@ public class FinanceController extends BusinessController implements BankAccount
 	public ResultMessage createDeposit(DepositVO vo) {
 		try {
 			return deposit.create(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return createDeposit(vo);
 			}
@@ -144,7 +145,7 @@ public class FinanceController extends BusinessController implements BankAccount
 	public ArrayList<DepositVO> showDeposit() {
 		try {
 			return deposit.show();
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return showDeposit();
 			}
@@ -157,7 +158,7 @@ public class FinanceController extends BusinessController implements BankAccount
 	public ArrayList<BankAccountVO> getAccounts() {
 		try {
 			return bankAccount.getAccounts();
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return getAccounts();
 			}
@@ -170,7 +171,7 @@ public class FinanceController extends BusinessController implements BankAccount
 	public ResultMessage modifyAccount(BankAccountVO vo) {
 		try {
 			return bankAccount.modifyAccount(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return modifyAccount(vo);
 			}
@@ -182,7 +183,7 @@ public class FinanceController extends BusinessController implements BankAccount
 	public ResultMessage deleteAccount(String ID) {
 		try {
 			return bankAccount.deleteAccount(ID);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return deleteAccount(ID);
 			}
@@ -194,7 +195,7 @@ public class FinanceController extends BusinessController implements BankAccount
 	public ResultMessage addAccount(BankAccountVO vo) {
 		try {
 			return bankAccount.addAccount(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return addAccount(vo);
 			}
@@ -208,7 +209,7 @@ public class FinanceController extends BusinessController implements BankAccount
 		
 		try {
 			return bankAccount.checkAccount(ID, money);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return checkAccount(ID, money);
 			}

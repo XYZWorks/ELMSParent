@@ -29,7 +29,7 @@ public class OtherOrderMes implements Serializable{
 	/**
 	 * 预计订单于几天内送达
 	 */
-	private int orderEestiTime;
+	private double orderEestiTime;
 
 	/**
 	 * 订单费用总计
@@ -47,7 +47,7 @@ public class OtherOrderMes implements Serializable{
 	private MyDate orderReceiveDate;
 
 	public OtherOrderMes(String goodPack, String orderForm,
-			MyDate orderStartDate, int orderEestiTime, double orderCost,
+			MyDate orderStartDate, double orderEestiTime, double orderCost,
 			String realReceiver, MyDate orderReceiveDate) {
 		super();
 		this.goodPack = goodPack;
@@ -71,7 +71,7 @@ public class OtherOrderMes implements Serializable{
 		return orderStartDate;
 	}
 
-	public int getOrderEestiTime() {
+	public double getOrderEestiTime() {
 		return orderEestiTime;
 	}
 

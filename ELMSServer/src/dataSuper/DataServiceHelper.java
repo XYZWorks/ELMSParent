@@ -153,23 +153,31 @@ public class DataServiceHelper {
 	 * @return
 	 */
 	public boolean writeToSerFile(Object object, String name, boolean append) {
-		String pres = "data\\";
+		String pres = "data//";
 		ObjectOutputStream out;
-		FileOutputStream fo;
-		File file = new File(pres + name);
+		ArrayList<Object> objects = null;
+		File file = null;
 		try {
+			file = new File(pres + name);
 			//當需要寫入多個對象至同一個文件時需要將開頭的節點AD刪去，否則會報錯（怎麼突然變繁體字了 = =）
 			if(append){
-				fo = new FileOutputStream(file, append);
-				if(file.length() > 0){
-					fo.getChannel().truncate(fo.getChannel().position() - 4);
+				if(file.length() > 1){
+					objects = readManyFromSerFile(name);
 				}
-				out = new ObjectOutputStream(fo);
+				out = new ObjectOutputStream(new FileOutputStream(file));
+				if(objects != null){
+					System.out.println("已有的文件数量" +objects.size());
+					for (Object object2 : objects) {
+						out.writeObject(object2);
+					}
+				}
 			}else{
 				out = new ObjectOutputStream(new FileOutputStream(file));
 			}
 			
+			
 			out.writeObject(object);
+			
 			out.close();
 			return true;
 		} catch (FileNotFoundException e) {
@@ -197,7 +205,7 @@ public class DataServiceHelper {
 	 * @return
 	 */
 	public final Object readFromSerFile(String name) {
-		String pres = "data\\";
+		String pres = "data//";
 		Object result;
 		ObjectInputStream input;
 

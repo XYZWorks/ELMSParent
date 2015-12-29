@@ -1,6 +1,7 @@
 package bl.personnelbl;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import net.RMIManage;
@@ -29,7 +30,7 @@ public class PersonnelController extends BusinessController implements Personnel
 	public ArrayList<PersonVO> getPeopleByInst(String ID) {
 		try {
 			return per.getPeopleByInst(ID);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return getPeopleByInst(ID);
 			}
@@ -40,7 +41,7 @@ public class PersonnelController extends BusinessController implements Personnel
 	public PersonVO getPeopleByID(String ID) {
 		try {
 			return per.getPeopleByID(ID);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 			return getPeopleByID(ID);
 			}
@@ -51,7 +52,7 @@ public class PersonnelController extends BusinessController implements Personnel
 	public ArrayList<PersonVO> getPeopleByName(String name) {
 		try {
 			return per.getPeopleByName(name);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return getPeopleByName(name);
 			}
@@ -62,7 +63,7 @@ public class PersonnelController extends BusinessController implements Personnel
 	public ResultMessage addPeople(PersonVO vo) {
 		try {
 			return per.addPeople(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return addPeople(vo);
 			}
@@ -73,7 +74,7 @@ public class PersonnelController extends BusinessController implements Personnel
 	public ResultMessage delPeople(String ID) {
 		try {
 			return per.delPeople(ID);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return delPeople(ID);
 			}
@@ -84,7 +85,7 @@ public class PersonnelController extends BusinessController implements Personnel
 	public ResultMessage addInst(InstVO vo) {
 		try {
 			return per.addInst(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return addInst(vo);
 			}
@@ -95,7 +96,7 @@ public class PersonnelController extends BusinessController implements Personnel
 	public ResultMessage delInst(String ID) {
 		try {
 			return per.delInst(ID);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return delInst(ID);
 			}
@@ -106,7 +107,7 @@ public class PersonnelController extends BusinessController implements Personnel
 	public ArrayList<InstVO> getInst() {
 		try {
 			return per.getInst();
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return getInst();
 			}
@@ -116,7 +117,7 @@ public class PersonnelController extends BusinessController implements Personnel
 	public ArrayList<PersonVO> getPersons() {
 		try {
 			return per.getPersons();
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return getPersons();
 			}
@@ -127,7 +128,7 @@ public class PersonnelController extends BusinessController implements Personnel
 		
 		try {
 			return per.modifyInst(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return modifyInst(vo);
 			}
@@ -138,7 +139,7 @@ public class PersonnelController extends BusinessController implements Personnel
 		
 		try {
 			return per.modifyPerson(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return modifyPerson(vo);
 			}

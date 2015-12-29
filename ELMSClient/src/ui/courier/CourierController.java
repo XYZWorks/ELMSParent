@@ -2,10 +2,6 @@ package ui.courier;
 
 import org.dom4j.Element;
 
-import bl.BusinessLogicDataFactory;
-import blservice.orderblservice.Orderblservice;
-import blservice.strategyblservice.StrategyblService;
-import config.StaticMessage;
 import ui.courier.AddOrder.AddOrderPanel;
 import ui.courier.FindFullInfo.FindFullOrderInfoPanel;
 import ui.courier.FindFullInfo.showInfoPanel;
@@ -16,6 +12,10 @@ import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.MySideBarListener;
 import ui.util.PanelController;
+import bl.BusinessLogicDataFactory;
+import blservice.orderblservice.Orderblservice;
+import blservice.strategyblservice.StrategyblService;
+import config.StaticMessage;
  /** 
  * 
  * @author czq 

@@ -1,6 +1,7 @@
 package bl.accountbl;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import net.RMIServiceFactory;
@@ -33,7 +34,7 @@ public class AccountController extends BusinessController implements
 	public ResultMessage add(AccountVO vo) {
 		try {
 			return account.add(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return add(vo);
 			}
@@ -45,7 +46,7 @@ public class AccountController extends BusinessController implements
 	public ResultMessage delete(String ID) {
 		try {
 			return account.delete(ID);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return delete(ID);
 			}
@@ -57,7 +58,7 @@ public class AccountController extends BusinessController implements
 	public AccountVO find(String ID) {
 		try {
 			return account.find(ID);
-		} catch (Exception e) {
+		} catch (RemoteException  e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return find(ID);
 			}
@@ -69,7 +70,7 @@ public class AccountController extends BusinessController implements
 	public ResultMessage modify(AccountVO vo) {
 		try {
 			return account.modify(vo);
-		} catch (Exception e) {
+		} catch (RemoteException  e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return modify(vo);
 			}
@@ -81,7 +82,7 @@ public class AccountController extends BusinessController implements
 	public ArrayList<AccountVO> show() {
 		try {
 			return account.show();
-		} catch (Exception e) {
+		} catch (RemoteException  e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return show();
 			}

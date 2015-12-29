@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import po.strategy.ConstPO;
+import po.strategy.EstiDatePO;
 /** 
  * 
  * @author czq 
@@ -25,8 +26,12 @@ public class StrategyDataImplTest {
 	}
 
 	@Test
-	public void testGetConst() {
+	public void testGetConst() throws RemoteException {
+		testframeforczq.setEstiDatePO(new EstiDatePO(0, 0, 0, 0, 0, 0, 0));
+<<<<<<< HEAD
 		fail("Not yet implemented");
+=======
+>>>>>>> 82bc63f4303d3c16d37d4b67067cb964c88d8ea6
 	}
 
 	@Test

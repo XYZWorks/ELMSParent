@@ -27,7 +27,7 @@ public class StrategyDataImpl extends DataSuperClass implements StrategyDataServ
 	
 	private static final String constFile = "Const";
 	
-	private static final String estimateTime = "TIME_ESTIMATE";
+	private static final String estimateTime = "time";
 
 	public StrategyDataImpl() throws RemoteException {}
 	

@@ -1,6 +1,7 @@
 package bl.storebl;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import net.RMIManage;
@@ -53,7 +54,7 @@ public class StoreController extends BusinessController implements
 	public ArrayList<StoreMessageVO> show() {
 		try {
 			return store.show();
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return show();
 			}
@@ -66,7 +67,7 @@ public class StoreController extends BusinessController implements
 	public ArrayList<StoreCheckVO> showCheck() {
 		try {
 			return store.showCheck();
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return showCheck();
 			}
@@ -83,7 +84,7 @@ public class StoreController extends BusinessController implements
 	public ResultMessage update(StoreMessageVO vo) {
 		try {
 			return store.update(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return update(vo);
 			}
@@ -104,7 +105,7 @@ public class StoreController extends BusinessController implements
 			default:
 				return null;
 			}
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getDocLists(type);
 			}
@@ -116,7 +117,7 @@ public class StoreController extends BusinessController implements
 	public ResultMessage generate(OutStoreDocVO vo) {
 		try {
 			return outStoreDocImpl.generate(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return generate(vo);
 			}
@@ -128,7 +129,7 @@ public class StoreController extends BusinessController implements
 	public ResultMessage generate(InStoreDocVO vo) {
 		try {
 			return inStoreDocImpl.generate(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return generate(vo);
 			}
@@ -140,7 +141,7 @@ public class StoreController extends BusinessController implements
 	public ArrayList<OutStoreDocVO> showOutStoreDocs() {
 		try {
 			return outStoreDocImpl.show();
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return showOutStoreDocs();
 			}
@@ -152,7 +153,7 @@ public class StoreController extends BusinessController implements
 	public ArrayList<InStoreDocVO> showInstoreDocs() {
 		try {
 			return inStoreDocImpl.show();
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return showInstoreDocs();
 			}
@@ -174,7 +175,7 @@ public class StoreController extends BusinessController implements
 			default:
 				return null;
 			}
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return changeDocsState(docsID, type, state);
 			}
@@ -194,7 +195,7 @@ public class StoreController extends BusinessController implements
 			default:
 				return null;
 			}
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return changeOneDocState(docID, type, state);
 			}
@@ -206,7 +207,7 @@ public class StoreController extends BusinessController implements
 	public ResultMessage setAlarmValue(String value, City city) {
 		try {
 			return store.setAlarmValue(value, city);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return setAlarmValue(value, city);
 			}
@@ -218,7 +219,7 @@ public class StoreController extends BusinessController implements
 	public String getAlarmValue(City city) {
 		try {
 			return store.getAlarmValue(city);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getAlarmValue(city);
 			}
@@ -236,7 +237,7 @@ public class StoreController extends BusinessController implements
 			} else {
 				return null;
 			}
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getByID(ID, type);
 			}
@@ -251,7 +252,7 @@ public class StoreController extends BusinessController implements
 		DocVO tmp = getByID(ID, type);
 		try {
 			return store.updateStore(loc, way, tmp);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return updateStore(loc, way, ID, type);
 			}
@@ -268,7 +269,7 @@ public class StoreController extends BusinessController implements
 			else if (type == DocType.outStoreDoc)
 				return outStoreDocImpl.getDayDocCount();
 			return -1;
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getDayDocCount(type);
 			}

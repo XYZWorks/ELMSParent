@@ -1,14 +1,17 @@
 package blservice.transportblservice;
 
 import java.util.ArrayList;
+
 import util.MyDate;
 import util.DocState;
 import util.DocType;
 import util.ResultMessage;
 import vo.DocVO;
+import vo.store.OutStoreDocVO;
 import vo.transport.ArriveYYDocVO;
 import vo.transport.ArriveZZDocVO;
 import vo.transport.LoadDocVO;
+import vo.transport.PayDocVO;
 import vo.transport.SendGoodDocVO;
 import vo.transport.TransferDocVO;
 
@@ -116,6 +119,46 @@ public class transportblservice_Stub implements Transportblservice{
 	public ResultMessage changeOneDocState(String docID, DocType type, DocState state) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+	@Override
+	public DocVO getByID(String ID, DocType type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public int getDayDocCount(DocType type) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+	@Override
+	public ResultMessage addOnePay(PayDocVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public ArrayList<PayDocVO> getPays() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public double getExpense(OutStoreDocVO arriveVO, TransferDocVO transferVO) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

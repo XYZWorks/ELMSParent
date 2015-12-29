@@ -1,6 +1,7 @@
 package bl.userbl;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 import net.RMIManage;
 import util.DataServiceType;
@@ -33,7 +34,7 @@ public class UserController extends BusinessController implements
 	public AccountVO login(AccountVO vo) {
 		try {
 			return userMes.login(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return login(vo);
 			}
@@ -45,7 +46,7 @@ public class UserController extends BusinessController implements
 	public ResultMessage modify(AccountVO vo) {
 		try {
 			return userMes.modify(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return modify(vo);
 			}
@@ -57,7 +58,7 @@ public class UserController extends BusinessController implements
 	public AccountVO getMes(String ID) {
 		try {
 			return userMes.getMes(ID);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getMes(ID);
 			}

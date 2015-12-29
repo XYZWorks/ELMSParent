@@ -36,8 +36,20 @@ public class PeopleMesPanel extends MyTablePanel{
 		setRowAndColumnLen(30, columnLen);
 		
 	}
-	
-	
+	/**
+	 * 用于期初建账界面
+	 * @param config
+	 */
+	public PeopleMesPanel(Element config ) {
+		super(config);
+		initialTitleAndColumn(config);
+		initTable();
+		initScrollerPane();
+		this.add(rollpane);
+		
+		int[] columnLen = {100,100,100,100 , 200};
+		setRowAndColumnLen(30, columnLen);
+	}
 	
 	
 	@Override
@@ -49,7 +61,10 @@ public class PeopleMesPanel extends MyTablePanel{
 		columnNames[3] = "职位";
 		columnNames[4] = "手机号码";
 		
-		vos = bl.getPersons();
+		if(bl != null){
+			vos = bl.getPersons();
+		}
+		
 		
 		if (vos == null) {
 			vos = new ArrayList<>();

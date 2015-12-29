@@ -47,9 +47,26 @@ public class Personnelblservice_Stub implements Personnelblservice {
 
 	public ArrayList<InstVO> getInst() {
 		ArrayList<InstVO> temp = new ArrayList<InstVO>();
-		temp.add(new InstVO("123456", "南京", InstType.businessHall));
-		temp.add(new InstVO("123459", "北京", InstType.businessHall));
+//		t、mp.add(new InstVO("123459", "北京", InstType.businessHall));
 		return temp;
+	}
+
+	@Override
+	public ArrayList<PersonVO> getPersons() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage modifyInst(InstVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResultMessage modifyPerson(PersonVO vo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

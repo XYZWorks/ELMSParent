@@ -1,42 +1,42 @@
-package test.java;
-
-import junit.framework.TestCase;
-
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
-
-import test.java.DTManage.DTManageControllerTest;
-import test.java.account.AccountControllerTest;
-import test.java.approval.ApprovalControllerTest;
-import test.java.finace.FinanceControllerTest;
-import test.java.order.OrderControllerTest;
-import test.java.personnel.PersonnelControllerTest;
-import test.java.statistic.StatisticControllerTest;
-import test.java.store.StoreControllerTest;
-import test.java.strategy.StrategyControllerTest;
-
-/** 
- * @author ymc 
- * @version 创建时间：2015年12月20日 下午2:34:22 
- *
- */
-@RunWith(Suite.class)  
-@Suite.SuiteClasses({   
-	AccountControllerTest.class,
-	ApprovalControllerTest.class,
-	DTManageControllerTest.class,
-	FinanceControllerTest.class,
-
-	OrderControllerTest.class,
-	PersonnelControllerTest.class,
-	StatisticControllerTest.class,
-	
-	StoreControllerTest.class,
-    StrategyControllerTest.class,   
-    
-})
-public class TestAll extends TestCase{
-	
-
-
-}
+//
+//
+//import junit.framework.TestCase;
+//
+//import org.junit.runner.RunWith;
+//import org.junit.runners.Suite;
+//
+//import personnel.PersonnelControllerTest;
+//import statistic.StatisticControllerTest;
+//import store.StoreControllerTest;
+//import strategy.StrategyControllerTest;
+//import test.java.account.AccountControllerTest;
+//import test.java.order.OrderControllerTest;
+//import DTManage.DTManageControllerTest;
+//import approval.ApprovalControllerTest;
+//import finace.FinanceControllerTest;
+//
+///** 
+// * @author ymc 
+// * @version 创建时间：2015年12月20日 下午2:34:22 
+// *
+// */
+//@RunWith(Suite.class)  
+//@Suite.SuiteClasses({   
+//	AccountControllerTest.class,
+//	ApprovalControllerTest.class,
+//	DTManageControllerTest.class,
+//	FinanceControllerTest.class,
+//
+//	OrderControllerTest.class,
+//	PersonnelControllerTest.class,
+//	StatisticControllerTest.class,
+//	
+//	StoreControllerTest.class,
+//    StrategyControllerTest.class,   
+//    
+//})
+//public class TestAll extends TestCase{
+//	
+//
+//
+//}

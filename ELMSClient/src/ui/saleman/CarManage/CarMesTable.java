@@ -31,7 +31,23 @@ public class CarMesTable extends MyTablePanel{
 	
 	
 	
-	
+	//期初建账使用
+	public CarMesTable(Element element) {
+		super(element);
+		initialTitleAndColumn(element);
+		initTable();
+		initScrollerPane();
+		this.add(rollpane);
+	}
+	public void setMes(ArrayList<CarVO> vos){
+		this.vos = vos;
+		showAllMessages();
+	}
+
+
+
+
+
 	@Override
 	public void updateTableMes() {
 		// TODO Auto-generated method stub
@@ -42,7 +58,10 @@ public class CarMesTable extends MyTablePanel{
 	protected void initialTitleAndColumn(Element config) {
 		columnNames = MyTablePanel.getColumnName(config.attributeValue(columnStr));
 		
-		vos = bl.getAllCars();
+		if(bl != null){
+			vos = bl.getAllCars();
+		}
+		
 		
 		if(vos == null){
 			vos = new ArrayList<>();

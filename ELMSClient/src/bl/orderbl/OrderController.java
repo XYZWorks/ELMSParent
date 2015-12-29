@@ -40,13 +40,14 @@ public class OrderController extends BusinessController implements
 				.getDataService(DataServiceType.OrderDataService);
 		order = new Order(orderData);
 		myType = DataServiceType.OrderDataService;
+		transportController = new TransportController(this);
 	}
 
 	@Override
 	public ResultMessage add(OrderVO vo) {
 		try {
 			return order.add(vo);
-		} catch (RemoteException  | NullPointerException e) {
+		} catch (RemoteException  e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return add(vo);
 			}
@@ -58,7 +59,7 @@ public class OrderController extends BusinessController implements
 	public ResultMessage checkBarCode(String orderBarCode) {
 		try {
 			return order.checkBarCode(orderBarCode);
-		} catch (RemoteException  | NullPointerException e) {
+		} catch (RemoteException  e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return checkBarCode(orderBarCode);
 			}
@@ -70,7 +71,7 @@ public class OrderController extends BusinessController implements
 	public ArrayList<OrderVO> getOrderVO(MyDate date) {
 		try {
 			return order.getOrderVO(date);
-		} catch (RemoteException  | NullPointerException e) {
+		} catch (RemoteException  e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getOrderVO(date);
 			}
@@ -82,7 +83,7 @@ public class OrderController extends BusinessController implements
 	public ResultMessage del(String orderBarCode) {
 		try {
 			return order.del(orderBarCode);
-		} catch (RemoteException  | NullPointerException e) {
+		} catch (RemoteException  e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return del(orderBarCode);
 			}
@@ -94,7 +95,7 @@ public class OrderController extends BusinessController implements
 	public ArrayList<OrderSimpleInfoVO> getSimpleInfo(String orderBarCode) {
 		try {
 			return order.getSimpleInfo(orderBarCode);
-		} catch (RemoteException  | NullPointerException e) {
+		} catch (RemoteException  e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getSimpleInfo(orderBarCode);
 			}
@@ -106,7 +107,7 @@ public class OrderController extends BusinessController implements
 	public OrderVO getFullInfo(String orderBarCode) {
 		try {
 			return order.getFullInfo(orderBarCode);
-		} catch (RemoteException  | NullPointerException e) {
+		} catch (RemoteException  e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getFullInfo(orderBarCode);
 			}
@@ -118,7 +119,7 @@ public class OrderController extends BusinessController implements
 	public ResultMessage receiveInfo(ReceiveVO vo) {
 		try {
 			return order.receiveInfo(vo);
-		} catch (RemoteException  | NullPointerException e) {
+		} catch (RemoteException  e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return receiveInfo(vo);
 			}
@@ -130,7 +131,7 @@ public class OrderController extends BusinessController implements
 	public ResultMessage addDocToList(DocVO vo, ArrayList<String> orderBarCodes) {
 		try {
 			return order.addDocToList(vo, orderBarCodes);
-		} catch (RemoteException  | NullPointerException e) {
+		} catch (RemoteException  e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return addDocToList(vo, orderBarCodes);
 			}
@@ -143,7 +144,7 @@ public class OrderController extends BusinessController implements
 
 		try {
 			return order.getDocLists();
-		} catch (RemoteException  | NullPointerException e1 ){
+		} catch (RemoteException  e1 ){
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getDocLists(type);
 			}
@@ -156,7 +157,7 @@ public class OrderController extends BusinessController implements
 			DocType type, DocState state) {
 		try {
 			return order.changeDocsState(docsID, type, state);
-		} catch (RemoteException  | NullPointerException e) {
+		} catch (RemoteException  e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return changeDocsState(docsID, type, state);
 			}
@@ -169,7 +170,7 @@ public class OrderController extends BusinessController implements
 			DocState state) {
 		try {
 			return order.changeOneDocState(docID, type, state);
-		} catch (RemoteException  | NullPointerException e) {
+		} catch (RemoteException  e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return changeOneDocState(docID, type, state);
 			}
@@ -182,7 +183,7 @@ public class OrderController extends BusinessController implements
 		try {
 			return order.getPreReceive(transportController
 					.getDaySendDocs(MyDate.getNowTime()));
-		} catch (RemoteException  | NullPointerException e) {
+		} catch (RemoteException  e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getPreReceive();
 			}

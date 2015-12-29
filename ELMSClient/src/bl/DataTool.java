@@ -1,17 +1,16 @@
-package test.java.other;
+package bl;
 
 import java.util.ArrayList;
 
-import blservice.transportblservice.transportblservice_Driver;
 import po.statistic.StateFormPO;
 import po.store.StoreMessagePO;
-import util.MyDate;
 import util.AccountType;
 import util.City;
 import util.CostType;
 import util.DocType;
 import util.GoodsState;
 import util.InstType;
+import util.MyDate;
 import util.StaffType;
 import util.TransferWay;
 import util.WageStrategy;
@@ -101,8 +100,8 @@ public class DataTool {
 		cars.add(new CarVO("025000001", "123412" ,"粤VDC798" , 1));
 		cars.add(new CarVO("025000002", "123412", "粤Vxx877", 2));
 		
-		pays.add(new PayVO(instid1, d1, instid1, 2000, "transport", 0, 0, 0));
-		pays.add(new PayVO(instid1, d1, instid1, 4000, "salary", 0, 0, 0));
+//		pays.add(new PayVO(instid1, d1, instid1, 2000, "transport", 0, 0, 0));
+//		pays.add(new PayVO(instid1, d1, instid1, 4000, "salary", 0, 0, 0));
 		
 		deposits.add(new DepositVO(d1, 7000));
 		deposits.add(new DepositVO(d2, 6000));
@@ -220,8 +219,8 @@ public class DataTool {
 	
 	public static ArrayList<PayVO> getpays(){
 		ArrayList<PayVO> pays = new ArrayList<PayVO>();
-		pays.add(new PayVO(instid1, d1, instid1, 1500,"", 0, 0, 0));
-		pays.add(new PayVO(instid1, d2, instid1, 3000, "", 0, 0, 0));
+//		pays.add(new PayVO(instid1, d1, instid1, 1500,"", 0, 0, 0));
+//		pays.add(new PayVO(instid1, d2, instid1, 3000, "", 0, 0, 0));
 		return pays;
 	}
 	

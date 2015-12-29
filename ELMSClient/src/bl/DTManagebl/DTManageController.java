@@ -1,6 +1,7 @@
 package bl.DTManagebl;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import net.RMIManage;
@@ -32,7 +33,7 @@ public class DTManageController extends BusinessController implements DTManagebl
 	public ResultMessage addDriver(DriverVO vo) {
 		try {
 			return dtm.addDriver(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return addDriver(vo);
 			}
@@ -43,7 +44,7 @@ public class DTManageController extends BusinessController implements DTManagebl
 	public ArrayList<DriverVO> checkDriverByName(String name) {
 		try {
 			return dtm.checkDriverByName(name);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return checkDriverByName(name);
 			}
@@ -54,7 +55,7 @@ public class DTManageController extends BusinessController implements DTManagebl
 	public DriverVO checkDriverByID(String ID) {
 		try {
 			return dtm.checkDriverByID(ID);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return checkDriverByID(ID);
 			}
@@ -65,7 +66,7 @@ public class DTManageController extends BusinessController implements DTManagebl
 	public ArrayList<DriverVO> checkDriverByInst(String InstID) {
 		try {
 			return dtm.checkDriverByInst(InstID);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return checkDriverByInst(InstID);
 			}
@@ -76,7 +77,7 @@ public class DTManageController extends BusinessController implements DTManagebl
 	public ResultMessage modifyDriver(DriverVO vo) {
 		try {
 			return dtm.modifyDriver(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return modifyDriver(vo);
 			}
@@ -87,7 +88,7 @@ public class DTManageController extends BusinessController implements DTManagebl
 	public ResultMessage delDriver(String ID) {
 		try {
 			return dtm.delDriver(ID);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return delDriver(ID);
 			}
@@ -99,7 +100,7 @@ public class DTManageController extends BusinessController implements DTManagebl
 	public ArrayList<String> getDriverName(String InstID) {
 		try {
 			return dtm.getDriverName(InstID);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return getDriverName(InstID);
 			}
@@ -113,7 +114,7 @@ public class DTManageController extends BusinessController implements DTManagebl
 	public CarVO checkCarByID(String ID) {
 		try {
 			return dtm.checkCarByID(ID);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return checkCarByID(ID);
 			}
@@ -125,7 +126,7 @@ public class DTManageController extends BusinessController implements DTManagebl
 	public CarVO checkByPlateNum(String plateNum) {
 		try {
 			return dtm.checkByPlateNum(plateNum);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return checkByPlateNum(plateNum);
 			}
@@ -136,7 +137,7 @@ public class DTManageController extends BusinessController implements DTManagebl
 	public ResultMessage addCar(CarVO vo) {
 		try {
 			return dtm.addCar(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return addCar(vo);
 			}
@@ -147,7 +148,7 @@ public class DTManageController extends BusinessController implements DTManagebl
 	public ResultMessage modifyCar(CarVO vo) {
 		try {
 			return dtm.modifyCar(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return modifyCar(vo);
 			}
@@ -160,7 +161,7 @@ public class DTManageController extends BusinessController implements DTManagebl
 	public ResultMessage delCar(String ID) {
 		try {
 			return dtm.delCar(ID);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return delCar(ID);
 			}
@@ -173,7 +174,7 @@ public class DTManageController extends BusinessController implements DTManagebl
 		
 		try {
 			return dtm.getPlateNumber(instID);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return getPlateNumber(instID);
 			}
@@ -184,7 +185,7 @@ public class DTManageController extends BusinessController implements DTManagebl
 	public ArrayList<CarVO> getAllCars() {
 		try {
 			return dtm.getAllCars();
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return getAllCars();
 			}
@@ -195,7 +196,7 @@ public class DTManageController extends BusinessController implements DTManagebl
 	public ArrayList<DriverVO> getAllDrivers() {
 		try {
 			return dtm.getAllDrivers();
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if(ExceptionHandler.myExceptionHandler(myType, this)){
 				return getAllDrivers();
 			}

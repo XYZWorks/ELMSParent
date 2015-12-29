@@ -8,7 +8,7 @@
 			normal="login//set" enter="login//set-enter" clicked="login//set-clicked"/>
 			<login text="" x="0" y="358" width="489" height="53" 
 			normal="login//login" enter="login//login-enter" clicked="login//login-clicked"/>
-			<checkOrder text="" x="207" y="338" width="75" height="17" 
+			<checkOrder text="" x="207" y="315" width="75" height="17" 
 			normal="login//checkOrder" enter="login//checkOrder-enter" clicked="login//checkOrder-clicked"/>
 		</BUTTONS>
 		<LABELS>
@@ -1166,7 +1166,7 @@
 				</LABELS>
 				<search x="53" y="53" width="150" height="40" strings="按姓名查找 按ID查找 按机构查找" />
 				<peopleMes x="53" y="110" width="742" height="427"
-					strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理人员 司机" />
+					strings="财务人员 营业厅业务员 快递员 中转中心业务人员 中转中心管理员 司机" />
 				<searchBox x="213" y="53" />
 
 				<addPeople x="0" y="0" width="1080" height="637">
@@ -1320,6 +1320,11 @@
 					column="ID 日期 营业厅ID 金额 快递员 订单数量" />
 			</FinanceApprovalPanel>
 			<BulidBillPanel x="232" y="54" width="848" height="637">
+			<detail x="232" y="54" width="848" height="637">
+					<peopleMes x="53" y="110" width="742" height="427"
+					strings="财务人员 营业厅业务员 快递员 中转中心业务人员 中转中心管理员 司机" />
+					<carMes x="48" y="150" width="750" height="420" column="ID 机构ID 车牌号 使用年份" />
+			</detail>
 				<BUTTONS>
 					<confirm x="560" y="560" width="89" height="40" text="确认"
 						type="confirm" />
@@ -1404,7 +1409,7 @@
 							type="rectangle" />
 					</LABELS>
 					<Type x="575" y="150" width="200" height="40"
-						strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理人员 司机" />
+						strings="财务人员 营业厅业务员 快递员 中转中心业务人员 中转中心管理员 司机" />
 					<table x="48" y="280" width="727" height="250"
 						column="机构ID 职员类型 ID 姓名 手机号" />
 				</addPeople>
@@ -1543,16 +1548,16 @@
 						type="confirm" />
 					<cancel x="707" y="560" width="89" height="40" text="取消"
 						type="cancel" />
-					<addOneDeposit x="707" y="280" width="40" height="40"
+					<addOneDeposit x="680" y="90" width="40" height="40"
 						type="add" />
-					<addOnePay x="707" y="480" width="40" height="40" type="add" />
+					<addOnePay x="680" y="90" width="40" height="40" type="add" />
 				</BUTTONS>
 				<TEXTFIELDS>
-					<moneyT x="345" y="271" width="276" height="40" />
-					<payMoneyT x="345" y="271" width="276" height="40" />
-					<payTypeT x="345" y="271" width="276" height="40" />
-					<incomeT x="345" y="271" width="276" height="40" />
-					<outComeT x="345" y="271" width="276" height="40" />
+					<moneyT x="115" y="90" width="150" height="40" />
+					<payMoneyT x="115" y="90" width="150" height="40" />
+					<payTypeT x="510" y="90" width="150" height="40" />
+					<incomeT x="292" y="250" width="150" height="40" />
+					<outComeT x="292" y="450" width="150" height="40" />
 				</TEXTFIELDS>
 				<LABELS>
 					<deposits x="635" y="53" width="160" height="40" text="付款单数量："
@@ -1565,15 +1570,20 @@
 
 					<start x="53" y="74" width="200" height="28" text="起始日期:" />
 					<end x="283" y="74" width="200" height="28" text="结束日期:" />
-
-					<depositMoney x="53" y="150" width="115" height="40"
+	
+					<deposit x="0" y="0" width="115" height="40"
 						text="新建付款单" type="rectangle" />
-					<payMoney x="53" y="350" width="115" height="40" text="新建收款单"
+					<depositMoney x="115" y="35" width="115" height="40"
+						text="金额" type="rectangle" />
+					<pay x="0" y="0" width="115" height="40" text="新建收款单"
 						type="rectangle" />
-					<payType x="53" y="160" width="200" height="28" text="成本类型" />
+					<payMoney x="115" y="35" width="115" height="40" text="金额"
+						type="cancel" />
+					<payType x="510" y="35" width="115" height="28" text="成本类型" type="cancel"/>
+					
 					<income x="53" y="240" width="115" height="40" text="收入"
-						type="rectangle" />
-					<outCome x="53" y="200" width="200" height="28" text="支出" />
+						type="cancel" />
+					<outCome x="53" y="200" width="200" height="28" text="支出" type="cancel"/>
 				</LABELS>
 				<WHITEPANELS>
 					<Deposit x="53" y="150" width="742" height="180" />
@@ -1581,8 +1591,8 @@
 				</WHITEPANELS>
 				<start x="53" y="100" width="200" height="40" />
 				<end x="283" y="100" width="200" height="40" />
-				<PayDate x="345" y="201" width="276" height="40" />
-				<DepositDate x="345" y="201" width="276" height="40" />
+				<PayDate x="290" y="90" width="200" height="40" />
+				<DepositDate x="290" y="90" width="200" height="40" />
 
 			</BulidStateFromPanel>
 			<BulidPayPanel x="232" y="54" width="848" height="637">

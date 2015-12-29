@@ -1,10 +1,10 @@
 package ui.financeman.bulidBill;
 
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
@@ -12,10 +12,9 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.financeman.FinanceController;
 import ui.tools.MyCardLayOut;
-
 import ui.tools.MyComboBox;
-
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -26,6 +25,7 @@ import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
+import ui.util.RefreshPanel;
 import ui.util.TipsDialog;
 import util.MyDate;
 import util.ResultMessage;
@@ -42,12 +42,16 @@ import blservice.statisticblservice.Statisticblservice;
  *
  */
 @SuppressWarnings("serial")
-public class BulidBillPanel extends MyPanel {
+public class BulidBillPanel extends MyPanel implements RefreshPanel {
 	// 均为默认权限，包内可访问
 	Statisticblservice bl;
 	JPanel changePanel;
 	MyCardLayOut panelManager;
-
+	DetailPanel detailPanel;
+	final static String detailPanelStr = "detail";
+	/**
+	 * 往期账单
+	 */
 	ArrayList<BillVO> vos;
 
 	/**
@@ -59,6 +63,7 @@ public class BulidBillPanel extends MyPanel {
 	ArrayList<PersonVO> personVOs = new ArrayList<>();
 
 	MainTable mainTable;
+
 	AddCar addCar;
 	AddPeople addPeople;
 	AddInst addInst;
@@ -104,33 +109,35 @@ public class BulidBillPanel extends MyPanel {
 	 * 进行账单读取
 	 */
 	private void myinit() {
-		ArrayList<BillVO> vos = bl.getBills();
-
+		vos = bl.getBills();
+		lastBill.addItem("当前账单");
 		if (vos != null && !vos.isEmpty()) {
 			for (int i = 0; i < vos.size(); i++) {
-				lastBill.addItem((i+1) + "." + MyDate.toString(vos.get(i).date));
+				lastBill.addItem((i + 1) + "."
+						+ MyDate.toString(vos.get(i).date));
 			}
-			
+
 			lastBill.setSelectedIndex(0);
-			initABill(vos.get(0));
+			// initABill(vos.get(0));
 
 		} else {
 			vos = new ArrayList<>();
 		}
-		lastBill.addItem("当前账单");
+
 	}
 
 	private void initABill(BillVO billvo) {
 		String[][] data = new String[billvo.instituations.size()][5];
 		String instid;
 		InstVO vo;
+		mainTable.removeAllRows();
 		for (int i = 0; i < data.length; i++) {
 			vo = billvo.instituations.get(i);
 			instid = data[i][0] = vo.ID;
 			data[i][1] = vo.location.getName();
 			data[i][2] = vo.type.getName();
-			data[i][3] = getPersons(instid , billvo.persons);
-			data[i][4] = getCars(instid , billvo.cars);
+			data[i][3] = getPersons(instid, billvo.persons);
+			data[i][4] = getCars(instid, billvo.cars);
 			mainTable.addOneRow(data[i]);
 		}
 
@@ -151,6 +158,22 @@ public class BulidBillPanel extends MyPanel {
 		return String.valueOf(carNum);
 	}
 
+	private ArrayList<CarVO> getCars(String instid, ArrayList<CarVO> carVOs,
+			int num) {
+
+		ArrayList<CarVO> vos = new ArrayList<>();
+		CarVO vo;
+		for (int i = 0; i < carVOs.size(); i++) {
+			vo = carVOs.get(i);
+			if (vo.instID.equals(instid)) {
+				vos.add(vo);
+			}
+
+		}
+
+		return vos;
+	}
+
 	private String getPersons(String instid, ArrayList<PersonVO> personVOs) {
 		int personNum = 0;
 		PersonVO vo;
@@ -163,6 +186,21 @@ public class BulidBillPanel extends MyPanel {
 		}
 
 		return String.valueOf(personNum);
+	}
+
+	private ArrayList<PersonVO> getPersons(String instid,
+			ArrayList<PersonVO> personVOs, int num) {
+		ArrayList<PersonVO> vos = new ArrayList<>(personVOs.size());
+		PersonVO vo;
+		for (int i = 0; i < personVOs.size(); i++) {
+			vo = personVOs.get(i);
+			if (vo.instID.equals(instid)) {
+				vos.add(vo);
+			}
+
+		}
+
+		return vos;
 	}
 
 	@Override
@@ -196,6 +234,9 @@ public class BulidBillPanel extends MyPanel {
 		addInst = new AddInst(e.element("addInst"), this);
 		lastBill = new MyComboBox(new Rectangle(0, 0, 200, 50));
 
+		detailPanel = new DetailPanel(e.element(detailPanelStr), changePanel,
+				FinanceController.bulidBillStr);
+
 	}
 
 	@Override
@@ -203,6 +244,7 @@ public class BulidBillPanel extends MyPanel {
 		changePanel.add(addInst, addInstStr);
 		changePanel.add(addCar, addCarStr);
 		changePanel.add(addPeople, addPeopleStr);
+		changePanel.add(detailPanel, detailPanelStr);
 		add(cancel);
 		add(confirm);
 		add(newInst);
@@ -240,11 +282,45 @@ public class BulidBillPanel extends MyPanel {
 		lastBill.addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
-				
+				readBill(lastBill.getSelectedIndex());
 			}
+
 		});
-		
-		
+		mainTable.getTable().addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (e.getClickCount() == 2) {
+					int row = mainTable.getSelectedRow();
+					System.out.println("监听到了双击");
+					System.err.println(row);
+					if (row == -1) {
+						return;
+					} else {
+						int billNum = lastBill.getSelectedIndex();
+						if (billNum == 0) {
+							detailPanel.showDetail(
+									getPersons((String) mainTable.getValueAt(
+											row, 0), personVOs, 0),
+									getCars((String) mainTable.getValueAt(row,
+											0), carVOs, 0));
+						
+
+						} else {
+							detailPanel.showDetail(
+									getPersons((String) mainTable.getValueAt(
+											row, 0),
+											vos.get(billNum - 1).persons, 0),
+									getCars((String) mainTable.getValueAt(row,
+											0), vos.get(billNum - 1).cars, 0));
+						}
+						panelManager.show(changePanel, detailPanelStr);
+					}
+				}
+			}
+
+		});
+
 		confirm.addMouseListener(new ConfirmListener(confirm) {
 
 			@Override
@@ -253,6 +329,10 @@ public class BulidBillPanel extends MyPanel {
 				bill.finaceman = name.getText();
 				if (bl.bulidBill(bill) == ResultMessage.SUCCESS) {
 					new TipsDialog("成功新建账单", Color.GREEN);
+					vos.add(bill);
+					lastBill.addItem(vos.size() + "."
+							+ MyDate.toString(vos.get(vos.size() - 1).date));
+					bill = new BillVO("", MyDate.getNowTime());
 					return true;
 				} else {
 					new TipsDialog("由于网络或数据库原因，新建失败");
@@ -262,7 +342,7 @@ public class BulidBillPanel extends MyPanel {
 
 			@Override
 			protected void reInitial() {
-				// TODO Auto-generated method stub
+				refresh();
 
 			}
 
@@ -302,4 +382,18 @@ public class BulidBillPanel extends MyPanel {
 	protected void initWhitePanels(Element e) {
 	}
 
+	private void readBill(int selectedIndex) {
+		if (selectedIndex == 0) {
+			initABill(bill);
+		} else if (selectedIndex > 0) {
+			initABill(vos.get(selectedIndex - 1));
+		}
+
+	}
+
+	@Override
+	public void refresh() {
+		lastBill.setSelectedIndex(0);
+		readBill(0);
+	}
 }

@@ -60,7 +60,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 								Integer.parseInt(result.getString(17)),
 								Integer.parseInt(result.getString(18))),
 						new OtherOrderMes(result.getString(19), result
-								.getString(20) , MyDate.getDate(result.getString(21)), Integer.parseInt(result
+								.getString(20) , MyDate.getDate(result.getString(21)), Double.parseDouble(result
 								.getString(22)), Double.parseDouble(result
 								.getString(23)), result.getString(34), MyDate
 								.getDate(result.getString(35))),
@@ -140,7 +140,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 			return null;
 		}else{
 			return  new OrderPO(findMes.get(0), DocType.valueOf(findMes
-					.get(0)), MyDate.getDate(findMes.get(2)),
+					.get(1)), MyDate.getDate(findMes.get(2)),
 					DocState.valueOf(findMes.get(3)), new PeopleMes(
 							findMes.get(4), findMes.get(5),
 							findMes.get(6), findMes.get(7)),
@@ -154,7 +154,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 							Integer.parseInt(findMes.get(16)),
 							Integer.parseInt(findMes.get(17))),
 					new OtherOrderMes(findMes.get(18), findMes
-							.get(19), MyDate.getDate(findMes.get(20)) , Integer.parseInt(findMes
+							.get(19), MyDate.getDate(findMes.get(20)) , Double.parseDouble(findMes
 							.get(21)), Double.parseDouble(findMes
 									.get(22)), findMes.get(33), MyDate
 							.getDate(findMes.get(34))),
@@ -232,7 +232,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 								Integer.parseInt(result.getString(17)),
 								Integer.parseInt(result.getString(18))),
 						new OtherOrderMes(result.getString(19), result
-								.getString(20) , MyDate.getDate(result.getString(21)), Integer.parseInt(result
+								.getString(20) , MyDate.getDate(result.getString(21)), Double.parseDouble(result
 								.getString(22)), Double.parseDouble(result
 								.getString(23)), result.getString(34), MyDate
 								.getDate(result.getString(35))),

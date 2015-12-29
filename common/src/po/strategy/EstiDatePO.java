@@ -1,11 +1,22 @@
 package po.strategy;
+
+import java.io.Serializable;
+
 /** 
  * 时间估计
  * @author ymc 
  * @version 创建时间：2015年12月24日 上午9:47:43 
  *
  */
-public class EstiDatePO {
+<<<<<<< HEAD
+public class EstiDatePO implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+=======
+public class EstiDatePO implements Serializable{
+>>>>>>> 82bc63f4303d3c16d37d4b67067cb964c88d8ea6
 	/**
 	 * 北京、南京预计时间
 	 */

@@ -12,14 +12,12 @@ import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 
 import org.dom4j.Element;
-import org.junit.experimental.results.ResultMatchers;
 
-import blservice.orderblservice.Orderblservice;
-import blservice.strategyblservice.StrategyblService;
 import po.order.GoodMes;
 import po.order.OtherOrderMes;
 import po.order.PeopleMes;
 import ui.config.DataType;
+import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
@@ -40,6 +38,8 @@ import util.ResultMessage;
 import vo.order.OrderVO;
 import vo.strategy.ConstVO;
 import vo.strategy.EstiDateVO;
+import blservice.orderblservice.Orderblservice;
+import blservice.strategyblservice.StrategyblService;
 
 /**
  * 查询订单界面
@@ -459,17 +459,22 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 				// 检查订单所有属性是否填写完整
 //				 checkDataValid checkDataValid = new checkDataValid();
 				// return checkDataValid.isValid();
-				UserfulMethod.dataHandler(orderBarCodeText.getText(),DataType.BarCode,"订单号");//订单号格式是否正确
-				UserfulMethod.dataHandler(senderPhoneText.getText(),DataType.phone,"寄件人电话");
-				UserfulMethod.dataHandler(receiverPhoneText.getText(),DataType.phone,"收件人电话");
-				//正数
-				UserfulMethod.dataHandler(goodNumText.getText(),DataType.PositiveNum,"货物数量");
-				UserfulMethod.dataHandler(goodLongText.getText(),DataType.PositiveNum,"货物长度");
-				UserfulMethod.dataHandler(goodWidthText.getText(),DataType.PositiveNum,"货物宽度");
-				UserfulMethod.dataHandler(goodHeightText.getText(),DataType.PositiveNum,"货物高度");
-				UserfulMethod.dataHandler(goodWeightText.getText(),DataType.PositiveNum,"货物重量");
 				
-				return true;
+				SimpleDataFormat[] datas = {
+						new SimpleDataFormat(orderBarCodeText.getText(),DataType.BarCode,"订单号"),//订单号格式是否正确
+						new SimpleDataFormat(senderPhoneText.getText(),DataType.phone,"寄件人电话"),
+						new SimpleDataFormat(receiverPhoneText.getText(),DataType.phone,"收件人电话"),
+						//正数
+						new SimpleDataFormat(goodNumText.getText(),DataType.PositiveNum,"货物数量"),
+						new SimpleDataFormat(goodLongText.getText(),DataType.PositiveNum,"货物长度"),
+						new SimpleDataFormat(goodWidthText.getText(),DataType.PositiveNum,"货物宽度"),
+						new SimpleDataFormat(goodHeightText.getText(),DataType.PositiveNum,"货物高度"),
+						new SimpleDataFormat(goodWeightText.getText(),DataType.PositiveNum,"货物重量"),
+						
+				};
+				
+				
+				return UserfulMethod.dealWithData(datas);
 			}
 
 			@Override

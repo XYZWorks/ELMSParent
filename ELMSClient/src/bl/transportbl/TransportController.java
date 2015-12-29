@@ -1,6 +1,7 @@
 package bl.transportbl;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import net.RMIManage;
@@ -19,6 +20,7 @@ import vo.transport.SendGoodDocVO;
 import vo.transport.TransferDocVO;
 import bl.BusinessController;
 import bl.BusinessLogicDataFactory;
+import bl.orderbl.OrderController;
 import blservice.transportblservice.Transportblservice;
 import ds.transportdataservice.Transportdataservice;
 import exception.ExceptionHandler;
@@ -47,11 +49,21 @@ public class TransportController extends BusinessController implements
 
 	}
 
+	public TransportController(OrderController orderController) {
+		myType = DataServiceType.TransportDataService;
+		transportData = (Transportdataservice) RMIManage
+				.getDataService(DataServiceType.TransportDataService);
+		transport = new Transport(transportData, orderController,
+				BusinessLogicDataFactory.getFactory()
+						.getStrategyBusinessLogic());
+		
+	}
+
 	@Override
 	public ResultMessage add(LoadDocVO vo) {
 		try {
 			return transport.add(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return add(vo);
 			}
@@ -63,7 +75,7 @@ public class TransportController extends BusinessController implements
 	public ArrayList<LoadDocVO> getDayLoadDocs(MyDate date) {
 		try {
 			return transport.getDayLoadDocs(date);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getDayLoadDocs(date);
 			}
@@ -75,7 +87,7 @@ public class TransportController extends BusinessController implements
 	public ResultMessage add(SendGoodDocVO vo) {
 		try {
 			return transport.add(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return add(vo);
 			}
@@ -87,7 +99,7 @@ public class TransportController extends BusinessController implements
 	public ArrayList<SendGoodDocVO> getDaySendDocs(MyDate date) {
 		try {
 			return transport.getDaySendDocs(date);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getDaySendDocs(date);
 			}
@@ -99,7 +111,7 @@ public class TransportController extends BusinessController implements
 	public ResultMessage add(ArriveYYDocVO vo) {
 		try {
 			return transport.add(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return add(vo);
 			}
@@ -111,7 +123,7 @@ public class TransportController extends BusinessController implements
 	public ArrayList<ArriveYYDocVO> getDayArriveYYDocs(MyDate date) {
 		try {
 			return transport.getDayArriveYYDocs(date);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getDayArriveYYDocs(date);
 			}
@@ -123,7 +135,7 @@ public class TransportController extends BusinessController implements
 	public ResultMessage add(ArriveZZDocVO vo) {
 		try {
 			return transport.add(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return add(vo);
 			}
@@ -135,7 +147,7 @@ public class TransportController extends BusinessController implements
 	public ArrayList<ArriveZZDocVO> getDayArriveZZDocs(MyDate date) {
 		try {
 			return transport.getDayArriveZZDocs(date);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getDayArriveZZDocs(date);
 			}
@@ -147,7 +159,7 @@ public class TransportController extends BusinessController implements
 	public ResultMessage add(TransferDocVO vo) {
 		try {
 			return transport.addTransferDoc(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return add(vo);
 			}
@@ -159,7 +171,7 @@ public class TransportController extends BusinessController implements
 	public ArrayList<TransferDocVO> getDayTransferDocs(MyDate date) {
 		try {
 			return transport.getDayTransferDocs(date);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getDayTransferDocs(date);
 			}
@@ -171,7 +183,7 @@ public class TransportController extends BusinessController implements
 	public ArrayList<DocVO> getDoc(DocType type) {
 		try {
 			return transport.getDoc(type);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getDoc(type);
 			}
@@ -189,7 +201,7 @@ public class TransportController extends BusinessController implements
 			DocType type, DocState state) {
 		try {
 			return transport.changeDocsState(docsID, type, state);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return changeDocsState(docsID, type, state);
 			}
@@ -202,7 +214,7 @@ public class TransportController extends BusinessController implements
 			DocState state) {
 		try {
 			return transport.changeOneDocState(docID, type, state);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return changeOneDocState(docID, type, state);
 			}
@@ -214,7 +226,7 @@ public class TransportController extends BusinessController implements
 	public ArrayList<? extends DocVO> getDocLists(DocType type) {
 		try {
 			return transport.getDocLists(type);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getDocLists(type);
 			}
@@ -226,7 +238,7 @@ public class TransportController extends BusinessController implements
 	public DocVO getByID(String ID, DocType type) {
 		try {
 			return transport.getDocByID(ID, type);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getByID(ID, type);
 			}
@@ -239,7 +251,7 @@ public class TransportController extends BusinessController implements
 
 		try {
 			return transport.addOnePay(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return addOnePay(vo);
 			}
@@ -251,7 +263,7 @@ public class TransportController extends BusinessController implements
 	public ArrayList<PayDocVO> getPays() {
 		try {
 			return transport.getPays();
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getPays();
 			}
@@ -265,7 +277,7 @@ public class TransportController extends BusinessController implements
 
 		try {
 			return transport.getDayDocCount(type);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getDayDocCount(type);
 			}

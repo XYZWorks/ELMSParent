@@ -1,6 +1,7 @@
 package bl.strategybl;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import net.RMIManage;
@@ -37,7 +38,7 @@ public class StrategyController extends BusinessController implements
 
 		try {
 			return strategy.getConst();
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getConst();
 			}
@@ -49,7 +50,7 @@ public class StrategyController extends BusinessController implements
 	public ResultMessage setConst(ConstVO vo) {
 		try {
 			return strategy.setConst(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return setConst(vo);
 			}
@@ -61,7 +62,7 @@ public class StrategyController extends BusinessController implements
 	public ArrayList<SalaryWayVO> getsalary() {
 		try {
 			return strategy.getsalary();
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getsalary();
 			}
@@ -73,7 +74,7 @@ public class StrategyController extends BusinessController implements
 	public SalaryWayVO getOneSalary(StaffType type) {
 		try {
 			return strategy.getOneSalary(type);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getOneSalary(type);
 			}
@@ -85,7 +86,7 @@ public class StrategyController extends BusinessController implements
 	public ResultMessage setSalary(SalaryWayVO way) {
 		try {
 			return strategy.setSalary(way);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return setSalary(way);
 			}
@@ -97,7 +98,7 @@ public class StrategyController extends BusinessController implements
 	public EstiDateVO getEstiDateVO() {
 		try {
 			return strategy.getEstiDateVO();
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return getEstiDateVO();
 			}
@@ -109,7 +110,7 @@ public class StrategyController extends BusinessController implements
 	public ResultMessage setEstiDateVO(EstiDateVO vo) {
 		try {
 			return strategy.setEstiDateVO(vo);
-		} catch (Exception e) {
+		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
 				return setEstiDateVO(vo);
 			}

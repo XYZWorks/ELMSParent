@@ -1,5 +1,6 @@
 package ui.tools;
 
+import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -28,6 +29,7 @@ public class MyFrame extends JFrame{
 		this.setLayout(null);
 		this.setResizable(false);
 		this.moveFrame();
+		setBackground(new Color(255, 0, 0, 0));
 		this.setIconImage(GraphicsUtils.getImage("element//icon"));
 		//居中放置
 		this.setLocationRelativeTo(null);
