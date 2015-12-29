@@ -20,6 +20,7 @@ import ui.tools.MyLabel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
+import ui.tools.MyWhitePanel;
 import ui.util.CancelListener;
 import ui.util.ConfirmListener;
 import ui.util.DocPanelForApproval;
@@ -41,13 +42,15 @@ import blservice.transportblservice.Transportblservice;
  */
 @SuppressWarnings("serial")
 public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForApproval{
-
+	private MyPictureLabel addArriveDoc;
+	private MyWhitePanel whitePanel;
+	
 	private MyLabel id;
 	private MyDatePicker date;
 	private MyLabel ZZID;
 	private MyLabel sendCity;
 	private MyLabel goodState;
-	private MyLabel newOrder;
+	private MyPictureLabel newOrder;
 
 	private MyTextField order;
 	private MyTextField idT;
@@ -70,6 +73,7 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 
 	@Override
 	protected void initWhitePanels(Element e) {
+		whitePanel=new MyWhitePanel(e.element("whitePanel"));
 	}
 
 	@Override
@@ -88,10 +92,11 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 
 	@Override
 	protected void initLabels(Element e) {
-		id = new MyPictureLabel(e.element("id"));
-		ZZID = new MyPictureLabel(e.element("ZZID"));
-		sendCity = new MyPictureLabel(e.element("sendCity"));
-		goodState = new MyPictureLabel(e.element("goodState"));
+		addArriveDoc=new MyPictureLabel(e.element("addArriveDoc"));
+		id = new MyLabel(e.element("id"));
+		ZZID = new MyLabel(e.element("ZZID"));
+		sendCity = new MyLabel(e.element("sendCity"));
+		goodState = new MyLabel(e.element("goodState"));
 		newOrder = new MyPictureLabel(e.element("order"));
 
 	}
@@ -106,20 +111,26 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 
 	@Override
 	protected void addCompoment() {
-		add(ZZID);
-		add(ZZIDT);
-		add(sendCity);
-		add(sendCityB);
-		add(goodState);
+		whitePanel.add(addArriveDoc);
+		whitePanel.add(ZZID);
+		whitePanel.add(ZZIDT);
+		whitePanel.add(sendCity);
+		whitePanel.add(sendCityB);
+		whitePanel.add(goodState);
+		whitePanel.add(goodStateB);
+		whitePanel.add(id);
+		whitePanel.add(idT);
+		
+		add(whitePanel);
 		add(date);
-		add(id);
-		add(idT);
 		add(newOrder);
 		add(addOneOrder);
 		
-		add(goodStateB);
 		add(order);
 		add(ordersTable);
+		
+		confirm.setLocation(500, 460);
+		cancel.setLocation(650, 460);
 	}
 
 	@Override

@@ -2,14 +2,14 @@
 <ELMS width="1080" height="720">
 	<loginframe width="489" height="411">
 		<BUTTONS>
-			<close text="" x="429" y="6" width="53" height="53" 
-			normal="login//close" enter="login//close-enter" clicked="login//close-clicked"/>
-			<set text="" x="376" y="6" width="53" height="53" 
-			normal="login//set" enter="login//set-enter" clicked="login//set-clicked"/>
-			<login text="" x="0" y="358" width="489" height="53" 
-			normal="login//login" enter="login//login-enter" clicked="login//login-clicked"/>
-			<checkOrder text="" x="207" y="315" width="75" height="17" 
-			normal="login//checkOrder" enter="login//checkOrder-enter" clicked="login//checkOrder-clicked"/>
+			<close text="" x="429" y="6" width="53" height="53" normal="login//close"
+				enter="login//close-enter" clicked="login//close-clicked" />
+			<set text="" x="376" y="6" width="53" height="53" normal="login//set"
+				enter="login//set-enter" clicked="login//set-clicked" />
+			<login text="" x="0" y="358" width="489" height="53" normal="login//login"
+				enter="login//login-enter" clicked="login//login-clicked" />
+			<checkOrder text="" x="207" y="315" width="75" height="17"
+				normal="login//checkOrder" enter="login//checkOrder-enter" clicked="login//checkOrder-clicked" />
 		</BUTTONS>
 		<LABELS>
 			<findOrderInfo text="" x="209" y="315" width="73"
@@ -216,7 +216,7 @@
 					<cost text="" x="300" y="668" width="225" height="65"
 						one="courier//cost" fontName="Microsoft YaHei" />
 					<costText text="" x="390" y="668" width="225" height="65"
-						size="38" color="255,138,0"/>
+						size="38" color="255,138,0" />
 
 				</LABELS>
 
@@ -1320,11 +1320,11 @@
 					column="ID 日期 营业厅ID 金额 快递员 订单数量" />
 			</FinanceApprovalPanel>
 			<BulidBillPanel x="232" y="54" width="848" height="637">
-			<detail x="232" y="54" width="848" height="637">
+				<detail x="232" y="54" width="848" height="637">
 					<peopleMes x="53" y="110" width="742" height="427"
-					strings="财务人员 营业厅业务员 快递员 中转中心业务人员 中转中心管理员 司机" />
+						strings="财务人员 营业厅业务员 快递员 中转中心业务人员 中转中心管理员 司机" />
 					<carMes x="48" y="150" width="750" height="420" column="ID 机构ID 车牌号 使用年份" />
-			</detail>
+				</detail>
 				<BUTTONS>
 					<confirm x="560" y="560" width="89" height="40" text="确认"
 						type="confirm" />
@@ -1570,20 +1570,21 @@
 
 					<start x="53" y="74" width="200" height="28" text="起始日期:" />
 					<end x="283" y="74" width="200" height="28" text="结束日期:" />
-	
-					<deposit x="0" y="0" width="115" height="40"
-						text="新建付款单" type="rectangle" />
+
+					<deposit x="0" y="0" width="115" height="40" text="新建付款单"
+						type="rectangle" />
 					<depositMoney x="115" y="35" width="115" height="40"
 						text="金额" type="rectangle" />
-					<pay x="0" y="0" width="115" height="40" text="新建收款单"
-						type="rectangle" />
+					<pay x="0" y="0" width="115" height="40" text="新建收款单" type="rectangle" />
 					<payMoney x="115" y="35" width="115" height="40" text="金额"
 						type="cancel" />
-					<payType x="510" y="35" width="115" height="28" text="成本类型" type="cancel"/>
-					
+					<payType x="510" y="35" width="115" height="28" text="成本类型"
+						type="cancel" />
+
 					<income x="53" y="240" width="115" height="40" text="收入"
 						type="cancel" />
-					<outCome x="53" y="200" width="200" height="28" text="支出" type="cancel"/>
+					<outCome x="53" y="200" width="200" height="28" text="支出"
+						type="cancel" />
 				</LABELS>
 				<WHITEPANELS>
 					<Deposit x="53" y="150" width="742" height="180" />
@@ -1785,6 +1786,9 @@
 				height="637">
 				<arriveYYDocShowPanelAddPanel x="232"
 					y="54" width="1080" height="637">
+					<WHITEPANELS>
+						<whitePanel x="45" y="120" width="370" height="340" />
+					</WHITEPANELS>
 					<BUTTONS>
 						<confirm x="550" y="560" width="89" height="40" text="确认"
 							type="confirm" />
@@ -1794,25 +1798,23 @@
 						<addOrder x="748" y="120" width="40" height="40" type="add" />
 					</BUTTONS>
 					<LABELS>
-						<id x="60" y="120" width="115" height="40" text="ID" type="rectangle" />
-						<ZZID x="60" y="180" width="115" height="40" text="中转中心编号"
-							type="rectangle" />
-						<sendCity x="60" y="240" width="115" height="40" text="出发地"
-							type="rectangle" />
-						<goodState x="60" y="300" width="115" height="40" text="货物状态"
-							type="rectangle" />
-						<!-- -->
+					    <addArriveDoc x="0" y="0" width="125" height="40"  text="增加接收单" type="rectangle" size="18"/>
+						<id x="30" y="50" width="115" height="40" text="ID" />
+						<ZZID x="30" y="110" width="115" height="40" text="中转中心编号" />
+						<sendCity x="30" y="170" width="115" height="40" text="出发地" />
+						<goodState x="30" y="230" width="115" height="40" text="货物状态" />
+
 						<order x="425" y="120" width="115" height="40" text="订单号"
 							type="rectangle" />
 					</LABELS>
 					<TEXTFIELDS>
-						<id x="200" y="120" width="200" height="40" />
-						<ZZID x="200" y="180" width="200" height="40" />
+						<id x="150" y="50" width="200" height="40" />
+						<ZZID x="150" y="110" width="200" height="40" />
 						<order x="560" y="120" width="168" height="40" />
 					</TEXTFIELDS>
 					<datepicker x="588" y="60" width="200" height="40" />
-					<sendCity x="200" y="240" width="200" height="40" strings="南京 北京 上海 广州" />
-					<goodState x="200" y="300" width="200" height="40"
+					<sendCity x="150" y="170" width="200" height="40" strings="中转中心 营业厅" />
+					<goodState x="150" y="230" width="200" height="40"
 						strings="完整 损坏 丢失" />
 					<table x="425" y="180" width="363" height="280" column="序号 ID" />
 				</arriveYYDocShowPanelAddPanel>
@@ -1832,31 +1834,37 @@
 				<sendGoodDocShowPanelAddPanel x="232"
 					y="54" width="1080" height="637">
 					<WHITEPANELS>
-						<whitePanel x="150" y="100" width="400" height="350" />
+						<whitePanel x="65" y="180" width="360" height="270" />
 					</WHITEPANELS>
 					<BUTTONS>
 						<confirm x="550" y="560" width="89" height="40" text="确认"
 							type="confirm" />
 						<cancel x="700" y="560" width="89" height="40" text="取消"
 							type="cancel" />
-						<back x="0" y="0" width="53" height="53" text="返回" type="back" />
+						<back x="0" y="0" width="53" height="53" text="" type="back" />
+						<addOrder x="768" y="120" width="40" height="40" type="add" />
 					</BUTTONS>
 					<LABELS>
 						<addSendGoodDoc x="0" y="0" width="115" height="40"
 							text="增加派件单" type="rectangle" size="20" />
-						<id x="50" y="120" width="115" height="40" text="ID" />
-						<sendMan x="50" y="180" width="115" height="40" text="快递员" />
+						<id x="30" y="70" width="115" height="40" text="ID" />
+						<sendMan x="30" y="160" width="115" height="40" text="快递员" />
 						<orderBarCode x="50" y="240" width="115" height="40"
 							text="" />
 						<sendCity x="50" y="300" width="115" height="40" text="出发地" />
+						<order x="445" y="120" width="115" height="40" text="订单号"
+							type="rectangle" />
 					</LABELS>
 					<TEXTFIELDS>
-						<id x="160" y="120" width="200" height="40" />
-						<sendMan x="160" y="180" width="200" height="40" />
+						<id x="125" y="70" width="200" height="40" />
+						<sendMan x="125" y="160" width="200" height="40" />
 						<orderBarCode x="160" y="240" width="200" height="40" />
+						<order x="580" y="120" width="168" height="40" />
 					</TEXTFIELDS>
-					<datepicker x="588" y="60" width="200" height="40" />
+					<datepicker x="608" y="60" width="200" height="40" />
 					<sendCity x="160" y="300" width="200" height="40" strings="中转中心 营业厅" />
+					<table x="445" y="180" width="363" height="270" column="序号 订单号 收件人 收件地址" />
+
 				</sendGoodDocShowPanelAddPanel>
 				<addDoc x="700" y="80" width="40" height="40" type="add" />
 				<title x="48" y="36" width="200" height="28" text="派送单列表"
@@ -1892,7 +1900,7 @@
 						<money x="100" y="445" width="225" height="65" text=""
 							one="element//cost" fontName="Microsoft YaHei" />
 						<moneyText text="" x="190" y="445" width="225" height="65"
-						size="38" color="255,138,0"/>
+							size="38" color="255,138,0" />
 						<order x="445" y="120" width="115" height="40" text="订单号"
 							type="rectangle" />
 					</LABELS>
@@ -1901,6 +1909,7 @@
 						<YYID x="140" y="140" width="200" height="40" />
 						<courierName x="140" y="210" width="200" height="40" />
 						<order x="580" y="120" width="168" height="40" />
+
 					</TEXTFIELDS>
 					<datepicker x="608" y="60" width="200" height="40" />
 					<table x="445" y="180" width="363" height="270" column="序号 订单号 金额" />

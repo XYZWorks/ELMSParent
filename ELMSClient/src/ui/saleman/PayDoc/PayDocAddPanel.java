@@ -117,7 +117,6 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 		whitePanel.add(YYIDT);
 		whitePanel.add(courierName);
 		whitePanel.add(courierNameT);
-		whitePanel.add(date);
 		whitePanel.add(id);
 		whitePanel.add(idT);
 
