@@ -28,6 +28,7 @@ public class MyPictureButton extends JLabel {
 	private Icon clicked;
 
 	public MyPictureButton(Element e) {
+		
 		if(e.attributeValue("type")!= null){
 			ButtonOrLabelPicture pics = GraphicsUtils.getButtonLabelPic(e.attributeValue("type"));
 			normal = pics.getNormal();
