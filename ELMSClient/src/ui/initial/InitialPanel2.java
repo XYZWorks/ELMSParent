@@ -1,4 +1,4 @@
-package ui.inital;
+package ui.initial;
 
 import java.awt.Frame;
 import java.awt.Graphics;
@@ -28,7 +28,7 @@ import vo.account.AccountVO;
  *
  */
 @SuppressWarnings("serial")
-public class InitalPanel2 extends MyPanel {
+public class InitialPanel2 extends MyPanel {
 
 //	private ShowCareer career;
 	private MyPictureButton exit;
@@ -43,7 +43,7 @@ public class InitalPanel2 extends MyPanel {
 	private MyFrame parent;
 
 
-	public InitalPanel2(Element e , MyFrame frame ,AccountVO vo) {
+	public InitialPanel2(Element e , MyFrame frame ,AccountVO vo) {
 		super(e);
 		this.parent = frame;
 		this.initButtons(e.element(CompomentType.BUTTONS.name()));

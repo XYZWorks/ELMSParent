@@ -1,4 +1,4 @@
-package ui.inital;
+package ui.initial;
 
 import javax.swing.JFrame;
 import javax.swing.UIManager;
