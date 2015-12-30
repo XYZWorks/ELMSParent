@@ -1,5 +1,6 @@
 package ui.storemanager.storeshow;
 
+import java.awt.Component;
 import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
@@ -10,6 +11,7 @@ import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
+import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
 import ui.util.PanelController;
 import bl.storebl.StoreController;
@@ -32,6 +34,8 @@ public class StoreShowPanel extends MyPanel {
 	protected MyLabel centerL;
 	protected MyLabel storeNum;
 	
+	protected MyWhitePanel whitePanel;
+	
 	protected MyComboBox cityC;
 	protected MyComboBox storeC;
 	
@@ -41,15 +45,23 @@ public class StoreShowPanel extends MyPanel {
 		super(config);
 		this.bl = bl;
 		this.controller = controller;
+		
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 
 		initOtherCompoment(config);
+		//initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		addCompoment();
 		addListener();
 	}
 
+	@Override
+	protected void initWhitePanels(Element e) {
+		
+	//	whitePanel=new MyWhitePanel(e.element("whitePanel"));
+		
+	}
 	@Override
 	protected void initButtons(Element e) {
 		confirmButton = new MyPictureButton(e.element("confirm"));
@@ -73,26 +85,28 @@ public class StoreShowPanel extends MyPanel {
 	protected void initOtherCompoment(Element e) {
 		cityC = new MyComboBox(e.element("city"));
 		storeC = new MyComboBox(e.element("store"));
+		whitePanel=new MyWhitePanel(e.element("white"));
 
 	}
 
 	@Override
 	protected void addCompoment() {
+		
+//		whitePanel.add(centerL);
+//		whitePanel.add(cityC);
+//		whitePanel.add(storeC);
+//		whitePanel.add(storeNum);
+		
+		//add(whitePanel);
 		add(centerL);
 		add(cityC);
-		add(confirmButton);
-		add(returnButton);
 		add(storeC);
 		add(storeNum);
-		
-
+		add(confirmButton);
+		add(returnButton);
 	}
 	
-	@Override
-	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 	@Override
 	protected void addListener() {

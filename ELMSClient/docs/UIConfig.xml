@@ -1798,7 +1798,8 @@
 						<addOrder x="748" y="120" width="40" height="40" type="add" />
 					</BUTTONS>
 					<LABELS>
-					    <addArriveDoc x="0" y="0" width="125" height="40"  text="增加接收单" type="rectangle" size="18"/>
+						<addArriveDoc x="0" y="0" width="125" height="40"
+							text="增加接收单" type="rectangle" size="18" />
 						<id x="30" y="50" width="115" height="40" text="ID" />
 						<ZZID x="30" y="110" width="115" height="40" text="中转中心编号" />
 						<sendCity x="30" y="170" width="115" height="40" text="出发地" />
@@ -2348,14 +2349,13 @@
 
 			<InStorePanel x="232" y="54" width="848" height="637">
 
-				<table x="48" y="136" width="750" height="394" columnName="单据类型 ID 日期 目的地 订单号集合" />
+				<table x="48" y="136" width="750" height="394"
+					columnName="单据类型 ID 日期 目的地 订单号集合" />
 
 				<BUTTONS>
-					<full x="707" y="560" width="89" height="40" text="查看"
-						type="confirm" />
-					<add x="758" y="80" width="40" height="40"  type="add" />
-					<return x="0" y="0" width="53" height="53" 
-						type="back" />
+					<full x="707" y="560" width="89" height="40" text="查看" type="confirm" />
+					<add x="758" y="80" width="40" height="40" type="add" />
+					<return x="0" y="0" width="53" height="53" type="back" />
 				</BUTTONS>
 
 				<LABELS>
@@ -2367,8 +2367,7 @@
 
 					<BUTTONS>
 
-						<return x="0" y="0" width="53" height="53" 
-							type="back" />
+						<return x="0" y="0" width="53" height="53" type="back" />
 
 					</BUTTONS>
 
@@ -2402,8 +2401,7 @@
 					<BUTTONS>
 						<confirm x="707" y="560" width="89" height="40" text="确认"
 							type="confirm" />
-						<return x="0" y="0" width="53" height="53" 
-							type="back" />
+						<return x="0" y="0" width="53" height="53" type="back" />
 					</BUTTONS>
 
 					<LABELS>
@@ -2438,14 +2436,13 @@
 			</InStorePanel>
 
 			<OutStorePanel x="232" y="54" width="848" height="637">
-			
+
 
 				<BUTTONS>
-					<add x="758" y="80" width="40" height="40"  type="add" />
-					<return x="0" y="0" width="53" height="53" 
-						type="back" />
+					<add x="758" y="80" width="40" height="40" type="add" />
+					<return x="0" y="0" width="53" height="53" type="back" />
 				</BUTTONS>
-						
+
 				<table x="48" y="136" width="750" height="394"
 					columnName="单据类型 ID 日期 目的地 中转单ID 装运方式 订单号集合" />
 
@@ -2463,8 +2460,7 @@
 					<BUTTONS>
 						<confirm x="707" y="560" width="89" height="40" text="确认"
 							type="confirm" />
-						<return x="0" y="0" width="53" height="53" 
-						type="back"  />
+						<return x="0" y="0" width="53" height="53" type="back" />
 					</BUTTONS>
 
 					<LABELS>
@@ -2506,13 +2502,14 @@
 			</OutStorePanel>
 
 			<StoreShowPanel x="232" y="54" width="848" height="637">
-
+				<WHITEPANELS>
+					<whitePanel x="65" y="90" width="500" height="480" />
+				</WHITEPANELS>
 				<BUTTONS>
 
 					<confirm x="707" y="560" width="89" height="40" text="确认"
-							type="confirm" />
-					<return x="0" y="0" width="53" height="53" 
-						type="back" />
+						type="confirm" />
+					<return x="0" y="0" width="53" height="53" type="back" />
 				</BUTTONS>
 
 				<LABELS>
@@ -2525,15 +2522,22 @@
 				<city x="350" y="177" width="240" height="45" strings="南京 广州 上海 北京" />
 
 				<store x="350" y="347" width="240" height="45" strings="航运区 汽运区 铁运区" />
-
+				<white x="65" y="90" width="500" height="480" />
+				
 				<StoreSingleShowPanel x="232" y="54" width="848"
 					height="1710">
-
+					<WHITEPANELS>
+						<showSimpleWhitePanel x="65" y="130" width="680"
+							height="200" />
+						<locateWhitePanel x="65" y="570" width="680"
+							height="480" />
+						<inWhitePanel x="65" y="1200" width="680" height="480" />
+						<outWhitePanel x="65" y="1700" width="680" height="480" />
+					</WHITEPANELS>
 					<BUTTONS>
 						<confirm x="700" y="1640" width="89" height="40" text="确认"
 							type="confirm" />
-						<return x="0" y="0" width="53" height="53" 
-						type="back" />
+						<return x="0" y="0" width="53" height="53" type="back" />
 					</BUTTONS>
 
 
@@ -2544,21 +2548,21 @@
 							size="30" text="中转中心" type="rectangle" />
 						<storeNum x="570" y="30" width="200" height="100" size="25"
 							text="" type="rectangle" />
-
 						<storeNumL x="420" y="30" width="200" height="100"
 							fontName="华文细黑" size="30" text="仓库区" type="rectangle" />
-						<nowNum x="230" y="150" width="200" height="100" text=""
+
+						<nowNum x="150" y="30" width="200" height="40" text=""
 							type="rectangle" />
-						<nowNumL x="80" y="150" width="200" height="100" text="当前库存数量"
+						<nowNumL x="20" y="30" width="200" height="40" text="当前库存数量"
 							type="rectangle" />
-						<totalNumL x="450" y="150" width="200" height="100"
-							text="库存总容量" type="rectangle" />
-						<totalNum x="600" y="150" width="200" height="100" text=""
+						<totalNumL x="250" y="30" width="200" height="40" text="库存总容量"
+							type="rectangle" />
+						<totalNum x="400" y="30" width="200" height="40" text=""
 							type="rectangle" />
 
-						<nowTime x="230" y="230" width="200" height="100" text=""
+						<nowTime x="650" y="30" width="200" height="100" text=""
 							type="rectangle" />
-						<nowTimeL x="80" y="230" width="200" height="100" text="当前时间"
+						<nowTimeL x="500" y="30" width="200" height="100" text="当前时间"
 							type="rectangle" />
 						<inputTime x="80" y="720" width="200" height="100" text="查询时间"
 							type="rectangle" />
@@ -2600,9 +2604,8 @@
 				<BUTTONS>
 
 					<confirm x="707" y="560" width="89" height="40" text="确认"
-							type="confirm" />
-					<return x="0" y="0" width="53" height="53" 
-						type="back" />
+						type="confirm" />
+					<return x="0" y="0" width="53" height="53" type="back" />
 				</BUTTONS>
 
 				<LABELS>
@@ -2622,8 +2625,7 @@
 					<BUTTONS>
 						<confirm x="700" y="1150" width="89" height="40" text="导出Excel"
 							type="confirm" />
-						<return x="0" y="0" width="53" height="53" 
-							type="back" />
+						<return x="0" y="0" width="53" height="53" type="back" />
 					</BUTTONS>
 
 
@@ -2683,9 +2685,8 @@
 				<BUTTONS>
 
 					<confirm x="707" y="560" width="89" height="40" text="确认"
-							type="confirm" />
-					<return x="0" y="0" width="53" height="53"
-						type="back" />
+						type="confirm" />
+					<return x="0" y="0" width="53" height="53" type="back" />
 				</BUTTONS>
 
 				<LABELS>
@@ -2705,8 +2706,7 @@
 					<BUTTONS>
 						<confirm x="550" y="500" width="89" height="40" text="确认"
 							type="confirm" />
-						<return x="0" y="0" width="53" height="53" 
-						type="back" />
+						<return x="0" y="0" width="53" height="53" type="back" />
 					</BUTTONS>
 
 
@@ -2743,9 +2743,8 @@
 				<BUTTONS>
 
 					<confirm x="707" y="560" width="89" height="40" text="确认"
-							type="confirm" />
-					<return x="0" y="0" width="53" height="53" 
-						type="back" />
+						type="confirm" />
+					<return x="0" y="0" width="53" height="53" type="back" />
 				</BUTTONS>
 
 				<LABELS>
@@ -2765,8 +2764,7 @@
 					<BUTTONS>
 						<confirm x="550" y="500" width="89" height="40" text="确认"
 							type="confirm" />
-						<return x="0" y="0" width="53" height="53" 
-						type="back" />
+						<return x="0" y="0" width="53" height="53" type="back" />
 					</BUTTONS>
 
 

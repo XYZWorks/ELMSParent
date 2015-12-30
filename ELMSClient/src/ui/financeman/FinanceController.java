@@ -92,7 +92,7 @@ public class FinanceController extends PanelController {
 	@Override
 	protected void initPanel(Element e) {
 		financeMain = new FinanceMain(e.element(financeMainStr) , this);
-//		financeApprovalPanel = new FinanceApprovalPanel(e.element(finaceApprovalStr), changePanel, finaceApprovalStr, "ShowPayDoc", transportblservice);
+		financeApprovalPanel = new FinanceApprovalPanel(e.element(finaceApprovalStr), changePanel, finaceApprovalStr, "ShowPayDoc", transportblservice);
 		bulidBillPanel = new BulidBillPanel(e.element(bulidBillStr) , statisticblservice , changePanel);
 		bankAccountManagePanel = new BankAccountManagePanel(e.element(bankAccountStr) , bankAccountService , changePanel);
 		costManagePanel = new CostManagePanel(e.element(costManageStr) , costService, changePanel , costManageStr);
@@ -125,7 +125,7 @@ public class FinanceController extends PanelController {
 	@Override
 	protected void addPanels() {
 		changePanel.add(financeMain, financeMainStr);
-//		changePanel.add(financeApprovalPanel , finaceApprovalStr);
+		changePanel.add(financeApprovalPanel , finaceApprovalStr);
 		changePanel.add(bulidBillPanel , bulidBillStr);
 		changePanel.add(bankAccountManagePanel , bankAccountStr);
 		changePanel.add(costManagePanel , costManageStr);
