@@ -13,6 +13,7 @@ import ui.storemanager.storeshow.StoreSingleShowPanel;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
 import ui.tools.MyPictureButton;
+import ui.tools.MyPictureLabel;
 import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
@@ -57,9 +58,9 @@ public class StoreCheckInfoPanel extends StoreSingleShowPanel {
 	@Override
 	protected void initLabels(Element e) {
 		center = new MyLabel(e.element("center"));
-		centerL = new MyLabel(e.element("centerL"));
+		centerL = new MyPictureLabel(e.element("centerL"));
 		storeNum = new MyLabel(e.element("storeNum"));
-		storeNumL = new MyLabel(e.element("storeNumL"));
+		storeNumL = new MyPictureLabel(e.element("storeNumL"));
 		infoin = new MyLabel(e.element("infoin"));
 		infoout = new MyLabel(e.element("infoout"));
 		nowNum = new MyLabel(e.element("nowNum"));
