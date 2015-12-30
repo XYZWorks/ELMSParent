@@ -58,7 +58,7 @@ public class StoreMain extends MyPanel{
 
 	@Override
 	protected void initOtherCompoment(Element e) {
-		date = new MyDatePicker(e.element("DatePicker"));
+//		date = new MyDatePicker(e.element("DatePicker"));
 		
 	}
 
@@ -69,7 +69,7 @@ public class StoreMain extends MyPanel{
 		this.add(arriveZZButton);
 		this.add(storeButton);
 		
-		this.add(date);
+//		this.add(date);
 	}
 
 

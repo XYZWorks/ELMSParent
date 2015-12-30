@@ -127,7 +127,7 @@ public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
 	protected void initOtherCompoment(Element e) {
 		picker = new MyDatePicker(e.element("DatePicker"));
 //		picker = new MyDatePicker(100 ,200 ,400 , 400);
-//		picker.setVisible(true);
+		picker.setVisible(true);
 		sendCityC = new MyComboBox(e.element("sendCityC"));
 		
 	}
@@ -234,7 +234,7 @@ public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
 		LoadManNameT.setEditable(false);;
 		
 		containerT.setEditable(false);
-		ordersT.setEditable(false);;
+//		ordersT.setEditable(false);;
 		
 		sendCityC.setEnabled(false);
 		confirmButton.setVisible(false);
@@ -262,7 +262,7 @@ public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
 		numberT.setText(String.valueOf(vo.containerNum));
 		sendCityC.setSelectedItem(vo.sendCity.getName());
 		picker.setTime(vo.date);
-		ordersT.setText(UserfulMethod.orderArrayToString(vo.orderBarCode));
+//		ordersT.setText(UserfulMethod.orderArrayToString(vo.orderBarCode));
 		
 	}
 
