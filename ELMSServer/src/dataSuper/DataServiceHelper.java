@@ -163,6 +163,7 @@ public class DataServiceHelper {
 			if(append){
 				if(file.length() > 1){
 					objects = readManyFromSerFile(name);
+					
 				}
 				out = new ObjectOutputStream(new FileOutputStream(file));
 				if(objects != null){

@@ -2795,26 +2795,14 @@
 							type="rectangle" />
 						<totalNumL x="450" y="250" width="200" height="100"
 							text="当前总库存量" type="rectangle" />
-
 						<addNumL x="80" y="390" width="200" height="100" text="增加库存"
 							type="rectangle" />
-
 					</LABELS>
-
 					<TEXTFIELDS>
-
 						<addNumT x="230" y="420" width="200" height="45" />
 					</TEXTFIELDS>
-
-
 				</AlarmRecoverSinglePanel>
 			</AlarmRecoverPanel>
-
 		</StoreManager>
-
-
 	</initialpanel>
-
-
-
 </ELMS>

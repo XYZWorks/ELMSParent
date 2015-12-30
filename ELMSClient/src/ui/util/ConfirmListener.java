@@ -14,10 +14,7 @@ public abstract class ConfirmListener extends MyPictureButtonListener{
 		super(button);
 		
 	}
-	/**
-	 * 重置组件以再来一单
-	 */
-	protected abstract void reInitial();
+	
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {	
@@ -32,6 +29,10 @@ public abstract class ConfirmListener extends MyPictureButtonListener{
 			
 		}
 	}
+	/**
+	 * 重置组件以再来一单
+	 */
+	protected abstract void reInitial();
 	/**
 	 * 同步信息
 	 */
