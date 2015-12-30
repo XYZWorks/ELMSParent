@@ -80,6 +80,10 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
+		
+		if(config.element(CompomentType.WHITEPANELS.name())==null){
+			System.out.println("报错");
+		}
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initOtherCompoment(config);
 		addCompoment();
