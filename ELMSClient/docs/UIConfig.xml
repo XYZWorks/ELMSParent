@@ -2044,9 +2044,10 @@
 		<StoreMan x="232" y="54" width="848" height="637">
 
 			<BUTTONS>
-
-				<transport text="中转单" x="0" y="227" />
 				<arriveZZ text="到达单" x="0" y="267" />
+				
+				<transport text="中转单" x="0" y="227" />
+				
 				<store text="库存查看" x="0" y="307" />
 
 			</BUTTONS>
@@ -2421,15 +2422,15 @@
 
 
 					<TEXTFIELDS>
-						<ID x="550" y="180" width="200" height="45" />
+						<ID x="550" y="187" width="200" height="40" />
 					</TEXTFIELDS>
 
-					<sendCityC x="150" y="187" width="240" height="30"
+					<sendCityC x="150" y="187" width="240" height="40"
 						strings="南京 广州 上海 北京" />
 
-					<DatePicker x="550" y="50" width="200" height="50">
-						<field x="100" y="0" width="350" height="50" />
-						<button x="350" y="0" width="50" height="50" />
+					<DatePicker x="550" y="50" width="200" height="40">
+						<field x="100" y="0" width="350" height="40" />
+						<button x="350" y="0" width="50" height="40" />
 
 					</DatePicker>
 
@@ -2461,7 +2462,7 @@
 					height="637">
 
 					<BUTTONS>
-						<confirm x="707" y="560" width="89" height="40" text="确认"
+						<confirm x="671" y="560" width="89" height="40" text="确认"
 							type="confirm" />
 						<return x="0" y="0" width="53" height="53" 
 						type="back"  />
@@ -2486,19 +2487,19 @@
 					</LABELS>
 
 					<TEXTFIELDS>
-						<ID x="180" y="180" width="200" height="45" />
-						<order x="180" y="450" width="200" height="45" />
-						<transferDoc x="180" y="320" width="200" height="45" />
+						<ID x="180" y="180" width="200" height="40" />
+						<order x="180" y="450" width="200" height="40" />
+						<transferDoc x="180" y="320" width="200" height="40" />
 					</TEXTFIELDS>
 
-					<sendCityC x="520" y="187" width="240" height="30"
+					<sendCityC x="520" y="180" width="240" height="40"
 						strings="南京 广州 上海 北京" />
-					<shipWayC x="520" y="327" width="240" height="30" strings="飞机 火车 汽车" />
+					<shipWayC x="520" y="320" width="240" height="40" strings="飞机 火车 汽车" />
 
 
-					<DatePicker x="550" y="50" width="200" height="50">
-						<field x="100" y="0" width="350" height="50" />
-						<button x="350" y="0" width="50" height="50" />
+					<DatePicker x="520" y="50" width="240" height="40">
+						<field x="100" y="0" width="200" height="40" />
+						<button x="480" y="0" width="40" height="40" />
 					</DatePicker>
 
 					<table x="62" y="325" width="730" height="180" columnName="订单号 区号 排号 架号 位号" />
@@ -2522,9 +2523,9 @@
 						size="30" text="仓库区" type="rectangle" />
 				</LABELS>
 
-				<city x="350" y="177" width="240" height="45" strings="南京 广州 上海 北京" />
+				<city x="350" y="177" width="240" height="40" strings="南京 广州 上海 北京" />
 
-				<store x="350" y="347" width="240" height="45" strings="航运区 汽运区 铁运区" />
+				<store x="350" y="347" width="240" height="40" strings="航运区 汽运区 铁运区" />
 
 				<StoreSingleShowPanel x="232" y="54" width="848"
 					height="1710">
@@ -2582,14 +2583,14 @@
 
 
 					<TEXTFIELDS>
-						<ID x="180" y="180" width="200" height="45" />
-						<order x="180" y="450" width="500" height="45" />
-						<transferDoc x="180" y="320" width="200" height="45" />
+						<ID x="180" y="180" width="200" height="40" />
+						<order x="180" y="450" width="500" height="40" />
+						<transferDoc x="180" y="320" width="200" height="40" />
 					</TEXTFIELDS>
 
-					<DatePicker x="250" y="750" width="200" height="50">
-						<field x="100" y="0" width="350" height="50" />
-						<button x="350" y="0" width="50" height="50" />
+					<DatePicker x="250" y="750" width="200" height="40">
+						<field x="100" y="0" width="350" height="40" />
+						<button x="350" y="0" width="50" height="40" />
 
 					</DatePicker>
 
@@ -2612,9 +2613,9 @@
 						size="30" text="仓库区" type="rectangle" />
 				</LABELS>
 
-				<city x="350" y="177" width="240" height="45" strings="南京 广州 上海 北京" />
+				<city x="350" y="177" width="240" height="40" strings="南京 广州 上海 北京" />
 
-				<store x="350" y="347" width="240" height="45" strings="航运区 汽运区 铁运区" />
+				<store x="350" y="347" width="240" height="40" strings="航运区 汽运区 铁运区" />
 
 				<StoreCheckInfoPanel x="232" y="54" width="848"
 					height="1250">
@@ -2665,14 +2666,14 @@
 
 
 					<TEXTFIELDS>
-						<ID x="180" y="180" width="200" height="45" />
-						<order x="180" y="450" width="500" height="45" />
-						<transferDoc x="180" y="320" width="200" height="45" />
+						<ID x="180" y="180" width="200" height="40" />
+						<order x="180" y="450" width="500" height="40" />
+						<transferDoc x="180" y="320" width="200" height="40" />
 					</TEXTFIELDS>
 
-					<DatePicker x="250" y="750" width="200" height="50">
-						<field x="100" y="0" width="350" height="50" />
-						<button x="350" y="0" width="50" height="50" />
+					<DatePicker x="250" y="750" width="200" height="40">
+						<field x="100" y="0" width="350" height="40" />
+						<button x="350" y="0" width="50" height="40" />
 
 					</DatePicker>
 
@@ -2695,9 +2696,9 @@
 						size="30" text="仓库区" type="rectangle" />
 				</LABELS>
 
-				<city x="350" y="177" width="240" height="45" strings="南京 广州 上海 北京" />
+				<city x="350" y="177" width="240" height="40" strings="南京 广州 上海 北京" />
 
-				<store x="350" y="347" width="240" height="45" strings="航运区 汽运区 铁运区" />
+				<store x="350" y="347" width="240" height="40" strings="航运区 汽运区 铁运区" />
 
 				<AlarmSetSinglePanel x="232" y="54" width="848"
 					height="637">
@@ -2731,7 +2732,7 @@
 
 					<TEXTFIELDS>
 
-						<modifyT x="230" y="400" width="200" height="45" />
+						<modifyT x="230" y="400" width="200" height="40" />
 					</TEXTFIELDS>
 
 
@@ -2755,9 +2756,9 @@
 						size="30" text="仓库区" type="rectangle" />
 				</LABELS>
 
-				<city x="350" y="177" width="240" height="45" strings="南京 广州 上海 北京" />
+				<city x="350" y="177" width="240" height="40" strings="南京 广州 上海 北京" />
 
-				<store x="350" y="347" width="240" height="45" strings="航运区 汽运区 铁运区" />
+				<store x="350" y="347" width="240" height="40" strings="航运区 汽运区 铁运区" />
 
 				<AlarmRecoverSinglePanel x="232" y="54"
 					width="848" height="637">
@@ -2799,7 +2800,7 @@
 							type="rectangle" />
 					</LABELS>
 					<TEXTFIELDS>
-						<addNumT x="230" y="420" width="200" height="45" />
+						<addNumT x="230" y="420" width="200" height="40" />
 					</TEXTFIELDS>
 				</AlarmRecoverSinglePanel>
 			</AlarmRecoverPanel>
