@@ -73,7 +73,11 @@ public class Strategy {
 
 	public EstiDateVO getEstiDateVO() throws RemoteException {
 		EstiDatePO po = strategyData.getEstiDatePO();
-		return (EstiDateVO) VOPOchange.POtoVO(po);
+		EstiDateVO vo =  (EstiDateVO) VOPOchange.POtoVO(po);
+//		if(vo.dayInBG==null){
+//			initialEstiDate(vo);
+//		}
+		return vo;
 	}
 
 	public ResultMessage setEstiDateVO(EstiDateVO vo) throws RemoteException {

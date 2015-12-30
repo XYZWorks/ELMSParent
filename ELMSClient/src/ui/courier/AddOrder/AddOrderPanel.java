@@ -194,7 +194,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 		
 		estiDateVO=strategyblService.getEstiDateVO();
 		
-
+		System.out.println("estiDate:  "+estiDateVO==null);
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
