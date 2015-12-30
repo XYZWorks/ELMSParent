@@ -11,6 +11,7 @@ import ui.config.GraphicsUtils;
 import ui.courier.CourierController;
 import ui.financeman.FinanceController;
 import ui.saleman.SaleManController;
+import ui.storeman.StoreManController;
 import ui.storemanager.StoreManagerController;
 import ui.tools.MyFrame;
 import ui.tools.MyLabel;
@@ -70,8 +71,9 @@ public class InitalPanel2 extends MyPanel {
 	//	controller =  new CourierController(this, e.element("CourierManager")) ;
 	//	controller=new SaleManController(this, e.element("Salesman"));
 	//	controller =  new FinanceController(this, e.element("Financeman")) ;
-		controller = new StoreManagerController(this,
-				e.element("StoreManager"));
+//		controller = new StoreManagerController(this,
+//				e.element("StoreManager"));
+		controller = new StoreManController(this, e.element("StoreMan"));
 //		switch (type) {
 //		case Adminstrator:
 //			
