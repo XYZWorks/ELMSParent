@@ -90,6 +90,9 @@ public class OutStoreTablePanel extends MyTablePanel {
 //		setRowAndColumnLen(rowLen, columnLen);
 		table.setFont(GraphicsUtils.getFont(null));
 
+		
+		
+		
 	}
 
 	@Override

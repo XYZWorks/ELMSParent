@@ -2046,9 +2046,9 @@
 
 			<BUTTONS>
 				<arriveZZ text="到达单" x="0" y="267" />
-				
+
 				<transport text="中转单" x="0" y="227" />
-				
+
 				<store text="库存查看" x="0" y="307" />
 
 			</BUTTONS>
@@ -2073,9 +2073,9 @@
 			</mainWindow>
 
 			<TransportPanel x="232" y="54" width="848" height="637">
-			
+
 				<BUTTONS>
-					<add x="758" y="80" width="40" height="40"  type="add" />
+					<add x="758" y="80" width="40" height="40" type="add" />
 					<return x="700" y="550" width="89" height="40" text="返回"
 						type="cancel" />
 				</BUTTONS>
@@ -2106,15 +2106,15 @@
 							type="rectangle" />
 						<sendCity x="50" y="240" width="200" height="100" text="出发地"
 							type="rectangle" />
-						<container x="50" y="310" width="200" height="100"
-							text="货柜号" type="rectangle" />
+						<container x="50" y="310" width="200" height="100" text="货柜号"
+							type="rectangle" />
 						<LoadManName x="50" y="380" width="200" height="100"
 							text="监装员" type="rectangle" />
-							
+
 						<orders x="450" y="350" width="200" height="100" text="所含订单编号"
 							type="rectangle" />
-						<tip x="450" y="425" width="200" height="20" name="华文细黑"
-							size="15" text="多个订单号以逗号隔开" type="rectangle" />
+						<tip x="450" y="425" width="200" height="20" name="华文细黑" size="15"
+							text="多个订单号以逗号隔开" type="rectangle" />
 
 					</LABELS>
 
@@ -2123,7 +2123,7 @@
 						<container x="210" y="340" width="200" height="40" />
 						<number x="210" y="200" width="200" height="40" />
 						<LoadManName x="210" y="410" width="200" height="40" />
-						
+
 						<orders x="450" y="130" width="200" height="40" />
 
 					</TEXTFIELDS>
@@ -2143,10 +2143,9 @@
 			</TransportPanel>
 
 			<ArriveZZPanel x="232" y="54" width="848" height="637">
-			
+
 				<BUTTONS>
-					<add x="758" y="80" width="40" height="40" 
-						type="add" />
+					<add x="758" y="80" width="40" height="40" type="add" />
 					<return x="700" y="550" width="89" height="40" text="返回"
 						type="cancel" />
 				</BUTTONS>
@@ -2160,10 +2159,10 @@
 					height="637">
 
 					<BUTTONS>
-						<confirm x="500" y="550" width="89" height="40" text="增加" 
-						type="confirm" />
+						<confirm x="500" y="550" width="89" height="40" text="增加"
+							type="confirm" />
 						<return x="700" y="550" width="89" height="40" text="返回"
-						type="cancel" />
+							type="cancel" />
 					</BUTTONS>
 
 					<LABELS>
@@ -2210,9 +2209,9 @@
 
 			<StorePanel x="232" y="54" width="1080" height="637">
 				<BUTTONS>
-						<confirm x="500" y="500" width="89" height="40" text="增加" 
+					<confirm x="500" y="500" width="89" height="40" text="增加"
 						type="confirm" />
-						<return x="700" y="500" width="89" height="40" text="返回"
+					<return x="700" y="500" width="89" height="40" text="返回"
 						type="cancel" />
 				</BUTTONS>
 
@@ -2512,26 +2511,23 @@
 
 				<city x="350" y="177" width="240" height="40" strings="南京 广州 上海 北京" />
 
-<<<<<<< HEAD
+
 				<store x="350" y="347" width="240" height="45" strings="航运区 汽运区 铁运区" />
 				<white x="65" y="90" width="500" height="480" />
-				
-=======
-				<store x="350" y="347" width="240" height="40" strings="航运区 汽运区 铁运区" />
 
->>>>>>> origin/master
+
 				<StoreSingleShowPanel x="232" y="54" width="848"
-					height="1710">
+					height="1750">
 					<WHITEPANELS>
 						<showSimpleWhitePanel x="65" y="130" width="680"
-							height="200" />
-						<locateWhitePanel x="65" y="570" width="680"
-							height="480" />
-						<inWhitePanel x="65" y="1200" width="680" height="480" />
-						<outWhitePanel x="65" y="1700" width="680" height="480" />
+							height="80" />
+						<locateWhitePanel x="65" y="260" width="680"
+							height="440" />
+						<inWhitePanel x="65" y="800" width="680" height="440" />
+						<outWhitePanel x="65" y="1300" width="680" height="440" />
 					</WHITEPANELS>
 					<BUTTONS>
-						<confirm x="700" y="1640" width="89" height="40" text="确认"
+						<confirm x="520" y="750" width="89" height="40" text="确认"
 							type="confirm" />
 						<return x="0" y="0" width="53" height="53" type="back" />
 					</BUTTONS>
@@ -2540,44 +2536,46 @@
 					<LABELS>
 						<center x="250" y="30" width="200" height="100" size="25"
 							text="" type="rectangle" />
-						<centerL x="50" y="30" width="200" height="100" fontName="华文细黑"
-							size="30" text="中转中心" type="rectangle" />
+						<centerL x="65" y="30" width="200" height="100" fontName="华文细黑"
+							size="18" text="中转中心" type="rectangle" />
 						<storeNum x="570" y="30" width="200" height="100" size="25"
 							text="" type="rectangle" />
 						<storeNumL x="420" y="30" width="200" height="100"
-							fontName="华文细黑" size="30" text="仓库区" type="rectangle" />
+							fontName="华文细黑" size="18" text="仓库区" type="rectangle" />
 
-						<nowNum x="150" y="30" width="200" height="40" text=""
+						<nowNum x="120" y="20" width="200" height="40" text=""
 							type="rectangle" />
-						<nowNumL x="20" y="30" width="200" height="40" text="当前库存数量"
+						<nowNumL x="20" y="20" width="200" height="40" text="当前库存数量"
 							type="rectangle" />
-						<totalNumL x="250" y="30" width="200" height="40" text="库存总容量"
+						<totalNumL x="230" y="20" width="200" height="40" text="库存总容量"
 							type="rectangle" />
-						<totalNum x="400" y="30" width="200" height="40" text=""
+						<totalNum x="330" y="20" width="200" height="40" text=""
 							type="rectangle" />
-
-						<nowTime x="650" y="30" width="200" height="100" text=""
+						<nowTime x="540" y="20" width="200" height="40" text=""
 							type="rectangle" />
-						<nowTimeL x="500" y="30" width="200" height="100" text="当前时间"
-							type="rectangle" />
-						<inputTime x="80" y="720" width="200" height="100" text="查询时间"
-							type="rectangle" />
-						<nowLoc x="80" y="310" width="200" height="100" text="当前货物位置信息"
-							type="rectangle" />
-						<infoin x="80" y="800" width="500" height="100" text="截至到当前时间的入库信息"
+						<nowTimeL x="460" y="20" width="200" height="40" text="当前时间"
 							type="rectangle" />
 
-						<infoout x="80" y="1200" width="500" height="100" text="截至到当前时间的出库信息"
+						<nowLoc x="20" y="20" width="200" height="40" text="当前货物位置信息"
+							type="rectangle" />
+							
+						<inputTime x="80" y="750" width="200" height="40" text="查询时间"
+							type="rectangle" />
+
+						<infoin x="20" y="20" width="500" height="40" text="截至到当前时间的入库信息"
+							type="rectangle" />
+
+						<infoout x="20" y="20" width="500" height="40" text="截至到当前时间的出库信息"
 							type="rectangle" />
 
 					</LABELS>
 
 
-					<inTable x="100" y="900" width="650" height="300"
+					<inTable x="20" y="80" width="650" height="300"
 						columnName="单据类型 ID 日期 目的地 订单号集合" />
-					<outTable x="100" y="1300" width="650" height="300"
+					<outTable x="20" y="80" width="650" height="300"
 						columnName="单据类型 ID 日期 目的地 中转单ID 装运方式 订单号集合" />
-					<orderTable x="100" y="400" width="650" height="300"
+					<orderTable x="20" y="80" width="650" height="300"
 						columnName="订单号 区号 排号 架号 位号" />
 
 
