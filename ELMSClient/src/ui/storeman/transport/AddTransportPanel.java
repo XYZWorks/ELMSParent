@@ -1,5 +1,7 @@
 package ui.storeman.transport;
 
+import java.awt.Color;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
@@ -9,17 +11,21 @@ import org.dom4j.Element;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
+import ui.saleman.LoadDoc.LoadDocOrders;
 import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
+import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
+import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.DocPanelForApproval;
 import ui.util.MyBackListener;
+import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
 import util.City;
@@ -36,19 +42,22 @@ import blservice.transportblservice.Transportblservice;
  */
 @SuppressWarnings("serial")
 public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
-
+	
+	private MyWhitePanel whitePanel;
+	private MyPictureButton addOneOrder;
+	private TransportOrders ordersTable;
 	private MyPictureButton confirmButton;
 	private MyPictureButton returnButton;
 	//	单据类型 ID 日期 航班号/车次/车牌号 出发 货柜号 监装员 订单号集合
-	private MyLabel title;
+	private MyPictureLabel title;
 	private MyLabel IDL;
-	private MyLabel dateL;
+//	private MyLabel dateL;
 	private MyLabel numberL;
 	private MyLabel sendCityL;
 	private MyLabel containerL;
-	private MyLabel ordersL;
+	private MyPictureLabel ordersL;
 	private MyLabel LoadManNameL;
-	private MyLabel tip;
+//	private MyLabel tip;
 
 	private MyTextField IDT;
 	private MyTextField numberT;
@@ -70,7 +79,7 @@ public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
-
+		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initOtherCompoment(config);
 		addCompoment();
 		
@@ -83,7 +92,7 @@ public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
 
 	@Override
 	protected void initWhitePanels(Element e) {
-
+		whitePanel=new MyWhitePanel(e.element("whitePanel"));
 
 	}
 
@@ -91,6 +100,7 @@ public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
 	protected void initButtons(Element e) {
 		confirmButton = new MyPictureButton(e.element("confirm"));
 		returnButton = new MyPictureButton(e.element("return"));
+		addOneOrder = new MyPictureButton(e.element("add"));
 
 	}
 
@@ -112,52 +122,67 @@ public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
 
 	@Override
 	protected void initLabels(Element e) {
-		title = new MyLabel(e.element("title"));
+		title = new MyPictureLabel(e.element("title"));
 		IDL = new MyLabel(e.element("ID"));
-		dateL = new MyLabel(e.element("date"));
+//		dateL = new MyLabel(e.element("date"));
 		numberL = new MyLabel(e.element("number"));
 		sendCityL = new MyLabel(e.element("sendCity"));
 		containerL = new MyLabel(e.element("container"));
-		ordersL = new MyLabel(e.element("orders"));
-		tip = new MyLabel(e.element("tip"));
+		ordersL = new MyPictureLabel(e.element("orders"));
+//		tip = new MyLabel(e.element("tip"));
 		LoadManNameL = new MyLabel(e.element("LoadManName"));
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
 		picker = new MyDatePicker(e.element("DatePicker"));
-//		picker = new MyDatePicker(100 ,200 ,400 , 400);
 		picker.setVisible(true);
 		sendCityC = new MyComboBox(e.element("sendCityC"));
-		
+		ordersTable = new TransportOrders(e.element("table"));
 	}
 
 	@Override
 	protected void addCompoment() {
+		
+		whitePanel.add(IDL);
+		whitePanel.add(IDT);
+		whitePanel.add(numberL);
+		whitePanel.add(numberT);
+		whitePanel.add(LoadManNameL);
+		whitePanel.add(LoadManNameT);
+		whitePanel.add(containerT);
+		whitePanel.add(containerL);
+		whitePanel.add(sendCityC);
+		whitePanel.add(sendCityL);
+		whitePanel.add(title);
+		
+		this.add(whitePanel);
+//		add(dateL);
 		add(picker);
-		add(confirmButton);
-		add(returnButton);
-		add(IDL);
-		add(IDT);
-		add(numberL);
-		add(numberT);
-		add(dateL);
-		add(LoadManNameL);
-		add(LoadManNameT);
-		add(containerT);
-		add(containerL);
-		add(sendCityC);
-		add(sendCityL);
-		add(tip);
-		add(title);
+//		add(tip);
 		add(ordersL);
 		add(ordersT);
+		add(confirmButton);
+		add(returnButton);
+		add(ordersTable);
+		add(addOneOrder);
 		
 
 	}
 
 	@Override
 	protected void addListener() {
+		addOneOrder.addMouseListener(new MyPictureButtonListener(addOneOrder) {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				String temp = ordersT.getText();
+				if (UserfulMethod.dealWithData(new SimpleDataFormat(temp, DataType.ID, "订单号"))) {
+					ordersTable.addAOrder(temp);
+					new TipsDialog("成功新增订单", Color.BLUE);
+				}
+			}
+		});
 		confirmButton.addMouseListener(new MyAddListener(confirmButton));
 		returnButton.addMouseListener(new MyJumpListener(returnButton, "TransportPanel", controller,true));
 

@@ -2087,25 +2087,34 @@
 
 				<AddTransportPanel x="232" y="54" width="848"
 					height="637">
-
+					<WHITEPANELS>
+						<whitePanel x="40" y="90" width="380" height="450" />
+					</WHITEPANELS>
+					
+					<table x="445" y="220" width="363" height="280" column="序号 ID" />
+					
 					<BUTTONS>
-						<confirm x="500" y="550" width="89" height="40" text="确认"
+					
+						<confirm x="560" y="550" width="89" height="40" text="确认"
 							type="confirm" />
-						<return x="700" y="550" width="89" height="40" text="返回"
+						<return x="707" y="550" width="89" height="40" text="返回"
 							type="cancel" />
+						<add x="768" y="150" width="40" height="40" type="add" />
 					</BUTTONS>
 
 					<LABELS>
-
-						<title x="53" y="20" width="200" height="100" name="华文细黑"
-							size="35" text="中转单" type="rectangle" />
-						<ID x="50" y="100" width="200" height="100" text="中转单编号" type="rectangle" />
 						<date x="450" y="20" width="200" height="100" text="生成时间"
 							type="rectangle" />
-						<number x="50" y="170" width="200" height="100" text="航班号/车次/车牌号"
+							
+						<title x="0" y="0" width="115" height="40" name="华文细黑"
+							size="18" text="新增中转单" type="rectangle" />
+						<ID x="5" y="100" width="200" height="100" text="中转单编号" type="rectangle" />
+						
+						<number x="5" y="140" width="200" height="100" text="航班号/车次/车牌号"
 							type="rectangle" />
-						<sendCity x="50" y="240" width="200" height="100" text="出发地"
+						<sendCity x="5" y="210" width="200" height="100" text="出发地"
 							type="rectangle" />
+<<<<<<< HEAD
 						<container x="50" y="310" width="200" height="100" text="货柜号"
 							type="rectangle" />
 						<LoadManName x="50" y="380" width="200" height="100"
@@ -2115,27 +2124,42 @@
 							type="rectangle" />
 						<tip x="450" y="425" width="200" height="20" name="华文细黑" size="15"
 							text="多个订单号以逗号隔开" type="rectangle" />
+=======
+						<container x="5" y="280" width="200" height="100"
+							text="货柜号" type="rectangle" />
+						<LoadManName x="5" y="350" width="200" height="100"
+							text="监装员" type="rectangle" />
+							
+						<orders x="445" y="150" width="125" height="40" text="订单号"
+							type="rectangle" size="18" />
+						<tip x="450" y="180" width="200" height="20" name="华文细黑"
+							size="15" text="多个订单号以逗号隔开" type="rectangle" />
+>>>>>>> origin/master
 
 					</LABELS>
 
 					<TEXTFIELDS>
+<<<<<<< HEAD
 						<ID x="210" y="130" width="200" height="40" />
 						<container x="210" y="340" width="200" height="40" />
 						<number x="210" y="200" width="200" height="40" />
 						<LoadManName x="210" y="410" width="200" height="40" />
 
 						<orders x="450" y="130" width="200" height="40" />
+=======
+						<ID x="165" y="100" width="200" height="40" />
+						<container x="165" y="310" width="200" height="40" />
+						<number x="165" y="170" width="200" height="40" />
+						<LoadManName x="165" y="380" width="200" height="40" />
+						<orders x="580" y="150" width="168" height="40" />
+>>>>>>> origin/master
 
 					</TEXTFIELDS>
 
-					<sendCityC x="210" y="270" width="200" height="40"
+					<sendCityC x="165" y="240" width="200" height="40"
 						strings="南京 广州 上海 北京" />
 
-					<DatePicker x="580" y="50" width="200" height="40">
-						<field x="100" y="0" width="350" height="40" />
-						<button x="350" y="0" width="50" height="40" />
-
-					</DatePicker>
+					<DatePicker x="608" y="90" width="200" height="40" />
 				</AddTransportPanel>
 				<table x="48" y="136" width="750" height="394"
 					columnName="单据类型 ID 日期 航班号/车次/车牌号 出发 货柜号 监装员 订单号集合" />

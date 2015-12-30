@@ -11,6 +11,7 @@ import org.dom4j.Element;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
+import ui.storeman.transport.TransportOrders;
 import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
 import ui.tools.MyComboBox;
@@ -44,7 +45,7 @@ public class LoadDocAddPanel extends AddDocPanel implements DocPanelForApproval 
 	private MyWhitePanel whitePanel;
 
 	private MyPictureLabel loadInfo;
-
+	
 	private MyLabel id;
 	private MyDatePicker date;
 	private MyLabel YYID;
