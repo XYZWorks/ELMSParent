@@ -89,7 +89,7 @@ public class TipsDialog extends JDialog{
 	public TipsDialog(String message , Color color , Font font , boolean isCenter) {
 		super(parent);
 		setUndecorated(true);
-		label.setIcon(GraphicsUtils.getIcon("element//close"));
+//		label.setIcon(GraphicsUtils.getIcon("element//close"));
 		label.setForeground(color);
 		label.setFont(font);
         label.setText(message);

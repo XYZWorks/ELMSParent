@@ -232,7 +232,7 @@ public class BulidBillPanel extends MyPanel implements RefreshPanel {
 		addCar = new AddCar(e.element("addCar"), this);
 		addPeople = new AddPeople(e.element("addPeople"), this);
 		addInst = new AddInst(e.element("addInst"), this);
-		lastBill = new MyComboBox(new Rectangle(0, 0, 200, 50));
+		lastBill = new MyComboBox(new Rectangle(190, 167, 200, 50));
 
 		detailPanel = new DetailPanel(e.element(detailPanelStr), changePanel,
 				FinanceController.bulidBillStr);

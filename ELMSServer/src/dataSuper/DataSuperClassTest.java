@@ -8,9 +8,9 @@ import java.rmi.RemoteException;
  */
 public class DataSuperClassTest {
 	public static void main(String[] args) throws RemoteException {
-//		DataSuperClass test = new DataSuperClass();
-//		
-//		test.showSQLMap();
+		DataSuperClass test = new DataSuperClass();
+		
+		test.showSQLMap();
 		
 	}
 }
