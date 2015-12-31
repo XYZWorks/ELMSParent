@@ -14,6 +14,7 @@ import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
+import ui.tools.MyWhitePanel;
 import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
@@ -31,6 +32,7 @@ import vo.store.StoreMessageVO;
 @SuppressWarnings("serial")
 public class StoreCheckInfoPanel extends StoreSingleShowPanel {
 
+	
 	public StoreCheckInfoPanel(Element config, StoreController bl, PanelController controller) {
 		super(config, bl, controller);
 		// TODO Auto-generated constructor stub
@@ -39,7 +41,7 @@ public class StoreCheckInfoPanel extends StoreSingleShowPanel {
 	@Override
 	protected void initWhitePanels(Element e) {
 		// TODO Auto-generated method stub
-
+	showSimpleWhitePanel=new MyWhitePanel(e.element("showSimpleWhitePanel"));
 	}
 
 	@Override
@@ -81,20 +83,26 @@ public class StoreCheckInfoPanel extends StoreSingleShowPanel {
 
 	@Override
 	protected void addCompoment() {
-		add(confirmButton);
-		add(returnButton);
+		
+		
 		add(center);
 		add(centerL);
 		add(storeNum);
 		add(storeNumL);
+		
+		showSimpleWhitePanel.add(nowNum);
+		showSimpleWhitePanel.add(nowNumL);
+		showSimpleWhitePanel.add(nowTime);
+		showSimpleWhitePanel.add(nowTimeL);
+		add(showSimpleWhitePanel);
+		
 		add(infoin);
-		add(infoout);
-		add(nowNum);
-		add(nowNumL);
-		add(nowTime);
-		add(nowTimeL);
-		add(outTable);
 		add(inTable);
+		add(infoout);
+		add(outTable);
+		
+		add(confirmButton);
+		add(returnButton);
 	}
 
 	@Override

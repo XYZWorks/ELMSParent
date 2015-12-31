@@ -8,6 +8,7 @@ import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
+import ui.tools.MyWhitePanel;
 import ui.util.ConfirmListener;
 import ui.util.TipsDialog;
 import util.FormatMes;
@@ -23,6 +24,8 @@ import bl.storebl.StoreController;
 @SuppressWarnings("serial")
 public class AlarmRecoverSinglePanel extends AlarmSetSinglePanel {
 
+	MyWhitePanel whitePanel;
+	
 	MyLabel nowNum;
 	MyLabel totalNum;
 	MyLabel nowNumL;
@@ -34,7 +37,13 @@ public class AlarmRecoverSinglePanel extends AlarmSetSinglePanel {
 
 	public AlarmRecoverSinglePanel(Element config, StoreController bl, StoreManagerController controller) {
 		super(config, bl, controller);
-		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	protected void initWhitePanels(Element e) {
+		//whitePanel = new MyWhitePanel(e.element("whitePanel"));
+		whitePanel=new MyWhitePanel(65,150,600,240);
+	
 	}
 
 	@Override
@@ -57,18 +66,22 @@ public class AlarmRecoverSinglePanel extends AlarmSetSinglePanel {
 	protected void addCompoment() {
 		add(center);
 		add(centerL);
-		add(confirmButton);
-		add(nowValue);
-		add(nowValueL);
-		add(returnButton);
 		add(storeNum);
 		add(storeNumL);
-		add(nowNum);
-		add(nowNumL);
-		add(totalNum);
-		add(totalNumL);
-		add(addNumL);
-		add(addNumT);
+		
+		add(confirmButton);
+		add(returnButton);
+		
+		whitePanel.add(nowValue);
+		whitePanel.add(nowValueL);
+		whitePanel.add(nowNum);
+		whitePanel.add(nowNumL);
+		whitePanel.add(totalNum);
+		whitePanel.add(totalNumL);
+		whitePanel.add(addNumL);
+		whitePanel.add(addNumT);
+		
+		add(whitePanel);
 	}
 
 	@Override
