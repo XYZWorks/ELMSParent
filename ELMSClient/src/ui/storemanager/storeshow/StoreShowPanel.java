@@ -52,15 +52,15 @@ public class StoreShowPanel extends MyPanel {
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 
 		initOtherCompoment(config);
-		//initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
+		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		addCompoment();
 		addListener();
 	}
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		
-	//	whitePanel=new MyWhitePanel(e.element("whitePanel"));
+		whitePanel=new MyWhitePanel(100,150,600,220);
+		//whitePanel=new MyWhitePanel(e.element("whitePanel"));
 		
 	}
 	@Override
@@ -93,16 +93,13 @@ public class StoreShowPanel extends MyPanel {
 	@Override
 	protected void addCompoment() {
 		
-//		whitePanel.add(centerL);
-//		whitePanel.add(cityC);
-//		whitePanel.add(storeC);
-//		whitePanel.add(storeNum);
+		whitePanel.add(centerL);
+		whitePanel.add(cityC);
+		whitePanel.add(storeC);
+		whitePanel.add(storeNum);
 		
-		//add(whitePanel);
-		add(centerL);
-		add(cityC);
-		add(storeC);
-		add(storeNum);
+		add(whitePanel);
+		
 		add(confirmButton);
 		add(returnButton);
 	}
