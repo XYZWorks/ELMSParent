@@ -1,6 +1,7 @@
 package ui.financeman.bulidStateForm;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
@@ -125,7 +126,9 @@ public class BulidStateFormPanel extends MyPanelWithScroller {
 		depositePic=new MyPictureLabel(e.element("depositePic"));
 		payPic=new MyPictureLabel(e.element("payPic"));
 		depositeL=new MyLabel(e.element("depositeL"));
+		depositeL.setFont(new Font("微软雅黑", Font.BOLD, 25));
 		payL=new MyLabel(e.element("payL"));
+		payL.setFont(new Font("微软雅黑", Font.BOLD, 25));
 		
 		depositeWhiteInfo=new MyLabel(e.element("depositeWhiteInfo"));
 		payWhiteInfo=new MyLabel(e.element("payWhiteInfo"));
