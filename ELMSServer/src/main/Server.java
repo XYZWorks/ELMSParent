@@ -52,7 +52,7 @@ public class Server {
 		frmElms.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmElms.getContentPane().setLayout(null);
 		
-		server = new RMIServer();
+		server = new RMIServer(null, "6600");
 		
 		final JButton btnNewButton = new JButton("启动服务");
 		btnNewButton.setBounds(71, 100, 116, 47);

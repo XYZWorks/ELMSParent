@@ -76,7 +76,7 @@ public class DataSuperClass extends UnicastRemoteObject {
 		SQLmap.put("InStoreDoc", helper.bulidSQL("InStoreDoc", 7, "id", "type" , "date", "state" , "orderPOs" , "loc" ,"location" ));
 		SQLmap.put("OutStoreDoc", helper.bulidSQL("OutStoreDoc", 8, "id", "type" , "date", "state" , "orderPOs" , "loc" ,"transferDoc" ,"shipWay" ));
 		SQLmap.put("BankAccount", helper.bulidSQL("BankAccount", 3, "id" , "password" , "money"));
-		SQLmap.put("PayDoc", helper.bulidSQL("PayDoc", 6, "id" , "date" , "yyid" , "money" ,"courier" ,"orders"));
+		SQLmap.put("PayDoc", helper.bulidSQL("PayDoc", 8, "id", "type" , "date", "state" , "money", "yyid"  ,"courier" ,"orders"));
 		
 		SQLmap.put("StateForm", helper.bulidSQL("StateForm", 4, "startDate" , "endDate" , "deposits" ,"pays"));
 		SQLmap.put("CostIncomeForm", helper.bulidSQL("CostIncomeForm", 4, "income" , "expense" , "startDate" , "endDate"));

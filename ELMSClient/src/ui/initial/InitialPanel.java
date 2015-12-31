@@ -6,6 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import main.AXIS;
 
@@ -28,7 +29,6 @@ import ui.util.CompomentType;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
 import util.AccountType;
-import util.StaffType;
 import vo.account.AccountVO;
 
 /**
@@ -46,6 +46,8 @@ public class InitialPanel extends MyPanel {
 	private MyPictureButton home;
 	private MyPictureButton rectangle;
 	private MyLabel career;
+	private TimeLabel time;
+	private static String[] choices = {"退出系统" , "注销" , "取消"};
 	/**
 	 * 控制器
 	 */
@@ -74,6 +76,9 @@ public class InitialPanel extends MyPanel {
 
 		this.setVisible(true);
 		// set
+		
+//		time.start
+		new Thread(time).start();
 	}
 
 	/**
@@ -146,7 +151,9 @@ public class InitialPanel extends MyPanel {
 	protected void initLabels(Element e) {
 		career = new MyLabel(e.element("career"), vo.type.getName() + "  "
 				+ vo.name);
-
+		time = new TimeLabel();
+		
+		
 	}
 
 	@Override
@@ -163,6 +170,7 @@ public class InitialPanel extends MyPanel {
 
 		this.add(rectangle);
 		this.add(career);
+		this.add(time);
 	}
 
 	@Override
@@ -171,15 +179,31 @@ public class InitialPanel extends MyPanel {
 		min.addMouseListener(new MinListener());
 		home.addMouseListener(new HomeListener());
 		rectangle.addMouseListener(new RectangleListener());
-
+		
+		
+		
+		
+		
+		
 	}
 
 	class ExitListener extends MouseAdapter {
+		
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			exit.setMyIcon(ButtonState.MOUSE_CLICKED);
-			parent.dispose();
-			new AXIS();
+			
+			int result = JOptionPane.showOptionDialog(parent, "确认退出？","系统提示",
+					JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE , null , choices , null);
+			if(result == JOptionPane.YES_OPTION) {
+				System.exit(0);
+			} else if(result == JOptionPane.NO_OPTION){
+				parent.dispose();
+				new AXIS();
+			}else{
+				return;
+			}
+			
 		}
 
 		@Override

@@ -8,6 +8,7 @@ import org.dom4j.Element;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import ui.util.TipsDialog;
+import util.DocState;
 import util.MyDate;
 import vo.transport.PayDocVO;
 import blservice.transportblservice.Transportblservice;
@@ -23,6 +24,7 @@ public class PayDocMesTable extends MyTablePanel{
 	
 	ArrayList<PayDocVO> vos;
 	
+	public boolean isApproval = false;
 	String[] oneData = new String[COLUMN_NUM];
  	private static final int COLUMN_NUM = 6;
 	
@@ -47,11 +49,16 @@ public class PayDocMesTable extends MyTablePanel{
 			return;
 		}
 		
+		
 		data = new String[vos.size()][COLUMN_NUM];
 		PayDocVO vo;
 		for (int i = 0; i < vos.size(); i++) {
 			vo = vos.get(i);
-			
+			if(isApproval){
+				if(vo.state == DocState.pass){
+					continue;
+				}
+			}
 			data[i][0] = vo.ID;
 			data[i][1] = MyDate.toString(vo.date);
 			data[i][2] = vo.YYID;
@@ -112,4 +119,5 @@ public class PayDocMesTable extends MyTablePanel{
 			addOneData(vos.get(i), 0);
 		}
 	}
+	
 }

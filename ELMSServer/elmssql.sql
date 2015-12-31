@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2015-12-25 09:16:26
+-- Generation Time: 2015-12-31 13:56:27
 -- 服务器版本： 5.6.26
 -- PHP Version: 5.6.12
 
@@ -39,15 +39,19 @@ CREATE TABLE IF NOT EXISTS `account` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `account`
+--
+
+TRUNCATE TABLE `account`;
+--
 -- 转存表中的数据 `account`
 --
 
 INSERT INTO `account` (`id`, `name`, `type`, `password`, `phone`, `email`) VALUES
 ('000000', 'Adminstrator', 'Adminstrator', '000000', '', ''),
-('000001', '陈自强', 'manager', '000000', '', ''),
-('000002', '陈自强', 'financeman', '000000', '', ''),
-('1111111', NULL, 'courier', 'aaaaaa', NULL, NULL),
-('112233', NULL, 'courier', 'zxcvbn', '', '');
+('000002', '陈自强', 'courier', '000000', '', ''),
+('000003', '00', 'financeman', '123456', '', ''),
+('123456', 'asd强', 'manager', '123236', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -62,13 +66,18 @@ CREATE TABLE IF NOT EXISTS `alarm` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `alarm`
+--
+
+TRUNCATE TABLE `alarm`;
+--
 -- 转存表中的数据 `alarm`
 --
 
 INSERT INTO `alarm` (`city`, `value`) VALUES
 ('BEIJING', '90%'),
 ('GUANGZHOU', '0'),
-('NANJING', '0'),
+('NANJING', '10'),
 ('SHANGHAI', '0');
 
 -- --------------------------------------------------------
@@ -84,27 +93,22 @@ CREATE TABLE IF NOT EXISTS `arriveyydoc` (
   `date` varchar(45) DEFAULT NULL,
   `state` varchar(45) DEFAULT NULL,
   `zzid` varchar(45) DEFAULT NULL,
-  `sendciry` varchar(45) DEFAULT NULL,
+  `sendInst` varchar(45) DEFAULT NULL,
   `goodstate` varchar(45) DEFAULT NULL,
   `orderBarCodes` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `arriveyydoc`
+--
+
+TRUNCATE TABLE `arriveyydoc`;
+--
 -- 转存表中的数据 `arriveyydoc`
 --
 
-INSERT INTO `arriveyydoc` (`id`, `type`, `date`, `state`, `zzid`, `sendciry`, `goodstate`, `orderBarCodes`) VALUES
-('123123123', 'arriveYYDoc', '115-11-3', 'wait', '123123123', 'NANJING', 'Lost', '12312312312,'),
-('123123123123', 'arriveYYDoc', '115-11-3', 'wait', '123123123123', 'NANJING', 'Complete', '123123123123,'),
-('123123213', 'arriveYYDoc', '115-11-3', 'wait', '213213123', 'NANJING', 'Complete', '123123123,123123123123,'),
-('123213', 'arriveYYDoc', '115-11-3', 'pass', '123213213', 'NANJING', 'Complete', '12321323,1232132311,'),
-('12321312', 'arriveYYDoc', '115-11-3', 'wait', '123213213', 'NANJING', 'Complete', '123213123123,1232132,12321321321,12321323,'),
-('1232131211', 'arriveYYDoc', '115-11-3', 'pass', '123213213', 'NANJING', 'Complete', '123213123123,1232132,12321321321,12321323,'),
-('123213213', 'arriveYYDoc', '115-11-3', 'wait', '123123123', 'NANJING', 'Complete', '12312312,'),
-('12321322', 'arriveYYDoc', '2015-12-16', 'wait', '123213', 'NANJING', 'Complete', '123213123,1232123,'),
-('12341241', 'arriveYYDoc', '115-11-3', 'wait', '123412343124', 'NANJING', 'Complete', '1234124,1234124124,1234124124345,'),
-('1321321321', 'arriveYYDoc', '115-11-3', 'wait', '213123123', 'NANJING', 'Complete', '123123123,123121233123,'),
-('JSD000001', 'arriveYYDoc', '2015-12-17', 'wait', 'asdasd', 'NANJING', 'Complete', NULL);
+INSERT INTO `arriveyydoc` (`id`, `type`, `date`, `state`, `zzid`, `sendInst`, `goodstate`, `orderBarCodes`) VALUES
+('JSD1512310000001', 'arriveYYDoc', '2015-12-31-0-21-17', 'wait', '123123', 'transportCenter', 'Complete', '1231231231,');
 
 -- --------------------------------------------------------
 
@@ -125,11 +129,19 @@ CREATE TABLE IF NOT EXISTS `arrivezzdoc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `arrivezzdoc`
+--
+
+TRUNCATE TABLE `arrivezzdoc`;
+--
 -- 转存表中的数据 `arrivezzdoc`
 --
 
 INSERT INTO `arrivezzdoc` (`id`, `type`, `date`, `state`, `zzid`, `sendcity`, `goodstate`, `orderBarCodes`) VALUES
-('123456', 'arriveZZDoc', '2015-12-24', 'pass', '123345', 'NANJING', 'Complete', NULL);
+('123456', 'arriveZZDoc', '2015-12-24', 'pass', '123345', 'NANJING', 'Complete', NULL),
+('DDD1512300000001', 'arriveZZDoc', '2015-12-30-23-27-3', 'wait', '123132', 'NANJING', 'Complete', '1231231231,'),
+('DDD1512300000002', 'arriveZZDoc', '2015-12-30-23-54-42', 'wait', '123213', 'BEIJING', 'Complete', '1231231231,'),
+('DDD1512310000001', 'arriveZZDoc', '2015-12-31-0-4-23', 'wait', '908093', 'BEIJING', 'Complete', '1231231231,');
 
 -- --------------------------------------------------------
 
@@ -144,6 +156,11 @@ CREATE TABLE IF NOT EXISTS `bankaccount` (
   `money` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `bankaccount`
+--
+
+TRUNCATE TABLE `bankaccount`;
 --
 -- 转存表中的数据 `bankaccount`
 --
@@ -167,6 +184,11 @@ CREATE TABLE IF NOT EXISTS `bill` (
   `cars` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `bill`
+--
+
+TRUNCATE TABLE `bill`;
 -- --------------------------------------------------------
 
 --
@@ -182,13 +204,10 @@ CREATE TABLE IF NOT EXISTS `car` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='车辆信息';
 
 --
--- 转存表中的数据 `car`
+-- 插入之前先把表清空（truncate） `car`
 --
 
-INSERT INTO `car` (`id`, `instid`, `plateNum`, `useYear`) VALUES
-('000000', '000003', '京A88888', 4),
-('123412', '025000001', '粤VDC798', 8);
-
+TRUNCATE TABLE `car`;
 -- --------------------------------------------------------
 
 --
@@ -214,6 +233,11 @@ CREATE TABLE IF NOT EXISTS `const` (
   `ratio3` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='常量表';
 
+--
+-- 插入之前先把表清空（truncate） `const`
+--
+
+TRUNCATE TABLE `const`;
 -- --------------------------------------------------------
 
 --
@@ -228,6 +252,11 @@ CREATE TABLE IF NOT EXISTS `costincomeform` (
   `enddate` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `costincomeform`
+--
+
+TRUNCATE TABLE `costincomeform`;
 -- --------------------------------------------------------
 
 --
@@ -241,6 +270,11 @@ CREATE TABLE IF NOT EXISTS `deposit` (
   `money` int(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='存款数据信息表';
 
+--
+-- 插入之前先把表清空（truncate） `deposit`
+--
+
+TRUNCATE TABLE `deposit`;
 -- --------------------------------------------------------
 
 --
@@ -260,15 +294,10 @@ CREATE TABLE IF NOT EXISTS `driver` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='司机信息表';
 
 --
--- 转存表中的数据 `driver`
+-- 插入之前先把表清空（truncate） `driver`
 --
 
-INSERT INTO `driver` (`id`, `name`, `birthday`, `instid`, `idCard`, `phoneNum`, `isman`, `licenseyear`) VALUES
-('000001', '章撒', '1992-4-12', '123456', '445202199204121134', '18324522334', '1', 5),
-('000002', '陈自强', '1996-4-14', '000000', '445202199604143071', '18362910989', '1', 3),
-('000003', '邢A', '1996-4-16', '000000', '442121142323451111', '18377651389', '0', 3),
-('000004', '陈泽强', '1998-4-15', '000000', '445202199804153011', '19362217867', '1', 4);
-
+TRUNCATE TABLE `driver`;
 -- --------------------------------------------------------
 
 --
@@ -285,12 +314,16 @@ CREATE TABLE IF NOT EXISTS `freight` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `freight`
+--
+
+TRUNCATE TABLE `freight`;
+--
 -- 转存表中的数据 `freight`
 --
 
 INSERT INTO `freight` (`id`, `startdate`, `enddate`, `money`, `costtype`) VALUES
-('123123', '2015-12-23', '2015-12-23', 1232, 'FREIGHT'),
-('123678', '2015-12-23', '2015-12-23', 2000, 'FREIGHT');
+('123123', '2015-12-23', '2015-12-23', 1232, 'FREIGHT');
 
 -- --------------------------------------------------------
 
@@ -306,6 +339,11 @@ CREATE TABLE IF NOT EXISTS `inst` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='机构信息';
 
 --
+-- 插入之前先把表清空（truncate） `inst`
+--
+
+TRUNCATE TABLE `inst`;
+--
 -- 转存表中的数据 `inst`
 --
 
@@ -313,7 +351,7 @@ INSERT INTO `inst` (`id`, `location`, `type`) VALUES
 ('123123', 'NANJING', 'transportCenter'),
 ('123124', 'NANJING', 'transportCenter'),
 ('123255', 'SHANGHAI', 'transportCenter'),
-('1246546', 'NANJING', 'transportCenter'),
+('1246546', 'GUANGZHOU', 'transportCenter'),
 ('345574', 'NANJING', 'transportCenter');
 
 -- --------------------------------------------------------
@@ -332,6 +370,26 @@ CREATE TABLE IF NOT EXISTS `instoredoc` (
   `loc` varchar(45) DEFAULT NULL,
   `location` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 插入之前先把表清空（truncate） `instoredoc`
+--
+
+TRUNCATE TABLE `instoredoc`;
+--
+-- 转存表中的数据 `instoredoc`
+--
+
+INSERT INTO `instoredoc` (`id`, `type`, `date`, `state`, `orderpos`, `loc`, `location`) VALUES
+('RKD1512260000001', 'inStoreDoc', '2015-12-26', 'pass', '1231231112,', 'NANJING', '航运区1排1架1位,'),
+('RKD1512300000001', 'inStoreDoc', '2015-12-30', 'pass', '1123333123,', 'NANJING', '航运区1排2架2位,'),
+('RKD1512300000002', 'inStoreDoc', '2015-12-30', 'pass', '8881182811,', 'NANJING', '汽运区12排2架1位,'),
+('RKD1512300000003', 'inStoreDoc', '2015-12-30', 'pass', '', 'NANJING', ''),
+('RKD1512300000004', 'inStoreDoc', '2015-12-30', 'pass', '', 'NANJING', ''),
+('RKD1512300000005', 'inStoreDoc', '2015-12-30-23-29-38', 'pass', '1231231231,', 'NANJING', '汽运区1排1架1位,'),
+('RKD1512300000006', 'inStoreDoc', '2015-12-30-23-43-15', 'pass', '1231231231,', 'NANJING', '汽运区2排2架4位,'),
+('RKD1512310000001', 'inStoreDoc', '2015-12-31-0-6-12', 'pass', '1231231231,', 'NANJING', '汽运区3排3架3位,'),
+('RKD1512310000002', 'inStoreDoc', '2015-12-31-15-29-45', 'wait', '2312222123,', 'GUANGZHOU', '汽运区3排4架3位,');
 
 -- --------------------------------------------------------
 
@@ -355,27 +413,21 @@ CREATE TABLE IF NOT EXISTS `loaddoc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='装车单';
 
 --
+-- 插入之前先把表清空（truncate） `loaddoc`
+--
+
+TRUNCATE TABLE `loaddoc`;
+--
 -- 转存表中的数据 `loaddoc`
 --
 
 INSERT INTO `loaddoc` (`id`, `type`, `date`, `state`, `yyid`, `loadDocID`, `arriveCity`, `carid`, `supervisor`, `escort`, `orderbarcodes`) VALUES
-('11111111', 'loadDoc', '115-11-3', 'wait', '12341212', '23432412%', 'NANJING', '123213213', '12323', '213213', ''),
-('1111111123', 'loadDoc', '115-11-3', 'wait', '123213213', '123123123', 'NANJING', '123123123', '123123123', '123123123', '123213213,123213213,123213213123,'),
-('111111112311', 'loadDoc', '115-11-3', 'wait', '123213213', '123123123', 'NANJING', '123123123', '123123123', '123123123', '123213213,123213213,123213213123,'),
-('1231231', 'loadDoc', '115-11-3', 'wait', '123123213', '12321312', 'NANJING', '123123123', '12321321', '3123123213', '123123123,123123123123,'),
-('1231231123', 'loadDoc', '115-11-3', 'wait', '123123213', '12321312', 'NANJING', '123123123', '12321321', '3123123213', '123123123,123123123123,'),
-('123123112311', 'loadDoc', '115-11-3', 'wait', '123123213', '12321312', 'NANJING', '123123123', '12321321', '3123123213', '123123123,123123123123,'),
-('12321', 'loadDoc', '115-11-3', 'wait', '1232113%12', '123213221', 'NANJING', '', '', '', ''),
-('12321312', 'loadDoc', '115-11-3', 'wait', '123213123', '123213213', 'NANJING', '123213213', '123213213', '12321312312', '123213213,123213123,12312312321,'),
-('123213123', 'loadDoc', '115-11-3', 'wait', '123123123', '12312312', 'NANJING', '12321312', '123213123', '123123123', '1223123123,122312312312312,12323311,123233,'),
-('1232131232', 'loadDoc', '115-11-3', 'wait', '1232113%12', '123213221', 'NANJING', '', '', '', ''),
-('12321321', 'loadDoc', '2015-2015-2015', 'wait', '123123', '213211', 'NANJING', '12321321', '12321321', '213213213', '123213213213,1232132123,12321123,'),
-('1242341', 'loadDoc', '115-11-3', 'wait', '1241241', '124124', 'NANJING', '124124124', '12421411243', '2341124124', ''),
-('213213123', 'loadDoc', '115-11-3', 'wait', '213123213', '123213213', 'NANJING', '123213213', '213123213', '123213123213', ''),
-('22222222', 'loadDoc', '115-11-3', 'wait', '222222', '2222222', 'NANJING', '123213213', '1232132132', '123213213', '123213123,12312312321,123123213123,123123213123,'),
-('234322343', 'loadDoc', '115-11-3', 'wait', '234323432', '23423243', 'NANJING', '23423432', '但是', '额', '1234567,123456733,12345673322,'),
-('ZCD000001', 'loadDoc', '2015-11-4', 'wait', '2011123123', '123213123', 'NANJING', '123123', '123', '123', ''),
-('ZCD1511120000001', 'loadDoc', '2015-11-12', 'wait', '02500', '02501511120000001', 'GUANGZHOU', '001', 'ttt', NULL, '1234536433,2069601212,4902720820,');
+('ZCD1512300000001', 'loadDoc', '2015-12-30', 'wait', '231232', '123231', 'NANJING', '24123123', '1231', '1', '1231231231,'),
+('ZCD1512300000002', 'loadDoc', '2015-12-30', 'wait', '213123', '123213', 'NANJING', '123123', '123', '12', '1231231,'),
+('ZCD1512300000003', 'loadDoc', '2015-12-30', 'wait', '123123', '123123', 'NANJING', '123123', '123', '123', '1231231231,'),
+('ZCD1512300000004', 'loadDoc', '2015-12-30', 'wait', '123213', '123213', 'NANJING', '123213', '123', '11', '1231231231,'),
+('ZCD1512300000005', 'loadDoc', '2015-12-30', 'wait', '1231232', '21312321321', 'NANJING', '312312', '31', '23', '1231231231,'),
+('ZCD1512300000006', 'loadDoc', '2015-12-30-21-8-23', 'wait', '231231', '231231', 'NANJING', '2321321', '312', '31', '1231231231,');
 
 -- --------------------------------------------------------
 
@@ -409,10 +461,11 @@ CREATE TABLE IF NOT EXISTS `myorder` (
   `orderEestiTime` int(4) DEFAULT NULL,
   `orderCost` float DEFAULT NULL,
   `loadDoc` varchar(20) DEFAULT NULL,
-  `arriveZZDoc` varchar(20) DEFAULT NULL,
+  `arriveZZOneDoc` varchar(20) DEFAULT NULL,
   `inStoreOneDoc` varchar(45) DEFAULT NULL,
   `outStoreOneDoc` varchar(45) DEFAULT NULL,
   `transferDoc` varchar(20) DEFAULT NULL,
+  `arriveZZTwoDoc` varchar(45) NOT NULL,
   `instoreTwoDoc` varchar(45) DEFAULT NULL,
   `outStoreTwoDoc` varchar(45) DEFAULT NULL,
   `arriveYYDoc` varchar(20) DEFAULT NULL,
@@ -423,11 +476,16 @@ CREATE TABLE IF NOT EXISTS `myorder` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单表';
 
 --
+-- 插入之前先把表清空（truncate） `myorder`
+--
+
+TRUNCATE TABLE `myorder`;
+--
 -- 转存表中的数据 `myorder`
 --
 
-INSERT INTO `myorder` (`id`, `type`, `date`, `state`, `senderName`, `senderPhone`, `senderCompany`, `senderAddress`, `receiverName`, `receiverPhone`, `receiverCompany`, `receiverAddress`, `goodNum`, `goodName`, `goodWeight`, `goodLong`, `goodWidth`, `goodHeight`, `goodPack`, `orderForm`, `orderstartdate`, `orderEestiTime`, `orderCost`, `loadDoc`, `arriveZZDoc`, `inStoreOneDoc`, `outStoreOneDoc`, `transferDoc`, `instoreTwoDoc`, `outStoreTwoDoc`, `arriveYYDoc`, `sendGoodDoc`, `alldocs`, `realReceiver`, `orderReceiveDate`) VALUES
-('123456', 'order', '2015-12-4', 'wait', '123', '123', '123', '123213', '123', '123', '123', '123', 2, '123', 12, 123, 12, 12, '12', '123', '', 4, 23, 'ZCD000001', 'JSD000001', 'RKD000001', 'CKD000001', NULL, NULL, NULL, NULL, NULL, '', NULL, NULL);
+INSERT INTO `myorder` (`id`, `type`, `date`, `state`, `senderName`, `senderPhone`, `senderCompany`, `senderAddress`, `receiverName`, `receiverPhone`, `receiverCompany`, `receiverAddress`, `goodNum`, `goodName`, `goodWeight`, `goodLong`, `goodWidth`, `goodHeight`, `goodPack`, `orderForm`, `orderstartdate`, `orderEestiTime`, `orderCost`, `loadDoc`, `arriveZZOneDoc`, `inStoreOneDoc`, `outStoreOneDoc`, `transferDoc`, `arriveZZTwoDoc`, `instoreTwoDoc`, `outStoreTwoDoc`, `arriveYYDoc`, `sendGoodDoc`, `alldocs`, `realReceiver`, `orderReceiveDate`) VALUES
+('1231231231', 'order', '2015-12-31', 'pass', '', '12312312312', '', '南京市null', '', '12312312312', '', '北京市null', 1, '', 1, 1, 1, 1, 'woodCase', 'quickOrder', '2015-12-30', 0, 21.9, 'ZCD1512300000006', 'DDD1512300000002', 'RKD1512300000006', 'CKD1512300000001', 'ZZD1512300000001', 'DDD1512310000001', 'RKD1512310000001', 'CKD1512310000001', 'JSD1512310000001', '', '', '', '0-0-0');
 
 -- --------------------------------------------------------
 
@@ -446,6 +504,19 @@ CREATE TABLE IF NOT EXISTS `outstoredoc` (
   `transferdoc` text,
   `shipway` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 插入之前先把表清空（truncate） `outstoredoc`
+--
+
+TRUNCATE TABLE `outstoredoc`;
+--
+-- 转存表中的数据 `outstoredoc`
+--
+
+INSERT INTO `outstoredoc` (`id`, `type`, `date`, `state`, `orderpos`, `loc`, `transferdoc`, `shipway`) VALUES
+('CKD1512300000001', 'outStoreDoc', '2015-12-30-23-47-18', 'pass', '1231231231,', 'NANJING', 'ZZD1512300000001', 'car'),
+('CKD1512310000001', 'outStoreDoc', '2015-12-31-0-6-23', 'wait', '1231231231,', 'NANJING', '1231324134', 'plane');
 
 -- --------------------------------------------------------
 
@@ -467,6 +538,11 @@ CREATE TABLE IF NOT EXISTS `pay` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `pay`
+--
+
+TRUNCATE TABLE `pay`;
+--
 -- 转存表中的数据 `pay`
 --
 
@@ -482,20 +558,27 @@ INSERT INTO `pay` (`id`, `time`, `account`, `money`, `person`, `rent`, `freight`
 DROP TABLE IF EXISTS `paydoc`;
 CREATE TABLE IF NOT EXISTS `paydoc` (
   `id` varchar(45) NOT NULL,
+  `type` varchar(45) NOT NULL,
   `date` varchar(45) NOT NULL,
-  `yyid` varchar(45) NOT NULL,
+  `state` varchar(45) NOT NULL,
   `money` int(8) NOT NULL,
+  `yyid` varchar(45) NOT NULL,
   `courier` varchar(45) NOT NULL,
   `orders` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `paydoc`
+--
+
+TRUNCATE TABLE `paydoc`;
+--
 -- 转存表中的数据 `paydoc`
 --
 
-INSERT INTO `paydoc` (`id`, `date`, `yyid`, `money`, `courier`, `orders`) VALUES
-('123123', '2015-12-23', '123123', 231, '123', '123123,123123,'),
-('234123', '2015-12-23', '123123', 123, '123', '123123,123345,');
+INSERT INTO `paydoc` (`id`, `type`, `date`, `state`, `money`, `yyid`, `courier`, `orders`) VALUES
+('123123', 'payDoc', '2015-12-23', 'pass', 231, '123123', '123', '123123,123123,'),
+('234123', 'payDoc', '2015-12-23', 'pass', 123, '123123', '123', '123123,123345,');
 
 -- --------------------------------------------------------
 
@@ -512,6 +595,11 @@ CREATE TABLE IF NOT EXISTS `person` (
   `phone` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `person`
+--
+
+TRUNCATE TABLE `person`;
 --
 -- 转存表中的数据 `person`
 --
@@ -537,6 +625,11 @@ CREATE TABLE IF NOT EXISTS `rent` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `rent`
+--
+
+TRUNCATE TABLE `rent`;
+--
 -- 转存表中的数据 `rent`
 --
 
@@ -558,11 +651,16 @@ CREATE TABLE IF NOT EXISTS `salary` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='工资计算方式';
 
 --
+-- 插入之前先把表清空（truncate） `salary`
+--
+
+TRUNCATE TABLE `salary`;
+--
 -- 转存表中的数据 `salary`
 --
 
 INSERT INTO `salary` (`type`, `basicSalary`, `moreMoney`, `way`) VALUES
-('courier', 1000, 3000, 'byTimes'),
+('courier', 0, 0, 'byMonth'),
 ('driver', 0, 0, 'byMonth'),
 ('financeman', 0, 0, 'byMonth'),
 ('saleman', 0, 0, 'byMonth'),
@@ -586,6 +684,11 @@ CREATE TABLE IF NOT EXISTS `salarycost` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `salarycost`
+--
+
+TRUNCATE TABLE `salarycost`;
+--
 -- 转存表中的数据 `salarycost`
 --
 
@@ -607,21 +710,20 @@ CREATE TABLE IF NOT EXISTS `sendgooddoc` (
   `date` varchar(45) DEFAULT NULL,
   `state` varchar(45) DEFAULT NULL,
   `sendMan` varchar(45) DEFAULT NULL,
-  `orderBarCode` text,
-  `sendCity` varchar(45) DEFAULT NULL
+  `orderBarCode` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `sendgooddoc`
+--
+
+TRUNCATE TABLE `sendgooddoc`;
 --
 -- 转存表中的数据 `sendgooddoc`
 --
 
-INSERT INTO `sendgooddoc` (`id`, `type`, `date`, `state`, `sendMan`, `orderBarCode`, `sendCity`) VALUES
-('123123', 'sendGoodDoc', '115-11-3', 'wait', '123', '123213123123', 'NANJING'),
-('123123213', 'sendGoodDoc', '115-11-3', 'pass', '123123123', '12312312312', 'NANJING'),
-('123213', 'sendGoodDoc', '115-11-3', 'pass', '123123', '1232131231223', 'NANJING'),
-('123213123', 'sendGoodDoc', '115-11-3', 'wait', '123123123', '123123213123', 'NANJING'),
-('12321325661', 'sendGoodDoc', '115-11-3', 'pass', '123123', '1232131231223', 'NANJING'),
-('PSD1511120000001', 'sendGoodDoc', '2015-11-12', 'wait', 'moxigan', '3213640812', 'BEIJING');
+INSERT INTO `sendgooddoc` (`id`, `type`, `date`, `state`, `sendMan`, `orderBarCode`) VALUES
+('PSD1512310000001', 'sendGoodDoc', '2015-12-31-15-51-35', 'wait', '陈自强', '1231231231,');
 
 -- --------------------------------------------------------
 
@@ -637,6 +739,11 @@ CREATE TABLE IF NOT EXISTS `stateform` (
   `pays` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `stateform`
+--
+
+TRUNCATE TABLE `stateform`;
 -- --------------------------------------------------------
 
 --
@@ -654,6 +761,11 @@ CREATE TABLE IF NOT EXISTS `storecheck` (
   `outStoreDocs` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `storecheck`
+--
+
+TRUNCATE TABLE `storecheck`;
 -- --------------------------------------------------------
 
 --
@@ -674,11 +786,17 @@ CREATE TABLE IF NOT EXISTS `transferdoc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `transferdoc`
+--
+
+TRUNCATE TABLE `transferdoc`;
+--
 -- 转存表中的数据 `transferdoc`
 --
 
 INSERT INTO `transferdoc` (`id`, `type`, `date`, `state`, `transferwayid`, `sendcity`, `containerNum`, `loadmanname`, `orderbarcode`) VALUES
-('ZZD1511130000001', 'transferDoc', '2015-11-13', 'wait', 'K155', 'SHANGHAI', 3, 'cee', '1234536433,2069601212,4902720820,');
+('ZZD1511130000001', 'transferDoc', '2015-11-13', 'wait', 'K155', 'SHANGHAI', 3, 'cee', '1234536433,2069601212,4902720820,'),
+('ZZD1512300000001', 'transferDoc', '2015-12-30-23-52-6', 'wait', '4123', 'NANJING', 21, '1', '1231231231,');
 
 --
 -- Indexes for dumped tables

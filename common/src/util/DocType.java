@@ -39,8 +39,13 @@ public enum DocType {
 	/**
 	 * 入库单
 	 */
-	outStoreDoc("出库单");
-
+	outStoreDoc("出库单"),
+	
+	/**
+	 * 付款单
+	 */
+	payDoc("付款单");
+	
 	private final String name;
 
 	private DocType(String name) {
@@ -53,30 +58,15 @@ public enum DocType {
 	 }
 
 	public final static DocType getDocType(String chinese) {
-
-		switch (chinese) {
-		case "订单":
-			
-			return order;
-		case "入库单":
-			return inStoreDoc;
-		case "出库单":
-			return outStoreDoc;
-		case "派送单":
-			return sendGoodDoc;
-		case "到达单":
-			return arriveZZDoc;
-		case "装车单":
-			return loadDoc;
-		case "接收单":
-			return arriveYYDoc;
-		case "中转单":
-
-			return transferDoc;
-		default:
-			System.err.println("单据类型错误");
-			return null;
+		for (DocType type : DocType.values()) {
+			if(type.name.equals(chinese)){
+				return type;
+			}
 		}
+		System.err.println("单据类型错误");
+		return null;
+		
+		
 
 	}
 

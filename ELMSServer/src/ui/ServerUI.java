@@ -3,16 +3,20 @@ package ui;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Frame;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -47,6 +51,7 @@ public class ServerUI extends JFrame {
 	private String address = "127.0.0.1";
 	private RMIServer rmiServer;
 	private String port = "6666";
+	private Image bg ;
 	
 	/**
 	 * Launch the application.
@@ -74,12 +79,24 @@ public class ServerUI extends JFrame {
 			e.printStackTrace();
 		}
 		rmiServer = new RMIServer(address, port);
-		
+		try {
+			bg = ImageIO.read(new File("image//bg-server.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, 800, 590);
 		setLocationRelativeTo(null);
-		contentPane = new JPanel();
+		contentPane = new JPanel(){
+			@Override
+			protected void paintComponent(Graphics g) {
+				super.paintComponent(g);
+					g.drawImage(bg, 0, 0, null);
+			}
+			
+			
+		};
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

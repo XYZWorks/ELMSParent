@@ -22,6 +22,10 @@ import ui.tools.MyPictureLabel;
 import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
+import util.DocState;
+import util.DocType;
+import util.ResultMessage;
+import bl.BusinessLogicDataFactory;
 import blservice.transportblservice.Transportblservice;
 
 /**
@@ -39,7 +43,7 @@ public class FinanceApprovalPanel extends CheckDocPanel{
 	private Transportblservice bl;
 	
 	private PayDocAddPanel myAddPanel;
-	
+	Transportblservice transportblservice = BusinessLogicDataFactory.getFactory().getTransportblservice();
 	private PayDocMesTable myTable;
 	
 	public FinanceApprovalPanel(Element config , JPanel changePanel , String MainPanel , String detailName , Transportblservice bl) {
@@ -47,6 +51,7 @@ public class FinanceApprovalPanel extends CheckDocPanel{
 		this.bl = bl;
 		myTable = (PayDocMesTable) messageTable;
 		myTable.bl = this.bl;
+		myTable.isApproval = true;
 		myAddPanel = (PayDocAddPanel) addDocPanel;
 		myAddPanel.bl = this.bl;
 		initTableContent();
@@ -77,7 +82,7 @@ public class FinanceApprovalPanel extends CheckDocPanel{
 //		});
 		addDoc.setVisible(false);
 		
-		
+//		search.setvi
 		
 		
 		searchBox.addKeyListener(new KeyAdapter() {
@@ -103,11 +108,35 @@ public class FinanceApprovalPanel extends CheckDocPanel{
 			}
 		});
 		approval.addMouseListener(new ConfirmListener(approval) {
+			String id;
+			int row;
+			@Override
+			protected void updateMes() {
+				myTable.getTable().getModel().removeRow(row);
+				
+			}
 			
 			@Override
 			protected boolean saveToSQL() {
-				return false;
-				// TODO Auto-generated method stub
+				
+				row = myTable.getSelectedRow();
+				if(row == -1){
+					new TipsDialog("请选择一条信息", Color.GREEN);
+					return false;
+				}
+				
+				id = (String) myTable.getValueAt(row, 0);
+				
+				result =transportblservice.changeOneDocState(id, DocType.payDoc, DocState.pass);
+				
+				if(result == ResultMessage.SUCCESS){
+					new TipsDialog("成功审批单据");
+					return true;
+				}else{
+					new TipsDialog("未成功审批单据");
+					return false;
+				}
+				
 				
 			}
 			
@@ -120,13 +149,7 @@ public class FinanceApprovalPanel extends CheckDocPanel{
 			@Override
 			protected boolean checkDataValid() {
 				// TODO Auto-generated method stub
-				return false;
-			}
-
-			@Override
-			protected void updateMes() {
-				// TODO Auto-generated method stub
-				
+				return true;
 			}
 		});
 	}

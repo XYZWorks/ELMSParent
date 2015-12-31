@@ -20,11 +20,12 @@ import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
 import ui.tools.MyWhitePanel;
 import ui.util.CancelListener;
-import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.DocPanelForApproval;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
+import util.DocState;
+import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
 import vo.transport.PayDocVO;
@@ -191,7 +192,7 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 			protected boolean saveToSQL() {
 
 				result = bl
-						.addOnePay(vo = new PayDocVO(ID, Integer.parseInt(money), YYID, myDate, courierName, orders));
+						.addOnePay(vo = new PayDocVO(ID,DocType.payDoc , myDate , DocState.wait,  Integer.parseInt(money), YYID, courierName, orders));
 				if (result == ResultMessage.SUCCESS) {
 					new TipsDialog("成功新增付款单", Color.GREEN);
 					return true;
