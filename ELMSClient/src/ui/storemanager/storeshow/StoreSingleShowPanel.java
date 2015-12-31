@@ -81,9 +81,11 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		
-		if(config.element(CompomentType.WHITEPANELS.name())==null){
-			System.out.println("报错");
-		}
+		
+//		if(config.element(CompomentType.WHITEPANELS.name())==null){
+//			System.out.println("报错");
+//		}
+		
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initOtherCompoment(config);
 		addCompoment();
@@ -92,11 +94,16 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		showSimpleWhitePanel = new MyWhitePanel(e.element("showSimpleWhitePanel"));
-		locateWhitePanel = new MyWhitePanel(e.element("locateWhitePanel"));
-		inWhitePanel = new MyWhitePanel(e.element("inWhitePanel"));
-		outWhitePanel = new MyWhitePanel(e.element("outWhitePanel"));
+//		showSimpleWhitePanel = new MyWhitePanel(e.element("showSimpleWhitePanel"));
+//		locateWhitePanel = new MyWhitePanel(e.element("locateWhitePanel"));
+//		inWhitePanel = new MyWhitePanel(e.element("inWhitePanel"));
+//		outWhitePanel = new MyWhitePanel(e.element("outWhitePanel"));
 		
+		showSimpleWhitePanel=new MyWhitePanel(65,130,680,80);
+		locateWhitePanel=new MyWhitePanel(65,130,680,440);
+		inWhitePanel=new MyWhitePanel(65,800,680,440);
+		outWhitePanel=new MyWhitePanel(65,1300,680,440);
+	
 	}
 
 	@Override

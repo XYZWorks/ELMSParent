@@ -2392,7 +2392,9 @@
 				</FullInPanel>
 
 				<AddInStorePanel x="232" y="54" width="848" height="637">
-
+					<WHITEPANELS>
+						<whitePanel x="50" y="80" width="750" height="190" />
+					</WHITEPANELS>
 					<BUTTONS>
 						<confirm x="707" y="560" width="89" height="40" text="确认"
 							type="confirm" />
@@ -2400,24 +2402,24 @@
 					</BUTTONS>
 
 					<LABELS>
-						<title x="53" y="53" width="200" height="100" name="华文细黑"
-							size="35" text="入库单" type="rectangle" />
-						<ID x="420" y="150" width="200" height="100" text="入库单编号" type="rectangle" />
-						<date x="420" y="20" width="200" height="100" text="生成时间"
+						<title x="0" y="0" width="200" height="40" name="华文细黑"
+							size="22" text="入库单" type="rectangle" />
+						<ID x="20" y="50" width="200" height="40" text="入库单编号" type="rectangle" />
+						<date x="440" y="20" width="200" height="100" text="生成时间"
 							type="rectangle" />
 
-						<sendCity x="50" y="150" width="200" height="100" text="目的地"
+						<sendCity x="20" y="120" width="200" height="40" text="目的地"
 							type="rectangle" />
-						<locInfo x="50" y="240" width="200" height="100" text="订单及其位置"
+						<locInfo x="50" y="245" width="200" height="100" text="订单及其位置"
 							type="rectangle" />
 					</LABELS>
 
 
 					<TEXTFIELDS>
-						<ID x="550" y="187" width="200" height="40" />
+						<ID x="160" y="50" width="200" height="40" />
 					</TEXTFIELDS>
 
-					<sendCityC x="150" y="187" width="240" height="40"
+					<sendCityC x="160" y="120" width="200" height="40"
 						strings="南京 广州 上海 北京" />
 
 					<DatePicker x="550" y="50" width="200" height="40">
@@ -2426,7 +2428,7 @@
 
 					</DatePicker>
 
-					<table x="50" y="325" width="750" height="180" columnName="订单号 区号 排号 架号 位号" />
+					<table x="50" y="325" width="750" height="220" columnName="订单号 区号 排号 架号 位号" />
 				</AddInStorePanel>
 			</InStorePanel>
 
@@ -2498,46 +2500,35 @@
 
 			<StoreShowPanel x="232" y="54" width="848" height="637">
 				<WHITEPANELS>
-					<whitePanel x="65" y="90" width="500" height="480" />
+					<whitePanel x="65" y="90" width="500" height="300" />
 				</WHITEPANELS>
 				<BUTTONS>
 
-					<confirm x="707" y="560" width="89" height="40" text="确认"
+					<confirm x="520" y="410" width="89" height="40" text="确认"
 						type="confirm" />
 					<return x="0" y="0" width="53" height="53" type="back" />
 				</BUTTONS>
 
 				<LABELS>
-					<center x="100" y="150" width="300" height="100" fontName="华文细黑"
-						size="30" text="中转中心所在地" type="rectangle" />
-					<store x="100" y="320" width="200" height="100" fontName="华文细黑"
-						size="30" text="仓库区" type="rectangle" />
+					<center x="40" y="30" width="200" height="40" fontName="华文细黑"
+						size="27" text="中转中心所在地" type="rectangle" />
+					<store x="40" y="120" width="200" height="40" fontName="华文细黑"
+						size="27" text="仓库区" type="rectangle" />
 				</LABELS>
 
-				<city x="350" y="177" width="240" height="40" strings="南京 广州 上海 北京" />
-
-
-				<store x="350" y="347" width="240" height="45" strings="航运区 汽运区 铁运区" />
+				<city x="300" y="30" width="240" height="40" strings="南京 广州 上海 北京" />
+				<store x="300" y="120" width="240" height="45" strings="航运区 汽运区 铁运区" />
 				<white x="65" y="90" width="500" height="480" />
 
 
 				<StoreSingleShowPanel x="232" y="54" width="848"
 					height="1750">
-					<WHITEPANELS>
-						<showSimpleWhitePanel x="65" y="130" width="680"
-							height="80" />
-						<locateWhitePanel x="65" y="260" width="680"
-							height="440" />
-						<inWhitePanel x="65" y="800" width="680" height="440" />
-						<outWhitePanel x="65" y="1300" width="680" height="440" />
-					</WHITEPANELS>
 
 					<BUTTONS>
 						<confirm x="520" y="750" width="89" height="40" text="确认"
 							type="confirm" />
 						<return x="0" y="0" width="53" height="53" type="back" />
 					</BUTTONS>
-
 
 					<LABELS>
 						<center x="250" y="30" width="200" height="100" size="25"
@@ -2575,7 +2566,14 @@
 							type="rectangle" />
 
 					</LABELS>
-
+					<WHITEPANELS>
+						<showSimpleWhitePanel x="65" y="130" width="680"
+							height="80" />
+						<locateWhitePanel x="65" y="260" width="680"
+							height="440" />
+						<inWhitePanel x="65" y="800" width="680" height="440" />
+						<outWhitePanel x="65" y="1300" width="680" height="440" />
+					</WHITEPANELS>
 
 					<inTable x="20" y="80" width="650" height="300"
 						columnName="单据类型 ID 日期 目的地 订单号集合" />
@@ -2603,21 +2601,20 @@
 			<StoreCheckPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
 
-					<confirm x="707" y="560" width="89" height="40" text="确认"
+					<confirm x="520" y="410" width="89" height="40" text="确认"
 						type="confirm" />
 					<return x="0" y="0" width="53" height="53" type="back" />
 				</BUTTONS>
 
 				<LABELS>
-					<center x="100" y="150" width="300" height="100" fontName="华文细黑"
-						size="30" text="中转中心所在地" type="rectangle" />
-					<store x="100" y="320" width="200" height="100" fontName="华文细黑"
-						size="30" text="仓库区" type="rectangle" />
+					<center x="40" y="30" width="200" height="40" fontName="华文细黑"
+						size="27" text="中转中心所在地" type="rectangle" />
+					<store x="40" y="120" width="200" height="40" fontName="华文细黑"
+						size="27" text="仓库区" type="rectangle" />
 				</LABELS>
 
-				<city x="350" y="177" width="240" height="40" strings="南京 广州 上海 北京" />
-
-				<store x="350" y="347" width="240" height="40" strings="航运区 汽运区 铁运区" />
+				<city x="300" y="30" width="240" height="40" strings="南京 广州 上海 北京" />
+				<store x="300" y="120" width="240" height="45" strings="航运区 汽运区 铁运区" />
 
 				<StoreCheckInfoPanel x="232" y="54" width="848"
 					height="1250">
@@ -2684,21 +2681,20 @@
 			<AlarmSetPanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
 
-					<confirm x="707" y="560" width="89" height="40" text="确认"
+					<confirm x="520" y="410" width="89" height="40" text="确认"
 						type="confirm" />
 					<return x="0" y="0" width="53" height="53" type="back" />
 				</BUTTONS>
 
 				<LABELS>
-					<center x="100" y="150" width="300" height="100" fontName="华文细黑"
-						size="30" text="中转中心所在地" type="rectangle" />
-					<store x="100" y="320" width="200" height="100" fontName="华文细黑"
-						size="30" text="仓库区" type="rectangle" />
+					<center x="40" y="30" width="200" height="40" fontName="华文细黑"
+						size="27" text="中转中心所在地" type="rectangle" />
+					<store x="40" y="120" width="200" height="40" fontName="华文细黑"
+						size="27" text="仓库区" type="rectangle" />
 				</LABELS>
 
-				<city x="350" y="177" width="240" height="40" strings="南京 广州 上海 北京" />
-
-				<store x="350" y="347" width="240" height="40" strings="航运区 汽运区 铁运区" />
+				<city x="300" y="30" width="240" height="40" strings="南京 广州 上海 北京" />
+				<store x="300" y="120" width="240" height="45" strings="航运区 汽运区 铁运区" />
 
 				<AlarmSetSinglePanel x="232" y="54" width="848"
 					height="637">
@@ -2742,21 +2738,20 @@
 				height="637">
 				<BUTTONS>
 
-					<confirm x="707" y="560" width="89" height="40" text="确认"
+					<confirm x="520" y="410" width="89" height="40" text="确认"
 						type="confirm" />
 					<return x="0" y="0" width="53" height="53" type="back" />
 				</BUTTONS>
 
 				<LABELS>
-					<center x="100" y="150" width="300" height="100" fontName="华文细黑"
-						size="30" text="中转中心所在地" type="rectangle" />
-					<store x="100" y="320" width="200" height="100" fontName="华文细黑"
-						size="30" text="仓库区" type="rectangle" />
+					<center x="40" y="30" width="200" height="40" fontName="华文细黑"
+						size="27" text="中转中心所在地" type="rectangle" />
+					<store x="40" y="120" width="200" height="40" fontName="华文细黑"
+						size="27" text="仓库区" type="rectangle" />
 				</LABELS>
 
-				<city x="350" y="177" width="240" height="40" strings="南京 广州 上海 北京" />
-
-				<store x="350" y="347" width="240" height="40" strings="航运区 汽运区 铁运区" />
+				<city x="300" y="30" width="240" height="40" strings="南京 广州 上海 北京" />
+				<store x="300" y="120" width="240" height="45" strings="航运区 汽运区 铁运区" />
 
 				<AlarmRecoverSinglePanel x="232" y="54"
 					width="848" height="637">

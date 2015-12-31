@@ -71,9 +71,9 @@ public class InitalPanel2 extends MyPanel {
 	//	controller =  new CourierController(this, e.element("CourierManager")) ;
 	//	controller=new SaleManController(this, e.element("Salesman"));
 	//	controller =  new FinanceController(this, e.element("Financeman")) ;
-//		controller = new StoreManagerController(this,
-//				e.element("StoreManager"));
-		controller = new StoreManController(this, e.element("StoreMan"));
+		controller = new StoreManagerController(this,
+				e.element("StoreManager"));
+	//	controller = new StoreManController(this, e.element("StoreMan"));
 //		switch (type) {
 //		case Adminstrator:
 //			
