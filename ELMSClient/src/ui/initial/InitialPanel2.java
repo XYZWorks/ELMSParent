@@ -10,6 +10,7 @@ import org.dom4j.Element;
 import ui.config.GraphicsUtils;
 import ui.courier.CourierController;
 import ui.financeman.FinanceController;
+import ui.generalmanager.GeneralManagerController;
 import ui.saleman.SaleManController;
 import ui.storeman.StoreManController;
 import ui.storemanager.StoreManagerController;
@@ -70,11 +71,17 @@ public class InitialPanel2 extends MyPanel {
 		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
 	//	controller =  new CourierController(this, e.element("CourierManager")) ;
 	//	controller=new SaleManController(this, e.element("Salesman"));
+<<<<<<< HEAD
 		controller =  new FinanceController(this, e.element("Financeman")) ;
 		
+=======
+	//	controller =  new FinanceController(this, e.element("Financeman")) ;
+>>>>>>> ce1b53652579ba344a31510765dd24a5efc8bb70
 //		controller = new StoreManagerController(this,
 //				e.element("StoreManager"));
 	//	controller = new StoreManController(this, e.element("StoreMan"));
+		controller = new GeneralManagerController(this,
+				e.element("GeneralManager"));
 //		switch (type) {
 //		case Adminstrator:
 //			

@@ -20,6 +20,7 @@ import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
 import ui.tools.MyWhitePanel;
 import ui.util.CancelListener;
+import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.DocPanelForApproval;
 import ui.util.MyPictureButtonListener;
@@ -80,7 +81,7 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 	@Override
 	protected void initButtons(Element e) {
 		addOneOrder = new MyPictureButton(e.element("addOrder"));
-
+		
 	}
 
 	@Override
