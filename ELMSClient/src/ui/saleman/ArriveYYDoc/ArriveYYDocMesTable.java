@@ -53,7 +53,7 @@ public class ArriveYYDocMesTable extends MyTablePanel {
 			data[i][0] = vo.ID;
 			data[i][1] = MyDate.toString(vo.date);
 			data[i][2] = vo.ZZID;
-			data[i][3] = vo.sendFrom.getName();
+			data[i][3] = vo.sendCity.getName();
 			data[i][4] = vo.goodState.getName();
 			if(vo.orderBarCodes!= null)
 			data[i][5] = String.valueOf(vo.orderBarCodes.size());
@@ -70,7 +70,7 @@ public class ArriveYYDocMesTable extends MyTablePanel {
 		temp[0] = vo.ID;
 		temp[1] = MyDate.toString(vo.date);
 		temp[2] = vo.ZZID;
-		temp[3] = vo.sendFrom.getName();
+		temp[3] = vo.sendCity.getName();
 		temp[4] = vo.goodState.getName();
 		if(vo.orderBarCodes!= null)
 		temp[5] = String.valueOf(vo.orderBarCodes.size());

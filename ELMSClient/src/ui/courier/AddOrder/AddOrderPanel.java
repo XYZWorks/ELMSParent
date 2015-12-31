@@ -7,7 +7,6 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
@@ -17,7 +16,6 @@ import org.dom4j.Element;
 import po.order.GoodMes;
 import po.order.OtherOrderMes;
 import po.order.PeopleMes;
-import po.order.TransferDocs;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
@@ -36,7 +34,6 @@ import ui.util.ConfirmListener;
 import ui.util.DocPanelForApproval;
 import util.DocState;
 import util.DocType;
-import util.MyDate;
 import util.ResultMessage;
 import vo.order.OrderVO;
 import vo.strategy.ConstVO;
@@ -197,6 +194,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 		
 		estiDateVO=strategyblService.getEstiDateVO();
 		
+		System.out.println("estiDate:  "+estiDateVO==null);
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
@@ -434,24 +432,19 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 						receiverUnitText.getText(), receiverADDRESS);
 
 				GoodMes goodMes = new GoodMes(Integer.parseInt(goodNumText.getText()), goodNameText.getText(),
-						Double.parseDouble(goodWeightText.getText()), Double.parseDouble(goodLongText.getText()),
-						Double.parseDouble(goodWidthText.getText()), Double.parseDouble(goodHeightText.getText()));
-				OtherOrderMes otherMes;
-				if(estimateTime.getText().equals("")){
-					otherMes = new OtherOrderMes(packChose, FormChose,DatePicker.getMyDate(),
-							0.0, total,"", new MyDate());
-				}
-				else{
-					otherMes = new OtherOrderMes(packChose, FormChose,DatePicker.getMyDate(),
-						Double.parseDouble(estimateTime.getText()), total, "", new MyDate());
-				}
+						Integer.parseInt(goodWeightText.getText()), Integer.parseInt(goodLongText.getText()),
+						Integer.parseInt(goodWidthText.getText()), Integer.parseInt(goodHeightText.getText()));
+
+				OtherOrderMes otherMes = new OtherOrderMes(packChose, FormChose,DatePicker.getMyDate(),
+						Integer.parseInt(estimateTime.getText()), total, null, null);
+
 				
 				// 订单的构造器
 				// String iD, DocType type, MyDate date, DocState state,
 				// PeopleMes sender, PeopleMes receiver, GoodMes goodMes,
 				// OtherOrderMes otherMes, TransferDocs transferDocs
 				OrderVO order = new OrderVO(orderBarCodeText.getText(), DocType.order, DatePicker.getMyDate(),
-						DocState.wait, sender, receiver, goodMes, otherMes, new TransferDocs("", "", "", "", "", "", "", "", "", new ArrayList<String>()));
+						DocState.wait, sender, receiver, goodMes, otherMes, null);
 				ResultMessage result=orderblservice.add(order);
 				if(result==ResultMessage.FAIL){
 					return false;

@@ -29,13 +29,6 @@ public class MyDate implements Serializable{
 	
 	public int second;
 	
-	public MyDate(){
-		year = 0;
-		month = 0;
-		day = 0;
-		minute = -1;
-		hour = -1;
-		second = -1;	}
 	
 	public MyDate(int year, int month, int day) {
 		super();
@@ -65,9 +58,7 @@ public class MyDate implements Serializable{
 			return String.valueOf(date.year)+ "-" + String.valueOf(date.month) + "-" + String.valueOf(date.day) + "-" +String.valueOf(date.hour) + "-" + String.valueOf(date.minute) + "-" + String.valueOf(date.second);
 		}
 	}
-	public  String getDay() {
-		return year+"-"+month+"-"+day;
-	}
+	
 	public static MyDate getDate(String date){
 		if(date == null || date.equals("")){
 			return MyDate.getNowTime();
@@ -96,23 +87,7 @@ public class MyDate implements Serializable{
 	 */
 	public static MyDate getNowTime() {
 		MyDate date = null;
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");// 设置日期格式
-		String[] d = df.format(new Date()).split("-");// new Date()为获取当前系统时间
-		try {
-			date = new MyDate(Integer.parseInt(d[0]), Integer.parseInt(d[1]), Integer.parseInt(d[2]),Integer.parseInt(d[3]),Integer.parseInt(d[4]),Integer.parseInt(d[5]));
-		} catch (ArrayIndexOutOfBoundsException e) {
-			System.err.println("得到当前时间出错");
-		}
-		return date;
-	}
-	/**
-	 * 
-	 * @param flag
-	 * @return
-	 */
-	public static MyDate getNowTime(boolean flag) {
-		MyDate date = null;
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");// 设置日期格式
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		String[] d = df.format(new Date()).split("-");// new Date()为获取当前系统时间
 		try {
 			date = new MyDate(Integer.parseInt(d[0]), Integer.parseInt(d[1]), Integer.parseInt(d[2]));

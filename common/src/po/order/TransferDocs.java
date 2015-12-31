@@ -17,8 +17,7 @@ public class TransferDocs implements Serializable{
 	 * 装车单
 	 */
 	private String loadDoc;
-	private String arriveZZOneDoc;
-	private String arriveZZTwoDoc;
+	private String arriveZZDoc;
 	
 	/**
 	 * 货物发出地的中转中心：入库 出库
@@ -42,13 +41,92 @@ public class TransferDocs implements Serializable{
 	 */
 	private ArrayList<String> allDocs;
 
-	public TransferDocs(String loadDoc, String arriveZZOneDoc, String arriveZZTwoDoc, String inStoreOneDoc,
-			String outStoreOneDoc, String transferDoc, String instoreTwoDoc, String outStoreTwoDoc, String arriveYYDoc,
-			String sendGoodDoc, ArrayList<String> allDocs) {
+	public String getLoadDoc() {
+		return loadDoc;
+	}
+
+	public void setLoadDoc(String loadDoc) {
+		this.loadDoc = loadDoc;
+	}
+
+	public String getArriveZZDoc() {
+		return arriveZZDoc;
+	}
+
+	public void setArriveZZDoc(String arriveZZDoc) {
+		this.arriveZZDoc = arriveZZDoc;
+	}
+
+	public String getInStoreOneDoc() {
+		return inStoreOneDoc;
+	}
+
+	public void setInStoreOneDoc(String inStoreOneDoc) {
+		this.inStoreOneDoc = inStoreOneDoc;
+	}
+
+	public String getOutStoreOneDoc() {
+		return outStoreOneDoc;
+	}
+
+	public void setOutStoreOneDoc(String outStoreOneDoc) {
+		this.outStoreOneDoc = outStoreOneDoc;
+	}
+
+	public String getTransferDoc() {
+		return transferDoc;
+	}
+
+	public void setTransferDoc(String transferDoc) {
+		this.transferDoc = transferDoc;
+	}
+
+	public String getInstoreTwoDoc() {
+		return instoreTwoDoc;
+	}
+
+	public void setInstoreTwoDoc(String instoreTwoDoc) {
+		this.instoreTwoDoc = instoreTwoDoc;
+	}
+
+	public String getOutStoreTwoDoc() {
+		return outStoreTwoDoc;
+	}
+
+	public void setOutStoreTwoDoc(String outStoreTwoDoc) {
+		this.outStoreTwoDoc = outStoreTwoDoc;
+	}
+
+	public String getArriveYYDoc() {
+		return arriveYYDoc;
+	}
+
+	public void setArriveYYDoc(String arriveYYDoc) {
+		this.arriveYYDoc = arriveYYDoc;
+	}
+
+	public String getSendGoodDoc() {
+		return sendGoodDoc;
+	}
+
+	public void setSendGoodDoc(String sendGoodDoc) {
+		this.sendGoodDoc = sendGoodDoc;
+	}
+
+	public ArrayList<String> getAllDocs() {
+		return allDocs;
+	}
+
+	public void setAllDocs(ArrayList<String> allDocs) {
+		this.allDocs = allDocs;
+	}
+
+	public TransferDocs(String loadDoc, String arriveZZDoc, String inStoreOneDoc, String outStoreOneDoc,
+			String transferDoc, String instoreTwoDoc, String outStoreTwoDoc, String arriveYYDoc, String sendGoodDoc,
+			ArrayList<String> allDocs) {
 		super();
 		this.loadDoc = loadDoc;
-		this.arriveZZOneDoc = arriveZZOneDoc;
-		this.arriveZZTwoDoc = arriveZZTwoDoc;
+		this.arriveZZDoc = arriveZZDoc;
 		this.inStoreOneDoc = inStoreOneDoc;
 		this.outStoreOneDoc = outStoreOneDoc;
 		this.transferDoc = transferDoc;
@@ -58,54 +136,6 @@ public class TransferDocs implements Serializable{
 		this.sendGoodDoc = sendGoodDoc;
 		this.allDocs = allDocs;
 	}
-
-
-
-	public String getLoadDoc() {
-		return loadDoc;
-	}
-
-	public String getArriveZZOneDoc() {
-		return arriveZZOneDoc;
-	}
-
-	public String getArriveZZTwoDoc() {
-		return arriveZZTwoDoc;
-	}
-
-	public String getInStoreOneDoc() {
-		return inStoreOneDoc;
-	}
-
-	public String getOutStoreOneDoc() {
-		return outStoreOneDoc;
-	}
-
-	public String getTransferDoc() {
-		return transferDoc;
-	}
-
-	public String getInstoreTwoDoc() {
-		return instoreTwoDoc;
-	}
-
-	public String getOutStoreTwoDoc() {
-		return outStoreTwoDoc;
-	}
-
-	public String getArriveYYDoc() {
-		return arriveYYDoc;
-	}
-
-	public String getSendGoodDoc() {
-		return sendGoodDoc;
-	}
-
-	public ArrayList<String> getAllDocs() {
-		return allDocs;
-	}
-
-
 	
 	
 	

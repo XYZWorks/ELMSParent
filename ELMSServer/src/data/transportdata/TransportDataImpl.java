@@ -15,7 +15,6 @@ import util.City;
 import util.DocState;
 import util.DocType;
 import util.GoodsState;
-import util.InstType;
 import util.MyDate;
 import util.ResultMessage;
 import dataSuper.DataSuperClass;
@@ -114,13 +113,13 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 		if(findMes==null){
 			return null;
 		}else{
-			return new ArriveYYDocPO(findMes.get(0), DocType.valueOf(findMes.get(1)), MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes.get(3)), findMes.get(4),InstType.valueOf(findMes.get(5) ) , GoodsState.valueOf(findMes.get(6)) , helper.tranFromStringToArrayList(findMes.get(7))  );
+			return new ArriveYYDocPO(findMes.get(0), DocType.valueOf(findMes.get(1)), MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes.get(3)), findMes.get(4),City.valueOf(findMes.get(5) ) , GoodsState.valueOf(findMes.get(6)) , helper.tranFromStringToArrayList(findMes.get(7))  );
 		}
 	}
 
 	public ResultMessage addArriveYYDocPO(ArriveYYDocPO po)
 			throws RemoteException {
-		return addToSQL(arriveYYDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , po.getZZID() , po.getInstType().name() , po.getGoodState().name() ,  helper.tranFromArrayToString(po.getOrderBarCodes()));
+		return addToSQL(arriveYYDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , po.getZZID() , po.getSendCity().name() , po.getGoodState().name() ,  helper.tranFromArrayToString(po.getOrderBarCodes()));
 	}
 
 	public ArrayList<? extends DocPO> getDocLists(DocType type) throws RemoteException {
@@ -156,7 +155,7 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 				break;
 			case arriveYYDoc:
 				while(result.next())
-					pos.add(new ArriveYYDocPO(result.getString(1), DocType.valueOf(result.getString(2)), MyDate.getDate(result.getString(3)), DocState.valueOf(result.getString(4)), result.getString(5), InstType.valueOf(result.getString(6)) , GoodsState.valueOf(result.getString(7 )) , helper.tranFromStringToArrayList(result.getString(8))  ) );
+					pos.add(new ArriveYYDocPO(result.getString(1), DocType.valueOf(result.getString(2)), MyDate.getDate(result.getString(3)), DocState.valueOf(result.getString(4)), result.getString(5), City.valueOf(result.getString(6)) , GoodsState.valueOf(result.getString(7 )) , helper.tranFromStringToArrayList(result.getString(8))  ) );
 				break;
 			case arriveZZDoc:
 				while(result.next())

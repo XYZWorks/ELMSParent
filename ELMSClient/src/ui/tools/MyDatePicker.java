@@ -149,7 +149,7 @@ public class MyDatePicker extends JLabel {
 
 		String[] date = dateField.getText().split("-");
 		return new MyDate(Integer.parseInt(date[0]), Integer.parseInt(date[1]),
-				Integer.parseInt(date[2]),MyDate.getNowTime().hour,MyDate.getNowTime().minute,MyDate.getNowTime().second);
+				Integer.parseInt(date[2]));
 
 	}
 

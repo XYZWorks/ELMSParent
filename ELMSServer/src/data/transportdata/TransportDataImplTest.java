@@ -10,7 +10,6 @@ import util.City;
 import util.DocState;
 import util.DocType;
 import util.GoodsState;
-import util.InstType;
 import util.MyDate;
  /** 
  * 
@@ -46,7 +45,7 @@ public class TransportDataImplTest {
 
 	@Test
 	public void testAddArriveYYDocPO() throws RemoteException {
-		test.addArriveYYDocPO(new ArriveYYDocPO("JSD000001", DocType.arriveYYDoc, MyDate.getNowTime(), DocState.wait, "asdasd", InstType.businessHall, GoodsState.Complete, null));
+		test.addArriveYYDocPO(new ArriveYYDocPO("JSD000001", DocType.arriveYYDoc, MyDate.getNowTime(), DocState.wait, "asdasd", City.NANJING, GoodsState.Complete, null));
 	}
 
 }

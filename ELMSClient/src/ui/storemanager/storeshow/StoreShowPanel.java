@@ -1,7 +1,6 @@
 package ui.storemanager.storeshow;
 
 import java.awt.Component;
-import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
@@ -86,7 +85,7 @@ public class StoreShowPanel extends MyPanel {
 	protected void initOtherCompoment(Element e) {
 		cityC = new MyComboBox(e.element("city"));
 		storeC = new MyComboBox(e.element("store"));
-		whitePanel=new MyWhitePanel(new Rectangle(65,90,500,480));
+		whitePanel=new MyWhitePanel(e.element("white"));
 
 	}
 

@@ -1,5 +1,7 @@
 package data.strategydata;
 
+import static org.junit.Assert.fail;
+
 import java.rmi.RemoteException;
 
 import org.junit.Before;
