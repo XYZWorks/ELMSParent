@@ -3,6 +3,7 @@ package ui.util;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
 
 import javax.swing.JDialog;
@@ -33,14 +34,17 @@ public class TipsDialog extends JDialog{
 	
 	private static Rectangle bounds = new Rectangle(990, 600, 300, 100);
 	
+	private static final Image red = GraphicsUtils.getImage("element//TipsDialog-Wrong");
+	private static final Image green = GraphicsUtils.getImage("element//TipsDialog-Right");
 	
+	private Image bg = red;
 	
 	private final  MyLabel label = new MyLabel() {
 		@Override
 		public void paintComponent(Graphics g){
 			
 			GraphicsUtils.setAlpha(g, nowTime/(double)MAX_TIMES);
-			
+			g.drawImage(bg, 0, 0, null);
 			super.paintComponent(g);
 		}
 		
@@ -91,18 +95,23 @@ public class TipsDialog extends JDialog{
 		setUndecorated(true);
 //		label.setBackground(new Color(0f, 0f, 0f, 0.75f));
 //		label.setIcon(GraphicsUtils.getIcon("element//close"));
-		label.setForeground(color);
+		if(color.equals(Color.GREEN)){
+			bg = green;
+		}
+		setBackground(new Color(0f, 0f, 0f, 0f));
+		label.setForeground(Color.WHITE);
 		label.setFont(font);
         label.setText(message);
         if(message.length() > 10){
         	setBounds(getX(), getY(), getWidth()*2, getHeight());
         }
+        label.setHorizontalTextPosition(SwingConstants.CENTER);
+    	label.setVerticalTextPosition(SwingConstants.CENTER);
         
-        
-        if(isCenter){
-        	label.setHorizontalTextPosition(SwingConstants.CENTER);
-        	label.setVerticalTextPosition(SwingConstants.CENTER);
-        }
+//        if(isCenter){
+//        	label.setHorizontalTextPosition(SwingConstants.CENTER);
+//        	label.setVerticalTextPosition(SwingConstants.CENTER);
+//        }
    
         
         new Thread(new Runnable() {

@@ -817,55 +817,58 @@
 				</AddInStorePanel>
 				<AddOutStorePanel x="232" y="54" width="848"
 					height="637">
-
+					<WHITEPANELS>
+						<whitePanel x="65" y="120" width="360" height="330" />
+					</WHITEPANELS>
 					<BUTTONS>
-						<confirm x="500" y="500" width="150" height="100" text="确认"
-							type="rectangle" />
-						<return x="700" y="500" width="150" height="100" text="返回"
-							type="rectangle" />
+						<confirm x="671" y="560" width="89" height="40" text="确认"
+							type="confirm" />
+						<return x="0" y="0" width="53" height="53" type="back" />
+						<cancelButton x="621" y="560" width="89" height="40"
+							text="确认" type="cancel" />
+						<addOrder x="768" y="120" width="40" height="40" type="add" />
 					</BUTTONS>
 
 					<LABELS>
-						<title x="30" y="0" width="200" height="100" name="华文细黑"
-							size="35" text="出库单" type="rectangle" />
-						<ID x="50" y="150" width="200" height="100" text="出库单编号" type="rectangle" />
-						<date x="420" y="20" width="200" height="100" text="生成时间"
+						<title x="0" y="0" width="200" height="40" name="华文细黑" size="18"
+							text="增加出库单" type="rectangle" />
+
+						<ID x="30" y="50" width="200" height="40" text="出库单编号" type="rectangle" />
+						<date x="420" y="20" width="200" height="40" text="生成时间"
 							type="rectangle" />
 
-						<sendCity x="420" y="150" width="200" height="100" text="目的地"
+						<sendCity x="30" y="190" width="200" height="40" text="目的地"
 							type="rectangle" />
-						<order x="50" y="420" width="200" height="100" text="订单编号"
-							type="rectangle" />
-						<transferDoc x="50" y="290" width="200" height="100"
+
+						<transferDoc x="30" y="120" width="200" height="40"
 							text="中转单编号" type="rectangle" />
-						<shipWay x="420" y="290" width="200" height="100" text="装运形式"
+						<shipWay x="30" y="260" width="200" height="40" text="装运形式"
 							type="rectangle" />
 
+						<order x="445" y="120" width="115" height="40" text="订单号"
+							type="rectangle" />
 					</LABELS>
 
-
 					<TEXTFIELDS>
-						<ID x="180" y="180" width="200" height="45" />
-						<order x="180" y="450" width="500" height="45" />
-						<transferDoc x="180" y="320" width="200" height="45" />
+						<ID x="130" y="50" width="200" height="40" />
+						<transferDoc x="130" y="120" width="200" height="40" />
+
+						<order x="580" y="120" width="168" height="40" />
+
+
 					</TEXTFIELDS>
 
-
-
-
-
-					<sendCityC x="520" y="187" width="240" height="30"
+					<sendCityC x="130" y="190" width="200" height="40"
 						strings="南京 广州 上海 北京" />
-					<shipWayC x="520" y="327" width="240" height="30" strings="飞机 火车 汽车" />
+					<shipWayC x="130" y="260" width="200" height="40" strings="飞机 火车 汽车" />
 
 
-					<DatePicker x="550" y="50" width="200" height="50">
-						<field x="100" y="0" width="350" height="50" />
-						<button x="350" y="0" width="50" height="50" />
-
+					<DatePicker x="570" y="50" width="240" height="40">
+						<field x="100" y="0" width="200" height="40" />
+						<button x="480" y="0" width="40" height="40" />
 					</DatePicker>
+					<table x="445" y="180" width="363" height="270" column="序号 订单号 金额" />
 
-					<table x="62" y="325" width="730" height="180" columnName="订单号 区号 排号 架号 位号" />
 				</AddOutStorePanel>
 
 				<AddArriveZZPanel x="232" y="54" width="848"
