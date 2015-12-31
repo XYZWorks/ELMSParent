@@ -240,6 +240,7 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 		moneyText.setText("");
 		ordersTable.clearOrders();
 		courierNameT.setText("");
+		moneyTotal=0;
 	}
 
 	@Override
