@@ -401,7 +401,7 @@
 					<estimateTimeText text="" x="49" y="1080" width="189"
 						height="65" size="38" />
 
-					<cost text="" x="350" y="1080" width="189" height="65" />
+					<cost text="" x="350" y="1080" width="189" height="65" one="courier//cost" />
 					<costText text="" x="350" y="1080" width="189" height="65"
 						size="38" />
 

@@ -361,11 +361,12 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller implements DocPa
 		transferInfoPanel.add(nineText);
 		transferInfoPanel.add(tenText);
 
-		this.add(estimateTime);
 		this.add(estimateTimeText);
+		this.add(estimateTime);
 		
-		this.add(cost);
 		this.add(costText);
+		this.add(cost);
+	
 
 	}
 

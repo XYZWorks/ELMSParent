@@ -627,15 +627,15 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (bag.isSelected()) {
-				packChose = "bag";
+				packChose = "快递袋";
 				packMoney = constVO.plasticBag;
 
 			} else if (woodCase.isSelected()) {
-				packChose = "woodCase";
+				packChose = "木箱";
 				packMoney = constVO.woodBox;
 
 			} else if (carton.isSelected()) {
-				packChose = "carton";
+				packChose = "纸箱";
 				packMoney = constVO.paperBox;
 			}
 			calCost();
@@ -649,11 +649,11 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (commonOrder.isSelected()) {
-				FormChose = "commonOrder";
+				FormChose = "普通快递";
 			} else if (economicOrder.isSelected()) {
-				FormChose = "economicOrder";
+				FormChose = "经济快递";
 			} else if (quickOrder.isSelected()) {
-				FormChose = "quickOrder";
+				FormChose = "特快专递";
 			}
 			calCost();
 		}
