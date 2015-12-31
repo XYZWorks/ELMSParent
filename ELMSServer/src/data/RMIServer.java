@@ -4,10 +4,12 @@ import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.UnknownHostException;
 import java.rmi.Naming;
+import java.rmi.NoSuchObjectException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.server.ExportException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -23,14 +25,16 @@ import data.datafactory.DataFactory;
  */
 @SuppressWarnings("unused")
 public class RMIServer {
-
+	
+	
+	
 	private InetAddress hostInetAddress;
 	private String hostAdr;//TODO unused
 	private String hostName;
 	private String port;
 	private static DataFactory datafactory;
 	private static Map<String, Class<? extends Remote>> NAMING_MAP = new HashMap<String, Class<? extends Remote>>(10);
-
+	private static Map<String, Remote> remoteMap = new HashMap<>();
 	static {
 		datafactory = DataFactory.getDataFactory();
 
@@ -51,12 +55,12 @@ public class RMIServer {
 		}
 	}
 
-	public RMIServer() {
+	public RMIServer(String address , String port) {
 		try {
 			hostInetAddress = InetAddress.getLocalHost();
 			hostAdr = hostInetAddress.getHostAddress();
 			hostName = hostInetAddress.getHostName();
-			port = "6600";
+			this.port = port;
 
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
@@ -73,6 +77,7 @@ public class RMIServer {
 				String key = iterator.getKey();
 				Class<? extends Remote> dataservice = iterator.getValue();
 				Remote proxy = dataservice.newInstance();
+				remoteMap.put(key, proxy);
 				Naming.rebind(pres + key, proxy);
 			}
 
@@ -108,6 +113,16 @@ public class RMIServer {
 	}
 
 	public void stopRMI() {
+//		for (Entry<String, Class<? extends Remote>> iterator : NAMING_MAP.entrySet()) {
+//			String key = iterator.getKey();
+//			
+//			try {
+//				UnicastRemoteObject.unexportObject(remoteMap.get(key), true);
+//			} catch (NoSuchObjectException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
 		System.exit(0);
 	}
 

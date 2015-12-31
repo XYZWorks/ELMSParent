@@ -11,10 +11,8 @@ import org.dom4j.Element;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
-import ui.saleman.PayDoc.PaySmallTable;
 import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
-import ui.tools.MyComboBox;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPictureButton;
@@ -26,7 +24,6 @@ import ui.util.ConfirmListener;
 import ui.util.DocPanelForApproval;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
-import util.City;
 import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
@@ -137,15 +134,22 @@ public class SendGoodDocAddPanel extends AddDocPanel implements DocPanelForAppro
 
 						// 避免同一个订单反复加在收款单里
 						ArrayList<String> alreadyCode = ordersTable.getOrderbarCodes();
+						boolean isExist = false;
 						if (alreadyCode.size() != 0) {
 							for (int i = 0; i < alreadyCode.size(); i++) {
 								if (alreadyCode.get(i).equals(temp)) {
 									new TipsDialog("该订单已在收款单里，请不要重复添加");
+									isExist = true;
 									break;
 								}
 							}
 						}
-						new TipsDialog("成功新增订单", Color.BLUE);
+						if (isExist == false) {
+							ordersTable.addAOrder(temp);
+							new TipsDialog("成功新增订单", Color.BLUE);
+
+						}
+
 					}
 				
 			}
@@ -203,7 +207,7 @@ public class SendGoodDocAddPanel extends AddDocPanel implements DocPanelForAppro
 	}
 
 	void myInit() {
-		idT.setText("ZCD" + MyDate.getDatePart(MyDate.getNowTime())
+		idT.setText("PSD" + MyDate.getDatePart(MyDate.getNowTime())
 				+ UserfulMethod.toSeven(bl.getDayDocCount(DocType.loadDoc)));
 		sendManT.setText("");
 		orderCode.setText("");

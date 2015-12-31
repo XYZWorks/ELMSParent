@@ -229,7 +229,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 			return null; 
 		}else{
 			docpos = new ArrayList<String>(10);
-			for (int i = 0; i < 9; i++) {
+			for (int i = 0; i < 10; i++) {
 				if(findMes.get(23 + i) != null){
 					docpos.add(findMes.get(23 + i));
 					System.err.println(findMes.get(23 + i));

@@ -169,19 +169,29 @@ public class LoadDocAddPanel extends AddDocPanel implements DocPanelForApproval 
 
 						// 避免同一个订单反复加在收款单里
 						ArrayList<String> alreadyCode = ordersTable.getOrderbarCodes();
+						boolean isExist = false;
 						if (alreadyCode.size() != 0) {
 							for (int i = 0; i < alreadyCode.size(); i++) {
 								if (alreadyCode.get(i).equals(temp)) {
 									new TipsDialog("该订单已在收款单里，请不要重复添加");
+									isExist = true;
 									break;
 								}
 							}
 						}
-						new TipsDialog("成功新增订单", Color.BLUE);
+						if (isExist == false) {
+							ordersTable.addAOrder(temp);
+//							moneyTotal = ordersTable.getMoneyTotal();
+//							moneyText.setText(String.valueOf(moneyTotal));
+							new TipsDialog("成功新增订单", Color.BLUE);
+
+						}
+
 					}
+				}
 				
 			}
-			}
+			
 		});
 		confirm.addMouseListener(new ConfirmListener(confirm) {
 			String id;

@@ -43,10 +43,11 @@ import blservice.transportblservice.Transportblservice;
  *
  */
 @SuppressWarnings("serial")
-public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForApproval{
+public class ArriveYYDocAddPanel extends AddDocPanel implements
+		DocPanelForApproval {
 	private MyPictureLabel addArriveDoc;
 	private MyWhitePanel whitePanel;
-	
+
 	private MyLabel id;
 	private MyDatePicker date;
 	private MyLabel ZZID;
@@ -69,13 +70,14 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 	Transportblservice bl;
 
 	public ArriveYYDocAddPanel(Element config, JPanel changePanel,
-			String checkDocPanelStr, MyTablePanel messageTable, Transportblservice bl) {
+			String checkDocPanelStr, MyTablePanel messageTable,
+			Transportblservice bl) {
 		super(config, changePanel, checkDocPanelStr, messageTable);
 	}
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		whitePanel=new MyWhitePanel(e.element("whitePanel"));
+		whitePanel = new MyWhitePanel(e.element("whitePanel"));
 	}
 
 	@Override
@@ -94,7 +96,7 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 
 	@Override
 	protected void initLabels(Element e) {
-		addArriveDoc=new MyPictureLabel(e.element("addArriveDoc"));
+		addArriveDoc = new MyPictureLabel(e.element("addArriveDoc"));
 		id = new MyLabel(e.element("id"));
 		ZZID = new MyLabel(e.element("ZZID"));
 		sendCity = new MyLabel(e.element("sendCity"));
@@ -122,15 +124,15 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 		whitePanel.add(goodStateB);
 		whitePanel.add(id);
 		whitePanel.add(idT);
-		
+
 		add(whitePanel);
 		add(date);
 		add(newOrder);
 		add(addOneOrder);
-		
+
 		add(order);
 		add(ordersTable);
-		
+
 		confirm.setLocation(500, 460);
 		cancel.setLocation(650, 460);
 	}
@@ -143,26 +145,35 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
 				String temp = order.getText();
-					if (UserfulMethod.dealWithData(new SimpleDataFormat(temp, DataType.BarCode, "订单号"))) {
-						// 判断订单是否存在
-						Orderblservice orderblservice = BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
-						if (orderblservice.getFullInfo(temp) == null) {
-							new TipsDialog("该订单不存在，请重新输入");
-						} else {
+				if (UserfulMethod.dealWithData(new SimpleDataFormat(temp,
+						DataType.BarCode, "订单号"))) {
+					// 判断订单是否存在
+					Orderblservice orderblservice = BusinessLogicDataFactory
+							.getFactory().getOrderBussinessLogic();
+					if (orderblservice.getFullInfo(temp) == null) {
+						new TipsDialog("该订单不存在，请重新输入");
+					} else {
 
-							// 避免同一个订单反复加在收款单里
-							ArrayList<String> alreadyCode = ordersTable.getOrderbarCodes();
-							if (alreadyCode.size() != 0) {
-								for (int i = 0; i < alreadyCode.size(); i++) {
-									if (alreadyCode.get(i).equals(temp)) {
-										new TipsDialog("该订单已在收款单里，请不要重复添加");
-										break;
-									}
+						// 避免同一个订单反复加在收款单里
+						ArrayList<String> alreadyCode = ordersTable
+								.getOrderbarCodes();
+						boolean isExist = false;
+						if (alreadyCode.size() != 0) {
+							for (int i = 0; i < alreadyCode.size(); i++) {
+								if (alreadyCode.get(i).equals(temp)) {
+									new TipsDialog("该订单已在收款单里，请不要重复添加");
+									isExist = true;
+									break;
 								}
 							}
-							new TipsDialog("成功新增订单", Color.BLUE);
 						}
-					
+						if (isExist == false) {
+							ordersTable.addAOrder(temp);
+							new TipsDialog("成功新增订单", Color.BLUE);
+
+						}
+
+					}
 				}
 			}
 		});
@@ -174,19 +185,20 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 			GoodsState goodState;
 			ArrayList<String> orderBarCodes;
 			ArriveYYDocVO vo;
+
 			@Override
 			protected boolean saveToSQL() {
-				result = bl.add(vo = new ArriveYYDocVO(ID, myDate, ZZID, sendCity, goodState,
-						orderBarCodes)) ;
-				if(result == ResultMessage.SUCCESS){
+				result = bl.add(vo = new ArriveYYDocVO(ID, myDate, ZZID,
+						sendCity, goodState, orderBarCodes));
+				if (result == ResultMessage.SUCCESS) {
 					new TipsDialog("成功新增接收单", Color.GREEN);
 					return true;
-				}else{
+				} else {
 					System.out.println(result);
 					new TipsDialog("未成功增加接收单", Color.RED);
 					return false;
 				}
-				
+
 			}
 
 			@Override
@@ -204,9 +216,9 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 				goodState = GoodsState.toGoodState((String) goodStateB
 						.getSelectedItem());
 				orderBarCodes = ordersTable.getOrderbarCodes();
-				SimpleDataFormat[] datas = {new SimpleDataFormat(ID, DataType.ID, "ID") ,
-						new SimpleDataFormat(ZZID, DataType.ID, "中转中心编号")
-						};
+				SimpleDataFormat[] datas = {
+						new SimpleDataFormat(ID, DataType.ID, "ID"),
+						new SimpleDataFormat(ZZID, DataType.ID, "中转中心编号") };
 				return UserfulMethod.dealWithData(datas);
 			}
 
@@ -225,11 +237,14 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 			}
 		});
 	}
-	void reinit(){
-		idT.setText("JSD"+MyDate.getDatePart(MyDate.getNowTime())+UserfulMethod.toSeven(bl.getDayDocCount(DocType.arriveYYDoc)));
 
-		ZZIDT.setText("");order.setText("");
-		
+	void reinit() {
+		idT.setText("JSD" + MyDate.getDatePart(MyDate.getNowTime())
+				+ UserfulMethod.toSeven(bl.getDayDocCount(DocType.arriveYYDoc)));
+
+		ZZIDT.setText("");
+		order.setText("");
+
 		ordersTable.clearOrders();
 	}
 
@@ -241,7 +256,7 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 		sendCityB.setEnabled(false);
 		goodStateB.setEnabled(false);
 		goodStateB.setEditable(false);
-		
+
 		order.setVisible(false);
 		addOneOrder.setVisible(false);
 		confirm.setVisible(false);
@@ -249,12 +264,12 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 	}
 
 	@Override
-	public void addBackButton(JPanel changePanel , String backString) {
+	public void addBackButton(JPanel changePanel, String backString) {
 	}
 
 	@Override
 	public void setMessage(Object o) {
-		if(o == null){
+		if (o == null) {
 			return;
 		}
 		ArriveYYDocVO vo = (ArriveYYDocVO) o;
@@ -265,6 +280,6 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 		for (String orders : vo.orderBarCodes) {
 			ordersTable.addAOrder(orders);
 		}
-		
+
 	}
 }

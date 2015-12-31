@@ -96,6 +96,7 @@ public class Order {
 		storeController = new StoreController();
 
 		poStrings = orderData.getSingleOrderDocs(orderBarCode);
+
 		if (poStrings == null) {
 			return null;
 		}
