@@ -72,13 +72,13 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 		if(findMes==null){
 			return null;
 		}else{
-			return new SendGoodDocPO(findMes.get(0), DocType.valueOf(findMes.get(1)), MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes.get(3)), findMes.get(4),findMes.get(5), City.valueOf(findMes.get(6)));
+			return new SendGoodDocPO(findMes.get(0), DocType.valueOf(findMes.get(1)), MyDate.getDate(findMes.get(2)), DocState.valueOf(findMes.get(3)), findMes.get(4),helper.tranFromStringToArrayList(findMes.get(5)));
 		}
 	}
 
 	public ResultMessage addSendGoodDocPO(SendGoodDocPO po)
 			throws RemoteException {
-		return addToSQL(sendGoodDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , po.getSendMan() , po.getOrderBarCode() , po.getSendCity().name());
+		return addToSQL(sendGoodDocTable, po.getID() , po.getType().name() , MyDate.toString(po.getDate()) , po.getState().name() , po.getSendMan() , helper.tranFromArrayToString(po.getOrderBarCode()));
 	}
 
 	public TransferDocPO getTransferDocPO(String id) throws RemoteException {
@@ -168,7 +168,7 @@ public class TransportDataImpl extends DataSuperClass implements Transportdatase
 				break;
 			case sendGoodDoc:
 				while(result.next())
-					pos.add(new SendGoodDocPO(result.getString(1), DocType.valueOf(result.getString(2)), MyDate.getDate(result.getString(3)), DocState.valueOf(result.getString(4)), result.getString(5), result.getString(6)  ,City.valueOf(result.getString(7))) );
+					pos.add(new SendGoodDocPO(result.getString(1), DocType.valueOf(result.getString(2)), MyDate.getDate(result.getString(3)), DocState.valueOf(result.getString(4)), result.getString(5), helper.tranFromStringToArrayList(result.getString(6))  ) );
 					
 				break;
 			default:

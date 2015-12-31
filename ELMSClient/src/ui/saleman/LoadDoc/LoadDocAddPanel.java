@@ -11,7 +11,6 @@ import org.dom4j.Element;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
-import ui.storeman.transport.TransportOrders;
 import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
 import ui.tools.MyComboBox;
@@ -31,6 +30,8 @@ import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
 import vo.transport.LoadDocVO;
+import bl.BusinessLogicDataFactory;
+import blservice.orderblservice.Orderblservice;
 import blservice.transportblservice.Transportblservice;
 
 /**
@@ -159,10 +160,27 @@ public class LoadDocAddPanel extends AddDocPanel implements DocPanelForApproval 
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
 				String temp = orderCode.getText();
-				if (UserfulMethod.dealWithData(new SimpleDataFormat(temp, DataType.ID, "订单号"))) {
-					ordersTable.addAOrder(temp);
-					new TipsDialog("成功新增订单", Color.BLUE);
-				}
+				if (UserfulMethod.dealWithData(new SimpleDataFormat(temp, DataType.BarCode, "订单号"))) {
+					// 判断订单是否存在
+					Orderblservice orderblservice = BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
+					if (orderblservice.getFullInfo(temp) == null) {
+						new TipsDialog("该订单不存在，请重新输入");
+					} else {
+
+						// 避免同一个订单反复加在收款单里
+						ArrayList<String> alreadyCode = ordersTable.getOrderbarCodes();
+						if (alreadyCode.size() != 0) {
+							for (int i = 0; i < alreadyCode.size(); i++) {
+								if (alreadyCode.get(i).equals(temp)) {
+									new TipsDialog("该订单已在收款单里，请不要重复添加");
+									break;
+								}
+							}
+						}
+						new TipsDialog("成功新增订单", Color.BLUE);
+					}
+				
+			}
 			}
 		});
 		confirm.addMouseListener(new ConfirmListener(confirm) {

@@ -88,9 +88,7 @@ public class Transport {
 
 		result = transportData.addSendGoodDocPO(po);
 		if (result == ResultMessage.SUCCESS) {
-			ArrayList<String> orderBarCodes = new ArrayList<>(1);
-			orderBarCodes.add(vo.orderBarCode);
-			orderbl.addDocToList(vo, orderBarCodes);
+			orderbl.addDocToList(vo, vo.orderBarCode);
 		}
 		return result;
 

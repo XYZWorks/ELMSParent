@@ -26,13 +26,14 @@ import ui.util.ConfirmListener;
 import ui.util.DocPanelForApproval;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
-import util.City;
 import util.DocType;
 import util.GoodsState;
 import util.InstType;
 import util.MyDate;
 import util.ResultMessage;
 import vo.transport.ArriveYYDocVO;
+import bl.BusinessLogicDataFactory;
+import blservice.orderblservice.Orderblservice;
 import blservice.transportblservice.Transportblservice;
 
 /**
@@ -142,10 +143,26 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
 				String temp = order.getText();
-				if (UserfulMethod.dealWithData(new SimpleDataFormat(temp,
-						DataType.ID, "订单号"))) {
-					ordersTable.addAOrder(temp);
-					new TipsDialog("成功新增订单", Color.BLUE);
+					if (UserfulMethod.dealWithData(new SimpleDataFormat(temp, DataType.BarCode, "订单号"))) {
+						// 判断订单是否存在
+						Orderblservice orderblservice = BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
+						if (orderblservice.getFullInfo(temp) == null) {
+							new TipsDialog("该订单不存在，请重新输入");
+						} else {
+
+							// 避免同一个订单反复加在收款单里
+							ArrayList<String> alreadyCode = ordersTable.getOrderbarCodes();
+							if (alreadyCode.size() != 0) {
+								for (int i = 0; i < alreadyCode.size(); i++) {
+									if (alreadyCode.get(i).equals(temp)) {
+										new TipsDialog("该订单已在收款单里，请不要重复添加");
+										break;
+									}
+								}
+							}
+							new TipsDialog("成功新增订单", Color.BLUE);
+						}
+					
 				}
 			}
 		});

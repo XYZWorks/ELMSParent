@@ -1,10 +1,11 @@
 package vo.transport;
 
-import util.MyDate;
-import vo.DocVO;
-import util.City;
+import java.util.ArrayList;
+
 import util.DocState;
 import util.DocType;
+import util.MyDate;
+import vo.DocVO;
 
 
 /**
@@ -21,18 +22,19 @@ public class SendGoodDocVO extends DocVO{
 	/**
 	 *订单条形码号
 	 */
-	public String orderBarCode;
-	/**
-	 * 目的地
-	 */
-	public City sendCity;
+	public ArrayList<String> orderBarCode;
 	
 	public SendGoodDocVO() {
 	}
 	public SendGoodDocVO(String iD, MyDate date,
-			 String sendMan, String orderBarCode,City sendCity) {
+			 String sendMan, ArrayList<String> orderBarCode) {
 		super(iD, DocType.sendGoodDoc, date, DocState.wait);
-		this.sendCity = sendCity;
+		this.sendMan = sendMan;
+		this.orderBarCode = orderBarCode;
+	}
+	public SendGoodDocVO(String iD, DocType type, MyDate date, DocState state,
+			String sendMan, ArrayList<String> orderBarCode) {
+		super(iD, type, date, state);
 		this.sendMan = sendMan;
 		this.orderBarCode = orderBarCode;
 	}

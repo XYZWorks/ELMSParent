@@ -1,12 +1,12 @@
  package po.transport;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import po.DocPO;
-import util.MyDate;
-import util.City;
 import util.DocState;
 import util.DocType;
+import util.MyDate;
 
 /**
  * 派送单PO
@@ -29,11 +29,7 @@ public class SendGoodDocPO extends DocPO implements Serializable{
 	/**
 	 * 订单条形码号
 	 */
-	private String orderBarCode;
-	/**
-	 * 目的地
-	 */
-	private City sendCity;
+	private ArrayList<String> orderBarCode;
 	
 	public SendGoodDocPO() {}
 	
@@ -45,11 +41,10 @@ public class SendGoodDocPO extends DocPO implements Serializable{
 	 * @param orderBarCode
 	 */
 	public SendGoodDocPO(String iD, MyDate date, String sendMan,
-			String orderBarCode,City sendCity) {
+			ArrayList<String> orderBarCode) {
 		super(iD, DocType.sendGoodDoc, date, DocState.wait);
 		this.sendMan = sendMan;
 		this.orderBarCode = orderBarCode;
-		this.sendCity = sendCity;
 	}
 	/**
 	 * 数据库读取时使用
@@ -61,10 +56,9 @@ public class SendGoodDocPO extends DocPO implements Serializable{
 	 * @param orderBarCode
 	 */
 	public SendGoodDocPO(String iD, DocType type ,MyDate date,DocState state, String sendMan,
-			String orderBarCode,City sendCity) {
+			ArrayList<String> orderBarCode) {
 		super(iD, type, date, state);
 		this.sendMan = sendMan;
-		this.sendCity= sendCity;
 		this.orderBarCode = orderBarCode;
 	}
 
@@ -76,20 +70,9 @@ public class SendGoodDocPO extends DocPO implements Serializable{
 		this.sendMan = sendMan;
 	}
 
-	public String getOrderBarCode() {
+	public ArrayList<String> getOrderBarCode() {
 		return orderBarCode;
 	}
 
-	public void setOrderBarCode(String orderBarCode) {
-		this.orderBarCode = orderBarCode;
-	}
-
-	public City getSendCity() {
-		return sendCity;
-	}
-
-	public void setSendCity(City sendCity) {
-		this.sendCity = sendCity;
-	}
 
 }

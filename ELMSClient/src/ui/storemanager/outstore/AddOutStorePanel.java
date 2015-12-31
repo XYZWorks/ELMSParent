@@ -110,13 +110,17 @@ public class AddOutStorePanel extends MyPanel implements DocPanelForApproval {
 	@Override
 	protected void initTextFields(Element e) {
 		IDT = new MyTextField(e.element("ID"));
+		transferDocT = new MyTextField(e.element("transferDoc"));
 		if (controller != null) {
+			String tmp = UserfulMethod.toSeven(bl.getDayDocCount(DocType.outStoreDoc));
 			IDT.setText("CKD" + MyDate.getDatePart(MyDate.getNowTime())
-					+ UserfulMethod.toSeven(bl.getDayDocCount(DocType.outStoreDoc)));
+					+ tmp);
+			transferDocT.setText("ZZD" + MyDate.getDatePart(MyDate.getNowTime())
+					+ tmp);
 		}
 		IDT.setEditable(false);
 
-		transferDocT = new MyTextField(e.element("transferDoc"));
+		
 		orderCode = new MyTextField(e.element("order"));
 	}
 
@@ -198,10 +202,14 @@ public class AddOutStorePanel extends MyPanel implements DocPanelForApproval {
 		@Override
 		protected void reInitial() {
 			orderT.setText("");
-			IDT.setText("CKD" + MyDate.getDatePart(MyDate.getNowTime())
-					+ UserfulMethod.toSeven(bl.getDayDocCount(DocType.outStoreDoc)));
+			String tmp = UserfulMethod.toSeven(bl.getDayDocCount(DocType.outStoreDoc));
 
-			transferDocT.setText("");
+			IDT.setText("CKD" + MyDate.getDatePart(MyDate.getNowTime())
+					+ tmp);
+
+			transferDocT.setText("ZZD" + MyDate.getDatePart(MyDate.getNowTime())
+					+ tmp);
+			
 
 		}
 

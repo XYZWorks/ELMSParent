@@ -1,6 +1,8 @@
 package ui.saleman.SendGoodDoc;
 
 import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
@@ -22,12 +24,15 @@ import ui.tools.MyWhitePanel;
 import ui.util.CancelListener;
 import ui.util.ConfirmListener;
 import ui.util.DocPanelForApproval;
+import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
 import util.City;
 import util.DocType;
 import util.MyDate;
 import util.ResultMessage;
 import vo.transport.SendGoodDocVO;
+import bl.BusinessLogicDataFactory;
+import blservice.orderblservice.Orderblservice;
 import blservice.transportblservice.Transportblservice;
 
 /**
@@ -46,13 +51,9 @@ public class SendGoodDocAddPanel extends AddDocPanel implements DocPanelForAppro
 	private MyLabel id;
 	private MyDatePicker date;
 	private MyLabel sendMan;
-	// private MyLabel orderBarCode;
-	// private MyLabel sendCity;
 
 	private MyTextField idT;
 	private MyTextField sendManT;
-	// private MyTextField orderBarCodeT;
-	// private MyComboBox sendCityB;
 
 	private MyPictureButton addOneOrder;
 	private MyLabel newOrder;
@@ -84,7 +85,6 @@ public class SendGoodDocAddPanel extends AddDocPanel implements DocPanelForAppro
 
 		sendManT = new MyTextField(e.element("sendMan"));
 		orderCode = new MyTextField(e.element("order"));
-		// orderBarCodeT = new MyTextField(e.element("orderBarCode"));
 
 	}
 
@@ -94,8 +94,6 @@ public class SendGoodDocAddPanel extends AddDocPanel implements DocPanelForAppro
 		id = new MyLabel(e.element("id"));
 		sendMan = new MyLabel(e.element("sendMan"));
 		newOrder = new MyPictureLabel(e.element("order"));
-		// orderBarCode = new MyLabel(e.element("orderBarCode"));
-		// sendCity = new MyLabel(e.element("sendCity"));
 
 	}
 
@@ -103,7 +101,6 @@ public class SendGoodDocAddPanel extends AddDocPanel implements DocPanelForAppro
 	protected void initOtherCompoment(Element e) {
 		date = new MyDatePicker(e.element("datepicker"));
 		ordersTable = new SendSmallTable(e.element("table"));
-		// sendCityB = new MyComboBox(e.element("sendCity"));
 	}
 
 	@Override
@@ -111,12 +108,8 @@ public class SendGoodDocAddPanel extends AddDocPanel implements DocPanelForAppro
 		whitePanel.add(addSendGoodDoc);
 		whitePanel.add(sendMan);
 		whitePanel.add(sendManT);
-		// whitePanel.add(sendCity);
-		// whitePanel.add(sendCityB);
 		whitePanel.add(id);
 		whitePanel.add(idT);
-		// whitePanel.add(orderBarCode);
-		// whitePanel.add(orderBarCodeT);
 		this.add(whitePanel);
 		add(date);
 		add(ordersTable);
@@ -130,13 +123,39 @@ public class SendGoodDocAddPanel extends AddDocPanel implements DocPanelForAppro
 
 	@Override
 	protected void addListener() {
+		addOneOrder.addMouseListener(new MyPictureButtonListener(addOneOrder) {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				String temp = orderCode.getText();
+				if (UserfulMethod.dealWithData(new SimpleDataFormat(temp, DataType.BarCode, "订单号"))) {
+					// 判断订单是否存在
+					Orderblservice orderblservice = BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
+					if (orderblservice.getFullInfo(temp) == null) {
+						new TipsDialog("该订单不存在，请重新输入");
+					} else {
 
+						// 避免同一个订单反复加在收款单里
+						ArrayList<String> alreadyCode = ordersTable.getOrderbarCodes();
+						if (alreadyCode.size() != 0) {
+							for (int i = 0; i < alreadyCode.size(); i++) {
+								if (alreadyCode.get(i).equals(temp)) {
+									new TipsDialog("该订单已在收款单里，请不要重复添加");
+									break;
+								}
+							}
+						}
+						new TipsDialog("成功新增订单", Color.BLUE);
+					}
+				
+			}
+			}
+		});
 		confirm.addMouseListener(new ConfirmListener(confirm) {
 			String id;
 			MyDate myDate;
 			String sendMan;
-			String orderBarCode;
-			City sendCity;
+			ArrayList<String> orderBarCode;
 			SendGoodDocVO vo;
 
 			@Override
@@ -144,10 +163,9 @@ public class SendGoodDocAddPanel extends AddDocPanel implements DocPanelForAppro
 				id = idT.getText();
 				myDate = date.getMyDate();
 				sendMan = sendManT.getText();
-				// orderBarCode = orderBarCodeT.getText();
-				// sendCity = City.toCity((String) sendCityB.getSelectedItem());
+				orderBarCode = ordersTable.getOrderbarCodes();
 				SimpleDataFormat[] datas = { new SimpleDataFormat(id, DataType.ID, "ID"),
-						new SimpleDataFormat(orderBarCode, DataType.ID, "订单号") };
+						};
 				return UserfulMethod.dealWithData(datas);
 			}
 
@@ -158,7 +176,7 @@ public class SendGoodDocAddPanel extends AddDocPanel implements DocPanelForAppro
 
 			@Override
 			protected boolean saveToSQL() {
-				result = bl.add(vo = new SendGoodDocVO(id, myDate, sendMan, orderBarCode, sendCity));
+				result = bl.add(vo = new SendGoodDocVO(id, myDate, sendMan, orderBarCode));
 				if (result == ResultMessage.SUCCESS) {
 					new TipsDialog("成功生成送货单~", Color.GREEN);
 					return true;

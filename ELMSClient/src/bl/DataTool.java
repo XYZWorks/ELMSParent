@@ -182,9 +182,9 @@ public class DataTool {
 			al.add(new OutStoreDocVO("CKD1512230000001", d4, orderID, City.SHANGHAI,"ZZD1511140000001",TransferWay.car));
 			break;
 		case sendGoodDoc:
-			al.add(new SendGoodDocVO("PSD1511120000001", d2, "moxigan","3213640812",City.BEIJING));
-			al.add(new SendGoodDocVO("PSD1511130000001", d3, "dahuang","2343299830",City.NANJING));
-			al.add(new SendGoodDocVO("PSD1511150000001", d5, "dahuang","3225890830",City.GUANGZHOU));
+//			al.add(new SendGoodDocVO("PSD1511120000001", d2, "moxigan","3213640812",City.BEIJING));
+//			al.add(new SendGoodDocVO("PSD1511130000001", d3, "dahuang","2343299830",City.NANJING));
+//			al.add(new SendGoodDocVO("PSD1511150000001", d5, "dahuang","3225890830",City.GUANGZHOU));
 			break;
 		case transferDoc:
 			

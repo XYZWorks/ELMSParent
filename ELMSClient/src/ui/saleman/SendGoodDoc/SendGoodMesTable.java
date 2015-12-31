@@ -21,7 +21,7 @@ public class SendGoodMesTable extends MyTablePanel {
 	ArrayList<SendGoodDocVO> vos;
 	
 	String[] oneData = new String[COLUMN_NUM];
- 	private static final int COLUMN_NUM = 5;
+ 	private static final int COLUMN_NUM = 4;
 	
 	public SendGoodMesTable(Element config) {
 		super(config);
@@ -56,8 +56,7 @@ public class SendGoodMesTable extends MyTablePanel {
 			data[i][0] = vo.ID;
 			data[i][1] = MyDate.toString(vo.date);
 			data[i][2] = vo.sendMan;
-			data[i][3] = vo.orderBarCode;
-			data[i][4] = vo.sendCity.getName();
+			data[i][3] = String.valueOf(vo.orderBarCode.size());
 			
 		}
 
@@ -82,8 +81,7 @@ public class SendGoodMesTable extends MyTablePanel {
 		temp[0] = vo.ID;
 		temp[1] = MyDate.toString(vo.date);
 		temp[2] = vo.sendMan;
-		temp[3] = vo.orderBarCode;
-		temp[4] = vo.sendCity.getName();
+		temp[3] = String.valueOf(vo.orderBarCode.size());
 		addOneRow(temp);;
 	}
 	@Override

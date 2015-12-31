@@ -1892,7 +1892,7 @@
 					fontName="华文细黑" size="26" />
 				<search x="48" y="80" />
 				<datepicker x="758" y="80" width="40" height="40" />
-				<table x="48" y="150" width="750" height="420" column="ID 日期 送货员 订单号 到达地" />
+				<table x="48" y="150" width="750" height="420" column="ID 日期 送货员 订单号" />
 				<searchButton x="380" y="80" width="115" height="40"
 					text="搜索" type="cancel" />
 			</sendGoodDocShowPanel>
