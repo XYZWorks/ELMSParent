@@ -8,11 +8,9 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import bl.BusinessLogicDataFactory;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
-import ui.saleman.LoadDoc.LoadDocOrders;
 import ui.table.MyTablePanel;
 import ui.tools.AddDocPanel;
 import ui.tools.MyDatePicker;
@@ -29,6 +27,7 @@ import ui.util.TipsDialog;
 import util.MyDate;
 import util.ResultMessage;
 import vo.transport.PayDocVO;
+import bl.BusinessLogicDataFactory;
 import blservice.orderblservice.Orderblservice;
 import blservice.transportblservice.Transportblservice;
 
@@ -271,6 +270,7 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 		// moneyT.setText(String.valueOf(vo.money));
 		courierNameT.setText(vo.courierName);
 		date.setTime(vo.date);
+		ordersTable.removeAllRows();
 		for (String orders : vo.orders) {
 			ordersTable.addAOrder(orders);
 		}
@@ -278,8 +278,8 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 		for (int i = 0; i < vo.orders.size(); i++) {
 			sum += Double.parseDouble((String) ordersTable.getValueAt(i, 2));
 		}
-		payInfo.setText(String.valueOf(sum));
-		
+//		payInfo.setText(String.valueOf(sum));
+		moneyText.setText(String.valueOf(sum));
 		
 	}
 

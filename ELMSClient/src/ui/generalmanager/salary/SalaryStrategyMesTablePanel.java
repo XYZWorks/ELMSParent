@@ -68,7 +68,7 @@ public class SalaryStrategyMesTablePanel extends MyTablePanel{
 	@Override
 	public void updateTableMes() {
 		vos = bl.getsalary();
-if(vos != null){
+		if(vos != null){
 			
 			data = new String[vos.size()][COLUMN_NUM];
 			SalaryWayVO vo;
@@ -83,7 +83,7 @@ if(vos != null){
 			
 			
 		}
-table.getModel().setDataVector(data, columnName);
+		table.getModel().setDataVector(data, columnName);
 	}
 
 }

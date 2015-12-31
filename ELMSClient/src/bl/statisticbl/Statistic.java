@@ -57,7 +57,7 @@ public class Statistic {
 
 		ArrayList<CostIncomePO> pos = new ArrayList<CostIncomePO>();
 		
-			pos = statisticData.getCostIncomeForm();
+		pos = statisticData.getCostIncomeForm();
 		
 		if(pos == null){
 			return null;
