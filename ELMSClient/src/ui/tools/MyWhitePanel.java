@@ -19,28 +19,19 @@ import javax.swing.JPanel;
 public class MyWhitePanel extends JPanel {
 	private Color color;
 	private double alpha;
-<<<<<<< HEAD
 
 	public MyWhitePanel(Element config) {
 		this.setBounds(Integer.parseInt(config.attributeValue("x")), Integer.parseInt(config.attributeValue("y")),
 				Integer.parseInt(config.attributeValue("width")), Integer.parseInt(config.attributeValue("height")));
+		this.setLayout(null);
 		if (config.attributeValue("alpha") != null) {
-=======
-	
+			alpha = Double.parseDouble(config.attributeValue("alpha"));
+		}
+	}
+
 	public MyWhitePanel(Rectangle rectangle) {
 		this.setBounds(rectangle);
 		this.setLayout(null);
-	}
-	public MyWhitePanel(Element config ){
-		this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));
-		
-		if(config.attributeValue("alpha")!= null){
->>>>>>> origin/master
-			alpha = Double.parseDouble(config.attributeValue("alpha"));
-		}
-
-		this.setLayout(null);
-
 		this.setBackground(Color.WHITE);
 	}
 

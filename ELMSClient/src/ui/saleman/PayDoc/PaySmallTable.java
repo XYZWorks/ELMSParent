@@ -85,4 +85,8 @@ public class PaySmallTable extends MyTablePanel {
 	public double getMoneyTotal() {
 		return moneyTotal;
 	}
+	
+	public void setMoneyTotal(double moneyTotal){
+		this.moneyTotal=moneyTotal;
+	}
 }
