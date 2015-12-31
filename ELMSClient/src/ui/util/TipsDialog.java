@@ -31,7 +31,7 @@ public class TipsDialog extends JDialog{
 	private final static int PAUSE_TIME = 1000;
 	
 	private int nowTime = 1;
-	
+	private String text = "";
 	private static Rectangle bounds = new Rectangle(990, 600, 300, 100);
 	
 	private static final Image red = GraphicsUtils.getImage("element//TipsDialog-Wrong");
@@ -45,6 +45,14 @@ public class TipsDialog extends JDialog{
 			
 			GraphicsUtils.setAlpha(g, nowTime/(double)MAX_TIMES);
 			g.drawImage(bg, 0, 0, null);
+			g.setFont(new Font("华文细黑", Font.PLAIN, 18));
+			if(text.length() > 10){
+				g.drawString(text.substring(0, 9), 96, 53);
+				g.drawString(text.substring(9), 96, 73);
+			}else{
+				g.drawString(text, 96, 60);
+			}
+			
 			super.paintComponent(g);
 		}
 		
@@ -101,10 +109,10 @@ public class TipsDialog extends JDialog{
 		setBackground(new Color(0f, 0f, 0f, 0f));
 		label.setForeground(Color.WHITE);
 		label.setFont(font);
-        label.setText(message);
-        if(message.length() > 10){
-        	setBounds(getX(), getY(), getWidth()*2, getHeight());
-        }
+		text = message;
+//        label.setText(message);
+		bounds = new Rectangle(parent.getX() + 792, parent.getY() +  553, 299, 139);
+        setBounds(bounds);
         label.setHorizontalTextPosition(SwingConstants.CENTER);
     	label.setVerticalTextPosition(SwingConstants.CENTER);
         
