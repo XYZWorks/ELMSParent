@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Metrics scope="ELMSServer" type="Project" date="2015-11-16" xmlns="http://metrics.sourceforge.net/2003/Metrics-First-Flat">
+   <Metric id = "PAR" description ="Number of Parameters" max ="5" hint ="Move invoked method or pass an object">
+      <Values per = "method" avg = "0.608" stddev = "0.509" max = "2">
+         <Value name="check" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="2"/>
+         <Value name="addCarPO" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="addDriverPO" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="getCarMes" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="getDriverMes" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="updateCarPo" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="updateDriverPo" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="add" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="1"/>
+         <Value name="delete" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="1"/>
+         <Value name="find" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="1"/>
+         <Value name="getMes" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="1"/>
+         <Value name="main" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="1"/>
+         <Value name="modify" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="1"/>
+         <Value name="addDeposit" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="addPay" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="add" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="del" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="modify" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="addDocToList" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="add" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="del" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="getDayOrderPO" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="getSingleOrderDocs" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="getSingleOrderPO" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="receiveInfo" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="addInst" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="addPerson" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="delInst" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="delPerson" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="getPeoByInst" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="getPeoByName" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="getPersonByID" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="main" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="CostIncomeForm" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="bulidBill" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="bulidStateForm" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="addIn" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="addOut" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="alarmValue" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="storeCheck" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="update" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="bulidBill" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="getOneSalary" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="setConst" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="setSalaryWay" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="addArriveYYDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addArriveZZDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addLoadDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addSendGoodDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addTransferDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getArriveYYDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getArriveZZDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getLoadDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getSendGoodDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getTransferDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getDoResult" source ="DataSuperClass.java" package ="dataSuper" value ="1"/>
+         <Value name="main" source ="RMIManage.java" package ="data" value ="1"/>
+         <Value name="main" source ="ServerMain.java" package ="main" value ="1"/>
+         <Value name="DTManageDataImpl" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="0"/>
+         <Value name="AccountDataServiceImplBySQL" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="0"/>
+         <Value name="initial" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="0"/>
+         <Value name="DataFactory" source ="DataFactory.java" package ="data.datafactory" value ="0"/>
+         <Value name="getAccountDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="0"/>
+         <Value name="getDTMangeDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="0"/>
+         <Value name="getDataFactory" source ="DataFactory.java" package ="data.datafactory" value ="0"/>
+         <Value name="getFinanceDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="0"/>
+         <Value name="getOrderDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="0"/>
+         <Value name="getPersonnelDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="0"/>
+         <Value name="getStatisticDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="0"/>
+         <Value name="getStoreDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="0"/>
+         <Value name="getStrategyDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="0"/>
+         <Value name="getTransportDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="0"/>
+         <Value name="FinanceDataImpl" source ="FinanceDataImpl.java" package ="data.financedata" value ="0"/>
+         <Value name="getDepositPO" source ="FinanceDataImpl.java" package ="data.financedata" value ="0"/>
+         <Value name="getPayPO" source ="FinanceDataImpl.java" package ="data.financedata" value ="0"/>
+         <Value name="show" source ="FinanceDataImpl.java" package ="data.financedata" value ="0"/>
+         <Value name="OrderDataImpl" source ="OrderDataImpl.java" package ="data.orderdata" value ="0"/>
+         <Value name="PersonnelDataServiceImpl" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="0"/>
+         <Value name="getInst" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="0"/>
+         <Value name="StatisticDataImpl" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="0"/>
+         <Value name="getBills" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="0"/>
+         <Value name="getCostIncomeForm" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="0"/>
+         <Value name="getStateForm" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="0"/>
+         <Value name="StoreDataImpl" source ="StoreDataImpl.java" package ="data.storedata" value ="0"/>
+         <Value name="getCheck" source ="StoreDataImpl.java" package ="data.storedata" value ="0"/>
+         <Value name="getIn" source ="StoreDataImpl.java" package ="data.storedata" value ="0"/>
+         <Value name="getOut" source ="StoreDataImpl.java" package ="data.storedata" value ="0"/>
+         <Value name="getStoreMessage" source ="StoreDataImpl.java" package ="data.storedata" value ="0"/>
+         <Value name="StrategyDataImpl" source ="StrategyDataImpl.java" package ="data.strategydata" value ="0"/>
+         <Value name="getBills" source ="StrategyDataImpl.java" package ="data.strategydata" value ="0"/>
+         <Value name="getConst" source ="StrategyDataImpl.java" package ="data.strategydata" value ="0"/>
+         <Value name="getSalary" source ="StrategyDataImpl.java" package ="data.strategydata" value ="0"/>
+         <Value name="TransportDataImpl" source ="TransportDataImpl.java" package ="data.transportdata" value ="0"/>
+         <Value name="DataSuperClass" source ="DataSuperClass.java" package ="dataSuper" value ="0"/>
+         <Value name="RMIManage" source ="RMIManage.java" package ="data" value ="0"/>
+         <Value name="startRMI" source ="RMIManage.java" package ="data" value ="0"/>
+         <Value name="stopRMI" source ="RMIManage.java" package ="data" value ="0"/>
+      </Values>
+   </Metric>
+   <Metric id = "NSF" description ="Number of Static Attributes">
+      <Values per = "type" total = "11" avg = "0.786" stddev = "0.41" max = "1">
+         <Value name="DTManageDataImpl" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="AccountDataServiceImplBySQL" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="1"/>
+         <Value name="DataFactory" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="FinanceDataImpl" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="OrderDataImpl" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="PersonnelDataServiceImpl" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="StatisticDataImpl" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="StoreDataImpl" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="StrategyDataImpl" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="TransportDataImpl" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="DataSuperClass" source ="DataSuperClass.java" package ="dataSuper" value ="1"/>
+         <Value name="RMIManage" source ="RMIManage.java" package ="data" value ="0"/>
+         <Value name="ServerMain" source ="ServerMain.java" package ="main" value ="0"/>
+         <Value name="Mainui" source ="Mainui.java" package ="ui" value ="0"/>
+      </Values>
+   </Metric>
+   <Metric id = "CE" description ="Efferent Coupling">
+      <Values per = "packageFragment" avg = "0.857" stddev = "0.35" max = "1">
+         <Value name="data" package ="data" value ="1"/>
+         <Value name="data.DTManagedata" package ="data.DTManagedata" value ="1"/>
+         <Value name="data.accountdata" package ="data.accountdata" value ="1"/>
+         <Value name="data.datafactory" package ="data.datafactory" value ="1"/>
+         <Value name="data.financedata" package ="data.financedata" value ="1"/>
+         <Value name="data.orderdata" package ="data.orderdata" value ="1"/>
+         <Value name="data.personneldata" package ="data.personneldata" value ="1"/>
+         <Value name="data.statisticdata" package ="data.statisticdata" value ="1"/>
+         <Value name="data.storedata" package ="data.storedata" value ="1"/>
+         <Value name="data.strategydata" package ="data.strategydata" value ="1"/>
+         <Value name="data.transportdata" package ="data.transportdata" value ="1"/>
+         <Value name="dataSuper" package ="dataSuper" value ="1"/>
+         <Value name="main" package ="main" value ="0"/>
+         <Value name="ui" package ="ui" value ="0"/>
+      </Values>
+   </Metric>
+   <Metric id = "SIX" description ="Specialization Index">
+      <Values per = "type" avg = "0" stddev = "0" max = "0">
+         <Value name="DTManageDataImpl" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="0"/>
+         <Value name="AccountDataServiceImplBySQL" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="0"/>
+         <Value name="DataFactory" source ="DataFactory.java" package ="data.datafactory" value ="0"/>
+         <Value name="FinanceDataImpl" source ="FinanceDataImpl.java" package ="data.financedata" value ="0"/>
+         <Value name="OrderDataImpl" source ="OrderDataImpl.java" package ="data.orderdata" value ="0"/>
+         <Value name="PersonnelDataServiceImpl" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="0"/>
+         <Value name="StatisticDataImpl" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="0"/>
+         <Value name="StoreDataImpl" source ="StoreDataImpl.java" package ="data.storedata" value ="0"/>
+         <Value name="StrategyDataImpl" source ="StrategyDataImpl.java" package ="data.strategydata" value ="0"/>
+         <Value name="TransportDataImpl" source ="TransportDataImpl.java" package ="data.transportdata" value ="0"/>
+         <Value name="DataSuperClass" source ="DataSuperClass.java" package ="dataSuper" value ="0"/>
+         <Value name="RMIManage" source ="RMIManage.java" package ="data" value ="0"/>
+         <Value name="ServerMain" source ="ServerMain.java" package ="main" value ="0"/>
+         <Value name="Mainui" source ="Mainui.java" package ="ui" value ="0"/>
+      </Values>
+   </Metric>
+   <Metric id = "NOC" description ="Number of Classes">
+      <Values per = "packageFragment" total = "14" avg = "1" stddev = "0" max = "1">
+         <Value name="data" package ="data" value ="1"/>
+         <Value name="data.DTManagedata" package ="data.DTManagedata" value ="1"/>
+         <Value name="data.accountdata" package ="data.accountdata" value ="1"/>
+         <Value name="data.datafactory" package ="data.datafactory" value ="1"/>
+         <Value name="data.financedata" package ="data.financedata" value ="1"/>
+         <Value name="data.orderdata" package ="data.orderdata" value ="1"/>
+         <Value name="data.personneldata" package ="data.personneldata" value ="1"/>
+         <Value name="data.statisticdata" package ="data.statisticdata" value ="1"/>
+         <Value name="data.storedata" package ="data.storedata" value ="1"/>
+         <Value name="data.strategydata" package ="data.strategydata" value ="1"/>
+         <Value name="data.transportdata" package ="data.transportdata" value ="1"/>
+         <Value name="dataSuper" package ="dataSuper" value ="1"/>
+         <Value name="main" package ="main" value ="1"/>
+         <Value name="ui" package ="ui" value ="1"/>
+      </Values>
+   </Metric>
+   <Metric id = "NOF" description ="Number of Attributes">
+      <Values per = "type" total = "9" avg = "0.643" stddev = "1.586" max = "5">
+         <Value name="RMIManage" source ="RMIManage.java" package ="data" value ="5"/>
+         <Value name="DataSuperClass" source ="DataSuperClass.java" package ="dataSuper" value ="4"/>
+         <Value name="DTManageDataImpl" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="0"/>
+         <Value name="AccountDataServiceImplBySQL" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="0"/>
+         <Value name="DataFactory" source ="DataFactory.java" package ="data.datafactory" value ="0"/>
+         <Value name="FinanceDataImpl" source ="FinanceDataImpl.java" package ="data.financedata" value ="0"/>
+         <Value name="OrderDataImpl" source ="OrderDataImpl.java" package ="data.orderdata" value ="0"/>
+         <Value name="PersonnelDataServiceImpl" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="0"/>
+         <Value name="StatisticDataImpl" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="0"/>
+         <Value name="StoreDataImpl" source ="StoreDataImpl.java" package ="data.storedata" value ="0"/>
+         <Value name="StrategyDataImpl" source ="StrategyDataImpl.java" package ="data.strategydata" value ="0"/>
+         <Value name="TransportDataImpl" source ="TransportDataImpl.java" package ="data.transportdata" value ="0"/>
+         <Value name="ServerMain" source ="ServerMain.java" package ="main" value ="0"/>
+         <Value name="Mainui" source ="Mainui.java" package ="ui" value ="0"/>
+      </Values>
+   </Metric>
+   <Metric id = "RMA" description ="Abstractness">
+      <Values per = "packageFragment" avg = "0" stddev = "0" max = "0">
+         <Value name="data" package ="data" value ="0"/>
+         <Value name="data.DTManagedata" package ="data.DTManagedata" value ="0"/>
+         <Value name="data.accountdata" package ="data.accountdata" value ="0"/>
+         <Value name="data.datafactory" package ="data.datafactory" value ="0"/>
+         <Value name="data.financedata" package ="data.financedata" value ="0"/>
+         <Value name="data.orderdata" package ="data.orderdata" value ="0"/>
+         <Value name="data.personneldata" package ="data.personneldata" value ="0"/>
+         <Value name="data.statisticdata" package ="data.statisticdata" value ="0"/>
+         <Value name="data.storedata" package ="data.storedata" value ="0"/>
+         <Value name="data.strategydata" package ="data.strategydata" value ="0"/>
+         <Value name="data.transportdata" package ="data.transportdata" value ="0"/>
+         <Value name="dataSuper" package ="dataSuper" value ="0"/>
+         <Value name="main" package ="main" value ="0"/>
+         <Value name="ui" package ="ui" value ="0"/>
+      </Values>
+   </Metric>
+   <Metric id = "RMD" description ="Normalized Distance">
+      <Values per = "packageFragment" avg = "0.421" stddev = "0.243" max = "0.9">
+         <Value name="dataSuper" package ="dataSuper" value ="0.9"/>
+         <Value name="data.DTManagedata" package ="data.DTManagedata" value ="0.5"/>
+         <Value name="data.accountdata" package ="data.accountdata" value ="0.5"/>
+         <Value name="data.datafactory" package ="data.datafactory" value ="0.5"/>
+         <Value name="data.financedata" package ="data.financedata" value ="0.5"/>
+         <Value name="data.orderdata" package ="data.orderdata" value ="0.5"/>
+         <Value name="data.personneldata" package ="data.personneldata" value ="0.5"/>
+         <Value name="data.statisticdata" package ="data.statisticdata" value ="0.5"/>
+         <Value name="data.storedata" package ="data.storedata" value ="0.5"/>
+         <Value name="data.strategydata" package ="data.strategydata" value ="0.5"/>
+         <Value name="data.transportdata" package ="data.transportdata" value ="0.5"/>
+         <Value name="data" package ="data" value ="0"/>
+         <Value name="main" package ="main" value ="0"/>
+         <Value name="ui" package ="ui" value ="0"/>
+      </Values>
+   </Metric>
+   <Metric id = "NSM" description ="Number of Static Methods">
+      <Values per = "type" total = "5" avg = "0.357" stddev = "0.479" max = "1">
+         <Value name="AccountDataServiceImplBySQL" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="1"/>
+         <Value name="DataFactory" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="PersonnelDataServiceImpl" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="RMIManage" source ="RMIManage.java" package ="data" value ="1"/>
+         <Value name="ServerMain" source ="ServerMain.java" package ="main" value ="1"/>
+         <Value name="DTManageDataImpl" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="0"/>
+         <Value name="FinanceDataImpl" source ="FinanceDataImpl.java" package ="data.financedata" value ="0"/>
+         <Value name="OrderDataImpl" source ="OrderDataImpl.java" package ="data.orderdata" value ="0"/>
+         <Value name="StatisticDataImpl" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="0"/>
+         <Value name="StoreDataImpl" source ="StoreDataImpl.java" package ="data.storedata" value ="0"/>
+         <Value name="StrategyDataImpl" source ="StrategyDataImpl.java" package ="data.strategydata" value ="0"/>
+         <Value name="TransportDataImpl" source ="TransportDataImpl.java" package ="data.transportdata" value ="0"/>
+         <Value name="DataSuperClass" source ="DataSuperClass.java" package ="dataSuper" value ="0"/>
+         <Value name="Mainui" source ="Mainui.java" package ="ui" value ="0"/>
+      </Values>
+   </Metric>
+   <Metric id = "NOI" description ="Number of Interfaces">
+      <Values per = "packageFragment" total = "0" avg = "0" stddev = "0" max = "0">
+         <Value name="data" package ="data" value ="0"/>
+         <Value name="data.DTManagedata" package ="data.DTManagedata" value ="0"/>
+         <Value name="data.accountdata" package ="data.accountdata" value ="0"/>
+         <Value name="data.datafactory" package ="data.datafactory" value ="0"/>
+         <Value name="data.financedata" package ="data.financedata" value ="0"/>
+         <Value name="data.orderdata" package ="data.orderdata" value ="0"/>
+         <Value name="data.personneldata" package ="data.personneldata" value ="0"/>
+         <Value name="data.statisticdata" package ="data.statisticdata" value ="0"/>
+         <Value name="data.storedata" package ="data.storedata" value ="0"/>
+         <Value name="data.strategydata" package ="data.strategydata" value ="0"/>
+         <Value name="data.transportdata" package ="data.transportdata" value ="0"/>
+         <Value name="dataSuper" package ="dataSuper" value ="0"/>
+         <Value name="main" package ="main" value ="0"/>
+         <Value name="ui" package ="ui" value ="0"/>
+      </Values>
+   </Metric>
+   <Metric id = "TLOC" description ="Total Lines of Code">
+      <Value value="641"/>
+   </Metric>
+   <Metric id = "WMC" description ="Weighted methods per Class">
+      <Values per = "type" total = "128" avg = "9.143" stddev = "5.841" max = "23">
+         <Value name="AccountDataServiceImplBySQL" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="23"/>
+         <Value name="PersonnelDataServiceImpl" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="18"/>
+         <Value name="DataFactory" source ="DataFactory.java" package ="data.datafactory" value ="13"/>
+         <Value name="TransportDataImpl" source ="TransportDataImpl.java" package ="data.transportdata" value ="11"/>
+         <Value name="StoreDataImpl" source ="StoreDataImpl.java" package ="data.storedata" value ="10"/>
+         <Value name="FinanceDataImpl" source ="FinanceDataImpl.java" package ="data.financedata" value ="9"/>
+         <Value name="RMIManage" source ="RMIManage.java" package ="data" value ="9"/>
+         <Value name="OrderDataImpl" source ="OrderDataImpl.java" package ="data.orderdata" value ="8"/>
+         <Value name="StrategyDataImpl" source ="StrategyDataImpl.java" package ="data.strategydata" value ="8"/>
+         <Value name="DTManageDataImpl" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="7"/>
+         <Value name="StatisticDataImpl" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="7"/>
+         <Value name="DataSuperClass" source ="DataSuperClass.java" package ="dataSuper" value ="4"/>
+         <Value name="ServerMain" source ="ServerMain.java" package ="main" value ="1"/>
+         <Value name="Mainui" source ="Mainui.java" package ="ui" value ="0"/>
+      </Values>
+   </Metric>
+   <Metric id = "NOM" description ="Number of Methods">
+      <Values per = "type" total = "92" avg = "6.571" stddev = "3.6" max = "11">
+         <Value name="TransportDataImpl" source ="TransportDataImpl.java" package ="data.transportdata" value ="11"/>
+         <Value name="DataFactory" source ="DataFactory.java" package ="data.datafactory" value ="10"/>
+         <Value name="StoreDataImpl" source ="StoreDataImpl.java" package ="data.storedata" value ="10"/>
+         <Value name="FinanceDataImpl" source ="FinanceDataImpl.java" package ="data.financedata" value ="9"/>
+         <Value name="PersonnelDataServiceImpl" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="9"/>
+         <Value name="AccountDataServiceImplBySQL" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="8"/>
+         <Value name="OrderDataImpl" source ="OrderDataImpl.java" package ="data.orderdata" value ="8"/>
+         <Value name="StrategyDataImpl" source ="StrategyDataImpl.java" package ="data.strategydata" value ="8"/>
+         <Value name="DTManageDataImpl" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="7"/>
+         <Value name="StatisticDataImpl" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="7"/>
+         <Value name="RMIManage" source ="RMIManage.java" package ="data" value ="3"/>
+         <Value name="DataSuperClass" source ="DataSuperClass.java" package ="dataSuper" value ="2"/>
+         <Value name="ServerMain" source ="ServerMain.java" package ="main" value ="0"/>
+         <Value name="Mainui" source ="Mainui.java" package ="ui" value ="0"/>
+      </Values>
+   </Metric>
+   <Metric id = "DIT" description ="Depth of Inheritance Tree">
+      <Values per = "type" avg = "3.786" stddev = "1.78" max = "5">
+         <Value name="DTManageDataImpl" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="5"/>
+         <Value name="AccountDataServiceImplBySQL" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="5"/>
+         <Value name="FinanceDataImpl" source ="FinanceDataImpl.java" package ="data.financedata" value ="5"/>
+         <Value name="OrderDataImpl" source ="OrderDataImpl.java" package ="data.orderdata" value ="5"/>
+         <Value name="PersonnelDataServiceImpl" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="5"/>
+         <Value name="StatisticDataImpl" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="5"/>
+         <Value name="StoreDataImpl" source ="StoreDataImpl.java" package ="data.storedata" value ="5"/>
+         <Value name="StrategyDataImpl" source ="StrategyDataImpl.java" package ="data.strategydata" value ="5"/>
+         <Value name="TransportDataImpl" source ="TransportDataImpl.java" package ="data.transportdata" value ="5"/>
+         <Value name="DataSuperClass" source ="DataSuperClass.java" package ="dataSuper" value ="4"/>
+         <Value name="DataFactory" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="RMIManage" source ="RMIManage.java" package ="data" value ="1"/>
+         <Value name="ServerMain" source ="ServerMain.java" package ="main" value ="1"/>
+         <Value name="Mainui" source ="Mainui.java" package ="ui" value ="1"/>
+      </Values>
+   </Metric>
+   <Metric id = "NOP" description ="Number of Packages">
+      <Value value="14"/>
+   </Metric>
+   <Metric id = "RMI" description ="Instability">
+      <Values per = "packageFragment" avg = "0.579" stddev = "0.243" max = "1">
+         <Value name="data" package ="data" value ="1"/>
+         <Value name="main" package ="main" value ="1"/>
+         <Value name="ui" package ="ui" value ="1"/>
+         <Value name="data.DTManagedata" package ="data.DTManagedata" value ="0.5"/>
+         <Value name="data.accountdata" package ="data.accountdata" value ="0.5"/>
+         <Value name="data.datafactory" package ="data.datafactory" value ="0.5"/>
+         <Value name="data.financedata" package ="data.financedata" value ="0.5"/>
+         <Value name="data.orderdata" package ="data.orderdata" value ="0.5"/>
+         <Value name="data.personneldata" package ="data.personneldata" value ="0.5"/>
+         <Value name="data.statisticdata" package ="data.statisticdata" value ="0.5"/>
+         <Value name="data.storedata" package ="data.storedata" value ="0.5"/>
+         <Value name="data.strategydata" package ="data.strategydata" value ="0.5"/>
+         <Value name="data.transportdata" package ="data.transportdata" value ="0.5"/>
+         <Value name="dataSuper" package ="dataSuper" value ="0.1"/>
+      </Values>
+   </Metric>
+   <Metric id = "VG" description ="McCabe Cyclomatic Complexity" max ="10" hint ="use Extract-method to split the method up">
+      <Values per = "method" avg = "1.32" stddev = "0.844" max = "5">
+         <Value name="check" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="5"/>
+         <Value name="startRMI" source ="RMIManage.java" package ="data" value ="5"/>
+         <Value name="find" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="4"/>
+         <Value name="getMes" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="4"/>
+         <Value name="getPeoByInst" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="4"/>
+         <Value name="getPeoByName" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="3"/>
+         <Value name="getPersonByID" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="3"/>
+         <Value name="getDoResult" source ="DataSuperClass.java" package ="dataSuper" value ="3"/>
+         <Value name="add" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="2"/>
+         <Value name="delete" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="2"/>
+         <Value name="main" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="2"/>
+         <Value name="modify" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="2"/>
+         <Value name="getDataFactory" source ="DataFactory.java" package ="data.datafactory" value ="2"/>
+         <Value name="getPersonnelDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="2"/>
+         <Value name="addPerson" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="2"/>
+         <Value name="RMIManage" source ="RMIManage.java" package ="data" value ="2"/>
+         <Value name="DTManageDataImpl" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="addCarPO" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="addDriverPO" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="getCarMes" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="getDriverMes" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="updateCarPo" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="updateDriverPo" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="AccountDataServiceImplBySQL" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="1"/>
+         <Value name="initial" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="1"/>
+         <Value name="DataFactory" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getAccountDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getDTMangeDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getFinanceDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getOrderDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getStatisticDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getStoreDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getStrategyDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getTransportDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="FinanceDataImpl" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="addDeposit" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="addPay" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="add" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="del" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="getDepositPO" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="getPayPO" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="modify" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="show" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="OrderDataImpl" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="addDocToList" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="add" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="del" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="getDayOrderPO" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="getSingleOrderDocs" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="getSingleOrderPO" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="receiveInfo" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="PersonnelDataServiceImpl" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="addInst" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="delInst" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="delPerson" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="getInst" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="main" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="CostIncomeForm" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="StatisticDataImpl" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="bulidBill" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="bulidStateForm" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="getBills" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="getCostIncomeForm" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="getStateForm" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="StoreDataImpl" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="addIn" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="addOut" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="alarmValue" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="getCheck" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="getIn" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="getOut" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="getStoreMessage" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="storeCheck" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="update" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="StrategyDataImpl" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="bulidBill" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="getBills" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="getConst" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="getOneSalary" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="getSalary" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="setConst" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="setSalaryWay" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="TransportDataImpl" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addArriveYYDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addArriveZZDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addLoadDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addSendGoodDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addTransferDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getArriveYYDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getArriveZZDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getLoadDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getSendGoodDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getTransferDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="DataSuperClass" source ="DataSuperClass.java" package ="dataSuper" value ="1"/>
+         <Value name="main" source ="RMIManage.java" package ="data" value ="1"/>
+         <Value name="stopRMI" source ="RMIManage.java" package ="data" value ="1"/>
+         <Value name="main" source ="ServerMain.java" package ="main" value ="1"/>
+      </Values>
+   </Metric>
+   <Metric id = "NBD" description ="Nested Block Depth" max ="5" hint ="use Extract-method to split the method up">
+      <Values per = "method" avg = "1.268" stddev = "0.681" max = "4">
+         <Value name="check" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="4"/>
+         <Value name="find" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="4"/>
+         <Value name="getMes" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="4"/>
+         <Value name="getPeoByInst" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="3"/>
+         <Value name="getPeoByName" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="3"/>
+         <Value name="getPersonByID" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="3"/>
+         <Value name="getDoResult" source ="DataSuperClass.java" package ="dataSuper" value ="3"/>
+         <Value name="add" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="2"/>
+         <Value name="delete" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="2"/>
+         <Value name="main" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="2"/>
+         <Value name="modify" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="2"/>
+         <Value name="getDataFactory" source ="DataFactory.java" package ="data.datafactory" value ="2"/>
+         <Value name="getPersonnelDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="2"/>
+         <Value name="addPerson" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="2"/>
+         <Value name="RMIManage" source ="RMIManage.java" package ="data" value ="2"/>
+         <Value name="startRMI" source ="RMIManage.java" package ="data" value ="2"/>
+         <Value name="DTManageDataImpl" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="addCarPO" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="addDriverPO" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="getCarMes" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="getDriverMes" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="updateCarPo" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="updateDriverPo" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="AccountDataServiceImplBySQL" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="1"/>
+         <Value name="initial" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="1"/>
+         <Value name="DataFactory" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getAccountDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getDTMangeDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getFinanceDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getOrderDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getStatisticDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getStoreDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getStrategyDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getTransportDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="FinanceDataImpl" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="addDeposit" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="addPay" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="add" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="del" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="getDepositPO" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="getPayPO" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="modify" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="show" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="OrderDataImpl" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="addDocToList" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="add" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="del" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="getDayOrderPO" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="getSingleOrderDocs" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="getSingleOrderPO" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="receiveInfo" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="PersonnelDataServiceImpl" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="addInst" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="delInst" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="delPerson" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="getInst" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="main" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="CostIncomeForm" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="StatisticDataImpl" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="bulidBill" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="bulidStateForm" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="getBills" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="getCostIncomeForm" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="getStateForm" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="StoreDataImpl" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="addIn" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="addOut" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="alarmValue" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="getCheck" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="getIn" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="getOut" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="getStoreMessage" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="storeCheck" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="update" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="StrategyDataImpl" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="bulidBill" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="getBills" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="getConst" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="getOneSalary" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="getSalary" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="setConst" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="setSalaryWay" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="TransportDataImpl" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addArriveYYDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addArriveZZDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addLoadDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addSendGoodDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addTransferDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getArriveYYDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getArriveZZDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getLoadDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getSendGoodDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getTransferDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="DataSuperClass" source ="DataSuperClass.java" package ="dataSuper" value ="1"/>
+         <Value name="main" source ="RMIManage.java" package ="data" value ="1"/>
+         <Value name="stopRMI" source ="RMIManage.java" package ="data" value ="1"/>
+         <Value name="main" source ="ServerMain.java" package ="main" value ="1"/>
+      </Values>
+   </Metric>
+   <Metric id = "LCOM" description ="Lack of Cohesion of Methods">
+      <Values per = "type" avg = "0.029" stddev = "0.103" max = "0.4">
+         <Value name="RMIManage" source ="RMIManage.java" package ="data" value ="0.4"/>
+         <Value name="DTManageDataImpl" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="0"/>
+         <Value name="AccountDataServiceImplBySQL" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="0"/>
+         <Value name="DataFactory" source ="DataFactory.java" package ="data.datafactory" value ="0"/>
+         <Value name="FinanceDataImpl" source ="FinanceDataImpl.java" package ="data.financedata" value ="0"/>
+         <Value name="OrderDataImpl" source ="OrderDataImpl.java" package ="data.orderdata" value ="0"/>
+         <Value name="PersonnelDataServiceImpl" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="0"/>
+         <Value name="StatisticDataImpl" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="0"/>
+         <Value name="StoreDataImpl" source ="StoreDataImpl.java" package ="data.storedata" value ="0"/>
+         <Value name="StrategyDataImpl" source ="StrategyDataImpl.java" package ="data.strategydata" value ="0"/>
+         <Value name="TransportDataImpl" source ="TransportDataImpl.java" package ="data.transportdata" value ="0"/>
+         <Value name="DataSuperClass" source ="DataSuperClass.java" package ="dataSuper" value ="0"/>
+         <Value name="ServerMain" source ="ServerMain.java" package ="main" value ="0"/>
+         <Value name="Mainui" source ="Mainui.java" package ="ui" value ="0"/>
+      </Values>
+   </Metric>
+   <Metric id = "MLOC" description ="Method Lines of Code">
+      <Values per = "method" total = "268" avg = "2.763" stddev = "4.388" max = "25">
+         <Value name="startRMI" source ="RMIManage.java" package ="data" value ="25"/>
+         <Value name="getPeoByInst" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="16"/>
+         <Value name="find" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="15"/>
+         <Value name="getPeoByName" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="14"/>
+         <Value name="add" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="13"/>
+         <Value name="check" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="13"/>
+         <Value name="getMes" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="13"/>
+         <Value name="addPerson" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="12"/>
+         <Value name="modify" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="11"/>
+         <Value name="getPersonByID" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="11"/>
+         <Value name="RMIManage" source ="RMIManage.java" package ="data" value ="9"/>
+         <Value name="main" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="8"/>
+         <Value name="getDoResult" source ="DataSuperClass.java" package ="dataSuper" value ="8"/>
+         <Value name="delete" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="7"/>
+         <Value name="getPersonnelDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="7"/>
+         <Value name="getDataFactory" source ="DataFactory.java" package ="data.datafactory" value ="4"/>
+         <Value name="main" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="3"/>
+         <Value name="main" source ="RMIManage.java" package ="data" value ="2"/>
+         <Value name="DTManageDataImpl" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="addCarPO" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="addDriverPO" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="getCarMes" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="getDriverMes" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="updateCarPo" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="updateDriverPo" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="1"/>
+         <Value name="AccountDataServiceImplBySQL" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="1"/>
+         <Value name="initial" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="1"/>
+         <Value name="getAccountDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getDTMangeDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getFinanceDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getOrderDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getStatisticDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getStoreDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getStrategyDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="getTransportDataImpl" source ="DataFactory.java" package ="data.datafactory" value ="1"/>
+         <Value name="FinanceDataImpl" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="addDeposit" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="addPay" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="add" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="del" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="getDepositPO" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="getPayPO" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="modify" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="show" source ="FinanceDataImpl.java" package ="data.financedata" value ="1"/>
+         <Value name="OrderDataImpl" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="addDocToList" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="add" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="del" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="getDayOrderPO" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="getSingleOrderDocs" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="getSingleOrderPO" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="receiveInfo" source ="OrderDataImpl.java" package ="data.orderdata" value ="1"/>
+         <Value name="PersonnelDataServiceImpl" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="addInst" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="delInst" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="delPerson" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="getInst" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="1"/>
+         <Value name="CostIncomeForm" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="StatisticDataImpl" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="bulidBill" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="bulidStateForm" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="getBills" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="getCostIncomeForm" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="getStateForm" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="1"/>
+         <Value name="StoreDataImpl" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="addIn" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="addOut" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="alarmValue" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="getCheck" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="getIn" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="getOut" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="getStoreMessage" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="storeCheck" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="update" source ="StoreDataImpl.java" package ="data.storedata" value ="1"/>
+         <Value name="StrategyDataImpl" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="bulidBill" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="getBills" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="getConst" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="getOneSalary" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="getSalary" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="setConst" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="setSalaryWay" source ="StrategyDataImpl.java" package ="data.strategydata" value ="1"/>
+         <Value name="TransportDataImpl" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addArriveYYDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addArriveZZDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addLoadDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addSendGoodDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="addTransferDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getArriveYYDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getArriveZZDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getLoadDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getSendGoodDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="getTransferDocPO" source ="TransportDataImpl.java" package ="data.transportdata" value ="1"/>
+         <Value name="DataSuperClass" source ="DataSuperClass.java" package ="dataSuper" value ="1"/>
+         <Value name="stopRMI" source ="RMIManage.java" package ="data" value ="1"/>
+         <Value name="DataFactory" source ="DataFactory.java" package ="data.datafactory" value ="0"/>
+         <Value name="main" source ="ServerMain.java" package ="main" value ="0"/>
+      </Values>
+   </Metric>
+   <Metric id = "NORM" description ="Number of Overridden Methods">
+      <Values per = "type" total = "0" avg = "0" stddev = "0" max = "0">
+         <Value name="DTManageDataImpl" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="0"/>
+         <Value name="AccountDataServiceImplBySQL" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="0"/>
+         <Value name="DataFactory" source ="DataFactory.java" package ="data.datafactory" value ="0"/>
+         <Value name="FinanceDataImpl" source ="FinanceDataImpl.java" package ="data.financedata" value ="0"/>
+         <Value name="OrderDataImpl" source ="OrderDataImpl.java" package ="data.orderdata" value ="0"/>
+         <Value name="PersonnelDataServiceImpl" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="0"/>
+         <Value name="StatisticDataImpl" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="0"/>
+         <Value name="StoreDataImpl" source ="StoreDataImpl.java" package ="data.storedata" value ="0"/>
+         <Value name="StrategyDataImpl" source ="StrategyDataImpl.java" package ="data.strategydata" value ="0"/>
+         <Value name="TransportDataImpl" source ="TransportDataImpl.java" package ="data.transportdata" value ="0"/>
+         <Value name="DataSuperClass" source ="DataSuperClass.java" package ="dataSuper" value ="0"/>
+         <Value name="RMIManage" source ="RMIManage.java" package ="data" value ="0"/>
+         <Value name="ServerMain" source ="ServerMain.java" package ="main" value ="0"/>
+         <Value name="Mainui" source ="Mainui.java" package ="ui" value ="0"/>
+      </Values>
+   </Metric>
+   <Metric id = "CA" description ="Afferent Coupling">
+      <Values per = "packageFragment" avg = "1.357" stddev = "2.158" max = "9">
+         <Value name="dataSuper" package ="dataSuper" value ="9"/>
+         <Value name="data.DTManagedata" package ="data.DTManagedata" value ="1"/>
+         <Value name="data.accountdata" package ="data.accountdata" value ="1"/>
+         <Value name="data.datafactory" package ="data.datafactory" value ="1"/>
+         <Value name="data.financedata" package ="data.financedata" value ="1"/>
+         <Value name="data.orderdata" package ="data.orderdata" value ="1"/>
+         <Value name="data.personneldata" package ="data.personneldata" value ="1"/>
+         <Value name="data.statisticdata" package ="data.statisticdata" value ="1"/>
+         <Value name="data.storedata" package ="data.storedata" value ="1"/>
+         <Value name="data.strategydata" package ="data.strategydata" value ="1"/>
+         <Value name="data.transportdata" package ="data.transportdata" value ="1"/>
+         <Value name="data" package ="data" value ="0"/>
+         <Value name="main" package ="main" value ="0"/>
+         <Value name="ui" package ="ui" value ="0"/>
+      </Values>
+   </Metric>
+   <Metric id = "NSC" description ="Number of Children">
+      <Values per = "type" total = "9" avg = "0.643" stddev = "2.318" max = "9">
+         <Value name="DataSuperClass" source ="DataSuperClass.java" package ="dataSuper" value ="9"/>
+         <Value name="DTManageDataImpl" source ="DTManageDataImpl.java" package ="data.DTManagedata" value ="0"/>
+         <Value name="AccountDataServiceImplBySQL" source ="AccountDataServiceImplBySQL.java" package ="data.accountdata" value ="0"/>
+         <Value name="DataFactory" source ="DataFactory.java" package ="data.datafactory" value ="0"/>
+         <Value name="FinanceDataImpl" source ="FinanceDataImpl.java" package ="data.financedata" value ="0"/>
+         <Value name="OrderDataImpl" source ="OrderDataImpl.java" package ="data.orderdata" value ="0"/>
+         <Value name="PersonnelDataServiceImpl" source ="PersonnelDataServiceImpl.java" package ="data.personneldata" value ="0"/>
+         <Value name="StatisticDataImpl" source ="StatisticDataImpl.java" package ="data.statisticdata" value ="0"/>
+         <Value name="StoreDataImpl" source ="StoreDataImpl.java" package ="data.storedata" value ="0"/>
+         <Value name="StrategyDataImpl" source ="StrategyDataImpl.java" package ="data.strategydata" value ="0"/>
+         <Value name="TransportDataImpl" source ="TransportDataImpl.java" package ="data.transportdata" value ="0"/>
+         <Value name="RMIManage" source ="RMIManage.java" package ="data" value ="0"/>
+         <Value name="ServerMain" source ="ServerMain.java" package ="main" value ="0"/>
+         <Value name="Mainui" source ="Mainui.java" package ="ui" value ="0"/>
+      </Values>
+   </Metric>
+   </Metrics>

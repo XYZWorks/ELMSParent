@@ -1,0 +1,1 @@
+common模块是客户端服务器端的公共代码，测试驱动代码和mock文件放在client的test包下

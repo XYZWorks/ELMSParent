@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>70</x>
+      <y>110</y>
+      <w>160</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>货物
+--
+
+-- 货物编号
+-- 货物其他信息
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>360</y>
+      <w>160</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>中转中心仓库管理员
+--
+
+-- 工号
+-- 身份</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>220</y>
+      <w>160</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>录入库存出库单
+--
+
+
+-- 中转中心仓库管理员
+-- 货物编号</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>240</y>
+      <w>160</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>库存出库单
+--
+
+--快递编号
+--出库日期
+--目的地
+--装运形式
+--中转单编号
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>170</y>
+      <w>170</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..1
+m2=1..n
+参与</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>230</x>
+      <y>290</y>
+      <w>170</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+发起</panel_attributes>
+    <additional_attributes>10.0;150.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>290</y>
+      <w>180</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=1..n
+</panel_attributes>
+    <additional_attributes>10.0;20.0;160.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>160</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>UC16录入库存出库单</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
