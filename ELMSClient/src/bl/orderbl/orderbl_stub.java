@@ -119,7 +119,7 @@ public class orderbl_stub implements Orderblservice{
         bar.add("A2");
         bar.add("A1");
         bar.add("A2");
-        TransferDocs transferDocs1=new TransferDocs(null, null, null, null, null, null, null, null, null,bar);
+        TransferDocs transferDocs1=new TransferDocs(null, null, null, null, null, null, null, null, null,orderBarCode, bar);
 		OrderVO one=new OrderVO("1234567890",DocType.order,new MyDate(2015, 12, 21),DocState.wait,sender1,receiver1,goodMes1,otherMes1,transferDocs1);
 		return one;
 	}
@@ -172,7 +172,7 @@ public class orderbl_stub implements Orderblservice{
         bar.add("A2");
         
         
-        TransferDocs transferDocs1=new TransferDocs(null, null, null, null, null, null, null, null, null, bar);
+        TransferDocs transferDocs1=new TransferDocs(null, null, null, null, null, null, null, null, null, null, bar);
 		OrderVO one=new OrderVO("1234567890",DocType.order,new MyDate(2015, 12, 21),DocState.wait,sender1,receiver1,goodMes1,otherMes1,transferDocs1);
 		
 		
@@ -188,7 +188,7 @@ public class orderbl_stub implements Orderblservice{
         bar.add("A2");
         bar.add("A1");
         bar.add("A2");
-        TransferDocs transferDocs=new TransferDocs(null, null, null, null, null, null, null, null, null,bar2);
+        TransferDocs transferDocs=new TransferDocs(null, null, null, null, null, null, null, null, null,null, bar2);
 		OrderVO two=new OrderVO("1234567899",DocType.order,new MyDate(2015, 12, 23),DocState.wait,sender,receiver,goodMes,otherMes,transferDocs);
 	
 		order.add(one);

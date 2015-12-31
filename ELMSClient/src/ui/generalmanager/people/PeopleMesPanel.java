@@ -203,8 +203,8 @@ public class PeopleMesPanel extends MyTablePanel{
 		removeAllRows();
 		
 			Object[] mes= new Object[5];
-			mes[0] = personVO.ID ;
-			mes [1] = personVO.instID;
+			mes[0] = personVO.instID ;
+			mes [1] = personVO.ID;
 			mes [2] = personVO.name;
 			mes [3] = personVO.type.getName();
 			mes [4] = personVO.phoneNum;

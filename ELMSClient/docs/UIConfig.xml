@@ -1341,9 +1341,9 @@
 			</FinanceApprovalPanel>
 			<BulidBillPanel x="232" y="54" width="848" height="637">
 				<detail x="232" y="54" width="848" height="637">
-					<peopleMes x="53" y="110" width="742" height="427"
+					<peopleMes x="53" y="40" width="742" height="250"
 						strings="财务人员 营业厅业务员 快递员 中转中心业务人员 中转中心管理员 司机" />
-					<carMes x="48" y="150" width="750" height="420" column="ID 机构ID 车牌号 使用年份" />
+					<carMes x="53" y="380" width="750" height="250" column="ID 机构ID 车牌号 使用年份" />
 				</detail>
 				<BUTTONS>
 					<confirm x="560" y="560" width="89" height="40" text="确认"
