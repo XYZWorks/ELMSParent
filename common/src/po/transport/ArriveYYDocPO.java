@@ -8,7 +8,6 @@ import util.DocState;
 import util.DocType;
 import util.GoodsState;
 import util.InstType;
-import util.InstType;
 import util.MyDate;
 
 /**
