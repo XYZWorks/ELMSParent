@@ -12,6 +12,7 @@ import ui.config.UserfulMethod;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
+import ui.tools.MyPanelWithScroller;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
@@ -31,73 +32,54 @@ import blservice.statisticblservice.Statisticblservice;
 
 /**
  * 增加成本收益表、经营状况表界面
+ * 
  * @author xingcheng
  *
  */
 @SuppressWarnings("serial")
-public class BulidStateFormPanel extends MyPanel{
-	
+public class BulidStateFormPanel extends MyPanelWithScroller {
+
 	private Statisticblservice bl;
-	private boolean isStateForm = true;
-	/*
-	 * 共有组件
-	 */
+
+	// 标题
+	private MyPictureLabel title;
+	// 起始时间＋结束日期
+	private MyLabel startL;
 	private MyDatePicker start;
 	private MyDatePicker end;
-	private MyLabel title;//标题
-	private MyLabel startL;
 	private MyLabel endL;
+	// 确认＋取消
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
-	/**
-	 * 跳转两个表格
-	 */
-	private MyPictureButton addCostInComeOrState;
-	/*
-	 * 以下为经营状况表组件
-	 */
-	
-	
-	
+
+	// whitepanel
 	private MyWhitePanel addDepositPanel;
-	private MyPictureLabel deposit;
-	private MyPictureButton addOneDeposit;
-	private MyDatePicker DepositDate;
-	private MyLabel depositMoney;
-	private MyTextField moneyT;
-	
 	private MyWhitePanel addPayPanel;
-	private MyPictureLabel pay;
-	private MyPictureButton addOnePay;
-	private MyDatePicker PayDate;
-	private MyLabel payMoney;
-	private MyTextField payMoneyT;
-	private MyLabel payType;
-	private MyTextField payTypeT;
-	/*
-	 * 显示当前经营状况表中付款单和成本单的数量, 如“付款单数量：3”
-	 */
-	private MyLabel deposits;
-	private MyLabel pays;
-	private static final String depositStr = "付款单数量： ";
-	private static final String payStr = "成本单数量： ";
+
+	// 付款单 显示
+	private MyLabel depositeL;
+	private MyPictureLabel depositePic;
+	private String depositeT="";
+	private double depositeD=0.0;
+
+	// 收款单 显示
+	private MyLabel payL;
+	private MyPictureLabel payPic;
+	private String payT="";
+	private double payD=0.0;
 	
+	//whitepanel内的付款单
+	private MyLabel depositeWhiteInfo;
+	private DepositeSmallTable depositeSmallTable;
 	
-	/*
-	 * 以下为成本收益表组件
-	 */
-	private MyLabel income;
-	private MyLabel outCome;
-	
-	private MyTextField incomeT;
-	private MyTextField outComeT;
-	
-	private ArrayList<DepositVO> depositVOs = new ArrayList<>();
-	private ArrayList<FormPayVO> payVOs = new ArrayList<>();
-	
-	
-	
-	public BulidStateFormPanel(Element config , Statisticblservice bl) {
+	//whitepanel内的收款单
+	private MyLabel payWhiteInfo;
+	private PaySmallTable paySmallTable;
+
+//	private ArrayList<DepositVO> depositVOs = new ArrayList<>();
+//	private ArrayList<FormPayVO> payVOs = new ArrayList<>();
+
+	public BulidStateFormPanel(Element config, Statisticblservice bl) {
 		super(config);
 		this.bl = bl;
 		initButtons(config.element(CompomentType.BUTTONS.name()));
@@ -107,231 +89,174 @@ public class BulidStateFormPanel extends MyPanel{
 		initLabels(config.element(CompomentType.LABELS.name()));
 		addCompoment();
 		addListener();
-		//----------------------------------------
-		myInit();
-		changePanel(true);
+		
+	
+	}
+
+
+	@Override
+	protected void initWhitePanels(Element e) {
+		addDepositPanel = new MyWhitePanel(e.element("Deposit"));
+		addPayPanel = new MyWhitePanel(e.element("Pay"));
+		
 	}
 
 	@Override
 	protected void initButtons(Element e) {
-		addCostInComeOrState = new MyPictureButton(e.element("jump"));
 		confirm = new MyPictureButton(e.element("confirm"));
 		cancel = new MyPictureButton(e.element("cancel"));
-		addOneDeposit = new MyPictureButton(e.element("addOneDeposit"));
-		addOnePay = new MyPictureButton(e.element("addOnePay"));
+
 	}
 
 	@Override
 	protected void initTextFields(Element e) {
-		moneyT = new MyTextField(e.element("moneyT"));
-		payMoneyT = new MyTextField(e.element("payMoneyT"));
-		payTypeT = new MyTextField(e.element("payTypeT"));
-		incomeT = new MyTextField(e.element("incomeT"));
-		outComeT = new MyTextField(e.element("outComeT"));
-		
+
 	}
 
 	@Override
 	protected void initLabels(Element e) {
 		startL = new MyPictureLabel(e.element("start"));
 		endL = new MyPictureLabel(e.element("end"));
-		title = new MyLabel(e.element("title"));
+		title = new MyPictureLabel(e.element("title"));
 		
-		deposit =  new MyPictureLabel(e.element("deposit"));
-		depositMoney = new MyPictureLabel(e.element("depositMoney"));
-		pay =  new MyPictureLabel(e.element("pay"));
-		payMoney = new MyPictureLabel(e.element("payMoney"));
-		payType = new MyPictureLabel(e.element("payType"));
+		depositePic=new MyPictureLabel(e.element("depositePic"));
+		payPic=new MyPictureLabel(e.element("payPic"));
+		depositeL=new MyLabel(e.element("depositeL"));
+		payL=new MyLabel(e.element("payL"));
 		
-		deposits = new MyPictureLabel(e.element("deposits"));
-		pays = new MyPictureLabel(e.element("pays"));
-		
-		income= new MyPictureLabel(e.element("income"));
-		outCome= new MyPictureLabel(e.element("outCome"));
+		depositeWhiteInfo=new MyLabel(e.element("depositeWhiteInfo"));
+		payWhiteInfo=new MyLabel(e.element("payWhiteInfo"));
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
 		start = new MyDatePicker(e.element("start"));
 		end = new MyDatePicker(e.element("end"));
-		PayDate = new MyDatePicker(e.element("PayDate"));
-		DepositDate = new MyDatePicker(e.element("DepositDate"));
-		
+		depositeSmallTable=new DepositeSmallTable(e.element("depositeSmallTable"));
+		paySmallTable=new PaySmallTable(e.element("paySmallTable"));
 	}
 
 	@Override
 	protected void addCompoment() {
-		add(addDepositPanel);
-		add(deposits);add(pays);
-		add(start);add(startL);add(end);add(endL);add(confirm);add(cancel);add(addCostInComeOrState);
+		
+		add(start);
+		add(startL);
+		add(end);
+		add(endL);
+		add(confirm);
+		add(cancel);
+		
 		add(title);
-		//以下为经营状况表组件
-		addDepositPanel.add(DepositDate);
-		addDepositPanel.add(deposit);
-		addDepositPanel.add(moneyT);
-		addDepositPanel.add(depositMoney);
-		addDepositPanel.add(addOneDeposit);
-		addDepositPanel.add(addOneDeposit);
-//		add(DepositDate);add(moneyT);add(depositMoney);
+		add(depositePic);
+		add(depositeL);
+		add(payPic);
+		add(payL);
+	
+		addDepositPanel.add(depositeWhiteInfo);
+		addDepositPanel.add(depositeSmallTable);
+		add(addDepositPanel);
+		
+		addPayPanel.add(payWhiteInfo);
+		addPayPanel.add(paySmallTable);
 		add(addPayPanel);
-		addPayPanel.add(addOnePay);addPayPanel.add(PayDate);addPayPanel.add(payMoney);
-		addPayPanel.add(payMoneyT);addPayPanel.add(payType);addPayPanel.add(payTypeT);
-		addPayPanel.add(pay);
-//		add(addOnePay);add(PayDate);add(payMoney);
-//		add(payMoneyT);add(payType);add(payTypeT);
-		//以下为成本收益表组件
-		add(income);add(incomeT);
-		add(outCome);add(outComeT);
+		
 	}
-	/**
-	 * 转换两个panel，true表示经营状况表
-	 * @param flag
-	 */
-	private void changePanel(boolean flag) {
-		isStateForm = flag;
-		//------------------------------
-		deposits.setVisible(flag);
-		pays.setVisible(flag);
-		addDepositPanel.setVisible(flag);
-		addOneDeposit.setVisible(flag);
-		DepositDate.setVisible(flag);
-		moneyT.setVisible(flag);
-		depositMoney.setVisible(flag);
-		addPayPanel.setVisible(flag);
-		addOnePay.setVisible(flag);
-		PayDate.setVisible(flag);
-		payMoney.setVisible(flag);
-		payMoneyT.setVisible(flag);
-		payType.setVisible(flag);
-		payTypeT.setVisible(flag);
-		//----------------------------------
-		income.setVisible(!flag);
-		incomeT.setVisible(!flag);
-		outCome.setVisible(!flag);
-		outComeT.setVisible(!flag);
-		//-----------------------------------
-		if(flag){
-			title.setText("增加经营状况表");
-			addCostInComeOrState.setText("增加成本收益表");
-		}else{
-			title.setText("增加成本收益表");
-			addCostInComeOrState.setText("增加经营状况表");
-		}
-	}
+
 	
 	@Override
 	protected void addListener() {
-		addCostInComeOrState.addMouseListener(new MyPictureButtonListener(addCostInComeOrState){
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				super.mouseClicked(e);
-				myInit();
-				changePanel(!isStateForm);
-			}
-		});
-		confirm.addMouseListener(new ConfirmListener(confirm) {
-			MyDate startDate;
-			MyDate endDate;
-			String income;
-			String outCome;
-			@Override
-			protected void updateMes() {
-			}
-			@Override
-			protected boolean saveToSQL() {
-				if(isStateForm){
-//					payVOs.trimToSize();
-//					depositVOs.trimToSize();000
-					System.err.println("1");
-					result = bl.bulidStateForm(new StateFormVO(startDate, endDate, payVOs, depositVOs));
-					System.err.println("2");
-				}else{
-					result = bl.bulidCostIncomeForm(new CostIncomeVO(Integer.parseInt(income), Integer.parseInt(outCome), startDate, endDate));
-				}
-				if(result == ResultMessage.SUCCESS){
-					new TipsDialog("新增成功", Color.GREEN);
-					return true;
-				}else{
-					new TipsDialog("新增失败");
-					return false;
-				}
-			}
-			@Override
-			protected void reInitial() {
-				myInit();
-			}
-			@Override
-			protected boolean checkDataValid() {
-				startDate = start.getMyDate();
-				endDate = end.getMyDate();
-				if(isStateForm){
-					return true;
-				}else{
-					income = incomeT.getText();
-					outCome = outComeT.getText();
-					SimpleDataFormat[] datas = {new SimpleDataFormat(income, DataType.PositiveNum, "收入") , new SimpleDataFormat(outCome, DataType.PositiveNum, "支出")};
-					return UserfulMethod.dealWithData(datas);
-				}
-			}
-		});
-		cancel.addMouseListener(new CancelListener(cancel) {
-			@Override
-			public void resetMes() {
-				myInit();
-				
-			}
-		});
-		addOneDeposit.addMouseListener(new MyPictureButtonListener(addOneDeposit){
-			private MyDate time;
-			private String money;
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				super.mouseClicked(e);
-				time = DepositDate.getMyDate();
-				money = moneyT.getText();
-				if(UserfulMethod.dealWithData(new SimpleDataFormat(money, DataType.PositiveNum, "金额"))){
-					depositVOs.add(new DepositVO(time, Integer.parseInt(money)));
-					new TipsDialog("成功增加付款单", Color.GREEN);
-					deposits.setText(depositStr + depositVOs.size());
-					
-					moneyT.setText("");
-				}
-			}
-		});
-		addOnePay.addMouseListener(new MyPictureButtonListener(addOnePay){
-			private MyDate time;
-			private String money;
-			private String type;
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				super.mouseClicked(e);
-				time = PayDate.getMyDate();
-				money = payMoneyT.getText();
-				type = payTypeT.getText();
-				if(UserfulMethod.dealWithData(new SimpleDataFormat(money, DataType.PositiveNum, "金额"))){
-					payVOs.add(new FormPayVO(time, Integer.parseInt(money), type));
-					new TipsDialog("成功增加成本单", Color.GREEN);
-					pays.setText(payStr + payVOs.size());
-					
-					payMoneyT.setText("");payTypeT.setText("");
-				}
-			}
-		});
 	}
-	
-	private void myInit(){
-		moneyT.setText("");payMoneyT.setText("");payTypeT.setText("");incomeT.setText("");outComeT.setText("");
-		deposits.setText("付款单数量：0");pays.setText("收款单数量：0");
-		
-		depositVOs.clear();payVOs.clear();
-	}
-	
-	@Override
-	protected void initWhitePanels(Element e) {
-		addDepositPanel = new MyWhitePanel(e.element("Deposit"));
-		addPayPanel = new MyWhitePanel(e.element("Pay"));
-		addDepositPanel.setOpaque(false);
-		addPayPanel.setOpaque(false);
-	}
+//		confirm.addMouseListener(new ConfirmListener(confirm) {
+//			MyDate startDate;
+//			MyDate endDate;
+//			String income;
+//			String outCome;
+//
+//			@Override
+//			protected void updateMes() {
+//			}
+//
+//			@Override
+//			protected boolean saveToSQL() {
+//				if (isStateForm) {
+//					// payVOs.trimToSize();
+//					// depositVOs.trimToSize();000
+//					System.err.println("1");
+//					result = bl.bulidStateForm(new StateFormVO(startDate, endDate, payVOs, depositVOs));
+//					System.err.println("2");
+//				} else {
+//					result = bl.bulidCostIncomeForm(
+//							new CostIncomeVO(Integer.parseInt(income), Integer.parseInt(outCome), startDate, endDate));
+//				}
+//				if (result == ResultMessage.SUCCESS) {
+//					new TipsDialog("新增成功", Color.GREEN);
+//					return true;
+//				} else {
+//					new TipsDialog("新增失败");
+//					return false;
+//				}
+//			}
+//
+//			@Override
+//			protected void reInitial() {
+//				myInit();
+//			}
+//
+//			@Override
+//			protected boolean checkDataValid() {
+//				startDate = start.getMyDate();
+//				endDate = end.getMyDate();
+//				
+//		
+//			}
+//		});
+//		cancel.addMouseListener(new CancelListener(cancel) {
+//			@Override
+//			public void resetMes() {
+//				myInit();
+//
+//			}
+//		});
+//		addOneDeposit.addMouseListener(new MyPictureButtonListener(addOneDeposit) {
+//			private MyDate time;
+//			private String money;
+//
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				super.mouseClicked(e);
+//				time = DepositDate.getMyDate();
+//				money = moneyT.getText();
+//				if (UserfulMethod.dealWithData(new SimpleDataFormat(money, DataType.PositiveNum, "金额"))) {
+//					depositVOs.add(new DepositVO(time, Integer.parseInt(money)));
+//					new TipsDialog("成功增加付款单", Color.GREEN);
+//					deposits.setText(depositStr + depositVOs.size());
+//
+//					moneyT.setText("");
+//				}
+//			}
+//		});
+//		addOnePay.addMouseListener(new MyPictureButtonListener(addOnePay) {
+//			private MyDate time;
+//			private String money;
+//			private String type;
+//
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				super.mouseClicked(e);
+//				time = PayDate.getMyDate();
+//				money = payMoneyT.getText();
+//				type = payTypeT.getText();
+//				if (UserfulMethod.dealWithData(new SimpleDataFormat(money, DataType.PositiveNum, "金额"))) {
+//					payVOs.add(new FormPayVO(time, Integer.parseInt(money), type));
+//					new TipsDialog("成功增加成本单", Color.GREEN);
+//					pays.setText(payStr + payVOs.size());
+//
+//					payMoneyT.setText("");
+//					payTypeT.setText("");
+//				}
+//			}
+//		});
+//	}
+
 
 }

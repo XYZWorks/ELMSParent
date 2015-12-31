@@ -13,6 +13,7 @@ import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
+import ui.tools.MyWhitePanel;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
@@ -35,20 +36,20 @@ public class BulidPayPanel extends MyPanel {
 
 	private PayService payService;
 	private BankAccountBusinessService bankAccountBusinessService;
-	
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
 
-	private MyLabel title;
+	private MyWhitePanel whitePanel;
+	private MyPictureLabel title;
 
-	private MyPictureLabel idL;
-	private MyPictureLabel accountL;
-	private MyPictureLabel personL;
-	private MyPictureLabel dateL;
-	private MyPictureLabel moneyL;
-	private MyPictureLabel rentL;
-	private MyPictureLabel freightL;
-	private MyPictureLabel salaryL;
+	private MyLabel idL;
+	private MyLabel accountL;
+	private MyLabel personL;
+	private MyLabel dateL;
+	private MyLabel moneyL;
+	private MyLabel rentL;
+	private MyLabel freightL;
+	private MyLabel salaryL;
 
 	private MyTextField idT;
 	private MyTextField accountT;
@@ -60,7 +61,7 @@ public class BulidPayPanel extends MyPanel {
 
 	private MyDatePicker datePicker;
 
-	public BulidPayPanel(Element config, PayService payService , BankAccountBusinessService bankAccountBusinessService) {
+	public BulidPayPanel(Element config, PayService payService, BankAccountBusinessService bankAccountBusinessService) {
 		super(config);
 		this.payService = payService;
 		this.bankAccountBusinessService = bankAccountBusinessService;
@@ -71,6 +72,11 @@ public class BulidPayPanel extends MyPanel {
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		addCompoment();
 		addListener();
+	}
+
+	@Override
+	protected void initWhitePanels(Element e) {
+		whitePanel = new MyWhitePanel(e.element("whitePanel"));
 	}
 
 	@Override
@@ -93,16 +99,16 @@ public class BulidPayPanel extends MyPanel {
 
 	@Override
 	protected void initLabels(Element e) {
-		title = new MyLabel(e.element("title"));
+		title = new MyPictureLabel(e.element("title"));
 
-		idL = new MyPictureLabel(e.element("id"));
-		accountL = new MyPictureLabel(e.element("account"));
-		personL = new MyPictureLabel(e.element("person"));
-		dateL = new MyPictureLabel(e.element("date"));
-		moneyL = new MyPictureLabel(e.element("money"));
-		rentL = new MyPictureLabel(e.element("rent"));
-		freightL = new MyPictureLabel(e.element("freight"));
-		salaryL = new MyPictureLabel(e.element("salary"));
+		idL = new MyLabel(e.element("id"));
+		accountL = new MyLabel(e.element("account"));
+		personL = new MyLabel(e.element("person"));
+		dateL = new MyLabel(e.element("date"));
+		moneyL = new MyLabel(e.element("money"));
+		rentL = new MyLabel(e.element("rent"));
+		freightL = new MyLabel(e.element("freight"));
+		salaryL = new MyLabel(e.element("salary"));
 	}
 
 	@Override
@@ -112,30 +118,29 @@ public class BulidPayPanel extends MyPanel {
 
 	@Override
 	protected void addCompoment() {
-
-		add(title);
+		whitePanel.add(title);
+		whitePanel.add(accountL);
+		whitePanel.add(freightL);
+		whitePanel.add(rentL);
+		whitePanel.add(salaryL);
+		whitePanel.add(personL);
+		whitePanel.add(dateL);
+		whitePanel.add(idL);
+		whitePanel.add(moneyL);
+		whitePanel.add(personL);
+		whitePanel.add(accountT);
+		whitePanel.add(freightT);
+		whitePanel.add(rentT);
+		whitePanel.add(salaryT);
+		whitePanel.add(personT);
+		whitePanel.add(idT);
+		whitePanel.add(moneyT);
+		whitePanel.add(personT);
+		whitePanel.add(datePicker);
 		add(cancel);
 		add(confirm);
+		add(whitePanel);
 
-		add(accountL);
-		add(freightL);
-		add(rentL);
-		add(salaryL);
-		add(personL);
-		add(dateL);
-		add(idL);
-		add(moneyL);
-		add(personL);
-		add(accountT);
-		add(freightT);
-		add(rentT);
-		add(salaryT);
-		add(personT);
-		add(idT);
-		add(moneyT);
-		add(personT);
-		add(datePicker);
-		
 	}
 
 	@Override
@@ -153,24 +158,26 @@ public class BulidPayPanel extends MyPanel {
 
 			@Override
 			protected boolean saveToSQL() {
-				result = bankAccountBusinessService.checkAccount(account , Integer.parseInt(money));
-				if(result == ResultMessage.NOT_EXIST){
+				result = bankAccountBusinessService.checkAccount(account, Integer.parseInt(money));
+				if (result == ResultMessage.NOT_EXIST) {
 					new TipsDialog("银行账户不存在！请您重新输入银行账户");
 					return false;
-				}else if(result == ResultMessage.MONEY_NOT_ENOUGH){
+				} else if (result == ResultMessage.MONEY_NOT_ENOUGH) {
 					new TipsDialog("余额不足！请您重新输入银行账户");
 					return false;
-				}else{
-					result = payService.create(vo = new PayVO(id, date, account, Integer.parseInt(money), person, Integer.parseInt(rent), Integer.parseInt(freight), Integer.parseInt(salary) , DocState.wait));
-					if(result == ResultMessage.SUCCESS){
+				} else {
+					result = payService.create(
+							vo = new PayVO(id, date, account, Integer.parseInt(money), person, Integer.parseInt(rent),
+									Integer.parseInt(freight), Integer.parseInt(salary), DocState.wait));
+					if (result == ResultMessage.SUCCESS) {
 						new TipsDialog("成功增加新增付款单", Color.GREEN);
 						return true;
-					}else{
+					} else {
 						new TipsDialog("未能成功增加到数据库");
 						System.err.println(result);
 						return false;
 					}
-					
+
 				}
 			}
 
@@ -190,16 +197,12 @@ public class BulidPayPanel extends MyPanel {
 				rent = rentT.getText();
 				freight = freightT.getText();
 				salary = salaryT.getText();
-				SimpleDataFormat[] datas = {
-						new SimpleDataFormat(id, DataType.ID, "ID"),
-						new SimpleDataFormat(account, DataType.bankAccount,
-								"银行账户"),
+				SimpleDataFormat[] datas = { new SimpleDataFormat(id, DataType.ID, "ID"),
+						new SimpleDataFormat(account, DataType.bankAccount, "银行账户"),
 						new SimpleDataFormat(money, DataType.PositiveNum, "总金额"),
-						new SimpleDataFormat(freight, DataType.PositiveNum,
-								"运费"),
-						new SimpleDataFormat(rent, DataType.PositiveNum, "租金") ,
-						new SimpleDataFormat(salary, DataType.PositiveNum, "人员工资")
-						};
+						new SimpleDataFormat(freight, DataType.PositiveNum, "运费"),
+						new SimpleDataFormat(rent, DataType.PositiveNum, "租金"),
+						new SimpleDataFormat(salary, DataType.PositiveNum, "人员工资") };
 				return UserfulMethod.dealWithData(datas);
 			}
 
@@ -217,15 +220,15 @@ public class BulidPayPanel extends MyPanel {
 			}
 		});
 	}
-	
+
 	private void myInit() {
-		idT.setText("");accountT.setText("");moneyT.setText("");freightT.setText("");
-		rentT.setText("");salaryT.setText("");personT.setText("");
-	}
-	
-	
-	@Override
-	protected void initWhitePanels(Element e) {
+		idT.setText("");
+		accountT.setText("");
+		moneyT.setText("");
+		freightT.setText("");
+		rentT.setText("");
+		salaryT.setText("");
+		personT.setText("");
 	}
 
 }
