@@ -12,7 +12,7 @@ import org.dom4j.Element;
 
 import ui.common.CommonFrame;
 import ui.config.UserfulMethod;
-import ui.inital.mainFrame;
+import ui.initial.mainFrame;
 import ui.tools.MyFrame;
 import ui.tools.MyOptionPane;
 import ui.tools.MyPasswordField;

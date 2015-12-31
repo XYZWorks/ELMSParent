@@ -1,4 +1,4 @@
-package ui.inital;
+package ui.initial;
 
 import org.dom4j.Element;
 
@@ -36,7 +36,7 @@ public class testframeforxc extends MyFrame {
 			/**
 			 * 整个过程中不动的界面，底色
 			 */
-			InitalPanel2 initalPanel = new InitalPanel2(e.element("initialpanel") , this ,null);
+			InitialPanel2 initalPanel = new InitialPanel2(e.element("initialpanel") , this ,null);
 			
 //			try {
 //			//	UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");

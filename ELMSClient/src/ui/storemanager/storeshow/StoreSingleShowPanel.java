@@ -86,6 +86,8 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
 		
+
+
 		initOtherCompoment(config);
 		addCompoment();
 		addListener();

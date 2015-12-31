@@ -1,4 +1,4 @@
-package ui.inital;
+package ui.initial;
 
 import java.awt.Frame;
 import java.awt.Graphics;
@@ -11,6 +11,7 @@ import ui.config.GraphicsUtils;
 import ui.courier.CourierController;
 import ui.financeman.FinanceController;
 import ui.saleman.SaleManController;
+import ui.storeman.StoreManController;
 import ui.storemanager.StoreManagerController;
 import ui.tools.MyFrame;
 import ui.tools.MyLabel;
@@ -28,7 +29,7 @@ import vo.account.AccountVO;
  *
  */
 @SuppressWarnings("serial")
-public class InitalPanel2 extends MyPanel {
+public class InitialPanel2 extends MyPanel {
 
 //	private ShowCareer career;
 	private MyPictureButton exit;
@@ -43,7 +44,7 @@ public class InitalPanel2 extends MyPanel {
 	private MyFrame parent;
 
 
-	public InitalPanel2(Element e , MyFrame frame ,AccountVO vo) {
+	public InitialPanel2(Element e , MyFrame frame ,AccountVO vo) {
 		super(e);
 		this.parent = frame;
 		this.initButtons(e.element(CompomentType.BUTTONS.name()));
@@ -70,8 +71,9 @@ public class InitalPanel2 extends MyPanel {
 	//	controller =  new CourierController(this, e.element("CourierManager")) ;
 	//	controller=new SaleManController(this, e.element("Salesman"));
 	//	controller =  new FinanceController(this, e.element("Financeman")) ;
-		controller = new StoreManagerController(this,
-				e.element("StoreManager"));
+//		controller = new StoreManagerController(this,
+//				e.element("StoreManager"));
+		controller = new StoreManController(this, e.element("StoreMan"));
 //		switch (type) {
 //		case Adminstrator:
 //			
