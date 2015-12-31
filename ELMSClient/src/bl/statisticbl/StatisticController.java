@@ -6,10 +6,13 @@ import java.util.ArrayList;
 
 import net.RMIManage;
 import util.DataServiceType;
+import util.MyDate;
 import util.ResultMessage;
+import vo.finance.PayVO;
 import vo.statistic.BillVO;
 import vo.statistic.CostIncomeVO;
 import vo.statistic.StateFormVO;
+import vo.transport.PayDocVO;
 import bl.BusinessController;
 import blservice.statisticblservice.Statisticblservice;
 import ds.statisticdataservice.StatisticDataService;
@@ -111,6 +114,30 @@ public class StatisticController extends BusinessController implements
 		statisticData = (StatisticDataService) dataService;
 		statistic = new Statistic(statisticData);
 
+	}
+
+	@Override
+	public ArrayList<PayVO> getDatePays(MyDate start, MyDate end) {
+		try {
+			return statistic.getDatePays(start ,end);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			if (ExceptionHandler.myExceptionHandler(myType, this)) {
+				return getDatePays(start, end);
+			}
+		}return null;
+	}
+
+	@Override
+	public ArrayList<PayDocVO> getDatePayDocs(MyDate start, MyDate end) {
+		try {
+			return statistic.getDatePayDocs(start ,end);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			if (ExceptionHandler.myExceptionHandler(myType, this)) {
+				return getDatePayDocs(start, end);
+			}
+		}return null;
 	}
 
 }

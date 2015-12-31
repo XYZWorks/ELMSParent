@@ -26,8 +26,10 @@ import util.MyDate;
 import util.ResultMessage;
 import vo.finance.DepositVO;
 import vo.finance.FormPayVO;
+import vo.finance.PayVO;
 import vo.statistic.CostIncomeVO;
 import vo.statistic.StateFormVO;
+import vo.transport.PayDocVO;
 import blservice.statisticblservice.Statisticblservice;
 
 /**
@@ -48,6 +50,7 @@ public class BulidStateFormPanel extends MyPanelWithScroller {
 	private MyDatePicker start;
 	private MyDatePicker end;
 	private MyLabel endL;
+	private MyPictureButton check;
 	// 确认＋取消
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
@@ -105,7 +108,7 @@ public class BulidStateFormPanel extends MyPanelWithScroller {
 	protected void initButtons(Element e) {
 		confirm = new MyPictureButton(e.element("confirm"));
 		cancel = new MyPictureButton(e.element("cancel"));
-
+		check = new MyPictureButton(e.element("check"));
 	}
 
 	@Override
@@ -145,6 +148,7 @@ public class BulidStateFormPanel extends MyPanelWithScroller {
 		add(endL);
 		add(confirm);
 		add(cancel);
+		add(check);
 		
 		add(title);
 		add(depositePic);
@@ -165,98 +169,28 @@ public class BulidStateFormPanel extends MyPanelWithScroller {
 	
 	@Override
 	protected void addListener() {
+		check.addMouseListener(new MyPictureButtonListener(check){
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				MyDate startDate = start.getMyDate();
+				MyDate endDate = end.getMyDate();
+				
+				ArrayList<PayVO> payVOs = bl.getDatePays(startDate, endDate);
+				ArrayList<PayDocVO> payDocVOs = bl.getDatePayDocs(startDate, endDate);
+				
+				depositeL.setText(String.valueOf(depositeSmallTable.setMessage(payVOs)));;
+				payL.setText(String.valueOf(paySmallTable.setMessage(payDocVOs)));
+				
+				
+				
+				
+			}
+		});
+		
+		
 	}
-//		confirm.addMouseListener(new ConfirmListener(confirm) {
-//			MyDate startDate;
-//			MyDate endDate;
-//			String income;
-//			String outCome;
-//
-//			@Override
-//			protected void updateMes() {
-//			}
-//
-//			@Override
-//			protected boolean saveToSQL() {
-//				if (isStateForm) {
-//					// payVOs.trimToSize();
-//					// depositVOs.trimToSize();000
-//					System.err.println("1");
-//					result = bl.bulidStateForm(new StateFormVO(startDate, endDate, payVOs, depositVOs));
-//					System.err.println("2");
-//				} else {
-//					result = bl.bulidCostIncomeForm(
-//							new CostIncomeVO(Integer.parseInt(income), Integer.parseInt(outCome), startDate, endDate));
-//				}
-//				if (result == ResultMessage.SUCCESS) {
-//					new TipsDialog("新增成功", Color.GREEN);
-//					return true;
-//				} else {
-//					new TipsDialog("新增失败");
-//					return false;
-//				}
-//			}
-//
-//			@Override
-//			protected void reInitial() {
-//				myInit();
-//			}
-//
-//			@Override
-//			protected boolean checkDataValid() {
-//				startDate = start.getMyDate();
-//				endDate = end.getMyDate();
-//				
-//		
-//			}
-//		});
-//		cancel.addMouseListener(new CancelListener(cancel) {
-//			@Override
-//			public void resetMes() {
-//				myInit();
-//
-//			}
-//		});
-//		addOneDeposit.addMouseListener(new MyPictureButtonListener(addOneDeposit) {
-//			private MyDate time;
-//			private String money;
-//
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				super.mouseClicked(e);
-//				time = DepositDate.getMyDate();
-//				money = moneyT.getText();
-//				if (UserfulMethod.dealWithData(new SimpleDataFormat(money, DataType.PositiveNum, "金额"))) {
-//					depositVOs.add(new DepositVO(time, Integer.parseInt(money)));
-//					new TipsDialog("成功增加付款单", Color.GREEN);
-//					deposits.setText(depositStr + depositVOs.size());
-//
-//					moneyT.setText("");
-//				}
-//			}
-//		});
-//		addOnePay.addMouseListener(new MyPictureButtonListener(addOnePay) {
-//			private MyDate time;
-//			private String money;
-//			private String type;
-//
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				super.mouseClicked(e);
-//				time = PayDate.getMyDate();
-//				money = payMoneyT.getText();
-//				type = payTypeT.getText();
-//				if (UserfulMethod.dealWithData(new SimpleDataFormat(money, DataType.PositiveNum, "金额"))) {
-//					payVOs.add(new FormPayVO(time, Integer.parseInt(money), type));
-//					new TipsDialog("成功增加成本单", Color.GREEN);
-//					pays.setText(payStr + payVOs.size());
-//
-//					payMoneyT.setText("");
-//					payTypeT.setText("");
-//				}
-//			}
-//		});
-//	}
+
 
 
 }

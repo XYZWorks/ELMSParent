@@ -4,11 +4,15 @@ import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import po.finance.PayPO;
 import po.statistic.BillPO;
 import po.statistic.CostIncomePO;
 import po.statistic.StateFormPO;
+import po.transport.PayDocPO;
 import util.MyDate;
 import util.ResultMessage;
+import data.financedata.FinanceDataImpl;
+import data.transportdata.TransportDataImpl;
 import dataSuper.DataSuperClass;
 import ds.statisticdataservice.StatisticDataService;
 
@@ -116,6 +120,47 @@ public class StatisticDataImpl extends DataSuperClass implements
 
 		return pos.isEmpty() ? null : pos;
 
+	}
+
+	@Override
+	public ArrayList<PayPO> getDatePays(MyDate start, MyDate end) throws RemoteException {
+		FinanceDataImpl impl = new FinanceDataImpl();
+		
+		ArrayList<PayPO> pos = impl.getPayPO();
+		
+		if(pos==null || pos.isEmpty()){
+			return null;
+		}
+		ArrayList<PayPO> newPos = new ArrayList<>(pos.size());
+		
+		for (PayPO payPO : pos) {
+			if(MyDate.isBetween(start, end, payPO.getTime())){
+				newPos.add(payPO);
+			}
+		}
+		
+		
+		return newPos.isEmpty()?null:newPos;
+	}
+
+	@Override
+	public ArrayList<PayDocPO> getDatePayDocs(MyDate start, MyDate end)throws RemoteException {
+		TransportDataImpl impl = new TransportDataImpl();
+		ArrayList<PayDocPO> pos = impl.getPays();
+		
+		if(pos==null || pos.isEmpty()){
+			return null;
+		}
+		ArrayList<PayDocPO> newPos = new ArrayList<>(pos.size());
+		
+		for (PayDocPO payPO : pos) {
+			if(MyDate.isBetween(start, end, payPO.getDate())){
+				newPos.add(payPO);
+			}
+		}
+		
+		
+		return newPos.isEmpty()?null:newPos;
 	}
 
 }

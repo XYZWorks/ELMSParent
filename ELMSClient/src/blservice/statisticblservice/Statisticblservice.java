@@ -2,16 +2,34 @@ package blservice.statisticblservice;
 
 import java.util.ArrayList;
 
+import util.MyDate;
 import util.ResultMessage;
+import vo.finance.PayVO;
 import vo.statistic.BillVO;
 import vo.statistic.CostIncomeVO;
 import vo.statistic.StateFormVO;
+import vo.transport.PayDocVO;
  /**
   * 查看经营状况表、成本收益表、期初建账逻辑接口
   * @author czq
   *
   */
 public interface Statisticblservice {
+	
+	/**
+	 * 
+	 * @param start
+	 * @param end
+	 * @return
+	 */
+	public ArrayList<PayVO> getDatePays(MyDate start , MyDate end);
+	/**
+	 * 
+	 * @param start
+	 * @param end
+	 * @return
+	 */
+	public ArrayList<PayDocVO> getDatePayDocs(MyDate start , MyDate end);
 	/**
 	 * 建立经营状况表
 	 * @param vo

@@ -2,10 +2,13 @@ package blservice.statisticblservice;
 
 import java.util.ArrayList;
 
+import util.MyDate;
 import util.ResultMessage;
+import vo.finance.PayVO;
 import vo.statistic.BillVO;
 import vo.statistic.CostIncomeVO;
 import vo.statistic.StateFormVO;
+import vo.transport.PayDocVO;
  /** * @author czq @version 创建时间：2015年10月26日 上午12:15:05 * 简单说明 */
 public class StatisticblService_Stub implements Statisticblservice{
 
@@ -47,6 +50,18 @@ public class StatisticblService_Stub implements Statisticblservice{
 		bills.add(new BillVO());
 		bills.add(new BillVO());
 		return bills;
+	}
+
+	@Override
+	public ArrayList<PayVO> getDatePays(MyDate start, MyDate end) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<PayDocVO> getDatePayDocs(MyDate start, MyDate end) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

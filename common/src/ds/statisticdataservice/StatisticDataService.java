@@ -3,9 +3,12 @@ package ds.statisticdataservice;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import po.finance.PayPO;
 import po.statistic.BillPO;
 import po.statistic.CostIncomePO;
 import po.statistic.StateFormPO;
+import po.transport.PayDocPO;
+import util.MyDate;
 import util.ResultMessage;
 import ds.DataserviceParent;
 
@@ -15,6 +18,20 @@ import ds.DataserviceParent;
  * @date 2015-10-22
  */
 public interface StatisticDataService extends DataserviceParent {
+	/**
+	 * 
+	 * @param start
+	 * @param end
+	 * @return
+	 */
+	public ArrayList<PayPO> getDatePays(MyDate start , MyDate end)throws RemoteException;
+	/**
+	 * 
+	 * @param start
+	 * @param end
+	 * @return
+	 */
+	public ArrayList<PayDocPO> getDatePayDocs(MyDate start , MyDate end)throws RemoteException;
 	/**
 	 * 获取所有的经营状况表
 	 * @return

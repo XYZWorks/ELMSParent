@@ -163,4 +163,34 @@ public class MyDate implements Serializable{
 		return result;
 	}
 	
+	public static boolean isBetween(MyDate start , MyDate end , MyDate date){
+		if(eariler(date, end) && eariler(start, date)){
+			return true;
+		}else{
+			return false;
+		}
+		
+		
+		
+	}
+	
+	private static boolean eariler(MyDate date1 , MyDate date2){
+		if(date1.year < date2.year){
+			return true;
+		}else if(date1.year == date2.year){
+			if(date1.month < date2.month){
+				return true;
+			}else if(date1.month == date2.month){
+				if(date1.day <= date2.day){
+					return true;
+				}
+			}
+			
+			
+			
+		}
+		
+		return false;
+	}
+	
 }
