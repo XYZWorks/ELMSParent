@@ -122,7 +122,7 @@ public class Order {
 			case "JSD":
 				ArriveYYDocVO voy = (ArriveYYDocVO) transportController
 						.getByID(poString, DocType.arriveYYDoc);
-				place = voy.sendCity.toString();
+				place = voy.sendFrom.getName();
 				time = MyDate.toString(voy.date);
 				type = DocType.arriveYYDoc;
 				break;
@@ -130,7 +130,7 @@ public class Order {
 			case "DDD":
 				ArriveZZDocVO voz = (ArriveZZDocVO) transportController
 						.getByID(poString, DocType.arriveZZDoc);
-				place = voz.sendCity.toString();
+				place = voz.sendCity.getName();
 				time = MyDate.toString(voz.date);
 				type = DocType.arriveZZDoc;
 				break;
@@ -138,7 +138,7 @@ public class Order {
 			case "ZZD":
 				TransferDocVO vot = (TransferDocVO) transportController
 						.getByID(poString, DocType.transferDoc);
-				place = vot.sendCity.toString();
+				place = vot.sendCity.getName();
 				time = MyDate.toString(vot.date);
 				type = DocType.transferDoc;
 				break;
@@ -147,7 +147,7 @@ public class Order {
 				SendGoodDocVO vop = (SendGoodDocVO) transportController
 						.getByID(poString, DocType.sendGoodDoc);
 				// 传入派送员姓名
-				place = vop.sendMan.toString();
+				place = vop.sendMan;
 				time = MyDate.toString(vop.date);
 				type = DocType.sendGoodDoc;
 				break;
@@ -155,15 +155,15 @@ public class Order {
 			case "RKD":
 				InStoreDocVO vor = (InStoreDocVO) storeController.getByID(
 						poString, DocType.inStoreDoc);
-				place = vor.loc.toString();
+				place = vor.loc.getName();
 				time = MyDate.toString(vor.date);
-				type = DocType.loadDoc;
+				type = DocType.inStoreDoc;
 				break;
 			// 出库单
 			case "CKD":
 				OutStoreDocVO voc = (OutStoreDocVO) storeController.getByID(
 						poString, DocType.outStoreDoc);
-				place = voc.loc.toString();
+				place = voc.loc.getName();
 				time = MyDate.toString(voc.date);
 				type = DocType.outStoreDoc;
 				break;

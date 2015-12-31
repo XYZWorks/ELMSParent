@@ -29,6 +29,7 @@ import ui.util.TipsDialog;
 import util.City;
 import util.DocType;
 import util.GoodsState;
+import util.InstType;
 import util.MyDate;
 import util.ResultMessage;
 import vo.transport.ArriveYYDocVO;
@@ -150,7 +151,7 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 		});
 		confirm.addMouseListener(new ConfirmListener(confirm) {
 			String ZZID;
-			City sendCity;
+			InstType sendCity;
 			MyDate myDate;
 			String ID;
 			GoodsState goodState;
@@ -180,7 +181,7 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 			@Override
 			protected boolean checkDataValid() {
 				ZZID = ZZIDT.getText();
-				sendCity = City.toCity((String) sendCityB.getSelectedItem());
+				sendCity = InstType.toInst((String) sendCityB.getSelectedItem());
 				myDate = date.getMyDate();
 				ID = idT.getText();
 				goodState = GoodsState.toGoodState((String) goodStateB
@@ -242,7 +243,7 @@ public class ArriveYYDocAddPanel extends AddDocPanel implements DocPanelForAppro
 		ArriveYYDocVO vo = (ArriveYYDocVO) o;
 		idT.setText(vo.ID);
 		ZZIDT.setText(vo.ZZID);
-		sendCityB.setSelectedItem(vo.sendCity.getName());
+		sendCityB.setSelectedItem(vo.sendFrom.getName());
 		goodStateB.setSelectedItem(vo.goodState.getName());
 		for (String orders : vo.orderBarCodes) {
 			ordersTable.addAOrder(orders);
