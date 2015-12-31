@@ -281,6 +281,7 @@ public class SalaryStrategySetPanel extends MyPanel implements TextFieldsManage 
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
+			table.updateTableMes();
 			table.setVisible(true);
 			setModifyCompVisiable(false);
 			showInTable.setEnabled(false);

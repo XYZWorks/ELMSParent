@@ -37,10 +37,10 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 	protected StoreController bl;
 
 	//初始whitepanel
-	private MyWhitePanel showSimpleWhitePanel;
-	private MyWhitePanel locateWhitePanel;
-	private MyWhitePanel inWhitePanel;
-	private MyWhitePanel outWhitePanel;
+	protected MyWhitePanel showSimpleWhitePanel;
+	protected MyWhitePanel locateWhitePanel;
+	protected MyWhitePanel inWhitePanel;
+	protected MyWhitePanel outWhitePanel;
 
 	protected MyPictureButton confirmButton;
 	protected MyPictureButton returnButton;
@@ -95,13 +95,9 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 
 	@Override
 	protected void initWhitePanels(Element e) {		
-		showSimpleWhitePanel = new MyWhitePanel(new Rectangle(65,130,680,200));
-		locateWhitePanel = new MyWhitePanel(new Rectangle(65, 570, 680, 480));
-		inWhitePanel = new MyWhitePanel(new Rectangle(65, 1200, 680, 480));
-		outWhitePanel = new MyWhitePanel(new Rectangle(65, 1700, 680, 480));
 
 		showSimpleWhitePanel=new MyWhitePanel(65,130,680,80);
-		locateWhitePanel=new MyWhitePanel(65,130,680,440);
+		locateWhitePanel=new MyWhitePanel(65,250,680,440);
 		inWhitePanel=new MyWhitePanel(65,800,680,440);
 		outWhitePanel=new MyWhitePanel(65,1300,680,440);
 	

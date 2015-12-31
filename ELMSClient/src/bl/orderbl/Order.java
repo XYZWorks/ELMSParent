@@ -293,9 +293,13 @@ public class Order {
 	public ArrayList<DocVO> getDocLists() throws RemoteException {
 		ArrayList<DocVO> vos = null;
 		ArrayList<OrderPO> pos = null;
-		System.out.println("1");
 		pos = (ArrayList<OrderPO>) orderData.getDocLists(DocType.order);
-		System.out.println("2");
+		
+		if(pos == null){
+			return null;
+		}
+		
+		
 		vos = new ArrayList<>(pos.size());
 		for (OrderPO orderPO : pos) {
 			vos.add((OrderVO) VOPOchange.POtoVO(orderPO));

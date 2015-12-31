@@ -3,6 +3,7 @@ package ui.financeman.approval;
 import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JPanel;
@@ -49,7 +50,7 @@ public class FinanceApprovalPanel extends CheckDocPanel{
 		myAddPanel = (PayDocAddPanel) addDocPanel;
 		myAddPanel.bl = this.bl;
 		initTableContent();
-		addListener();
+		myInit();
 		myAddPanel.setAllCompUneditOrUnVisiable();
 	}
 
@@ -60,20 +61,25 @@ public class FinanceApprovalPanel extends CheckDocPanel{
 
 	@Override
 	protected void addListener() {
-		addDoc.addMouseListener(new MyPictureButtonListener(addDoc){
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				super.mouseClicked(e);
-				if(myTable.getSelectedRow() == -1){
-					new TipsDialog("请选择一行数据", Color.GREEN);
-					return;
-				}else{
-					myAddPanel.setMessage(myTable.getARowMes(myTable.getSelectedRow()));
-					jumpToADD();
-				}
-				
-			}
-		});
+//		addDoc.addMouseListener(new MyPictureButtonListener(addDoc){
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				super.mouseClicked(e);
+//				if(myTable.getSelectedRow() == -1){
+//					new TipsDialog("请选择一行数据", Color.GREEN);
+//					return;
+//				}else{
+//					myAddPanel.setMessage(myTable.getARowMes(myTable.getSelectedRow()));
+//					jumpToADD();
+//				}
+//				
+//			}
+//		});
+		addDoc.setVisible(false);
+		
+		
+		
+		
 		searchBox.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -144,5 +150,23 @@ public class FinanceApprovalPanel extends CheckDocPanel{
 		add(approval);
 		add(title);
 	}
-
+	
+	private void myInit() {
+		myTable.getTable().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(e.getClickCount() == 2){
+					if(myTable.getSelectedRow() == -1){
+						return ;
+					}else{
+						myAddPanel.setMessage(myTable.getARowMes(myTable.getSelectedRow()));
+						jumpToADD();
+					}
+					
+				}
+				
+				
+			}
+		});
+	}
 }
