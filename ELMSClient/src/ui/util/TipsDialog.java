@@ -31,7 +31,7 @@ public class TipsDialog extends JDialog{
 	
 	private int nowTime = 1;
 	
-	private static Rectangle bounds = new Rectangle(990, 600, 200, 100);
+	private static Rectangle bounds = new Rectangle(990, 600, 300, 100);
 	
 	
 	
@@ -89,10 +89,16 @@ public class TipsDialog extends JDialog{
 	public TipsDialog(String message , Color color , Font font , boolean isCenter) {
 		super(parent);
 		setUndecorated(true);
+//		label.setBackground(new Color(0f, 0f, 0f, 0.75f));
 //		label.setIcon(GraphicsUtils.getIcon("element//close"));
 		label.setForeground(color);
 		label.setFont(font);
         label.setText(message);
+        if(message.length() > 10){
+        	setBounds(getX(), getY(), getWidth()*2, getHeight());
+        }
+        
+        
         if(isCenter){
         	label.setHorizontalTextPosition(SwingConstants.CENTER);
         	label.setVerticalTextPosition(SwingConstants.CENTER);

@@ -1,17 +1,22 @@
 package ui.user;
 
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
 
+import ui.config.DataType;
+import ui.config.SimpleDataFormat;
+import ui.config.UserfulMethod;
 import ui.tools.MyComboBox;
-import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
+import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
+import ui.util.TipsDialog;
 import util.AccountType;
 import util.ResultMessage;
 import vo.account.AccountVO;
@@ -97,7 +102,52 @@ public class AddAccountPanel extends MyPanel{
 
 	@Override
 	protected void addListener() {
-		addAccount.addMouseListener(new MyAddAccountListener(addAccount));
+		addAccount.addMouseListener(new ConfirmListener(addAccount) {
+			String id;
+			String name;
+			AccountType type;
+			String password;
+			AccountVO vo;
+			@Override
+			protected void updateMes() {
+				
+				
+			}
+			
+			@Override
+			protected boolean saveToSQL() {
+				result = bl.add(vo = new AccountVO(id, name, type, password));
+				if(result == ResultMessage.SUCCESS){
+					new TipsDialog("成功新增账户", Color.GREEN);
+					return true;
+					
+				}else{
+					new TipsDialog("未能新增账户");
+					return false;
+				}
+				
+			}
+			
+			@Override
+			protected void reInitial() {
+				accountIDField.setText("");
+				nameField.setText("");
+				passwordField.setText("");
+				staffTypeBox.setSelectedIndex(0);
+				
+			}
+			
+			@Override
+			protected boolean checkDataValid() {
+				id = accountIDField.getText();
+				name = nameField.getText();
+				password = passwordField.getText();
+				type = AccountType.getType(((String) staffTypeBox.getSelectedItem()));
+				
+				SimpleDataFormat[] datas = {new SimpleDataFormat(id, DataType.ID, "ID") , new SimpleDataFormat(password, DataType.ID, "密码")};
+				return UserfulMethod.dealWithData(datas);
+			}
+		});
 		
 	}
 	

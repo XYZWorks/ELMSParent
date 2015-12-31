@@ -4,16 +4,17 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import bl.BusinessLogicDataFactory;
-import blservice.orderblservice.Orderblservice;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
+import bl.BusinessLogicDataFactory;
+import blservice.orderblservice.Orderblservice;
 
 /**
  *
  * @author:xingcheng
  * @version 2015年12月27日
  */
+@SuppressWarnings("serial")
 public class PaySmallTable extends MyTablePanel {
 
 	ArrayList<String> orderbarCodes = new ArrayList<>();
@@ -64,8 +65,13 @@ public class PaySmallTable extends MyTablePanel {
 		oneOrder[0] = String.valueOf(orderbarCodes.size());
 		oneOrder[1] = orderID;
 		Orderblservice orderblservice = BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
+		double readCost;
+		try {
+			readCost=orderblservice.getFullInfo(orderID).otherMes.getOrderCost();
+		} catch (Exception e) {
+			readCost = 10.0;
+		}
 		
-		double readCost=orderblservice.getFullInfo(orderID).otherMes.getOrderCost();
 		oneOrder[2] = String.valueOf(readCost);
 		moneyTotal=moneyTotal+readCost;
 		this.addOneRow(oneOrder);

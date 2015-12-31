@@ -271,6 +271,13 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 		for (String orders : vo.orders) {
 			ordersTable.addAOrder(orders);
 		}
+		double sum = 0;
+		for (int i = 0; i < vo.orders.size(); i++) {
+			sum += Double.parseDouble((String) ordersTable.getValueAt(i, 2));
+		}
+		payInfo.setText(String.valueOf(sum));
+		
+		
 	}
 
 	@Override

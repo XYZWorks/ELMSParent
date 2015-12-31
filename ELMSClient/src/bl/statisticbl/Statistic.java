@@ -24,7 +24,6 @@ public class Statistic {
 		this.statisticData = statisticData;
 	}
 	public ResultMessage bulidStateForm(StateFormVO vo) throws RemoteException {
-		
 		StateFormPO po = (StateFormPO) VOPOchange.VOtoPO(vo);
 		return statisticData.bulidStateForm(po);
 	}

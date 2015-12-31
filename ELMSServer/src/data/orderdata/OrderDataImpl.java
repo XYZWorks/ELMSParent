@@ -38,7 +38,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	}
 
 	public ArrayList<OrderPO> getDayOrderPO(MyDate date) throws RemoteException {
-		sql = "SELECT * FROM " + orderTable + " WHERE `date` = " +"\""+ MyDate.toString(date)+"\"";
+		sql = "SELECT * FROM " + orderTable + " WHERE `date` LIKE '%"+ MyDate.toString(date)+"%'";
 		ArrayList<OrderPO> pos = new ArrayList<OrderPO>(50);
 		OrderPO po;
 		try {
@@ -114,7 +114,7 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 			String type = po.getType().name();
 			int affectNum = 0;
 			for (String temp : orderBarCodes) {
-				sql = "MODIFY `" + orderTable + "` SET `" + type + "` = ?" + "WHERE id ="
+				sql = "UPDATE `" + orderTable + "` SET `" + type + "` = ? " + "WHERE id ="
 						+"\""+ temp+"\"";
 				preState.setString(1, po.getID());
 				preState = conn.prepareStatement(sql);
