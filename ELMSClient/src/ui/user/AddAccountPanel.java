@@ -9,10 +9,12 @@ import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
 import ui.tools.MyComboBox;
+import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
+import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.MyPictureButtonListener;
@@ -28,7 +30,8 @@ import blservice.accountblservice.Accountblservice;
  */
 @SuppressWarnings("serial")
 public class AddAccountPanel extends MyPanel{
-	
+	private MyWhitePanel whitepanel;
+	private MyPictureLabel title;
 	private MyPictureLabel accountID;
 	private MyPictureLabel name;
 	private MyPictureLabel staffTypeLabel;
@@ -51,6 +54,7 @@ public class AddAccountPanel extends MyPanel{
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
+		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initOtherCompoment(config);
 		addCompoment();
 		addListener();
@@ -77,27 +81,29 @@ public class AddAccountPanel extends MyPanel{
 		name = new MyPictureLabel(e.element("name"));
 		passwordLabel = new MyPictureLabel(e.element("password"));
 		staffTypeLabel = new MyPictureLabel(e.element("staffType"));
-		
+		title = new MyPictureLabel(e.element("title"));
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
 		staffTypeBox = new MyComboBox(e.element("staffBox"));
 		
+		
 	}
 
 	@Override
 	protected void addCompoment() {
-		add(accountID);
-		add(accountIDField);
-		add(addAccount);
-		add(name);
-		add(nameField);
-		add(passwordField);
-		add(passwordLabel);
-		
-		add(staffTypeBox);
-		add(staffTypeLabel);
+		whitepanel.add(accountID);
+		whitepanel.add(accountIDField);
+		this.add(addAccount);
+		whitepanel.add(name);
+		whitepanel.add(nameField);
+		whitepanel.add(passwordField);
+		whitepanel.add(passwordLabel);
+		this.add(whitepanel);
+		whitepanel.add(staffTypeBox);
+		whitepanel.add(staffTypeLabel);
+		whitepanel.add(title);
 	}
 
 	@Override
@@ -185,7 +191,7 @@ public class AddAccountPanel extends MyPanel{
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
+		whitepanel = new MyWhitePanel(e.element("whitepanel"));// TODO Auto-generated method stub
 		
 	}
 	

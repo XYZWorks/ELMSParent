@@ -103,13 +103,13 @@
 
 	<initialpanel x="0" y="0" width="1080" height="720">
 		<BUTTONS>
-			<exit text="" x="1027" y="0" width="53" height="53" normal="element//close"
+			<exit text="" x="1026" y="1" width="53" height="52" normal="element//close"
 				enter="element//close-enter" clicked="element//close-clicked" />
-			<min text="" x="974" y="0" width="53" height="53" normal="element//min"
+			<min text="" x="974" y="1" width="53" height="52" normal="element//min"
 				enter="element//min-enter" clicked="element//min-clicked" />
-			<drop text="" x="716" y="0" width="257" height="53" normal="element//drop"
+			<drop text="" x="716" y="1" width="257" height="52" normal="element//drop"
 				enter="element//drop-enter" clicked="element//drop-clicked" />
-			<home text="" x="655" y="0" width="60" height="53" normal="element//home"
+			<home text="" x="655" y="1" width="60" height="52" normal="element//home"
 				enter="element//home-enter" clicked="element//home-clicked" />
 			<career text="" x="773" y="16" width="26" height="22" />
 		</BUTTONS>
@@ -1690,22 +1690,27 @@
 						height="37" type="confirm" />
 
 				</BUTTONS>
+				<WHITEPANELS>
+						<whitepanel x="95" y="140" width="660" height="330" />
+					</WHITEPANELS>
 				<TEXTFIELDS>
-					<accountID text="" x="345" y="170" width="276" height="40" />
-					<name text="" x="345" y="240" width="276" height="40" />
-					<password text="" x="345" y="300" width="276" height="40" />
+					<accountID text="" x="245" y="60" width="276" height="40" />
+					<name text="" x="245" y="130" width="276" height="40" />
+					<password text="" x="245" y="200" width="276" height="40" />
 				</TEXTFIELDS>
 				<LABELS>
-					<accountID text="账户ID" x="200" y="170" width="115"
-						height="40" type="rectangle" />
-					<name text="姓名" x="200" y="240" width="115" height="40" type="rectangle" />
-					<password text="密码" x="200" y="300" width="115" height="40"
+					<title text="增加账户" x="0" y="0" width="115"
+						height="40" type="" />
+					<accountID text="账户ID" x="100" y="60" width="115"
+						height="40" type="" />
+					<name text="姓名" x="100" y="130" width="115" height="40" type="" />
+					<password text="密码" x="100" y="200" width="115" height="40"
 						type="rectangle" />
-					<staffType text="职员类型" x="200" y="370" width="115"
-						height="40" type="rectangle" />
+					<staffType text="职员类型" x="100" y="270" width="115"
+						height="40" type="" />
 
 				</LABELS>
-				<staffBox text="" x="345" y="370" width="276" height="40"
+				<staffBox text="" x="245" y="270" width="276" height="40"
 					strings="快递员 财务人员 总经理 营业厅业务员 中转中心业务人员 中转中心管理员 管理员" />
 			</AddAccountPanel>
 			<ModifyAccountPanel x="232" y="54" width="848"
