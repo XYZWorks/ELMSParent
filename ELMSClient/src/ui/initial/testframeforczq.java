@@ -1,4 +1,4 @@
-package ui.inital;
+package ui.initial;
 
 import javax.swing.JFrame;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -38,7 +38,7 @@ public class testframeforczq extends MyFrame{
 		/**
 		 * 整个过程中不动的界面，底色
 		 */
-		InitalPanel initalPanel = new InitalPanel(e.element("initialpanel") , this , new AccountVO("1111111", "1213", AccountType.financeman, "1213"));
+		InitialPanel initalPanel = new InitialPanel(e.element("initialpanel") , this , new AccountVO("1111111", "1213", AccountType.financeman, "1213"));
 
 		this.setContentPane(initalPanel);
 		

@@ -1,16 +1,18 @@
-package ui.inital;
+package ui.initial;
 
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JFrame;
-
 import org.dom4j.Element;
 
 import ui.config.GraphicsUtils;
+import ui.courier.CourierController;
+import ui.financeman.FinanceController;
 import ui.saleman.SaleManController;
+import ui.storeman.StoreManController;
+import ui.storemanager.StoreManagerController;
 import ui.tools.MyFrame;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -20,21 +22,20 @@ import ui.util.CompomentType;
 import ui.util.PanelController;
 import vo.account.AccountVO;
 
-/** * @author zr 
-* @date 创建时间：2015年12月5日 下午7:23:31 
-* @version 1.0 
-* @parameter  
-* @since  
-* @return  
-*/
-
-public class InitalPanel4 extends MyPanel{
+/**
+ * 主面板界面，不动的界面
+ * 
+ * @author xingcheng
+ *
+ */
+@SuppressWarnings("serial")
+public class InitialPanel2 extends MyPanel {
 
 //	private ShowCareer career;
 	private MyPictureButton exit;
 	private MyPictureButton min;
 	private MyPictureButton home;
-	private MyPictureButton drop;
+	private MyPictureButton rectangle;
 	private MyLabel career;
 	/**
 	 * 控制器
@@ -43,8 +44,7 @@ public class InitalPanel4 extends MyPanel{
 	private MyFrame parent;
 
 
-
-	public InitalPanel4(Element e , MyFrame frame,AccountVO vo) {
+	public InitialPanel2(Element e , MyFrame frame ,AccountVO vo) {
 		super(e);
 		this.parent = frame;
 		this.initButtons(e.element(CompomentType.BUTTONS.name()));
@@ -54,25 +54,26 @@ public class InitalPanel4 extends MyPanel{
 		this.addCompoment();
 		this.addListener();
 		//界面跳转方法
-		//this.addOtherPanel(e); 
+		this.addOtherPanel(vo ,e); 
 		
 		this.repaint();
-		
 		this.setVisible(true);
-		addOtherPanel(e);
 	}
 	
 	/**
 	 * 根据账户类型跳转至不同的界面
 	 * @param vo
 	 */
-	private void addOtherPanel(Element e) {
+	private void addOtherPanel(AccountVO vo  ,Element e) {
 //		AccountType type = vo.type;
 		
 		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
-		controller = new SaleManController(this, e.element("saleman"));
-		System.out.println("---------------");
-//		controller = new AdminstratorController(this, e.element("Adminstrator"));
+	//	controller =  new CourierController(this, e.element("CourierManager")) ;
+	//	controller=new SaleManController(this, e.element("Salesman"));
+	//	controller =  new FinanceController(this, e.element("Financeman")) ;
+		controller = new StoreManagerController(this,
+				e.element("StoreManager"));
+	//	controller = new StoreManController(this, e.element("StoreMan"));
 //		switch (type) {
 //		case Adminstrator:
 //			
@@ -111,9 +112,9 @@ public class InitalPanel4 extends MyPanel{
 	protected void initButtons(Element e) {
 
 		min = new MyPictureButton(e.element("min"));
-		home = new MyPictureButton(e.element("home"));
 		exit = new MyPictureButton(e.element("exit"));
-		drop = new MyPictureButton(e.element("drop"));
+		home = new MyPictureButton(e.element("home"));
+		rectangle = new MyPictureButton(e.element("drop"));
 	}
 
 	@Override
@@ -124,7 +125,7 @@ public class InitalPanel4 extends MyPanel{
 
 	@Override
 	protected void initLabels(Element e) {
-//		career = new MyLabel(e.element("career") , vo.type.name() + "," + vo.name);
+	
 
 	}
 
@@ -140,7 +141,7 @@ public class InitalPanel4 extends MyPanel{
 		this.add(min);
 		this.add(home);
 		
-		this.add(drop);
+		this.add(rectangle);
 //		this.add(career);
 	}
 
@@ -149,7 +150,7 @@ public class InitalPanel4 extends MyPanel{
 		exit.addMouseListener(new ExitListener());
 		min.addMouseListener(new MinListener());
 		home.addMouseListener(new HomeListener());
-		drop.addMouseListener(new RectangleListener());
+		rectangle.addMouseListener(new RectangleListener());
 
 	}
 	
@@ -160,7 +161,6 @@ public class InitalPanel4 extends MyPanel{
 			//弹出optionpane 确认退出 TODO
 			
 			System.exit(0);
-			
 			
 		}
 
@@ -197,11 +197,11 @@ public class InitalPanel4 extends MyPanel{
 	class HomeListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			home.setMyIcon(ButtonState.MOUSE_CLICKED);
-			//切换到主页
+			//切换到主界面
 			controller.jumpBackToMainWindow();
+			
 		}
-
+		
 		@Override
 		public void mouseEntered(MouseEvent e) {
 			home.setMyIcon(ButtonState.MOUSE_ENTERED);
@@ -216,18 +216,18 @@ public class InitalPanel4 extends MyPanel{
 	class RectangleListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			drop.setMyIcon(ButtonState.MOUSE_CLICKED);
+			rectangle.setMyIcon(ButtonState.MOUSE_CLICKED);
 			//下拉窗口 选择“设置账户信息”“登出账户”
 		}
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
-			drop.setMyIcon(ButtonState.MOUSE_ENTERED);
+			rectangle.setMyIcon(ButtonState.MOUSE_ENTERED);
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
-			drop.setMyIcon(ButtonState.NORMAL);
+			rectangle.setMyIcon(ButtonState.NORMAL);
 		}
 	}
 
@@ -236,5 +236,4 @@ public class InitalPanel4 extends MyPanel{
 		// TODO Auto-generated method stub
 		
 	}
-
 }

@@ -1,4 +1,4 @@
-package ui.inital;
+package ui.initial;
 
 import org.dom4j.Element;
 
@@ -28,7 +28,7 @@ public class mainFrame extends MyFrame {
 		/**
 		 * 整个过程中不动的界面，底色
 		 */
-		InitalPanel initalPanel = new InitalPanel(e.element("initialpanel") , this , vo);
+		InitialPanel initalPanel = new InitialPanel(e.element("initialpanel") , this , vo);
 
 		this.setContentPane(initalPanel);
 

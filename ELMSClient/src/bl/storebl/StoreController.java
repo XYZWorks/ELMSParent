@@ -17,6 +17,7 @@ import vo.store.OutStoreDocVO;
 import vo.store.StoreCheckVO;
 import vo.store.StoreMessageVO;
 import bl.BusinessController;
+import bl.orderbl.OrderController;
 import blservice.storeblservice.InStoreDocService;
 import blservice.storeblservice.OutStoreDocService;
 import blservice.storeblservice.StoreblService;
@@ -33,9 +34,8 @@ public class StoreController extends BusinessController implements
 		StoreblService, InStoreDocService, OutStoreDocService {
 
 	private Store store;
-
 	private InStoreDocImpl inStoreDocImpl;
-
+	private OrderController orderController;
 	private OutStoreDocImpl outStoreDocImpl;
 
 	private StoreDataService storeDataService;
@@ -45,8 +45,10 @@ public class StoreController extends BusinessController implements
 				.getDataService(DataServiceType.StoreDataService);
 		store = new Store(storeDataService);
 		myType = DataServiceType.StoreDataService;
-		inStoreDocImpl = new InStoreDocImpl(storeDataService);
-		outStoreDocImpl = new OutStoreDocImpl(storeDataService);
+		orderController = new OrderController();
+		inStoreDocImpl = new InStoreDocImpl(storeDataService,orderController);
+		outStoreDocImpl = new OutStoreDocImpl(storeDataService,orderController);
+		
 
 	}
 
@@ -281,8 +283,8 @@ public class StoreController extends BusinessController implements
 	public void reinitDataService(Remote dataService) {
 		storeDataService = (StoreDataService) dataService;
 		store = new Store(storeDataService);
-		inStoreDocImpl = new InStoreDocImpl(storeDataService);
-		outStoreDocImpl = new OutStoreDocImpl(storeDataService);
+		inStoreDocImpl = new InStoreDocImpl(storeDataService,orderController);
+		outStoreDocImpl = new OutStoreDocImpl(storeDataService,orderController);
 	}
 
 }

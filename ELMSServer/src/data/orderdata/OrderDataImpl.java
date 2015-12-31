@@ -38,7 +38,8 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	}
 
 	public ArrayList<OrderPO> getDayOrderPO(MyDate date) throws RemoteException {
-		sql = "SELECT * FROM " + orderTable + " WHERE `date` = " +"\""+ MyDate.toString(date)+"\"";
+		String dateStr =date.getDay();
+		sql = "SELECT * FROM " + orderTable + " WHERE `date` = " +"\""+ dateStr+"\"";
 		ArrayList<OrderPO> pos = new ArrayList<OrderPO>(50);
 		OrderPO po;
 		try {
@@ -62,11 +63,11 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 						new OtherOrderMes(result.getString(19), result
 								.getString(20) , MyDate.getDate(result.getString(21)), Double.parseDouble(result
 								.getString(22)), Double.parseDouble(result
-								.getString(23)), result.getString(34), MyDate
-								.getDate(result.getString(35))),
+								.getString(23)), result.getString(35), MyDate
+								.getDate(result.getString(36))),
 						new TransferDocs(result.getString(24), result
 								.getString(25), result.getString(26), result
-								.getString(27), result.getString(28) , result.getString(29) ,result.getString(30) , result.getString(31) , result.getString(32), helper.tranFromStringToArrayList(result.getString(33))));
+								.getString(27), result.getString(28) , result.getString(29) ,result.getString(30) , result.getString(31) , result.getString(32),result.getString(33),  helper.tranFromStringToArrayList(result.getString(34))));
 				pos.add(po);
 			}
 			
@@ -80,26 +81,40 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	}
 
 	public ResultMessage add(OrderPO po) throws RemoteException {
-		return addToSQL(orderTable, po.getID(), po.getType().name(),
-				MyDate.toString(po.getDate()), po.getState().name(), po
+		return addToSQL(orderTable,
+				po.getID(),
+				po.getType().name(),
+				MyDate.toString(po.getDate()), po.getState().name(), 
+				//---------------------------------------------------------
+				
+				po
 						.getSender().getName(), po.getSender().getPhone(), po
 						.getSender().getCompany(), po.getSender().getAddress(),
+				//----------------------------------------------------------
 				po.getReceiver().getName(), po.getReceiver().getPhone(), po
 						.getReceiver().getCompany(), po.getReceiver()
-						.getAddress(), String.valueOf(po.getGoodMes()
-						.getGoodNum()), po.getGoodMes().getGoodName(),
-				String.valueOf(po.getGoodMes().getGoodWeight()),
-				String.valueOf(po.getGoodMes().getGoodLong()),
-				String.valueOf(po.getGoodMes().getGoodWidth()),
-				String.valueOf(po.getGoodMes().getGoodHeight()), po
-						.getOtherMes().getGoodPack(), po.getOtherMes()
-						.getOrderForm(), MyDate.toString(po.getOtherMes().getOrderStartDate()) , String.valueOf(po.getOtherMes()
-						.getOrderEestiTime()), String.valueOf(po.getOtherMes()
-						.getOrderCost()), po.getTransferDocs().getLoadDoc(), po
-						.getTransferDocs().getArriveZZDoc(), po
-						.getTransferDocs().getTransferDoc(), po
+						.getAddress(), 
+				//----------------------------------------------------------
+				String.valueOf(po.getGoodMes().getGoodNum()), po.getGoodMes().getGoodName(),
+				String.valueOf(po.getGoodMes().getGoodWeight()), String.valueOf(po.getGoodMes().getGoodLong()),
+				String.valueOf(po.getGoodMes().getGoodWidth()), String.valueOf(po.getGoodMes().getGoodHeight()),
+				//--------------------------------------------------------------
+				po.getOtherMes().getGoodPack(),
+				po.getOtherMes().getOrderForm(),
+				MyDate.toString(po.getOtherMes().getOrderStartDate()),
+				String.valueOf(po.getOtherMes().getOrderEestiTime()), 
+				String.valueOf(po.getOtherMes().getOrderCost()),
+				//--------------------------------------------------
+						po.getTransferDocs().getLoadDoc(), 
+						po
+						.getTransferDocs().getArriveZZOneDoc(),po
+						.getTransferDocs().getInStoreOneDoc(),po
+						.getTransferDocs().getOutStoreOneDoc(), po
+						.getTransferDocs().getTransferDoc(), po.getTransferDocs().getArriveZZTwoDoc(),po.getTransferDocs().getInstoreTwoDoc() , po.getTransferDocs().getOutStoreTwoDoc(), po
 						.getTransferDocs().getArriveYYDoc(), po
-						.getTransferDocs().getSendGoodDoc() , helper.tranFromArrayToString(po.getTransferDocs().getAllDocs()), po.getOtherMes()
+						.getTransferDocs().getSendGoodDoc() , 
+						helper.tranFromArrayToString(po.getTransferDocs().getAllDocs()), 
+						po.getOtherMes()
 						.getRealReceiver(), MyDate.toString(po.getOtherMes()
 						.getOrderReceiveDate()));
 	}
@@ -111,14 +126,20 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	public ResultMessage addDocToList(DocPO po, ArrayList<String> orderBarCodes)
 			throws RemoteException {
 		try {
+			
+			
+			
 			String type = po.getType().name();
 			int affectNum = 0;
 			for (String temp : orderBarCodes) {
-				sql = "MODIFY `" + orderTable + "` SET `" + type + "` = ?" + "WHERE id ="
+				type = checkType(temp , po.getType());
+				sql = "UPDATE `" + orderTable + "` SET  " + type + " = ? " + "WHERE id = "
 						+"\""+ temp+"\"";
-				preState.setString(1, po.getID());
 				preState = conn.prepareStatement(sql);
+				preState.setString(1, po.getID());
 				affectNum = preState.executeUpdate();
+				
+				
 			}
 			if(affectNum == 0){
 				return ResultMessage.NOT_EXIST;
@@ -132,6 +153,38 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 		}
 		
 		return ResultMessage.FAIL;
+	}
+
+	private String checkType(String temp, DocType docType) throws RemoteException {
+		OrderPO myPO ;
+		String type = "";
+		if(docType == DocType.inStoreDoc){
+			myPO = getSingleOrderPO(temp);
+			if(myPO.getTransferDocs().getInStoreOneDoc().equals("")){
+				type = "inStoreOneDoc";
+			}else{
+				type = "inStoreTwoDoc";
+			}
+		}else if(docType == DocType.outStoreDoc){
+			myPO = getSingleOrderPO(temp);
+			if(myPO.getTransferDocs().getOutStoreOneDoc().equals("")){
+				type = "outStoreOneDoc";
+			}else{
+				type = "outStoreTwoDoc";
+			}
+		}else if(docType == DocType.arriveZZDoc){
+			myPO = getSingleOrderPO(temp);
+			if(myPO.getTransferDocs().getArriveZZOneDoc().equals("")){
+				type = "arriveZZOneDoc";
+			}else{
+				type = "arriveZZTwoDoc";
+			}
+		}
+		else{
+			type = docType.name();
+		}
+		
+		return type;
 	}
 
 	public OrderPO getSingleOrderPO(String orderBarCode) throws RemoteException {
@@ -156,11 +209,11 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 					new OtherOrderMes(findMes.get(18), findMes
 							.get(19), MyDate.getDate(findMes.get(20)) , Double.parseDouble(findMes
 							.get(21)), Double.parseDouble(findMes
-									.get(22)), findMes.get(33), MyDate
-							.getDate(findMes.get(34))),
+									.get(22)), findMes.get(34), MyDate
+							.getDate(findMes.get(35))),
 					new TransferDocs(findMes.get(23), findMes
 							.get(24), findMes.get(25), findMes
-							.get(26), findMes.get(27) , findMes.get(28) , findMes.get(29) , findMes.get(30) , findMes.get(31), helper.tranFromStringToArrayList(findMes.get(32))));
+							.get(26), findMes.get(27) , findMes.get(28) , findMes.get(29) , findMes.get(30) , findMes.get(31),findMes.get(32) , helper.tranFromStringToArrayList(findMes.get(33))));
 		}
 		
 	}
@@ -176,10 +229,10 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 			return null; 
 		}else{
 			docpos = new ArrayList<String>(10);
-			for (int i = 0; i < 10; i++) {
-				if(findMes.get(22 + i) != null){
-					docpos.add(findMes.get(22 + i));
-					System.err.println(findMes.get(22 + i));
+			for (int i = 0; i < 9; i++) {
+				if(findMes.get(23 + i) != null){
+					docpos.add(findMes.get(23 + i));
+					System.err.println(findMes.get(23 + i));
 				}else{
 					break;
 				}
@@ -234,11 +287,11 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 						new OtherOrderMes(result.getString(19), result
 								.getString(20) , MyDate.getDate(result.getString(21)), Double.parseDouble(result
 								.getString(22)), Double.parseDouble(result
-								.getString(23)), result.getString(34), MyDate
-								.getDate(result.getString(35))),
+								.getString(23)), result.getString(35), MyDate
+								.getDate(result.getString(36))),
 						new TransferDocs(result.getString(24), result
 								.getString(25), result.getString(26), result
-								.getString(27), result.getString(28) , result.getString(29) ,result.getString(30) , result.getString(31) , result.getString(32), helper.tranFromStringToArrayList(result.getString(33))));
+								.getString(27), result.getString(28) , result.getString(29) ,result.getString(30) , result.getString(31) , result.getString(32),result.getString(33) , helper.tranFromStringToArrayList(result.getString(34))));
 				pos.add(po);
 			}
 			

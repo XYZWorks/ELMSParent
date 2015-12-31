@@ -1,4 +1,4 @@
-package ui.inital;
+package ui.initial;
 
 import org.dom4j.Element;
 
@@ -25,7 +25,7 @@ public class testframeforzr extends MyFrame{
 	public testframeforzr(Element e , AccountType type) {
 		super(e);
 		
-		InitalPanel4 initialPanel = new InitalPanel4(e.element("initialpanel"), this ,null);
+		InitialPanel4 initialPanel = new InitialPanel4(e.element("initialpanel"), this ,null);
 		
 		this.setContentPane(initialPanel);
 		

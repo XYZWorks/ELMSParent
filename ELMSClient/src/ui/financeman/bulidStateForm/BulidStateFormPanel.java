@@ -240,9 +240,11 @@ public class BulidStateFormPanel extends MyPanel{
 			@Override
 			protected boolean saveToSQL() {
 				if(isStateForm){
-					payVOs.trimToSize();
-					depositVOs.trimToSize();
+//					payVOs.trimToSize();
+//					depositVOs.trimToSize();000
+					System.err.println("1");
 					result = bl.bulidStateForm(new StateFormVO(startDate, endDate, payVOs, depositVOs));
+					System.err.println("2");
 				}else{
 					result = bl.bulidCostIncomeForm(new CostIncomeVO(Integer.parseInt(income), Integer.parseInt(outCome), startDate, endDate));
 				}

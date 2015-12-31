@@ -166,6 +166,7 @@ public class DataServiceHelper {
 					
 				}
 				out = new ObjectOutputStream(new FileOutputStream(file));
+//				out.write
 				if(objects != null){
 					System.out.println("已有的文件数量" +objects.size());
 					for (Object object2 : objects) {

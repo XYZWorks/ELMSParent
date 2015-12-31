@@ -4,10 +4,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import po.DocPO;
-import util.City;
 import util.DocState;
 import util.DocType;
 import util.GoodsState;
+import util.InstType;
+import util.InstType;
 import util.MyDate;
 
 /**
@@ -33,7 +34,7 @@ public class ArriveYYDocPO extends DocPO implements Serializable{
 	/**
 	 * 出发地
 	 */
-	private  City sendCity;
+	private  InstType sendFrom;
 	/**
 	 * 货物到达状态
 	 */
@@ -65,10 +66,10 @@ public class ArriveYYDocPO extends DocPO implements Serializable{
 	
 	
 	public ArriveYYDocPO(String iD, DocType type, MyDate date, DocState state,
-			String zZID, City sendCity, GoodsState goodState,ArrayList<String> orderBarCodes) {
+			String zZID, InstType sendFrom, GoodsState goodState,ArrayList<String> orderBarCodes) {
 		super(iD, type, date, state);
 		this.ZZID = zZID;
-		this.sendCity = sendCity;
+		this.sendFrom = sendFrom;
 		this.goodState = goodState;
 		this.orderBarCodes = orderBarCodes;
 	}
@@ -84,12 +85,12 @@ public class ArriveYYDocPO extends DocPO implements Serializable{
 		this.ZZID = zZID;
 	}
 
-	public City getSendCity() {
-		return sendCity;
+	public InstType getInstType() {
+		return sendFrom;
 	}
 
-	public void setSendCity(City sendCity) {
-		this.sendCity = sendCity;
+	public void setSendCity(InstType sendCity) {
+		this.sendFrom = sendCity;
 	}
 
 	public GoodsState getGoodState() {

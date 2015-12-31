@@ -1,5 +1,6 @@
 package ui.user;
 
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 
 import org.dom4j.Element;
@@ -11,6 +12,8 @@ import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
+import ui.util.RefreshPanel;
+import ui.util.TipsDialog;
 import util.AccountType;
 import util.ResultMessage;
 import vo.account.AccountVO;
@@ -21,7 +24,7 @@ import blservice.accountblservice.Accountblservice;
  * @version 2015年12月2日 下午7:12:08 
  */
 @SuppressWarnings("serial")
-public class ModifyAccountPanel extends MyPanel{
+public class ModifyAccountPanel extends MyPanel implements RefreshPanel{
 	
 	Accountblservice bl;
 	/**
@@ -147,7 +150,7 @@ public class ModifyAccountPanel extends MyPanel{
 			}else{
 				int row = table.getSelectedRow();
 				if(row == -1){
-//					new MyOptionPane(parent, message)
+					new TipsDialog("请选择一行信息", Color.GREEN);
 					return;
 				}
 				setModifyCompVisiable(true);
@@ -174,7 +177,6 @@ public class ModifyAccountPanel extends MyPanel{
 			if(row != -1){
 				result = bl.delete((String)table.getTable().getValueAt(row, 0));
 				if(result == ResultMessage.SUCCESS){
-					System.out.println("删除成功   177行");
 					table.removeRow(row);
 				}else{
 					
@@ -197,6 +199,12 @@ public class ModifyAccountPanel extends MyPanel{
 	@Override
 	protected void initWhitePanels(Element e) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void refresh() {
+		table.updateTableMes();
 		
 	}
 	

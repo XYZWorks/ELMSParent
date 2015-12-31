@@ -6,6 +6,7 @@ import ui.config.GraphicsUtils;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 import javax.swing.JPanel;
 
@@ -18,11 +19,23 @@ import javax.swing.JPanel;
 public class MyWhitePanel extends JPanel {
 	private Color color;
 	private double alpha;
+<<<<<<< HEAD
 
 	public MyWhitePanel(Element config) {
 		this.setBounds(Integer.parseInt(config.attributeValue("x")), Integer.parseInt(config.attributeValue("y")),
 				Integer.parseInt(config.attributeValue("width")), Integer.parseInt(config.attributeValue("height")));
 		if (config.attributeValue("alpha") != null) {
+=======
+	
+	public MyWhitePanel(Rectangle rectangle) {
+		this.setBounds(rectangle);
+		this.setLayout(null);
+	}
+	public MyWhitePanel(Element config ){
+		this.setBounds(Integer.parseInt(config.attributeValue("x")) , Integer.parseInt(config.attributeValue("y")) , Integer.parseInt(config.attributeValue("width")) , Integer.parseInt(config.attributeValue("height")));
+		
+		if(config.attributeValue("alpha")!= null){
+>>>>>>> origin/master
 			alpha = Double.parseDouble(config.attributeValue("alpha"));
 		}
 
