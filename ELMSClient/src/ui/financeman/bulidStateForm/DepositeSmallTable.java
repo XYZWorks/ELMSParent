@@ -63,6 +63,7 @@ public class DepositeSmallTable extends MyTablePanel {
 		orderbarCodes.add(orderID);
 		oneOrder[0] = String.valueOf(orderbarCodes.size());
 		oneOrder[1] = orderID;
+		
 		Orderblservice orderblservice = BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
 		double readCost;
 		try {

@@ -217,7 +217,7 @@
 						one="courier//cost" fontName="Microsoft YaHei" />
 					<costText text="" x="390" y="668" width="225" height="65"
 						size="38" color="255,138,0" />
-
+					
 				</LABELS>
 
 
@@ -398,12 +398,19 @@
 
 					<estimateTime text="" x="49" y="1080" width="189"
 						height="65" one="courier//estimateTime" />
-					<estimateTimeText text="" x="49" y="1080" width="189"
+					<estimateTimeText text="" x="150" y="1080" width="189"
 						height="65" size="38" />
 
 					<cost text="" x="350" y="1080" width="189" height="65" one="courier//cost" />
-					<costText text="" x="350" y="1080" width="189" height="65"
+					<costText text="" x="450" y="1080" width="189" height="65"
 						size="38" />
+						
+						
+							<estimateTimeText text="" x="150" y="668" width="225"
+						height="65" size="38" />
+						<costText text="" x="390" y="668" width="225" height="65"
+						size="38" color="255,138,0" />
+						
 
 					<transferInfo text="物流信息" x="0" y="0" width="114"
 						height="40" type="rectangle" />

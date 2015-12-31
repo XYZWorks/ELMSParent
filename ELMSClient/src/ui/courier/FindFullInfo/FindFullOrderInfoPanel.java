@@ -1,5 +1,6 @@
 package ui.courier.FindFullInfo;
 
+import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -442,7 +443,10 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller implements DocPa
 		goodPackText.setText(otherMes.getGoodPack());
 		orderFormText.setText(otherMes.getOrderForm());
 		
+		costText.setForeground(new Color(255, 138, 0));
 		costText.setText(String.valueOf(otherMes.getOrderCost()));
+		
+		estimateTimeText.setForeground(new Color(26, 188, 156));
 		estimateTimeText.setText(String.valueOf(otherMes.getOrderEestiTime()));
 
 		// 读取流转信息
