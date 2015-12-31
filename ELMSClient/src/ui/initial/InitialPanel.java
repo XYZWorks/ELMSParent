@@ -86,7 +86,6 @@ public class InitialPanel extends MyPanel {
 
 
 		AccountType type = vo.type;
-		type = AccountType.financeman;
 		switch (type) {
 		case Adminstrator:
 			controller = new AdminstratorController(this,
