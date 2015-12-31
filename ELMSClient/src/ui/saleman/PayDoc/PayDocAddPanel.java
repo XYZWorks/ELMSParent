@@ -52,7 +52,7 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 
 	private MyPictureLabel money;
 	private MyLabel moneyText;
-	private double moneyTotal;
+	private double moneyTotal=0;
 
 	private MyTextField idT;
 	private MyTextField YYIDT;
@@ -240,6 +240,9 @@ public class PayDocAddPanel extends AddDocPanel implements DocPanelForApproval {
 		moneyText.setText("");
 		ordersTable.clearOrders();
 		courierNameT.setText("");
+
+		ordersTable.setMoneyTotal(0);
+
 	}
 
 	@Override

@@ -14,7 +14,9 @@ import ui.tools.MyJumpListener;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
+import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
+import ui.tools.MyWhitePanel;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.DocPanelForApproval;
@@ -40,7 +42,9 @@ public class AddInStorePanel extends MyPanel implements DocPanelForApproval{
 	MyPictureButton confirmButton;
 	MyPictureButton returnButton;
 
-	MyLabel title;
+	private MyWhitePanel whitePanel;
+	
+	MyPictureLabel title;
 	MyLabel IDL;
 	MyLabel dateL;
 	MyLabel sendCityL;
@@ -63,7 +67,7 @@ public class AddInStorePanel extends MyPanel implements DocPanelForApproval{
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
-
+		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initOtherCompoment(config);
 		addCompoment();
 		//一切为了单据审批= =
@@ -76,7 +80,7 @@ public class AddInStorePanel extends MyPanel implements DocPanelForApproval{
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		// TODO Auto-generated method stub
+		whitePanel=new MyWhitePanel(e.element("whitePanel"));
 
 	}
 
@@ -100,7 +104,7 @@ public class AddInStorePanel extends MyPanel implements DocPanelForApproval{
 
 	@Override
 	protected void initLabels(Element e) {
-		title = new MyLabel(e.element("title"));
+		title = new MyPictureLabel(e.element("title"));
 		IDL = new MyLabel(e.element("ID"));
 		dateL = new MyLabel(e.element("date"));
 		sendCityL = new MyLabel(e.element("sendCity"));
@@ -118,17 +122,23 @@ public class AddInStorePanel extends MyPanel implements DocPanelForApproval{
 
 	@Override
 	protected void addCompoment() {
-		add(IDL);
-		add(IDT);
-		add(confirmButton);
-		add(dateL);
+		
+		whitePanel.add(title);
+		whitePanel.add(sendCityC);
+		whitePanel.add(sendCityL);
+		whitePanel.add(IDL);
+		whitePanel.add(IDT);
+		whitePanel.add(dateL);
+		whitePanel.add(picker);
+		
+		this.add(whitePanel);
+		
 		add(locInfoL);
 		add(locInfoTable);
-		add(picker);
+		
 		add(returnButton);
-		add(sendCityC);
-		add(sendCityL);
-		add(title);
+		
+		add(confirmButton);
 
 	}
 
