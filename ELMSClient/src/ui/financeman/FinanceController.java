@@ -43,7 +43,7 @@ public class FinanceController extends PanelController {
 	private MyPanel bulidBillPanel;
 	private MyPanel bankAccountManagePanel;
 	private MyPanel costManagePanel;
-	private MyPanel bulidStateFromPanel;
+	private BulidStateFormPanel bulidStateFromPanel;
 	private MyPanel bulidPayPanel;
 	
 	private final static String financeMainStr = StaticMessage.MAIN_WINDOW;

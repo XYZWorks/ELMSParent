@@ -17,6 +17,7 @@ import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
+import ui.tools.MyWhitePanel;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
@@ -31,6 +32,8 @@ import vo.finance.BankAccountVO;
 @SuppressWarnings("serial")
 public class AddBankAccountPanel extends MyPanel{
 	
+	private MyWhitePanel whitePanel;
+	private MyPictureLabel addAccount;
 	private MyLabel id;
 	private MyLabel password;
 	private MyLabel money;
@@ -67,6 +70,7 @@ public class AddBankAccountPanel extends MyPanel{
 
 	@Override
 	protected void initWhitePanels(Element e) {
+		whitePanel=new MyWhitePanel(e.element("whitePanel"));
 	}
 
 	@Override
@@ -86,10 +90,10 @@ public class AddBankAccountPanel extends MyPanel{
 
 	@Override
 	protected void initLabels(Element e) {
-		money = new MyPictureLabel(e.element("money"));
-		password = new MyPictureLabel(e.element("password"));
-		id = new MyPictureLabel(e.element("id"));
-		
+		money = new MyLabel(e.element("money"));
+		password = new MyLabel(e.element("password"));
+		id = new MyLabel(e.element("id"));
+		addAccount=new MyPictureLabel(e.element("addAccount"));
 	}
 
 	@Override
@@ -98,14 +102,17 @@ public class AddBankAccountPanel extends MyPanel{
 
 	@Override
 	protected void addCompoment() {
-		add(id);
+		whitePanel.add(addAccount);
+		whitePanel.add(id);
+		whitePanel.add(idT);
+		whitePanel.add(password);
+		whitePanel.add(passwordT);
+		whitePanel.add(money);
+		whitePanel.add(moneyT);
+		
+		add(whitePanel);
 		add(cancel);
 		add(confirm);
-		add(idT);
-		add(password);
-		add(passwordT);
-		add(money);
-		add(moneyT);
 	}
 
 	@Override

@@ -20,6 +20,7 @@ import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
+import ui.tools.MyWhitePanel;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
@@ -33,34 +34,40 @@ import vo.finance.CostVO;
 import vo.finance.FreightVO;
 import vo.finance.RentVO;
 import vo.finance.SalaryVO;
- /** 
+
+/**
  * 成本信息增加界面
- * @author czq 
- * @version 2015年12月18日 下午8:58:45 
+ * 
+ * @author czq
+ * @version 2015年12月18日 下午8:58:45
  */
 @SuppressWarnings("serial")
 public class CostAddPanel extends MyPanel {
-	
+
 	private CostService costService;
 	private JPanel changePanel;
 	private MyCardLayOut panelManager;
 	private CostManagePanel costManagePanel;
 	private boolean modifyState = false;
-	
+
 	/*
 	 * 以下为共有组件
 	 */
+
+	private MyWhitePanel whitePanel1;
+	private MyWhitePanel whitePanel2;
+
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
 	private MyPictureButton back;
 	private MyLabel title;
-	
+
 	private MyLabel idL;
 	private MyLabel startDateL;
 	private MyLabel endDateL;
 	private MyLabel costTypeL;
 	private MyLabel moneyL;
-	
+
 	private MyTextField idT;
 	private MyDatePicker startDate;
 	private MyDatePicker endDate;
@@ -71,10 +78,8 @@ public class CostAddPanel extends MyPanel {
 	 */
 	private MyLabel staffTypeL;
 	private MyComboBox staffTypeB;
-	
-	
-	
-	public CostAddPanel(Element config , CostService costService, JPanel changePanel, CostManagePanel costManagePanel) {
+
+	public CostAddPanel(Element config, CostService costService, JPanel changePanel, CostManagePanel costManagePanel) {
 		super(config);
 		this.changePanel = changePanel;
 		this.panelManager = (MyCardLayOut) changePanel.getLayout();
@@ -82,6 +87,7 @@ public class CostAddPanel extends MyPanel {
 		this.costManagePanel = costManagePanel;
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
+		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initOtherCompoment(config);
 		initLabels(config.element(CompomentType.LABELS.name()));
 		addCompoment();
@@ -90,6 +96,8 @@ public class CostAddPanel extends MyPanel {
 
 	@Override
 	protected void initWhitePanels(Element e) {
+		whitePanel1 = new MyWhitePanel(e.element("whitePanel1"));
+		whitePanel2 = new MyWhitePanel(e.element("whitePanel2"));
 	}
 
 	@Override
@@ -109,13 +117,13 @@ public class CostAddPanel extends MyPanel {
 
 	@Override
 	protected void initLabels(Element e) {
-		title = new MyLabel(e.element("title"));
-		idL = new MyPictureLabel(e.element("id"));
-		startDateL = new MyPictureLabel(e.element("startDate"));
-		endDateL = new MyPictureLabel(e.element("endDate"));
-		moneyL = new MyPictureLabel(e.element("money"));
-		costTypeL = new MyPictureLabel(e.element("costType"));
-		staffTypeL= new MyPictureLabel(e.element("staffType"));
+		title = new MyPictureLabel(e.element("title"));
+		idL = new MyLabel(e.element("id"));
+		startDateL = new MyLabel(e.element("startDate"));
+		endDateL = new MyLabel(e.element("endDate"));
+		moneyL = new MyLabel(e.element("money"));
+		costTypeL = new MyLabel(e.element("costType"));
+		staffTypeL = new MyLabel(e.element("staffType"));
 
 	}
 
@@ -129,11 +137,27 @@ public class CostAddPanel extends MyPanel {
 
 	@Override
 	protected void addCompoment() {
-		add(back);add(cancel);add(confirm);add(title);
-		add(idL);add(idT);add(startDate);add(startDateL);add(endDate);add(endDateL);
-		add(costTypeB);add(costTypeL);add(moneyL);add(moneyT);
+		add(title);
+		 
+		whitePanel1.add(startDate);
+		whitePanel1.add(startDateL);
+		whitePanel1.add(endDate);
+		whitePanel1.add(endDateL);
+		whitePanel1.add(costTypeB);
+		whitePanel1.add(costTypeL);
+		whitePanel1.add(staffTypeB);
+		whitePanel1.add(staffTypeL);
 		
-		add(staffTypeB);add(staffTypeL);
+		whitePanel2.add(idL);
+		whitePanel2.add(idT);
+		whitePanel2.add(moneyL);
+		whitePanel2.add(moneyT);
+
+		add(whitePanel1);
+		add(whitePanel2);
+		add(back);
+		add(cancel);
+		add(confirm);
 	}
 
 	@Override
@@ -146,62 +170,65 @@ public class CostAddPanel extends MyPanel {
 			private String money;
 			private StaffType staffType;
 			CostVO vo;
+
 			@Override
 			protected void updateMes() {
-				if(modifyState){
-					if(type == CostType.FREIGHT){
+				if (modifyState) {
+					if (type == CostType.FREIGHT) {
 						costManagePanel.freightTable.myInit();
-					}else if(type == CostType.RENT){
+					} else if (type == CostType.RENT) {
 						costManagePanel.rentTable.myInit();
-					}else{
+					} else {
 						costManagePanel.salaryTable.myInit();
 					}
-				}else{
-					if(type == CostType.FREIGHT){
+				} else {
+					if (type == CostType.FREIGHT) {
 						costManagePanel.freightTable.addOneData(vo, 1);
-					}else if(type == CostType.RENT){
+					} else if (type == CostType.RENT) {
 						costManagePanel.rentTable.addOneData(vo, 1);
-					}else{
+					} else {
 						costManagePanel.salaryTable.addOneData(vo, 1);
 					}
 				}
 			}
-			
+
 			@Override
 			protected boolean saveToSQL() {
-				if(modifyState){
-					if(type == CostType.FREIGHT){
+				if (modifyState) {
+					if (type == CostType.FREIGHT) {
 						result = costService.modify(vo = new FreightVO(id, start, end, Integer.parseInt(money), type));
-					}else if(type == CostType.RENT){
+					} else if (type == CostType.RENT) {
 						result = costService.modify(vo = new RentVO(id, start, end, Integer.parseInt(money), type));
-					}else{
-						result = costService.modify(vo = new SalaryVO(id, start, end, Integer.parseInt(money), type , staffType));
+					} else {
+						result = costService
+								.modify(vo = new SalaryVO(id, start, end, Integer.parseInt(money), type, staffType));
 					}
-				}else{
-					if(type == CostType.FREIGHT){
+				} else {
+					if (type == CostType.FREIGHT) {
 						result = costService.add(vo = new FreightVO(id, start, end, Integer.parseInt(money), type));
-					}else if(type == CostType.RENT){
+					} else if (type == CostType.RENT) {
 						result = costService.add(vo = new RentVO(id, start, end, Integer.parseInt(money), type));
-					}else{
-						result = costService.add(vo = new SalaryVO(id, start, end, Integer.parseInt(money), type , staffType));
+					} else {
+						result = costService
+								.add(vo = new SalaryVO(id, start, end, Integer.parseInt(money), type, staffType));
 					}
 				}
-				
-				if(result == ResultMessage.SUCCESS){
+
+				if (result == ResultMessage.SUCCESS) {
 					new TipsDialog("成功增加/修改一条成本信息", Color.GREEN);
 					return true;
-				}else{
+				} else {
 					new TipsDialog("未成功增加一条信息");
 					System.err.println(result);
 					return false;
 				}
 			}
-			
+
 			@Override
 			protected void reInitial() {
 				myInit();
 			}
-			
+
 			@Override
 			protected boolean checkDataValid() {
 				id = idT.getText();
@@ -210,7 +237,8 @@ public class CostAddPanel extends MyPanel {
 				end = endDate.getMyDate();
 				type = CostType.toCostType((String) costTypeB.getSelectedItem());
 				staffType = StaffType.getType((String) staffTypeB.getSelectedItem());
-				SimpleDataFormat[] datas = {new SimpleDataFormat(id, DataType.ID, "ID") , new SimpleDataFormat(money, DataType.PositiveNum, "金额")};
+				SimpleDataFormat[] datas = { new SimpleDataFormat(id, DataType.ID, "ID"),
+						new SimpleDataFormat(money, DataType.PositiveNum, "金额") };
 				return UserfulMethod.dealWithData(datas);
 			}
 		});
@@ -220,7 +248,7 @@ public class CostAddPanel extends MyPanel {
 				myInit();
 			}
 		});
-		back.addMouseListener(new MyPictureButtonListener(back){
+		back.addMouseListener(new MyPictureButtonListener(back) {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
@@ -229,21 +257,24 @@ public class CostAddPanel extends MyPanel {
 			}
 		});
 	}
-	
-	private void myInit(){
+
+	private void myInit() {
 		idT.setText("");
-		moneyT.setText("");costTypeB.setSelectedIndex(0);staffTypeB.setSelectedIndex(0);
+		moneyT.setText("");
+		costTypeB.setSelectedIndex(0);
+		staffTypeB.setSelectedIndex(0);
 	}
-	
+
 	/**
 	 * 修改状态时
+	 * 
 	 * @param modifyState
 	 * @param ID
 	 * @param string
 	 */
 	void setModifyState(boolean modifyState, String ID, String type) {
 		this.modifyState = modifyState;
-		if(modifyState){
+		if (modifyState) {
 			idT.setText(ID);
 			costTypeB.setSelectedItem(type);
 		}
