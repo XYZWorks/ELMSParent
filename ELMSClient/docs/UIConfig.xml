@@ -2516,19 +2516,13 @@
 
 				<city x="350" y="177" width="240" height="40" strings="南京 广州 上海 北京" />
 
-<<<<<<< HEAD
 				<store x="350" y="347" width="240" height="45" strings="航运区 汽运区 铁运区" />
 				<white x="65" y="90" width="500" height="480" />
+
+
+				<StoreSingleShowPanel x="232" y="54" width="848" height="1710">
+
 				
-=======
-
-				<store x="350" y="347" width="240" height="45" strings="航运区 汽运区 铁运区" />
-				<white x="65" y="90" width="500" height="480" />
-
-
->>>>>>> origin/master
-				<StoreSingleShowPanel x="232" y="54" width="848"
-					height="1750">
 					<WHITEPANELS>
 						<showSimpleWhitePanel x="65" y="130" width="680"
 							height="80" />
@@ -2537,6 +2531,7 @@
 						<inWhitePanel x="65" y="800" width="680" height="440" />
 						<outWhitePanel x="65" y="1300" width="680" height="440" />
 					</WHITEPANELS>
+
 
 					<BUTTONS>
 						<confirm x="520" y="750" width="89" height="40" text="确认"

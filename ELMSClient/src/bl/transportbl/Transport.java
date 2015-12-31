@@ -149,7 +149,11 @@ public class Transport {
 
 	public ResultMessage add(ArriveZZDocVO vo) throws RemoteException {
 		ArriveZZDocPO po = (ArriveZZDocPO) VOPOchange.VOtoPO(vo);
-		return transportData.addArriveZZDocPO(po);
+		ResultMessage result = transportData.addArriveZZDocPO(po);
+		if (result == ResultMessage.SUCCESS) {
+			orderbl.addDocToList(vo, vo.orderBarCodes);
+		}
+		return  result;
 
 	}
 
@@ -174,7 +178,11 @@ public class Transport {
 	public ResultMessage addTransferDoc(TransferDocVO vo)
 			throws RemoteException {
 		TransferDocPO po = (TransferDocPO) VOPOchange.VOtoPO(vo);
-		return transportData.addTransferDocPO(po);
+		ResultMessage result  = transportData.addTransferDocPO(po);
+		if (result == ResultMessage.SUCCESS) {
+			orderbl.addDocToList(vo, vo.orderBarCode);
+		}
+		return  result;
 	}
 
 	@SuppressWarnings("unchecked")

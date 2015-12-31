@@ -40,7 +40,6 @@ public class StatisticController extends BusinessController implements
 			return statistic.bulidStateForm(vo);
 		} catch (RemoteException e) {
 			if (ExceptionHandler.myExceptionHandler(myType, this)) {
-				e.printStackTrace();
 				return bulidStateForm(vo);
 			}
 		}
