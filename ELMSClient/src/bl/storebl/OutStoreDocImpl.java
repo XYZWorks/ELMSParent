@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bl.VOPOchange;
+import bl.orderbl.OrderController;
 import blservice.orderblservice.Orderblservice;
 import ds.storedataservice.StoreDataService;
 import po.DocPO;
@@ -23,10 +24,11 @@ import vo.store.OutStoreDocVO;
 public class OutStoreDocImpl {
 	
 	StoreDataService storeData;
-	Orderblservice orderbl;
-	
-	public OutStoreDocImpl(StoreDataService storeDataService) {
-		
+	private OrderController orderController;
+
+	public OutStoreDocImpl(StoreDataService storeDataService, OrderController orderController) {
+		this.orderController=orderController;
+
 		storeData = storeDataService;
 	}
 	
@@ -53,7 +55,11 @@ public class OutStoreDocImpl {
 
 	public ResultMessage generate(OutStoreDocVO vo) throws RemoteException {
 		OutStoreDocPO po = (OutStoreDocPO) VOPOchange.VOtoPO(vo);
-			return storeData.addOut(po);
+			ResultMessage result =  storeData.addOut(po);
+			if (result == ResultMessage.SUCCESS) {
+				orderController.addDocToList(vo, vo.orders);
+			}
+			return  result;
 	}
 
 	public ArrayList< ? extends DocVO> getDocLists(DocType type) throws RemoteException {

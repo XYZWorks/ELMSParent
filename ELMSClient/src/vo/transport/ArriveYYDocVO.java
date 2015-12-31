@@ -5,10 +5,13 @@ import vo.DocVO;
 
 import java.util.ArrayList;
 
+import javax.print.Doc;
+
 import util.City;
 import util.DocState;
 import util.DocType;
 import util.GoodsState;
+import util.InstType;
 
 /**
  * 接收单VO类
@@ -37,7 +40,7 @@ public class ArriveYYDocVO extends DocVO{
 	/**
 	 * 出发地
 	 */
-	public  City sendCity;
+	public  InstType sendFrom;
 	/**
 	 * 货物到达状态
 	 */
@@ -47,13 +50,20 @@ public class ArriveYYDocVO extends DocVO{
 	 */
 	public ArrayList<String> orderBarCodes;
 	public ArriveYYDocVO() {
-		// TODO Auto-generated constructor stub
 	}
-	public ArriveYYDocVO(String iD, MyDate date,
-			String zZID, City sendCity, GoodsState goodState,ArrayList<String> orderBarCodes) {
-		super(iD, DocType.arriveYYDoc, date, DocState.wait);
-		this.ZZID = zZID;
-		this.sendCity = sendCity;
+	public ArriveYYDocVO(String iD, DocType type, MyDate date, DocState state, String zZID, InstType sendFrom,
+			GoodsState goodState, ArrayList<String> orderBarCodes) {
+		super(iD, type, date, state);
+		ZZID = zZID;
+		this.sendFrom = sendFrom;
+		this.goodState = goodState;
+		this.orderBarCodes = orderBarCodes;
+	}
+	public ArriveYYDocVO(String iD, MyDate myDate, String zZID, InstType sendFrom, GoodsState goodState,
+			ArrayList<String> orderBarCodes) {
+		super(iD, DocType.arriveYYDoc, myDate, DocState.wait);
+		ZZID = zZID;
+		this.sendFrom = sendFrom;
 		this.goodState = goodState;
 		this.orderBarCodes = orderBarCodes;
 	}

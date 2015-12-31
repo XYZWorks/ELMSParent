@@ -462,9 +462,11 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller implements DocPa
 				tenText };
 		for (int i = 0; i < length; i++) {
 			//详细信息的单据号
-			String transferCode=transfer.get(i);
+//			String transferCode=transfer.get(i);
 			//复用简易信息里的时间和地点
-			place[i].setText(transferCode+processPlace(info.get(i).place, info.get(i).type, i));
+//			place[i].setText(transferCode+processPlace(info.get(i).place, info.get(i).type, i));
+			place[i].setText(processPlace(info.get(i).place, info.get(i).type, i));
+
 			time[i].setText(processTime(info.get(i).time));
 		}
 
@@ -504,6 +506,9 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller implements DocPa
 		// 派送单
 		case sendGoodDoc:
 			result = "快递正在被快递员：" + place + " 派送";
+			break;
+		case transferDoc:
+			result = "快递已从[" + place + "]出发 ";
 			break;
 		default:
 			break;

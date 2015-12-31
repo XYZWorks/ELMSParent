@@ -1,8 +1,10 @@
 package ui.storemanager.storeshow;
 
+import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import org.apache.poi.ss.formula.EvaluationWorkbook;
 import org.dom4j.Element;
 
 import ui.storemanager.instore.InStoreTablePanel;
@@ -77,10 +79,13 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 		super(config);
 		this.bl = bl;
 		this.controller = controller;
+//		System.out.println(config.);
+		
+		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
-		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
+		
 		initOtherCompoment(config);
 		addCompoment();
 		addListener();
@@ -88,10 +93,13 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 
 	@Override
 	protected void initWhitePanels(Element e) {
-		showSimpleWhitePanel = new MyWhitePanel(e.element("showSimpleWhitePanel"));
-		locateWhitePanel = new MyWhitePanel(e.element("locateWhitePanel"));
-		inWhitePanel = new MyWhitePanel(e.element("inWhitePanel"));
-		outWhitePanel = new MyWhitePanel(e.element("outWhitePanel"));
+		
+		showSimpleWhitePanel = new MyWhitePanel(new Rectangle(65,130,680,200));
+		locateWhitePanel = new MyWhitePanel(new Rectangle(65, 570, 680, 480));
+		inWhitePanel = new MyWhitePanel(new Rectangle(65, 1200, 680, 480));
+		outWhitePanel = new MyWhitePanel(new Rectangle(65, 1700, 680, 480));
+		
+		
 		
 	}
 
