@@ -451,7 +451,7 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 				// PeopleMes sender, PeopleMes receiver, GoodMes goodMes,
 				// OtherOrderMes otherMes, TransferDocs transferDocs
 				OrderVO order = new OrderVO(orderBarCodeText.getText(), DocType.order, DatePicker.getMyDate(),
-						DocState.wait, sender, receiver, goodMes, otherMes, new TransferDocs("", "", "", "", "", "", "", "", "", new ArrayList<String>()));
+						DocState.wait, sender, receiver, goodMes, otherMes, new TransferDocs("", "", "", "", "", "", "", "", "","", new ArrayList<String>()));
 				ResultMessage result=orderblservice.add(order);
 				if(result==ResultMessage.FAIL){
 					return false;
