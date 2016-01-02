@@ -86,7 +86,7 @@ public class FinanceDataImpl extends DataSuperClass implements FinanceDataServic
 	}
 
 	public ResultMessage addPay(PayPO po) throws RemoteException {
-		return addToSQL(payTable, po.getID()  , MyDate.toString(po.getTime()) , po.getAccount() , String.valueOf(po.getMoney()), String.valueOf(po.getMoney()) , po.getPerson() ,String.valueOf(po.getRent()) , String.valueOf(po.getFreight()) , String.valueOf(po.getSalary()) , po.getState().name());
+		return addToSQL(payTable, po.getID(), MyDate.toString(po.getTime()) , po.getAccount() , String.valueOf(po.getMoney()), String.valueOf(po.getMoney()) , po.getPerson() ,String.valueOf(po.getRent()) , String.valueOf(po.getFreight()) , String.valueOf(po.getSalary()) , po.getState().name());
 	}
 
 	public ArrayList<? extends CostPO> show(CostType type) throws RemoteException {

@@ -2,18 +2,19 @@ package ui.generalmanager.people;
 
 import java.awt.Color;
 
+import javax.swing.JPanel;
+
 import org.dom4j.Element;
 
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
+import ui.table.MyTablePanel;
+import ui.tools.AddDocPanel;
 import ui.tools.MyComboBox;
-import ui.tools.MyPanel;
-import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
 import ui.tools.MyTextField;
 import ui.util.CancelListener;
-import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.RefreshPanel;
 import ui.util.TipsDialog;
@@ -22,13 +23,12 @@ import util.StaffType;
 import vo.personnel.PersonVO;
 import blservice.personnelblservice.Personnelblservice;
  /** 
- * 增加人员界面
+ * 
  * @author czq 
- * @version 2015年12月3日 上午9:07:46 
+ * @version 2016年1月2日 下午4:32:06 
  */
 @SuppressWarnings("serial")
-public class AddPeoplePanel extends MyPanel implements RefreshPanel{
-	
+public class PeopleAddPanel extends AddDocPanel implements RefreshPanel{
 	private MyPictureLabel instIDL;
 	private MyPictureLabel IDL;
 	private MyPictureLabel nameL;
@@ -41,26 +41,13 @@ public class AddPeoplePanel extends MyPanel implements RefreshPanel{
 	private MyTextField phone;
 	
 	private MyComboBox type;
-	
-	private MyPictureButton confirm;
-	private MyPictureButton cancel;
-	
-	private PeopleManagePanel managePanel;
-	private Personnelblservice bl;
-	
-	private boolean isModify = false;
-	
-	
-	public AddPeoplePanel(Element config ,PeopleManagePanel managePanel , Personnelblservice bl) {
-		super(config);
-		this.managePanel = managePanel;
-		this.bl = bl;
-		initLabels(config.element(CompomentType.LABELS.name()));
-		initButtons(config.element(CompomentType.BUTTONS.name()));
-		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
-		initOtherCompoment(config);
-		addCompoment();
-		addListener();
+	private boolean isModify;
+	private PeopleMesPanel peopleMesPanel;
+	Personnelblservice bl;
+	public PeopleAddPanel(Element config, JPanel changePanel,
+			String checkDocPanelStr, MyTablePanel messageTable ) {
+		super(config, changePanel, checkDocPanelStr, messageTable);
+		peopleMesPanel = (PeopleMesPanel) messageTable;
 	}
 	
 	void setModifyState(boolean isModify , String id) {
@@ -72,10 +59,19 @@ public class AddPeoplePanel extends MyPanel implements RefreshPanel{
 	}
 	
 	
+	
+	
+	
+	@Override
+	protected void initWhitePanels(Element e) {
+		// TODO Auto-generated method stub
+
+	}
+
 	@Override
 	protected void initButtons(Element e) {
-		confirm = new MyPictureButton(e.element("confirm"));
-		cancel = new MyPictureButton(e.element("cancel"));
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
@@ -84,6 +80,7 @@ public class AddPeoplePanel extends MyPanel implements RefreshPanel{
 		ID = new MyTextField(e.element("ID"));
 		name = new MyTextField(e.element("Name"));
 		phone = new MyTextField(e.element("Phone"));
+
 	}
 
 	@Override
@@ -93,12 +90,13 @@ public class AddPeoplePanel extends MyPanel implements RefreshPanel{
 		nameL = new MyPictureLabel(e.element("NameL"));
 		phoneL = new MyPictureLabel(e.element("PhoneL"));
 		typeL = new MyPictureLabel(e.element("TypeL"));
+
 	}
 
 	@Override
 	protected void initOtherCompoment(Element e) {
 		type = new MyComboBox(e.element("type"));
-		
+
 	}
 
 	@Override
@@ -115,6 +113,7 @@ public class AddPeoplePanel extends MyPanel implements RefreshPanel{
 		add(phoneL);
 		add(name);
 		add(nameL);
+
 	}
 
 	@Override
@@ -129,9 +128,9 @@ public class AddPeoplePanel extends MyPanel implements RefreshPanel{
 			@Override
 			protected void updateMes() {
 				if(isModify){
-					managePanel.peopleMesTable.addOneData(vo, 2);
+					peopleMesPanel.addOneData(vo, 2);
 				}else{
-					managePanel.peopleMesTable.addOneData(vo, 1);
+					peopleMesPanel.addOneData(vo, 0);
 				}
 				
 			}
@@ -164,8 +163,8 @@ public class AddPeoplePanel extends MyPanel implements RefreshPanel{
 			
 			@Override
 			protected void reInitial() {
+
 				myInit();
-				managePanel.changeADDPanel(false);
 				
 			}
 			
@@ -187,12 +186,11 @@ public class AddPeoplePanel extends MyPanel implements RefreshPanel{
 			@Override
 			public void resetMes() {
 				myInit();
-				managePanel.changeADDPanel(false);
 			}
 
 			
 		});
-		
+
 	}
 	
 	private void myInit() {
@@ -202,12 +200,6 @@ public class AddPeoplePanel extends MyPanel implements RefreshPanel{
 	@Override
 	public void refresh() {
 		myInit();
-	}
-	
-
-	@Override
-	protected void initWhitePanels(Element e) {
-		
 	}
 	
 }

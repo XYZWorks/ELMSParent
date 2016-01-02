@@ -22,18 +22,11 @@ public class PeopleMesPanel extends MyTablePanel{
 	
 	private ArrayList<PersonVO> vos;
 	
-	private Personnelblservice bl;
+	Personnelblservice bl;
 	
-	public PeopleMesPanel(Element config , Personnelblservice bl) {
+	public PeopleMesPanel(Element config , int flag) {
 		super(config);
-		this.bl = bl;
-		initialTitleAndColumn(config);
-		initTable();
-		initScrollerPane();
-		this.add(rollpane);
 		
-		int[] columnLen = {100,100,100,100 , 200};
-		setRowAndColumnLen(30, columnLen);
 		
 	}
 	/**
@@ -92,8 +85,9 @@ public class PeopleMesPanel extends MyTablePanel{
 	@Override
 	public void addOneData(Object o, int type) {
 		PersonVO vo = (PersonVO) o;
-		if(type != 0){
+		if(type == 0){
 			vos.add(vo);
+			showAllMessages();
 		}else if(type == 1){
 			String[] temp = new String[5];
 			temp[0] = vo.instID;
@@ -103,14 +97,12 @@ public class PeopleMesPanel extends MyTablePanel{
 			temp[4] = vo.phoneNum;
 			addOneRow(temp);
 		}else{
-			int row = getSelectedRow();
-			if(((String)table.getValueAt(row, 1)).equals(vo.ID)){
-				table.setValueAt(vo.instID, row, 0);
-				table.setValueAt(vo.name, row, 2);
-				table.setValueAt(vo.type.getName(), row, 3);
-				table.setValueAt(vo.phoneNum, row, 4);
+			for (int i = 0 ; i < vos.size() ; i++)  {
+				if(vos.get(i).ID.equals(vo.ID)){
+					vos.set(i, vo);
+				}
 			}
-			
+			showAllMessages();
 		}
 		
 	}
@@ -119,7 +111,7 @@ public class PeopleMesPanel extends MyTablePanel{
 		removeAllRows();
 		for (int i = 0; i < vos.size(); i++) {
 			if(vos.get(i).ID.equals(id)){
-				addOneData(vos.get(i) , 0);
+				addOneData(vos.get(i) , 1);
 				new TipsDialog("成功找到一条信息", Color.GREEN);
 				return;
 			}
@@ -131,7 +123,7 @@ public class PeopleMesPanel extends MyTablePanel{
 		int count = 0;
 		for (int i = 0; i < vos.size(); i++) {
 			if(vos.get(i).instID.equals(instid)){
-				addOneData(vos.get(i) , 0);
+				addOneData(vos.get(i) , 1);
 				count++;
 			}
 		}
@@ -146,7 +138,7 @@ public class PeopleMesPanel extends MyTablePanel{
 		ArrayList<PersonVO> vos = bl.getPeopleByName(name);
 		int count = 0;
 		for (PersonVO personVO : vos) {
-			addOneData(personVO , 0);
+			addOneData(personVO , 1);
 			count++;
 			
 		}
@@ -201,7 +193,6 @@ public class PeopleMesPanel extends MyTablePanel{
 			return;
 		}
 		removeAllRows();
-		
 			Object[] mes= new Object[5];
 			mes[0] = personVO.instID ;
 			mes [1] = personVO.ID;
@@ -216,7 +207,13 @@ public class PeopleMesPanel extends MyTablePanel{
 		
 		
 	}
-	
+	@Override
+	public void showAllMessages() {
+		removeAllRows();
+		for (int i = 0; i < vos.size(); i++) {
+			addOneData(vos.get(i), 1);
+		}
+	}
 	
 	
 	@Override
@@ -227,8 +224,8 @@ public class PeopleMesPanel extends MyTablePanel{
 		
 	}
 
-	
+
 
 	
-
+	
 }

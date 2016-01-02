@@ -53,7 +53,7 @@ public class PayDocCheckPanel extends CheckDocPanel{
 
 	@Override
 	protected void addDifferComp() {
-		add(title);// TODO Auto-generated method stub
+		add(title);
 		
 	}
 

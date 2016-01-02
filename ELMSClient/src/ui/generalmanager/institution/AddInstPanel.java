@@ -1,6 +1,5 @@
 package ui.generalmanager.institution;
 
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 
@@ -8,10 +7,10 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
-import blservice.personnelblservice.Personnelblservice;
 import ui.config.DataType;
 import ui.config.SimpleDataFormat;
 import ui.config.UserfulMethod;
+import ui.tools.MyCardLayOut;
 import ui.tools.MyComboBox;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
@@ -25,6 +24,7 @@ import util.City;
 import util.InstType;
 import util.ResultMessage;
 import vo.personnel.InstVO;
+import blservice.personnelblservice.Personnelblservice;
  /** 
  * 增加机构界面
  * @author czq 
@@ -133,7 +133,7 @@ public class AddInstPanel extends MyPanel {
 			@Override
 			protected void reInitial() {
 				myInit();
-				((CardLayout)changePanel.getLayout() ).show(changePanel, "InstManagePanel");
+				((MyCardLayOut)changePanel.getLayout() ).show(changePanel, "InstManagePanel");
 			}
 
 			@Override
@@ -158,7 +158,7 @@ public class AddInstPanel extends MyPanel {
 		public void mouseClicked(MouseEvent e) {
 			super.mouseClicked(e);
 			myInit();
-			((CardLayout)changePanel.getLayout() ).show(changePanel, "InstManagePanel");
+			((MyCardLayOut)changePanel.getLayout() ).show(changePanel, "InstManagePanel");
 		}
 	}
 	private void myInit() {

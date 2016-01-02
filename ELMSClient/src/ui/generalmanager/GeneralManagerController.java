@@ -5,7 +5,7 @@ import org.dom4j.Element;
 import ui.generalmanager.approval.ApprovalDocsPanel;
 import ui.generalmanager.constSet.ConstSetPanel;
 import ui.generalmanager.institution.InstManagePanel;
-import ui.generalmanager.people.PeopleManagePanel;
+import ui.generalmanager.people.PeopleCheckPanel;
 import ui.generalmanager.salary.SalaryStrategySetPanel;
 import ui.generalmanager.statistic.StatisticPanel;
 import ui.tools.MyPanel;
@@ -33,7 +33,7 @@ public class GeneralManagerController extends PanelController {
 	private MyPanel constSetPanel;
 	private MyPanel approvalPanel;
 	private MyPanel instManagePanel;
-	private MyPanel peopleManagePanel;
+	private PeopleCheckPanel peopleCheckPanel;
 	private MyPanel statisticPanel;
 	private MyPanel salaryStrategySetPanel;
 
@@ -112,8 +112,7 @@ public class GeneralManagerController extends PanelController {
 		constSetPanel = new ConstSetPanel(e.element(constSetPanelStr) , strategyblService);
 		statisticPanel = new StatisticPanel(e.element(statisticPanelStr) , statisticblservice, changePanel);
 		instManagePanel = new InstManagePanel(e.element(instManagePanelStr), changePanel , personnelblservice);
-		peopleManagePanel = new PeopleManagePanel(
-				e.element(peopleManagePanelStr) , panelManager , personnelblservice);
+		peopleCheckPanel = new PeopleCheckPanel(e.element(peopleManagePanelStr), changePanel, peopleManagePanelStr, "PeopleAddDoc", personnelblservice);
 		salaryStrategySetPanel = new SalaryStrategySetPanel(e.element(salaryStrategySetStr), strategyblService);
 	}
 
@@ -124,7 +123,7 @@ public class GeneralManagerController extends PanelController {
 		changePanel.add(constSetPanel, constSetPanelStr);
 		changePanel.add(statisticPanel, statisticPanelStr);
 		changePanel.add(instManagePanel, instManagePanelStr);
-		changePanel.add(peopleManagePanel, peopleManagePanelStr);
+		changePanel.add(peopleCheckPanel, peopleManagePanelStr);
 		changePanel.add(salaryStrategySetPanel , salaryStrategySetStr);
 	}
 

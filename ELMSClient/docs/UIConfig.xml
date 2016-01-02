@@ -1219,7 +1219,18 @@
 
 			<PeopleManagePanel x="232" y="54" width="848"
 				height="637">
-
+				<addDoc x="642" y="53" width="40" height="40" type="add" />
+				<title x="48" y="36" width="200" height="28" text="接收单列表"
+					fontName="华文细黑" size="26" />
+				<modify x="758" y="53" width="40" height="40" type="modify" />
+				<delete x="700" y="53" width="40" height="40" type="delete" />
+				<search x="238" y="53" />
+				<searchWay x="53" y="53" width="150" height="40" strings="按姓名查找 按ID查找 按机构查找" />
+				<datepicker x="758" y="53" width="40" height="40" />
+				<peopleMes x="53" y="110" width="742" height="427"
+					strings="财务人员 营业厅业务员 快递员 中转中心业务人员 中转中心管理员 司机" />
+				<searchButton x="560" y="53" width="65" height="40"
+					text="搜索" type="cancel" />
 				<BUTTONS>
 					<add x="642" y="53" width="40" height="40" type="add" />
 					<modify x="758" y="53" width="40" height="40" type="modify" />
@@ -1239,12 +1250,14 @@
 					strings="财务人员 营业厅业务员 快递员 中转中心业务人员 中转中心管理员 司机" />
 				<searchBox x="213" y="53" />
 
-				<addPeople x="0" y="0" width="1080" height="637">
+				<PeopleManagePanelAddPanel x="0" y="0" width="1080" height="637">
 					<BUTTONS>
 						<confirm x="560" y="560" width="89" height="40" text="确认"
 							type="confirm" />
 						<cancel x="707" y="560" width="89" height="40" text="取消"
 							type="cancel" />
+						<back x="0" y="0" width="50" height="50"
+							type="back" />
 					</BUTTONS>
 					<LABELS>
 						<InstIDL x="200" y="380" width="115" height="40" text="机构ID"
@@ -1267,7 +1280,7 @@
 					<type x="345" y="310" width="276" height="40"
 						strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理员 司机" />
 
-				</addPeople>
+				</PeopleManagePanelAddPanel>
 
 			</PeopleManagePanel>
 

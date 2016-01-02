@@ -1,6 +1,5 @@
 package ui.generalmanager.institution;
 
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 
@@ -8,6 +7,7 @@ import javax.swing.JPanel;
 
 import org.dom4j.Element;
 
+import ui.tools.MyCardLayOut;
 import ui.tools.MyComboBox;
 import ui.tools.MyLabel;
 import ui.tools.MyPanel;
@@ -141,7 +141,7 @@ public class InstManagePanel extends MyPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
-				((CardLayout)changePanel.getLayout()).show(changePanel, addInstPanelStr);
+				((MyCardLayOut)changePanel.getLayout()).show(changePanel, addInstPanelStr);
 				ismodify(false);
 			}
 		});

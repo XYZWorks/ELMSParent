@@ -182,6 +182,8 @@ public class BulidStateFormPanel extends MyPanelWithScroller implements DocPanel
 				
 				depositeL.setText(String.valueOf(depositeSmallTable.setMessage(payVOs)));;
 				payL.setText(String.valueOf(paySmallTable.setMessage(payDocVOs)));
+				
+				new TipsDialog("已生成该阶段的收款单和付款单，请确认", Color.GREEN);
 			}
 		});
 		confirm.addMouseListener(new ConfirmListener(confirm) {
