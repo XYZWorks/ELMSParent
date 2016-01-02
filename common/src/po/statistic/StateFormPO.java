@@ -3,8 +3,8 @@ package po.statistic;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import po.finance.DepositPO;
-import po.finance.FormPayPO;
+import po.finance.PayPO;
+import po.transport.PayDocPO;
 import util.MyDate;
 
 /**
@@ -27,28 +27,25 @@ public class StateFormPO implements Serializable{
 	 * 结束日期
 	 */
 	private MyDate endDate;
-	/**
-	 * 收款信息
-	 */
-	private ArrayList<DepositPO> deposits;
+	
 	/**
 	 * 付款信息
 	 */
-	private ArrayList<FormPayPO> pays;
+	private ArrayList<PayPO> pays;
+	/**
+	 * 收款信息
+	 */
+	private ArrayList<PayDocPO> deposits;
 	
 	public StateFormPO() {}
-	
+
 	public StateFormPO(MyDate startDate, MyDate endDate,
-			ArrayList<DepositPO> deposits, ArrayList<FormPayPO> pays) {
+			 ArrayList<PayPO> pays	,ArrayList<PayDocPO> deposits) {
 		super();
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.deposits = deposits;
 		this.pays = pays;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	public MyDate getStartDate() {
@@ -59,15 +56,15 @@ public class StateFormPO implements Serializable{
 		return endDate;
 	}
 
-	public ArrayList<DepositPO> getDeposits() {
+	public ArrayList<PayDocPO> getDeposits() {
 		return deposits;
 	}
 
-	public ArrayList<FormPayPO> getPays() {
+	public ArrayList<PayPO> getPays() {
 		return pays;
 	}
-
 	
+
 	
 	
 	

@@ -7,6 +7,7 @@ import org.dom4j.Element;
 import blservice.statisticblservice.Statisticblservice;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
+import ui.util.TipsDialog;
 import util.MyDate;
 import vo.statistic.StateFormVO;
  /** 
@@ -67,6 +68,15 @@ public class StateFormPanel extends MyTablePanel{
 	protected void initTable() {
 		table = new MyTable(columnNames, data);
 		
+	}
+
+	public StateFormVO getAForm() {
+		if(getSelectedRow() == -1){
+			new TipsDialog("您未选择任何一行");
+			return null;
+		}else{
+			return vos.get(getSelectedRow());
+		}
 	}
 
 }

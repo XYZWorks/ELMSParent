@@ -110,7 +110,7 @@ public class GeneralManagerController extends PanelController {
 		GMmainpanel = new GeneralManagerMain(e.element(GMmainpanelStr) , this);
 		approvalPanel = new ApprovalDocsPanel(e.element(approvalPanelStr) , approvalBL ,approvalPanelStr, changePanel);
 		constSetPanel = new ConstSetPanel(e.element(constSetPanelStr) , strategyblService);
-		statisticPanel = new StatisticPanel(e.element(statisticPanelStr) , statisticblservice);
+		statisticPanel = new StatisticPanel(e.element(statisticPanelStr) , statisticblservice, changePanel);
 		instManagePanel = new InstManagePanel(e.element(instManagePanelStr), changePanel , personnelblservice);
 		peopleManagePanel = new PeopleManagePanel(
 				e.element(peopleManagePanelStr) , panelManager , personnelblservice);

@@ -42,7 +42,6 @@ public class PayDocCheckPanel extends CheckDocPanel{
 	@Override
 	protected void initialDifferComp(Element e) {
 		title = new MyLabel(e.element("title"));
-		// TODO Auto-generated method stub
 		
 	}
 

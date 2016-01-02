@@ -3,9 +3,8 @@ package vo.statistic;
 import java.util.ArrayList;
 
 import util.MyDate;
-import vo.finance.DepositVO;
-import vo.finance.FormPayVO;
 import vo.finance.PayVO;
+import vo.transport.PayDocVO;
 
 /**
  * 经营状况表VO类
@@ -24,22 +23,23 @@ public class StateFormVO {
 	/**
 	 * 付款信息
 	 */
-	public ArrayList<FormPayVO> pays;
+	public ArrayList<PayVO> pays;
 	/**
 	 * 
 	 * 收款信息
 	 */
-	public ArrayList<DepositVO> deposits;
+	public ArrayList<PayDocVO> deposits;
 	public StateFormVO() {
 	}
-	public StateFormVO(MyDate startDate, MyDate endDate, ArrayList<FormPayVO> pays,
-			ArrayList<DepositVO> deposits) {
+	public StateFormVO(MyDate startDate, MyDate endDate, ArrayList<PayVO> pays,
+			ArrayList<PayDocVO> deposits) {
 		super();
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.pays = pays;
 		this.deposits = deposits;
 	}
+	
 	
 	
 	

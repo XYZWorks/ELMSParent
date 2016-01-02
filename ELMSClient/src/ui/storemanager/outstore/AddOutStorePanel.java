@@ -258,7 +258,7 @@ public class AddOutStorePanel extends MyPanel implements DocPanelForApproval {
 
 	@Override
 	public void setAllCompUneditOrUnVisiable() {
-		orderT.setEditable(false);
+//		orderT.setEditable(false);
 		transferDocT.setEditable(false);
 		IDT.setEditable(false);
 		sendCityC.setEnabled(false);
@@ -284,7 +284,7 @@ public class AddOutStorePanel extends MyPanel implements DocPanelForApproval {
 		}
 		OutStoreDocVO vo = (OutStoreDocVO) o;
 		IDT.setText(vo.ID);
-		orderT.setText(UserfulMethod.orderArrayToString(vo.orders));
+//		orderT.setText(UserfulMethod.orderArrayToString(vo.orders));
 		transferDocT.setText(vo.transferDoc);
 		picker.setTime(vo.date);
 		sendCityC.setSelectedItem(vo.loc.getName());

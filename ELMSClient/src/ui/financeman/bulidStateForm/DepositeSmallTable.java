@@ -4,9 +4,6 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import bl.BusinessLogicDataFactory;
-import blservice.orderblservice.Orderblservice;
-import blservice.statisticblservice.Statisticblservice;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import util.MyDate;
@@ -19,10 +16,6 @@ import vo.finance.PayVO;
  */
 @SuppressWarnings("serial")
 public class DepositeSmallTable extends MyTablePanel {
-	ArrayList<String> orderbarCodes = new ArrayList<>();
-	String[] oneOrder = new String[3];
-	ArrayList<PayVO> vos;
-	private double moneyTotal = 0;
 
 	public DepositeSmallTable(Element config) {
 		super(config);
@@ -44,15 +37,6 @@ public class DepositeSmallTable extends MyTablePanel {
 		
 	}
 
-	/**
-	 * 清空表内所有信息
-	 */
-	public void clearOrders() {
-		while (table.getRowCount() > 0) {
-			table.getModel().removeRow(0);
-		}
-		orderbarCodes.clear();
-	}
 
 	@Override
 	protected void initTable() {
@@ -86,45 +70,4 @@ public class DepositeSmallTable extends MyTablePanel {
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	/**
-	 * 增加一条订单信息
-	 * 
-	 * @param orderID
-	 */
-	public void addAOrder(String orderID) {
-		orderbarCodes.add(orderID);
-		oneOrder[0] = String.valueOf(orderbarCodes.size());
-		oneOrder[1] = orderID;
-		
-		Orderblservice orderblservice = BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
-		double readCost;
-		try {
-			readCost = orderblservice.getFullInfo(orderID).otherMes.getOrderCost();
-		} catch (Exception e) {
-			readCost = 10.0;
-		}
-
-		oneOrder[2] = String.valueOf(readCost);
-		moneyTotal = moneyTotal + readCost;
-		this.addOneRow(oneOrder);
-	}
-
-	public ArrayList<String> getOrderbarCodes() {
-
-		return orderbarCodes;
-	}
-
-	public double getMoneyTotal() {
-		return moneyTotal;
-	}
-
-	public void setMoneyTotal(double moneyTotal) {
-		this.moneyTotal = moneyTotal;
-	}
 }

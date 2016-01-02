@@ -42,7 +42,7 @@ public class SendGoodDocCheckPanel extends CheckDocPanel {
 
 	@Override
 	protected void initialDifferComp(Element e) {
-		title = new MyLabel(e.element("title"));// TODO Auto-generated method stub
+		title = new MyLabel(e.element("title"));
 
 	}
 

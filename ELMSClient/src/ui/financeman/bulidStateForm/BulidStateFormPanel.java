@@ -5,30 +5,26 @@ import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import javax.swing.JPanel;
+
 import org.dom4j.Element;
 
-import ui.config.DataType;
-import ui.config.SimpleDataFormat;
-import ui.config.UserfulMethod;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
-import ui.tools.MyPanel;
 import ui.tools.MyPanelWithScroller;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
-import ui.tools.MyTextField;
 import ui.tools.MyWhitePanel;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
+import ui.util.DocPanelForApproval;
+import ui.util.MyBackListener;
 import ui.util.MyPictureButtonListener;
 import ui.util.TipsDialog;
 import util.MyDate;
 import util.ResultMessage;
-import vo.finance.DepositVO;
-import vo.finance.FormPayVO;
 import vo.finance.PayVO;
-import vo.statistic.CostIncomeVO;
 import vo.statistic.StateFormVO;
 import vo.transport.PayDocVO;
 import blservice.statisticblservice.Statisticblservice;
@@ -40,7 +36,7 @@ import blservice.statisticblservice.Statisticblservice;
  *
  */
 @SuppressWarnings("serial")
-public class BulidStateFormPanel extends MyPanelWithScroller {
+public class BulidStateFormPanel extends MyPanelWithScroller implements DocPanelForApproval{
 
 	private Statisticblservice bl;
 
@@ -80,8 +76,10 @@ public class BulidStateFormPanel extends MyPanelWithScroller {
 	private MyLabel payWhiteInfo;
 	private PaySmallTable paySmallTable;
 
-//	private ArrayList<DepositVO> depositVOs = new ArrayList<>();
-//	private ArrayList<FormPayVO> payVOs = new ArrayList<>();
+	private MyDate startDate;
+	private MyDate endDate;
+	private ArrayList<PayDocVO> payDocVOs = new ArrayList<>();
+	private ArrayList<PayVO> payVOs = new ArrayList<>();
 
 	public BulidStateFormPanel(Element config, Statisticblservice bl) {
 		super(config);
@@ -176,22 +174,89 @@ public class BulidStateFormPanel extends MyPanelWithScroller {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
-				MyDate startDate = start.getMyDate();
-				MyDate endDate = end.getMyDate();
+				startDate = start.getMyDate();
+				endDate = end.getMyDate();
 				
-				ArrayList<PayVO> payVOs = bl.getDatePays(startDate, endDate);
-				ArrayList<PayDocVO> payDocVOs = bl.getDatePayDocs(startDate, endDate);
+				payVOs = bl.getDatePays(startDate, endDate);
+				payDocVOs = bl.getDatePayDocs(startDate, endDate);
 				
 				depositeL.setText(String.valueOf(depositeSmallTable.setMessage(payVOs)));;
 				payL.setText(String.valueOf(paySmallTable.setMessage(payDocVOs)));
+			}
+		});
+		confirm.addMouseListener(new ConfirmListener(confirm) {
+			@Override
+			protected void updateMes() {
 				
-				
-				
+			}
+			
+			@Override
+			protected boolean saveToSQL() {
+				result = bl.bulidStateForm(new StateFormVO(startDate, endDate, payVOs, payDocVOs));
+				if(result == ResultMessage.SUCCESS){
+					new TipsDialog("成功增加经营状况表" , Color.GREEN);
+					return true;
+				}else {
+					new TipsDialog("未成功增加经营状况表");
+					return false;
+				}
+			}
+			
+			@Override
+			protected void reInitial() {
+				myinit();
+			}
+			
+			@Override
+			protected boolean checkDataValid() {
+				return true;
+			}
+		});
+		cancel.addMouseListener(new CancelListener(cancel) {
+			
+			@Override
+			public void resetMes() {
+				myinit();
 				
 			}
 		});
 		
+	}
+	private void myinit(){
+		depositeL.setText(String.valueOf(depositeD));
+		payL.setText(String.valueOf(payD));
+		depositeSmallTable.removeAllRows();
+		paySmallTable.removeAllRows();
+	}
+
+	@Override
+	public void setAllCompUneditOrUnVisiable() {
+		check.setVisible(false);
+		confirm.setVisible(false);
+		cancel.setVisible(false);
+	}
+
+
+	@Override
+	public void addBackButton(JPanel changePanel, String backStr) {
+		MyPictureButton back = new MyPictureButton();
+		back.addMouseListener(new MyBackListener(back, changePanel, backStr));
+		add(back);
+	}
+
+
+	@Override
+	public void setMessage(Object vo) {
+		if(vo == null){
+			return;
+		}
+		StateFormVO myVo = (StateFormVO) vo;
 		
+		ArrayList<PayVO> payVOs = myVo.pays;
+		ArrayList<PayDocVO> payDocVOs = myVo.deposits;
+		
+		depositeL.setText(String.valueOf(depositeSmallTable.setMessage(payVOs)));;
+		payL.setText(String.valueOf(paySmallTable.setMessage(payDocVOs)));
 	}
 
 

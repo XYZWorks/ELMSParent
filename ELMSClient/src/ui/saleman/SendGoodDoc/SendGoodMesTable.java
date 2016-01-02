@@ -1,11 +1,13 @@
 package ui.saleman.SendGoodDoc;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import org.dom4j.Element;
 
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
+import ui.util.TipsDialog;
 import util.MyDate;
 import vo.transport.SendGoodDocVO;
 import blservice.transportblservice.Transportblservice;
@@ -69,9 +71,11 @@ public class SendGoodMesTable extends MyTablePanel {
 		for (int i = 0; i < vos.size(); i++) {
 			if(vos.get(i).ID.equals(id)){
 				addOneData(vos.get(i) , 0);
+				new TipsDialog("成功找到一条信息", Color.GREEN);
 				break;
 			}
 		}
+		new TipsDialog("未找到任何一条信息");
 	}
 	
 	@Override
