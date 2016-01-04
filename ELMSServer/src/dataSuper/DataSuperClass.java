@@ -118,7 +118,6 @@ public class DataSuperClass extends UnicastRemoteObject {
 			}
 			affectRows = preState.executeUpdate();
 		} catch(MySQLIntegrityConstraintViolationException e){
-			e.printStackTrace();
 			return ResultMessage.hasExist;
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -159,7 +159,7 @@ public class StoreDataImpl extends DataSuperClass implements StoreDataService {
 	public ArrayList<StoreCheckPO> getCheck() {
 		ArrayList<StoreCheckPO> pos = new ArrayList<StoreCheckPO>(10);
 		try {
-			sql = "SELECT *　FROM " + storeCheckTable;
+			sql = "SELECT * FROM " + storeCheckTable;
 			preState = conn.prepareStatement(sql);
 			result = preState.executeQuery();
 			while (result.next()) {

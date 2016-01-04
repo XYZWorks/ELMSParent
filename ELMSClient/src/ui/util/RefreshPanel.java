@@ -6,4 +6,5 @@ package ui.util;
  */
 public interface RefreshPanel {
 	public void refresh();
+	
 }
