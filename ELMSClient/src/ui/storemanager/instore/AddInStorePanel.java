@@ -1,5 +1,7 @@
 package ui.storemanager.instore;
 
+import java.awt.Color;
+
 import javax.swing.JPanel;
 
 import org.dom4j.Element;
@@ -194,7 +196,7 @@ public class AddInStorePanel extends MyPanel implements DocPanelForApproval{
 			if (result == ResultMessage.SUCCESS) {
 
 				// reInitial();
-				new TipsDialog("生成入库单成功");
+				new TipsDialog("生成入库单成功",Color.green);
 				bl.updateStore(vo.loc, TransferWay.getStoreLocation(vo.location.get(0).substring(0, 2)), vo.ID,
 						vo.type );
 

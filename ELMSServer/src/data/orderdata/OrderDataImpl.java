@@ -161,10 +161,15 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 		String type = "";
 		if(docType == DocType.inStoreDoc){
 			myPO = getSingleOrderPO(temp);
-			if(myPO.getTransferDocs().getInStoreOneDoc().equals("")){
-				type = "inStoreOneDoc";
-			}else{
-				type = "inStoreTwoDoc";
+			try{
+				if(myPO.getTransferDocs().getInStoreOneDoc().equals("")){
+					type = "inStoreOneDoc";
+				}else{
+					type = "inStoreTwoDoc";
+				}
+			}
+			catch(NullPointerException e){
+				
 			}
 		}else if(docType == DocType.outStoreDoc){
 			myPO = getSingleOrderPO(temp);
