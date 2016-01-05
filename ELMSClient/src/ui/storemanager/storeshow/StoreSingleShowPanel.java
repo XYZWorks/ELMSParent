@@ -138,7 +138,7 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 	@Override
 	protected void initOtherCompoment(Element e) {
 		nowDate = MyDate.getNowTime();
-		nowTime.setText(MyDate.toString(nowDate));
+		nowTime.setText(nowDate.getDay());
 		picker = new MyDatePicker(e.element("DatePicker"));
 		outTable = new OutStoreTablePanel(e.element("outTable"), bl, MyDate.getNowTime());
 		inTable = new InStoreTablePanel(e.element("inTable"), bl, MyDate.getNowTime());
@@ -209,15 +209,18 @@ public class StoreSingleShowPanel extends MyPanelWithScroller {
 			MyDate past = picker.getMyDate();
 			ArrayList<InStoreDocVO> inStoreDocVOs = new ArrayList<>();
 			ArrayList<OutStoreDocVO> outStoreDocVOs = new ArrayList<>();
-			for (InStoreDocVO in : ins) {
-				if (in.date.between(past, nowDate)) {
-					inStoreDocVOs.add(in);
+			if(ins!=null){
+				for (InStoreDocVO in : ins) {
+					if (in.date.between(past, nowDate)) {
+						inStoreDocVOs.add(in);
+					}
 				}
 			}
-
-			for (OutStoreDocVO out : outs) {
-				if (out.date.between(past, nowDate)) {
-					outStoreDocVOs.add(out);
+			if(outs!=null){
+				for (OutStoreDocVO out : outs) {
+					if (out.date.between(past, nowDate)) {
+						outStoreDocVOs.add(out);
+					}
 				}
 			}
 			inTable.resetValue(inStoreDocVOs);
