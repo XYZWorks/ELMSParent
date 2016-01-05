@@ -29,7 +29,7 @@ public class MyTable extends JTable{
 		r.setHorizontalAlignment(SwingConstants.CENTER);   
 		setDefaultRenderer(String.class,   r);
 		
-		
+//		setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		
 		//不允许修改列宽
 		getTableHeader().setResizingAllowed(false);

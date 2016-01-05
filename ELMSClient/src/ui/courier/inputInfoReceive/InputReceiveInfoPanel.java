@@ -17,13 +17,14 @@ import ui.tools.MySearchBox;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
+import ui.util.RefreshPanel;
 import ui.util.TipsDialog;
 import util.MyDate;
 import vo.order.PreReceiveVO;
 import vo.order.ReceiveVO;
 
 @SuppressWarnings("serial")
-public class InputReceiveInfoPanel extends MyPanelWithScroller {
+public class InputReceiveInfoPanel extends MyPanelWithScroller implements RefreshPanel{
 
 	/**
 	 * 确认修改的按钮 如果点击确认修改 则更新所有改动数据
@@ -192,6 +193,12 @@ public class InputReceiveInfoPanel extends MyPanelWithScroller {
 	protected void initWhitePanels(Element e) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void refresh() {
+		table.updateTableMes();
+		
 	}
 
 }

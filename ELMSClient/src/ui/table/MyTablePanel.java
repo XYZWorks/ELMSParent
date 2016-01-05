@@ -2,6 +2,7 @@ package ui.table;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 import org.dom4j.Element;
 
@@ -189,6 +190,7 @@ public abstract class MyTablePanel extends JPanel {
 	}
 
 	public void allowHorizen() {
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		rollpane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 	}
 

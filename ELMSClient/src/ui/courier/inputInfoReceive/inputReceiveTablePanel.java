@@ -100,19 +100,19 @@ public class inputReceiveTablePanel extends MyTablePanel {
 
 	@Override
 	public void updateTableMes() {
-		 //pre = bl.getPreReceive();
-//		//重新读取表格的数据
-//		if (pre == null) {
-//			return;
-//		}
-//
-//		table.getModel().setRowCount(pre.size());
-//		PreReceiveVO vo;
-//		for (int i = 0; i < pre.size(); i++) {
-//			vo = pre.get(i);
-//			table.setValueAt(vo.realReceiver, i, 3);
-//			table.setValueAt(vo.receiveTime, i, 4);
-//		}
+		 pre = bl.getPreReceive();
+		//重新读取表格的数据
+		if (pre == null) {
+			return;
+		}
+
+		table.getModel().setRowCount(pre.size());
+		PreReceiveVO vo;
+		for (int i = 0; i < pre.size(); i++) {
+			vo = pre.get(i);
+			table.setValueAt(vo.realReceiver, i, 3);
+			table.setValueAt(vo.receiveTime, i, 4);
+		}
 		
 	}
 	
