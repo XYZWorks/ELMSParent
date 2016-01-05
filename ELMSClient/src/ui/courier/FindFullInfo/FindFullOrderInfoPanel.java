@@ -367,10 +367,9 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller implements DocPa
 
 		this.add(estimateTimeText);
 		this.add(estimateTime);
-		
+
 		this.add(costText);
 		this.add(cost);
-	
 
 	}
 
@@ -379,18 +378,18 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller implements DocPa
 		delete.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ResultMessage result = orderblservice.del(BarCode);
-				// 是否是删除失败就显示 fail
-				if (result == ResultMessage.FAIL) {
-					new TipsDialog("货物已经装车 订单无法删除");
-					return;
-				} else if (result == ResultMessage.SUCCESS) {
-					int x = JOptionPane.showConfirmDialog(null, "确认删除订单","提示", JOptionPane.YES_NO_OPTION);
-					if(x == JOptionPane.YES_OPTION) {
-						TipsDialog Delete = new TipsDialog("订单删除成功");		 
+				int x = JOptionPane.showConfirmDialog(null, "确认删除订单", "提示", JOptionPane.YES_NO_OPTION);
+				if (x == JOptionPane.YES_OPTION) {
+					ResultMessage result = orderblservice.del(BarCode);
+					// 是否是删除失败就显示 fail
+					if (result == ResultMessage.FAIL) {
+						new TipsDialog("货物已经装车  订单无法删除");
+						return;
+					} else if (result == ResultMessage.SUCCESS) {
+						TipsDialog Delete = new TipsDialog("订单删除成功");
 						controller.getCardLayout().show(controller.getChangePanel(), "showInfoPanel");
-					} 
-				}		
+					}
+				}
 			}
 		});
 
@@ -412,10 +411,10 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller implements DocPa
 	}
 
 	public void getData(String BarCode) {
-		if(orderblservice != null){
+		if (orderblservice != null) {
 			orderVO = orderblservice.getFullInfo(BarCode);
 		}
-		
+
 		sender = orderVO.sender;
 		receiver = orderVO.receiver;
 		goodMes = orderVO.goodMes;
@@ -448,21 +447,20 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller implements DocPa
 		// 读取其他信息
 		goodPackText.setText(otherMes.getGoodPack());
 		orderFormText.setText(otherMes.getOrderForm());
-		
+
 		costText.setForeground(new Color(255, 138, 0));
 		costText.setText(String.valueOf(otherMes.getOrderCost()));
-		
+
 		estimateTimeText.setForeground(new Color(26, 188, 156));
 		estimateTimeText.setText(String.valueOf(otherMes.getOrderEestiTime()));
 
 		// 读取流转信息
-		if(orderblservice != null){
+		if (orderblservice != null) {
 			setTransferInfo();
 		}
-		
 
 	}
-	
+
 	public void setTransferInfo() {
 		// 依次读取物流信息：地点＋时间
 		ArrayList<OrderSimpleInfoVO> info = orderblservice.getSimpleInfo(BarCode);
@@ -472,10 +470,11 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller implements DocPa
 		MyLabel[] time = { oneText, twoText, threeText, fourText, fiveText, sixText, sevenText, eightText, nineText,
 				tenText };
 		for (int i = 0; i < length; i++) {
-			//详细信息的单据号
-//			String transferCode=transfer.get(i);
-			//复用简易信息里的时间和地点
-//			place[i].setText(transferCode+processPlace(info.get(i).place, info.get(i).type, i));
+			// 详细信息的单据号
+			// String transferCode=transfer.get(i);
+			// 复用简易信息里的时间和地点
+			// place[i].setText(transferCode+processPlace(info.get(i).place,
+			// info.get(i).type, i));
 			place[i].setText(processPlace(info.get(i).place, info.get(i).type, i));
 
 			time[i].setText(processTime(info.get(i).time));
@@ -487,9 +486,8 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller implements DocPa
 		} else {
 			LineRight.setVisible(true);
 		}
-		
-	}
 
+	}
 
 	private String processPlace(String place, DocType type, int i) {
 		String result = null;
@@ -537,9 +535,9 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller implements DocPa
 
 	@Override
 	public void setAllCompUneditOrUnVisiable() {
-		//启用新的返回键
+		// 启用新的返回键
 		returnToPrevious.setVisible(false);
-		
+
 	}
 
 	@Override

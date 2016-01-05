@@ -94,7 +94,7 @@ public class InputReceiveInfoPanel extends MyPanelWithScroller implements Refres
 		this.add(table);
 		this.add(datePicker);
 		this.add(searchBox);
-		this.add(seeAll);
+		//this.add(seeAll);
 
 	}
 

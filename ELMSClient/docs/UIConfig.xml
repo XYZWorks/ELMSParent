@@ -293,7 +293,7 @@
 
 			<showInfoPanel x="232" y="54" width="1080" height="1200">
 
-				<showTable x="49" y="114" width="727" height="400"
+				<showTable x="49" y="150" width="727" height="400"
 					column="订单号 收件人 收件地址 寄件人 寄件地址 运费" />
 
 				<datePicker x="596" y="38" width="200" height="40">
@@ -301,7 +301,7 @@
 					<button x="746" y="38" width="50" height="40" type="rectangle" />
 				</datePicker>
 
-				<searchBox x="20" y="30" />
+				<searchBox x="49" y="30" />
 			</showInfoPanel>
 			<findFullInfoPanel x="232" y="54" width="1080"
 				height="1200">
@@ -464,9 +464,9 @@
 			<inputReceiveInfoPanel x="232" y="54" width="1080"
 				height="800">
 				<BUTTONS>
-					<confirm text="确认修改" x="707" y="695" width="89" height="37"
+					<confirm text="确认修改" x="690" y="560" width="89" height="37"
 						type="confirm" />
-					<cancel text="取消" x="599" y="695" width="89" height="37"
+					<cancel text="取消" x="560" y="560" width="89" height="37"
 						type="cancel" />
 
 				</BUTTONS>
@@ -476,15 +476,15 @@
 				</LABELS>
 				<TEXTFIELDS>
 				</TEXTFIELDS>
-				<inputReceiveTable x="49" y="114" width="727"
+				<inputReceiveTable x="49" y="150" width="727"
 					height="400" column="订单号 收件地址 收件人 实际收件人 收件时间" />
 
-				<datePicker x="596" y="38" width="200" height="40">
-					<field x="596" y="38" width="150" height="40" />
-					<button x="746" y="38" width="50" height="40" type="rectangle" />
+				<datePicker x="596" y="50" width="200" height="40">
+					<field x="596" y="50" width="150" height="40" />
+					<button x="746" y="50" width="50" height="40" type="rectangle" />
 				</datePicker>
 
-				<searchBox x="20" y="30" />
+				<searchBox x="49" y="50" />
 
 			</inputReceiveInfoPanel>
 
