@@ -458,6 +458,10 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 					new TipsDialog("订单添加失败，请重试");
 					return false;
 				}
+				else if(result==ResultMessage.hasExist){
+					new TipsDialog("订单号已存在，请重新填写");
+					return false;
+				}
 				new TipsDialog("成功增加订单",Color.GREEN);
 				return true;
 			
@@ -468,6 +472,15 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 				// 检查订单所有属性是否填写完整
 //				 checkDataValid checkDataValid = new checkDataValid();
 				// return checkDataValid.isValid();
+				if(senderAddressText.getText().equals("")){
+					new TipsDialog("请填写收件人详细地址");
+					return false;
+				}
+				
+				if(receiverAddressText.getText().equals("")){
+					new TipsDialog("请填写寄件人详细地址");
+					return false;
+				}
 				
 				SimpleDataFormat[] datas = {
 						new SimpleDataFormat(orderBarCodeText.getText(),DataType.BarCode,"订单号"),//订单号格式是否正确
@@ -530,14 +543,15 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 			double transferCost = miles / 1000 * 23 * goodweight;
 			total = packMoney + transferCost;
 		 
-			//System.out.println("Before-total" + total);
+			System.out.println("Before-total" + total);
+			
 			//经济快递
-			if (FormChose.equals("economicOrder")) {
-				total=total/ratios[1]*ratios[0];
-			} else if (FormChose.equals("quickOrder")) {
-				total=total/ratios[1]*ratios[2];
+			if (FormChose.equals("经济快递")) {
+				total=(total/(double)ratios[1])*ratios[0];
+			} else if (FormChose.equals("特快专递")) {
+				total=(total/(double)ratios[1])*ratios[2];
 			}
-			//System.out.println("After-total" + total);
+			System.out.println("After-total" + total);
 			
 			// 测试各项数据的准确性
 //			System.out.println("miles" + miles);

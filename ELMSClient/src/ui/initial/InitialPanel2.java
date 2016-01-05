@@ -69,12 +69,12 @@ public class InitialPanel2 extends MyPanel {
 //		AccountType type = vo.type;
 		
 		//TODO 你直接在这里新建一个controller，把当前initialpanel 的指针穿件去就行了
-	//	controller =  new CourierController(this, e.element("CourierManager")) ;
+		controller =  new CourierController(this, e.element("CourierManager")) ;
 	//	controller=new SaleManController(this, e.element("Salesman"));
 
 	//	controller =  new FinanceController(this, e.element("Financeman")) ;
 		
-		controller =  new FinanceController(this, e.element("Financeman")) ;
+//		controller =  new FinanceController(this, e.element("Financeman")) ;
 
 //		controller = new StoreManagerController(this,
 //				e.element("StoreManager"));
