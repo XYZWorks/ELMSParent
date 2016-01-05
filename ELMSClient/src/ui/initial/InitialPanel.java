@@ -1,5 +1,6 @@
 package ui.initial;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
@@ -134,10 +135,13 @@ public class InitialPanel extends MyPanel {
 
 	@Override
 	protected void initButtons(Element e) {
-
+		//解决边框透明度的问题
+		setBackground(new Color(0f, 0f, 0f,0f));
 		min = new MyPictureButton(e.element("min"));
 		home = new MyPictureButton(e.element("home"));
 		exit = new MyPictureButton(e.element("exit"));
+		exit.setBackground(new Color(0f, 0f, 0f,0f));
+		
 		rectangle = new MyPictureButton(e.element("drop"));
 	}
 

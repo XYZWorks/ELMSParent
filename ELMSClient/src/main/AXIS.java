@@ -19,6 +19,7 @@ public class AXIS {
 	
 	public AXIS() {
 		try {
+			Object temp = UIManager.getDefaults().get("RootPaneUI");
 			BeautyEyeLNFHelper.frameBorderStyle = BeautyEyeLNFHelper.FrameBorderStyle.translucencySmallShadow;
 			org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF();
 			
@@ -27,7 +28,7 @@ public class AXIS {
 			UIManager.put("RootPaneUI", UIManager.getDefaults().get("RootPaneUI"));
 			UIManager.put("RootPane.frameBorder", UIManager.getDefaults().get("RootPane.frameBorder"));
 			//取消美化包所使用的美化~
-			UIManager.put("RootPaneUI", UIManager.getDefaults().get("RootPane"));
+			UIManager.put("RootPaneUI", temp);
 		}catch(Exception e){
 			
 		}

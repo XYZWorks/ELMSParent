@@ -107,7 +107,8 @@ public class TipsDialog extends JDialog{
 			bg = green;
 		}
 		setBackground(new Color(0f, 0f, 0f, 0f));
-		label.setForeground(Color.WHITE);
+		//label.setForeground(Color.WHITE);
+		label.setBackground(new Color(0f, 0f, 0f, 0f));
 		label.setFont(font);
 		text = message;
 //        label.setText(message);
@@ -140,7 +141,9 @@ public class TipsDialog extends JDialog{
 		
 		setBounds(bounds);
 		label.setBounds(0 , 0 , (int) bounds.getWidth() ,  (int)bounds.getHeight());
-		add(label);
+		//add(label);
+		getContentPane().setBackground(new Color(0f, 0f, 0f, 0f));
+		getContentPane().add(label);
 		
 		this.setVisible(true);
 		while( nowTime < MAX_TIMES){
