@@ -52,7 +52,7 @@ public class PaySmallTable extends MyTablePanel {
 		removeAllRows();
 		for (PayDocVO vo : vos) {
 			oneData[0] = vo.ID;
-			oneData[1] = MyDate.toString(vo.date);
+			oneData[1] = MyDate.getPartDay(vo.date);
 			oneData[2] = vo.YYID;
 			oneData[3] = String.valueOf(vo.money);
 			oneData[4] = vo.courierName;

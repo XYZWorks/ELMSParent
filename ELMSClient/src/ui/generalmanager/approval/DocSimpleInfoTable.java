@@ -158,7 +158,7 @@ public class DocSimpleInfoTable extends MyTablePanel{
 				data[i][0] = new Boolean(false);
 				data[i][1] = vos.get(i).ID;
 				data[i][2] = DocType.getName(vos.get(i).type);
-				data[i][3] = MyDate.toString(vos.get(i).date);
+				data[i][3] = MyDate.getPartDay(vos.get(i).date);
 				data[i][4] = DocState.getName(vos.get(i).state);
 		}
 	}

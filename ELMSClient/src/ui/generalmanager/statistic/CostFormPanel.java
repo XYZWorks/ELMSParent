@@ -42,8 +42,8 @@ public class CostFormPanel extends MyTablePanel{
 		if(vos != null && !vos.isEmpty()){
 			data = new String[vos.size()][4];
 			for (int i = 0; i < vos.size(); i++) {
-				data[i][0] = MyDate.toString(vos.get(i).startDate);
-				data[i][1] = MyDate.toString(vos.get(i).endDate);
+				data[i][0] = MyDate.getPartDay(vos.get(i).startDate);
+				data[i][1] = MyDate.getPartDay(vos.get(i).endDate);
 				data[i][2] = String.valueOf(vos.get(i).income);
 				data[i][3] = String.valueOf(vos.get(i).expense);
 			}

@@ -51,8 +51,8 @@ public class StateFormPanel extends MyTablePanel{
 			for (int i = 0; i < vos.size(); i++) {
 				vo = vos.get(i);
 				data[i][0] = String.valueOf(i);
-				data[i][1] = MyDate.toString(vo.startDate);
-				data[i][2] = MyDate.toString(vo.endDate);
+				data[i][1] = MyDate.getPartDay(vo.startDate);
+				data[i][2] = MyDate.getPartDay(vo.endDate);
 				data[i][3] = vo.deposits==null?"0":String.valueOf(vo.deposits.size());
 				data[i][4] = vo.pays==null?"0":String.valueOf(vo.pays.size());
 				

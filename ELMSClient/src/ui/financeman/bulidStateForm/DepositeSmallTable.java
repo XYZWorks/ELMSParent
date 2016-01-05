@@ -56,7 +56,7 @@ public class DepositeSmallTable extends MyTablePanel {
 			oneData[0] = vo.ID;
 			oneData[1] = vo.account;
 			oneData[2] = vo.person;
-			oneData[3] = MyDate.toString(vo.time);
+			oneData[3] = MyDate.getPartDay(vo.time);
 			oneData[4] = String.valueOf(vo.money);
 			oneData[5] = String.valueOf(vo.rent);
 			oneData[6] = String.valueOf(vo.freight);

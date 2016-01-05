@@ -68,7 +68,6 @@ public class inputReceiveTablePanel extends MyTablePanel {
 
 	@Override
 	protected void initTable() {
-		System.out.println("inittable");
 		
 		removeAll();
 		table = new MyTable(columnNames, data) {
