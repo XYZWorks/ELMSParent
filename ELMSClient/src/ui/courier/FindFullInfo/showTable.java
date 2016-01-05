@@ -101,6 +101,31 @@ public class showTable extends MyTablePanel {
 
 	@Override
 	public void updateTableMes() {
+		MyDate date = MyDate.getNowTime();
+		String date1 = MyDate.toString(date);
+		System.out.println(date1);
+
+		// 获得系统时间
+		pre = orderblservice.getOrderVO(date);
+		if (pre == null || pre.isEmpty()) {
+			return;
+		}
+
+		data = new String[pre.size()][COLUMN_NUM];
+
+		if (pre != null) {
+			for (int i = 0; i < pre.size(); i++) {
+				// 订单号 收件人 收件地址 寄件人 寄件地址 运费 ??????????考虑的形式待议
+				data[i][0] = pre.get(i).ID;
+				data[i][1] = pre.get(i).sender.getName();
+				data[i][2] = pre.get(i).sender.getAddress();
+				data[i][3] = pre.get(i).receiver.getName();
+				data[i][4] = pre.get(i).receiver.getAddress();
+				data[i][5] = String.valueOf(pre.get(i).otherMes.getOrderCost());
+			}
+		}
+		getTable().getModel().setDataVector(data, columnNames);
+
 	}
 
 }

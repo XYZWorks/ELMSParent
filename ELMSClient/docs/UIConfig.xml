@@ -1123,54 +1123,56 @@
 
 				<type x="53" y="53" width="200" height="40" strings="经营状况表 成本收益表" />
 				<BulidStateFromPanel x="232" y="54" width="848"
-					height="1200">
-					<WHITEPANELS>
-						<Deposit x="50" y="300" width="700" height="320" />
-						<Pay x="50" y="650" width="700" height="330" />
-					</WHITEPANELS>
+				height="1200">
+				<WHITEPANELS>
+					<Deposit x="50" y="300" width="700" height="320" />
+					<Pay x="50" y="650" width="700" height="330" />
+				</WHITEPANELS>
 
-					<BUTTONS>
-						<confirm x="450" y="1000" width="89" height="40" text="确认"
-							type="confirm" />
-						<cancel x="600" y="1000" width="89" height="40" text="取消"
-							type="cancel" />
-						<check x="0" y="0" width="40" height="40" type="add" />
-					</BUTTONS>
-					<TEXTFIELDS>
-					</TEXTFIELDS>
-					<LABELS>
-						<title x="50" y="40" width="200" height="40" text="经营状况表"
-							fontName="华文细黑" size="20" type="rectangle" />
+				<BUTTONS>
+					<confirm x="450" y="1000" width="89" height="40" text="确认"
+						type="confirm" />
+					<cancel x="600" y="1000" width="89" height="40" text="取消"
+						type="cancel" />
+					<check x="630" y="40" width="200" height="40" text="确认查询" type="rectangle" size="18" />
+				</BUTTONS>
+				<TEXTFIELDS>
+				</TEXTFIELDS>
+				<LABELS>
+					<title x="50" y="40" width="200" height="40" text="经营状况表"
+						fontName="华文细黑" size="20" type="rectangle" />
 
-						<start x="50" y="120" width="200" height="40" text="起始日期:"
-							size="18" />
-						<end x="450" y="120" width="200" height="40" text="结束日期:"
-							size="18" />
+					<start x="50" y="120" width="200" height="40" text="起始日期:"
+						size="18" />
+					<end x="450" y="120" width="200" height="40" text="结束日期:" size="18" />
 
-						<depositeL x="50" y="180" width="200" height="80" text="付款单"
-							size="18" />
-						<payL x="450" y="180" width="250" height="80" text="收款单"
-							size="18" />
-						<depositePic x="150" y="180" width="250" height="80"
-							text="" one="courier//cost" fontName="Microsoft YaHei" />
-						<payPic x="520" y="180" width="250" height="80" text=""
-							one="courier//cost" fontName="Microsoft YaHei" />
+					<depositeL x="50" y="180" width="200" height="80" text="付款单"
+						size="18" />
+					<payL x="450" y="180" width="250" height="80" text="收款单" size="18" />
+					<depositePic x="150" y="180" width="250" height="80"
+						text="" one="courier//cost" fontName="Microsoft YaHei" />
+					<payPic x="536" y="180" width="250" height="80" text=""
+						one="courier//cost" fontName="Microsoft YaHei" />
+					<depositeText x="240" y="180" width="250" height="80" size="38"
+						text=""  fontName="Microsoft YaHei" />
+					<payText x="635" y="180" width="250" height="80" text="" size="38"
+					 fontName="Microsoft YaHei" />
+						
+					<depositeWhiteInfo x="20" y="5" width="400"
+						height="40" text="起始～结束时间内 付款单详情" size="18" />
+					<payWhiteInfo x="20" y="5" width="400" height="40"
+						text="起始～结束时间内 收款单详情" size="18" />
+				</LABELS>
 
-						<depositeWhiteInfo x="20" y="5" width="400"
-							height="40" text="起始～结束时间内 付款单详情" size="18" />
-						<payWhiteInfo x="20" y="5" width="400" height="40"
-							text="起始～结束时间内 收款单详情" size="18" />
-					</LABELS>
-
-					<start x="150" y="120" width="200" height="40" />
-					<end x="540" y="120" width="200" height="40" />
-					<depositeSmallTable x="20" y="50" width="670"
-						height="250" column="ID 银行账户 经手人 日期 总金额 租金 运费 人员工资" />
-					<paySmallTable x="20" y="50" width="670" height="250"
-						column="ID 日期 营业厅ID 金额 快递员 订单数量" />
+				<start x="150" y="120" width="200" height="40" />
+				<end x="540" y="120" width="200" height="40" />
+				<depositeSmallTable x="20" y="50" width="670"
+					height="250" column="ID 银行账户 经手人 日期 总金额 租金 运费 人员工资" />
+				<paySmallTable x="20" y="50" width="670" height="250"
+					column="ID 日期 营业厅ID 金额 快递员 订单数量" />
 
 
-				</BulidStateFromPanel>
+			</BulidStateFromPanel>
 			</StatisticPanel>
 
 			<InstManagePanel x="232" y="54" width="848" height="637">

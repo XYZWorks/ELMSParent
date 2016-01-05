@@ -11,11 +11,12 @@ import ui.tools.MyDatePicker;
 import ui.tools.MyPanel;
 import ui.tools.MySearchBox;
 import ui.util.CompomentType;
+import ui.util.RefreshPanel;
 import ui.util.TipsDialog;
 import util.FormatMes;
 
 @SuppressWarnings("serial")
-public class showInfoPanel extends MyPanel {
+public class showInfoPanel extends MyPanel implements RefreshPanel{
 
 	private CourierController controller;
 	private Orderblservice orderblservice;
@@ -117,5 +118,12 @@ public class showInfoPanel extends MyPanel {
 				}
 			}
 		}
+	}
+
+
+	@Override
+	public void refresh() {
+		showTable.updateTableMes();
+		
 	}
 }
