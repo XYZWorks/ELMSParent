@@ -117,20 +117,20 @@ public class CarManageAddPanel extends AddDocPanel {
 				if(isAddOrModify){
 					result = bl.addCar(vo = new CarVO(id , instid , plateNum, Integer.parseInt(useYear)));
 					if(result == ResultMessage.SUCCESS){
-						new TipsDialog("成功增加司机信息" , Color.GREEN);
+						new TipsDialog("成功增加车辆信息" , Color.GREEN);
 						return true;
 					}else{
-						new TipsDialog("未能增加司机信息", Color.RED);
+						new TipsDialog("未能增加车辆信息", Color.RED);
 						System.err.println(result);
 						return false;
 					}
 				}else{
 					result = bl.modifyCar(vo = new CarVO(id, instid ,plateNum, Integer.parseInt(useYear)));
 					if(result == ResultMessage.SUCCESS){
-						new TipsDialog("成功修改司机信息" , Color.GREEN);
+						new TipsDialog("成功修改车辆信息" , Color.GREEN);
 						return true;
 					}else{
-						new TipsDialog("未能修改司机信息", Color.RED);
+						new TipsDialog("未能修改车辆信息", Color.RED);
 						System.err.println(result);
 						return false;
 					}

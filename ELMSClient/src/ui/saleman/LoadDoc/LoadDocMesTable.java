@@ -42,7 +42,7 @@ public class LoadDocMesTable extends MyTablePanel {
 		}
 		
 		oneData[0] = vo.ID;
-		oneData[1] = MyDate.toString(vo.date);
+		oneData[1] = MyDate.getPartDay(vo.date);
 		oneData[2] = vo.YYID;
 		oneData[3] = vo.loadDocID;
 		oneData[4] = vo.arriveCity.getName();

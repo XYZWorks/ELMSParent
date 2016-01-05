@@ -229,6 +229,10 @@ public class Order {
 				 pres.add(vo);
 			}
 		}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> origin/master
 		return pres;
 	}
 

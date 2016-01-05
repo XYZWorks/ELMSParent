@@ -123,7 +123,7 @@ public class FullInPanel extends MyPanel implements DocPanelForApproval {
 
 	private void initValue() {
 		IDshow.setText(vo.ID);
-		dateshow.setText(MyDate.toString(vo.date));
+		dateshow.setText(MyDate.getPartDay(vo.date));
 		sendCityshow.setText(vo.loc.getName());
 		locInfoTable.orders = vo.orders;
 		locInfoTable.locs = vo.location;

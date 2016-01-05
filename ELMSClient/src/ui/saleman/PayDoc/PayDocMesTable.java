@@ -60,7 +60,7 @@ public class PayDocMesTable extends MyTablePanel{
 				}
 			}
 			data[i][0] = vo.ID;
-			data[i][1] = MyDate.toString(vo.date);
+			data[i][1] = MyDate.getPartDay(vo.date);
 			data[i][2] = vo.YYID;
 			data[i][3] = String.valueOf(vo.money);
 			data[i][4] = vo.courierName;
@@ -78,7 +78,7 @@ public class PayDocMesTable extends MyTablePanel{
 		String[] temp = new String[COLUMN_NUM];
 		vos.add(vo);
 		temp[0] = vo.ID;
-		temp[1] = MyDate.toString(vo.date);
+		temp[1] = MyDate.getPartDay(vo.date);
 		temp[2] = vo.YYID;
 		temp[3] = String.valueOf(vo.money);
 		temp[4] = vo.courierName;

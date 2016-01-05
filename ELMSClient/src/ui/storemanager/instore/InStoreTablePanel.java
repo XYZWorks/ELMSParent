@@ -61,7 +61,7 @@ public class InStoreTablePanel extends MyTablePanel {
 			vo = vos.get(i);
 			data[i][0] = DocType.getName(vo.type);
 			data[i][1] = vo.ID;
-			data[i][2] = MyDate.toString(vo.date);
+			data[i][2] = MyDate.getPartDay(vo.date);
 			data[i][3] = vo.loc.getName();
 			data[i][4] = UserfulMethod.orderArrayToString(vo.orders);
 			
@@ -123,7 +123,7 @@ public class InStoreTablePanel extends MyTablePanel {
 			vo = vos.get(i);
 			data[i][0] = DocType.getName(vo.type);
 			data[i][1] = vo.ID;
-			data[i][2] = MyDate.toString(vo.date);
+			data[i][2] = MyDate.getPartDay(vo.date);
 //			System.out.println(i+"  "+vo.loc);
 			data[i][3] = vo.loc.getName();
 			data[i][4] = UserfulMethod.orderArrayToString(vo.orders);

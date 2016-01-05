@@ -56,7 +56,7 @@ public class SendGoodMesTable extends MyTablePanel {
 			vo = vos.get(i);
 			
 			data[i][0] = vo.ID;
-			data[i][1] = MyDate.toString(vo.date);
+			data[i][1] = MyDate.getPartDay(vo.date);
 			data[i][2] = vo.sendMan;
 			data[i][3] = String.valueOf(vo.orderBarCode.size());
 			
@@ -83,7 +83,7 @@ public class SendGoodMesTable extends MyTablePanel {
 		SendGoodDocVO vo = (SendGoodDocVO) o;
 		String[] temp = new String[COLUMN_NUM];
 		temp[0] = vo.ID;
-		temp[1] = MyDate.toString(vo.date);
+		temp[1] = MyDate.getPartDay(vo.date);
 		temp[2] = vo.sendMan;
 		temp[3] = String.valueOf(vo.orderBarCode.size());
 		addOneRow(temp);;
