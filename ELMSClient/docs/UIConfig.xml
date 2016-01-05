@@ -1775,33 +1775,39 @@
 			</AddAccountPanel>
 			<ModifyAccountPanel x="232" y="54" width="848"
 				height="637">
+				
+				<WHITEPANELS>
+					<whitepanel x="95" y="140" width="660" height="330" />
+				</WHITEPANELS>
+				
+			
+				<type text="" x="245" y="210" width="276" height="40"
+					strings="快递员 财务人员 总经理 营业厅业务员 中转中心业务人员 中转中心管理员 管理员" />
+					
 				<BUTTONS>
 					<modify x="700" y="65" width="40" height="40" type="modify" />
 					<delete x="758" y="65" width="40" height="40" type="delete" />
-					<confirm x="650" y="570" width="89" height="40" text="确认"
+					<confirm x="580" y="560" width="89" height="40" text="确认"
 						type="confirm" />
-					<cancel x="750" y="570" width="89" height="40" text="取消"
+					<cancel x="700" y="560" width="89" height="40" text="取消"
 						type="cancel" />
 				</BUTTONS>
 				<LABELS>
-					<name text="姓名" x="50" y="540" width="100" height="50" />
-					<password text="密码" x="300" y="540" width="100" height="50" />
-					<type text="职员类型" x="500" y="540" width="100" height="50" />
-
+					<name text="姓名" x="100" y="70" width="115" height="40" type="" />
+					<password text="密码" x="100" y="140" width="115" height="40"
+						type="rectangle" />
+					<type text="职员类型" x="100" y="210" width="115"
+						height="40" type="" />
+					<title text="修改账户" x="0" y="0" width="115" height="40" type="" />		
 				</LABELS>
 				<TEXTFIELDS>
-					<name  x="50" y="600" width="80" height="30" />
-					<password  x="300" y="600" width="80" height="30" />
-
-
+					<name  text="" x="245" y="70" width="276" height="40"  />
+					<password  text="" x="245" y="140" width="276" height="40" />
 				</TEXTFIELDS>
-				<type text="职员类型" x="500" y="600" width="80" height="30"
-					strings="财务人员 总经理 管理员 营业厅业务员 快递员 中转中心业务人员 中转中心管理员" />
 				<table x="48" y="111" width="750" height="400" columnName="ID 姓名 职员类型 密码" />
 			</ModifyAccountPanel>
-
-
 		</Adminstrator>
+		
 		<Salesman x="232" y="54" width="848" height="637">
 			<BUTTONS>
 				<loadDoc text="装车单" x="0" y="227" />
