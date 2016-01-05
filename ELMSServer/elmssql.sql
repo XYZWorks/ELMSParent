@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2016-01-05 01:38:04
+-- Generation Time: 2016-01-05 02:16:43
 -- 服务器版本： 5.6.26
 -- PHP Version: 5.6.12
 
@@ -39,12 +39,22 @@ CREATE TABLE IF NOT EXISTS `account` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `account`
+--
+
+TRUNCATE TABLE `account`;
+--
 -- 转存表中的数据 `account`
 --
 
 INSERT INTO `account` (`id`, `name`, `type`, `password`, `phone`, `email`) VALUES
-('000000', 'Adminstrator', 'Adminstrator', '000000', '', ''),
-('123456', 'asd强', 'manager', '123236', NULL, NULL);
+('000000', 'czq', 'Adminstrator', '000000', '', ''),
+('000001', 'czq', 'manager', '123456', '', ''),
+('000002', 'czq', 'financeman', '123456', '', ''),
+('000003', 'czq', 'saleman', '123456', '', ''),
+('000004', 'czq', 'storeman', '123456', '', ''),
+('000005', '姓名', 'financeman', '密码', NULL, NULL),
+('000006', 'czq', 'financeman', '111111', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -58,6 +68,11 @@ CREATE TABLE IF NOT EXISTS `alarm` (
   `value` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `alarm`
+--
+
+TRUNCATE TABLE `alarm`;
 --
 -- 转存表中的数据 `alarm`
 --
@@ -87,6 +102,11 @@ CREATE TABLE IF NOT EXISTS `arriveyydoc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `arriveyydoc`
+--
+
+TRUNCATE TABLE `arriveyydoc`;
+--
 -- 转存表中的数据 `arriveyydoc`
 --
 
@@ -112,6 +132,11 @@ CREATE TABLE IF NOT EXISTS `arrivezzdoc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `arrivezzdoc`
+--
+
+TRUNCATE TABLE `arrivezzdoc`;
+--
 -- 转存表中的数据 `arrivezzdoc`
 --
 
@@ -135,6 +160,11 @@ CREATE TABLE IF NOT EXISTS `bankaccount` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `bankaccount`
+--
+
+TRUNCATE TABLE `bankaccount`;
+--
 -- 转存表中的数据 `bankaccount`
 --
 
@@ -157,6 +187,11 @@ CREATE TABLE IF NOT EXISTS `bill` (
   `cars` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `bill`
+--
+
+TRUNCATE TABLE `bill`;
 -- --------------------------------------------------------
 
 --
@@ -171,6 +206,11 @@ CREATE TABLE IF NOT EXISTS `car` (
   `useYear` int(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='车辆信息';
 
+--
+-- 插入之前先把表清空（truncate） `car`
+--
+
+TRUNCATE TABLE `car`;
 -- --------------------------------------------------------
 
 --
@@ -196,6 +236,11 @@ CREATE TABLE IF NOT EXISTS `const` (
   `ratio3` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='常量表';
 
+--
+-- 插入之前先把表清空（truncate） `const`
+--
+
+TRUNCATE TABLE `const`;
 -- --------------------------------------------------------
 
 --
@@ -210,6 +255,11 @@ CREATE TABLE IF NOT EXISTS `costincomeform` (
   `enddate` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `costincomeform`
+--
+
+TRUNCATE TABLE `costincomeform`;
 -- --------------------------------------------------------
 
 --
@@ -223,6 +273,11 @@ CREATE TABLE IF NOT EXISTS `deposit` (
   `money` int(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='存款数据信息表';
 
+--
+-- 插入之前先把表清空（truncate） `deposit`
+--
+
+TRUNCATE TABLE `deposit`;
 -- --------------------------------------------------------
 
 --
@@ -241,6 +296,11 @@ CREATE TABLE IF NOT EXISTS `driver` (
   `licenseyear` int(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='司机信息表';
 
+--
+-- 插入之前先把表清空（truncate） `driver`
+--
+
+TRUNCATE TABLE `driver`;
 -- --------------------------------------------------------
 
 --
@@ -256,6 +316,11 @@ CREATE TABLE IF NOT EXISTS `freight` (
   `costtype` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `freight`
+--
+
+TRUNCATE TABLE `freight`;
 --
 -- 转存表中的数据 `freight`
 --
@@ -276,6 +341,11 @@ CREATE TABLE IF NOT EXISTS `inst` (
   `type` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='机构信息';
 
+--
+-- 插入之前先把表清空（truncate） `inst`
+--
+
+TRUNCATE TABLE `inst`;
 --
 -- 转存表中的数据 `inst`
 --
@@ -304,6 +374,11 @@ CREATE TABLE IF NOT EXISTS `instoredoc` (
   `location` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `instoredoc`
+--
+
+TRUNCATE TABLE `instoredoc`;
 --
 -- 转存表中的数据 `instoredoc`
 --
@@ -340,6 +415,11 @@ CREATE TABLE IF NOT EXISTS `loaddoc` (
   `orderbarcodes` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='装车单';
 
+--
+-- 插入之前先把表清空（truncate） `loaddoc`
+--
+
+TRUNCATE TABLE `loaddoc`;
 --
 -- 转存表中的数据 `loaddoc`
 --
@@ -399,6 +479,11 @@ CREATE TABLE IF NOT EXISTS `myorder` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单表';
 
 --
+-- 插入之前先把表清空（truncate） `myorder`
+--
+
+TRUNCATE TABLE `myorder`;
+--
 -- 转存表中的数据 `myorder`
 --
 
@@ -424,6 +509,11 @@ CREATE TABLE IF NOT EXISTS `outstoredoc` (
   `shipway` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `outstoredoc`
+--
+
+TRUNCATE TABLE `outstoredoc`;
 --
 -- 转存表中的数据 `outstoredoc`
 --
@@ -452,6 +542,11 @@ CREATE TABLE IF NOT EXISTS `pay` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `pay`
+--
+
+TRUNCATE TABLE `pay`;
+--
 -- 转存表中的数据 `pay`
 --
 
@@ -477,6 +572,11 @@ CREATE TABLE IF NOT EXISTS `paydoc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `paydoc`
+--
+
+TRUNCATE TABLE `paydoc`;
+--
 -- 转存表中的数据 `paydoc`
 --
 
@@ -499,6 +599,11 @@ CREATE TABLE IF NOT EXISTS `person` (
   `phone` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `person`
+--
+
+TRUNCATE TABLE `person`;
 --
 -- 转存表中的数据 `person`
 --
@@ -524,6 +629,11 @@ CREATE TABLE IF NOT EXISTS `rent` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `rent`
+--
+
+TRUNCATE TABLE `rent`;
+--
 -- 转存表中的数据 `rent`
 --
 
@@ -544,6 +654,11 @@ CREATE TABLE IF NOT EXISTS `salary` (
   `way` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='工资计算方式';
 
+--
+-- 插入之前先把表清空（truncate） `salary`
+--
+
+TRUNCATE TABLE `salary`;
 --
 -- 转存表中的数据 `salary`
 --
@@ -573,6 +688,11 @@ CREATE TABLE IF NOT EXISTS `salarycost` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `salarycost`
+--
+
+TRUNCATE TABLE `salarycost`;
+--
 -- 转存表中的数据 `salarycost`
 --
 
@@ -598,6 +718,11 @@ CREATE TABLE IF NOT EXISTS `sendgooddoc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- 插入之前先把表清空（truncate） `sendgooddoc`
+--
+
+TRUNCATE TABLE `sendgooddoc`;
+--
 -- 转存表中的数据 `sendgooddoc`
 --
 
@@ -618,6 +743,11 @@ CREATE TABLE IF NOT EXISTS `stateform` (
   `pays` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `stateform`
+--
+
+TRUNCATE TABLE `stateform`;
 -- --------------------------------------------------------
 
 --
@@ -635,6 +765,11 @@ CREATE TABLE IF NOT EXISTS `storecheck` (
   `outStoreDocs` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `storecheck`
+--
+
+TRUNCATE TABLE `storecheck`;
 -- --------------------------------------------------------
 
 --
@@ -654,6 +789,11 @@ CREATE TABLE IF NOT EXISTS `transferdoc` (
   `orderbarcode` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 插入之前先把表清空（truncate） `transferdoc`
+--
+
+TRUNCATE TABLE `transferdoc`;
 --
 -- 转存表中的数据 `transferdoc`
 --

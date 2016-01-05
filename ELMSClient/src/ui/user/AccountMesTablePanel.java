@@ -70,17 +70,16 @@ public class AccountMesTablePanel extends MyTablePanel{
 			return;
 		}
 		
-		
-		table.getModel().setRowCount(vos.size());
-		
+		removeAllRows();
+		String[] temp = new String[4];
 		AccountVO vo;
 		for (int i = 0; i < vos.size(); i++) {
 			vo = vos.get(i);
-			table.setValueAt(vo.ID, i, 0);
-			table.setValueAt(vo.name, i, 1);
-			table.setValueAt(vo.type.name(), i, 2);
-			table.setValueAt(vo.password, i, 3);
-			
+			temp[0] = vo.ID;
+			temp[1] =  vo.name;
+			temp[2] = vo.type.name();
+			temp[3] = vo.password;
+			addOneRow(temp);
 		}
 		
 	}
