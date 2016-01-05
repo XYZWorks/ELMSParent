@@ -66,7 +66,7 @@ public class Server {
 	private void initialize() {
 		frmElms = new JFrame();
 		frmElms.setTitle("ELMS服务器端");
-		frmElms.setBounds(100, 100, 500, 500);
+		frmElms.setBounds(438, 179, 489, 411);
 		frmElms.setUndecorated(true);
 		frmElms.setBackground(new Color(0, 0, 0, 0));
 		frmElms.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -83,7 +83,7 @@ public class Server {
 		
 		final MyPictureButton btnNewButton = new MyPictureButton("confirm");
 		btnNewButton.setText("启动服务");
-		btnNewButton.setBounds(71, 100, 60, 40);
+		btnNewButton.setBounds(119, 240, 89, 37);
 		frmElms.getContentPane().add(btnNewButton);
 		btnNewButton.addMouseListener(new MyPictureButtonListener(btnNewButton){
 			@Override
@@ -97,7 +97,7 @@ public class Server {
 			
 		MyPictureButton stop = new MyPictureButton("cancel");
 		stop.setText("停止服务");
-		stop.setBounds(248, 100, 116, 47);
+		stop.setBounds(288, 240, 89, 37);
 		frmElms.getContentPane().add(stop);
 		
 		stop.addMouseListener(new MyPictureButtonListener(stop){
@@ -110,7 +110,7 @@ public class Server {
 		
 		
 		exit = new MyPictureButton("close");
-		exit.setBounds(448, 100, 116, 47);
+		exit.setBounds(429, 6, 53, 53);
 		frmElms.getContentPane().add(exit);
 		exit.addMouseListener(new MyPictureButtonListener(exit){
 			@Override

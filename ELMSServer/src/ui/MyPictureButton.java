@@ -65,7 +65,7 @@ public class MyPictureButton extends JLabel {
 		normal = pics.getNormal();
 		clicked = pics.getClicked();
 		entered = pics.getEnter();
-		setFont(new Font("华文细黑", Font.PLAIN, 16));
+		setFont(new Font("华文细黑", Font.PLAIN, 15));
 		this.setIcon(normal);
 		this.setHorizontalTextPosition(SwingConstants.CENTER);
 		this.setVerticalTextPosition(SwingConstants.CENTER);
