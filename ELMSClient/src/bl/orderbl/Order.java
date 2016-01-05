@@ -228,7 +228,7 @@ public class Order {
 			for (int i = 0; i < barCodes.size(); i++) {
 				tmp = getFullInfo(barCodes.get(i));
 				 PreReceiveVO vo = new PreReceiveVO(tmp.ID,
-				 tmp.receiver.getAddress(), tmp.receiver.getName());
+				 tmp.receiver.getAddress(), tmp.receiver.getName() , tmp.otherMes.getRealReceiver() , tmp.otherMes.getOrderReceiveDate());
 				 pres.add(vo);
 			}
 		}
