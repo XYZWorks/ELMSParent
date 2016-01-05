@@ -50,7 +50,7 @@ public class DriverMesPanel extends MyTablePanel {
 			data[i][0] = vo.ID;
 			data[i][1] = vo.name;
 			data[i][2] = vo.InstID;
-			data[i][3] = MyDate.toString(vo.birthDay);
+			data[i][3] = MyDate.getPartDay(vo.birthDay);
 			data[i][4] = vo.IDcard;
 			data[i][5] = vo.phoneNum;
 			data[i][6] = vo.isman?"男":"女";
@@ -77,7 +77,7 @@ public class DriverMesPanel extends MyTablePanel {
 		temp[0] = vo.ID;
 		temp[1] = vo.name;
 		temp[2] = vo.InstID;
-		temp[3] = MyDate.toString(vo.birthDay);
+		temp[3] = MyDate.getPartDay(vo.birthDay);
 		temp[4] = vo.IDcard;
 		temp[5] = vo.phoneNum;
 		temp[6] = vo.isman?"男":"女";

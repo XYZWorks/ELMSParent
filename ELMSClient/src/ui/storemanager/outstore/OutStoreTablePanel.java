@@ -64,7 +64,7 @@ public class OutStoreTablePanel extends MyTablePanel {
 			vo = vos.get(i);
 			data[i][0] = DocType.getName(vo.type);
 			data[i][1] = vo.ID;
-			data[i][2] = MyDate.toString(vo.date);
+			data[i][2] = MyDate.getPartDay(vo.date);
 			data[i][3] = vo.loc.getName();
 			data[i][4] = vo.transferDoc;
 			data[i][5] = TransferWay.getTransferWay(vo.shipWay.name());
@@ -134,7 +134,7 @@ public class OutStoreTablePanel extends MyTablePanel {
 			vo = vos.get(i);
 			data[i][0] = DocType.getName(vo.type);
 			data[i][1] = vo.ID;
-			data[i][2] = MyDate.toString(vo.date);
+			data[i][2] = MyDate.getPartDay(vo.date);
 			data[i][3] = vo.loc.getName();
 			data[i][4] = vo.transferDoc;
 			data[i][5] = TransferWay.getTransferWay(vo.shipWay.name());
