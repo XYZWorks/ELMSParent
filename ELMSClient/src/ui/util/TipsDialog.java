@@ -115,6 +115,7 @@ public class TipsDialog extends JDialog{
 		label.setFont(font);
 		text = message;
 //        label.setText(message);
+		
 		bounds = new Rectangle(parent.getX() + 792, parent.getY() +  553, 299, 139);
         setBounds(bounds);
         label.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -186,9 +187,7 @@ public class TipsDialog extends JDialog{
 	 * @param parent
 	 */
 	public static void setFrame(JFrame parent){
-		if(TipsDialog.parent != null){
-			return;
-		}
+	
 		TipsDialog.parent = parent;
 	}
 

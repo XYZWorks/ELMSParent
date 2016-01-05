@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 
 import org.dom4j.Element;
 
-import bl.orderbl.orderbl_stub;
+import bl.BusinessLogicDataFactory;
 import blservice.orderblservice.Orderblservice;
 import ui.config.GraphicsUtils;
 import ui.config.UserfulMethod;
@@ -25,6 +25,7 @@ import ui.util.ButtonState;
 import ui.util.CompomentType;
 import ui.util.TipsDialog;
 import util.FormatMes;
+import util.ResultMessage;
 
 /**
 *
@@ -107,8 +108,8 @@ public class CommonInitalPanel extends MyPanel{
 	@Override
 	protected void initOtherCompoment(Element e) {
 		searchBox=new MySearchBox(e.element("searchBox"));
-		orderblservice=new orderbl_stub();
-		//BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
+
+		orderblservice=BusinessLogicDataFactory.getFactory().getOrderBussinessLogic();
 
 		
 	}
@@ -145,27 +146,27 @@ public class CommonInitalPanel extends MyPanel{
 		@Override
 		public void keyPressed(KeyEvent e) {
 			if(e.getKeyCode()==KeyEvent.VK_ENTER){
-			//	TipsDialog wrongLength=new TipsDialog("订单号是10位哦～",560,470,300,55);
-				
+			
 				//获得输入的条形码
 				String barcode=searchBox.getMyText();
 				//System.out.println("commoninitalP"+barcode);
 				//判断条形码格式是否正确
 				FormatMes result=UserfulMethod.checkBarCode(barcode);
 				if(result==FormatMes.WRONG_LENGTH){
-					TipsDialog wrongLength=new TipsDialog("订单号是10位哦～",560,470,300,55);
+					new TipsDialog("订单号是10位哦");
 				}
 				else if(result==FormatMes.ILEGAL_CHAR){
-					TipsDialog ilegalChar=new TipsDialog("输入了非法字符",560,470,300,55);
+					new TipsDialog("输入了非法字符");
 				}
-				else if(result==FormatMes.CORRECT){
-//					if(orderblservice.checkBarCode(barcode)==ResultMessage.NOT_EXIST){
-//						 TipsDialog notExist=new TipsDialog("此订单号不存在");
-//					 }
-//					 else if(orderblservice.checkBarCode(barcode)==ResultMessage.hasExist){
+				else {
+					if(orderblservice.checkBarCode(barcode)==ResultMessage.NOT_EXIST){
+						 new TipsDialog("此订单号不存在");
+					 }
+					 else if(orderblservice.checkBarCode(barcode)==ResultMessage.SUCCESS){
 							setTwoUnvisible();
 							FindSimpleOrderInfoPanel findSimpleOrderInfoPanel=new FindSimpleOrderInfoPanel(config.element("CommonMainPanel"),inital, barcode,orderblservice);
-					// }
+							
+					 }
 				}
 			}
 		}
@@ -175,8 +176,6 @@ public class CommonInitalPanel extends MyPanel{
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			exit.setMyIcon(ButtonState.MOUSE_CLICKED);
-			//弹出optionpane 确认退出 TODO
-			
 			System.exit(0);
 			
 		}

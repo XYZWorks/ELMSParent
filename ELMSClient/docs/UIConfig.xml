@@ -293,7 +293,7 @@
 
 			<showInfoPanel x="232" y="54" width="1080" height="1200">
 
-				<showTable x="49" y="114" width="727" height="500"
+				<showTable x="49" y="114" width="727" height="400"
 					column="订单号 收件人 收件地址 寄件人 寄件地址 运费" />
 
 				<datePicker x="596" y="38" width="200" height="40">
@@ -477,7 +477,7 @@
 				<TEXTFIELDS>
 				</TEXTFIELDS>
 				<inputReceiveTable x="49" y="114" width="727"
-					height="500" column="订单号 收件地址 收件人 实际收件人 收件时间" />
+					height="400" column="订单号 收件地址 收件人 实际收件人 收件时间" />
 
 				<datePicker x="596" y="38" width="200" height="40">
 					<field x="596" y="38" width="150" height="40" />

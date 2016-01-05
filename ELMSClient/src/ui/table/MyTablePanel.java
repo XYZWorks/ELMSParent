@@ -188,8 +188,8 @@ public abstract class MyTablePanel extends JPanel {
 		add(rollpane);
 	}
 
-	public void allowVertical() {
-		rollpane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+	public void allowHorizen() {
+		rollpane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 	}
 
 	public void showAllMessages() {

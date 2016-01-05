@@ -38,7 +38,7 @@ public class inputReceiveTablePanel extends MyTablePanel {
 
 	@Override
 	protected void initialTitleAndColumn(Element config) {
-		System.out.println("initaltitle");
+		
 		columnNames = MyTablePanel.getColumnName(config.attributeValue("column"));
 		pre = bl.getPreReceive();
 		after = pre;

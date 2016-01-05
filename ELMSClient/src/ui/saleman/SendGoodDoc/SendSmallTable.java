@@ -25,6 +25,7 @@ public class SendSmallTable extends MyTablePanel {
 		public SendSmallTable(Element config) {
 			super(config);
 			myInit();
+			allowHorizen();
 		}
 
 		@Override
@@ -51,6 +52,9 @@ public class SendSmallTable extends MyTablePanel {
 		@Override
 		protected void initTable() {
 			table = new MyTable(columnNames, data);
+			
+			int[] columnLen = {50, 150, 80, 200};
+			setRowAndColumnLen(40, columnLen);
 
 		}
 

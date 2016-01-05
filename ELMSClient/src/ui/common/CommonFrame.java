@@ -10,6 +10,7 @@ import main.AXIS;
 import org.dom4j.Element;
 
 import ui.tools.MyFrame;
+import ui.util.TipsDialog;
 
 /**
 *
@@ -23,6 +24,7 @@ public class CommonFrame extends MyFrame{
 	public CommonFrame(Element config) {
 		super(config);
 		frame = this;
+		TipsDialog.setFrame(this);
 		CommonInitalPanel inital =new CommonInitalPanel(config.element("commonInitalPanel"),this);
 		
 		this.setContentPane(inital);

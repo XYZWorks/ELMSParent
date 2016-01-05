@@ -5,8 +5,6 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import org.dom4j.Element;
-
-import bl.orderbl.orderbl_stub;
 import blservice.orderblservice.Orderblservice;
 import ui.config.UserfulMethod;
 import ui.tools.MyDatePicker;
@@ -93,7 +91,7 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		this.parent = parent;
 		this.orderblservice=orderblservice;
 		this.orderBarCode = BarCodeText;
-		orderblservice= new orderbl_stub();
+		
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
@@ -222,9 +220,13 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 
 	public void readInfo() {
 		// 依次读取物流信息：地点＋时间
+		
+		System.out.println("readInfoBegin");
+		
 		ArrayList<OrderSimpleInfoVO> info = orderblservice.getSimpleInfo(orderBarCode);
 		int length = info.size();
 
+		System.out.println("length"+length);
 		MyLabel[] place = { one, two, three, four, five, six, seven, eight, nine, ten };
 		MyLabel[] time = { oneText, twoText, threeText, fourText, fiveText, sixText, sevenText, eightText, nineText,
 				tenText };
