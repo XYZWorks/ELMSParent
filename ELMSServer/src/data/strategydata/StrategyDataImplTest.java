@@ -25,7 +25,7 @@ public class StrategyDataImplTest {
 
 	@Test
 	public void testGetConst() throws RemoteException {
-		testframeforczq.setEstiDatePO(new EstiDatePO(0, 0, 0, 0, 0, 0, 0));
+		testframeforczq.setEstiDatePO(new EstiDatePO(2, 2.5, 4.5, 1, 2, 2, 0.5));
 	}
 
 	@Test
