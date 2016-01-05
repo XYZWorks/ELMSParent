@@ -115,6 +115,7 @@ public class InputReceiveInfoPanel extends MyPanelWithScroller implements Refres
 			protected boolean saveToSQL() {
 				// 表格上 data.length=data二维数组的行数
 				String[][] data=table.getData();
+				System.err.println(data.length);
 				
 				for (int i = 0; i < data.length; i++) {
 					// TODO  check mydate的格式
@@ -122,7 +123,8 @@ public class InputReceiveInfoPanel extends MyPanelWithScroller implements Refres
 					
 					//获取表格里的时间
 					String time = (String) table.getValueAt(i, 4);
-					String[] x = time.split("");
+					System.out.println(time);
+					String[] x = time.split("-");
 					MyDate date = new MyDate(Integer.parseInt(x[0]), Integer.parseInt(x[1]), Integer.parseInt(x[2]));
 					// }catch{
 					//
@@ -135,7 +137,7 @@ public class InputReceiveInfoPanel extends MyPanelWithScroller implements Refres
 				}
 
 				// 反馈
-				TipsDialog success = new TipsDialog("订单添加成功");
+				 new TipsDialog("订单添加成功");
 				return true;
 			}
 

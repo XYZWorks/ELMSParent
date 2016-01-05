@@ -250,9 +250,12 @@ public class OrderDataImpl extends DataSuperClass implements OrderDataService {
 	public ResultMessage receiveInfo(ReceivePO PO ,String orderBarCode) throws RemoteException {
 		int affectRows = 0;
 		try {
-			sql = "UPDATE " + orderTable + " SET `senderAddress`= ? , `receiverName`= ? ,`receiverPhone`= ? ,`receiverCompany`= ? ,`receiverAddress`= ?  WHERE orderBarCode = "
+			sql = "UPDATE " + orderTable + " SET `realReceiver`= ? , `orderReceiveDate`= ?   WHERE id = "
 					+"\""+ orderBarCode+"\"";
+			
 			preState = conn.prepareStatement(sql);
+			preState.setString(1, PO.getRealReceiver());
+			preState.setString(2, MyDate.toString(PO.getOrderDate()));
 			affectRows = preState.executeUpdate();
 			if(affectRows == 0){
 				return ResultMessage.NOT_EXIST;

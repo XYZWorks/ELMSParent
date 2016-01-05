@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 import org.dom4j.Element;
 
-import blservice.orderblservice.Orderblservice;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import util.MyDate;
 import vo.order.PreReceiveVO;
+import blservice.orderblservice.Orderblservice;
 
 /**
  *
@@ -117,7 +117,11 @@ public class inputReceiveTablePanel extends MyTablePanel {
 			temp[1] = vo.address;
 			temp[2] = vo.name;
 			temp[3] = vo.realReceiver;
-			temp[4] = MyDate.getPartDay(vo.receiveTime);
+			try {
+				temp[4] = MyDate.getPartDay(vo.receiveTime);
+			} catch (Exception e) {
+				temp[4]=null;
+			}
 			addOneRow(temp);
 		}
 		
