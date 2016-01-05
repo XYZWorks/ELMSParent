@@ -46,7 +46,6 @@ public class inputReceiveTablePanel extends MyTablePanel {
 		if (pre == null || pre.isEmpty()) {
 			return;
 		}
-
 		data = new String[pre.size()][COLUMN_NUM];
 
 		if (pre != null) {

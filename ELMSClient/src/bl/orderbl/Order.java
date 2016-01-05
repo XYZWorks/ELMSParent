@@ -213,9 +213,13 @@ public class Order {
 
 		if (daySendDocs != null) {
 			barCodes = new ArrayList<>(daySendDocs.size());
+			for (int i = 0; i < daySendDocs.size(); i++) {
+				barCodes.add(daySendDocs.get(i).orderBarCode.get(0));
+				
+			}
 			pres = new ArrayList<>(daySendDocs.size());
 		}
-
+		
 		if (barCodes != null) {
 			OrderVO tmp = null;
 			for (int i = 0; i < barCodes.size(); i++) {
@@ -225,6 +229,7 @@ public class Order {
 				 pres.add(vo);
 			}
 		}
+		System.out.println("pres ---------"+pres.size());
 		return pres;
 	}
 
