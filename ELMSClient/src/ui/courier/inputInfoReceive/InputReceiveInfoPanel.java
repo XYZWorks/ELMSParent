@@ -1,5 +1,6 @@
 package ui.courier.inputInfoReceive;
 
+import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -137,7 +138,7 @@ public class InputReceiveInfoPanel extends MyPanelWithScroller implements Refres
 				}
 
 				// 反馈
-				 new TipsDialog("订单添加成功");
+				 new TipsDialog("订单添加成功",Color.GREEN);
 				return true;
 			}
 
