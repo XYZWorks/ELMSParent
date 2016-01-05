@@ -8,6 +8,8 @@ import util.MyDate;
  *
  */
 public class PreReceiveVO {
+	
+
 	public String barCode;
 	
  	public String address;
@@ -33,6 +35,18 @@ public class PreReceiveVO {
 		this.name = name;
 		this.realReceiver = realReceiver;
 		this.receiveTime = myDate;
+	}
+	/**
+	 * 
+	 * @param barCode
+	 * @param address
+	 * @param name
+	 */
+	public PreReceiveVO(String barCode, String address, String name) {
+		super();
+		this.barCode = barCode;
+		this.address = address;
+		this.name = name;
 	}
 	
 

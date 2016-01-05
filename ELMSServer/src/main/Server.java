@@ -4,9 +4,12 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.io.File;
 import java.io.IOException;
 
@@ -25,7 +28,7 @@ import data.RMIServer;
  * @version 2015年11月26日 下午3:27:46 
  */
 public class Server {
-
+	private static Point start = new Point();
 	private JFrame frmElms;
 	private static Image bg;
 	private MyPictureButton exit;
@@ -69,6 +72,7 @@ public class Server {
 		frmElms.setBounds(438, 179, 489, 411);
 		frmElms.setUndecorated(true);
 		frmElms.setBackground(new Color(0, 0, 0, 0));
+		
 		frmElms.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmElms.setContentPane(new JPanel(){
 			@Override
@@ -77,8 +81,9 @@ public class Server {
 				g.drawImage(bg, 0, 0, null);
 			}
 		});
+		moveFrame();
 		frmElms.getContentPane().setLayout(null);
-		
+		frmElms.getContentPane().setBackground(new Color(0, 0, 0, 0));
 		server = new RMIServer(null, "6600");
 		
 		final MyPictureButton btnNewButton = new MyPictureButton("confirm");
@@ -119,5 +124,31 @@ public class Server {
 				System.exit(0);
 			}
 		});
+	}
+	
+	private void moveFrame(){
+		
+		frmElms.addMouseListener(new MouseAdapter() {
+			
+			 @Override
+			public void mousePressed(MouseEvent e) {
+				 start.x = e.getX();
+				 start.y = e.getY();
+			 }
+			
+			
+		});
+		
+		frmElms.addMouseMotionListener(new MouseMotionAdapter() {
+			
+			 @Override
+			public void mouseDragged(MouseEvent e) {
+					 Point p = frmElms.getLocation();
+					 
+					 frmElms.setLocation( p.x + e.getX() -start.x , p.y + e.getY() - start.y);
+			 }
+		});
+		
+		
 	}
 }
