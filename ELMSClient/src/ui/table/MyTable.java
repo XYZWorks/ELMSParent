@@ -65,6 +65,7 @@ public class MyTable extends JTable{
 		return model;
 	}
 	
+	
 }
 
 
