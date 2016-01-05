@@ -34,6 +34,7 @@ import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.DocPanelForApproval;
+import ui.util.TipsDialog;
 import util.DocState;
 import util.DocType;
 import util.MyDate;
@@ -454,9 +455,10 @@ public class AddOrderPanel extends MyPanelWithScroller implements DocPanelForApp
 						DocState.wait, sender, receiver, goodMes, otherMes, new TransferDocs("", "", "", "", "", "", "", "", "","", new ArrayList<String>()));
 				ResultMessage result=orderblservice.add(order);
 				if(result==ResultMessage.FAIL){
+					new TipsDialog("订单添加失败，请重试");
 					return false;
 				}
-				
+				new TipsDialog("成功增加订单",Color.GREEN);
 				return true;
 			
 			}

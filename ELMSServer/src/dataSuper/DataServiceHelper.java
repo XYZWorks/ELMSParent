@@ -237,7 +237,7 @@ public class DataServiceHelper {
 	 * @return
 	 */
 	public final ArrayList<Object> readManyFromSerFile(String name) {
-		String pres = "data\\";
+		String pres = "data//";
 		ArrayList<Object> result = new ArrayList<>();
 		ObjectInputStream input = null;
 		File file = new File(pres + name);

@@ -24,7 +24,6 @@ public class MyFrame extends JFrame{
 	public MyFrame(Element config) {
 		super();
 		//除去边框
-		this.setBackground(new Color(0.0f, 0.0f, 0.0f, 0.0f));
 		this.setUndecorated(true);
 		this.setSize(Integer.parseInt(config.attributeValue("width")), Integer.parseInt(config.attributeValue("height")));
 		this.setLayout(null);
@@ -34,7 +33,7 @@ public class MyFrame extends JFrame{
 		//居中放置
 		this.setLocationRelativeTo(null);
 		
-		
+		this.setBackground(new Color(0.0f, 0.0f, 0.0f, 0.0f));
 	}
 	
 	/**

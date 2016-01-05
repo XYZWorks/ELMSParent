@@ -38,9 +38,7 @@ public class BankAccountManagePanel extends MyPanel {
 	private MyPictureButton add;
 	
 	private MyLabel title;
-	private MyLabel deleteL;
-	private MyLabel modifyL;
-	private MyLabel addL;
+	
 	
 
 	
@@ -84,9 +82,6 @@ public class BankAccountManagePanel extends MyPanel {
 
 	@Override
 	protected void initLabels(Element e) {
-		deleteL = new MyLabel(e.element("deleteL"));
-		modifyL = new MyLabel(e.element("modifyL"));
-		addL = new MyLabel(e.element("addL"));
 		title = new MyLabel(e.element("title"));
 
 	}
@@ -106,9 +101,6 @@ public class BankAccountManagePanel extends MyPanel {
 		add(table);
 		add(add);
 		add(addPanel);
-		add(deleteL);
-		add(modifyL);
-		add(addL);
 		add(title);
 	}
 

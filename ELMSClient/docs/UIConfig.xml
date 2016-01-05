@@ -1400,14 +1400,14 @@
 				<datepicker x="758" y="80" width="40" height="40" />
 				<searchButton x="380" y="80" width="115" height="40"
 					text="搜索" type="cancel" />
-				<approval x="707" y="560" width="89" height="37" text="取消"
-					type="cancel" />
+				<approval x="707" y="560" width="200" height="40" text="确认通过"
+					type="confirm" />
 				<title x="48" y="36" width="200" height="28" text="交易审核"
 					fontName="华文细黑" size="26" />
 				<date x="345" y="131" width="276" height="40" />
 				<search x="48" y="80" />
 				<addDoc x="748" y="120" width="40" height="40" type="add" />
-				<table x="48" y="150" width="750" height="420"
+				<table x="48" y="150" width="750" height="400"
 					column="ID 日期 营业厅ID 金额 快递员 订单数量" />
 			</FinanceApprovalPanel>
 			<BulidBillPanel x="232" y="54" width="848" height="637">
@@ -1433,7 +1433,7 @@
 					<time x="410" y="100" width="115" height="40" text="建账日期"
 						type="rectangle" />
 					<message x="48" y="175" width="115" height="28" text="账单信息"
-						fontName="华文细黑" size="26" />
+						fontName="华文细黑" size="18" />
 				</LABELS>
 				<TEXTFIELDS>
 					<name x="200" y="100" width="160" height="40" />
@@ -1541,25 +1541,18 @@
 						type="confirm" />
 					<cancel x="707" y="560" width="89" height="40" text="取消"
 						type="cancel" />
-					<add x="642" y="65" width="40" height="40" type="add" />
-					<delete x="758" y="65" width="40" height="40" type="delete" />
-					<modify x="700" y="65" width="40" height="40" type="modify" />
+					<add x="632" y="100" width="40" height="40" type="add" />
+					<delete x="748" y="100" width="40" height="40" type="delete" />
+					<modify x="690" y="100" width="40" height="40" type="modify" />
 				</BUTTONS>
 				<LABELS>
-					<title x="48" y="36" width="200" height="28" text="银行账户管理"
+					<title x="48" y="55" width="200" height="28" text="银行账户管理"
 						fontName="华文细黑" size="26" />
-
-					<deleteL x="763" y="111" width="50" height="28" text="删除"
-						fontName="华文细黑" size="16" />
-					<modifyL x="703" y="111" width="50" height="28" text="修改"
-						fontName="华文细黑" size="16" />
-					<addL x="647" y="111" width="50" height="28" text="增加"
-						fontName="华文细黑" size="16" />
 
 					<money x="200" y="271" width="115" height="40" type="rectangle" />
 					<password x="200" y="341" width="115" height="40" type="rectangle" />
 				</LABELS>
-				<table x="48" y="111" width="750" height="380" column="账户ID 密码 存款" />
+				<table x="48" y="180" width="750" height="380" column="账户ID 密码 存款" />
 				<addPanel x="232" y="54" width="848" height="637">
 					<WHITEPANELS>
 						<whitePanel x="100" y="150" width="550" height="300" />
@@ -1586,9 +1579,9 @@
 			</BankAccountManagePanel>
 			<CostManagePanel x="232" y="54" width="848" height="637">
 				<BUTTONS>
-					<add x="642" y="86" width="40" height="40" type="add" />
-					<delete x="758" y="86" width="40" height="40" type="delete" />
-					<modify x="700" y="86" width="40" height="40" type="modify" />
+					<add x="632" y="100" width="40" height="40" type="add" />
+					<delete x="748" y="100" width="40" height="40" type="delete" />
+					<modify x="690" y="100" width="40" height="40" type="modify" />
 				</BUTTONS>
 				<LABELS>
 					<title x="48" y="36" width="200" height="28" text="成本信息管理"
@@ -1596,7 +1589,7 @@
 				</LABELS>
 				<costType x="48" y="86" width="150" height="40" strings="薪水 运费 租金" />
 
-				<table x="48" y="136" width="750" height="394" />
+				<table x="48" y="180" width="750" height="394" />
 
 				<addCostPanel x="232" y="54" width="848" height="637">
 					<WHITEPANELS>
@@ -1635,7 +1628,7 @@
 					<endDate x="500" y="20" width="200" height="40" />
 					<staffType x="500" y="100" width="200" height="40"
 						strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理人员 司机" />
-					<costType x="120" y="100" width="200" height="40" strings="薪水 运费 租金" />
+					<costType x="120" y="110" width="200" height="40" strings="薪水 运费 租金" />
 				</addCostPanel>
 			</CostManagePanel>
 
@@ -1668,7 +1661,7 @@
 					<payL x="450" y="180" width="250" height="80" text="收款单" size="18" />
 					<depositePic x="150" y="180" width="250" height="80"
 						text="" one="courier//cost" fontName="Microsoft YaHei" />
-					<payPic x="530" y="180" width="250" height="80" text=""
+					<payPic x="536" y="180" width="250" height="80" text=""
 						one="courier//cost" fontName="Microsoft YaHei" />
 					<depositeText x="240" y="180" width="250" height="80" size="38"
 						text=""  fontName="Microsoft YaHei" />
