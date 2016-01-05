@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import org.apache.poi.hssf.util.HSSFColor.BLUE;
+
 import ui.config.GraphicsUtils;
 import ui.tools.MyLabel;
 /** 
@@ -103,9 +105,10 @@ public class TipsDialog extends JDialog{
 		setUndecorated(true);
 //		label.setBackground(new Color(0f, 0f, 0f, 0.75f));
 //		label.setIcon(GraphicsUtils.getIcon("element//close"));
-		if(color.equals(Color.GREEN)){
+		if(color.equals(Color.GREEN)||color.equals(Color.BLUE)){
 			bg = green;
 		}
+		
 		setBackground(new Color(0f, 0f, 0f, 0f));
 		//label.setForeground(Color.WHITE);
 		label.setBackground(new Color(0f, 0f, 0f, 0f));

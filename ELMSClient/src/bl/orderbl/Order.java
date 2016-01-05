@@ -115,7 +115,7 @@ public class Order {
 			case "ZCD":
 				LoadDocVO vol = (LoadDocVO) transportController.getByID(
 						poString, DocType.loadDoc);
-				place = vol.arriveCity.toString();
+				place = vol.arriveCity.getName();
 				time = MyDate.toString(vol.date);
 				type = DocType.loadDoc;
 				break;
@@ -123,7 +123,7 @@ public class Order {
 			case "JSD":
 				ArriveYYDocVO voy = (ArriveYYDocVO) transportController
 						.getByID(poString, DocType.arriveYYDoc);
-				place = voy.sendFrom.getName();
+				place = "";
 				time = MyDate.toString(voy.date);
 				type = DocType.arriveYYDoc;
 				break;

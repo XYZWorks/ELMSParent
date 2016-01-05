@@ -1,6 +1,7 @@
 package ui.storemanager.outstore;
 
 import java.awt.Color;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
@@ -26,6 +27,7 @@ import ui.util.CompomentType;
 import ui.util.ConfirmListener;
 import ui.util.DocPanelForApproval;
 import ui.util.MyBackListener;
+import ui.util.MyPictureButtonListener;
 import ui.util.PanelController;
 import ui.util.TipsDialog;
 import util.City;
@@ -34,7 +36,9 @@ import util.MyDate;
 import util.ResultMessage;
 import util.TransferWay;
 import vo.store.OutStoreDocVO;
+import bl.BusinessLogicDataFactory;
 import bl.storebl.StoreController;
+import blservice.orderblservice.Orderblservice;
 
 /**
  * @author ymc
@@ -181,6 +185,43 @@ public class AddOutStorePanel extends MyPanel implements DocPanelForApproval {
 
 	@Override
 	protected void addListener() {
+		addOneOrder.addMouseListener(new MyPictureButtonListener(addOneOrder) {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				String temp = orderCode.getText();
+				if (UserfulMethod.dealWithData(new SimpleDataFormat(temp,
+						DataType.BarCode, "订单号"))) {
+					// 判断订单是否存在
+					Orderblservice orderblservice = BusinessLogicDataFactory
+							.getFactory().getOrderBussinessLogic();
+					if (orderblservice.getFullInfo(temp) == null) {
+						new TipsDialog("该订单不存在，请重新输入");
+					} else {
+
+						// 避免同一个订单反复加在收款单里
+						ArrayList<String> alreadyCode = ordersTable
+								.getOrderbarCodes();
+						boolean isExist = false;
+						if (alreadyCode.size() != 0) {
+							for (int i = 0; i < alreadyCode.size(); i++) {
+								if (alreadyCode.get(i).equals(temp)) {
+									new TipsDialog("该订单已在收款单里，请不要重复添加");
+									isExist = true;
+									break;
+								}
+							}
+						}
+						if (isExist == false) {
+							ordersTable.addAOrder(temp);
+							new TipsDialog("成功新增订单", Color.BLUE);
+
+						}
+
+					}
+				}
+			}
+		});
 		confirmButton.addMouseListener(new AddOutStoreListener(confirmButton));
 		returnButton.addMouseListener(new MyJumpListener(returnButton, "OutStorePanel", controller, true));
 		cancelButton.addMouseListener(new CancelListener(cancelButton) {
@@ -202,7 +243,7 @@ public class AddOutStorePanel extends MyPanel implements DocPanelForApproval {
 
 		@Override
 		protected void reInitial() {
-			orderT.setText("");
+			orderCode.setText("");
 			String tmp = UserfulMethod.toSeven(bl.getDayDocCount(DocType.outStoreDoc));
 
 			IDT.setText("CKD" + MyDate.getDatePart(MyDate.getNowTime())
@@ -224,7 +265,7 @@ public class AddOutStorePanel extends MyPanel implements DocPanelForApproval {
 		@Override
 		protected boolean checkDataValid() {
 
-			ArrayList<String> orders = UserfulMethod.stringToArray(orderT.getText());
+			ArrayList<String> orders =ordersTable.getOrderbarCodes();
 			// System.out.println((String) sendCityC.getSelectedItem());
 			City loc = City.toCity((String) sendCityC.getSelectedItem());
 			// System.out.println((String) shipWayC.getSelectedItem());
