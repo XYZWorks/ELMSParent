@@ -7,6 +7,7 @@ import org.dom4j.Element;
 import blservice.orderblservice.Orderblservice;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
+import util.MyDate;
 import vo.order.PreReceiveVO;
 
 /**
@@ -54,11 +55,10 @@ public class inputReceiveTablePanel extends MyTablePanel {
 				data[i][1] = pre.get(i).address;
 				data[i][2] = pre.get(i).name;
 				data[i][3] = pre.get(i).realReceiver;
-				data[i][4] = pre.get(i).receiveTime;
+				data[i][4] = MyDate.getPartDay(pre.get(i).receiveTime);
 			}
 		}
 
-		System.out.println("pre.length"+pre.size());
 	}
 
 	@Override
@@ -106,13 +106,17 @@ public class inputReceiveTablePanel extends MyTablePanel {
 			return;
 		}
 
-		table.getModel().setRowCount(pre.size());
-		PreReceiveVO vo;
-		for (int i = 0; i < pre.size(); i++) {
-			vo = pre.get(i);
-			table.setValueAt(vo.realReceiver, i, 3);
-			table.setValueAt(vo.receiveTime, i, 4);
+		removeAllRows();
+		String[] temp = new String[5];
+		for (PreReceiveVO vo : pre) {
+			temp[0] = vo.barCode;
+			temp[1] = vo.address;
+			temp[2] = vo.name;
+			temp[3] = vo.realReceiver;
+			temp[4] = MyDate.getPartDay(vo.receiveTime);
+			addOneRow(temp);
 		}
+		
 		
 	}
 	
