@@ -24,12 +24,12 @@ public class MyFrame extends JFrame{
 	public MyFrame(Element config) {
 		super();
 		//除去边框
+		this.setBackground(new Color(0.0f, 0.0f, 0.0f, 0.0f));
 		this.setUndecorated(true);
 		this.setSize(Integer.parseInt(config.attributeValue("width")), Integer.parseInt(config.attributeValue("height")));
 		this.setLayout(null);
 		this.setResizable(false);
 		this.moveFrame();
-		setBackground(new Color(255, 0, 0, 0));
 		this.setIconImage(GraphicsUtils.getImage("element//icon"));
 		//居中放置
 		this.setLocationRelativeTo(null);

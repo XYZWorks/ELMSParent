@@ -1,5 +1,6 @@
 package ui.storeman.arrivezz;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
@@ -182,7 +183,7 @@ public class ArriveZZDocAdd extends MyPanel implements DocPanelForApproval{
 
 		private void showSuccess() {
 //			System.out.println("add suc"); 
-			new TipsDialog("生成到达单成功");
+			new TipsDialog("生成到达单成功",Color.green);
 			
 		}
 

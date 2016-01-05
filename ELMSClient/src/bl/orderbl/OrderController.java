@@ -136,6 +136,7 @@ public class OrderController extends BusinessController implements
 				return addDocToList(vo, orderBarCodes);
 			}
 		}
+		
 		return ResultMessage.FAIL;
 	}
 

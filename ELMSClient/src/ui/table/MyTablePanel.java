@@ -24,9 +24,9 @@ public abstract class MyTablePanel extends JPanel {
 	protected MyTable table;
 
 	protected JScrollPane rollpane;
-	
+
 	private Element config;
-	
+
 	protected final static String columnStr = "column";
 
 	public MyTablePanel(Element config) {
@@ -50,7 +50,6 @@ public abstract class MyTablePanel extends JPanel {
 	 */
 	protected abstract void initialTitleAndColumn(Element config);
 
-	
 	/**
 	 * 初始化表格
 	 */
@@ -113,20 +112,22 @@ public abstract class MyTablePanel extends JPanel {
 
 	/**
 	 * 通过ID查找信息
+	 * 
 	 * @param id
 	 */
-	public void searchID(String id){
-		
+	public void searchID(String id) {
+
 	}
+
 	/**
 	 * 表格增加一行信息
-	 * @param type 0表示查找时使用的方法，不向vos中增加数据，非0时则是addPanel增加数据一条，向vo中增加
+	 * 
+	 * @param type
+	 *            0表示查找时使用的方法，不向vos中增加数据，非0时则是addPanel增加数据一条，向vo中增加
 	 */
-	public void addOneData(Object o , int type){
-		
+	public void addOneData(Object o, int type) {
+
 	}
-	
-	
 
 	public MyTableModel getDtm() {
 		return dtm;
@@ -142,39 +143,41 @@ public abstract class MyTablePanel extends JPanel {
 
 	protected void initialTitleAndColumn(Element config, MyDate date) {
 	}
-	
+
 	/**
 	 * 增加一行数据
+	 * 
 	 * @param data
 	 */
 	public void addOneRow(Object[] data) {
 		table.getModel().addRow(data);
-		
+
 	}
-	
+
 	/**
 	 * 删除某一行数据、其中ID必须位于第一列
+	 * 
 	 * @param ID
 	 */
-	public void deleteRow(String ID){
+	public void deleteRow(String ID) {
 		int row = -1;
 		for (int i = 0; i < table.getRowCount(); i++) {
-			if(  ( (String)table.getValueAt(i, 0)).equals(ID)){
+			if (((String) table.getValueAt(i, 0)).equals(ID)) {
 				row = i;
 				break;
 			}
 		}
-		if(row >= 0){
+		if (row >= 0) {
 			removeRow(row);
 		}
 	}
-	
+
 	public void removeAllRows() {
-		while(table.getRowCount() > 0){
+		while (table.getRowCount() > 0) {
 			table.getModel().removeRow(0);
 		}
 	}
-	
+
 	/**
 	 * 若不在构造器中初始化列、表数据，想要推迟初始化可以调用此方法
 	 */
@@ -184,8 +187,12 @@ public abstract class MyTablePanel extends JPanel {
 		initScrollerPane();
 		add(rollpane);
 	}
-	
-	public void showAllMessages(){
-		
+
+	public void allowVertical() {
+		rollpane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+	}
+
+	public void showAllMessages() {
+
 	}
 }

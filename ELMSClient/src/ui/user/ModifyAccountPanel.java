@@ -3,6 +3,7 @@ package ui.user;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 
+import org.apache.poi.hssf.util.HSSFColor.WHITE;
 import org.dom4j.Element;
 
 import ui.config.DataType;
@@ -13,6 +14,7 @@ import ui.tools.MyLabel;
 import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.tools.MyTextField;
+import ui.tools.MyWhitePanel;
 import ui.util.CancelListener;
 import ui.util.CompomentType;
 import ui.util.ConfirmListener;
@@ -38,14 +40,15 @@ public class ModifyAccountPanel extends MyPanel implements RefreshPanel {
 	 * 账户信息表格
 	 */
 	private AccountMesTablePanel table;
-
+	private MyWhitePanel whitepanel;
 	private MyPictureButton modifyButton;
 	private MyPictureButton deleteButton;
 	private MyPictureButton confirm;
 	private MyPictureButton cancel;
-	private MyLabel newName;
-	private MyLabel newPassword;
-	private MyLabel newType;
+	private MyPictureButton newName;
+	private MyPictureButton newPassword;
+	private MyPictureButton newType;
+	private MyPictureButton title;
 
 	private MyTextField newNameT;
 	private MyTextField newPassT;
@@ -59,6 +62,7 @@ public class ModifyAccountPanel extends MyPanel implements RefreshPanel {
 		initLabels(config.element(CompomentType.LABELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
+		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initOtherCompoment(config);
 		addCompoment();
 		addListener();
@@ -76,6 +80,8 @@ public class ModifyAccountPanel extends MyPanel implements RefreshPanel {
 		newTypeC.setVisible(flag);
 		confirm.setVisible(flag);
 		cancel.setVisible(flag);
+		modifyButton.setVisible(!flag);
+		deleteButton.setVisible(!flag);
 		table.setVisible(!flag);
 	}
 
@@ -96,10 +102,10 @@ public class ModifyAccountPanel extends MyPanel implements RefreshPanel {
 
 	@Override
 	protected void initLabels(Element e) {
-		newName = new MyLabel(e.element("name"));
-		newPassword = new MyLabel(e.element("password"));
-		newType = new MyLabel(e.element("type"));
-
+		newName = new MyPictureButton(e.element("name"));
+		newPassword = new MyPictureButton(e.element("password"));
+		newType = new MyPictureButton(e.element("type"));
+		title = new MyPictureButton(e.element("title"));
 	}
 
 	@Override
@@ -113,14 +119,16 @@ public class ModifyAccountPanel extends MyPanel implements RefreshPanel {
 		add(deleteButton);
 		add(modifyButton);
 		add(table);
-		add(newName);
-		add(newNameT);
-		add(newPassT);
-		add(newPassword);
-		add(newType);
-		add(newTypeC);
+		whitepanel.add(newName);
+		whitepanel.add(newNameT);
+		whitepanel.add(newPassT);
+		whitepanel.add(newPassword);
+		whitepanel.add(newType);
+		whitepanel.add(newTypeC);
 		add(confirm);
 		add(cancel);
+		add(whitepanel);
+		whitepanel.add(title);
 	}
 
 	@Override
@@ -241,7 +249,7 @@ public class ModifyAccountPanel extends MyPanel implements RefreshPanel {
 
 	@Override
 	protected void initWhitePanels(Element e) {
-
+		whitepanel = new MyWhitePanel(e.element("whitepanel"));
 	}
 
 	@Override

@@ -1780,33 +1780,41 @@
 			</AddAccountPanel>
 			<ModifyAccountPanel x="232" y="54" width="848"
 				height="637">
+				
+				<WHITEPANELS>
+					<whitepanel x="95" y="140" width="660" height="330" />
+				</WHITEPANELS>
+				
+			
+				<type text="" x="245" y="210" width="276" height="40"
+					strings="快递员 财务人员 总经理 营业厅业务员 中转中心业务人员 中转中心管理员 管理员" />
+					
 				<BUTTONS>
 					<modify x="700" y="65" width="40" height="40" type="modify" />
 					<delete x="758" y="65" width="40" height="40" type="delete" />
-					<confirm x="650" y="570" width="89" height="40" text="确认"
+					<confirm x="580" y="560" width="89" height="40" text="确认"
 						type="confirm" />
-					<cancel x="750" y="570" width="89" height="40" text="取消"
+					<cancel x="700" y="560" width="89" height="40" text="取消"
 						type="cancel" />
 				</BUTTONS>
 				<LABELS>
-					<name text="姓名" x="50" y="540" width="100" height="50" />
-					<password text="密码" x="300" y="540" width="100" height="50" />
-					<type text="职员类型" x="500" y="540" width="100" height="50" />
-
+					<name text="姓名" x="100" y="70" width="115" height="40" type="" />
+					<password text="密码" x="100" y="140" width="115" height="40"
+						type="rectangle" />
+					<type text="职员类型" x="100" y="210" width="115"
+						height="40" type="" />
+					<title text="修改账户" x="0" y="0" width="115" height="40" type="" />		
 				</LABELS>
 				<TEXTFIELDS>
-					<name x="50" y="600" width="80" height="30" />
-					<password x="300" y="600" width="80" height="30" />
 
+					<name  text="" x="245" y="70" width="276" height="40"  />
+					<password  text="" x="245" y="140" width="276" height="40" />
 
 				</TEXTFIELDS>
-				<type text="职员类型" x="500" y="600" width="80" height="30"
-					strings="财务人员 总经理 管理员 营业厅业务员 快递员 中转中心业务人员 中转中心管理员" />
 				<table x="48" y="111" width="750" height="400" columnName="ID 姓名 职员类型 密码" />
 			</ModifyAccountPanel>
-
-
 		</Adminstrator>
+		
 		<Salesman x="232" y="54" width="848" height="637">
 			<BUTTONS>
 				<loadDoc text="装车单" x="0" y="227" />
@@ -2320,76 +2328,97 @@
 					columnName="单据类型 ID 日期 中转中心编号 到达地 货物状态 订单号集合" />
 			</ArriveZZPanel>
 
-			<StorePanel x="232" y="54" width="1080" height="637">
+			<StorePanel x="232" y="54" width="848" height="637">
+				<WHITEPANELS>
+					<whitePanel x="65" y="90" width="500" height="300" />
+				</WHITEPANELS>
 				<BUTTONS>
-					<confirm x="500" y="500" width="89" height="40" text="增加"
+
+					<confirm x="520" y="410" width="89" height="40" text="确认"
 						type="confirm" />
-					<return x="700" y="500" width="89" height="40" text="返回"
-						type="cancel" />
+					<return x="0" y="0" width="53" height="53" type="back" />
 				</BUTTONS>
 
 				<LABELS>
-					<center x="100" y="150" width="300" height="100" fontName="华文细黑"
-						size="30" text="中转中心所在地" type="rectangle" />
-					<store x="100" y="320" width="200" height="100" fontName="华文细黑"
-						size="30" text="仓库区" type="rectangle" />
+					<center x="40" y="30" width="200" height="40" fontName="华文细黑"
+						size="27" text="中转中心所在地" type="rectangle" />
+					<store x="40" y="120" width="200" height="40" fontName="华文细黑"
+						size="27" text="仓库区" type="rectangle" />
 				</LABELS>
 
-				<city x="350" y="177" width="240" height="40" strings="南京 广州 上海 北京" />
+				<city x="300" y="30" width="240" height="40" strings="南京 广州 上海 北京" />
+				<store x="300" y="120" width="240" height="45" strings="航运区 汽运区 铁运区" />
 
-				<store x="350" y="347" width="240" height="40" strings="航运区 汽运区 铁运区" />
-				<StoreManSingleShowPanel x="232" y="54"
-					width="848" height="1710">
+
+				<StoreManSingleShowPanel x="232" y="54" width="848"
+					height="1710">
+
+
+					<WHITEPANELS>
+						<showSimpleWhitePanel x="65" y="130" width="680"
+							height="80" />
+						<locateWhitePanel x="65" y="260" width="680"
+							height="440" />
+						<inWhitePanel x="65" y="800" width="680" height="440" />
+						<outWhitePanel x="65" y="1300" width="680" height="440" />
+					</WHITEPANELS>
 
 					<BUTTONS>
-						<confirm x="700" y="720" width="89" height="40" text="确认"
+						<confirm x="520" y="750" width="89" height="40" text="确认"
 							type="confirm" />
-						<return x="700" y="1600" width="89" height="40" text="返回"
-							type="cancel" />
+						<return x="0" y="0" width="53" height="53" type="back" />
 					</BUTTONS>
-
 
 					<LABELS>
 						<center x="250" y="30" width="200" height="100" size="25"
 							text="" type="rectangle" />
-						<centerL x="50" y="30" width="200" height="100" fontName="华文细黑"
-							size="30" text="中转中心" type="rectangle" />
+						<centerL x="65" y="30" width="200" height="100" fontName="华文细黑"
+							size="18" text="中转中心" type="rectangle" />
 						<storeNum x="570" y="30" width="200" height="100" size="25"
 							text="" type="rectangle" />
-
 						<storeNumL x="420" y="30" width="200" height="100"
-							fontName="华文细黑" size="30" text="仓库区" type="rectangle" />
-						<nowNum x="230" y="150" width="200" height="100" text=""
+							fontName="华文细黑" size="18" text="仓库区" type="rectangle" />
+
+						<nowNum x="120" y="20" width="200" height="40" text=""
 							type="rectangle" />
-						<nowNumL x="80" y="150" width="200" height="100" text="当前库存数量"
+						<nowNumL x="20" y="20" width="200" height="40" text="当前库存数量"
 							type="rectangle" />
-						<totalNumL x="450" y="150" width="200" height="100"
-							text="库存总容量" type="rectangle" />
-						<totalNum x="600" y="150" width="200" height="100" text=""
+						<totalNumL x="230" y="20" width="200" height="40" text="库存总容量"
+							type="rectangle" />
+						<totalNum x="330" y="20" width="200" height="40" text=""
+							type="rectangle" />
+						<nowTime x="540" y="20" width="200" height="40" text=""
+							type="rectangle" />
+						<nowTimeL x="460" y="20" width="200" height="40" text="当前时间"
 							type="rectangle" />
 
-						<nowTime x="230" y="230" width="200" height="100" text=""
-							type="rectangle" />
-						<nowTimeL x="80" y="230" width="200" height="100" text="当前时间"
-							type="rectangle" />
-						<inputTime x="80" y="720" width="200" height="100" text="查询时间"
-							type="rectangle" />
-						<nowLoc x="80" y="310" width="200" height="100" text="当前货物位置信息"
-							type="rectangle" />
-						<infoin x="80" y="800" width="500" height="100" text="截至到当前时间的入库信息"
+						<nowLoc x="20" y="20" width="200" height="40" text="当前货物位置信息"
 							type="rectangle" />
 
-						<infoout x="80" y="1200" width="500" height="100" text="截至到当前时间的出库信息"
+						<inputTime x="80" y="750" width="200" height="40" text="查询时间"
+							type="rectangle" />
+
+						<infoin x="20" y="20" width="500" height="40" text="截至到当前时间的入库信息"
+							type="rectangle" />
+
+						<infoout x="20" y="20" width="500" height="40" text="截至到当前时间的出库信息"
 							type="rectangle" />
 
 					</LABELS>
+					<WHITEPANELS>
+						<showSimpleWhitePanel x="65" y="130" width="680"
+							height="80" />
+						<locateWhitePanel x="65" y="260" width="680"
+							height="440" />
+						<inWhitePanel x="65" y="800" width="680" height="440" />
+						<outWhitePanel x="65" y="1300" width="680" height="440" />
+					</WHITEPANELS>
 
-
-					<inTable x="100" y="900" width="650" height="300"
+					<inTable x="20" y="80" width="650" height="300"
 						columnName="单据类型 ID 日期 目的地 订单号集合" />
-					<outTable x="100" y="1300" width="650" height="300"
+					<outTable x="20" y="80" width="650" height="300"
 						columnName="单据类型 ID 日期 目的地 中转单ID 装运方式 订单号集合" />
-					<orderTable x="100" y="400" width="650" height="300"
+					<orderTable x="20" y="80" width="650" height="300"
 						columnName="订单号 区号 排号 架号 位号" />
 
 
@@ -2404,6 +2433,7 @@
 						<button x="350" y="0" width="50" height="40" />
 
 					</DatePicker>
+
 
 				</StoreManSingleShowPanel>
 			</StorePanel>

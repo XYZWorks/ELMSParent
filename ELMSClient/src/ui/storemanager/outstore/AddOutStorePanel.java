@@ -1,5 +1,6 @@
 package ui.storemanager.outstore;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
@@ -247,7 +248,7 @@ public class AddOutStorePanel extends MyPanel implements DocPanelForApproval {
 
 				// reInitial();
 
-				new TipsDialog("生成成功");
+				new TipsDialog("生成出库单成功",Color.green);
 				bl.updateStore(out.loc, out.shipWay, out.ID, out.type);
 			}
 			return true;

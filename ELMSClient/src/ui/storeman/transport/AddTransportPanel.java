@@ -179,7 +179,7 @@ public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
 				String temp = ordersT.getText();
 				if (UserfulMethod.dealWithData(new SimpleDataFormat(temp, DataType.ID, "订单号"))) {
 					ordersTable.addAOrder(temp);
-					new TipsDialog("成功新增订单", Color.BLUE);
+					new TipsDialog("成功新增订单", Color.green);
 				}
 			}
 		});
@@ -228,7 +228,7 @@ public class AddTransportPanel extends MyPanel implements DocPanelForApproval{
 			ResultMessage r = bl.add(vo);
 			
 			if(r ==ResultMessage.SUCCESS)
-				new TipsDialog("生成中转单成功");
+				new TipsDialog("生成中转单成功",Color.green);
 			return true;
 		}
 

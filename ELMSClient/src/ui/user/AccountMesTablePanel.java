@@ -7,6 +7,7 @@ import org.dom4j.Element;
 import ui.config.GraphicsUtils;
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
+import util.AccountType;
 import vo.account.AccountVO;
 import blservice.accountblservice.Accountblservice;
  /** 
@@ -49,7 +50,7 @@ public class AccountMesTablePanel extends MyTablePanel{
 			vo = vos.get(i);
 			data[i][0] = vo.ID;
 			data[i][1] =  vo.name;
-			data[i][2] = vo.type.name();
+			data[i][2] = vo.type.getName();
 			data[i][3] = vo.password;
 		}
 		
@@ -77,7 +78,7 @@ public class AccountMesTablePanel extends MyTablePanel{
 			vo = vos.get(i);
 			temp[0] = vo.ID;
 			temp[1] =  vo.name;
-			temp[2] = vo.type.name();
+			temp[2] = vo.type.getName();
 			temp[3] = vo.password;
 			addOneRow(temp);
 		}
