@@ -57,7 +57,10 @@ public class FinanceController extends BusinessController implements BankAccount
 		try {
 			return pay.create(vo);
 		} catch (RemoteException e) {
-			if(ExceptionHandler.myExceptionHandler(myType, this)){
+		  
+		  if(ExceptionHandler.myExceptionHandler(myType, this)){
+		  
+			
 				return create(vo);
 			}
 		}
