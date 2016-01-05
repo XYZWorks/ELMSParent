@@ -17,6 +17,7 @@ import ui.tools.MyPanel;
 import ui.tools.MyPictureButton;
 import ui.util.CompomentType;
 import ui.util.MyPictureButtonListener;
+import ui.util.RefreshPanel;
 import ui.util.TipsDialog;
 import util.CostType;
 import util.ResultMessage;
@@ -30,7 +31,7 @@ import blservice.financeblservice.CostService;
  *
  */
 @SuppressWarnings("serial")
-public class CostManagePanel extends MyPanel {
+public class CostManagePanel extends MyPanel implements RefreshPanel {
 	JPanel changePanel;
 	MyCardLayOut panelManager;
 	CostService costService;
@@ -199,6 +200,12 @@ public class CostManagePanel extends MyPanel {
 
 	@Override
 	protected void initWhitePanels(Element e) {
+	}
+
+	@Override
+	public void refresh() {
+		nowTable.updateTableMes();
+		
 	}
 
 }

@@ -35,6 +35,7 @@ public class RMIManage {
 	 */
 	public static synchronized boolean netInit() {
 		try {
+			pres = StaticMessage.RMIPres;
 			Naming.lookup(pres + DataServiceType.AccountDataService.getName());
 		} catch (Exception e) {
 			new MyOptionPane(null, "服务器未开启");

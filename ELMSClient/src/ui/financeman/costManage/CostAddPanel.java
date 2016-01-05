@@ -92,6 +92,7 @@ public class CostAddPanel extends MyPanel {
 		initLabels(config.element(CompomentType.LABELS.name()));
 		addCompoment();
 		addListener();
+		costTypeB.setSelectedIndex(0);
 	}
 
 	@Override

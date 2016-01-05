@@ -48,8 +48,8 @@ public class PeopleMesPanel extends MyTablePanel{
 	@Override
 	protected void initialTitleAndColumn(Element config) {
 		columnNames = new String[COLUMN_NUMS];
-		columnNames[0] = "机构ID";
-		columnNames[1] = "人员ID";
+		columnNames[0] = "人员ID";
+		columnNames[1] = "机构ID";
 		columnNames[2] = "姓名";
 		columnNames[3] = "职位";
 		columnNames[4] = "手机号码";

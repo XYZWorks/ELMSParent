@@ -103,7 +103,7 @@
 
 	<initialpanel x="0" y="0" width="1080" height="720">
 		<BUTTONS>
-			<exit text="" x="1030" y="10" width="40" height="40" normal="element//close"
+			<exit text="" x="1028" y="1" width="53" height="52" normal="element//close"
 				enter="element//close-enter" clicked="element//close-clicked" />
 			<min text="" x="974" y="1" width="53" height="52" normal="element//min"
 				enter="element//min-enter" clicked="element//min-clicked" />

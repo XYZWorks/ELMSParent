@@ -68,6 +68,9 @@ public class MyDate implements Serializable{
 	public  String getDay() {
 		return year+"-"+month+"-"+day;
 	}
+	public static String getPartDay(MyDate day) {
+		return day.year+"-"+day.month+"-"+day.day;
+	}
 	public static MyDate getDate(String date){
 		if(date == null || date.equals("")){
 			return MyDate.getNowTime();
