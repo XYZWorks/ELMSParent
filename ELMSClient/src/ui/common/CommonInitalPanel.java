@@ -1,5 +1,6 @@
 package ui.common;
 
+import java.awt.Color;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -56,7 +57,7 @@ public class CommonInitalPanel extends MyPanel{
 		this.parent=parent;
 		this.config=config;
 		inital=this;
-		
+//		setBackground(new Color(0, 0, 0, 0.8f));
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));

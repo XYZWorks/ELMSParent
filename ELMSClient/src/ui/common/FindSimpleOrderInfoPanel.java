@@ -1,10 +1,12 @@
 package ui.common;
 
+import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import org.dom4j.Element;
+
 import blservice.orderblservice.Orderblservice;
 import ui.config.UserfulMethod;
 import ui.tools.MyDatePicker;
@@ -91,7 +93,7 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		this.parent = parent;
 		this.orderblservice=orderblservice;
 		this.orderBarCode = BarCodeText;
-		
+//		setBackground(new Color(0, 0, 0, 0));
 		initWhitePanels(config.element(CompomentType.WHITEPANELS.name()));
 		initButtons(config.element(CompomentType.BUTTONS.name()));
 		initTextFields(config.element(CompomentType.TEXTFIELDS.name()));
@@ -327,7 +329,7 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 					 if(orderblservice.checkBarCode(orderBarCode)==ResultMessage.NOT_EXIST){
 						 new TipsDialog("此订单号不存在");
 					 }
-					 else if(orderblservice.checkBarCode(orderBarCode)==ResultMessage.hasExist){
+					 else if(orderblservice.checkBarCode(orderBarCode)==ResultMessage.SUCCESS){
 						 System.out.println("enter!!");
 						 BarCodeText.setText(orderBarCode);
 						 readInfo(orderBarCode);

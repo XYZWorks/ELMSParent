@@ -114,7 +114,7 @@ public class BulidBillPanel extends MyPanel implements RefreshPanel {
 		if (vos != null && !vos.isEmpty()) {
 			for (int i = 0; i < vos.size(); i++) {
 				lastBill.addItem((i + 1) + "."
-						+ MyDate.toString(vos.get(i).date));
+						+ MyDate.getPartDay(vos.get(i).date));
 			}
 
 			lastBill.setSelectedIndex(0);
@@ -331,7 +331,7 @@ public class BulidBillPanel extends MyPanel implements RefreshPanel {
 					new TipsDialog("成功新建账单", Color.GREEN);
 					vos.add(bill);
 					lastBill.addItem(vos.size() + "."
-							+ MyDate.toString(vos.get(vos.size() - 1).date));
+							+ MyDate.getPartDay(vos.get(vos.size() - 1).date));
 					bill = new BillVO("", MyDate.getNowTime());
 					return true;
 				} else {
