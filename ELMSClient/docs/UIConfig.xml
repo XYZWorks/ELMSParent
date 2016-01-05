@@ -2219,7 +2219,7 @@
 
 						<title x="0" y="0" width="115" height="40" name="华文细黑" size="18"
 							text="新增中转单" type="rectangle" />
-						<ID x="5" y="100" width="200" height="100" text="中转单编号" type="rectangle" />
+						<ID x="5" y="70" width="200" height="100" text="中转单编号" type="rectangle" />
 
 						<number x="5" y="140" width="200" height="100" text="航班号/车次/车牌号"
 							type="rectangle" />
