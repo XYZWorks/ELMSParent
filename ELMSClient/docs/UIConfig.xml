@@ -103,7 +103,7 @@
 
 	<initialpanel x="0" y="0" width="1080" height="720">
 		<BUTTONS>
-			<exit text="" x="1026" y="1" width="53" height="52" normal="element//close"
+			<exit text="" x="1030" y="10" width="40" height="40" normal="element//close"
 				enter="element//close-enter" clicked="element//close-clicked" />
 			<min text="" x="974" y="1" width="53" height="52" normal="element//min"
 				enter="element//min-enter" clicked="element//min-clicked" />
@@ -1225,7 +1225,8 @@
 				<modify x="758" y="53" width="40" height="40" type="modify" />
 				<delete x="700" y="53" width="40" height="40" type="delete" />
 				<search x="238" y="53" />
-				<searchWay x="53" y="53" width="150" height="40" strings="按姓名查找 按ID查找 按机构查找" />
+				<searchWay x="53" y="53" width="150" height="40"
+					strings="按姓名查找 按ID查找 按机构查找" />
 				<datepicker x="758" y="53" width="40" height="40" />
 				<peopleMes x="53" y="110" width="742" height="427"
 					strings="财务人员 营业厅业务员 快递员 中转中心业务人员 中转中心管理员 司机" />
@@ -1250,14 +1251,14 @@
 					strings="财务人员 营业厅业务员 快递员 中转中心业务人员 中转中心管理员 司机" />
 				<searchBox x="213" y="53" />
 
-				<PeopleManagePanelAddPanel x="0" y="0" width="1080" height="637">
+				<PeopleManagePanelAddPanel x="0" y="0"
+					width="1080" height="637">
 					<BUTTONS>
 						<confirm x="560" y="560" width="89" height="40" text="确认"
 							type="confirm" />
 						<cancel x="707" y="560" width="89" height="40" text="取消"
 							type="cancel" />
-						<back x="0" y="0" width="50" height="50"
-							type="back" />
+						<back x="0" y="0" width="50" height="50" type="back" />
 					</BUTTONS>
 					<LABELS>
 						<InstIDL x="200" y="380" width="115" height="40" text="机构ID"
@@ -1650,7 +1651,7 @@
 						type="confirm" />
 					<cancel x="600" y="1000" width="89" height="40" text="取消"
 						type="cancel" />
-					<check x="0" y="0" width="40" height="40" type="add" />
+					<check x="630" y="40" width="200" height="40" text="确认查询" type="rectangle" size="18" />
 				</BUTTONS>
 				<TEXTFIELDS>
 				</TEXTFIELDS>
@@ -1667,9 +1668,13 @@
 					<payL x="450" y="180" width="250" height="80" text="收款单" size="18" />
 					<depositePic x="150" y="180" width="250" height="80"
 						text="" one="courier//cost" fontName="Microsoft YaHei" />
-					<payPic x="520" y="180" width="250" height="80" text=""
+					<payPic x="530" y="180" width="250" height="80" text=""
 						one="courier//cost" fontName="Microsoft YaHei" />
-
+					<depositeText x="240" y="180" width="250" height="80" size="38"
+						text=""  fontName="Microsoft YaHei" />
+					<payText x="635" y="180" width="250" height="80" text="" size="38"
+					 fontName="Microsoft YaHei" />
+						
 					<depositeWhiteInfo x="20" y="5" width="400"
 						height="40" text="起始～结束时间内 付款单详情" size="18" />
 					<payWhiteInfo x="20" y="5" width="400" height="40"
@@ -1790,8 +1795,8 @@
 
 				</LABELS>
 				<TEXTFIELDS>
-					<name  x="50" y="600" width="80" height="30" />
-					<password  x="300" y="600" width="80" height="30" />
+					<name x="50" y="600" width="80" height="30" />
+					<password x="300" y="600" width="80" height="30" />
 
 
 				</TEXTFIELDS>

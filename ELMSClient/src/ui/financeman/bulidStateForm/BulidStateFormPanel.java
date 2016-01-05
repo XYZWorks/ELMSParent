@@ -59,14 +59,14 @@ public class BulidStateFormPanel extends MyPanelWithScroller implements DocPanel
 	// 付款单 显示
 	private MyLabel depositeL;
 	private MyPictureLabel depositePic;
-	private String depositeT="";
-	private double depositeD=0.0;
+	private MyLabel depositeText;
+
 
 	// 收款单 显示
 	private MyLabel payL;
 	private MyPictureLabel payPic;
-	private String payT="";
-	private double payD=0.0;
+	private MyLabel payText;
+
 	
 	//whitepanel内的付款单
 	private MyLabel depositeWhiteInfo;
@@ -127,6 +127,9 @@ public class BulidStateFormPanel extends MyPanelWithScroller implements DocPanel
 		depositeL.setFont(new Font("微软雅黑", Font.BOLD, 25));
 		payL=new MyLabel(e.element("payL"));
 		payL.setFont(new Font("微软雅黑", Font.BOLD, 25));
+		depositeText=new MyLabel(e.element("depositeText"));
+		payText=new MyLabel(e.element("payText"));
+		
 		
 		depositeWhiteInfo=new MyLabel(e.element("depositeWhiteInfo"));
 		payWhiteInfo=new MyLabel(e.element("payWhiteInfo"));
@@ -152,11 +155,17 @@ public class BulidStateFormPanel extends MyPanelWithScroller implements DocPanel
 		add(check);
 		
 		add(title);
+		
+		add(depositeText);
 		add(depositePic);
 		add(depositeL);
-		add(payPic);
+		
 		add(payL);
+		add(payText);
+		add(payPic);
 	
+		
+		
 		addDepositPanel.add(depositeWhiteInfo);
 		addDepositPanel.add(depositeSmallTable);
 		add(addDepositPanel);
@@ -180,8 +189,14 @@ public class BulidStateFormPanel extends MyPanelWithScroller implements DocPanel
 				payVOs = bl.getDatePays(startDate, endDate);
 				payDocVOs = bl.getDatePayDocs(startDate, endDate);
 				
-				depositeL.setText(String.valueOf(depositeSmallTable.setMessage(payVOs)));;
-				payL.setText(String.valueOf(paySmallTable.setMessage(payDocVOs)));
+				//统一绘制cost的格式
+				depositeText.setForeground(new Color(255, 138, 0));
+				payText.setForeground(new Color(255, 138, 0));
+				
+				depositeText.setText(String.valueOf(depositeSmallTable.setMessage(payVOs)));;
+				payText.setText(String.valueOf(paySmallTable.setMessage(payDocVOs)));
+				
+				
 				
 				new TipsDialog("已生成该阶段的收款单和付款单，请确认", Color.GREEN);
 			}
@@ -225,8 +240,8 @@ public class BulidStateFormPanel extends MyPanelWithScroller implements DocPanel
 		
 	}
 	private void myinit(){
-		depositeL.setText(String.valueOf(depositeD));
-		payL.setText(String.valueOf(payD));
+//		depositeL.setText(String.valueOf(depositeD));
+//		payL.setText(String.valueOf(payD));
 		depositeSmallTable.removeAllRows();
 		paySmallTable.removeAllRows();
 	}
