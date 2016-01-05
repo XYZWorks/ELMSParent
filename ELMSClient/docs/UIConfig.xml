@@ -1629,7 +1629,7 @@
 					<startDate x="120" y="20" width="200" height="40" />
 					<endDate x="500" y="20" width="200" height="40" />
 					<staffType x="500" y="100" width="200" height="40"
-						strings="财务人员 营业厅业务员 快递员 中转中心业务员 中转中心管理人员 司机" />
+						strings="财务人员 营业厅业务员 快递员 中转中心业务人员 中转中心管理员 司机" />
 					<costType x="120" y="110" width="200" height="40" strings="薪水 运费 租金" />
 				</addCostPanel>
 			</CostManagePanel>
