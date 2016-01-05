@@ -232,19 +232,35 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 				tenText };
 		for (int i = 0; i < length; i++) {
 			place[i].setText(processPlace(info.get(i).place, info.get(i).type, i));
-			
+			System.out.println("i:"+i+"  place:"+info.get(i).place+"  type:"+info.get(i).type);
 			time[i].setText(processTime(info.get(i).time));
 		}
 
-		// 如果流转信息不超过5个，右边栏点点不会出现
-		if (length <= 5) {
-			LineRight.setVisible(false);
-		} else {
-			LineRight.setVisible(true);
-		}
-		
+
 	}
 
+	public void readInfo(String orderBarCode) {
+		// 依次读取物流信息：地点＋时间
+		
+		System.out.println("readInfoBegin");
+		
+		ArrayList<OrderSimpleInfoVO> info = orderblservice.getSimpleInfo(orderBarCode);
+		int length = info.size();
+
+		System.out.println("length"+length);
+		MyLabel[] place = { one, two, three, four, five, six, seven, eight, nine, ten };
+		MyLabel[] time = { oneText, twoText, threeText, fourText, fiveText, sixText, sevenText, eightText, nineText,
+				tenText };
+		for (int i = 0; i < length; i++) {
+			place[i].setText(processPlace(info.get(i).place, info.get(i).type, i));
+			System.out.println("i:"+i+"  place:"+info.get(i).place+"  type:"+info.get(i).type);
+			time[i].setText(processTime(info.get(i).time));
+		}
+
+
+	}
+
+	
 	private String processPlace(String place, DocType type, int i) {
 		String result = null;
 		switch (type) {
@@ -272,6 +288,9 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		case sendGoodDoc:
 			result = "快递正在被快递员："+place+" 派送";
 			break;
+		case transferDoc:
+			result = "快递已从[" + place + "]出发 ";
+			break;
 		default:
 			break;
 		}
@@ -291,28 +310,30 @@ public class FindSimpleOrderInfoPanel extends MyPanel {
 		@Override
 		public void keyPressed(KeyEvent e) {
 			if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-				//TipsDialog wrongLength = new TipsDialog("订单号是10位哦～", 670, 95, 235, 45);
-
+				
 				 //获得输入的条形码
 				 orderBarCode=searchBox.getMyText();
+				 System.out.println("orderB!!"+orderBarCode);
+				 
 				 //判断条形码格式是否正确
 				 FormatMes result=UserfulMethod.checkBarCode(orderBarCode);
 				 if(result==FormatMes.WRONG_LENGTH){
-				 TipsDialog wrongLength=new TipsDialog("订单号是10位哦～");
+				    new TipsDialog("订单号是10位哦～");
 				 }
 				 else if(result==FormatMes.ILEGAL_CHAR){
-				 TipsDialog ilegalChar=new TipsDialog("订单号是10位数字,输入了非法字符");
+				   new TipsDialog("订单号是10位数字,输入了非法字符");
 				 }
-				 else if(result==FormatMes.CORRECT){
+				 else{
 					 if(orderblservice.checkBarCode(orderBarCode)==ResultMessage.NOT_EXIST){
-						 TipsDialog notExist=new TipsDialog("此订单号不存在");
+						 new TipsDialog("此订单号不存在");
 					 }
 					 else if(orderblservice.checkBarCode(orderBarCode)==ResultMessage.hasExist){
+						 System.out.println("enter!!");
 						 BarCodeText.setText(orderBarCode);
-						 readInfo();
+						 readInfo(orderBarCode);
 						 my.repaint();
 					 }
-							 
+					
 				 }
 			}
 		}

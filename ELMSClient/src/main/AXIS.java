@@ -28,7 +28,7 @@ public class AXIS {
 			UIManager.put("RootPaneUI", UIManager.getDefaults().get("RootPaneUI"));
 			UIManager.put("RootPane.frameBorder", UIManager.getDefaults().get("RootPane.frameBorder"));
 			//取消美化包所使用的美化~
-			UIManager.put("RootPaneUI", null);
+			UIManager.put("RootPaneUI", temp);
 		}catch(Exception e){
 			
 		}

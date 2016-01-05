@@ -185,7 +185,7 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller implements DocPa
 	protected void initLabels(Element e) {
 		orderBarCode = new MyPictureLabel(e.element("orderBarCode"));
 		orderBarCodeLabel = new MyLabel(e.element("orderBarCodeLabel"));
-
+		orderBarCodeLabel.setForeground(new Color(26,188,156));
 		// 寄件人信息
 		senderInfo = new MyPictureLabel(e.element("senderInfo"));
 		senderNameLabel = new MyLabel(e.element("senderNameLabel"));
