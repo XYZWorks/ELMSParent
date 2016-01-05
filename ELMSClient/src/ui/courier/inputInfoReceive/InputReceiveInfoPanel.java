@@ -168,12 +168,19 @@ public class InputReceiveInfoPanel extends MyPanelWithScroller implements Refres
 		public void keyPressed(KeyEvent e) {
 			if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 				
+			  
+			  
 				String orderBarCode = searchBox.getMyText();
-				System.out.println("orderBarCode"+orderBarCode);
+				
+				if(orderBarCode.equals("")){
+				  refresh();
+				  return;
+				}
+				
 				
 				ArrayList<PreReceiveVO> after = table.after;
 				for (int i = 0; i < after.size(); i++) {
-					if (after.get(i).barCode != orderBarCode) {
+					if (!after.get(i).barCode.equalsIgnoreCase(orderBarCode)) {
 						after.remove(i);
 					}
 				}

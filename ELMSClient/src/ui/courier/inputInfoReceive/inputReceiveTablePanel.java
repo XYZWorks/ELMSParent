@@ -1,11 +1,13 @@
 package ui.courier.inputInfoReceive;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import org.dom4j.Element;
 
 import ui.table.MyTable;
 import ui.table.MyTablePanel;
+import ui.util.TipsDialog;
 import util.MyDate;
 import vo.order.PreReceiveVO;
 import blservice.orderblservice.Orderblservice;
@@ -99,7 +101,10 @@ public class inputReceiveTablePanel extends MyTablePanel {
 			vo = x.get(i);
 			table.setValueAt(vo.realReceiver, i, 3);
 			table.setValueAt(vo.receiveTime, i, 4);
+			new TipsDialog("成功找到一条信息", Color.green);
+			return;
 		}
+		new TipsDialog("未找到任何信息");
 	}
 
 	@Override
