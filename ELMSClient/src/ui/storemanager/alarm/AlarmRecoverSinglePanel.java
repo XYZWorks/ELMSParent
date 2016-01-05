@@ -1,5 +1,7 @@
 package ui.storemanager.alarm;
 
+import java.awt.Color;
+
 import org.dom4j.Element;
 
 import ui.config.UserfulMethod;
@@ -139,7 +141,7 @@ public class AlarmRecoverSinglePanel extends AlarmSetSinglePanel {
 			target.totalNum =target.totalNum+ modifyNum;
 			ResultMessage res = bl.update(target);
 			if(res ==ResultMessage.SUCCESS){
-				new TipsDialog("成功修改库存容量");
+				new TipsDialog("成功修改库存容量",Color.GREEN);
 				return true;
 			}
 			return false;

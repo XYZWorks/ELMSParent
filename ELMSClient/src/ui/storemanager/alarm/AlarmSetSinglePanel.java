@@ -1,5 +1,7 @@
 package ui.storemanager.alarm;
 
+import java.awt.Color;
+
 import javax.sound.midi.Synthesizer;
 
 import org.dom4j.Element;
@@ -162,7 +164,7 @@ public class AlarmSetSinglePanel extends MyPanel {
 		protected boolean saveToSQL() {
 			ResultMessage re = bl.setAlarmValue(value, City.toCity(center.getText()));
 			if (re == ResultMessage.SUCCESS)
-				new TipsDialog("修改" + center.getText() + "市警戒值成功");
+				new TipsDialog("修改" + center.getText() + "市警戒值成功",Color.GREEN);
 			return true;
 		}
 
