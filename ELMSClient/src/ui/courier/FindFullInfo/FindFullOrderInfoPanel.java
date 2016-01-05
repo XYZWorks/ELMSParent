@@ -5,6 +5,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import org.dom4j.Element;
@@ -16,6 +17,7 @@ import po.order.TransferDocs;
 import ui.courier.CourierController;
 import ui.tools.MyDatePicker;
 import ui.tools.MyLabel;
+import ui.tools.MyOptionPane;
 import ui.tools.MyPanelWithScroller;
 import ui.tools.MyPictureButton;
 import ui.tools.MyPictureLabel;
@@ -30,6 +32,7 @@ import util.ResultMessage;
 import vo.order.OrderSimpleInfoVO;
 import vo.order.OrderVO;
 import blservice.orderblservice.Orderblservice;
+import main.AXIS;
 
 @SuppressWarnings("serial")
 public class FindFullOrderInfoPanel extends MyPanelWithScroller implements DocPanelForApproval {
@@ -229,11 +232,11 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller implements DocPa
 
 		// 预计时间
 		estimateTime = new MyPictureLabel(e.element("estimateTime"));
-		estimateTimeText=new MyLabel(e.element("estimateTimeText"));
+		estimateTimeText = new MyLabel(e.element("estimateTimeText"));
 
 		// 费用
 		cost = new MyPictureLabel(e.element("cost"));
-		costText=new MyLabel(e.element("costText"));
+		costText = new MyLabel(e.element("costText"));
 
 		// 流转信息
 		transferInfo = new MyPictureLabel(e.element("transferInfo"));
@@ -378,13 +381,16 @@ public class FindFullOrderInfoPanel extends MyPanelWithScroller implements DocPa
 			public void mouseClicked(MouseEvent e) {
 				ResultMessage result = orderblservice.del(BarCode);
 				// 是否是删除失败就显示 fail
-//				if (result == ResultMessage.FAIL) {
-//					TipsDialog notDelete = new TipsDialog("货物已经装车 订单无法删除");
-//				} else if (result == ResultMessage.SUCCESS) {
-					//TODO MyOptionPane myOptionPane=new MyOptionPane(parent, "确定要删除改订单？");
-					TipsDialog Delete = new TipsDialog("订单删除成功");
-					controller.getCardLayout().show(controller.getChangePanel(), "showInfoPanel");
-				//}
+				if (result == ResultMessage.FAIL) {
+					new TipsDialog("货物已经装车 订单无法删除");
+					return;
+				} else if (result == ResultMessage.SUCCESS) {
+					int x = JOptionPane.showConfirmDialog(null, "确认删除订单","提示", JOptionPane.YES_NO_OPTION);
+					if(x == JOptionPane.YES_OPTION) {
+						TipsDialog Delete = new TipsDialog("订单删除成功");		 
+						controller.getCardLayout().show(controller.getChangePanel(), "showInfoPanel");
+					} 
+				}		
 			}
 		});
 

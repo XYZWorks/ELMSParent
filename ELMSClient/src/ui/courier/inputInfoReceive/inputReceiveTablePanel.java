@@ -55,7 +55,12 @@ public class inputReceiveTablePanel extends MyTablePanel {
 				data[i][1] = pre.get(i).address;
 				data[i][2] = pre.get(i).name;
 				data[i][3] = pre.get(i).realReceiver;
-				data[i][4] = MyDate.getPartDay(pre.get(i).receiveTime);
+				try {
+					data[i][4] = MyDate.getPartDay(pre.get(i).receiveTime);
+				} catch (Exception e) {
+					data[i][4]=null;
+				}
+				
 			}
 		}
 

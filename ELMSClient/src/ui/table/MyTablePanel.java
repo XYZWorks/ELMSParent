@@ -191,7 +191,7 @@ public abstract class MyTablePanel extends JPanel {
 
 	public void allowHorizen() {
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		rollpane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		rollpane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	}
 
 	public void showAllMessages() {

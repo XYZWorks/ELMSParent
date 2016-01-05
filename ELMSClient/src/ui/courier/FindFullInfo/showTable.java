@@ -12,6 +12,7 @@ import ui.table.MyTable;
 import ui.table.MyTablePanel;
 import util.MyDate;
 import vo.order.OrderVO;
+import vo.order.PreReceiveVO;
 
 @SuppressWarnings("serial")
 public class showTable extends MyTablePanel {
@@ -111,21 +112,21 @@ public class showTable extends MyTablePanel {
 			return;
 		}
 
-		data = new String[pre.size()][COLUMN_NUM];
+		removeAllRows();
+		String[] temp = new String[6];
 
 		if (pre != null) {
 			for (int i = 0; i < pre.size(); i++) {
-				// 订单号 收件人 收件地址 寄件人 寄件地址 运费 ??????????考虑的形式待议
-				data[i][0] = pre.get(i).ID;
-				data[i][1] = pre.get(i).sender.getName();
-				data[i][2] = pre.get(i).sender.getAddress();
-				data[i][3] = pre.get(i).receiver.getName();
-				data[i][4] = pre.get(i).receiver.getAddress();
-				data[i][5] = String.valueOf(pre.get(i).otherMes.getOrderCost());
+				temp[0] = pre.get(i).ID;
+				temp[1] = pre.get(i).sender.getName();
+				temp[2] = pre.get(i).sender.getAddress();
+				temp[3] = pre.get(i).receiver.getName();
+				temp[4] = pre.get(i).receiver.getAddress();
+				temp[5] = String.valueOf(pre.get(i).otherMes.getOrderCost());
+				addOneRow(temp);
 			}
 		}
-		getTable().getModel().setDataVector(data, columnNames);
-
+		
 	}
 
 }

@@ -70,7 +70,7 @@ public class LoadDocMesTable extends MyTablePanel {
 			vo = vos.get(i);
 			
 			data[i][0] = vo.ID;
-			data[i][1] = MyDate.toString(vo.date);
+			data[i][1] = MyDate.getPartDay(vo.date);
 			data[i][2] = vo.YYID;
 			data[i][3] = vo.loadDocID;
 			data[i][4] = vo.arriveCity.getName();
@@ -87,10 +87,10 @@ public class LoadDocMesTable extends MyTablePanel {
 	
 	@Override
 	protected void initTable() {
-//		int[] columnLen = {};
 		table = new MyTable(columnNames, data);
-//		setRowAndColumnLen(rowLen, columnLen);
-		
+		int[] columnLen = {170, 120, 80,80,80,80,50,50,80};
+		setRowAndColumnLen(40, columnLen);
+
 	}
 	
 	@Override

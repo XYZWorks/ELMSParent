@@ -30,6 +30,7 @@ public class ArriveYYDocCheckPanel extends CheckDocPanel{
 		addPanel.bl = this.bl;
 		addPanel.reinit();
 		initTableContent();
+		//myTable.allowHorizen();
 	}
 
 	

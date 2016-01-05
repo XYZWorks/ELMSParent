@@ -53,7 +53,7 @@ public class SendSmallTable extends MyTablePanel {
 		protected void initTable() {
 			table = new MyTable(columnNames, data);
 			
-			int[] columnLen = {50, 150, 80, 200};
+			int[] columnLen = {50, 150, 80, 300};
 			setRowAndColumnLen(40, columnLen);
 
 		}
