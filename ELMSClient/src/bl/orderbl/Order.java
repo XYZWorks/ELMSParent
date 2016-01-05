@@ -81,8 +81,11 @@ public class Order {
 	}
 
 	public ResultMessage del(String orderBarCode) throws RemoteException {
-
-		return orderData.del(orderBarCode);
+		OrderVO order = getFullInfo(orderBarCode);
+		if(order.transferDocs.getLoadDoc()!=null)
+			return orderData.del(orderBarCode);
+		else
+			return ResultMessage.FAIL;
 	}
 
 	public ArrayList<OrderSimpleInfoVO> getSimpleInfo(String orderBarCode)
