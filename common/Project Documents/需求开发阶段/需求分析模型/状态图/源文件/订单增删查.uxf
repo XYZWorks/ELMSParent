@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>440</x>
+      <y>10</y>
+      <w>20</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>
+bg=black</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>30</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>100</y>
+      <w>150</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+请求新增订单</panel_attributes>
+    <additional_attributes>10.0;90.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>220</y>
+      <w>130</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+输入正确的
+收寄件人地址
+</panel_attributes>
+    <additional_attributes>10.0;80.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>150</x>
+      <y>0</y>
+      <w>130</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>订单增删查</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>340</x>
+      <y>190</y>
+      <w>180</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+重新输入</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0;110.0;120.0;90.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>330</y>
+      <w>130</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+选择正确的
+快速形式
+和包装费用
+</panel_attributes>
+    <additional_attributes>70.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>310</x>
+      <y>220</y>
+      <w>120</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+输入地址
+空缺或错误
+</panel_attributes>
+    <additional_attributes>50.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>150</x>
+      <y>330</y>
+      <w>110</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+输入地址
+空缺或错误
+</panel_attributes>
+    <additional_attributes>10.0;100.0;30.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>90</x>
+      <y>320</y>
+      <w>90</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+重新输入</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;10.0;10.0;130.0;30.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>460</y>
+      <w>120</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+订单信息
+完整
+提交
+</panel_attributes>
+    <additional_attributes>90.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>250</x>
+      <y>460</y>
+      <w>100</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+订单信息
+缺失
+提交
+</panel_attributes>
+    <additional_attributes>10.0;90.0;40.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>430</y>
+      <w>80</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+继续输入</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0;10.0;130.0;20.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>80</x>
+      <y>90</y>
+      <w>360</w>
+      <h>640</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>340.0;10.0;10.0;10.0;10.0;620.0;340.0;620.0;340.0;540.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>100</y>
+      <w>140</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+请求查询订单</panel_attributes>
+    <additional_attributes>120.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>220</y>
+      <w>50</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;30.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>220</y>
+      <w>80</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+手动输入
+订单号</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>300</y>
+      <w>70</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+选择
+订单号</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>420</y>
+      <w>130</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+请求删除订单</panel_attributes>
+    <additional_attributes>40.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>510</x>
+      <y>420</y>
+      <w>90</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+</panel_attributes>
+    <additional_attributes>10.0;170.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>500</y>
+      <w>90</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+订单货物
+未装车</panel_attributes>
+    <additional_attributes>10.0;90.0;20.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>700</x>
+      <y>500</y>
+      <w>100</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+订单货物
+已装车</panel_attributes>
+    <additional_attributes>40.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>700</y>
+      <w>390</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;370.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>770</x>
+      <y>620</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>620</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>510</x>
+      <y>620</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>420</x>
+      <y>80</y>
+      <w>70</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>空闲</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>250</x>
+      <y>190</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>增加订单
+开始</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>160</x>
+      <y>300</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>系统显示
+时间估计</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>330</x>
+      <y>300</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>系统显示
+输入有误</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>120</x>
+      <y>430</y>
+      <w>80</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>系统显示
+信息缺失</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>250</x>
+      <y>430</y>
+      <w>90</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>系统显示
+费用总计</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>220</x>
+      <y>550</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>系统显示
+信息缺失</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>360</x>
+      <y>590</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>增加订单
+成功</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>720</x>
+      <y>590</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>删除订单
+失败</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>590</x>
+      <y>590</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>删除订单
+成功</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>470</x>
+      <y>590</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>查询订单
+成功</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>630</x>
+      <y>470</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>删除订单
+开始</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>550</x>
+      <y>360</y>
+      <w>120</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>显示订单:
+基本信息
+物流状态</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>530</x>
+      <y>270</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>系统显示
+最近的新增订单</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLState</id>
+    <coordinates>
+      <x>570</x>
+      <y>190</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>查询订单
+开始</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
