@@ -5,6 +5,8 @@
 ## Project Introduction ##
 ELMS is an all-round system builded for an express company to facilitate the efficiency of goods transportation, orders approval, warehouse management, etc.
 
+Through the ELMS, we hope to improve the efficiency of the working flow, reduce the cost and make it more convinient for stuff to communicate so as to improve the profit.
+
 ![ELMS LOGO][1]
 ## Function Introduction ##
 
@@ -38,29 +40,6 @@ Allow Intermediate Center Manager to check, add or delete trucks and drivers mes
 * Allow General Manager to stipulate some constants like Cost per mile, price of the order
 * Allow General Manager to read the statistics based on the data in the system
 
-
-## Pics Preview##
-![Track Order][4]
-<center>Login</center>
-![Track Order][2]
-<center>Track Order</center>
-![Add New Order][3]
-<center>Add New Order</center>
-![Driver Message Management][5]
-<center>Driver Message Management</center>
-![Add New Driver][6]
-<center>Add New Driver</center>
-![Financeman Main Page][7]
-<center>Financeman Main Page</center>
-![Statistics Creation Page][8]
-<center>Statistics Creation Page</center>
-![General Manager Main Page][9]
-<center>General Manager Main Page</center>
-![Documents Approval Page][10]
-<center>Documents Approval Page</center>
-![Modify Constants][11]
-<center>Modify Constants</center>
-
 ## Getting Started ##
 ### Overview ###
 ELMS is a Java-based, C/S-Style Project, using Maven as modules management tool.
@@ -83,6 +62,39 @@ Common module is the depended by other two modules.
 * Documents are under the common, where you can find full description of this project
 
 You can find more about the software structure in the documents of common folder.
+
+
+## Pics Preview##
+![Track Order][4]
+-------
+![Track Order][2]
+-------
+
+![Add New Order][3]
+-------
+
+![Driver Message Management][5]
+-------
+
+![Add New Driver][6]
+-------
+
+![Financeman Main Page][7]
+-------
+
+![Statistics Creation Page][8]
+-------
+
+![General Manager Main Page][9]
+-------
+
+![Documents Approval Page][10]
+-------
+
+![Modify Constants][11]
+-------
+
+
 
 
 ## License ##
