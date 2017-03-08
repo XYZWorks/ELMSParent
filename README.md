@@ -5,7 +5,7 @@
 ## Project Introduction ##
 ELMS is an all-round system builded for an express company to facilitate the efficiency of goods transportation, orders approval, warehouse management, etc.
 
-Through the ELMS, we hope to improve the efficiency of the working flow, reduce the cost and make it more convinient for stuff to communicate so as to improve the profit.
+Through the ELMS, we hope to improve the efficiency of the working flow, reduce the cost and make it more convenient for stuff to communicate so as to improve the profit.
 
 ![ELMS LOGO][1]
 ## Function Introduction ##
